@@ -1,7 +1,7 @@
 var cli = require('./cli.js'),
     utils = require('./utils.js');
 
-exports.usage = "文档生成工具";
+exports.usage = "文档生成工具(目前只包含 Kami / Yo)";
 
 exports.set_options = function( optimist ){
     var cmd = optimist.argv._[1];

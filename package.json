@@ -7,6 +7,7 @@
     "art-template": "^3.0.3",
     "atropa-jsformatter": "^0.1.2",
     "browser-sync": "^2.10.0",
+    "chalk": "^1.1.1",
     "colors": "^1.1.2",
     "comment-parser": "^0.3.1",
     "fs-extra": "^0.26.2",
@@ -18,8 +19,10 @@
     "gulp-load-plugins": "^1.1.0",
     "gulp-markdown": "^1.2.0",
     "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.7",
     "markdown": "^0.5.0",
     "mkdirp": "^0.5.1",
+    "optimist": "^0.6.1",
     "pretty-hrtime": "^1.0.1",
     "rimraf": "^2.4.4",
     "through-gulp": "^0.3.8",
@@ -32,5 +35,6 @@
     "preuninstall": "node ./scripts/preuninstall.js"
   },
   "author": "",
+  "repository": {},
   "license": "BSD"
 }
