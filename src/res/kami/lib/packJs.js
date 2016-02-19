@@ -290,7 +290,6 @@ function _generateInfoByTagname(tagSection){
                     break;
                 case 'example':
                     info.example = formatter(tags.source.substring(tags.source.indexOf('\n') + 1));
-                    //info.example = tags.source.substring(tags.source.indexOf('\n') + 1);
                     break;
                 case 'object':
                     info.object = tags.name;

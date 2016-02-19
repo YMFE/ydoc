@@ -273,8 +273,13 @@ function joinleftHTML(dataobj){
         if(dataitem.name){
             singleHTML.push('<h1 id="dataitem-'+dataitem.name+'" class="page-header">'+dataitem.name);
             if(dataitem.methodParams){
-                singleHTML.push('<span class="yo-badge yo-badge-success">Method</span>');
+                if(dataitem["function"]){
+                    singleHTML.push('<span class="yo-badge yo-badge-success">Function</span>');
+                }else{
+                    singleHTML.push('<span class="yo-badge yo-badge-success">Mixin</span>');
+                }
             }
+            
             singleHTML.push('</h1>');
         }
         singleHTML.push('<div>');
@@ -386,7 +391,6 @@ function getSingleData(filePath) {
         staticFileName = utils.path.basename(filePath).replace(".scss",".html");
 
     renderStaticFile(fileContent,staticFileName);
-
     // 本页有几处注释块
     if (ret.length) {
         ret.forEach(function(comment) {
@@ -434,6 +438,10 @@ function getSingleData(filePath) {
                             case 'method':
                                 result['name'] = tag.name;
                                 result['line'] = tag.line;
+                                break;
+                            case 'function':
+                                result['function'] = tag.name;
+                                result['name'] = tag.name;
                                 break;
                             case 'param':
                                 var desc,sversion,delversion;
