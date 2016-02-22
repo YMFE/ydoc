@@ -17,7 +17,6 @@ var rootPath = __dirname,
     defaultTemplate = utils.path.join(rootPath,config.defaultTemplate),
     staticTemplate = utils.path.join(rootPath,config.staticTemplate);
 
-
 function getType(fileName) {
     var extName = utils.path.extname(fileName);
     switch (extName) {
@@ -389,7 +388,6 @@ function getSingleData(filePath) {
         singleData = [],
         ret = parser(fileContent),
         staticFileName = utils.path.basename(filePath).replace(".scss",".html");
-
     renderStaticFile(fileContent,staticFileName);
     // 本页有几处注释块
     if (ret.length) {
@@ -442,6 +440,7 @@ function getSingleData(filePath) {
                             case 'function':
                                 result['function'] = tag.name;
                                 result['name'] = tag.name;
+                                result['line'] = tag.line;
                                 break;
                             case 'param':
                                 var desc,sversion,delversion;

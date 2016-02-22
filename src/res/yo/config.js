@@ -4,7 +4,7 @@ module.exports = {
     "destDir": "yo-docs",
     "staticTemplate": "template/static.html",
     "defaultTemplate": "template/template.html",
-    "webSiteUrl": "http://ued.qunar.com/mobile/yo/doc/",
+    "webSiteUrl": "http://ued.qunar.com/mobile/yo/doc/static/",
     "pages": [{
         "name": "index",
         "title": "简介",
