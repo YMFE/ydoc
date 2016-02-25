@@ -1,10 +1,14 @@
 var parser = require('comment-parser'),
     markdown = require('markdown').markdown,
     artTemplate = require('art-template'),
-    config = require('./config.js'),
     glob = require("glob"),
+    //config = require('./config.js'),
     gutil = require('gulp-util'),
     utils = require('../../utils.js');
+
+var BASEPATH = process.cwd();
+var config = utils.file.readJson(utils.path.join(BASEPATH, 'docfile.config'));
+
 
 artTemplate.config('escape', false);
 
@@ -14,24 +18,12 @@ var rootPath = __dirname,
     destDir = utils.path.resolve(config.destDir),
     staticDir = utils.path.join(destDir,'static'),
     staticUrl = utils.stringFormat('{0}/static/',webSiteUrl),
-    defaultTemplate = utils.path.join(rootPath,config.defaultTemplate),
-    staticTemplate = utils.path.join(rootPath,config.staticTemplate);
+    defaultTemplate = utils.path.join(__dirname, 'template/template.html'),
+    staticTemplate = utils.path.join(__dirname,'template/static.html');
 
-function getType(fileName) {
-    var extName = utils.path.extname(fileName);
-    switch (extName) {
-        case '.md':
-        case '.markdown':
-            return 'markdown';
-        case '.js':
-            return 'js';
-        case '.scss':
-        case '.sass':
-            return 'sass'
-    }
-}
 
 function analyzePage(pageConf, docConf) {
+
     var data = {
         doc: docConf,
         name: pageConf.name,
@@ -44,48 +36,30 @@ function analyzePage(pageConf, docConf) {
 
     if (pageConf.content &&
         utils.file.exists(utils.path.resolve(pageConf.content)) &&
-        getType(pageConf.content) === 'markdown') {
+        pageConf.type && pageConf.type === 'markdown') {
         var content = utils.file.read(utils.path.resolve(pageConf.content));
         data.html = markdown.toHTML(content);
-    }else if (pageConf.blocks && pageConf.blocks.length) {
-        pageConf.blocks.forEach(function (block) {
-            if (block.content &&
-                utils.file.exists(utils.path.resolve(block.content))) {
-                if(block.type && block.type === "scss")
-                {
-                    data.html = false;
-                    var curdata = formatData(utils.path.resolve(block.content));
-                    var enddataHTML = buildData(curdata);
+    }else if (pageConf.type && pageConf.type == 'scss') {
+         var block = pageConf;
+        //pageConf.blocks.forEach(function (block) {
+            if (block.content) {
+                
+                data.html = false;
+                var curdata = formatData(utils.path.resolve(block.content));
+                var enddataHTML = buildData(curdata);
 
-                    data.menu.push({
-                        name: '核心API',
-                        list:[]
-                    });
+                data.menu.push({
+                    name: '核心API',
+                    list:[]
+                });
 
-                    data.content.push({
-                        type:'scss',
-                        content:enddataHTML
-                    });
-
-                }
-                else{
-                    switch (getType(block.content)) {
-                        case 'markdown':
-                            data.menu.push({
-                                name: block.name,
-                                list: []
-                            });
-                            data.content.push({
-                                type: 'html',
-                                name: block.name,
-                                tag: block.name,
-                                content: markdown.toHTML(utils.path.resolve(block.content))
-                            });
-                            break;
-                    }
-                }
+                data.content.push({
+                    type:'scss',
+                    content:enddataHTML
+                });
+                
             }
-        });
+        //});
     }
     return data;
 }
@@ -367,9 +341,7 @@ function joinleftHTML(dataobj){
 function fileListSync(dirPath){
 
     var ret = [],
-        pattern = utils.path.join(dirPath,'**/*.scss'),
-        files = glob.sync(pattern);
-
+        files = glob.sync(dirPath);
     files.forEach(function(filePath){
         ret.push(getSingleData(filePath));
     });
@@ -533,10 +505,10 @@ module.exports = {
         }
 
 
-        var pages = config.pages || [],
+        var pages = config.project.pages || [],
             docConfig = {
-                title: config.title,
-                footer: config.footer,
+                title: config.project.title,
+                footer: config.project.footer,
                 pages: pages.map(function(item) {
                     return {
                         name: item.name,

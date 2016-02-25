@@ -46,46 +46,22 @@ module.exports = {
         utils.logger.log();
     },
     run: function(cmd){
-         if (hasCommand(cmd)) {
+        if (hasCommand(cmd)) {
             var command = require(utils.path.join(__dirname, 'commands', cmd + '.js')),
-                cmdOptions = command.options || {},
-                argv = optimist.argv,
+                init_options = command.set_options && command.set_options(optimist),
+                argv = optimist.argv, //{ _: [ 'qdoc', 'build' ], '$0': 'fekit' }
                 options = {};
-
             if (command) {
                 if (argv.help || argv.h) {
                     this.title();
                     utils.logger.log(' 命令:', cmd);
                     utils.logger.log(' 功能:', command.usage || '');
-                    utils.logger.log(' 选项:',JSON.stringify(cmdOptions) === "{}" ? '无': '');
-
-                    for (var key in cmdOptions) {
-                        var kv = key.split(':'),
-                            param = '--' + kv[0],
-                            short = kv[1];
-                        if (short) {
-                            param += ', -' + short;
-                        }
-                        utils.logger.log('    ', fixEmpty(param, 15), '#', cmdOptions[key] || '');
-                    }
-                }
-                else {
-                    for (var key in cmdOptions) {
-                        var kv = key.split(':'),
-                            param = kv[0],
-                            short = kv[1];
-
-                        if (argv[param]) {
-                            options[param] = argv[param];
-                        } else if (short && argv[short]) {
-                            options[param] = argv[short];
-                        }
-                    }
-
+                    console.info("");
+                    optimist.showHelp();
+                } else {
                     options.cwd = process.cwd();
                     options._ = argv._;
-
-                    command.process(options);
+                    command.run(options);
                 }
             }
         } else {

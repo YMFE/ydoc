@@ -60,6 +60,16 @@ gulp.task('packJs',['store'], function(){
         .pipe(gulp.dest('./'));
 });
 
+gulp.task('packScss',['store'], function(){
+    //[todo]多个JS配置
+    return gulp.src(JSSOURCE)
+        //.pipe(addbasepath())
+        .pipe($.concat('widget.js'))
+        .pipe(packdoc())
+        .pipe($.dest(path.join(OUTPUTPATH,'tmp'), {ext:'.json'}))
+        .pipe(gulp.dest('./'));
+});
+
 gulp.task('packMd',['store'], function(){
     return gulp.src(MARKDOWN)
         .pipe($.markdown())
