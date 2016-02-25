@@ -13,18 +13,18 @@ module.exports = {
             {
                 "name": "index",
                 "title": "起步",
-                "style": "markdown",
+                "type": "markdown",
                 "content": "./README.md"
             },{
                 "name": "changelog",
                 "title": "历史",
-                "style": "markdown",
+                "type": "markdown",
                 "content": "./changelog.md"
             },{
                 "name": "api",
                 "title": "起步",
-                "style": "js",
-                "content": ["./scripts/**/*.js", "!**/index.js"]
+                "type": "js",
+                "content": "./scripts/**/*.js"
             }
         ]
     },

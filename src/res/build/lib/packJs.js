@@ -1,6 +1,3 @@
-/**
- * Created by eva on 15/10/13.
- */
 var fs = require('fs');
 var _ = require('underscore');
 var path = require('path');
@@ -501,7 +498,7 @@ function parseJS() {
         privateData.categoryList.push({
             categoryName: i,
             classList: categories[i],
-            //title: config.categoryDir[i]
+            title: i
         })
     }
 
@@ -592,10 +589,16 @@ function packdoc() {
             });
             sidebar.push(categoryItem);
         });
+
+        config.project.pages.forEach(function(item){
+            if(item.type == 'js'){
+                currentItem = item;
+            }
+        });
         var page = {
             type: OUTPUT_FILE_TYPE.JS,
-            title: "组件API",
-            name: "widget",
+            title: currentItem.title,
+            name: currentItem.name,
             content: content,
             sidebar: sidebar,
             menu: config.project.pages
@@ -603,12 +606,9 @@ function packdoc() {
 
         var data = {
             page: page,
-            title: 'Kami',
-            footer: 'Kami',
-            banner: {
-                title: 'Kami',
-                description: '为移动而生的组件库'
-            },
+            title: config.project.title,
+            footer: config.project.footer,
+            banner: config.project.banner,
             menus: config.project.pages
         };
 

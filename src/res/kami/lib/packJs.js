@@ -10,15 +10,10 @@ var commentParser = require('comment-parser');
 var artTemplate = require('art-template');
 var gulp = require('gulp');
 var through = require('through-gulp');
-var utils = require('../../../utils.js');
-
-var BASEPATH = process.cwd();
-var config = utils.file.readJson(utils.path.join(BASEPATH, 'docfile.config'));
 
 
 
-config.hidePrivate = true
-
+var config = require('../config.js');
 
 var INFO_TYPE = {
     CLASS: 0,
@@ -501,7 +496,7 @@ function parseJS() {
         privateData.categoryList.push({
             categoryName: i,
             classList: categories[i],
-            //title: config.categoryDir[i]
+            title: config.categoryDir[i]
         })
     }
 
@@ -556,6 +551,7 @@ function packdoc() {
     };
 
     var stream = through(function(file, encoding, callback) {
+        
         var htmlStr, jsStr, that = this;
         var html = file.contents.toString('utf-8');
         _generatePrivateData(html);
@@ -598,9 +594,8 @@ function packdoc() {
             name: "widget",
             content: content,
             sidebar: sidebar,
-            menu: config.project.pages
+            menu: config.menu
         };
-
         var data = {
             page: page,
             title: 'Kami',
@@ -609,7 +604,7 @@ function packdoc() {
                 title: 'Kami',
                 description: '为移动而生的组件库'
             },
-            menus: config.project.pages
+            menus: config.menu
         };
 
         file.contents = new Buffer(JSON.stringify(data));

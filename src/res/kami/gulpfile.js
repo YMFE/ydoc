@@ -11,33 +11,21 @@ var fs = require('fs');
 var http = require('http');
 
 var packdoc = require('./lib/packJs.js');
-
+var pkg = require('./config.js');
 var artTemplate = require('./lib/artTemplate.js');
 var packMd = require('./lib/packMd.js')
 var browserSync = require('browser-sync');
-var utils = require('../../utils.js');
 
 var reload = browserSync.reload;
 var stream = browserSync.stream;
-var through = require('through-gulp');
+var through = require('through-gulp')
 
-var BASEPATH = process.cwd();
-var pkg = utils.file.readJson(utils.path.join(BASEPATH, 'docfile.config'));
-
-var OUTPUTPATH = pkg.destDir ||  './docsite';
-var JSSOURCE = '';
-var MARKDOWN = [];
+var OUTPUTPATH = pkg.outputpath ||  './docsite';
+var JSSOURCE = pkg.JsSource;
 var TEMPLATEDIRPATH = pkg.templatedirepath || path.join(__dirname, 'template/**/*');
 var TEMPLATHTML = pkg.templatepath || path.join(__dirname, 'template/__template.html');
-var pages = pkg.project.pages;
+var MARKDOWN = pkg.markdowndir || path.join(__dirname, '/document/**/*.markdown');
 
-pages.forEach(function(page){
-    if(page.type == "js"){
-        JSSOURCE = page.content ;
-    }else if(page.type == "markdown"){
-        MARKDOWN.push(page.content);
-    }
-});
 
 gulp.task('clean', function(){
     return gulp.src(path.join(OUTPUTPATH,'*'), {read:false}).pipe($.clean());
@@ -47,35 +35,23 @@ gulp.task('clean', function(){
 gulp.task('store',['clean'],function(){
     //[todo]支持数组传入
     return  gulp.src([TEMPLATEDIRPATH, '!'+TEMPLATEDIRPATH.replace('**/*','')+path.basename(TEMPLATHTML)])
-           .pipe(gulp.dest(OUTPUTPATH));
+                .pipe(gulp.dest(OUTPUTPATH));
 });
 
 gulp.task('packJs',['store'], function(){
     //[todo]多个JS配置
     return gulp.src(JSSOURCE)
-        //.pipe(addbasepath())
+        .pipe(addbasepath())
         .pipe($.concat('widget.js'))
         .pipe(packdoc())
         .pipe($.dest(path.join(OUTPUTPATH,'tmp'), {ext:'.json'}))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest('./'))
 });
 
 gulp.task('packMd',['store'], function(){
     return gulp.src(MARKDOWN)
         .pipe($.markdown())
         .pipe(packMd())
-        .pipe($.rename(function(path){
-            var getNewName = function(oldName){
-                var newName;
-                pages.forEach(function(page){                    
-                    if(page.content.indexOf(oldName) >= 0){
-                        newName = page.name;
-                    }
-                });
-                return newName
-            }
-            path.basename = getNewName(path.basename);
-        }))
         .pipe($.dest(path.join(OUTPUTPATH,'tmp'), {ext:'.json'}))
         .pipe(gulp.dest('./'));
 
@@ -126,8 +102,9 @@ function addbasepath (){
                 var s = path.resolve(path.dirname(file.path), tempath);
                 return '@path '+ s;
             }
-        }) 
+        })
         file.contents = new Buffer(newContent);
+        this.push(file);
         callback();
     });
     return stream;

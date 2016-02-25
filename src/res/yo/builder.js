@@ -28,7 +28,7 @@ function analyzePage(pageConf, docConf) {
         doc: docConf,
         name: pageConf.name,
         title: docConf.title + ' ' + pageConf.title,
-        banner: pageConf.banner,
+        banner: docConf.banner,
         html: false,
         menu: [],
         content: []
@@ -509,6 +509,7 @@ module.exports = {
             docConfig = {
                 title: config.project.title,
                 footer: config.project.footer,
+                banner: config.project.banner,
                 pages: pages.map(function(item) {
                     return {
                         name: item.name,

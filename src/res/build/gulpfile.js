@@ -1,7 +1,3 @@
-/**
- * Created by eva on 15/10/8.
- */
-
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var $ = require('gulp-load-plugins')();
@@ -25,7 +21,7 @@ var BASEPATH = process.cwd();
 var pkg = utils.file.readJson(utils.path.join(BASEPATH, 'docfile.config'));
 
 var OUTPUTPATH = pkg.destDir ||  './docsite';
-var JSSOURCE = '';
+var JSSOURCE = [];
 var MARKDOWN = [];
 var TEMPLATEDIRPATH = pkg.templatedirepath || path.join(__dirname, 'template/**/*');
 var TEMPLATHTML = pkg.templatepath || path.join(__dirname, 'template/__template.html');
@@ -33,7 +29,7 @@ var pages = pkg.project.pages;
 
 pages.forEach(function(page){
     if(page.type == "js"){
-        JSSOURCE = page.content ;
+        JSSOURCE.push(page.content);
     }else if(page.type == "markdown"){
         MARKDOWN.push(page.content);
     }
@@ -52,23 +48,35 @@ gulp.task('store',['clean'],function(){
 
 gulp.task('packJs',['store'], function(){
     //[todo]多个JS配置
-    return gulp.src(JSSOURCE)
+    return gulp.src(["./scripts/**/*.js"])
         //.pipe(addbasepath())
-        .pipe($.concat('widget.js'))
+        .pipe($.concat('tem.js'))
+        .pipe($.rename(function(path){
+            var getNewName = function(oldName){
+                var newName;
+                pages.forEach(function(page){                    
+                    if(page.type == "js"){
+                        newName = page.name;
+                    }
+                });
+                return newName
+            }
+            path.basename = getNewName(path.basename);
+        }))
         .pipe(packdoc())
         .pipe($.dest(path.join(OUTPUTPATH,'tmp'), {ext:'.json'}))
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('packScss',['store'], function(){
-    //[todo]多个JS配置
-    return gulp.src(JSSOURCE)
-        //.pipe(addbasepath())
-        .pipe($.concat('widget.js'))
-        .pipe(packdoc())
-        .pipe($.dest(path.join(OUTPUTPATH,'tmp'), {ext:'.json'}))
-        .pipe(gulp.dest('./'));
-});
+// gulp.task('packScss',['store'], function(){
+//     //[todo]多个JS配置
+//     return gulp.src(JSSOURCE)
+//         //.pipe(addbasepath())
+//         .pipe($.concat('widget.js'))
+//         .pipe(packdoc())
+//         .pipe($.dest(path.join(OUTPUTPATH,'tmp'), {ext:'.json'}))
+//         .pipe(gulp.dest('./'));
+// });
 
 gulp.task('packMd',['store'], function(){
     return gulp.src(MARKDOWN)

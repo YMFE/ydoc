@@ -32,12 +32,9 @@ function packMd(){
                 sidebar: currentItem.sidebar || [],
                 menu: config.project.pages
             },
-            title: 'Kami',
-            footer: 'Kami',
-            banner: {
-                title: 'Kami',
-                description: '为移动而生的组件库'
-            },
+            title: config.project.title,
+            footer: config.project.footer,
+            banner: config.project.banner,
             menus: config.project.pages
         };
 

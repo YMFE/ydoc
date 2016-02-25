@@ -23,7 +23,7 @@ exports.run = function(options) {
 				}
 			});
 
-			isLoadSassParse == true ? require('../res/yo/gulpfile.js') : require('../res/kami/gulpfile.js');
+			isLoadSassParse == true ? require('../res/yo/gulpfile.js') : require('../res/build/gulpfile.js');
 			
 			gulp(['default']);
 
