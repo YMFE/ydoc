@@ -31,7 +31,9 @@ pages.forEach(function(page){
     if(page.type == "js"){
         JSSOURCE.push(page.content);
     }else if(page.type == "markdown"){
-        MARKDOWN.push(page.content);
+        if(utils.file.exists(page.content)){
+            MARKDOWN.push(page.content);
+        };
     }
 });
 

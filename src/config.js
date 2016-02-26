@@ -1,7 +1,14 @@
 module.exports = {
     "destDir": "",
-    "source": [],
-    "webSiteUrl": "",
-    "project":{},
-    "version": "",
+    "project": {
+        "title": "",
+        "footer": "",
+        "version": "",
+        "banner": {
+            "title": "",
+            "description": ""
+        },
+        "pages": []
+    },
+    "version": ""
 }

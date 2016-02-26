@@ -14,7 +14,7 @@ var config = utils.file.readJson(utils.path.join(BASEPATH, 'docfile.config'));
 
 
 function packMd(){
-    var stream = through(function(file, enc, callback){        
+    var stream = through(function(file, enc, callback){ 
         var html = file.contents.toString();
         var fileName = path.basename(file.path, '.html')
         var currentItem ={};

@@ -28,6 +28,10 @@ module.exports = {
                 "title": "起步",
                 "type": "js",
                 "content": "./scripts/**/*.js"
+            },{
+                "name": "demo",
+                "title": "Demo",
+                "url": "http://ued.qunar.com/mobile/yo/demo/"
             }
         ]
     },

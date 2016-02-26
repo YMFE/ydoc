@@ -14,7 +14,7 @@ artTemplate.config('escape', false);
 
 var rootPath = __dirname,
     currentPath = process.cwd(),
-    webSiteUrl = config.webSiteUrl,
+    webSiteUrl = config.webSiteUrl || "http://ued.qunar.com/mobile/yo/doc/",
     destDir = utils.path.resolve(config.destDir),
     staticDir = utils.path.join(destDir,'static'),
     staticUrl = utils.stringFormat('{0}/static/',webSiteUrl),
@@ -35,7 +35,7 @@ function analyzePage(pageConf, docConf) {
 
     if (pageConf.content &&
         utils.file.exists(utils.path.resolve(pageConf.content)) &&
-        pageConf.type && pageConf.type === 'markdown') {
+        pageConf.type && pageConf.type === 'markdown') {        
         var content = utils.file.read(utils.path.resolve(pageConf.content));
         data.html = markdown.toHTML(content);
     }else if (pageConf.type && pageConf.type == 'scss') {
@@ -489,20 +489,16 @@ function renderStaticFile(fileContent,fileName){
 
 module.exports = {
     getDoc: function(){
-
         try{
             utils.dir.rm(destDir);
             utils.dir.mk(destDir);
-
             utils.dir.rm(staticDir);
             utils.dir.mk(staticDir);
-
             utils.dir.copySync(utils.path.join(rootPath,'source'),utils.path.join(destDir,'source'));
         }catch(e){
             utils.logger.error('创建 '+destDir+' 权限不足，请加 sudo 参数');
             return;
         }
-
 
         var pages = config.project.pages || [],
             docConfig = {
