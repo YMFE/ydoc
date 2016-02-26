@@ -2,11 +2,11 @@ var parser = require('comment-parser'),
     markdown = require('markdown').markdown,
     artTemplate = require('art-template'),
     glob = require("glob"),
-    //config = require('./config.js'),
     gutil = require('gulp-util'),
     utils = require('../../utils.js');
 
 var BASEPATH = process.cwd();
+
 var config = utils.file.readJson(utils.path.join(BASEPATH, 'docfile.config'));
 
 
@@ -18,9 +18,8 @@ var rootPath = __dirname,
     destDir = utils.path.resolve(config.destDir),
     staticDir = utils.path.join(destDir,'static'),
     staticUrl = utils.stringFormat('{0}/static/',webSiteUrl),
-    defaultTemplate = utils.path.join(__dirname, 'template/template.html'),
-    staticTemplate = utils.path.join(__dirname,'template/static.html');
-
+    defaultTemplate = config.template_scss || utils.path.join(__dirname, 'template/template.html'),
+    staticTemplate = config.template_static || utils.path.join(__dirname,'template/static.html');
 
 function analyzePage(pageConf, docConf) {
 
@@ -511,19 +510,18 @@ module.exports = {
                 footer: config.project.footer,
                 banner: config.project.banner,
                 pages: pages.map(function(item) {
-                    return {
-                        name: item.name,
-                        title: item.title
-                    }
+                    return item
                 })
             },
             template = utils.file.read(defaultTemplate),
             render = artTemplate.compile(template);
 
         pages.forEach(function(item) {
-            var data = analyzePage(item, docConfig),
-                fileName = utils.stringFormat("{0}.html",item.name);
-            utils.file.write(utils.path.join(destDir,fileName), render(data));
+            if(item.type){
+                var data = analyzePage(item, docConfig),
+                    fileName = utils.stringFormat("{0}.html",item.name);
+                utils.file.write(utils.path.join(destDir,fileName), render(data));
+            }
         });
 
         gutil.log(gutil.colors.green('生成目录:'+utils.path.join(process.cwd(),destDir)));

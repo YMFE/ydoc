@@ -6,6 +6,7 @@ exports.usage = "为当前项目创建文档站";
 exports.set_options = function(optimist) {	
     return optimist;
 };
+
 exports.run = function(options) {
 	
 	var BASEPATH, config, isLoadSassParse = false;

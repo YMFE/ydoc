@@ -24,7 +24,7 @@ var OUTPUTPATH = pkg.destDir ||  './docsite';
 var JSSOURCE = [];
 var MARKDOWN = [];
 var TEMPLATEDIRPATH = pkg.templatedirepath || path.join(__dirname, 'template/**/*');
-var TEMPLATHTML = pkg.templatepath || path.join(__dirname, 'template/__template.html');
+var TEMPLATHTML = pkg.template_js || path.join(__dirname, 'template/__template.html');
 var pages = pkg.project.pages;
 
 pages.forEach(function(page){
@@ -48,8 +48,8 @@ gulp.task('store',['clean'],function(){
 
 gulp.task('packJs',['store'], function(){
     //[todo]多个JS配置
-    return gulp.src(["./scripts/**/*.js"])
-        //.pipe(addbasepath())
+    return gulp.src(JSSOURCE)
+        .pipe(addbasepath())
         .pipe($.concat('tem.js'))
         .pipe($.rename(function(path){
             var getNewName = function(oldName){
@@ -67,16 +67,6 @@ gulp.task('packJs',['store'], function(){
         .pipe($.dest(path.join(OUTPUTPATH,'tmp'), {ext:'.json'}))
         .pipe(gulp.dest('./'));
 });
-
-// gulp.task('packScss',['store'], function(){
-//     //[todo]多个JS配置
-//     return gulp.src(JSSOURCE)
-//         //.pipe(addbasepath())
-//         .pipe($.concat('widget.js'))
-//         .pipe(packdoc())
-//         .pipe($.dest(path.join(OUTPUTPATH,'tmp'), {ext:'.json'}))
-//         .pipe(gulp.dest('./'));
-// });
 
 gulp.task('packMd',['store'], function(){
     return gulp.src(MARKDOWN)
@@ -99,7 +89,7 @@ gulp.task('packMd',['store'], function(){
 
 })
 
-gulp.task('compile', ['packMd','packJs'], function(cb){
+gulp.task('compile', ['packJs'], function(cb){
     return gulp.src(path.join(OUTPUTPATH, '/tmp/*.json'))
         .pipe(artTemplate(fs.readFileSync(TEMPLATHTML)))
         .pipe($.rename({
@@ -144,8 +134,9 @@ function addbasepath (){
                 var s = path.resolve(path.dirname(file.path), tempath);
                 return '@path '+ s;
             }
-        }) 
+        })
         file.contents = new Buffer(newContent);
+        this.push(file);
         callback();
     });
     return stream;

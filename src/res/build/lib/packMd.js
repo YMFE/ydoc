@@ -40,7 +40,6 @@ function packMd(){
 
         file.contents = new Buffer(JSON.stringify(data));
         this.push(file);
-        // console.log(this);
         callback();
     });
     return stream;

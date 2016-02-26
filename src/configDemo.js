@@ -1,6 +1,9 @@
 module.exports = {
     "destDir": "yo-docs",
     "webSiteUrl": "http://ued.qunar.com/mobile/yo/doc/",
+    "template_js":"./template/template_js.html",
+    "template_scss":"./template/template_scss.html",
+    "template_static":"./template/template_static.html",
     "project": {
         "title": "YO Document",
         "footer": "Made By Qunar Hotel FE Mobile Team. © 2014 - 2015<br /> Style Build By <a href='http://bootcss.com'>Bootstrap</a>",

@@ -208,6 +208,7 @@ function _generateInfoByTagname(tagSection){
         'template':''
 
     };
+
     if(tagSection.tags.length){
         tagSection.tags.forEach(function(tags, index){  
             switch (tags.tag) {
@@ -386,7 +387,6 @@ function _classifyInfoObj(info){
 //目标文件使用comment解析并且归类至privateData对象
 function _generatePrivateData(item) {
     var filesAllTags = commentParser(item);
-    
     //演示test.js
     // fs.writeFile('test.json', JSON.stringify(filesAllTags), function(err){
     //     if(err)throw err;
