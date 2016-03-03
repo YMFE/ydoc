@@ -27,7 +27,8 @@ function analyzePage(pageConf, docConf) {
         doc: docConf,
         name: pageConf.name,
         title: docConf.title + ' ' + pageConf.title,
-        banner: docConf.banner,
+        banner: pageConf.banner || docConf.banner,
+        footer: docConf.footer,
         html: false,
         menu: [],
         content: []
@@ -454,7 +455,7 @@ function getSingleData(filePath) {
                     result['params'] = paramlist;
                     //显示源文件路径 ../lib/ani/
                     result.curPath = filePath.replace(currentPath,'');
-                    result.defindin =  webSiteUrl + staticFileName;
+                    result.defindin = './static/' + staticFileName;
                     result.basename = utils.path.basename(filePath).split('.')[0];
                     if(!result.skip){
                         singleData.push(result);
@@ -479,7 +480,12 @@ function renderStaticFile(fileContent,fileName){
 
     var templateHTML = utils.file.read(staticTemplate),
         render = artTemplate.compile(templateHTML),
+        project = config.project || [],
         data = render({
+            title: project.title,
+            banner: project.banner,
+            footer: project.footer,
+            name: fileName.replace(".html",""),
             statichtml:fileContent
         }),
         filePath = utils.path.join(staticDir,fileName);

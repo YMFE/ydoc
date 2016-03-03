@@ -15,7 +15,6 @@ qdoc
 ### --demo || -d 在当前目录下生成一个有demo的 docfile.config 文件，内容如下：
      {
          "destDir": "yo-docs",    //生成的文档目录
-         "webSiteUrl": "http://ued.qunar.com/mobile/yo/doc/", //项目连接地址
          "template_js": "./template/template_js.html",   //js文件模板
          "template_scss": "./template/template_scss.html",  //scss文件模板
          "template_static": "./template/template_static.html", //静态文件代码模板

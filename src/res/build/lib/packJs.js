@@ -608,7 +608,7 @@ function packdoc() {
             page: page,
             title: config.project.title,
             footer: config.project.footer,
-            banner: config.project.banner,
+            banner: currentItem.banner || config.project.banner,
             menus: config.project.pages
         };
 
