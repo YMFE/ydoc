@@ -91,7 +91,7 @@ gulp.task('packMd',['store'], function(){
 
 })
 
-gulp.task('compile', ['packJs'], function(cb){
+gulp.task('compile', ['packJs', 'packMd'], function(cb){
     return gulp.src(path.join(OUTPUTPATH, '/tmp/*.json'))
         .pipe(artTemplate(fs.readFileSync(TEMPLATHTML)))
         .pipe($.rename({

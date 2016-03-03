@@ -3,12 +3,10 @@ module.exports = {
     "project": {
         "title": "",
         "footer": "",
-        "version": "",
         "banner": {
             "title": "",
             "description": ""
         },
         "pages": []
-    },
-    "version": ""
+    }
 }

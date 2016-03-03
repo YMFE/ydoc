@@ -28,6 +28,7 @@ function analyzePage(pageConf, docConf) {
         name: pageConf.name,
         title: docConf.title + ' ' + pageConf.title,
         banner: docConf.banner,
+        footer: docConf.footer,
         html: false,
         menu: [],
         content: []

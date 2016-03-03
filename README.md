@@ -3,7 +3,8 @@ qdoc
 依赖于fekit
 
 ## 安装
-执行npm install fekit-extension-qdoc -g
+    
+    npm install fekit-extension-qdoc -g
 
 ## 使用流程
 1. 在需要项目使用目录下执行 fekit qdoc init 命令,将在该下生成一个docfile.config文件
