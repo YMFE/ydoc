@@ -16,18 +16,14 @@ var rootPath = __dirname,
     currentPath = process.cwd(),
     webSiteUrl = config.webSiteUrl,
     destDir = utils.path.resolve(config.destDir),
-    staticDir = utils.path.join(destDir,'static'),
-    staticUrl = utils.stringFormat('{0}/static/',webSiteUrl),
-    defaultTemplate = config.template_scss || utils.path.join(__dirname, 'template/__template.html');
+    defaultTemplate = config.template_react || utils.path.join(__dirname, 'template/__template.html');
 
 function analyzeMD(blockConf, docConf){
     
-
     var data = {
         page: {
             type: 'html',
             title: blockConf.title,
-            name: blockConf.name,
             content: "",
             menu: docConf.menu
         },
@@ -35,7 +31,6 @@ function analyzeMD(blockConf, docConf){
         footer: docConf.footer,
         banner: docConf.banner
     };
-
     var mkFile = utils.path.join(currentPath, blockConf.content);
 
     if(utils.file.exists(mkFile)){
@@ -49,40 +44,39 @@ function analyzeJS(blockConf, docConf){
         page: {
             type: 'js',
             title: blockConf.title,
-            name: blockConf.name,
-            content: blockConf,
+            content: "",
             menu: docConf.menu
         },
         title: docConf.title,
         footer: docConf.footer,
         banner: docConf.banner
     };
+    var mkFile = utils.path.join(currentPath, blockConf.content);
+
+    if(utils.file.exists(mkFile)){
+        data.page.content = getSinglePageData(mkFile);
+    }
     return data;
 };
 
+function getCodeDemo(html){
+    var string = html,
+        res = string.replace(/\<p\>\<code\>\n(.|\n)+?\<\/code\>\<\/p\>/ig, function(word){
+            return word.replace(/\<p\>\<code\>/ig,'<pre><code class="language-javascript">').replace(/\<\/code\>\<\/p\>/ig,'</code></pre>');
+        })
+    return res;
+}
 
-function getListName(filePath){
-    return utils.file.fname(utils.path.basename(filePath));
-};
 
 function getSinglePageData(filePath){
     var fileContent = utils.file.read(filePath),
         fileData = parser(fileContent),
-        fileCodeExamplePath = utils.path.join(currentPath, "/Examples/UIExplorer/", getListName(filePath) + "Example.js"),
+        fileCodeExamplePath,
         deleCommentsReg = /("([^\\\"]*(\\.)?)*")|('([^\\\']*(\\.)?)*')|(\/{2,}.*?(\r|\n))|(\/\*(\n|.)*?\*\/)/g,
-        info = {}, propertyArr = [];
-
-    if(utils.file.exists(fileCodeExamplePath)){
-        fileExampleContent = utils.file.read(fileCodeExamplePath);            
-        info.demo = fileExampleContent.replace(deleCommentsReg, function(word){
-            return /^\/{2,}/.test(word) || /^\/\*/.test(word) ? "" : word; 
-        }).replace(/\</ig, "&lt;").replace(/\>/ig, "&gt;");
-    }  
+        info = {}, propertyArr = [], summaryTags = [];
    
-
     fileData.forEach(function(tag){
-        var description, property, propertyName, propertyType, methodName, params, examples = [], platform;
-        //console.log("=======",tag);
+        var description,  property, propertyName, propertyType, methodName, params, examples = [], returns = [], platform;
         for(var name in tag){
             switch (name){
                 case "providesModule":
@@ -90,8 +84,10 @@ function getSinglePageData(filePath){
                     info.name = tag[name];
                     info.title = tag[name];
                     break;
-                case "summary":
-                    info.summary = markdown.toHTML(tag[name]);
+                case "type":
+                    if(tag[name] == "class"){
+                        summaryTags.push(tag);
+                    }
                     break;
                 case "lead":
                     if(tag[name]){
@@ -109,12 +105,8 @@ function getSinglePageData(filePath){
                     }
                     break;
                 case "description":
-                    //console.log(tag[name]);
-                    var reg = /(\`{3}.*?(\n|.))|((\n|.)*?\`{3})/g;
-                    description = markdown.toHTML(tag[name].replace(reg, function(word){
-                        console.log("====",word);
-                        return /^\`{3}/.test(word) ? "" : word; 
-                    }));
+                    var reg = /(\`{3}.*?(\r|\n)*)|((\n|.)*?\`{3}$)/g;
+                    description = markdown.toHTML(tag[name].replace(/(\`{3}(\r|\n).*(\r|\n|.)*)(\`{3}$)/g,""));
                     break;
                 case "properties":
                     if(tag[name].length){
@@ -128,11 +120,22 @@ function getSinglePageData(filePath){
                     break;
                 case "platform":
                     platform = tag[name];
-                    break;    
+                    break; 
+                case "returns": 
+                    returns = tag[name];
+                    break;
+                case "path":
+                    fileCodeExamplePath = utils.path.join(currentPath, tag[name]);
+                    if(utils.file.exists(fileCodeExamplePath)){
+                        fileExampleContent = utils.file.read(fileCodeExamplePath);            
+                        info.demo = fileExampleContent.replace(deleCommentsReg, function(word){
+                            return /^\/{2,}/.test(word) || /^\/\*/.test(word) ? "" : word; 
+                        }).replace(/\</ig, "&lt;").replace(/\>/ig, "&gt;");
+                    }
+                    break;   
             }
-
         }
-
+        
         info.propertys = info.propertys || [];
         info.methods = info.methods || [];
         if(propertyName){
@@ -144,17 +147,23 @@ function getSinglePageData(filePath){
                 examples: examples,
                 platform: platform
             });
-        }else if(methodName){
+        }if(methodName){
             info.methods.push({
                 name: methodName,
                 lead: lead || '',
                 description: description,
                 params: params || [],
-                examples: examples
+                examples: examples,
+                returns: returns
             });
         }
     });
-    
+    info.summarys = info.summarys || [];
+    if(summaryTags && summaryTags.length){
+        summaryTags.forEach(function(summaryTag){
+            info.summarys.push(getCodeDemo(markdown.toHTML(summaryTag.comment.content)));
+        });
+    }
     return info;
 };
 
@@ -163,53 +172,53 @@ function getSinglePageData(filePath){
 
 module.exports = {
     getDoc: function(){
+        var modules = config.project.modules || [],
+            project = config.project,
+            version = config.version,
+            docConfig = {
+                title: project.title,
+                footer: project.footer,
+                banner: project.banner,
+                modules: modules.map(function(item) {
+                    return item
+                }),
+                menu: project.modules
+            },
+            template = utils.file.read(defaultTemplate),
+            render = artTemplate.compile(template);
         try{
-            utils.dir.rm(destDir);
-            utils.dir.mk(destDir);
-            utils.dir.rm(staticDir);
-            utils.dir.mk(staticDir);
-            utils.dir.copySync(utils.path.join(rootPath,'source'),utils.path.join(destDir,'source'));
+            if(!utils.file.exists(destDir)){
+                utils.dir.mk(destDir);
+            }
+            if(!utils.file.exists(utils.path.join(destDir,version))){
+                utils.dir.mk(utils.path.join(destDir,version));
+            }
+            //if(!utils.file.exists(utils.path.join(destDir,'source'))){
+                utils.dir.copySync(utils.path.join(rootPath,'source'),utils.path.join(destDir,'source'));
+            //}
+            
         }catch(e){
             utils.logger.error('创建 '+destDir+' 权限不足，请加 sudo 参数');
             return;
         }
-
-        var modules = config.project.modules || [],
-            docConfig = {
-                title: config.project.title,
-                footer: config.project.footer,
-                banner: config.project.banner,
-                modules: modules.map(function(item) {
-                    return item
-                }),
-                menu: config.project.modules
-            },
-            template = utils.file.read(defaultTemplate),
-            render = artTemplate.compile(template);
-
         modules.forEach(function(module) {
             if(module.blocks && module.blocks.length){
                 module.blocks.forEach(function(block){
                     var data;
+
                     if(block.type == "markdown"){
+
                         data = analyzeMD(block, docConfig);
-                    }
-                    fileName = utils.stringFormat("{0}.html",block.title);
-                    utils.file.write(utils.path.join(destDir,fileName), render(data));
-                });
-            }else if(module.content){
-                var dirPath = utils.path.join(currentPath, module.content),
-                    listName = [],
-                    files = glob.sync(dirPath);
+                        fileName = utils.stringFormat("{0}.html",block.title);
+                        utils.file.write(utils.path.join(destDir, version, fileName), render(data));
 
-                files.forEach(function(filePath){
+                    }else if(block.type == "js"){
+                        data = analyzeJS(block, docConfig);
+                        fileName = utils.stringFormat("{0}.html",block.title);
+                        utils.file.write(utils.path.join(destDir, version, fileName), render(data));
 
-                    if(getListName(filePath) == "AlertIOS"){
-                        listName.push(getListName(filePath));
-                        var data = analyzeJS(getSinglePageData(filePath), docConfig);
-                        fileName = utils.stringFormat("{0}.html",getListName(filePath));
-                        utils.file.write(utils.path.join(destDir,fileName), render(data));
                     }
+                    
                 });
             }
         });

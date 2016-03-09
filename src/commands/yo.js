@@ -1,7 +1,7 @@
 var gulp = require('../gulp.js'),
 	utils = require('../utils.js');
 
-exports.usage = "Yo 文档构建命令";
+exports.usage = "Yo项目文档构建命令";
 
 exports.set_options = function(optimist) {
     return optimist;

@@ -756,14 +756,14 @@ del {
   margin-bottom: 16px;
 }
 
-.markdown-body hr {
+/*.markdown-body hr {
   height: 4px;
   padding: 0;
   margin: 16px 0;
   background-color: #e7e7e7;
   border: 0 none;
-}
-
+}*/
+.markdown-body hr{display: none}
 .markdown-body ul,
 .markdown-body ol {
   padding-left: 2em;
@@ -1774,7 +1774,7 @@ tbody.collapse.in {
 }
 
 .docs-sidebar .nav .nav {
-  display: none;
+  /*display: none;*/
   padding-bottom: 10px;
 }
 
@@ -1872,7 +1872,7 @@ tbody.collapse.in {
 }
 
 .docs-sidebar .nav .nav {
-  display: none;
+  /*display: none;*/
   padding-bottom: 10px;
 }
 
@@ -2252,7 +2252,6 @@ tbody.collapse.in {
   background-color: hsl(198, 100%, 94%);
 }
 .prop-title, .method-title{
-    font-weight: bold;
     font-size: 16px;
     margin: 10px 0;
 }
@@ -2278,7 +2277,7 @@ p code {
     background-color: rgba(0, 0, 0, 0.04);
     padding: 1px 3px;
 }
-ul, li {
+.method ul, .method li ,.page-des ul, .page-des li{
     margin-left: 20px;
 }
 ul{

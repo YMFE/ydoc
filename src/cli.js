@@ -42,7 +42,7 @@ module.exports = {
             }
         });
         utils.logger.log();
-        utils.logger.log(" 如果需要帮助, 请使用 qdoc {命令名} --help ");
+        utils.logger.log(" 如果需要帮助, 请使用 fekit qdoc {命令名} --help ");
         utils.logger.log();
     },
     run: function(cmd){

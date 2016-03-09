@@ -7,6 +7,7 @@ module.exports = {
             "title": "",
             "description": ""
         },
-        "pages": []
+        "pages": [],
+        "modules":[]
     }
 }

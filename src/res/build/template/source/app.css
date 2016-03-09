@@ -1692,7 +1692,7 @@ tbody.collapse.in {
 
 .docs-header {
   position: relative;
-  padding: 30px 0;
+  padding: 50px 0;
   color: rgba(255, 255, 255, 0.6);
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
   background-color: #1ba9ba;
@@ -1719,7 +1719,7 @@ tbody.collapse.in {
 .docs-header p {
   margin-bottom: 0;
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.7;
 }
 
 .docs-header .container {

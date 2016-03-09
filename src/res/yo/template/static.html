@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>file - The Yo API Yo 文档站</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <title>{{title}} - The Yo API Yo 文档站</title>
     <link type="text/css" rel="stylesheet" href="../source/shCoreDefault.css"/>
     <link rel="stylesheet" href="../source/app.css" rel="stylesheet" />
     <script type="text/javascript" src="../source/shCore.js"></script>
@@ -15,8 +15,10 @@
 <body style="background: white; font-family: Helvetica">
 <div class="docs-header" id="content" tabindex="-1">
     <div class="container">
-        <h1>Yo 源文件</h1>
+        {{if banner}}
+        <h1>{{name}}源文件</h1>
         <p>Yo 是一款基于 Mobile First 理念而设计的 CSS Framework，当然，你使用在PC高级浏览器中也完全没有问题；其具备轻量，易用，快速且高度强大的自定义能力。</p>
+        {{/if}}
     </div>
 </div>
 <div class="container docs-container">

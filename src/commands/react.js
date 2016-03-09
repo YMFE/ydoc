@@ -1,10 +1,7 @@
 var gulp = require('../gulp.js'),
 	utils = require('../utils.js');
 
-require('../res/react/gulpfile.js');
-
-
-exports.usage = "为当前项目创建文档站";
+exports.usage = "React-Native项目文档构建命令";
 
 exports.set_options = function(optimist) {	
     return optimist;
@@ -18,6 +15,8 @@ exports.run = function(options) {
 		configFilePath = utils.path.join(BASEPATH, 'docfile.config');
 	if(utils.file.exists(configFilePath)){
 		config = utils.file.readJson(configFilePath);
+
+		require('../res/react/gulpfile.js');
 
 		if(config.destDir){
 			gulp(['default']);

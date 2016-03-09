@@ -11,18 +11,54 @@ qdoc
 2. 安装demo配置docfile.config文件
 3. 使用fekit qdoc build生成文档站
 
+## 命令
 
-## init命令参数介绍 
-### --demo || -d 在当前目录下生成一个有demo的 docfile.config 文件，内容如下：
-     {
+### init命令
+```
+fekit qdoc init -r|s|j|m
+```
+* 描述: 在当前目录下生成一个有demo的 docfile.config 文件
+* 参数说明:
+    -r react项目使用
+    -s  scss项目使用
+    -j  js项目使用
+    -m  下载模板文件到项目根下template文件夹下
+
+
+### build命令
+```
+fekit qdoc build 
+```
+### 私有命令 kami  yo  react
+
+#### Kami命令 专门为Kami项目创建文档站使用，具体使用如下：
+
+```
+进入到 kamiall/src/kami/scripts 目录下执行 [sudo] fekit qdoc kami
+```
+
+#### Yo命令 专门为Yo项目创建文档站使用，具体使用如下：
+
+```
+进入到 Yo 根目录下执行 [sudo] fekit qdoc yo
+```
+
+#### React命令 专门为React-Native项目创建文档站使用，具体使用如下：
+
+```
+进入到 React-Native 根目录下执行 [sudo] fekit qdoc react
+```
+## docfile.config 文件介绍，内容如下：
+
+    {
          "destDir": "yo-docs",    //生成的文档目录
-         "webSiteUrl": "http://ued.qunar.com/mobile/yo/doc/", //项目连接地址
          "template_js": "./template/template_js.html",   //js文件模板
          "template_scss": "./template/template_scss.html",  //scss文件模板
-         "template_static": "./template/template_static.html", //静态文件代码模板
+         "template_static": "./template/template_static.html", //静态文件模板
+         "template_react": "./template/template_react.html", //react文件模板
          "project": {
              "title": "YO Document",
-             "footer": "Made By Qunar Hotel FE Mobile Team. © 2014 - 2015<br /> Style Build By <a href='http://bootcss.com'>Bootstrap</a>",
+             "footer": "Made By Qunar Hotel FE Mobile Team. © 2014 - 2016",
              "version": "1.1.0",
              "banner": {
                  "title": "Yo 简介",
@@ -57,31 +93,6 @@ qdoc
          "version": "0.0.1"
      }
 
-### --mudule || -m 获取模板文件 
-* 使用条件，当提供的模板不足以满足项目需求时，获取并修改
-* 使用方式， fekit qdoc init -m 下载模板文件到项目根
-* 然后编辑template下的模板文件
-* 编辑  docfile.config 文件   
-
-
-## build命令
-fekit qdoc build 
-
-
-##私有命令 kami  yo
-
-### Kami 专门为Kami项目创建文档站使用，具体使用如下：
-
-```
-进入到 kamiall/src/kami/scripts 目录下执行 [sudo] fekit qdoc kami
-```
-
-## Kami 专门为Yo项目创建文档站使用，具体使用如下：
-
-
-```
-进入到 Yo 根目录下执行 [sudo] fekit qdoc yo
-```
 
 ## CSS文件注释规则(具体参考Yo注释)
 
@@ -124,7 +135,6 @@ fekit qdoc build
      * @param {Color} $on-bordercolor 选中时的边框色
      * @param {Color} $on-bgcolor 选中时的背景色
      * @param {Color} $on-color 选中时的标记色 &1.1.0+
-
      * @param {Length} $radius 圆角半径长度
      * @private
      * @demo dfasdfas http://doyoe.github.io/Yo/demo/element/yo-checked.html
