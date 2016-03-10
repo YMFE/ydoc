@@ -294,20 +294,26 @@ function joinleftHTML(dataobj){
             singleHTML.push('</thead>');
             singleHTML.push('<tbody>');
             dataitem.params.forEach(function(param){
-              singleHTML.push(' <tr>');
-              singleHTML.push('        <td>'+param.name+'</td>');
-              singleHTML.push('        <td>'+param.type+'</td>');
-              singleHTML.push('        <td>'+param.description+'</td>');
-              singleHTML.push('        <td>');
-              if(param.version){
-                   singleHTML.push(param.version);
-              }
-              if(param.delversion){
-                   singleHTML.push(' <del> '+param.delversion+' </del>');
-              }
-              singleHTML.push('</td>');
-              singleHTML.push('   </tr> ');
-
+                if(param.delversion){
+                    singleHTML.push(' <tr title="此属性已经在'+param.delversion+'这个版本删除">');
+                    singleHTML.push('   <td><del>'+param.name+'</del></td>');
+                    singleHTML.push('   <td><del>'+param.type+'</del></td>');
+                    singleHTML.push('   <td><del>'+param.description+'</del></td>');
+                    singleHTML.push('   <td>');
+                    singleHTML.push(param.version);
+                    singleHTML.push('        <del> '+param.delversion+' </del>');
+                    singleHTML.push('    </td>');
+                    singleHTML.push('</tr>');
+                }else if(param.version){
+                    singleHTML.push(' <tr>');
+                    singleHTML.push('     <td>'+param.name+'</td>');
+                    singleHTML.push('     <td>'+param.type+'</td>');
+                    singleHTML.push('     <td>'+param.description+'</td>');
+                    singleHTML.push('     <td>');
+                    singleHTML.push(param.version);
+                    singleHTML.push('     </td>');
+                    singleHTML.push('</tr>');
+                }
             });
 
             singleHTML.push(' </tbody>');
