@@ -153,15 +153,25 @@
                             {{/if}}
                         </div>
                         <div class="prop-des">{{prop.description}}</div>
-                        {{if prop.examples && prop.examples.length}}
+                        <!-- {{if prop.examples && prop.examples.length}}
                         {{each prop.examples as example}}
                         <div class="prop-examples">
                             <pre><code class="language-javascript">{{example}}</code></pre>
                         </div>
                         {{/each}}
-                        {{/if}}
+                        {{/if}} -->
+                        
                     </div>
                     {{/each}}
+                    {{/if}}
+                    
+                    {{if page.content.styleLists}}
+                    <div class="prop-styles">
+                        <div class="styles-title">style</div>
+                        <div class="styles-body">
+                            {{page.content.styleLists}}
+                        </div>
+                    </div>    
                     {{/if}}
 
                     {{if page.content.methods && page.content.methods.length}}
@@ -191,28 +201,27 @@
                             {{method.lead}}
                             {{method.description}}
                         </div>
-                        {{if method.examples && method.examples.length}}
+                        <!-- {{if method.examples && method.examples.length}}
                         <div class="method-title">Example:</div>
                         {{each method.examples as example}}
                         <div class="prop-examples">
                             <pre><code class="language-javascript">{{example}}</code></pre>
                         </div>
                         {{/each}}
-                        {{/if}}
+                        {{/if}} -->
                     </div>
                     {{/each}}
                     {{/if}}
-
-
+                    {{if page.content.fullDescription}}
+                        <h2 class="page-fullDescription">FullDescription</h2>
+                        {{page.content.fullDescription}}
+                    {{/if}}
                     <!-- Examples -->
                     {{if page.content.demo}}
                     <h2 class="page-examples">Examples</h2>
                     <pre><code class="language-javascript">{{page.content.demo}}
                     </code></pre>
                     {{/if}}
-                    
-
-
                 </div>
                 {{if page.menu && page.menu.length }}
                 <div class="col-md-3" role="complementary">

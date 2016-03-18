@@ -1,5 +1,7 @@
 var parser = require('parse-comments'),
+    docgen = require('react-docgen'),
     markdown = require('markdown').markdown,
+    marked = require('marked'),
     artTemplate = require('art-template'),
     glob = require("glob"),
     gutil = require('gulp-util'),
@@ -9,6 +11,7 @@ var parser = require('parse-comments'),
 var BASEPATH = process.cwd();
 var config = utils.file.readJson(utils.path.join(BASEPATH, 'docfile.config'));
 
+var docgenHelpers = require('./docgenHelpers.js');
 
 artTemplate.config('escape', false);
 
@@ -17,6 +20,7 @@ var rootPath = __dirname,
     webSiteUrl = config.webSiteUrl,
     destDir = utils.path.resolve(config.destDir),
     defaultTemplate = config.template_react || utils.path.join(__dirname, 'template/__template.html');
+
 
 function analyzeMD(blockConf, docConf){
     
@@ -34,7 +38,7 @@ function analyzeMD(blockConf, docConf){
     var mkFile = utils.path.join(currentPath, blockConf.content);
 
     if(utils.file.exists(mkFile)){
-        data.page.content = markdown.toHTML(utils.file.read(mkFile));
+        data.page.content = marked(utils.file.read(mkFile));
     };
     return data;
 };
@@ -66,15 +70,76 @@ function getCodeDemo(html){
         })
     return res;
 }
+function getNameFromPath(filepath) {
+  var ext = null;
+  while (ext = utils.path.extname(filepath)) {
+    filepath = utils.path.basename(filepath, ext);
+  }
+  return filepath;
+}
+function getStyleList(filePath){
+    var fileContent = utils.file.read(filePath),
+        propsObj,type,
+        html = '';
 
+    var obj = docgen.parse(fileContent,docgenHelpers.findExportedObject,[
+        docgen.handlers.propTypeHandler,
+        docgen.handlers.propTypeCompositionHandler,
+        docgen.handlers.propDocBlockHandler
+      ]);
 
+    if(obj.props){
+        propsObj = obj.props;
+        for (var name in propsObj){
+            html += '<div class="style">';
+            html += '<span class="style-title">'+ name +'</span>';
+            type = propsObj[name]["type"];
+            if(type.name == "enum"){
+                html += '<span class="type"> enum(';
+                if(type.value && typeof type.value == "object"){
+                    type.value.forEach(function(val,i){
+                      html +=  (i == type.value.length -1 ?  val.value : val.value + ',')
+                    });
+                }    
+                html +=' )</span>';
+            }else if(type.name == "custom"){
+                html += '<span class="type">color</span>'
+            }else if(type.name == "number"){
+                html += '<span class="type">number</span>'
+            }
+            if(propsObj[name].description){
+                var platforms = propsObj[name].description.match(/\@platform (.+)/);
+                platforms = platforms && platforms[1].replace(/ /g, '').split(',');
+                var description = propsObj[name].description.replace(/\@platform (.+)/, '');
+                
+                if(platforms){
+                    html += '<span class="platform">'+ platforms + '</span>';
+                }
+                if(description){
+                    html += marked(description);
+                }
+                
+            }
+            html += '</div>'
+        }
+    }
+    return html;
+    
+}
 function getSinglePageData(filePath){
     var fileContent = utils.file.read(filePath),
         fileData = parser(fileContent),
+        fullDescription,
         fileCodeExamplePath,
+        fileName = getNameFromPath(filePath),
         deleCommentsReg = /("([^\\\"]*(\\.)?)*")|('([^\\\']*(\\.)?)*')|(\/{2,}.*?(\r|\n))|(\/\*(\n|.)*?\*\/)/g,
         info = {}, propertyArr = [], summaryTags = [];
-   
+
+    var docFilePath = './docs/'+ fileName +'.md';
+    if(utils.file.exists(docFilePath)){
+        fullDescription = marked(utils.file.read(docFilePath));
+    }
+    
     fileData.forEach(function(tag){
         var description,  property, propertyName, propertyType, methodName, params, examples = [], returns = [], platform;
         for(var name in tag){
@@ -91,22 +156,22 @@ function getSinglePageData(filePath){
                     break;
                 case "lead":
                     if(tag[name]){
-                        lead = markdown.toHTML(tag[name]);
+                        lead = marked(tag[name]);
                     }
                     break;
                 case "method":
                     methodName = tag[name];
                     break;
-                case "examples":
-                    if(tag[name].length){
-                        tag[name].forEach(function(example){
-                            examples.push(markdown.toHTML(example.code));
-                        });
-                    }
-                    break;
+                // case "examples":
+                //     if(tag[name].length){
+                //         tag[name].forEach(function(example){
+                //             examples.push(marked(example.code));
+                //         });
+                //     }
+                //     break;
                 case "description":
-                    var reg = /(\`{3}.*?(\r|\n)*)|((\n|.)*?\`{3}$)/g;
-                    description = markdown.toHTML(tag[name].replace(/(\`{3}(\r|\n).*(\r|\n|.)*)(\`{3}$)/g,""));
+                    //var reg = /(\`{3}.*?(\r|\n)*)|((\n|.)*?\`{3}$)/g;
+                    description = marked(tag[name]);
                     break;
                 case "properties":
                     if(tag[name].length){
@@ -132,7 +197,12 @@ function getSinglePageData(filePath){
                             return /^\/{2,}/.test(word) || /^\/\*/.test(word) ? "" : word; 
                         }).replace(/\</ig, "&lt;").replace(/\>/ig, "&gt;");
                     }
-                    break;   
+                    break;
+                case "style":
+                    if(utils.file.exists(tag[name])){
+                        info.styleLists = getStyleList(tag[name]);
+                    }
+                    break;
             }
         }
         
@@ -144,7 +214,7 @@ function getSinglePageData(filePath){
                 type: propertyType,
                 description: description,
                 params: params || [],
-                examples: examples,
+                //examples: examples,
                 platform: platform
             });
         }if(methodName){
@@ -153,15 +223,19 @@ function getSinglePageData(filePath){
                 lead: lead || '',
                 description: description,
                 params: params || [],
-                examples: examples,
+                //examples: examples,
                 returns: returns
             });
         }
     });
+
+    if(fullDescription){
+        info.fullDescription = fullDescription;
+    }
     info.summarys = info.summarys || [];
     if(summaryTags && summaryTags.length){
         summaryTags.forEach(function(summaryTag){
-            info.summarys.push(getCodeDemo(markdown.toHTML(summaryTag.comment.content)));
+            info.summarys.push(marked(summaryTag.comment.content));
         });
     }
     return info;
@@ -213,10 +287,12 @@ module.exports = {
                         utils.file.write(utils.path.join(destDir, version, fileName), render(data));
 
                     }else if(block.type == "js"){
-                        data = analyzeJS(block, docConfig);
-                        fileName = utils.stringFormat("{0}.html",block.title);
-                        utils.file.write(utils.path.join(destDir, version, fileName), render(data));
-
+                        //if(block.title == "View"){
+                            data = analyzeJS(block, docConfig);
+                            fileName = utils.stringFormat("{0}.html",block.title);
+                            utils.file.write(utils.path.join(destDir, version, fileName), render(data));
+                        //}
+                        
                     }
                     
                 });

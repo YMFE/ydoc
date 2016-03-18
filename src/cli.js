@@ -33,7 +33,7 @@ module.exports = {
         var commandBasePath = utils.path.join(__dirname, 'commands'),
             cmd;
         this.title();
-        (utils.dir.read(commandBasePath) || []).forEach(function(name) {
+        (utils.dir.read(commandBasePath) || []).forEach(function(name) {            
             if(name.indexOf('_') !== 0){
                 cmd = require(utils.path.join(commandBasePath, name));
                 if (cmd) {

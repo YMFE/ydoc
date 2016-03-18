@@ -2244,16 +2244,41 @@ tbody.collapse.in {
   }
 }
 
-.prop,.method{
+.prop,.method,.prop-styles{
     background-color: hsl(198, 100%, 96%);
     padding: 5px 10px;
 }
 .prop:nth-child(2n), .method:nth-child(2n){
   background-color: hsl(198, 100%, 94%);
 }
-.prop-title, .method-title{
+.styles-title{
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.styles-body{
+  margin-left: 20px;
+}
+.styles-body p, .styles-body ul{
+  margin: 0 0 0 20px;
+}
+.styles-body .type{
+  color: #666;
+}
+.styles-body .platform{
+  background-color: hsl(198, 100%, 87%);
+  border-radius: 5px;
+  margin-left: 5px;
+  padding: 0 5px;
+  font-size: 13px;
+}
+.prop-title, .method-title,.style-title{
     font-size: 16px;
     margin: 10px 0;
+}
+.style-title{
+  font-weight: bold; 
+  margin-right: 10px;
 }
 .prop-type, .method-type{
     font-weight: normal;

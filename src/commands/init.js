@@ -21,7 +21,7 @@ exports.set_options = function(optimist) {
     return optimist;
 };
 
-exports.run = function(options) {
+exports.run = function(options) {	
 	var config,
 		argv = optimist.argv,
 		FILENAME = 'docfile.config',
@@ -48,7 +48,7 @@ exports.run = function(options) {
 		}
 	}
 	config = config || require(utils.path.join(__dirname, '../../src/config/', 'config.js'));	
-
+	
 	//生成docfile.config文件
 	if(utils.file.exists(CONFIGPATH)) {
         var rl = readline.createInterface({
@@ -66,7 +66,7 @@ exports.run = function(options) {
             }
         });
     }else {
-        creatConfigFile();
+        creatConfigFile(CONFIGPATH, config);
     }	
 }
 
