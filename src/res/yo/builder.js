@@ -1,9 +1,20 @@
 var parser = require('comment-parser'),
-    markdown = require('markdown').markdown,
+    markd = require('marked'),
     artTemplate = require('art-template'),
     glob = require("glob"),
     gutil = require('gulp-util'),
     utils = require('../../utils.js');
+
+
+var HTMLFormat = require('./HTMLFormat.js');
+
+var markdRule = new markd.Renderer();
+markdRule.heading = function (text, level) {
+  var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+  return '<h' + level + ' id="'+text+'">'+ text + '</h' + level + '>';
+};
+
+
 
 var BASEPATH = process.cwd();
 
@@ -38,7 +49,7 @@ function analyzePage(pageConf, docConf) {
         utils.file.exists(utils.path.resolve(pageConf.content)) &&
         pageConf.type && pageConf.type === 'markdown') {        
         var content = utils.file.read(utils.path.resolve(pageConf.content));
-        data.html = markdown.toHTML(content);
+        data.html = markd(content, {renderer: markdRule});
     }else if (pageConf.type && pageConf.type == 'scss') {
          var block = pageConf;
         //pageConf.blocks.forEach(function (block) {
@@ -327,7 +338,7 @@ function joinleftHTML(dataobj){
                     singleHTML.push('<p class="example-desc">'+dataitem.example.name+'</p>');
                 }
                 if(dataitem.example.code){
-                    singleHTML.push('<pre class="brush: sass;">'+dataitem.example.code+'</pre>');
+                    singleHTML.push('<pre><code class="language-html">'+dataitem.example.code+'</code></pre>');
                 }
                 singleHTML.push('</div>');
             singleHTML.push('</div>');
@@ -442,6 +453,7 @@ function getSingleData(filePath) {
                                 methodparams.push(tag.name);
                                 break;
                             case 'example':
+                            
                                 var example = tag.source,examplename,examplecode;
                                 if(tag.source.replace("@example","").indexOf("|")>0){
                                     examplename = tag.source.replace("@example","").split("|")[0]
@@ -451,7 +463,7 @@ function getSingleData(filePath) {
                                 }
                                 result['example']={
                                     name: examplename,
-                                    code: examplecode.replace(/\</ig, '&lt;')
+                                    code: HTMLFormat(examplecode).replace(/\</ig, '&lt;')
                                 };
                                 break;
                         }

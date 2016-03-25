@@ -6,7 +6,7 @@ var parser = require('parse-comments'),
     glob = require("glob"),
     gutil = require('gulp-util'),
     jsformatter = require('atropa-jsformatter'),
-    utils = require('../../utils.js');
+    utils = require('./utils.js');
 
 var BASEPATH = process.cwd();
 var config = utils.file.readJson(utils.path.join(BASEPATH, 'docfile.config'));
