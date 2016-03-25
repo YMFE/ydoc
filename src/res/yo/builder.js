@@ -338,7 +338,7 @@ function joinleftHTML(dataobj){
                     singleHTML.push('<p class="example-desc">'+dataitem.example.name+'</p>');
                 }
                 if(dataitem.example.code){
-                    singleHTML.push('<pre class="brush: sass;">'+dataitem.example.code+'</pre>');
+                    singleHTML.push('<pre class="brush: sass; gutter: false;">'+dataitem.example.code+'</pre>');
                 }
                 singleHTML.push('</div>');
             singleHTML.push('</div>');
