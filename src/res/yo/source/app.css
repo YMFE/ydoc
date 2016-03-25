@@ -1930,7 +1930,9 @@ tbody.collapse.in {
 }
 
 .example-code {
-  
+    border: 1px solid #ccc;
+    overflow: hidden;
+    border-radius: 4px 4px 0 0;
 }
 
 .example-desc {

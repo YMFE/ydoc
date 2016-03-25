@@ -1,7 +1,7 @@
 {
   "fekit_extension_command_name": "qdoc",
   "name": "fekit-extension-qdoc",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "文档生成工具",
   "dependencies": {
     "art-template": "^3.0.3",
