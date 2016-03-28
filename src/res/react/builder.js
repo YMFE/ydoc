@@ -9,6 +9,13 @@ var parser = require('parse-comments'),
     utils = require('./utils.js');
 
 var BASEPATH = process.cwd();
+var docfile = utils.path.join(BASEPATH, 'docfile.config');
+if(utils.file.exists(docfile)){
+    var config = utils.file.readJson(docfile);
+}else{
+    utils.logger.error("docfile.config文件不存在!");
+    process.exit (1);
+}
 var config = utils.file.readJson(utils.path.join(BASEPATH, 'docfile.config'));
 
 var docgenHelpers = require('./docgenHelpers.js');
