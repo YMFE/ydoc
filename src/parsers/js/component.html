@@ -52,7 +52,7 @@
 {{/if}}
 {{if methods.length}}
 <h2>方法</h2>
-{{each method as methods}}
+{{each methods as method}}
 <blockquote class="api"><strong>{{method.method}}</strong></blockquote>
 <div class="api-content">{{method.description | markdown}}</div>
 {{if method.params.length}}
