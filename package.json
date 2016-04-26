@@ -8,6 +8,7 @@
   "license": "BSD",
   "dependencies": {
     "art-template": "^3.0.3",
+    "atropa-jsformatter": "^0.1.2",
     "colors": "^1.1.2",
     "comment-parser": "^0.4.0",
     "cpr": "^1.1.1",

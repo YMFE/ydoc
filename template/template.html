@@ -73,6 +73,38 @@
         <div class="col-md-3" role="complementary">
             <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                 <ul class="nav docs-sidenav">
+                    {{if article.sidebarType == 'expand'}}
+                    {{each article.sidebars as m}}
+                    <li>
+                        <a href="#{{m.name | anchor}}">{{m.name}}</a>
+                        {{if m.list && m.list.length}}
+                        <ul class="nav">
+                            {{each m.list as item index}}
+                            <li>
+                                {{if item.url}}
+                                <a href="{{item.url}}">
+                                    {{item.name}}
+                                </a>
+                                {{else if item.tag}}
+                                <a href="#{{item.tag | anchor}}">
+                                    {{item.name}}
+                                </a>
+                                {{else if item.api}}
+                                <a href="#{{item.name | anchor}}">
+                                    {{item.name}}
+                                </a>
+                                {{else}}
+                                <a href="#{{m.name | anchor}}-{{item.name | anchor}}">
+                                    {{item.name}}
+                                </a>
+                                {{/if}}
+                            </li>
+                            {{/each}}
+                        </ul>
+                        {{/if}}
+                    </li>
+                    {{/each}}
+                    {{else}}
                     {{each article.sidebars as m index}}
                     {{if m.sub}}
                     {{if index > 0 && !article.sidebars[index - 1].sub}}
@@ -90,6 +122,7 @@
                     </li>
                     {{/if}}
                     {{/each}}
+                    {{/if}}
                 </ul>
             </nav>
         </div>

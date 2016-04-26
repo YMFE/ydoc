@@ -12,6 +12,14 @@ artTemplate.helper('markdown', function(content) {
     return markdown.toHTML(content);
 });
 
+artTemplate.helper('anchor', function(name) {
+    return name ? name.replace(/[\.\:]/g, '-') : '';
+});
+
+artTemplate.helper('txt', function(html) {
+    return html ? html.replace(/\<\/?[^\>]*\>/g, '') : '';
+});
+
 function doParser(cwd, filePath, options, conf) {
     var extName = sysPath.extname(filePath),
         parser;
