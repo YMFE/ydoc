@@ -77,11 +77,11 @@
         </thead>
         {{each method.params as param index}}
         <tr>
-            <td>{{method.name}}</td>
-            <td>{{method.type}}</td>
-            <td>{{method.description}}</td>
+            <td>{{param.name}}</td>
+            <td>{{param.type}}</td>
+            <td>{{param.description}}</td>
             <td>
-                {{if !method.optional}}
+                {{if !param.optional}}
                 <i class="yo-ico glyphicon glyphicon-ok text-success"></i> {{/if}}
             </td>
         </tr>
