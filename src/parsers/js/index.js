@@ -2,8 +2,7 @@ var fs = require('fs');
 var sysPath = require('path');
 var commentParser = require('comment-parser');
 var artTemplate = require('art-template');
-
-artTemplate.config('escape', false);
+var markdown = require('markdown').markdown;
 
 var componentKeywords = ['component', 'property', 'method'];
 
@@ -22,6 +21,7 @@ function getCommentType(comment, commentKeywords) {
 var execFns = {
     'component': function(commentList, options, conf) {
         var ret = {
+            description: '',
             props: [],
             methods: []
         };
@@ -30,7 +30,7 @@ var execFns = {
                 case 'component':
                     ret._desc = comment.description;
                     comment.tags.forEach(function(tag) {
-                        ret[tag.tag] = tag.name;
+                        ret[tag.tag] = tag.source.slice(tag.tag.length + 2);
                     });
                     if (ret.example.indexOf('./') == 0) {
                         var fp = sysPath.join(conf.cwd, conf.examplePath, ret.example.split('[')[0]);
@@ -49,6 +49,7 @@ var execFns = {
                 case 'property':
                     var prop = {
                         _desc: comment.description,
+                        description: '',
                         params: []
                     };
                     comment.tags.forEach(function(tag) {
@@ -60,7 +61,7 @@ var execFns = {
                                 description: tag.description
                             });
                         } else {
-                            prop[tag.tag] = tag.name;
+                            prop[tag.tag] = tag.source.slice(tag.tag.length + 1);
                         }
                     });
                     ret.props.push(prop);
@@ -68,6 +69,7 @@ var execFns = {
                 case 'method':
                     var method = {
                         _desc: comment.description,
+                        description: '',
                         params: []
                     };
                     comment.tags.forEach(function(tag) {
@@ -79,7 +81,7 @@ var execFns = {
                                 description: tag.description
                             });
                         } else {
-                            method[tag.tag] = tag.name;
+                            method[tag.tag] = tag.source.slice(tag.tag.length + 1);
                         }
                     });
                     ret.methods.push(method);
