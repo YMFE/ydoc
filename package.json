@@ -1,0 +1,17 @@
+{
+  "name": "qdoc",
+  "version": "0.0.1",
+  "main": "src/qdoc.js",
+  "bin": {
+    "qdoc": "bin/qdoc"
+  },
+  "license": "BSD",
+  "dependencies": {
+    "art-template": "^3.0.3",
+    "colors": "^1.1.2",
+    "comment-parser": "^0.4.0",
+    "cpr": "^1.1.1",
+    "json5": "^0.5.0",
+    "markdown": "^0.5.0"
+  }
+}

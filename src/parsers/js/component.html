@@ -1,0 +1,88 @@
+<h1>
+    {{component}}
+    <small>{{_desc}}</small>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">{{version}}</span>
+</h1>
+<p class="api-content">{{description}}</p>
+{{if props.length}}
+<h2>属性</h2>
+{{each props as prop}}
+<blockquote class="api"><strong>{{prop.property}}</strong> <span>{ {{prop.type}} }</span></blockquote>
+<p class="api-content">{{prop.description}}</p>
+{{if prop.type.toLowerCase() == 'function' && prop.params.length}}
+<p class="api-content">方法参数：</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+            </tr>
+        </thead>
+        {{each prop.params as param index}}
+        <tr>
+            <td>{{param.name}}</td>
+            <td>{{param.type}}</td>
+            <td>{{param.description}}</td>
+            <td>
+                {{if !param.optional}}
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{/if}}
+{{/each}}
+{{/if}}
+{{if methods.length}}
+<h2>方法</h2>
+{{each method as methods}}
+<blockquote class="api"><strong>{{method.method}}</strong></blockquote>
+<p class="api-content">{{method.description}}</p>
+{{if method.params.length}}
+<p class="api-content">方法参数：</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+            </tr>
+        </thead>
+        {{each method.params as param index}}
+        <tr>
+            <td>{{method.name}}</td>
+            <td>{{method.type}}</td>
+            <td>{{method.description}}</td>
+            <td>
+                {{if !method.optional}}
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{/if}}
+{{/each}}
+{{/if}}
+{{if example}}
+<h2>示例</h2>
+<pre><code>{{example}}</code></pre>
+{{/if}}
