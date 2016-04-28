@@ -81,6 +81,11 @@ var execFns = {
                                 optional: tag.optional,
                                 description: tag.description
                             });
+                        } else if (tag.tag == 'returns' || tag.tag == 'return') {
+                            method.returns = {
+                                type: tag.type,
+                                name: tag.source.slice(tag.tag.length + tag.type.length + 4)
+                            };
                         } else {
                             method[tag.tag] = tag.source.slice(tag.tag.length + 1);
                         }

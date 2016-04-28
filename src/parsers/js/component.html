@@ -88,6 +88,13 @@
         {{/each}}
     </table>
 </div>
+{{if method.returns}}
+<p class="api-content">
+    <small class="text-muted">返回值:</small>
+    <mark>{{method.returns.type}}</mark>
+    {{method.returns.name}}
+</p>
+{{/if}}
 {{/if}}
 {{/each}}
 {{/if}}

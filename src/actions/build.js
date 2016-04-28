@@ -32,7 +32,7 @@ function doParser(cwd, filePath, options, conf) {
     if (parser) {
         var filePath = sysPath.join(cwd, filePath);
         if (fs.existsSync(filePath)) {
-            var ret = parser.parser(fs.readFileSync(filePath, 'UTF-8'), options || {}, conf);
+            var ret = parser.parser(fs.readFileSync(filePath, 'UTF-8'), Object.assign({}, conf.options[parser.type] || {}, options || {}), conf);
             return ret;
         } else {
             console.log(('X ' + filePath + ' 未找到文件。').red);
@@ -45,6 +45,7 @@ function doParser(cwd, filePath, options, conf) {
 
 module.exports = function(cwd, conf) {
     conf.cwd = cwd;
+    conf.options = conf.options || {};
     var render = artTemplate.compile(conf.templateContent);
     if (conf.pages) {
         conf.pages.forEach(function(page) {
