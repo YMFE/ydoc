@@ -59,6 +59,12 @@
 </p>
 {{/if}}
 {{/if}}
+{{if linkSource}}
+<p>
+    <small class="text-muted">源码位置:</small>
+    <a href="./static{{path}}.html#{{el._line}}" target="_blank">.{{path}}:{{el._line}}</a>
+</p>
+{{/if}}
 {{if el.class == 'method' || el.type == 'Function' || el.type == 'function'}}
 <p>
     <small class="text-muted">参数:</small>

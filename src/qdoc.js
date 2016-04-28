@@ -2,6 +2,7 @@ var fs = require('fs');
 var cpr = require('cpr');
 var sysPath = require('path');
 var colors = require('colors');
+var watch = require('watch');
 
 var actions = require('./actions');
 
@@ -20,8 +21,9 @@ function execTemplate(distPath, tplPath, callback) {
             console.log('X 资源拷贝失败！'.red);
         } else {
             var tplFilePath = sysPath.join(tplPath, 'template.html');
-            if (fs.existsSync(tplFilePath)) {
-                callback(fs.readFileSync(tplFilePath, 'utf-8'));
+            var codeTplFilePath = sysPath.join(tplPath, 'code.html');
+            if (fs.existsSync(tplFilePath) && fs.existsSync(codeTplFilePath)) {
+                callback(fs.readFileSync(tplFilePath, 'utf-8'), fs.readFileSync(codeTplFilePath, 'utf-8'));
             } else {
                 console.log('X 模板读取失败！'.red);
             }
@@ -31,14 +33,24 @@ function execTemplate(distPath, tplPath, callback) {
 
 module.exports = {
     init: actions.init,
-    build: function(cwd, conf) {
+    build: function(cwd, conf, opt) {
         var distPath = sysPath.join(cwd, conf.dist || '_docs'),
             tplPath = conf.template ? sysPath.join(cwd, conf.template) : templatePath;
 
-        execTemplate(distPath, tplPath, function(content) {
+        execTemplate(distPath, tplPath, function(content, codeContent) {
             conf.dist = distPath;
             conf.templateContent = content;
-            actions.build(cwd, conf, content)
+            conf.codeTemplateContent = codeContent;
+            actions.build(cwd, conf, content);
+            if (opt.watch) {
+                console.log('√ Start Watching .......'.green);
+                watch.watchTree(cwd, function() {
+                    console.log('-> Building .......'.gray);
+                    actions.build(cwd, conf, content);
+                    console.log('√ Complete!'.green);
+                    console.log('');
+                });
+            }
         });
     },
     server: actions.serve

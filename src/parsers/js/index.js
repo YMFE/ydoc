@@ -131,6 +131,7 @@ var execFns = {
                                 id: typeItem.name,
                                 name: typeItem.name.substring(typeItem.name.lastIndexOf('.') + 1),
                                 _desc: description,
+                                _line: comment.line,
                                 type: null,
                                 alias: null,
                                 category: null,
@@ -294,6 +295,8 @@ var execFns = {
         ret.sidebarType = 'expand';
 
         ret.content = artTemplate.compile(libTPL)({
+            linkSource: options.source,
+            path: options.path.substring(1),
             core: cores,
             list: content
         });

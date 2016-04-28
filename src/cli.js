@@ -10,7 +10,7 @@ var cli = module.exports = {
         var cwd = process.cwd(),
             conf = {};
         if (qdoc[cmd]) {
-            if (cmd == 'build' || cmd == 'serve') {
+            if (cmd == 'build') {
                 var confPath = sysPath.join(cwd, 'qdoc.config'),
                     confJSPath = sysPath.join(cwd, 'qdocfile.js');
                 if (fs.existsSync(confPath)) {
@@ -40,7 +40,9 @@ var cli = module.exports = {
                     process.exit(1);
                 }
             }
-            qdoc[cmd](cwd, conf);
+            qdoc[cmd](cwd, conf, {
+                watch: process.argv.indexOf('--watch') > -1
+            });
         } else {
             console.log('X 命令不存在！'.red);
         }
