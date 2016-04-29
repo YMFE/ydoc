@@ -1,9 +1,9 @@
-var markdown = require('markdown').markdown;
+var marked = require('marked');
 
 function parser(content, options) {
     return {
         type: 'html',
-        content: markdown.toHTML(content)
+        content: marked(content)
     };
 }
 

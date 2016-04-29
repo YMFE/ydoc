@@ -3,14 +3,14 @@ var sysPath = require('path');
 var colors = require('colors');
 var mkdirp = require('mkdirp');
 var artTemplate = require('art-template');
-var markdown = require('markdown').markdown;
+var marked = require('marked');
 
 var parsers = require('../parsers');
 
 artTemplate.config('escape', false);
 
 artTemplate.helper('markdown', function(content) {
-    return markdown.toHTML(content);
+    return marked(content);
 });
 
 artTemplate.helper('anchor', function(name) {

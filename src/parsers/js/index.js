@@ -2,7 +2,6 @@ var fs = require('fs');
 var sysPath = require('path');
 var commentParser = require('comment-parser');
 var artTemplate = require('art-template');
-var markdown = require('markdown').markdown;
 var formatter = require('atropa-jsformatter');
 
 var componentKeywords = ['component', 'property', 'method'];
