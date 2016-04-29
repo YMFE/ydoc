@@ -101,6 +101,7 @@ module.exports = function(cwd, conf) {
                     page.content.pages.forEach(function(p) {
                         data.article = doParser(cwd, p.content, p.options, conf, codeRender);
                         data.article.sidebars = navs;
+                        data.article.name = p.name;
                         fs.writeFileSync(sysPath.join(conf.dist, page.name + '-' + p.name + '.html'), render(data));
                     });
                     data.article = doParser(cwd, page.content.index, page.content.indexOptions, conf, codeRender);

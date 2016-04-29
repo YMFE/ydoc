@@ -118,7 +118,7 @@
                     {{/if}}
                     {{else}}
                     <li>
-                        <a href="{{m.url || ('#' + m.name)}}">{{m.name}}</a>
+                        <a href="{{m.url || ('#' + m.name)}}" {{if article.name == m.name}}style="color:#0088a4"{{/if}}>{{m.name}}</a>
                     </li>
                     {{/if}}
                     {{/each}}
