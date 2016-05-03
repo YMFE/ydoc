@@ -45,7 +45,7 @@ module.exports = {
             if (opt.watch) {
                 console.log('√ Start Watching .......'.green);
                 watch.watchTree(cwd, {
-                    ignoreDirectoryPattern: conf.dist || '_docs'
+                    ignoreDirectoryPattern: new RegExp(conf.dist || '_docs')
                 }, function() {
                     console.log('-> Building .......'.gray);
                     actions.build(cwd, conf, content);
