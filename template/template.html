@@ -54,7 +54,11 @@
             <ul class="nav navbar-nav">
                 {{each tabs as tab}}
                 <li class="{{if tab.active}}active{{/if}}">
+                    {{if tab.url}}
+                    <a href="{{tab.url}}" target="_blank">{{tab.title}}</a>
+                    {{else}}
                     <a href="{{tab.name}}.html">{{tab.title}}</a>
+                    {{/if}}
                 </li>
                 {{/each}}
             </ul>

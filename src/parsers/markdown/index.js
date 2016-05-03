@@ -5,10 +5,10 @@ renderer.heading = function(text, level) {
     return '<h' + level + ' id="' + text + '">' + text + '</h' + level + '>';
 };
 
-function parser(content, options) {
+function parser(contents, options) {
     return {
         type: 'html',
-        content: marked(content, {
+        content: marked(contents.join('\n'), {
             renderer: renderer
         })
     };

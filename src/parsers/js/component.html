@@ -32,6 +32,7 @@
                 <th>类型</th>
                 <th>描述</th>
                 <th>必选</th>
+                <th>版本</th>
             </tr>
         </thead>
         {{each prop.params as param index}}
@@ -43,6 +44,7 @@
                 {{if !param.optional}}
                 <i class="yo-ico glyphicon glyphicon-ok text-success"></i> {{/if}}
             </td>
+            <td>{{param.version}}</td>
         </tr>
         {{/each}}
     </table>
@@ -73,6 +75,7 @@
                 <th>类型</th>
                 <th>描述</th>
                 <th>必选</th>
+                <th>版本</th>
             </tr>
         </thead>
         {{each method.params as param index}}
@@ -84,6 +87,7 @@
                 {{if !param.optional}}
                 <i class="yo-ico glyphicon glyphicon-ok text-success"></i> {{/if}}
             </td>
+            <td>{{param.version}}</td>
         </tr>
         {{/each}}
     </table>

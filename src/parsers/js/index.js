@@ -4,6 +4,8 @@ var commentParser = require('comment-parser');
 var artTemplate = require('art-template');
 var formatter = require('atropa-jsformatter');
 
+var readParam = require('../../utils/readParam.js');
+
 var componentKeywords = ['component', 'property', 'method'];
 var componentTPL = fs.readFileSync(sysPath.join(__dirname, './component.html'), 'UTF-8');
 var libTPL = fs.readFileSync(sysPath.join(__dirname, './lib.html'), 'UTF-8');
@@ -54,12 +56,7 @@ var execFns = {
                     };
                     comment.tags.forEach(function(tag) {
                         if (tag.tag == 'param') {
-                            prop.params.push({
-                                name: tag.name,
-                                type: tag.type,
-                                optional: tag.optional,
-                                description: tag.description
-                            });
+                            prop.params.push(readParam(tag));
                         } else {
                             prop[tag.tag] = tag.source.slice(tag.tag.length + 1);
                         }
@@ -74,12 +71,7 @@ var execFns = {
                     };
                     comment.tags.forEach(function(tag) {
                         if (tag.tag == 'param') {
-                            method.params.push({
-                                name: tag.name,
-                                type: tag.type,
-                                optional: tag.optional,
-                                description: tag.description
-                            });
+                            method.params.push(readParam(tag));
                         } else if (tag.tag == 'returns' || tag.tag == 'return') {
                             method.returns = {
                                 type: tag.type,
@@ -175,12 +167,7 @@ var execFns = {
                                         info.requires.push(tag.name);
                                         break;
                                     case 'param':
-                                        info.params.push({
-                                            name: tag.name,
-                                            type: tag.type,
-                                            optional: tag.optional,
-                                            description: tag.description
-                                        });
+                                        info.params.push(readParam(tag));
                                         break;
                                     case 'prototype':
                                         info.prototypes.push({
@@ -292,10 +279,9 @@ var execFns = {
         });
 
         ret.sidebarType = 'expand';
-
         ret.content = artTemplate.compile(libTPL)({
             linkSource: options.source,
-            path: options.path.substring(1),
+            path: options.files[0].substring(1),
             core: cores,
             list: content
         });
@@ -307,8 +293,8 @@ var execFns = {
 module.exports = {
     type: "js",
     extNames: ['.js'],
-    parser: function(content, options, conf) {
-        var commentList = commentParser(content),
+    parser: function(contents, options, conf) {
+        var commentList = commentParser(contents[0]),
             fn = execFns[options.type || 'component'];
         return fn ? fn(commentList, options, conf) : {};
     }

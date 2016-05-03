@@ -84,6 +84,7 @@
                 <th>类型</th>
                 <th>描述</th>
                 <th>必选</th>
+                <th>版本</th>
             </tr>
         </thead>
         {{each el.params as param index}}
@@ -96,6 +97,7 @@
                 <i class="yo-ico glyphicon glyphicon-ok text-success"></i>
                 {{/if}}
             </td>
+            <td>{{param.version}}</td>
         </tr>
         {{/each}}
     </table>
@@ -128,6 +130,7 @@
                 <th>类型</th>
                 <th>描述</th>
                 <th>必存在</th>
+                <th>版本</th>
             </tr>
         </thead>
         {{each el.params as param index}}
@@ -140,6 +143,7 @@
                 <i class="glyphicon glyphicon-ok text-success"></i>
                 {{/if}}
             </td>
+            <td>{{param.version}}</td>
         </tr>
         {{/each}}
     </table>
