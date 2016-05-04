@@ -76,58 +76,25 @@
             {{article.content}}
         </div>
         <div class="col-md-3" role="complementary">
-            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm" style="overflow:scroll">
                 <ul class="nav docs-sidenav">
-                    {{if article.sidebarType == 'expand'}}
-                    {{each article.sidebars as m}}
-                    <li>
-                        <a href="#{{m.name | anchor}}">{{m.name}}</a>
-                        {{if m.list && m.list.length}}
-                        <ul class="nav">
-                            {{each m.list as item index}}
-                            <li>
-                                {{if item.url}}
-                                <a href="{{item.url}}">
-                                    {{item.name}}
-                                </a>
-                                {{else if item.tag}}
-                                <a href="#{{item.tag | anchor}}">
-                                    {{item.name}}
-                                </a>
-                                {{else if item.api}}
-                                <a href="#{{item.name | anchor}}">
-                                    {{item.name}}
-                                </a>
-                                {{else}}
-                                <a href="#{{m.name | anchor}}-{{item.name | anchor}}">
-                                    {{item.name}}
-                                </a>
-                                {{/if}}
-                            </li>
-                            {{/each}}
-                        </ul>
-                        {{/if}}
-                    </li>
-                    {{/each}}
-                    {{else}}
                     {{each article.sidebars as m index}}
                     {{if m.sub}}
                     {{if index > 0 && !article.sidebars[index - 1].sub}}
                     <ul class="nav" style="display:block">
                     {{/if}}
                         <li>
-                            <a href="{{m.url || ('#' + m.name)}}">{{m.name}}</a>
+                            <a href="{{m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
                         </li>
                     {{if index < article.sidebars.length - 1 && !article.sidebars[index + 1].sub}}
                     </ul>
                     {{/if}}
                     {{else}}
                     <li>
-                        <a href="{{m.url || ('#' + m.name)}}" {{if article.name == m.name}}style="color:#0088a4"{{/if}}>{{m.name}}</a>
+                        <a href="{{m.tag || m.url || ('#' + m.name)}}" {{if article.name == m.name}}style="color:#0088a4"{{/if}}>{{m.name}}</a>
                     </li>
                     {{/if}}
                     {{/each}}
-                    {{/if}}
                 </ul>
             </nav>
         </div>
@@ -165,7 +132,7 @@
         </div>
         {{if article.sidebars}}
         <div class="col-md-3" role="complementary">
-            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm" style="overflow:scroll">
                 <ul class="nav docs-sidenav">
                     {{each article.sidebars as m index}}
                     {{if m.sub}}
@@ -173,14 +140,14 @@
                     <ul class="nav" style="display:block">
                     {{/if}}
                         <li>
-                            <a href="{{m.url || ('#' + m.name)}}">{{m.name}}</a>
+                            <a href="{{m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
                         </li>
                     {{if index < article.sidebars.length - 1 && !article.sidebars[index + 1].sub}}
                     </ul>
                     {{/if}}
                     {{else}}
                     <li>
-                        <a href="{{m.url || ('#' + m.name)}}">{{m.name}}</a>
+                        <a href="{{m.tag || m.url || ('#' + m.name)}}}">{{m.name}}</a>
                     </li>
                     {{/if}}
                     {{/each}}
@@ -218,6 +185,39 @@
                     try {
                         hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
                     } catch(e) {}
+                }
+            }
+        });
+
+        var winHeight = $(window).height() - 40;
+
+        $('.docs-sidebar').height(winHeight);
+
+        var activeMenu,
+            sidebar = $('.docs-sidebar'),
+            barScroll = false;
+
+        sidebar.on('mouseover', function() {
+            barScroll = true;
+        });
+
+        sidebar.on('mouseout', function() {
+            barScroll = false;
+        });
+
+        $(window).on('scroll', function(e) {
+            if (!barScroll) {
+                var activeItem = $('.docs-sidebar li.active a');
+                if (activeItem.length) {
+                    if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+                        activeMenu = activeItem;
+                        var top = activeMenu.offset().top - sidebar.offset().top;
+                        if (top < 0) {
+                            sidebar.scrollTop(sidebar.scrollTop() + top);
+                        } else if (top > winHeight - 30) {
+                            sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+                        }
+                    }
                 }
             }
         });

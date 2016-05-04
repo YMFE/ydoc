@@ -58,7 +58,7 @@ function doParser(cwd, filePath, compile, options, conf, codeRender) {
                         title: conf.name + ' : ' + fp,
                         footer: conf.footer,
                         sourceDir: sysPath.relative(dp, sysPath.join(conf.dist, 'source')),
-                        type: parser.type,
+                        type: parser.highlight || parser.type,
                         content: content
                     }), 'UTF-8');
                 }
