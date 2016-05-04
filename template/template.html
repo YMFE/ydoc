@@ -72,6 +72,7 @@
     {{if article.sidebars}}
     <div class="row">
         <div class="col-md-9 markdown-body" role="main">
+            {{if intro}}{{intro}}{{/if}}
             {{article.content}}
         </div>
         <div class="col-md-3" role="complementary">
@@ -134,6 +135,7 @@
     {{else}}
     <div id="readme">
         <article class="markdown-body">
+            {{if intro}}{{intro}}{{/if}}
             {{article.content}}
         </article>
     </div>
@@ -141,6 +143,7 @@
     {{else if article.type == 'block'}}
     <div class="row">
         <div class="col-md-9" role="main">
+            {{if intro}}{{intro}}{{/if}}
             {{each article.blocks as c index}}
             {{if c.type == 'html'}}
             <div class="docs-section">

@@ -106,6 +106,12 @@ module.exports = function(cwd, conf) {
                 }
             });
             data.banner = page.banner;
+            if (page.intro) {
+                var introPath = sysPath.join(cwd, page.intro);
+                if (fs.existsSync(introPath)) {
+                    data.intro = marked(fs.readFileSync(introPath, 'UTF-8'));
+                }
+            }
             if (page.content) {
                 if (page.content.multi) {
                     var navs = page.content.pages.map(function(p) {
