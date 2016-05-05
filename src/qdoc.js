@@ -32,16 +32,19 @@ function execTemplate(distPath, tplPath, callback) {
 }
 
 module.exports = {
+    actions: actions,
     init: actions.init,
     build: function(cwd, conf, opt) {
-        var distPath = sysPath.join(cwd, conf.dist || '_docs'),
-            tplPath = conf.template ? sysPath.join(cwd, conf.template) : templatePath;
+        var template = opt.template || conf.template,
+            distPath = sysPath.join(cwd, conf.dist || '_docs'),
+            tplPath = template ? sysPath.join(cwd, template) : templatePath;
 
         execTemplate(distPath, tplPath, function(content, codeContent) {
             conf.dist = distPath;
             conf.templateContent = content;
             conf.codeTemplateContent = codeContent;
             actions.build(cwd, conf, content);
+            console.log('√ Complete!'.green);
             if (opt.watch) {
                 console.log('√ Start Watching .......'.green);
                 watch.watchTree(cwd, {
@@ -54,6 +57,5 @@ module.exports = {
                 });
             }
         });
-    },
-    server: actions.serve
+    }
 };

@@ -186,3 +186,12 @@ module.exports = function(cwd, conf) {
         });
     }
 };
+
+module.exports.usage = '构建文档';
+
+module.exports.setOptions = function(optimist) {
+    optimist.alias('t', 'template');
+    optimist.describe('t', '模板路径');
+    optimist.alias('w', 'watch');
+    optimist.describe('w', '监控文件更改，自动编译');
+};
