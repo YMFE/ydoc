@@ -10,6 +10,7 @@
     <script type="text/javascript" src="{{sourceDir}}/shBrush-{{type}}.js"></script>
     <style>
         .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+        .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
     </style>
 </head>
 <body style="background: white; font-family: Helvetica">
@@ -38,10 +39,17 @@
 <script type="text/javascript">
     SyntaxHighlighter.all();
 
+    function getTop(node){
+        return node.offsetTop + (node.offsetParent ? getTop(node.offsetParent) : 0);
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             try {
-                document.body.scrollTop = document.querySelectorAll('div.line')[parseInt(location.hash.replace(/#/g, '')) || 0].offsetTop;
+                var lineNum = (parseInt(location.hash.replace(/#/g, '')) - 1) || 0,
+                    node = document.querySelectorAll('div.line')[lineNum];
+                document.body.scrollTop = getTop(node);
+                node.className += ' highlight';
             } catch(e) {}
         }, 500);
     }, false);
