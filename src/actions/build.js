@@ -122,9 +122,18 @@ module.exports = function(cwd, conf) {
                             url: page.name + '-' + p.name + '.html'
                         };
                     });
-                    page.content.pages.forEach(function(p) {
+                    page.content.pages.forEach(function(p, index) {
+                        var curNavs = navs.slice(0);
                         data.article = doParser(cwd, p.content, p.ignore, p.compile, p.options, conf, codeRender);
-                        data.article.sidebars = navs;
+                        if (data.article.menus) {
+                            curNavs.splice.apply(curNavs, [index + 1, 0].concat(data.article.menus.map(function(text) {
+                                return {
+                                    name: text,
+                                    sub: true
+                                };
+                            })));
+                        }
+                        data.article.sidebars = curNavs;
                         data.article.name = p.name;
                         fs.writeFileSync(sysPath.join(conf.dist, page.name + '-' + p.name + '.html'), render(data));
                     });
@@ -144,6 +153,14 @@ module.exports = function(cwd, conf) {
                         }
                         if (typeof block.content == 'string') {
                             var ret = doParser(cwd, block.content, block.ignore, block.compile, block.options, conf, codeRender);
+                            if (block.name && !block.sub && ret.menus) {
+                                ret.menus.forEach(function(text) {
+                                    navs.push({
+                                        name: text,
+                                        sub: true
+                                    });
+                                });
+                            }
                             ret.name = block.name;
                             ret.sub = block.sub || false;
                             blocks.push(ret);
