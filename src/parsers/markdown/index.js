@@ -3,7 +3,7 @@ var marked = require('marked');
 
 function parser(contents, options) {
     var renderer = new marked.Renderer(),
-        menuLevel = options.menuLevel || 2,
+        menuLevel = options.menuLevel || -1,
         menus = [];
 
     renderer.heading = function(text, level) {
