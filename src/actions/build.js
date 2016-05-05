@@ -22,7 +22,7 @@ artTemplate.helper('txt', function(html) {
     return html ? html.replace(/\<\/?[^\>]*\>/g, '') : '';
 });
 
-function doParser(cwd, filePath, compile, options, conf, codeRender) {
+function doParser(cwd, filePath, ignore, compile, options, conf, codeRender) {
     var extName = sysPath.extname(filePath),
         parser;
     if (compile) {
@@ -42,7 +42,8 @@ function doParser(cwd, filePath, compile, options, conf, codeRender) {
     }
     if (parser) {
         var files = glob.sync(filePath, {
-                cwd: cwd
+                cwd: cwd,
+                ignore: ignore || []
             }),
             options = Object.assign({
                 files: files
@@ -122,15 +123,15 @@ module.exports = function(cwd, conf) {
                         };
                     });
                     page.content.pages.forEach(function(p) {
-                        data.article = doParser(cwd, p.content, p.compile, p.options, conf, codeRender);
+                        data.article = doParser(cwd, p.content, p.ignore, p.compile, p.options, conf, codeRender);
                         data.article.sidebars = navs;
                         data.article.name = p.name;
                         fs.writeFileSync(sysPath.join(conf.dist, page.name + '-' + p.name + '.html'), render(data));
                     });
-                    data.article = doParser(cwd, page.content.index, page.indexCompile, page.content.indexOptions, conf, codeRender);
+                    data.article = doParser(cwd, page.content.index, page.indexIngore, page.indexCompile, page.content.indexOptions, conf, codeRender);
                     data.article.sidebars = navs;
                 } else if (typeof page.content == 'string') {
-                    data.article = doParser(cwd, page.content, page.compile, page.options, conf, codeRender);
+                    data.article = doParser(cwd, page.content, page.ignore, page.compile, page.options, conf, codeRender);
                 } else if (page.content.type == 'blocks') {
                     var navs = [],
                         blocks = [];
@@ -142,7 +143,7 @@ module.exports = function(cwd, conf) {
                             });
                         }
                         if (typeof block.content == 'string') {
-                            var ret = doParser(cwd, block.content, block.compile, block.options, conf, codeRender);
+                            var ret = doParser(cwd, block.content, block.ignore, block.compile, block.options, conf, codeRender);
                             ret.name = block.name;
                             ret.sub = block.sub || false;
                             blocks.push(ret);

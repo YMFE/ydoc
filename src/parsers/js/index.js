@@ -21,30 +21,34 @@ function getCommentType(comment, commentKeywords) {
 }
 
 var execFns = {
-    'component': function(commentList, options, conf) {
+    'component': function(contents, options, conf) {
         var ret = {
             props: [],
             methods: []
-        };
-        commentList.forEach(function(comment) {
-            switch (getCommentType(comment, componentKeywords)) {
-                case 'component':
-                    ret = Object.assign(ret, analyseComment(comment, options.files[0].substring(1), conf, options.format && formatter))
-                    break;
-                case 'property':
-                    ret.props.push(analyseComment(comment, options.files[0].substring(1), conf, options.format && formatter));
-                    break;
-                case 'method':
-                    ret.methods.push(analyseComment(comment, options.files[0].substring(1), conf, options.format && formatter));
-                    break;
-            }
+        },
+        fm = options.format && formatter
+        contents.forEach(function(commentList, index) {
+            var filePath = options.files[index].substring(1);
+            commentList.forEach(function(comment) {
+                switch (getCommentType(comment, componentKeywords)) {
+                    case 'component':
+                        ret = Object.assign(ret, analyseComment(comment, filePath, conf, fm));
+                        break;
+                    case 'property':
+                        ret.props.push(analyseComment(comment, filePath, conf, fm));
+                        break;
+                    case 'method':
+                        ret.methods.push(analyseComment(comment, filePath, conf, fm));
+                        break;
+                };
+            });
         });
         return {
             type: 'html',
             content: artTemplate.compile(componentTPL)(ret)
         };
     },
-    'lib': function(commentList, options, conf) {
+    'lib': function(contents, options, conf) {
         var ret = {
             type: 'html',
             content: '',
@@ -59,7 +63,7 @@ var execFns = {
             contentMapping[category] = [];
         });
 
-        if (commentList.length) {
+        contents.forEach(function(commentList, index) {
             commentList.forEach(function(comment) {
                 var description = comment.description,
                     tags = comment.tags;
@@ -69,7 +73,7 @@ var execFns = {
                     });
                     if (typeItem.length > 0) {
                         typeItem = typeItem[0];
-                        var info = analyseComment(comment, options.files[0].substring(1), conf, options.format && formatter);
+                        var info = analyseComment(comment, options.files[index].substring(1), conf, options.format && formatter);
                         info['class'] = typeItem.tag;
                         info.id = typeItem.name;
                         info.name = typeItem.name.substring(typeItem.name.lastIndexOf('.') + 1);
@@ -101,7 +105,7 @@ var execFns = {
                     }
                 }
             });
-        }
+        });
 
         categories.forEach(function(category) {
             content.push({
@@ -126,7 +130,6 @@ var execFns = {
 
         ret.content = artTemplate.compile(libTPL)({
             linkSource: options.source,
-            path: options.files[0].substring(1),
             list: content
         });
 
@@ -138,8 +141,9 @@ module.exports = {
     type: "js",
     extNames: ['.js'],
     parser: function(contents, options, conf) {
-        var commentList = commentParser(contents[0]),
-            fn = execFns[options.type || 'component'];
-        return fn ? fn(commentList, options, conf) : {};
+        var fn = execFns[options.type || 'component'];
+        return fn ? fn(contents.map(function(content) {
+            return commentParser(content);
+        }), options, conf) : {};
     }
 };
