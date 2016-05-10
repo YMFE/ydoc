@@ -1,0 +1,114 @@
+<h1>
+    {{component}}
+    <small>{{_desc}}</small>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">{{version}}</span>
+</h1>
+<div class="api-content">{{description | markdown}}</div>
+{{if props.length}}
+<h2>属性</h2>
+{{each props as prop}}
+<blockquote class="api"><strong>{{prop.property}}</strong> <span>{ {{prop.type}} }</span></blockquote>
+<div class="api-content">{{prop.description | markdown}}</div>
+{{if prop.default}}
+<p class="api-content">
+    <small class="text-muted">默认值:</small> {{prop.default}}
+</p>
+{{/if}}
+{{if prop.type.toLowerCase() == 'function' && prop.params.length}}
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        {{each prop.params as param index}}
+        <tr>
+            <td>{{param.name}}</td>
+            <td>{{param.type}}</td>
+            <td>{{param.description}}</td>
+            <td>
+                {{if !param.optional}}
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> {{/if}}
+            </td>
+            <td>{{param.version}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{/if}}
+{{/each}}
+{{/if}}
+{{if methods.length}}
+<h2>方法</h2>
+{{each methods as method}}
+<blockquote class="api"><strong>{{method.method}}</strong></blockquote>
+<div class="api-content">{{method.description | markdown}}</div>
+{{if method.params.length}}
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        {{each method.params as param index}}
+        <tr>
+            <td>{{param.name}}</td>
+            <td>{{param.type}}</td>
+            <td>{{param.description}}</td>
+            <td>
+                {{if !param.optional}}
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> {{/if}}
+            </td>
+            <td>{{param.version}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{if method.returns}}
+<p class="api-content">
+    <small class="text-muted">返回值:</small>
+    <mark>{{method.returns.type}}</mark>
+    {{method.returns.name}}
+</p>
+{{/if}}
+{{/if}}
+{{/each}}
+{{/if}}
+{{if example}}
+<h2>示例</h2>
+<pre><code>{{example}}</code></pre>
+{{/if}}
+{{if demo}}
+<p>
+    <small class="text-muted">Demo地址:</small>
+    <a href="{{demo}}" target="_blank">点击访问</a>
+</p>
+{{/if}}

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QDoc 注释规则</title>
+    <link rel="stylesheet" href="source/app.css"/>
+    <link rel="stylesheet" href="source/highlight.min.css">
+</head>
+<body>
+<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+
+
+<!-- Docs master nav -->
+<header class="navbar navbar-static-top docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar MFE</a>
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Docs page layout -->
+
+<div class="docs-header" id="content" style="margin-bottom:0">
+    <div class="container">
+        <h1>QDoc</h1>
+        <p>注释规则</p>
+    </div>
+</div>
+
+<header class="navbar navbar-static-top docs-second-nav">
+    <div class="container">
+        <nav>
+            <ul class="nav navbar-nav">
+                
+                <li class="">
+                    
+                    <a href="index.html">开始</a>
+                    
+                </li>
+                
+                <li class="">
+                    
+                    <a href="usage.html">命令</a>
+                    
+                </li>
+                
+                <li class="">
+                    
+                    <a href="config.html">配置</a>
+                    
+                </li>
+                
+                <li class="active">
+                    
+                    <a href="comment.html">注释规则</a>
+                    
+                </li>
+                
+                <li class="">
+                    
+                    <a href="release.html">版本</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="container docs-container">
+    
+    <div class="row">
+        <div class="col-md-9" role="main">
+
+            
+            <div class="markdown-body"><p>对于代码，解析器会根据注释内容提取出相应信息，形成文档页面。</p>
+<p>现在支持的注释形式如下：</p>
+<ul>
+<li><a href="#JS-Library">JS Library 形式</a></li>
+<li><a href="#JS-Component">JS component 形式</a></li>
+<li><a href="#CSS-Library">CSS(SASS/SCSS) Library 形式</a></li>
+</ul>
+<h4 id="-">关于参数表述内版本</h4>
+<p>可以用以下形式标识：</p>
+<ul>
+<li>从 1.0.0 开始支持： <code>{add:1.0.0}</code> 或 <code>&lt;1.0.0&gt;</code></li>
+<li>在 1.0.0 添加，2.0.0版本删除： <code>{add:1.0.0}{del:2.0.0}</code> 或 <code>&lt;1.0.0,2.0.0&gt;</code></li>
+</ul>
+</div>
+            
+            
+            
+            <div class="docs-section">
+                
+                
+                <h1 id="JS-Library" class="page-header">JS-Library</h1>
+                
+                
+                
+                <div class="markdown-body">
+                    <p>每个代码块可以用这样一个注释块。</p>
+<pre><code class="lang-js">/**
+ * 打开
+ *
+ * @method XXX.router.open
+ * @alias XXX.open
+ * @category Router
+ * @version 1.0.0
+ * @param {String} name 视图名 &lt;1.0.0&gt;
+ * @returns {Object} 东西
+ * @example
+ * XXX.open(&#39;view&#39;, {
+ *     param: {
+ *         x: 1,
+ *         y: 2
+ *     },
+ *     ani: &#39;moveEnter&#39;,
+ * });
+ * @description
+ * *open* 主要用于切换视图，类似于PC端的跳转，近似于App上的切换视图操作。
+ */
+</code></pre>
+<h4 id="参数说明">参数说明</h4><p>啪啦啪啦啪啦。。。后续有调整，所以这个说明正式版再说啦。</p>
+
+                </div>
+                
+            </div>
+            
+            
+            
+            <div class="docs-section">
+                
+                
+                <h1 id="JS-Component" class="page-header">JS-Component</h1>
+                
+                
+                
+                <div class="markdown-body">
+                    <p>每个组件的代码在一个文件内，一个包含 <code>@component</code> 标签的注释块为组件说明，数个包含 <code>@property</code> 标签的注释块为配置属性，数个包含 <code>@method</code> 标签的注释块为实例方法。</p>
+<pre><code class="lang-js">/**
+ * 滚动组件
+ *
+ * @component ScrollView
+ * @example ./Playground/js/Examples/ScrollViewExample/vertical&amp;horizontal.js[1-77]
+ * @version &gt;=0.20.0
+ * @description 一个包装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。
+ *
+ * * 记住ScrollView必须有一个确定的高度才能正常工作，因为它实际上所做的就是将一系列不确定高度的子组件装进一个确定高度的容器（通过滚动操作）。
+ * * 要给一个ScrollView确定一个高度的话，要么直接给它设置高度（不建议），要么确定所有的父容器都已经绑定了高度。
+ * * 在视图栈的任意一个位置忘记使用{flex:1}都会导致错误，你可以使用元素查看器来查找问题的原因。
+ *
+ * ![ScrollView](./images/ScrollView.png)
+ */
+
+/**
+ * 内容位移
+ *
+ * @property contentInset
+ * @type EdgeInsetsPropType
+ * @default {top: 0, left: 0, bottom: 0, right: 0}
+ * @description 内容范围相对滚动视图边缘的坐标。
+ */
+
+/**
+ * 滚动到
+ *
+ * @method scrollTo
+ * @param {PointPropType{x:x,y:y}} offset 滚动到的位置
+ * @description 滚动到某一位置，如果只在某一方向滚动，可以只传{x: x}或{y: y}。
+ */
+</code></pre>
+<h4 id="参数说明">参数说明</h4><p>同上</p>
+
+                </div>
+                
+            </div>
+            
+            
+            
+            <div class="docs-section">
+                
+                
+                <h1 id="CSS-Library" class="page-header">CSS-Library</h1>
+                
+                
+                
+                <div class="markdown-body">
+                    <p>每个代码块可以用这样一个注释块。</p>
+<pre><code class="lang-css">/**
+ * @module fragment
+ * @method yo-list
+ * @version 1.0.0
+ * @description 构造列表的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-list.html
+ * @example ./examples/fragment/yo-list.sccs[5-48]
+ * @param {Color} $on-color 子项选中文本色 {add:1.4.0}
+ * @param {Boolean} $has-last-border 是否有最后一根底边线，改由`border-width`参数控制 {add:2.1.0}{del:2.1.3}
+ * @param {Color} $item-bordercolor 子项边框色 &lt;1.2.0,2.0.0&gt;
+ * @param {Color} $item-border-color 子项边框色 &lt;2.0.0&gt;
+ * @skip
+ */
+</code></pre>
+<h4 id="标签说明">标签说明</h4><ul>
+<li><code>module</code>: 模块名（分类）</li>
+<li><code>method</code>: 方法名</li>
+<li><code>version</code>: 版本</li>
+<li><code>demo</code>: demo 地址</li>
+<li><code>example</code>: example 代码，文件路径[起始位置-结束位置] 或者直接写 源代码</li>
+<li><code>param</code>: 参数，格式为：{类型} 名称 描述</li>
+<li><code>skip</code>: 跳过此注释块</li>
+</ul>
+
+                </div>
+                
+            </div>
+            
+            
+        </div>
+        
+        <div class="col-md-3" role="complementary">
+            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm" style="overflow:scroll">
+                <ul class="nav docs-sidenav">
+                    
+                    
+                    <li>
+                        <a href="#JS-Library">JS-Library</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="#JS-Component">JS-Component</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="#CSS-Library">CSS-Library</a>
+                    </li>
+                    
+                    
+                </ul>
+            </nav>
+        </div>
+        
+    </div>
+    
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="docs-footer" role="contentinfo">
+    <div class="container">
+        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2016</p>
+    </div>
+</footer>
+
+<script src="source/jquery.min.js"></script>
+<script src="source/bootstrap.min.js"></script>
+<script src="source/docs.min.js"></script>
+<script src="source/highlight.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('code').each(function(i, block) {
+            if (block.innerHTML.indexOf('\n') != -1) {
+                var pn = block.parentNode;
+                if (pn.tagName.toUpperCase() == 'PRE') {
+                    try {
+                        hljs.highlightBlock(block);
+                    } catch(e) {}
+                } else {
+                    pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
+                    try {
+                        hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
+                    } catch(e) {}
+                }
+            }
+        });
+
+        var winHeight = $(window).height() - 40;
+
+        $('.docs-sidebar').height(winHeight);
+
+        var activeMenu,
+            sidebar = $('.docs-sidebar'),
+            barScroll = false;
+
+        sidebar.on('mouseover', function() {
+            barScroll = true;
+        });
+
+        sidebar.on('mouseout', function() {
+            barScroll = false;
+        });
+
+        $(window).on('scroll', function(e) {
+            if (!barScroll) {
+                var activeItem = $('.docs-sidebar li.active a');
+                if (activeItem.length) {
+                    if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+                        activeMenu = activeItem;
+                        var top = activeMenu.offset().top - sidebar.offset().top;
+                        if (top < 0) {
+                            sidebar.scrollTop(sidebar.scrollTop() + top);
+                        } else if (top > winHeight - 30) {
+                            sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

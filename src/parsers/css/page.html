@@ -1,0 +1,70 @@
+<div class="docs-section">
+    {{each list as cont}}
+    <h1 id="{{cont.name | anchor}}" class="page-header">{{cont.name}}</h1>
+    {{each cont.list as el index}}
+    <blockquote class="api">
+        <h3 id="{{el.name | anchor}}">
+            {{el.name}}
+        </h3>
+    </blockquote>
+    <p>
+        <small class="text-muted">描述:</small>
+        {{el.description}}
+    </p>
+    {{if el.version}}
+    <p>
+        <small class="text-muted">版本:</small>
+        {{el.version}}
+    </p>
+    {{/if}}
+    {{if linkSource}}
+    <p>
+        <small class="text-muted">源码位置:</small>
+        <a href="./static{{el._path}}.html#{{el._line}}" target="_blank">.{{el._path}}:{{el._line}}</a>
+    </p>
+    {{/if}}
+    {{if el.demo}}
+    <p>
+        <small class="text-muted">Demo地址:</small>
+        <a href="{{el.demo}}" target="_blank">点击访问</a>
+    </p>
+    {{/if}}
+    {{if el.params.length}}
+     <div class="docs-table">
+        <table class="yo-table yo-table-border">
+            <colgroup>
+                <col class="c1">
+                <col class="c2">
+                <col class="c3">
+                <col class="c4">
+            </colgroup>
+            <thead>
+                <tr class="active">
+                    <th>参数名</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                    <th>支持版本</th>
+                </tr>
+            </thead>
+            {{each el.params as param index}}
+            <tr>
+                <td>{{param.name}}</td>
+                <td>{{param.type}}</td>
+                <td>{{param.description}}</td>
+                <td>{{param.version}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    {{/if}}
+    {{if el.example}}
+    <p>
+        <small class="text-muted">示例:</small>
+    </p>
+    <p class="code">
+        <code>{{el.example}}</code>
+    </p>
+    {{/if}}
+    {{/each}}
+    {{/each}}
+</div>

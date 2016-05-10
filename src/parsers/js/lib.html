@@ -1,0 +1,161 @@
+<div class="docs-section">
+{{each list as cont}}
+<h1 id="{{cont.name | anchor}}" class="page-header">{{cont.name}} API</h1>
+{{each cont.list as el index}}
+<blockquote class="api">
+    <h3 id="{{el.id | anchor}}">
+        {{el.title}}
+        {{if el.class == 'method'}}
+        <span class="yo-badge yo-badge-primary">Method</span>
+        {{else if el.class == 'property'}}
+        <span class="yo-badge yo-badge-success">Property</span>
+        {{else if el.class == 'prototype'}}
+        <span class="yo-badge yo-badge-info">Prototype</span>
+        {{else if el.class == 'event'}}
+        <span class="yo-badge yo-badge-danger">Event</span>
+        {{else}}
+        <span class="yo-badge yo-badge-warning">Class</span>
+        {{/if}}
+        {{if el.private}}
+        <span class="yo-badge yo-badge-danger">Private</span>
+        {{/if}}
+    </h3>
+</blockquote>
+<p>
+    <small class="text-muted">描述:</small>
+    {{el._desc}}
+</p>
+{{if el.alias}}
+<p>
+    <small class="text-muted">缩略:</small>
+    {{el.alias}}
+</p>
+{{/if}}
+{{if el.class == 'property'}}
+<p>
+    <small class="text-muted">类型:</small>
+    <mark>{{el.type}}</mark>
+</p>
+{{if el.value}}
+<p>
+    <small class="text-muted">参考值:</small>
+    {{el.value}}
+</p>
+{{/if}}
+{{/if}}
+{{if linkSource}}
+<p>
+    <small class="text-muted">源码位置:</small>
+    <a href="./static{{el._path}}.html#{{el._line}}" target="_blank">.{{el._path}}:{{el._line}}</a>
+</p>
+{{/if}}
+{{if el.demo}}
+<p>
+    <small class="text-muted">Demo地址:</small>
+    <a href="{{el.demo}}" target="_blank">点击访问</a>
+</p>
+{{/if}}
+{{if el.params.length}}
+<p>
+    <small class="text-muted">参数:</small>
+</p>
+<div class="docs-table">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        {{each el.params as param index}}
+        <tr>
+            <td>{{param.name}}</td>
+            <td>{{param.type}}</td>
+            <td>{{param.description}}</td>
+            <td>
+                {{if !param.optional}}
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i>
+                {{/if}}
+            </td>
+            <td>{{param.version}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{/if}}
+{{if el.returns}}
+<p>
+    <small class="text-muted">返回值:</small>
+    <mark>{{el.returns.type}}</mark> {{el.returns.description}}
+</p>
+{{/if}}
+{{if el.class == 'event'}}
+{{if el.params.length}}
+<p>
+    <small class="text-muted">数据形式:</small>
+</p>
+
+<div class="docs-table">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>数据键值</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必存在</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        {{each el.params as param index}}
+        <tr>
+            <td>{{param.name}}</td>
+            <td>{{param.type}}</td>
+            <td>{{param.description}}</td>
+            <td>
+                {{if !param.optional}}
+                <i class="glyphicon glyphicon-ok text-success"></i>
+                {{/if}}
+            </td>
+            <td>{{param.version}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{/if}}
+{{if el.returns}}
+<p>
+    <small class="text-muted">返回值:</small>
+    <mark>{{el.returns.type}}</mark> {{el.returns.description}}
+</p>
+{{/if}}
+{{/if}}
+{{if el.example}}
+<h2>示例</h2>
+<pre><code>{{el.example}}</code></pre>
+{{/if}}
+{{if el.description}}
+<p>
+    <small class="text-muted">额外说明:</small>
+</p>
+<blockquote>
+    {{el.description | markdown}}
+</blockquote>
+{{/if}}
+{{/each}}
+{{/each}}
+</div>
