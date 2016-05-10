@@ -138,7 +138,7 @@ module.exports = function(cwd, conf) {
                     data.article.sidebars = navs;
                 } else if (typeof page.content == 'string') {
                     data.article = doParser(cwd, page.content, page.ignore, page.compile, page.options, conf, codeRender);
-                    if (data.article.menus.length && !data.article.sidebars) {
+                    if (data.article.menus && data.article.menus.length && !data.article.sidebars) {
                         data.article.sidebars = data.article.menus;
                     }
                 } else {

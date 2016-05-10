@@ -110,7 +110,10 @@
     {{else if article.type == 'block'}}
     <div class="row">
         <div class="col-md-9" role="main">
-            {{if intro}}{{intro}}{{/if}}
+
+            {{if intro}}
+            <div class="markdown-body">{{intro}}</div>
+            {{/if}}
             {{each article.blocks as c index}}
             {{if c.type == 'html'}}
             <div class="docs-section">

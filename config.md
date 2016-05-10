@@ -86,13 +86,14 @@ module.exports = function(callback) {
             "description": "开始"
         },
         "content": "./README.md",  // 内容
-        "compile": "markdown", // 编译器，如果内容有固定的扩展名，此项可忽略
+        "compile": "markdown", // 解析器，如果内容有固定的扩展名，此项可忽略
         "options": { // 此 Page 用的编译器的配置
             "menuLevel": 2
         }
     }, {
         "name": "hybird",
         "title": "混合开发",
+        "intro": "document/README.md", // 介绍
         "content": { // 单页多模块配置
             "sidebar": true, // 是否显示侧边目录
             "blocks": [{
@@ -129,7 +130,7 @@ module.exports = function(callback) {
 }
 ```
 
-### 编译器配置
+### 解析器配置
 
 #### js
 

@@ -67,6 +67,12 @@
                 
                 <li class="">
                     
+                    <a href="comment.html">注释规则</a>
+                    
+                </li>
+                
+                <li class="">
+                    
                     <a href="release.html">版本</a>
                     
                 </li>
@@ -144,13 +150,14 @@
             &quot;description&quot;: &quot;开始&quot;
         },
         &quot;content&quot;: &quot;./README.md&quot;,  // 内容
-        &quot;compile&quot;: &quot;markdown&quot;, // 编译器，如果内容有固定的扩展名，此项可忽略
+        &quot;compile&quot;: &quot;markdown&quot;, // 解析器，如果内容有固定的扩展名，此项可忽略
         &quot;options&quot;: { // 此 Page 用的编译器的配置
             &quot;menuLevel&quot;: 2
         }
     }, {
         &quot;name&quot;: &quot;hybird&quot;,
         &quot;title&quot;: &quot;混合开发&quot;,
+        &quot;intro&quot;: &quot;document/README.md&quot;, // 介绍
         &quot;content&quot;: { // 单页多模块配置
             &quot;sidebar&quot;: true, // 是否显示侧边目录
             &quot;blocks&quot;: [{
@@ -186,7 +193,7 @@
     }]
 }
 </code></pre>
-<h3 id="编译器配置">编译器配置</h3><h4 id="js">js</h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code></p>
+<h3 id="解析器配置">解析器配置</h3><h4 id="js">js</h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code></p>
 <pre><code class="lang-json">{
     &quot;type&quot;: &quot;component&quot;, // 类型，可选 component 和 lib，默认 component
     &quot;source&quot;: false // 是否生成源文件预览，默认 false
@@ -254,7 +261,7 @@
                     
                     
                         <li>
-                            <a href="#编译器配置">编译器配置</a>
+                            <a href="#解析器配置">解析器配置</a>
                         </li>
                     
                     

@@ -49,6 +49,12 @@
     <a href="./static{{el._path}}.html#{{el._line}}" target="_blank">.{{el._path}}:{{el._line}}</a>
 </p>
 {{/if}}
+{{if el.demo}}
+<p>
+    <small class="text-muted">Demo地址:</small>
+    <a href="{{el.demo}}" target="_blank">点击访问</a>
+</p>
+{{/if}}
 {{if el.params.length}}
 <p>
     <small class="text-muted">参数:</small>
