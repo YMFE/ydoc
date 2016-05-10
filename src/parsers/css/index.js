@@ -34,6 +34,7 @@ module.exports = {
         });
 
         rs = {
+            linkSource: options.source,
             list: groupList.map(function(group) {
                 sidebars.push({
                     name: group,

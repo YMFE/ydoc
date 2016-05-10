@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QDoc 开始</title>
+    <link rel="stylesheet" href="source/app.css"/>
+    <link rel="stylesheet" href="source/highlight.min.css">
+</head>
+<body>
+<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+
+
+<!-- Docs master nav -->
+<header class="navbar navbar-static-top docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar MFE</a>
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Docs page layout -->
+
+<div class="docs-header" id="content" style="margin-bottom:0">
+    <div class="container">
+        <h1>QDoc</h1>
+        <p>开始</p>
+    </div>
+</div>
+
+<header class="navbar navbar-static-top docs-second-nav">
+    <div class="container">
+        <nav>
+            <ul class="nav navbar-nav">
+                
+                <li class="active">
+                    
+                    <a href="index.html">开始</a>
+                    
+                </li>
+                
+                <li class="">
+                    
+                    <a href="usage.html">命令</a>
+                    
+                </li>
+                
+                <li class="">
+                    
+                    <a href="config.html">配置</a>
+                    
+                </li>
+                
+                <li class="">
+                    
+                    <a href="release.html">版本</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="container docs-container">
+    
+    
+    <div class="row">
+        <div class="col-md-9 markdown-body" role="main">
+            
+            <h1 id="QDoc">QDoc</h1><h2 id="简介">简介</h2><p>前端工程文档生成工具</p>
+<p><a href="http://badge.fury.io/js/q-doc"><img src="https://badge.fury.io/js/q-doc.svg" alt="npm version"></a></p>
+<p><img src="https://nodei.co/npm/q-doc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt=""></p>
+<h2 id="安装">安装</h2><pre><code>npm install q-doc [-g]
+</code></pre><h2 id="使用方式">使用方式</h2><h3 id="命令">命令</h3><pre><code>cd /path/to/project/
+qdoc build
+</code></pre><p>详细请查看<a href="./usage.html">命令使用说明</a>。</p>
+<h3 id="脚本">脚本</h3><pre><code class="lang-javascript">var qdoc = require(&quot;q-doc&quot;);
+
+qdoc.build(&#39;/path/to/project&#39;, options);
+</code></pre>
+<h3 id="Gulp">Gulp</h3><pre><code class="lang-javascript">var qdoc = require(&quot;q-doc&quot;);
+
+gulp.task(&#39;qdoc&#39;, function() {
+    return gulp.src(&#39;./&#39;)
+        .pipe(qdoc({
+            // 配置
+        }));
+});
+</code></pre>
+<h3 id="Grunt">Grunt</h3><pre><code class="lang-javascript">grunt.initConfig({
+    qdoc: {
+        // 配置
+    }
+});
+
+grunt.loadNpmTasks(&#39;q-doc&#39;);
+</code></pre>
+<p>配置及配置文件请查看 <a href="./config.html">配置说明</a>;</p>
+<h2 id="开发者">开发者</h2><p>林洋 <a href="&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#97;&#x64;&#119;&#x6f;&#110;&#x2e;&#108;&#x69;&#x6e;&#64;&#113;&#117;&#110;&#97;&#114;&#x2e;&#x63;&#x6f;&#x6d;">&#97;&#x64;&#119;&#x6f;&#110;&#x2e;&#108;&#x69;&#x6e;&#64;&#113;&#117;&#110;&#97;&#114;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+
+        </div>
+        <div class="col-md-3" role="complementary">
+            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm" style="overflow:scroll">
+                <ul class="nav docs-sidenav">
+                    
+                    
+                    <li>
+                        <a href="#简介" >简介</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="#安装" >安装</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="#使用方式" >使用方式</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <ul class="nav" style="display:block">
+                    
+                        <li>
+                            <a href="#命令">命令</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#脚本">脚本</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#Gulp">Gulp</a>
+                        </li>
+                    
+                    
+                    
+                    
+                    
+                        <li>
+                            <a href="#Grunt">Grunt</a>
+                        </li>
+                    
+                    </ul>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="#开发者" >开发者</a>
+                    </li>
+                    
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="docs-footer" role="contentinfo">
+    <div class="container">
+        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2016</p>
+    </div>
+</footer>
+
+<script src="source/jquery.min.js"></script>
+<script src="source/bootstrap.min.js"></script>
+<script src="source/docs.min.js"></script>
+<script src="source/highlight.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('code').each(function(i, block) {
+            if (block.innerHTML.indexOf('\n') != -1) {
+                var pn = block.parentNode;
+                if (pn.tagName.toUpperCase() == 'PRE') {
+                    try {
+                        hljs.highlightBlock(block);
+                    } catch(e) {}
+                } else {
+                    pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
+                    try {
+                        hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
+                    } catch(e) {}
+                }
+            }
+        });
+
+        var winHeight = $(window).height() - 40;
+
+        $('.docs-sidebar').height(winHeight);
+
+        var activeMenu,
+            sidebar = $('.docs-sidebar'),
+            barScroll = false;
+
+        sidebar.on('mouseover', function() {
+            barScroll = true;
+        });
+
+        sidebar.on('mouseout', function() {
+            barScroll = false;
+        });
+
+        $(window).on('scroll', function(e) {
+            if (!barScroll) {
+                var activeItem = $('.docs-sidebar li.active a');
+                if (activeItem.length) {
+                    if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+                        activeMenu = activeItem;
+                        var top = activeMenu.offset().top - sidebar.offset().top;
+                        if (top < 0) {
+                            sidebar.scrollTop(sidebar.scrollTop() + top);
+                        } else if (top > winHeight - 30) {
+                            sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -48,7 +48,8 @@ var cli = module.exports = {
                     if (conf) {
                         qdoc.build(cwd, conf, {
                             watch: argv.w || argv.watch,
-                            template: argv.t || argv.template
+                            template: argv.t || argv.template,
+                            dest: argv.o || argv.output
                         });
                     } else {
                         console.log('配置文件读取失败！'.red);

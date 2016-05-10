@@ -53,12 +53,12 @@ function doParser(cwd, filePath, ignore, compile, options, conf, codeRender) {
             var contents = files.map(function(fp) {
                 var content = fs.readFileSync(sysPath.join(cwd, fp), 'UTF-8');
                 if (options.source) {
-                    var dp = sysPath.join(conf.dist, 'static', sysPath.dirname(fp));
+                    var dp = sysPath.join(conf.dest, 'static', sysPath.dirname(fp));
                     mkdirp.sync(dp);
                     fs.writeFileSync(sysPath.join(dp, sysPath.basename(fp) + '.html'), codeRender({
                         title: conf.name + ' : ' + fp,
                         footer: conf.footer,
-                        sourceDir: sysPath.relative(dp, sysPath.join(conf.dist, 'source')),
+                        sourceDir: sysPath.relative(dp, sysPath.join(conf.dest, 'source')),
                         type: parser.highlight || parser.type,
                         content: content
                     }), 'UTF-8');
@@ -126,22 +126,22 @@ module.exports = function(cwd, conf) {
                         var curNavs = navs.slice(0);
                         data.article = doParser(cwd, p.content, p.ignore, p.compile, p.options, conf, codeRender);
                         if (data.article.menus) {
-                            curNavs.splice.apply(curNavs, [index + 1, 0].concat(data.article.menus.map(function(text) {
-                                return {
-                                    name: text,
-                                    sub: true
-                                };
+                            curNavs.splice.apply(curNavs, [index + 1, 0].concat(data.article.menus.filter(function(item) {
+                                return !item.sub;
                             })));
                         }
                         data.article.sidebars = curNavs;
                         data.article.name = p.name;
-                        fs.writeFileSync(sysPath.join(conf.dist, page.name + '-' + p.name + '.html'), render(data));
+                        fs.writeFileSync(sysPath.join(conf.dest, page.name + '-' + p.name + '.html'), render(data));
                     });
                     data.article = doParser(cwd, page.content.index, page.indexIngore, page.indexCompile, page.content.indexOptions, conf, codeRender);
                     data.article.sidebars = navs;
                 } else if (typeof page.content == 'string') {
                     data.article = doParser(cwd, page.content, page.ignore, page.compile, page.options, conf, codeRender);
-                } else if (page.content.type == 'blocks') {
+                    if (data.article.menus.length && !data.article.sidebars) {
+                        data.article.sidebars = data.article.menus;
+                    }
+                } else {
                     var navs = [],
                         blocks = [];
                     page.content.blocks.forEach(function(block) {
@@ -154,11 +154,13 @@ module.exports = function(cwd, conf) {
                         if (typeof block.content == 'string') {
                             var ret = doParser(cwd, block.content, block.ignore, block.compile, block.options, conf, codeRender);
                             if (block.name && !block.sub && ret.menus) {
-                                ret.menus.forEach(function(text) {
-                                    navs.push({
-                                        name: text,
-                                        sub: true
-                                    });
+                                ret.menus.forEach(function(item) {
+                                    if (!item.sub) {
+                                        navs.push({
+                                            name: text,
+                                            sub: true
+                                        });
+                                    }
                                 });
                             }
                             ret.name = block.name;
@@ -181,7 +183,7 @@ module.exports = function(cwd, conf) {
                     }
                     data.article.blocks = blocks;
                 }
-                fs.writeFileSync(sysPath.join(conf.dist, page.name + '.html'), render(data));
+                fs.writeFileSync(sysPath.join(conf.dest, page.name + '.html'), render(data));
             }
         });
     }
@@ -194,4 +196,6 @@ module.exports.setOptions = function(optimist) {
     optimist.describe('t', '模板路径');
     optimist.alias('w', 'watch');
     optimist.describe('w', '监控文件更改，自动编译');
+    optimist.alias('o', 'output');
+    optimist.describe('o', '监控文件更改，自动编译');
 };

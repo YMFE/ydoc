@@ -1,5 +1,6 @@
-var fs = require('fs');
-    sysPath = require('path');
+var fs = require('fs'),
+    sysPath = require('path'),
+    JSON5 = require('json5');
 
 module.exports = function(cwd, callback) {
     var confPath = sysPath.join(cwd, 'qdoc.config'),

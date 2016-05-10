@@ -17,10 +17,12 @@
         {{el.version}}
     </p>
     {{/if}}
+    {{if linkSource}}
     <p>
         <small class="text-muted">源码位置:</small>
         <a href="./static{{el._path}}.html#{{el._line}}" target="_blank">.{{el._path}}:{{el._line}}</a>
     </p>
+    {{/if}}
     {{if el.params.length}}
      <div class="docs-table">
         <table class="yo-table yo-table-border">

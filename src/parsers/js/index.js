@@ -139,7 +139,7 @@ var execFns = {
 
 module.exports = {
     type: "js",
-    extNames: ['.js'],
+    extNames: ['.js', '.jsx'],
     parser: function(contents, options, conf) {
         var fn = execFns[options.type || 'component'];
         return fn ? fn(contents.map(function(content) {

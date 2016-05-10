@@ -10,11 +10,11 @@ var loadConfig = require('./utils/loadConfig.js');
 
 var templatePath = sysPath.join(__dirname, '../template');
 
-function execTemplate(distPath, tplPath, callback) {
-    if (!fs.existsSync(distPath)) {
-        fs.mkdirSync(distPath);
+function execTemplate(destPath, tplPath, callback) {
+    if (!fs.existsSync(destPath)) {
+        fs.mkdirSync(destPath);
     }
-    cpr(sysPath.join(tplPath, 'source'), sysPath.join(distPath, 'source'), {
+    cpr(sysPath.join(tplPath, 'source'), sysPath.join(destPath, 'source'), {
         deleteFirst: true,
         overwrite: true,
         confirm: false
@@ -51,11 +51,12 @@ qdoc.init = actions.init;
 qdoc.build = function(cwd, conf, opt) {
     opt = opt || {};
     var template = opt.template || conf.template,
-        distPath = sysPath.join(cwd, conf.dist || '_docs'),
+        rDest = opt.dest || conf.dest || '_docs',
+        destPath = sysPath.join(cwd, rDest),
         tplPath = template ? sysPath.join(cwd, template) : templatePath;
 
-    execTemplate(distPath, tplPath, function(content, codeContent) {
-        conf.dist = distPath;
+    execTemplate(destPath, tplPath, function(content, codeContent) {
+        conf.dest = destPath;
         conf.templateContent = content;
         conf.codeTemplateContent = codeContent;
         actions.build(cwd, conf, content);
@@ -63,7 +64,7 @@ qdoc.build = function(cwd, conf, opt) {
         if (opt.watch) {
             console.log('√ Start Watching .......'.green);
             watch.watchTree(cwd, {
-                ignoreDirectoryPattern: new RegExp(conf.dist || '_docs')
+                ignoreDirectoryPattern: new RegExp(rDest)
             }, function() {
                 console.log('-> Building .......'.gray);
                 actions.build(cwd, conf, content);

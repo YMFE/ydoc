@@ -1,6 +1,6 @@
 {
   "name": "q-doc",
-  "version": "1.0.0-alpha4",
+  "version": "1.0.0-beta",
   "main": "src/qdoc.js",
   "bin": {
     "qdoc": "bin/qdoc"
