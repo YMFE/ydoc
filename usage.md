@@ -22,6 +22,8 @@
 
 ## 初始化命令
 
-> qdoc init
+> qdoc init [-t templatePath]
 
-初始项目，创建配置文件
+初始项目，创建配置文件或自定义模板(-t)
+
+* `-t|--template`: 参数为自定义模板路径

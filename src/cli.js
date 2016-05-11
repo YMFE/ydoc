@@ -56,7 +56,9 @@ var cli = module.exports = {
                     }
                 })
             } else if (cmd == 'init') {
-                qdoc.init(cwd);
+                qdoc.init(cwd, {
+                    template: argv.t || argv.template
+                });
             }
 
         } else {
