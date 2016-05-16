@@ -19,9 +19,9 @@ function readTag(tag) {
         }).replace(/\{del\:\s*(\d+\.\d+\.\d+)\s*\}/g, function(a, b) {
             maxVersion = b;
             return '';
-        }).replace(/\<\s*(\d+\.\d+\.\d+)\s*\,\s*(\d+\.\d+\.\d+)\s*\>/g, function(a, b, c) {
+        }).replace(/\<\s*(\d+\.\d+\.\d+)\s*(\,\s*(\d+\.\d+\.\d+|\*)\s*)?\>/g, function(a, b, c, d) {
             minVersion = b;
-            maxVersion = c;
+            maxVersion = d != '*' && d;
             return '';
         }),
         version: minVersion + (maxVersion && (' <del>' + maxVersion + '</del>'))
