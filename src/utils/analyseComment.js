@@ -24,7 +24,7 @@ function readTag(tag) {
             maxVersion = d != '*' && d;
             return '';
         }),
-        version: minVersion + (maxVersion && (' <del>' + maxVersion + '</del>'))
+        version: minVersion + (maxVersion && (' <del>' + maxVersion + '</del>')) || ''
     };
 
     if (maxVersion) {
