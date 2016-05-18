@@ -203,5 +203,5 @@ module.exports.setOptions = function(optimist) {
     optimist.alias('w', 'watch');
     optimist.describe('w', '监控文件更改，自动编译');
     optimist.alias('o', 'output');
-    optimist.describe('o', '监控文件更改，自动编译');
+    optimist.describe('o', '指定输出目录');
 };
