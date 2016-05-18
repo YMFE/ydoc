@@ -53,13 +53,24 @@ qdoc.build = function(cwd, conf, opt) {
     var template = opt.template || conf.template,
         rDest = opt.dest || conf.dest || '_docs',
         destPath = sysPath.join(cwd, rDest),
-        tplPath = template ? sysPath.join(cwd, template) : templatePath;
+        tplPath = template ? sysPath.join(cwd, template) : templatePath,
+        buildPages = opt.page;
+
+    if (!buildPages || buildPages == true) {
+        buildPages = [];
+    } else {
+        buildPages = buildPages.split(',').map(function(page) {
+            return page.trim();
+        });
+    }
+
+    conf.buildPages = buildPages;
 
     execTemplate(destPath, tplPath, function(content, codeContent) {
         conf.dest = destPath;
         conf.templateContent = content;
         conf.codeTemplateContent = codeContent;
-        actions.build(cwd, conf, content);
+        actions.build(cwd, conf);
         console.log('√ Complete!'.green);
         if (opt.watch) {
             console.log('√ Start Watching .......'.green);

@@ -21,16 +21,28 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            {{if home}}
             <a href="{{homeUrl}}" class="navbar-brand">{{home}}</a>
+            {{/if}}
         </div>
         <nav id="bs-navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                {{if navbars}}
+            <ul class="nav navbar-nav {{if navbars && navbars.length}}navbar-right{{else}}navbar-left{{/if}}">
+                {{if navbars && navbars.length}}
                 {{each navbars as navbar}}
                 <li class="{{if navbar.active}}active{{/if}}">
                     <a href="{{navbar.url}}" target="">{{navbar.name}}</a>
                 </li>
                 {{/each}}
+                {{else}}
+                    {{each tabs as tab}}
+                    <li class="{{if tab.active}}active{{/if}}">
+                        {{if tab.url}}
+                        <a href="{{tab.url}}" target="_blank">{{tab.title}}</a>
+                        {{else}}
+                        <a href="{{tab.name}}.html">{{tab.title}}</a>
+                        {{/if}}
+                    </li>
+                    {{/each}}
                 {{/if}}
             </ul>
         </nav>
@@ -48,6 +60,8 @@
 {{else}}
 <hr style="margin: 0"/>
 {{/if}}
+
+{{if navbars && navbars.length}}
 <header class="navbar navbar-static-top docs-second-nav">
     <div class="container">
         <nav>
@@ -65,7 +79,9 @@
         </nav>
     </div>
 </header>
-
+{{else}}
+<header style="height:20px"></header>
+{{/if}}
 
 <div class="container docs-container">
     {{if article.type == 'html'}}
@@ -194,7 +210,7 @@
 
         var winHeight = $(window).height() - 40;
 
-        $('.docs-sidebar').height(winHeight);
+        $('.docs-sidebar').css('max-height', winHeight + 'px');
 
         var activeMenu,
             sidebar = $('.docs-sidebar'),

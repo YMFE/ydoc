@@ -21,12 +21,44 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            
             <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar MFE</a>
+            
         </div>
         <nav id="bs-navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-left">
                 
-                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">开始</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="usage.html">命令</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="config.html">配置</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="comment.html">注释规则</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="release.html">版本</a>
+                        
+                    </li>
+                    
                 
             </ul>
         </nav>
@@ -42,45 +74,9 @@
     </div>
 </div>
 
-<header class="navbar navbar-static-top docs-second-nav">
-    <div class="container">
-        <nav>
-            <ul class="nav navbar-nav">
-                
-                <li class="">
-                    
-                    <a href="index.html">开始</a>
-                    
-                </li>
-                
-                <li class="">
-                    
-                    <a href="usage.html">命令</a>
-                    
-                </li>
-                
-                <li class="">
-                    
-                    <a href="config.html">配置</a>
-                    
-                </li>
-                
-                <li class="active">
-                    
-                    <a href="comment.html">注释规则</a>
-                    
-                </li>
-                
-                <li class="">
-                    
-                    <a href="release.html">版本</a>
-                    
-                </li>
-                
-            </ul>
-        </nav>
-    </div>
-</header>
+
+
+<header style="height:20px"></header>
 
 
 <div class="container docs-container">
@@ -295,7 +291,7 @@
 
         var winHeight = $(window).height() - 40;
 
-        $('.docs-sidebar').height(winHeight);
+        $('.docs-sidebar').css('max-height', winHeight + 'px');
 
         var activeMenu,
             sidebar = $('.docs-sidebar'),

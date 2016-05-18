@@ -62,6 +62,8 @@ function doParser(cwd, filePath, ignore, compile, options, conf, codeRender) {
                         type: parser.highlight || parser.type,
                         content: content
                     }), 'UTF-8');
+                    console.log(('√ 生成文件: ' + sysPath.join(dp, sysPath.basename(fp) + '.html')).yellow);
+
                 }
                 return content;
             });
@@ -113,7 +115,7 @@ module.exports = function(cwd, conf) {
                     data.intro = marked(fs.readFileSync(introPath, 'UTF-8'));
                 }
             }
-            if (page.content) {
+            if (page.content && (!conf.buildPages.length || conf.buildPages.indexOf(page.name) > -1)) {
                 if (page.content.multi) {
                     var navs = page.content.pages.map(function(p) {
                         return {
@@ -133,6 +135,7 @@ module.exports = function(cwd, conf) {
                         data.article.sidebars = curNavs;
                         data.article.name = p.name;
                         fs.writeFileSync(sysPath.join(conf.dest, page.name + '-' + p.name + '.html'), render(data));
+                        console.log(('√ 生成文件: ' + sysPath.join(conf.dest, page.name + '-' + p.name + '.html')).yellow);
                     });
                     data.article = doParser(cwd, page.content.index, page.indexIngore, page.indexCompile, page.content.indexOptions, conf, codeRender);
                     data.article.sidebars = navs;
@@ -184,6 +187,7 @@ module.exports = function(cwd, conf) {
                     data.article.blocks = blocks;
                 }
                 fs.writeFileSync(sysPath.join(conf.dest, page.name + '.html'), render(data));
+                console.log(('√ 生成文件: ' + sysPath.join(conf.dest, page.name + '.html')).yellow);
             }
         });
     }
@@ -194,6 +198,8 @@ module.exports.usage = '构建文档';
 module.exports.setOptions = function(optimist) {
     optimist.alias('t', 'template');
     optimist.describe('t', '模板路径');
+    optimist.alias('p', 'page');
+    optimist.describe('p', '选择生成的页面，默认生成所有');
     optimist.alias('w', 'watch');
     optimist.describe('w', '监控文件更改，自动编译');
     optimist.alias('o', 'output');
