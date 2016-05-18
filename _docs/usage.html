@@ -92,13 +92,14 @@
 <p><a href="http://badge.fury.io/js/q-doc"><img src="https://badge.fury.io/js/q-doc.svg" alt="npm version"></a></p>
 <p><img src="https://nodei.co/npm/q-doc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt=""></p>
 <h2 id="构建命令">构建命令</h2><blockquote>
-<p>qdoc build [-t templatePath] [-w] [-o dest]</p>
+<p>qdoc build [-t templatePath] [-p page] [-w] [-o dest]</p>
 </blockquote>
 <p>读取配置，构建文档</p>
 <ul>
 <li><code>-w|--watch</code>: 监听变化自动构建</li>
 <li><code>-t|--template</code>: 参数为自定义模板路径</li>
 <li><code>-o|--output</code>: 输出目录</li>
+<li><code>-p|--page</code>: 指定编译某页，默认编译所有。（多个页面名可以逗号分开，例 -p index,demo）</li>
 </ul>
 <h2 id="初始化命令">初始化命令</h2><blockquote>
 <p>qdoc init [-t templatePath]</p>
