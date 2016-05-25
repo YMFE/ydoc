@@ -201,6 +201,24 @@ img {
   -webkit-touch-callout: none;
 }
 
+@font-face {
+  font-family: yofont;
+  src: url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.woff") format("woff"),
+       url("http://source.qunarzz.com/fonts/yo/1.0.0/yofont.ttf") format("truetype");
+}
+
+.yo-ico {
+  font-family: yofont !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+}
+
+.glyphicon-ok:before {
+  content: "\f078";
+}
+
 .g-clear::after,
 .g-mod::after {
   display: block;
@@ -208,6 +226,92 @@ img {
   clear: both;
   height: 0;
   content: "\0020";
+}
+
+.yo-badge {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -moz-inline-box;
+    display: -moz-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    min-width: .16rem;
+    min-height: .16rem;
+    padding: 0 0.03rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #f00;
+    border-radius: 0.1rem;
+    -webkit-background-clip: padding-box !important;
+    -moz-background-clip: padding-box !important;
+    -ms-background-clip: padding-box !important;
+    background-clip: padding-box !important;
+    background-color: #f00;
+    color: #fff;
+    font-size: 0.12rem;
+    line-height: 1;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -moz-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -moz-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.yo-badge-primary {
+  border-width: 0;
+  background-color: #337ab7;
+  border-radius: 0.05rem;
+  vertical-align: super;
+  margin-left: 10px;
+  font-size: 10px;
+  padding: 0.2em 0.6em;
+}
+
+.yo-badge-success {
+  border-width: 0;
+  background-color: #5cb85c;
+  border-radius: 0.05rem;
+  vertical-align: super;
+  margin-left: 10px;
+  font-size: 10px;
+  padding: 0.2em 0.6em;
+}
+
+.yo-badge-info {
+  border-width: 0;
+  background-color: #5bc0de;
+  border-radius: 0.05rem;
+  vertical-align: super;
+  margin-left: 10px;
+  font-size: 10px;
+  padding: 0.2em 0.6em;
+}
+
+.yo-badge-warning {
+  border-width: 0;
+  background-color: #f0ad4e;
+  border-radius: 0.05rem;
+  vertical-align: super;
+  margin-left: 10px;
+  font-size: 10px;
+  padding: 0.2em 0.6em;
+}
+
+.yo-badge-danger {
+  border-width: 0;
+  background-color: #d9534f;
+  border-radius: 0.05rem;
+  vertical-align: super;
+  margin-left: 10px;
+  font-size: 10px;
+  padding: 0.2em 0.6em;
 }
 
 a {

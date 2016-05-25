@@ -160,7 +160,7 @@ module.exports = function(cwd, conf) {
                                 ret.menus.forEach(function(item) {
                                     if (!item.sub) {
                                         navs.push({
-                                            name: text,
+                                            name: item.name,
                                             sub: true
                                         });
                                     }

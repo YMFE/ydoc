@@ -18,3 +18,8 @@
 
 * 优化 navbar
 * build 命令新增 -p 参数，支持选择编译的页面
+
+### v1.0.0-beta7
+
+* 优化 app.css
+* fixed 一些问题
