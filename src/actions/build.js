@@ -130,7 +130,10 @@ module.exports = function(cwd, conf) {
                         if (data.article.menus) {
                             curNavs.splice.apply(curNavs, [index + 1, 0].concat(data.article.menus.filter(function(item) {
                                 return !item.sub;
-                            })));
+                            })).map(function(item) {
+                                item.sub = true;
+                                return item;
+                            }));
                         }
                         data.article.sidebars = curNavs;
                         data.article.name = p.name;
