@@ -26,13 +26,13 @@ module.exports = function(cwd, conf) {
             });
         }
     } else {
-        var confFilePath = sysPath.join(cwd, 'qdoc.config'),
-            jsConfFilePath = sysPath.join(cwd, 'qdocfile.js');
+        var confFilePath = sysPath.join(cwd, 'ydoc.config'),
+            jsConfFilePath = sysPath.join(cwd, 'ydocfile.js');
         if (fs.existsSync(confFilePath) || fs.existsSync(jsConfFilePath)) {
             console.log('X 配置文件已经存在!'.red);
         } else {
             fs.writeFileSync(confFilePath, JSON.stringify(configTPL, {}, 4), 'UTF-8');
-            console.log('√ 生成 qdoc.config 成功！'.green);
+            console.log('√ 生成 ydoc.config 成功！'.green);
         }
     }
 }

@@ -33,22 +33,22 @@ function execTemplate(destPath, tplPath, callback) {
     });
 }
 
-var qdoc = module.exports = function(data) {
+var ydoc = module.exports = function(data) {
     data = data || {};
     return through.obj(function(file, enc, cb) {
         var cwd = file.cwd;
         loadConfig(cwd, function(conf) {
-            qdoc.build(cwd, conf ? Object.assign(conf, data) : data);
+            ydoc.build(cwd, conf ? Object.assign(conf, data) : data);
             cb();
         })
     });
 };
 
-qdoc.actions = actions;
+ydoc.actions = actions;
 
-qdoc.init = actions.init;
+ydoc.init = actions.init;
 
-qdoc.build = function(cwd, conf, opt) {
+ydoc.build = function(cwd, conf, opt) {
     opt = opt || {};
     var template = opt.template || conf.template,
         rDest = opt.dest || conf.dest || '_docs',

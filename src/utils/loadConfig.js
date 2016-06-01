@@ -3,8 +3,8 @@ var fs = require('fs'),
     JSON5 = require('json5');
 
 module.exports = function(cwd, callback) {
-    var confPath = sysPath.join(cwd, 'qdoc.config'),
-        confJSPath = sysPath.join(cwd, 'qdocfile.js'),
+    var confPath = sysPath.join(cwd, 'ydoc.config'),
+        confJSPath = sysPath.join(cwd, 'ydocfile.js'),
         conf;
     if (fs.existsSync(confPath)) {
         try {
@@ -12,15 +12,15 @@ module.exports = function(cwd, callback) {
         } catch (e) {}
         callback(conf);
     } else if (fs.existsSync(confJSPath)) {
-        var qdocfile = require(confJSPath);
-        if (typeof qdocfile == 'function') {
-            if (qdocfile.length == 1) {
-                qdocfile(callback);
+        var ydocfile = require(confJSPath);
+        if (typeof ydocfile == 'function') {
+            if (ydocfile.length == 1) {
+                ydocfile(callback);
             } else {
-                callback(qdocfile());
+                callback(ydocfile());
             }
         } else {
-            callback(qdocfile);
+            callback(ydocfile);
         }
     } else {
         callback(conf);

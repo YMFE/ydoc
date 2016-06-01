@@ -2,17 +2,15 @@
 
 从 NPM 中安装
 
-> npm install q-doc -g
+> npm install ydoc -g
 
-[![npm version](https://badge.fury.io/js/q-doc.svg)](http://badge.fury.io/js/q-doc)
+[![npm version](https://badge.fury.io/js/ydoc.svg)](http://badge.fury.io/js/ydoc)
 
-![](https://nodei.co/npm/q-doc.png?downloads=true&downloadRank=true&stars=true)
-
-
+![](https://nodei.co/npm/ydoc.png?downloads=true&downloadRank=true&stars=true)
 
 ## 构建命令
 
-> qdoc build [-t templatePath] [-p page] [-w] [-o dest]
+> ydoc build [-t templatePath] [-p page] [-w] [-o dest]
 
 读取配置，构建文档
 
@@ -23,7 +21,7 @@
 
 ## 初始化命令
 
-> qdoc init [-t templatePath]
+> ydoc init [-t templatePath]
 
 初始项目，创建配置文件或自定义模板(-t)
 

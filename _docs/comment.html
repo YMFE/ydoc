@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>QDoc 注释规则</title>
+    <title>YDoc 注释规则</title>
     <link rel="stylesheet" href="source/app.css"/>
     <link rel="stylesheet" href="source/highlight.min.css">
 </head>
@@ -22,7 +22,7 @@
                 <span class="icon-bar"></span>
             </button>
             
-            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar MFE</a>
+            <a href="http://ymfe.org/" class="navbar-brand">YMFE</a>
             
         </div>
         <nav id="bs-navbar" class="collapse navbar-collapse">
@@ -69,7 +69,7 @@
 
 <div class="docs-header" id="content" style="margin-bottom:0">
     <div class="container">
-        <h1>QDoc</h1>
+        <h1>YDoc</h1>
         <p>注释规则</p>
     </div>
 </div>
@@ -111,6 +111,7 @@
                 
                 <div class="markdown-body">
                     <p>每个代码块可以用这样一个注释块。</p>
+<p>对于方法可以使用下面注释形式：</p>
 <pre><code class="lang-js">/**
  * 打开
  *
@@ -132,7 +133,15 @@
  * *open* 主要用于切换视图，类似于PC端的跳转，近似于App上的切换视图操作。
  */
 </code></pre>
-<h4 id="参数说明">参数说明</h4><p>啪啦啪啦啪啦。。。后续有调整，所以这个说明正式版再说啦。</p>
+<p>对于属性可以使用下面注释形式：</p>
+<pre><code class="lang-js">/**
+ * iOS 设备嗅探
+ *
+ * @property XXX.sniff.ios
+ * @type {Boolean}
+ * @category Sniff
+ */
+</code></pre>
 
                 </div>
                 
@@ -164,6 +173,8 @@
  * ![ScrollView](./images/ScrollView.png)
  */
 
+// 配置
+
 /**
  * 内容位移
  *
@@ -173,6 +184,8 @@
  * @description 内容范围相对滚动视图边缘的坐标。
  */
 
+// 方法
+
 /**
  * 滚动到
  *
@@ -181,7 +194,6 @@
  * @description 滚动到某一位置，如果只在某一方向滚动，可以只传{x: x}或{y: y}。
  */
 </code></pre>
-<h4 id="参数说明">参数说明</h4><p>同上</p>
 
                 </div>
                 
@@ -263,7 +275,7 @@
 ================================================== -->
 <footer class="docs-footer" role="contentinfo">
     <div class="container">
-        <p>Made By Qunar MFE. © 2014 - 2016</p>
+        <p>Made By YMFE. © 2014 - 2016</p>
     </div>
 </footer>
 

@@ -1,4 +1,4 @@
-var qdoc = require('./qdoc.js');
+var ydoc = require('./ydoc.js');
 
 var colors = require('colors');
 var fs = require('fs');
@@ -10,7 +10,7 @@ var packageJSON = require('../package.json');
 
 function helpTitle() {
     console.info('');
-    console.info('===================== QDoc ' + packageJSON.version + ' ====================');
+    console.info('===================== YDoc ' + packageJSON.version + ' ====================');
     console.info('');
 }
 
@@ -32,21 +32,21 @@ var cli = module.exports = {
     run: function(cmd) {
         var cwd = process.cwd(),
             argv = optimist.argv;
-        if (qdoc[cmd]) {
+        if (ydoc[cmd]) {
             if (argv.h || argv.help) {
                 helpTitle();
                 console.info('');
                 console.info('命令：', cmd);
-                console.info('说明：', qdoc.actions[cmd].usage);
+                console.info('说明：', ydoc.actions[cmd].usage);
                 console.info('');
-                if (qdoc.actions[cmd].setOptions) {
-                    qdoc.actions[cmd].setOptions(optimist);
+                if (ydoc.actions[cmd].setOptions) {
+                    ydoc.actions[cmd].setOptions(optimist);
                 }
                 optimist.showHelp();
             } else if (cmd == 'build') {
                 loadConfig(cwd, function(conf) {
                     if (conf) {
-                        qdoc.build(cwd, conf, {
+                        ydoc.build(cwd, conf, {
                             watch: argv.w || argv.watch,
                             template: argv.t || argv.template,
                             dest: argv.o || argv.output,
@@ -57,7 +57,7 @@ var cli = module.exports = {
                     }
                 })
             } else if (cmd == 'init') {
-                qdoc.init(cwd, {
+                ydoc.init(cwd, {
                     template: argv.t || argv.template
                 });
             }
@@ -68,10 +68,10 @@ var cli = module.exports = {
     },
     help: function() {
         helpTitle();
-        for (var key in qdoc.actions) {
-            console.info(' ' + (fixempty(key, 15)) + ' # ' + (qdoc.actions[key].usage || ''));
+        for (var key in ydoc.actions) {
+            console.info(' ' + (fixempty(key, 15)) + ' # ' + (ydoc.actions[key].usage || ''));
         }
         console.info('');
-        console.info(' 如果需要帮助, 请使用 qdoc {命令名} --help ');
+        console.info(' 如果需要帮助, 请使用 ydoc {命令名} --help ');
     }
 };

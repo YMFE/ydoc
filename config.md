@@ -1,29 +1,29 @@
 ## 配置文件
 
-配置文件可以以 `qdoc.config` 或者 `qdocfile.js` 的形式出现。
+配置文件可以以 `ydoc.config` 或者 `ydocfile.js` 的形式出现。
 
 ### 静态文件形式
 
-`qdoc.config` 的内容是 `JSON`，支持注释。
+`ydoc.config` 的内容是 `JSON`，支持注释。
 
 示例：
 
 ```json
 {
-    "name": "QDoc",
+    "name": "YDoc",
     ...
 }
 ```
 
 ### 动态脚本形式
 
-`qdocfile.js` 可以 `exports` 一个 `Object` 配置，也可以 `exports` 一个 `Function` 用于执行获取配置。
+`ydocfile.js` 可以 `exports` 一个 `Object` 配置，也可以 `exports` 一个 `Function` 用于执行获取配置。
 
 示例1：
 
 ```js
 module.exports = {
-    "name": "QDoc",
+    "name": "YDoc",
     ...
 };
 ```
@@ -33,7 +33,7 @@ module.exports = {
 ```js
 module.exports = function() {
     return {
-        "name": "QDoc",
+        "name": "YDoc",
         ...
     };
 };
@@ -45,7 +45,7 @@ module.exports = function() {
 module.exports = function(callback) {
     // do someing
     callback({
-        "name": "QDoc",
+        "name": "YDoc",
         ...
     });
 };
@@ -59,30 +59,30 @@ module.exports = function(callback) {
 
 ```json
 {
-    "name": "QDoc",
+    "name": "YDoc",
     "dest": "path/to/destination", // 默认为  "_docs"
     "examplePath": "./examples", // 示例代码路径 默认 "./"
-    "template": "path/to/templte", // 默认使用 QDoc 内置的模板
+    "template": "path/to/templte", // 默认使用 YDoc 内置的模板
     "options": { // 通用编译器配置
         "markdwon": { // 对于 markdown 编译器进行统一配置
             "memuLevel": 2
         }
     },
     "common": { // 通用配置，包括主页配置等
-        "title": "QDoc",
-        "footer": "Made By Qunar Hotel FE Mobile Team. © 2014 - 2016",
-        "home": "Qunar MFE",
-        "homeUrl": "http://ued.qunar.com/mobile/",
+        "title": "YDoc",
+        "footer": "Made By YMFE Team. © 2014 - 2016",
+        "home": "YMFE",
+        "homeUrl": "http://ymfe.org/",
         "navbars": [{ // 导航栏配置
-            "name": "QApp",
-            "url": "http://ued.qunar.com/mobile/qapp/doc/"
+            "name": "YDoc",
+            "url": "http://ymfe.org/ydoc/"
         }]
     },
     "pages": [{
         "name": "index", // Page Name 会根据他生成 html 文件，例  index.html
         "title": "开始", // Page Title
         "banner": { // Banner 配置
-            "title": "QDoc",
+            "title": "YDoc",
             "description": "开始"
         },
         "content": "./README.md",  // 内容
@@ -100,30 +100,30 @@ module.exports = function(callback) {
                 "name": "简介", // 标题
                 "content": "document/hybrid/README.md" // 内容
             }, {
-                "name": "QApp-Hy" // 只有标题，做目录和分割用
+                "name": "Hybrid" // 只有标题，做目录和分割用
             }, {
                 "name": "说明",
                 "sub": true, // 标题在目录里已子目录形式显示
-                "content": "modules/hybrid/QApp-Hy/README.md"
+                "content": "modules/hybrid/framework/README.md"
             }]
         }
     }, {
         "name": "component",
         "title": "组件",
         "banner": {
-            "title": "Qunar React Native 组件",
+            "title": "移动端组件",
             "description": "组件"
         },
         "content": { // 多页配置，multi 为 true
             "sidebar": true,
             "multi": true, // 多页配置
-            "index": "./Libraries/qunar-extension/INTRO.md", // 首页配置
+            "index": "./Libraries/extension/INTRO.md", // 首页配置
             "pages": [{ // 每页配置
                 "name": "ListView",
-                "content": "./Libraries/qunar-extension/libs/ListView/QListView.js"
+                "content": "./Libraries/extension/libs/ListView/QListView.js"
             }, {
                 "name": "ScrollView",
-                "content": "./Libraries/qunar-extension/libs/ScrollView/ScrollView.js"
+                "content": "./Libraries/extension/libs/ScrollView/ScrollView.js"
             }]
         }
     }]

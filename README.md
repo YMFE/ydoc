@@ -1,17 +1,17 @@
-# QDoc
+# YDoc
 
 ## 简介
 
 前端工程文档生成工具
 
-[![npm version](https://badge.fury.io/js/q-doc.svg)](http://badge.fury.io/js/q-doc)
+[![npm version](https://badge.fury.io/js/ydoc.svg)](http://badge.fury.io/js/ydoc)
 
-![](https://nodei.co/npm/q-doc.png?downloads=true&downloadRank=true&stars=true)
+![](https://nodei.co/npm/ydoc.png?downloads=true&downloadRank=true&stars=true)
 
 ## 安装
 
 ```
-npm install q-doc [-g]
+npm install ydoc [-g]
 ```
 
 ## 使用方式
@@ -20,7 +20,7 @@ npm install q-doc [-g]
 
 ```
 cd /path/to/project/
-qdoc build
+ydoc build
 ```
 
 详细请查看[命令使用说明](./usage.md)。
@@ -28,19 +28,19 @@ qdoc build
 ### 脚本
 
 ```javascript
-var qdoc = require("q-doc");
+var ydoc = require("ydoc");
 
-qdoc.build('/path/to/project', options);
+ydoc.build('/path/to/project', options);
 ```
 
 ### Gulp
 
 ```javascript
-var qdoc = require("q-doc");
+var ydoc = require("ydoc");
 
-gulp.task('qdoc', function() {
+gulp.task('ydoc', function() {
     return gulp.src('./')
-        .pipe(qdoc({
+        .pipe(ydoc({
             // 配置
         }));
 });
@@ -50,16 +50,16 @@ gulp.task('qdoc', function() {
 
 ```javascript
 grunt.initConfig({
-    qdoc: {
+    ydoc: {
         // 配置
     }
 });
 
-grunt.loadNpmTasks('q-doc');
+grunt.loadNpmTasks('ydoc');
 ```
 
 配置及配置文件请查看 [配置说明](./config.md);
 
 ## 开发者
 
-林洋 <adwon.lin@qunar.com>
+林洋 <adwon.lin@qunar.com> <edwon.lim@gmail.com>

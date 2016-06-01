@@ -1,9 +1,9 @@
 {
-  "name": "q-doc",
-  "version": "1.0.0-beta7",
-  "main": "src/qdoc.js",
+  "name": "ydoc",
+  "version": "1.0.0",
+  "main": "src/ydoc.js",
   "bin": {
-    "qdoc": "bin/qdoc"
+    "ydoc": "bin/ydoc"
   },
   "engines": {
     "node": ">=4"
