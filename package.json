@@ -1,9 +1,9 @@
 {
     "name": "ydoc",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Yummy Doc 文档生成工具",
     "keywords": ["doc", "document"],
-    "homepage": "http://ymfe.org/ydoc",
+    "homepage": "http://ymfe.tech/ydoc",
     "main": "src/ydoc.js",
     "bin": {
         "ydoc": "bin/ydoc"
@@ -11,12 +11,16 @@
     "author": {
         "name": "edwon.lin",
         "email": "edwon.lim@gmail.com",
-        "url": "http://ymfe.org"
+        "url": "http://ymfe.tech"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:YMFE/ydoc.git"
     },
     "engines": {
         "node": ">=4"
     },
-    "license": "BSD",
+    "license": "MIT",
     "dependencies": {
         "art-template": "^3.0.3",
         "atropa-jsformatter": "^0.1.2",
