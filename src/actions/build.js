@@ -3,6 +3,7 @@ var sysPath = require('path');
 var colors = require('colors');
 var mkdirp = require('mkdirp');
 var artTemplate = require('art-template');
+var childProcess = require('child_process');
 var marked = require('marked');
 var glob = require('glob');
 
@@ -83,6 +84,7 @@ module.exports = function(cwd, conf) {
     conf.options = conf.options || {};
     var render = artTemplate.compile(conf.templateContent);
     var codeRender = artTemplate.compile(conf.codeTemplateContent);
+    var resources = conf.resources || {};
     if (conf.pages) {
         conf.pages.forEach(function(page) {
             var data = {},
@@ -197,6 +199,16 @@ module.exports = function(cwd, conf) {
             }
         });
     }
+
+    for (var key in resources) {
+        try {
+            childProcess.execSync('cp -r ' + sysPath.join(cwd, resources[key]) + ' ' + sysPath.join(conf.dest, key));
+        } catch(e) {
+            console.log(('X 资源 ' + key + ' 复制失败').red);
+            console.log(e.toString().red);
+        }
+    }
+
 };
 
 module.exports.usage = '构建文档';
