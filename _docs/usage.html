@@ -111,24 +111,30 @@
 
         </div>
         <div class="col-md-3" role="complementary">
-            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm" style="overflow:scroll">
+            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                 <ul class="nav docs-sidenav">
                     
                     
                     <li>
+                        
                         <a href="#安装" >安装</a>
+                        
                     </li>
                     
                     
                     
                     <li>
+                        
                         <a href="#构建命令" >构建命令</a>
+                        
                     </li>
                     
                     
                     
                     <li>
+                        
                         <a href="#初始化命令" >初始化命令</a>
+                        
                     </li>
                     
                     
@@ -170,38 +176,42 @@
             }
         });
 
-        var winHeight = $(window).height() - 40;
+        var winHeight = $(window).height() - 40,
+            sidebar = $('.docs-sidebar');
 
-        $('.docs-sidebar').css('max-height', winHeight + 'px');
+        if (sidebar.height() > winHeight) {
 
-        var activeMenu,
-            sidebar = $('.docs-sidebar'),
-            barScroll = false;
+            sidebar.css('max-height', winHeight + 'px');
+            sidebar.css('overflow', 'scroll');
 
-        sidebar.on('mouseover', function() {
-            barScroll = true;
-        });
+            var activeMenu,
+                barScroll = false;
 
-        sidebar.on('mouseout', function() {
-            barScroll = false;
-        });
+            sidebar.on('mouseover', function() {
+                barScroll = true;
+            });
 
-        $(window).on('scroll', function(e) {
-            if (!barScroll) {
-                var activeItem = $('.docs-sidebar li.active a');
-                if (activeItem.length) {
-                    if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
-                        activeMenu = activeItem;
-                        var top = activeMenu.offset().top - sidebar.offset().top;
-                        if (top < 0) {
-                            sidebar.scrollTop(sidebar.scrollTop() + top);
-                        } else if (top > winHeight - 30) {
-                            sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+            sidebar.on('mouseout', function() {
+                barScroll = false;
+            });
+
+            $(window).on('scroll', function(e) {
+                if (!barScroll) {
+                    var activeItem = $('.docs-sidebar li.active a');
+                    if (activeItem.length) {
+                        if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+                            activeMenu = activeItem;
+                            var top = activeMenu.offset().top - sidebar.offset().top;
+                            if (top < 0) {
+                                sidebar.scrollTop(sidebar.scrollTop() + top);
+                            } else if (top > winHeight - 30) {
+                                sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+                            }
                         }
                     }
                 }
-            }
-        });
+            });
+        }
     });
 </script>
 </body>

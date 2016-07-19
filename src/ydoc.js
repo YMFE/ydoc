@@ -40,7 +40,7 @@ var ydoc = module.exports = function(data) {
         loadConfig(cwd, function(conf) {
             ydoc.build(cwd, conf ? Object.assign(conf, data) : data);
             cb();
-        })
+        });
     });
 };
 
@@ -58,6 +58,9 @@ ydoc.build = function(cwd, conf, opt) {
 
     if (!buildPages || buildPages == true) {
         buildPages = [];
+        try {
+            require('child_process').execSync('rm -rf ' + destPath);
+        } catch(e) {}
     } else {
         buildPages = buildPages.split(',').map(function(page) {
             return page.trim();
@@ -66,21 +69,37 @@ ydoc.build = function(cwd, conf, opt) {
 
     conf.buildPages = buildPages;
 
+    function build(content) {
+        console.log('-> Building .......'.gray);
+        actions.build(cwd, conf, content);
+        console.log('√ Complete!'.green);
+        console.log('');
+    }
+
     execTemplate(destPath, tplPath, function(content, codeContent) {
         conf.dest = destPath;
         conf.templateContent = content;
         conf.codeTemplateContent = codeContent;
-        actions.build(cwd, conf);
-        console.log('√ Complete!'.green);
+        build(content);
         if (opt.watch) {
             console.log('√ Start Watching .......'.green);
             watch.watchTree(cwd, {
                 ignoreDirectoryPattern: new RegExp(rDest)
-            }, function() {
-                console.log('-> Building .......'.gray);
-                actions.build(cwd, conf, content);
-                console.log('√ Complete!'.green);
-                console.log('');
+            }, function(path) {
+                var fileName = sysPath.basename(path);
+                if (fileName == 'ydocfile.js' || fileName == 'ydoc.config') {
+                    console.log('--> Reload Config ......'.gray);
+                    loadConfig(cwd, function(cf) {
+                        cf.buildPages = buildPages;
+                        cf.dest = destPath;
+                        cf.templateContent = content;
+                        cf.codeTemplateContent = codeContent;
+                        conf = cf;
+                        build(content);
+                    });
+                } else {
+                    build(content);
+                }
             });
         }
     });

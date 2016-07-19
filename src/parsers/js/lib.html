@@ -31,6 +31,12 @@
     {{el.alias}}
 </p>
 {{/if}}
+{{if el.version}}
+<p class="api-content">
+    <small class="text-muted">版本支持:</small>
+    {{el.version}}
+</p>
+{{/if}}
 {{if el.class == 'property'}}
 <p>
     <small class="text-muted">类型:</small>

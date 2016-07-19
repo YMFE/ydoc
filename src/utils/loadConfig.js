@@ -12,6 +12,9 @@ module.exports = function(cwd, callback) {
         } catch (e) {}
         callback(conf);
     } else if (fs.existsSync(confJSPath)) {
+        if (require.cache[confJSPath]) {
+            delete require.cache[confJSPath];
+        }
         var ydocfile = require(confJSPath);
         if (typeof ydocfile == 'function') {
             if (ydocfile.length == 1) {

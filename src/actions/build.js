@@ -120,25 +120,28 @@ module.exports = function(cwd, conf) {
                     var navs = page.content.pages.map(function(p) {
                         return {
                             name: p.name,
-                            sub: false,
+                            sub: !!p.sub,
+                            blank: !p.content,
                             url: page.name + '-' + p.name + '.html'
                         };
                     });
                     page.content.pages.forEach(function(p, index) {
-                        var curNavs = navs.slice(0);
-                        data.article = doParser(cwd, p.content, p.ignore, p.compile, p.options, conf, codeRender);
-                        if (data.article.menus) {
-                            curNavs.splice.apply(curNavs, [index + 1, 0].concat(data.article.menus.filter(function(item) {
-                                return !item.sub;
-                            })).map(function(item) {
-                                item.sub = true;
-                                return item;
-                            }));
+                        if (p.content) {
+                            var curNavs = navs.slice(0);
+                            data.article = doParser(cwd, p.content, p.ignore, p.compile, p.options, conf, codeRender);
+                            if (data.article.menus) {
+                                curNavs.splice.apply(curNavs, [index + 1, 0].concat(data.article.menus.filter(function(item) {
+                                    return !item.sub;
+                                })).map(function(item) {
+                                    item.sub = true;
+                                    return item;
+                                }));
+                            }
+                            data.article.sidebars = curNavs;
+                            data.article.name = p.name;
+                            fs.writeFileSync(sysPath.join(conf.dest, page.name + '-' + p.name + '.html'), render(data));
+                            console.log(('√ 生成文件: ' + sysPath.join(conf.dest, page.name + '-' + p.name + '.html')).yellow);
                         }
-                        data.article.sidebars = curNavs;
-                        data.article.name = p.name;
-                        fs.writeFileSync(sysPath.join(conf.dest, page.name + '-' + p.name + '.html'), render(data));
-                        console.log(('√ 生成文件: ' + sysPath.join(conf.dest, page.name + '-' + p.name + '.html')).yellow);
                     });
                     data.article = doParser(cwd, page.content.index, page.indexIngore, page.indexCompile, page.content.indexOptions, conf, codeRender);
                     data.article.sidebars = navs;

@@ -36,7 +36,7 @@ function readTag(tag) {
     return ret;
 };
 
-module.exports = function (comment, path, conf, formatter) {
+module.exports = function (comment, path, conf, formatter, content) {
     var ret = {
         _desc: comment.description,
         _line: comment.line,
@@ -76,10 +76,10 @@ module.exports = function (comment, path, conf, formatter) {
                         content = ct;
                     }
                 }
-                ret.example = content.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
                 if (formatter) {
                     ret.example = formatter(ret.example);
                 }
+                ret.example = content.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
                 break;
             case 'explain':
             case 'description':

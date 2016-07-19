@@ -143,7 +143,12 @@ module.exports = {
     parser: function(contents, options, conf) {
         var fn = execFns[options.type || 'component'];
         return fn ? fn(contents.map(function(content) {
-            return commentParser(content);
+            var contents = commentParser(content);
+            return contents.filter(function(item) {
+                return item.tags.every(function(tag) {
+                    return tag.tag != 'skip';
+                });
+            });
         }), options, conf) : {};
     }
 };

@@ -7,7 +7,13 @@
 {{if props.length}}
 <h2>属性</h2>
 {{each props as prop}}
-<blockquote class="api"><strong>{{prop.property}}</strong> <span>{ {{prop.type}} }</span></blockquote>
+<blockquote class="api">
+    <strong>{{prop.property}}</strong>
+     <span>{ {{prop.type}} }</span>
+    {{if prop.version}}
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">{{prop.version}}</span>
+    {{/if}}
+</blockquote>
 <div class="api-content">{{prop.description | markdown}}</div>
 {{if prop.default}}
 <p class="api-content">
@@ -55,7 +61,12 @@
 {{if methods.length}}
 <h2>方法</h2>
 {{each methods as method}}
-<blockquote class="api"><strong>{{method.method}}</strong></blockquote>
+<blockquote class="api">
+    <strong>{{method.method}}</strong>
+    {{if method.version}}
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">{{method.version}}</span>
+    {{/if}}
+</blockquote>
 <div class="api-content">{{method.description | markdown}}</div>
 {{if method.params.length}}
 <p class="api-content">
