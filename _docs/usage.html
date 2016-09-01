@@ -1,32 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>YDoc 命令</title>
-    <link rel="stylesheet" href="source/app.css"/>
-    <link rel="stylesheet" href="source/highlight.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>YDoc 命令</title>
+  <link rel="stylesheet" href="source/app.css"/>
 </head>
 <body>
-<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+    <div class="ydoc">
 
-
-<!-- Docs master nav -->
-<header class="navbar navbar-static-top docs-nav" id="top" role="banner">
-    <div class="container">
-        <div class="navbar-header">
-            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
             
             <a href="http://ymfe.tech/" class="navbar-brand">YMFE</a>
             
-        </div>
-        <nav id="bs-navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-left">
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
                 
                     
                     <li class="">
@@ -60,32 +52,27 @@
                     </li>
                     
                 
-            </ul>
-        </nav>
-    </div>
-</header>
+              </ul>
+            </nav>
+        </div>
+    </header>
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner">
+          <div class="ydoc-banner-area">
+              <h1>YDoc</h1>
+              <p>使用</p>
+          </div>
+      </div>
+      
 
-<!-- Docs page layout -->
-
-<div class="docs-header" id="content" style="margin-bottom:0">
-    <div class="container">
-        <h1>YDoc</h1>
-        <p>使用</p>
-    </div>
-</div>
-
-
-
-<header style="height:20px"></header>
-
-
-<div class="container docs-container">
-    
-    
-    <div class="row">
-        <div class="col-md-9 markdown-body" role="main">
-            
-            <h2 id="安装">安装</h2><p>从 NPM 中安装</p>
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left markdown-body">
+                
+                <h2 id="安装">安装</h2><p>从 NPM 中安装</p>
 <blockquote>
 <p>npm install ydoc -g</p>
 </blockquote>
@@ -109,56 +96,54 @@
 <li><code>-t|--template</code>: 参数为自定义模板路径</li>
 </ul>
 
-        </div>
-        <div class="col-md-3" role="complementary">
-            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
-                <ul class="nav docs-sidenav">
-                    
-                    
-                    <li>
+              </div>
+              <div class="content-right">
+                  <nav class="sidebar">
+                    <ul class="nav docs-sidenav">
                         
-                        <a href="#安装" >安装</a>
                         
-                    </li>
-                    
-                    
-                    
-                    <li>
+                        <li>
+                            
+                            <a href="#安装" >安装</a>
+                            
+                        </li>
                         
-                        <a href="#构建命令" >构建命令</a>
                         
-                    </li>
-                    
-                    
-                    
-                    <li>
                         
-                        <a href="#初始化命令" >初始化命令</a>
+                        <li>
+                            
+                            <a href="#构建命令" >构建命令</a>
+                            
+                        </li>
                         
-                    </li>
-                    
-                    
-                </ul>
-            </nav>
-        </div>
-    </div>
-    
-    
-</div>
+                        
+                        
+                        <li>
+                            
+                            <a href="#初始化命令" >初始化命令</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+          </div>
+          
+        
+      </div>
 
-<!-- Footer
-================================================== -->
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p>Made By YMFE. © 2014 - 2016</p>
-    </div>
-</footer>
+      <footer class="footer">
+        <div class="copyright">
+            Made By YMFE. © 2014 - 2016
+        </div>
+      </footer>
 
-<script src="source/jquery.min.js"></script>
-<script src="source/bootstrap.min.js"></script>
-<script src="source/docs.min.js"></script>
-<script src="source/highlight.min.js"></script>
-<script>
+
+
+
+    </div>
+    <script>
     $(document).ready(function() {
         $('code').each(function(i, block) {
             if (block.innerHTML.indexOf('\n') != -1) {
@@ -174,45 +159,8 @@
                     } catch(e) {}
                 }
             }
+            });
         });
-
-        var winHeight = $(window).height() - 40,
-            sidebar = $('.docs-sidebar');
-
-        if (sidebar.height() > winHeight) {
-
-            sidebar.css('max-height', winHeight + 'px');
-            sidebar.css('overflow', 'scroll');
-
-            var activeMenu,
-                barScroll = false;
-
-            sidebar.on('mouseover', function() {
-                barScroll = true;
-            });
-
-            sidebar.on('mouseout', function() {
-                barScroll = false;
-            });
-
-            $(window).on('scroll', function(e) {
-                if (!barScroll) {
-                    var activeItem = $('.docs-sidebar li.active a');
-                    if (activeItem.length) {
-                        if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
-                            activeMenu = activeItem;
-                            var top = activeMenu.offset().top - sidebar.offset().top;
-                            if (top < 0) {
-                                sidebar.scrollTop(sidebar.scrollTop() + top);
-                            } else if (top > winHeight - 30) {
-                                sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
-                            }
-                        }
-                    }
-                }
-            });
-        }
-    });
-</script>
+    </script>
 </body>
 </html>

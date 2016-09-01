@@ -1,32 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>YDoc 注释规则</title>
-    <link rel="stylesheet" href="source/app.css"/>
-    <link rel="stylesheet" href="source/highlight.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>YDoc 注释规则</title>
+  <link rel="stylesheet" href="source/app.css"/>
 </head>
 <body>
-<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+    <div class="ydoc">
 
-
-<!-- Docs master nav -->
-<header class="navbar navbar-static-top docs-nav" id="top" role="banner">
-    <div class="container">
-        <div class="navbar-header">
-            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
             
             <a href="http://ymfe.tech/" class="navbar-brand">YMFE</a>
             
-        </div>
-        <nav id="bs-navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-left">
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
                 
                     
                     <li class="">
@@ -60,32 +52,26 @@
                     </li>
                     
                 
-            </ul>
-        </nav>
-    </div>
-</header>
+              </ul>
+            </nav>
+        </div>
+    </header>
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner">
+          <div class="ydoc-banner-area">
+              <h1>YDoc</h1>
+              <p>注释规则</p>
+          </div>
+      </div>
+      
 
-<!-- Docs page layout -->
-
-<div class="docs-header" id="content" style="margin-bottom:0">
-    <div class="container">
-        <h1>YDoc</h1>
-        <p>注释规则</p>
-    </div>
-</div>
-
-
-
-<header style="height:20px"></header>
-
-
-<div class="container docs-container">
-    
-    <div class="row">
-        <div class="col-md-9" role="main">
-
-            
-            <div class="markdown-body"><p>对于代码，解析器会根据注释内容提取出相应信息，形成文档页面。</p>
+      <div class="ydoc-container">
+        
+        <div class="ydoc-container-content">
+            <div class="content-left">
+              
+              <div class="markdown-body"><p>对于代码，解析器会根据注释内容提取出相应信息，形成文档页面。</p>
 <p>现在支持的注释形式如下：</p>
 <ul>
 <li><a href="#JS-Library">JS Library 形式</a></li>
@@ -99,18 +85,18 @@
 <li>在 1.0.0 添加，2.0.0版本删除： <code>{add:1.0.0}{del:2.0.0}</code> 或 <code>&lt;1.0.0,2.0.0&gt;</code></li>
 </ul>
 </div>
-            
-            
-            
-            <div class="docs-section">
-                
-                
-                <h1 id="JS-Library" class="page-header">JS-Library</h1>
-                
-                
-                
-                <div class="markdown-body">
-                    <p>每个代码块可以用这样一个注释块。</p>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h1 id="JS-Library" class="page-header">JS-Library</h1>
+                  
+                  
+                  
+                  <div class="markdown-body">
+                      <p>每个代码块可以用这样一个注释块。</p>
 <p>对于方法可以使用下面注释形式：</p>
 <pre><code class="lang-js">/**
  * 打开
@@ -143,21 +129,21 @@
  */
 </code></pre>
 
-                </div>
-                
-            </div>
-            
-            
-            
-            <div class="docs-section">
-                
-                
-                <h1 id="JS-Component" class="page-header">JS-Component</h1>
-                
-                
-                
-                <div class="markdown-body">
-                    <p>每个组件的代码在一个文件内，一个包含 <code>@component</code> 标签的注释块为组件说明，数个包含 <code>@property</code> 标签的注释块为配置属性，数个包含 <code>@method</code> 标签的注释块为实例方法。</p>
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h1 id="JS-Component" class="page-header">JS-Component</h1>
+                  
+                  
+                  
+                  <div class="markdown-body">
+                      <p>每个组件的代码在一个文件内，一个包含 <code>@component</code> 标签的注释块为组件说明，数个包含 <code>@property</code> 标签的注释块为配置属性，数个包含 <code>@method</code> 标签的注释块为实例方法。</p>
 <pre><code class="lang-js">/**
  * 滚动组件
  *
@@ -195,21 +181,21 @@
  */
 </code></pre>
 
-                </div>
-                
-            </div>
-            
-            
-            
-            <div class="docs-section">
-                
-                
-                <h1 id="CSS-Library" class="page-header">CSS-Library</h1>
-                
-                
-                
-                <div class="markdown-body">
-                    <p>每个代码块可以用这样一个注释块。</p>
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h1 id="CSS-Library" class="page-header">CSS-Library</h1>
+                  
+                  
+                  
+                  <div class="markdown-body">
+                      <p>每个代码块可以用这样一个注释块。</p>
 <pre><code class="lang-css">/**
  * @module fragment
  * @method yo-list
@@ -234,56 +220,54 @@
 <li><code>skip</code>: 跳过此注释块</li>
 </ul>
 
-                </div>
-                
+                  </div>
+                  
+              </div>
+              
+              
             </div>
             
+            <div class="content-right">
+              <nav class="sidebar">
+                <ul class="nav docs-sidenav">
+                  
+                  
+                  <li>
+                      <a href="#JS-Library">JS-Library</a>
+                  </li>
+                  
+                  
+                  
+                  <li>
+                      <a href="#JS-Component">JS-Component</a>
+                  </li>
+                  
+                  
+                  
+                  <li>
+                      <a href="#CSS-Library">CSS-Library</a>
+                  </li>
+                  
+                  
+                </ul>
+              </nav>
+            </div>
             
         </div>
         
-        <div class="col-md-3" role="complementary">
-            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
-                <ul class="nav docs-sidenav">
-                    
-                    
-                    <li>
-                        <a href="#JS-Library">JS-Library</a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="#JS-Component">JS-Component</a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                        <a href="#CSS-Library">CSS-Library</a>
-                    </li>
-                    
-                    
-                </ul>
-            </nav>
+      </div>
+
+      <footer class="footer">
+        <div class="copyright">
+            Made By YMFE. © 2014 - 2016
         </div>
-        
-    </div>
-    
-</div>
+      </footer>
 
-<!-- Footer
-================================================== -->
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p>Made By YMFE. © 2014 - 2016</p>
-    </div>
-</footer>
 
-<script src="source/jquery.min.js"></script>
-<script src="source/bootstrap.min.js"></script>
-<script src="source/docs.min.js"></script>
-<script src="source/highlight.min.js"></script>
-<script>
+
+
+    </div>
+    <script>
     $(document).ready(function() {
         $('code').each(function(i, block) {
             if (block.innerHTML.indexOf('\n') != -1) {
@@ -299,45 +283,8 @@
                     } catch(e) {}
                 }
             }
+            });
         });
-
-        var winHeight = $(window).height() - 40,
-            sidebar = $('.docs-sidebar');
-
-        if (sidebar.height() > winHeight) {
-
-            sidebar.css('max-height', winHeight + 'px');
-            sidebar.css('overflow', 'scroll');
-
-            var activeMenu,
-                barScroll = false;
-
-            sidebar.on('mouseover', function() {
-                barScroll = true;
-            });
-
-            sidebar.on('mouseout', function() {
-                barScroll = false;
-            });
-
-            $(window).on('scroll', function(e) {
-                if (!barScroll) {
-                    var activeItem = $('.docs-sidebar li.active a');
-                    if (activeItem.length) {
-                        if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
-                            activeMenu = activeItem;
-                            var top = activeMenu.offset().top - sidebar.offset().top;
-                            if (top < 0) {
-                                sidebar.scrollTop(sidebar.scrollTop() + top);
-                            } else if (top > winHeight - 30) {
-                                sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
-                            }
-                        }
-                    }
-                }
-            });
-        }
-    });
-</script>
+    </script>
 </body>
 </html>
