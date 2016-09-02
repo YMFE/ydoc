@@ -175,8 +175,7 @@ sup, sub {
   .ydoc-container-content {
     overflow: hidden;
     background: #f1f1f1;
-    margin: 20px auto;
-    padding: 10px; }
+    margin: 20px auto; }
     .ydoc-container-content .content-left, .ydoc-container-content .content-right {
       float: left; }
     .ydoc-container-content .content-left {
@@ -187,12 +186,9 @@ sup, sub {
     .ydoc-container-content .content-right {
       width: 25%;
       background: #f6f6f6; }
-    .ydoc-container-content .sidebar .docs-sidenav ul {
-      margin-left: 10px;
-      color: red; }
-    .ydoc-container-content .sidebar .docs-sidenav li {
+    .ydoc-container-content .sidebar .docs-sidenav > li {
       height: .5rem; }
-      .ydoc-container-content .sidebar .docs-sidenav li a {
+      .ydoc-container-content .sidebar .docs-sidenav > li a {
         height: .5rem;
         line-height: .5rem;
         color: #888;
@@ -200,22 +196,47 @@ sup, sub {
         width: 100%;
         position: relative;
         padding-left: 5px;
-        text-indent: .2rem;
+        text-indent: .15rem;
         margin: 0 3px; }
-      .ydoc-container-content .sidebar .docs-sidenav li a:hover {
+      .ydoc-container-content .sidebar .docs-sidenav > li a:hover {
         padding-left: 0;
         border-left: 5px solid #ff503f;
         color: #ff503f; }
-      .ydoc-container-content .sidebar .docs-sidenav li a:hover::after {
+      .ydoc-container-content .sidebar .docs-sidenav > li a:hover::after {
         content: ">";
         display: block;
         position: absolute;
         right: 10px;
         top: .05rem;
         color: #ff503f; }
-    .ydoc-container-content .sidebar .docs-sidenav li.active a, .ydoc-container-content .sidebar .docs-sidenav li.active a:hover {
+    .ydoc-container-content .sidebar .docs-sidenav > li.active a, .ydoc-container-content .sidebar .docs-sidenav > li.active a:hover {
       border-left: 1px solid #ff503f;
       color: #ff503f; }
+    .ydoc-container-content .sidebar .docs-sidenav ul {
+      margin-left: 20px;
+      color: red; }
+      .ydoc-container-content .sidebar .docs-sidenav ul li {
+        height: .5rem; }
+        .ydoc-container-content .sidebar .docs-sidenav ul li a {
+          height: .5rem;
+          line-height: .5rem;
+          width: 100%;
+          position: relative;
+          display: block;
+          color: #888;
+          text-indent: .1rem; }
+        .ydoc-container-content .sidebar .docs-sidenav ul li a:hover {
+          color: #ff503f; }
+        .ydoc-container-content .sidebar .docs-sidenav ul li a:hover::before {
+          content: ".";
+          font-size: .3rem;
+          display: block;
+          position: absolute;
+          left: -0.15rem;
+          top: -8px;
+          color: #ff503f; }
+    .ydoc-container-content .docs-section {
+      margin: 10px; }
 
 @media screen and (min-width: 1200px) {
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {

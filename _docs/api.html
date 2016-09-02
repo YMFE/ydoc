@@ -69,7 +69,7 @@
       
 
       
-      <header class="ydoc-header yo-second-nav">
+      <header class="ydoc-header ydoc-second-header">
           <div class="ydoc-header-area">
               <nav>
                   <ul class="ydoc-nav">
@@ -8339,40 +8339,8 @@ todoSomething();
 
 
     </div>
-    <script>
-     var codeArr = document.getquerySelectAll('code');
-     codeArr.forEach(function(i, block){
-         if (block.innerHTML.indexOf('\n') != -1) {
-         var pn = block.parentNode;
-         if (pn.tagName.toUpperCase() == 'PRE') {
-             try {
-                 hljs.highlightBlock(block);
-             } catch(e) {}
-         } else {
-             pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
-             try {
-                 hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
-             } catch(e) {}
-         }
-     }
- });
-    // $(document).ready(function() {
-    //     $('code').each(function(i, block) {
-    //         if (block.innerHTML.indexOf('\n') != -1) {
-    //             var pn = block.parentNode;
-    //             if (pn.tagName.toUpperCase() == 'PRE') {
-    //                 try {
-    //                     hljs.highlightBlock(block);
-    //                 } catch(e) {}
-    //             } else {
-    //                 pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
-    //                 try {
-    //                     hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
-    //                 } catch(e) {}
-    //             }
-    //         }
-    //         });
-    //     })
-    </script>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
 </body>
 </html>

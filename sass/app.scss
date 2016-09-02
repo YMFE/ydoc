@@ -145,7 +145,6 @@ sup,sub{vertical-align:baseline}
       overflow:hidden;
       background: #f1f1f1;
       margin:20px auto;
-      padding:10px;
       .content-left,.content-right{float:left; }
       .content-left{
          box-sizing: border-box;
@@ -159,11 +158,7 @@ sup,sub{vertical-align:baseline}
       }
       .sidebar{
           .docs-sidenav{
-              ul{
-                 margin-left: 10px;
-                 color:red;
-              }
-              li{
+              >li{
                   height: .5rem;
                   a{
                       height: .5rem;
@@ -173,7 +168,7 @@ sup,sub{vertical-align:baseline}
                       width: 100%;
                       position: relative;
                       padding-left:5px;
-                      text-indent: .2rem;
+                      text-indent: .15rem;
                       margin:0 3px;
                   }
                   a:hover{
@@ -190,14 +185,48 @@ sup,sub{vertical-align:baseline}
                       color:#ff503f;
                   }
               }
-              li.active{
+              >li.active{
                   a,a:hover{
                       border-left:1px solid #ff503f;
                       color:#ff503f;
                   }
               }
+              ul{
+                 margin-left:20px;
+                 color:red;
+                li{
+                    height: .5rem;
+                    a{
+                        height: .5rem;
+                        line-height: .5rem;
+                        width: 100%;
+                        position: relative;
+                        display: block;
+                        color:#888;
+                        //background: red;
+                        text-indent: .1rem;
+                    }
+                    a:hover{
+                        color:#ff503f;
+                    }
+                    a:hover::before{
+                        content:".";
+                        font-size: .3rem;
+                        display: block;
+                        position: absolute;
+                        left: -0.15rem;
+                        top:-8px;
+                        color:#ff503f;
+                    }
+                }
+              }
           }
       }
+
+        .docs-section{
+    
+            margin:10px;
+        }
     }
   }
 }
