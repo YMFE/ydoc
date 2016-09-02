@@ -112,11 +112,13 @@ sup,sub{vertical-align:baseline}
       h1{
         font-size:.36rem;
         margin-bottom: .1rem;
+        color:#ff503f;
       }
       p{
         margin-right: 3rem;
         line-height: 1.7;
         margin: 0 0 10px;
+        color:#888;
       }
     }
   }
@@ -157,6 +159,10 @@ sup,sub{vertical-align:baseline}
       }
       .sidebar{
           .docs-sidenav{
+              ul{
+                 margin-left: 10px;
+                 color:red;
+              }
               li{
                   height: .5rem;
                   a{
@@ -179,7 +185,7 @@ sup,sub{vertical-align:baseline}
                       content:">";
                       display: block;
                       position: absolute;
-                      right:0;
+                      right:10px;
                       top:.05rem;
                       color:#ff503f;
                   }

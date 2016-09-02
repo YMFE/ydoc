@@ -52,6 +52,29 @@
       <hr style="margin: 0"/>
       {{/if}}
 
+      {{if navbars && navbars.length}}
+      <header class="ydoc-header yo-second-nav">
+          <div class="ydoc-header-area">
+              <nav>
+                  <ul class="ydoc-nav">
+                      {{each tabs as tab}}
+                      <li class="{{if tab.active}}active{{/if}}">
+                          {{if tab.url}}
+                          <a href="{{tab.url}}" target="_blank">{{tab.title}}</a>
+                          {{else}}
+                          <a href="{{tab.name}}.html">{{tab.title}}</a>
+                          {{/if}}
+                      </li>
+                      {{/each}}
+                  </ul>
+              </nav>
+          </div>
+      </header>
+      {{else}}
+      <header style="height:20px"></header>
+      {{/if}}
+
+
       <div class="ydoc-container">
         {{if article.type == 'html'}}
           {{if article.sidebars}}
@@ -89,7 +112,7 @@
               </div>
           </div>
           {{else}}
-          <div id="readme">
+          <div class="ydoc-container-content" id="readme">
               <article class="markdown-body">
                   {{if intro}}{{intro}}{{/if}}
                   {{article.content}}
@@ -161,23 +184,39 @@
 
     </div>
     <script>
-    $(document).ready(function() {
-        $('code').each(function(i, block) {
-            if (block.innerHTML.indexOf('\n') != -1) {
-                var pn = block.parentNode;
-                if (pn.tagName.toUpperCase() == 'PRE') {
-                    try {
-                        hljs.highlightBlock(block);
-                    } catch(e) {}
-                } else {
-                    pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
-                    try {
-                        hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
-                    } catch(e) {}
-                }
-            }
-            });
-        })
+     var codeArr = document.getquerySelectAll('code');
+     codeArr.forEach(function(i, block){
+         if (block.innerHTML.indexOf('\n') != -1) {
+         var pn = block.parentNode;
+         if (pn.tagName.toUpperCase() == 'PRE') {
+             try {
+                 hljs.highlightBlock(block);
+             } catch(e) {}
+         } else {
+             pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
+             try {
+                 hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
+             } catch(e) {}
+         }
+     }
+ });
+    // $(document).ready(function() {
+    //     $('code').each(function(i, block) {
+    //         if (block.innerHTML.indexOf('\n') != -1) {
+    //             var pn = block.parentNode;
+    //             if (pn.tagName.toUpperCase() == 'PRE') {
+    //                 try {
+    //                     hljs.highlightBlock(block);
+    //                 } catch(e) {}
+    //             } else {
+    //                 pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
+    //                 try {
+    //                     hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
+    //                 } catch(e) {}
+    //             }
+    //         }
+    //         });
+    //     })
     </script>
 </body>
 </html>

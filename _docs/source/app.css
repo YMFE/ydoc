@@ -150,11 +150,13 @@ sup, sub {
       margin: 0 auto; }
       .ydoc-banner-area h1 {
         font-size: .36rem;
-        margin-bottom: .1rem; }
+        margin-bottom: .1rem;
+        color: #ff503f; }
       .ydoc-banner-area p {
         margin-right: 3rem;
         line-height: 1.7;
-        margin: 0 0 10px; }
+        margin: 0 0 10px;
+        color: #888; }
   .ydoc .footer {
     margin: 50px 0;
     text-align: center;
@@ -185,6 +187,9 @@ sup, sub {
     .ydoc-container-content .content-right {
       width: 25%;
       background: #f6f6f6; }
+    .ydoc-container-content .sidebar .docs-sidenav ul {
+      margin-left: 10px;
+      color: red; }
     .ydoc-container-content .sidebar .docs-sidenav li {
       height: .5rem; }
       .ydoc-container-content .sidebar .docs-sidenav li a {
@@ -205,7 +210,7 @@ sup, sub {
         content: ">";
         display: block;
         position: absolute;
-        right: 0;
+        right: 10px;
         top: .05rem;
         color: #ff503f; }
     .ydoc-container-content .sidebar .docs-sidenav li.active a, .ydoc-container-content .sidebar .docs-sidenav li.active a:hover {

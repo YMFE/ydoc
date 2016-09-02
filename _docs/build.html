@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
-  <title>QApp 简介</title>
+  <title>QApp 构建</title>
   <link rel="stylesheet" href="source/app.css"/>
 </head>
 <body>
@@ -62,8 +62,8 @@
       
       <div class="ydoc-banner">
           <div class="ydoc-banner-area">
-              <h1>QApp Framework 简介</h1>
-              <p>简洁 、轻量 、实用的移动前端开发框架</p>
+              <h1>QApp Framework 构建</h1>
+              <p>打包和构建</p>
           </div>
       </div>
       
@@ -74,7 +74,7 @@
               <nav>
                   <ul class="ydoc-nav">
                       
-                      <li class="active">
+                      <li class="">
                           
                           <a href="index.html">简介</a>
                           
@@ -98,7 +98,7 @@
                           
                       </li>
                       
-                      <li class="">
+                      <li class="active">
                           
                           <a href="build.html">构建</a>
                           
@@ -123,36 +123,50 @@
           <div class="ydoc-container-content" id="readme">
               <article class="markdown-body">
                   
-                  <h1 id="YDoc">YDoc</h1><h2 id="简介">简介</h2><p>前端工程文档生成工具</p>
-<p><a href="http://badge.fury.io/js/ydoc"><img src="https://badge.fury.io/js/ydoc.svg" alt="npm version"></a></p>
-<p><img src="https://nodei.co/npm/ydoc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt=""></p>
-<h2 id="安装">安装</h2><pre><code>npm install ydoc [-g]
-</code></pre><h2 id="使用方式">使用方式</h2><h3 id="命令">命令</h3><pre><code>cd /path/to/project/
-ydoc build
-</code></pre><p>详细请查看<a href="./usage.html">命令使用说明</a>。</p>
-<h3 id="脚本">脚本</h3><pre><code class="lang-javascript">var ydoc = require(&quot;ydoc&quot;);
-
-ydoc.build(&#39;/path/to/project&#39;, options);
-</code></pre>
-<h3 id="Gulp">Gulp</h3><pre><code class="lang-javascript">var ydoc = require(&quot;ydoc&quot;);
-
-gulp.task(&#39;ydoc&#39;, function() {
-    return gulp.src(&#39;./&#39;)
-        .pipe(ydoc({
-            // 配置
-        }));
-});
-</code></pre>
-<h3 id="Grunt">Grunt</h3><pre><code class="lang-javascript">grunt.initConfig({
-    ydoc: {
-        // 配置
-    }
-});
-
-grunt.loadNpmTasks(&#39;ydoc&#39;);
-</code></pre>
-<p>配置及配置文件请查看 <a href="./config.html">配置说明</a>;</p>
-<h2 id="开发者">开发者</h2><p>林洋 <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#x61;&#x64;&#x77;&#111;&#x6e;&#x2e;&#108;&#x69;&#110;&#x40;&#113;&#117;&#x6e;&#97;&#114;&#x2e;&#x63;&#111;&#x6d;">&#x61;&#x64;&#x77;&#111;&#x6e;&#x2e;&#108;&#x69;&#110;&#x40;&#113;&#117;&#x6e;&#97;&#114;&#x2e;&#x63;&#111;&#x6d;</a> <a href="&#x6d;&#x61;&#105;&#108;&#116;&#x6f;&#58;&#x65;&#x64;&#x77;&#111;&#x6e;&#x2e;&#108;&#105;&#x6d;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;">&#x65;&#x64;&#x77;&#111;&#x6e;&#x2e;&#108;&#105;&#x6d;&#x40;&#103;&#109;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;</a></p>
+                  <h4 id="默认构建">默认构建</h4><p>在项目 <code>build/版本</code> 目录下已经给出代码和已经构建完成的并适配一些环境的代码包。</p>
+<pre><code>.
+├── hybrid
+│   ├── hy.js
+│   └── wx.js
+├── plugins
+│   ├── ajax.js
+│   ├── artTemplate.js
+│   ├── avalon.js
+│   ├── basic.js
+│   ├── delegated.js
+│   ├── doms.js
+│   ├── fastclick.js
+│   ├── gesture.js
+│   ├── globalContext.js
+│   ├── hogan.js
+│   ├── scroll.js
+│   └── zepto.js
+├── qapp-base.dev.js
+├── qapp-base.js
+├── qapp-base.min.js
+├── qapp-hy-zepto.dev.js
+├── qapp-hy-zepto.js
+├── qapp-hy-zepto.min.js
+├── qapp-hy.dev.js
+├── qapp-hy.js
+├── qapp-hy.min.js
+├── qapp-touch-zepto.dev.js
+├── qapp-touch-zepto.js
+├── qapp-touch-zepto.min.js
+├── qapp-touch.dev.js
+├── qapp-touch.js
+├── qapp-touch.min.js
+├── qapp-wechat-zepto.dev.js
+├── qapp-wechat-zepto.js
+├── qapp-wechat-zepto.min.js
+├── qapp-wechat.dev.js
+├── qapp-wechat.js
+├── qapp-wechat.min.js
+├── qapp.dev.js
+├── qapp.js
+└── qapp.min.js
+</code></pre><h4 id="自定义构建">自定义构建</h4><p>当然，你可以使用 <code>gulp custom -n 名称</code> 命令来构建你的自定义代码包。形式如下：</p>
+<p><img src="http://ww1.sinaimg.cn/large/71c50075gw1f5hwrdwfohj20j60aemzw.jpg" alt=""></p>
 
               </article>
           </div>
