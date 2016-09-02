@@ -93,6 +93,12 @@ sup, sub {
   visibility: hidden;
   content: "."; }
 
+@font-face {
+  font-family: ydocfont;
+  font-style: normal;
+  font-weight: normal;
+  src: url(http://simg1.qunarzz.com/fonts/icomoon/1.0.0/icomoon-webfont.eot?v=1.0.0);
+  src: url(http://simg1.qunarzz.com/fonts/icomoon/1.0.0/icomoon-webfont.eot?#iefix&#iefix&amp;v=1.0.0) format("embedded-opentype"), url(http://simg1.qunarzz.com/fonts/icomoon/1.0.0/icomoon-webfont.woff?v=1.0.0) format("woff"), url(http://simg1.qunarzz.com/fonts/icomoon/1.0.0/icomoon-webfont.ttf?v=1.0.0) format("truetype"), url(http://simg1.qunarzz.com/fonts/icomoon/1.0.0/icomoon-webfont.svg?v=1.0.0#icomoonregular) format("svg"); }
 .ydoc {
   font-size: .14rem; }
   .ydoc-header {
@@ -104,6 +110,8 @@ sup, sub {
     text-align: right;
     padding: 0 .2rem;
     overflow: hidden; }
+    .ydoc-header-area {
+      margin: 0 auto; }
     .ydoc-header a {
       color: #fff; }
   .ydoc .navbar-brand {
@@ -164,362 +172,591 @@ sup, sub {
       color: #a1a1a1; }
   .ydoc-container-content {
     overflow: hidden;
-    background: #fff;
-    margin: 20px auto; }
+    background: #f1f1f1;
+    margin: 20px auto;
+    padding: 10px; }
     .ydoc-container-content .content-left, .ydoc-container-content .content-right {
-      float: left;
-      padding: 0 15px; }
+      float: left; }
     .ydoc-container-content .content-left {
       box-sizing: border-box;
-      width: 75%; }
+      width: 75%;
+      background: #fff;
+      padding: 15px; }
     .ydoc-container-content .content-right {
       width: 25%;
       background: #f6f6f6; }
-  .ydoc .markdown-body {
-    overflow: hidden;
-    font-family: "Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    word-wrap: break-word; }
-    .ydoc .markdown-body a {
-      color: #337ab7; }
-    .ydoc .markdown-body .api {
-      padding: 0 10px;
-      border-left-color: #067380;
-      margin-top: 50px; }
-    .ydoc .markdown-body > :first-child, .ydoc .markdown-body > :last-child {
-      margin-top: 0 !important; }
-    .ydoc .markdown-body a:not([href]) {
-      color: inherit;
-      text-decoration: none; }
-    .ydoc .markdown-body .absent {
-      color: #c00; }
-    .ydoc .markdown-body .anchor {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: block;
-      padding-right: 6px;
-      padding-left: 30px;
-      margin-left: -30px; }
-    .ydoc .markdown-body .anchor:focus {
-      outline: 0; }
-    .ydoc .markdown-body h1, .ydoc .markdown-body h2, .ydoc .markdown-body h3, .ydoc .markdown-body h4, .ydoc .markdown-body h5, .ydoc .markdown-body h6 {
-      position: relative;
-      margin-top: .1rem;
-      margin-bottom: 16px;
-      font-weight: 700;
-      line-height: 1.4; }
-      .ydoc .markdown-body h1 .octicon-link, .ydoc .markdown-body h2 .octicon-link, .ydoc .markdown-body h3 .octicon-link, .ydoc .markdown-body h4 .octicon-link, .ydoc .markdown-body h5 .octicon-link, .ydoc .markdown-body h6 .octicon-link {
-        display: none;
-        color: #000;
-        vertical-align: middle; }
-    .ydoc .markdown-body h1:hover .anchor, .ydoc .markdown-body h2:hover .anchor, .ydoc .markdown-body h3:hover .anchor, .ydoc .markdown-body h4:hover .anchor, .ydoc .markdown-body h5:hover .anchor, .ydoc .markdown-body h6:hover .anchor {
-      padding-left: 8px;
-      margin-left: -30px;
-      text-decoration: none; }
-      .ydoc .markdown-body h1:hover .anchor .octicon-link, .ydoc .markdown-body h2:hover .anchor .octicon-link, .ydoc .markdown-body h3:hover .anchor .octicon-link, .ydoc .markdown-body h4:hover .anchor .octicon-link, .ydoc .markdown-body h5:hover .anchor .octicon-link, .ydoc .markdown-body h6:hover .anchor .octicon-link {
-        display: inline-block; }
-    .ydoc .markdown-body h1 {
-      padding-bottom: .3em;
-      font-size: 2.25em;
-      line-height: 1.2;
-      border-bottom: 1px solid #eee; }
-      .ydoc .markdown-body h1 .anchor {
-        line-height: 1; }
-    .ydoc .markdown-body h2 {
-      padding-bottom: .3em;
-      font-size: 1.75em;
-      line-height: 1.225;
-      border-bottom: 1px solid #eee; }
-      .ydoc .markdown-body h2 .anchor {
-        line-height: 1; }
-    .ydoc .markdown-body h3 {
-      font-size: 1.5em;
-      line-height: 1.43; }
-      .ydoc .markdown-body h3 .anchor {
-        line-height: 1.2; }
-    .ydoc .markdown-body h4 {
-      font-size: 1.25em; }
-      .ydoc .markdown-body h4 .anchor {
-        line-height: 1.2; }
-    .ydoc .markdown-body h5 {
-      font-size: 1em; }
-      .ydoc .markdown-body h5 .anchor {
-        line-height: 1.1; }
-    .ydoc .markdown-body h6 {
-      font-size: 1em;
-      color: #777; }
-      .ydoc .markdown-body h6 .anchor {
-        line-height: 1.1; }
-    .ydoc .markdown-body blockquote, .ydoc .markdown-body dl, .ydoc .markdown-body ol, .ydoc .markdown-body p, .ydoc .markdown-body pre, .ydoc .markdown-body table, .ydoc .markdown-body ul {
-      margin-top: 0;
-      margin-bottom: 16px; }
-    .ydoc .markdown-body hr {
-      height: 4px;
-      padding: 0;
-      margin: 16px 0;
-      background-color: #e7e7e7;
-      border: 0 none; }
-    .ydoc .markdown-body ol, .ydoc .markdown-body ul {
-      padding-left: 2em;
-      list-style-type: disc; }
-    .ydoc .markdown-body ol.no-list, .ydoc .markdown-body ul.no-list {
-      padding: 0;
-      list-style-type: none; }
-    .ydoc .markdown-body li > p {
-      margin-top: 16px; }
-    .ydoc .markdown-body dl {
-      padding: 0; }
-      .ydoc .markdown-body dl dt {
-        padding: 0;
-        margin-top: 16px;
-        font-size: 1em;
-        font-style: italic;
-        font-weight: 700; }
-      .ydoc .markdown-body dl dd {
-        padding: 0 16px;
-        margin-bottom: 16px; }
-    .ydoc .markdown-body blockquote {
-      padding: 0 15px;
-      color: #777;
-      border-left: 4px solid #ddd; }
-      .ydoc .markdown-body blockquote > :first-child {
-        margin-top: 0; }
-      .ydoc .markdown-body blockquote > :last-child {
-        margin-bottom: 0; }
-    .ydoc .markdown-body table {
-      display: block;
-      width: 100%;
-      overflow: auto;
-      word-break: normal;
-      word-break: keep-all; }
-      .ydoc .markdown-body table th {
-        font-weight: 700;
-        padding: 6px 13px;
-        border: 1px solid #ddd; }
-      .ydoc .markdown-body table td {
-        padding: 6px 13px;
-        border: 1px solid #ddd; }
-      .ydoc .markdown-body table tr {
-        background-color: #fff;
-        border-top: 1px solid #ccc; }
-      .ydoc .markdown-body table tr:nth-child(2n) {
-        background-color: #f8f8f8; }
-      .ydoc .markdown-body table img {
-        max-width: 100%;
-        box-sizing: border-box; }
-      .ydoc .markdown-body table .emoji {
-        max-width: none; }
-      .ydoc .markdown-body table span.frame {
-        display: block;
-        overflow: hidden; }
-        .ydoc .markdown-body table span.frame > span {
-          display: block;
-          float: left;
-          width: auto;
-          padding: 7px;
-          margin: 13px 0 0;
-          overflow: hidden;
-          border: 1px solid #ddd; }
-          .ydoc .markdown-body table span.frame > span img {
-            display: block;
-            float: left; }
-          .ydoc .markdown-body table span.frame > span span {
-            display: block;
-            padding: 5px 0 0;
-            clear: both;
-            color: #333; }
-      .ydoc .markdown-body table span.align-center {
-        display: block;
-        overflow: hidden;
-        clear: both; }
-        .ydoc .markdown-body table span.align-center > span {
-          display: block;
-          margin: 13px auto 0;
-          overflow: hidden;
-          text-align: center; }
-          .ydoc .markdown-body table span.align-center > span img {
-            margin: 0 auto;
-            text-align: center; }
-      .ydoc .markdown-body table span.float-left {
-        display: block;
-        float: left;
-        margin-right: 13px;
-        overflow: hidden; }
-        .ydoc .markdown-body table span.float-left span {
-          margin: 13px 0 0; }
-      .ydoc .markdown-body table span.float-right {
-        display: block;
-        float: right;
-        margin-left: 13px;
-        overflow: hidden; }
-        .ydoc .markdown-body table span.float-right > span {
-          display: block;
-          margin: 13px auto 0;
-          overflow: hidden;
-          text-align: right; }
-      .ydoc .markdown-body table code:after, .ydoc .markdown-body table code:before, .ydoc .markdown-body table tt:after, .ydoc .markdown-body table tt:before {
-        letter-spacing: -.2em; }
-      .ydoc .markdown-body table code br, .ydoc .markdown-body table tt br {
-        display: none; }
-      .ydoc .markdown-body table pre {
-        display: block;
-        padding: 9.5px;
-        margin: 0 0 10px;
-        font-size: 13px;
-        word-break: break-all;
-        word-wrap: break-word;
-        color: #333;
-        border: 1px solid #ccc;
-        padding: 16px;
-        overflow: auto;
-        font-size: 85%;
-        line-height: 1.45;
-        background-color: #f7f7f7;
-        border-radius: 3px;
-        word-wrap: normal; }
-        .ydoc .markdown-body table pre code {
-          padding: 0;
-          font-size: inherit;
-          color: inherit;
-          white-space: pre-wrap;
-          background-color: transparent;
-          border-radius: 0;
-          max-width: initial;
-          padding: 0;
-          margin: 0;
-          overflow: initial;
-          line-height: inherit;
-          word-wrap: normal;
-          background-color: transparent;
-          border: 0; }
-        .ydoc .markdown-body table pre tt {
-          display: inline;
-          max-width: initial;
-          padding: 0;
-          margin: 0;
-          overflow: initial;
-          line-height: inherit;
-          word-wrap: normal;
-          background-color: transparent;
-          border: 0; }
-        .ydoc .markdown-body table pre > code {
-          padding: 0;
-          margin: 0;
-          font-size: 100%;
-          word-break: normal;
-          white-space: pre;
-          background: 0 0;
-          border: 0;
-          display: inline; }
-      .ydoc .markdown-body table code {
-        padding: 2px 4px;
-        font-size: 90%;
-        color: #c7254e;
-        background-color: #f9f2f4;
-        border-radius: 4px;
-        padding: 0;
-        padding-top: .2em;
-        padding-bottom: .2em;
-        margin: 0;
-        font-size: 85%;
-        background-color: rgba(0, 0, 0, 0.04);
-        border-radius: 3px; }
-      .ydoc .markdown-body table tt {
-        padding: 0;
-        padding-top: .2em;
-        padding-bottom: .2em;
-        margin: 0;
-        font-size: 85%;
-        background-color: rgba(0, 0, 0, 0.04);
-        border-radius: 3px; }
-      .ydoc .markdown-body table .highlight {
-        margin-bottom: 16px; }
-        .ydoc .markdown-body table .highlight pre {
-          padding: 16px;
-          overflow: auto;
-          font-size: 85%;
-          line-height: 1.45;
-          background-color: #f7f7f7;
-          border-radius: 3px;
-          margin-bottom: 0;
-          word-break: normal; }
-      .ydoc .markdown-body table kbd {
+    .ydoc-container-content .sidebar .docs-sidenav li {
+      height: .5rem; }
+      .ydoc-container-content .sidebar .docs-sidenav li a {
+        height: .5rem;
+        line-height: .5rem;
+        color: #888;
         display: inline-block;
-        padding: 3px 5px;
-        font-size: 11px;
-        line-height: 10px;
-        color: #555;
-        vertical-align: middle;
-        background-color: #fcfcfc;
-        border: solid 1px #ccc;
-        border-bottom-color: #bbb;
-        border-radius: 3px;
-        box-shadow: inset 0 -1px 0 #bbb; }
-      .ydoc .markdown-body table .sms-or-app {
         width: 100%;
-        margin: 0;
-        padding: 40px 0 0;
-        border-top: 1px solid #ddd; }
-        .ydoc .markdown-body table .sms-or-app li {
-          float: left;
-          width: 325px;
-          padding: 0;
-          list-style: none; }
-          .ydoc .markdown-body table .sms-or-app li .btn {
-            display: block;
-            text-align: center;
-            margin: 10px 0;
-            padding-top: 12px;
-            padding-bottom: 12px;
-            font-size: 15px;
-            height: 100%;
-            width: 100%; }
-        .ydoc .markdown-body table .sms-or-app li:first-child {
-          margin-right: 25px; }
-        .ydoc .markdown-body table .sms-or-app small {
-          font-size: 80%; }
-      .ydoc .markdown-body table .sms-or-app:before {
-        display: table;
-        content: ""; }
-      .ydoc .markdown-body table .sms-or-app:after {
-        display: table;
-        clear: both;
-        content: ""; }
-      .ydoc .markdown-body table .app-only {
-        padding: 20px 0 0; }
-        .ydoc .markdown-body table .app-only li {
-          float: none;
-          width: auto; }
-          .ydoc .markdown-body table .app-only li .btn {
-            display: inline-block;
-            width: auto;
-            padding-left: 20px;
-            padding-right: 20px; }
+        position: relative;
+        padding-left: 5px;
+        text-indent: .2rem;
+        margin: 0 3px; }
+      .ydoc-container-content .sidebar .docs-sidenav li a:hover {
+        padding-left: 0;
+        border-left: 5px solid #ff503f;
+        color: #ff503f; }
+      .ydoc-container-content .sidebar .docs-sidenav li a:hover::after {
+        content: ">";
+        display: block;
+        position: absolute;
+        right: 0;
+        top: .05rem;
+        color: #ff503f; }
+    .ydoc-container-content .sidebar .docs-sidenav li.active a, .ydoc-container-content .sidebar .docs-sidenav li.active a:hover {
+      border-left: 1px solid #ff503f;
+      color: #ff503f; }
 
-.markdown-body .qr-code-table, .qr-code-table {
+@media screen and (min-width: 1200px) {
+  .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
+    width: 1200px; } }
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  body {
+    background: blue; }
+
+  .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
+    width: 992px; } }
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    background: green; }
+
+  .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
+    width: 768px; } }
+@media screen and (max-width: 767px) {
+  body {
+    background: yellow; }
+
+  .ydoc-container-content .content-left {
+    width: 100%; }
+  .ydoc-container-content .content-right {
+    display: none; }
+
+  .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
+    width: 100%; } }
+/*     markdown begin       */
+.markdown-body code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px; }
+
+.markdown-body pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333333;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 4px; }
+
+.markdown-body pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0; }
+
+.markdown-body {
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+  padding: .2rem 0; }
+  .markdown-body a {
+    color: #337ab7; }
+
+.markdown-body > *:first-child {
+  margin-top: 0 !important; }
+
+.markdown-body > *:last-child {
+  margin-bottom: 0 !important; }
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none; }
+
+.markdown-body .absent {
+  color: #c00; }
+
+.markdown-body .anchor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px; }
+
+.markdown-body .anchor:focus {
+  outline: none; }
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4; }
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  display: none;
+  color: #000;
+  vertical-align: middle; }
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  padding-left: 8px;
+  margin-left: -30px;
+  text-decoration: none; }
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  display: inline-block; }
+
+.markdown-body h1 tt,
+.markdown-body h1 code,
+.markdown-body h2 tt,
+.markdown-body h2 code,
+.markdown-body h3 tt,
+.markdown-body h3 code,
+.markdown-body h4 tt,
+.markdown-body h4 code,
+.markdown-body h5 tt,
+.markdown-body h5 code,
+.markdown-body h6 tt,
+.markdown-body h6 code {
+  font-size: inherit; }
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee; }
+
+.markdown-body h1 .anchor {
+  line-height: 1; }
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee; }
+
+.markdown-body h2 .anchor {
+  line-height: 1; }
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43; }
+
+.markdown-body h3 .anchor {
+  line-height: 1.2; }
+
+.markdown-body h4 {
+  font-size: 1.25em; }
+
+.markdown-body h4 .anchor {
+  line-height: 1.2; }
+
+.markdown-body h5 {
+  font-size: 1em; }
+
+.markdown-body h5 .anchor {
+  line-height: 1.1; }
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777; }
+
+.markdown-body h6 .anchor {
+  line-height: 1.1; }
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px; }
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none; }
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+  list-style-type: disc; }
+
+.markdown-body ul.no-list,
+.markdown-body ol.no-list {
+  padding: 0;
+  list-style-type: none; }
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.markdown-body li > p {
+  margin-top: 16px; }
+
+.markdown-body dl {
+  padding: 0; }
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold; }
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px; }
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd; }
+
+.markdown-body blockquote > :first-child {
+  margin-top: 0; }
+
+.markdown-body blockquote > :last-child {
+  margin-bottom: 0; }
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all; }
+
+.markdown-body table th {
+  font-weight: bold; }
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd; }
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc; }
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8; }
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: border-box; }
+
+.markdown-body .emoji {
+  max-width: none; }
+
+.markdown-body span.frame {
+  display: block;
+  overflow: hidden; }
+
+.markdown-body span.frame > span {
+  display: block;
+  float: left;
+  width: auto;
+  padding: 7px;
+  margin: 13px 0 0;
+  overflow: hidden;
+  border: 1px solid #ddd; }
+
+.markdown-body span.frame span img {
+  display: block;
+  float: left; }
+
+.markdown-body span.frame span span {
+  display: block;
+  padding: 5px 0 0;
+  clear: both;
+  color: #333; }
+
+.markdown-body span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+
+.markdown-body span.align-center > span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: center; }
+
+.markdown-body span.align-center span img {
+  margin: 0 auto;
+  text-align: center; }
+
+.markdown-body span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+
+.markdown-body span.align-right > span {
+  display: block;
+  margin: 13px 0 0;
+  overflow: hidden;
+  text-align: right; }
+
+.markdown-body span.align-right span img {
+  margin: 0;
+  text-align: right; }
+
+.markdown-body span.float-left {
+  display: block;
+  float: left;
+  margin-right: 13px;
+  overflow: hidden; }
+
+.markdown-body span.float-left span {
+  margin: 13px 0 0; }
+
+.markdown-body span.float-right {
+  display: block;
+  float: right;
+  margin-left: 13px;
+  overflow: hidden; }
+
+.markdown-body span.float-right > span {
+  display: block;
+  margin: 13px auto 0;
+  overflow: hidden;
+  text-align: right; }
+
+.markdown-body code,
+.markdown-body tt {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 3px; }
+
+.markdown-body code:before,
+.markdown-body code:after,
+.markdown-body tt:before,
+.markdown-body tt:after {
+  letter-spacing: -0.2em;
+  content: " "; }
+
+.markdown-body code br,
+.markdown-body tt br {
+  display: none; }
+
+.markdown-body del code {
+  text-decoration: inherit; }
+
+.markdown-body pre > code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0; }
+
+.markdown-body .highlight {
+  margin-bottom: 16px; }
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px; }
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal; }
+
+.markdown-body pre {
+  word-wrap: normal; }
+
+.markdown-body pre code,
+.markdown-body pre tt {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0; }
+
+.markdown-body pre code:before,
+.markdown-body pre code:after,
+.markdown-body pre tt:before,
+.markdown-body pre tt:after {
+  content: normal; }
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb; }
+
+#readme.contributing > div {
+  max-height: 250px;
+  overflow: auto; }
+
+#readme .markdown-body,
+#readme .plain {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 30px;
+  word-wrap: break-word; }
+
+#readme .plain pre {
+  font-size: 15px;
+  white-space: pre-wrap; }
+
+#readme .markdown-body {
+  border: 0;
+  padding: 30px;
+  border-radius: 0; }
+
+#readme table[data-table-type="yaml-metadata"] {
+  line-height: 1;
+  font-size: 12px; }
+
+#readme table[data-table-type="yaml-metadata"] table {
+  margin: 0; }
+
+.markdown-body .sms-or-app {
+  width: 100%;
+  margin: 0;
+  padding: 40px 0 0;
+  border-top: 1px solid #ddd; }
+
+.markdown-body .sms-or-app:before {
+  display: table;
+  content: ""; }
+
+.markdown-body .sms-or-app:after {
+  display: table;
+  clear: both;
+  content: ""; }
+
+.markdown-body .sms-or-app li {
+  float: left;
+  width: 325px;
+  padding: 0;
+  list-style: none; }
+
+.markdown-body .sms-or-app li:first-child {
+  margin-right: 25px; }
+
+.markdown-body .sms-or-app li .btn {
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  font-size: 15px;
+  height: 100%;
+  width: 100%; }
+
+.markdown-body .sms-or-app small {
+  font-size: 80%; }
+
+.markdown-body .app-only {
+  padding: 20px 0 0; }
+
+.markdown-body .app-only li {
+  float: none;
+  width: auto; }
+
+.markdown-body .app-only li .btn {
+  display: inline-block;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.markdown-body .qr-code-table,
+.qr-code-table {
   width: auto;
   float: right;
   margin: 0 0 0 40px;
   border: 1px solid #ddd; }
 
-.markdown-body .qr-code-table tr, .qr-code-table tr {
-  background: 0 0;
+.markdown-body .qr-code-table tr,
+.qr-code-table tr {
+  background: transparent;
   border: 0; }
 
-.markdown-body .qr-code-table td, .markdown-body .qr-code-table th, .qr-code-table td, .qr-code-table th {
+.markdown-body .qr-code-table th,
+.markdown-body .qr-code-table td,
+.qr-code-table th,
+.qr-code-table td {
   border: 0;
   padding: 0; }
 
-.markdown-body .qr-code-table td, .qr-code-table td {
+.markdown-body .qr-code-table td,
+.qr-code-table td {
   width: 3px;
   height: 3px; }
 
-.markdown-body .qr-code-table .black, .qr-code-table .black {
+.markdown-body .qr-code-table .black,
+.qr-code-table .black {
   background: #000; }
 
-.markdown-body .qr-code-table .white, .qr-code-table .white {
+.markdown-body .qr-code-table .white,
+.qr-code-table .white {
   background: #fff; }
 
 .markdown-body .two-factor-actions {
@@ -539,28 +776,36 @@ sup, sub {
   display: inline-block;
   margin-right: 10px; }
 
-.markdown-body .qr-code-table, .qr-code-table {
+.markdown-body .qr-code-table,
+.qr-code-table {
   width: auto;
   float: right;
   margin: 0 0 0 40px;
   border: 1px solid #ddd; }
 
-.markdown-body .qr-code-table tr, .qr-code-table tr {
-  background: 0 0;
+.markdown-body .qr-code-table tr,
+.qr-code-table tr {
+  background: transparent;
   border: 0; }
 
-.markdown-body .qr-code-table td, .markdown-body .qr-code-table th, .qr-code-table td, .qr-code-table th {
+.markdown-body .qr-code-table th,
+.markdown-body .qr-code-table td,
+.qr-code-table th,
+.qr-code-table td {
   border: 0;
   padding: 0; }
 
-.markdown-body .qr-code-table td, .qr-code-table td {
+.markdown-body .qr-code-table td,
+.qr-code-table td {
   width: 3px;
   height: 3px; }
 
-.markdown-body .qr-code-table .black, .qr-code-table .black {
+.markdown-body .qr-code-table .black,
+.qr-code-table .black {
   background: #000; }
 
-.markdown-body .qr-code-table .white, .qr-code-table .white {
+.markdown-body .qr-code-table .white,
+.qr-code-table .white {
   background: #fff; }
 
 .markdown-body .two-factor-actions {
@@ -580,28 +825,36 @@ sup, sub {
   display: inline-block;
   margin-right: 10px; }
 
-.markdown-body .qr-code-table, .qr-code-table {
+.markdown-body .qr-code-table,
+.qr-code-table {
   width: auto;
   float: right;
   margin: 0 0 0 40px;
   border: 1px solid #ddd; }
 
-.markdown-body .qr-code-table tr, .qr-code-table tr {
-  background: 0 0;
+.markdown-body .qr-code-table tr,
+.qr-code-table tr {
+  background: transparent;
   border: 0; }
 
-.markdown-body .qr-code-table td, .markdown-body .qr-code-table th, .qr-code-table td, .qr-code-table th {
+.markdown-body .qr-code-table th,
+.markdown-body .qr-code-table td,
+.qr-code-table th,
+.qr-code-table td {
   border: 0;
   padding: 0; }
 
-.markdown-body .qr-code-table td, .qr-code-table td {
+.markdown-body .qr-code-table td,
+.qr-code-table td {
   width: 3px;
   height: 3px; }
 
-.markdown-body .qr-code-table .black, .qr-code-table .black {
+.markdown-body .qr-code-table .black,
+.qr-code-table .black {
   background: #000; }
 
-.markdown-body .qr-code-table .white, .qr-code-table .white {
+.markdown-body .qr-code-table .white,
+.qr-code-table .white {
   background: #fff; }
 
 .markdown-body .two-factor-actions {
@@ -670,30 +923,5 @@ sup, sub {
   width: auto;
   padding-left: 20px;
   padding-right: 20px; }
-
-@media screen and (min-width: 1200px) {
-  body {
-    background: red; }
-
-  .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
-    width: 1200px; } }
-@media screen and (min-width: 992px) and (max-width: 1199px) {
-  body {
-    background: blue; }
-
-  .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
-    width: 992px; } }
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  body {
-    background: green; }
-
-  .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
-    width: 768px; } }
-@media screen and (max-width: 767px) {
-  body {
-    background: yellow; }
-
-  .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
-    width: 100%; } }
 
 /*# sourceMappingURL=app.css.map */

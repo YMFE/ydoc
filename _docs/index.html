@@ -70,40 +70,6 @@
         
           
           <div class="ydoc-container-content">
-              <div class="content-left markdown-body">
-                
-                <h1 id="YDoc">YDoc</h1><h2 id="简介">简介</h2><p>前端工程文档生成工具</p>
-<p><a href="http://badge.fury.io/js/ydoc"><img src="https://badge.fury.io/js/ydoc.svg" alt="npm version"></a></p>
-<p><img src="https://nodei.co/npm/ydoc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt=""></p>
-<h2 id="安装">安装</h2><pre><code>npm install ydoc [-g]
-</code></pre><h2 id="使用方式">使用方式</h2><h3 id="命令">命令</h3><pre><code>cd /path/to/project/
-ydoc build
-</code></pre><p>详细请查看<a href="./usage.html">命令使用说明</a>。</p>
-<h3 id="脚本">脚本</h3><pre><code class="lang-javascript">var ydoc = require(&quot;ydoc&quot;);
-
-ydoc.build(&#39;/path/to/project&#39;, options);
-</code></pre>
-<h3 id="Gulp">Gulp</h3><pre><code class="lang-javascript">var ydoc = require(&quot;ydoc&quot;);
-
-gulp.task(&#39;ydoc&#39;, function() {
-    return gulp.src(&#39;./&#39;)
-        .pipe(ydoc({
-            // 配置
-        }));
-});
-</code></pre>
-<h3 id="Grunt">Grunt</h3><pre><code class="lang-javascript">grunt.initConfig({
-    ydoc: {
-        // 配置
-    }
-});
-
-grunt.loadNpmTasks(&#39;ydoc&#39;);
-</code></pre>
-<p>配置及配置文件请查看 <a href="./config.html">配置说明</a>;</p>
-<h2 id="开发者">开发者</h2><p>林洋 <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#97;&#100;&#x77;&#111;&#x6e;&#x2e;&#108;&#x69;&#110;&#64;&#113;&#117;&#x6e;&#97;&#x72;&#46;&#x63;&#111;&#109;">&#97;&#100;&#x77;&#111;&#x6e;&#x2e;&#108;&#x69;&#110;&#64;&#113;&#117;&#x6e;&#97;&#x72;&#46;&#x63;&#111;&#109;</a> <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#x65;&#x64;&#119;&#x6f;&#x6e;&#46;&#108;&#105;&#109;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#x65;&#x64;&#119;&#x6f;&#x6e;&#46;&#108;&#105;&#109;&#64;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a></p>
-
-              </div>
               <div class="content-right">
                   <nav class="sidebar">
                     <ul class="nav docs-sidenav">
@@ -179,6 +145,40 @@ grunt.loadNpmTasks(&#39;ydoc&#39;);
                     </ul>
                   </nav>
               </div>
+              <div class="content-left markdown-body">
+                
+                <h1 id="YDoc">YDoc</h1><h2 id="简介">简介</h2><p>前端工程文档生成工具</p>
+<p><a href="http://badge.fury.io/js/ydoc"><img src="https://badge.fury.io/js/ydoc.svg" alt="npm version"></a></p>
+<p><img src="https://nodei.co/npm/ydoc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt=""></p>
+<h2 id="安装">安装</h2><pre><code>npm install ydoc [-g]
+</code></pre><h2 id="使用方式">使用方式</h2><h3 id="命令">命令</h3><pre><code>cd /path/to/project/
+ydoc build
+</code></pre><p>详细请查看<a href="./usage.html">命令使用说明</a>。</p>
+<h3 id="脚本">脚本</h3><pre><code class="lang-javascript">var ydoc = require(&quot;ydoc&quot;);
+
+ydoc.build(&#39;/path/to/project&#39;, options);
+</code></pre>
+<h3 id="Gulp">Gulp</h3><pre><code class="lang-javascript">var ydoc = require(&quot;ydoc&quot;);
+
+gulp.task(&#39;ydoc&#39;, function() {
+    return gulp.src(&#39;./&#39;)
+        .pipe(ydoc({
+            // 配置
+        }));
+});
+</code></pre>
+<h3 id="Grunt">Grunt</h3><pre><code class="lang-javascript">grunt.initConfig({
+    ydoc: {
+        // 配置
+    }
+});
+
+grunt.loadNpmTasks(&#39;ydoc&#39;);
+</code></pre>
+<p>配置及配置文件请查看 <a href="./config.html">配置说明</a>;</p>
+<h2 id="开发者">开发者</h2><p>林洋 <a href="&#109;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#x61;&#x64;&#x77;&#x6f;&#x6e;&#x2e;&#x6c;&#x69;&#x6e;&#x40;&#113;&#117;&#110;&#97;&#x72;&#x2e;&#x63;&#x6f;&#109;">&#x61;&#x64;&#x77;&#x6f;&#x6e;&#x2e;&#x6c;&#x69;&#x6e;&#x40;&#113;&#117;&#110;&#97;&#x72;&#x2e;&#x63;&#x6f;&#109;</a> <a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#101;&#100;&#119;&#x6f;&#110;&#46;&#x6c;&#x69;&#109;&#x40;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;">&#101;&#100;&#119;&#x6f;&#110;&#46;&#x6c;&#x69;&#109;&#x40;&#103;&#x6d;&#x61;&#105;&#x6c;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+
+              </div>
           </div>
           
         
@@ -211,7 +211,7 @@ grunt.loadNpmTasks(&#39;ydoc&#39;);
                 }
             }
             });
-        });
+        })
     </script>
 </body>
 </html>
