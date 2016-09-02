@@ -143,7 +143,23 @@ module.exports = {
     parser: function(contents, options, conf) {
         var fn = execFns[options.type || 'component'];
         return fn ? fn(contents.map(function(content) {
-            var contents = commentParser(content);
+            var contents = commentParser(content.replace(/```[\s\S]+?```/gm, function(mat) {
+                var mats = mat.split("\n"), i = 1, line, indent = -1, lines = []
+                while (i < mats.length - 1) {
+                    line = mats[i]
+                    if (line.trim() != '*' && indent < 0) {
+                        indent = line.match(/[^*\S]+/g).length
+                    }
+                    if (indent > -1) {
+                        line = line.substring(0, indent) + line.substring(indent).replace(/^[ ]+/g, function(mat) {
+                            return mat.length + 'space'
+                        })
+                    }
+                    lines.push(line)
+                    i++
+                }
+                return lines.join("\n")
+            }));
             return contents.filter(function(item) {
                 return item.tags.every(function(tag) {
                     return tag.tag != 'skip';
