@@ -31,7 +31,7 @@ $(document).ready(function() {
       $('.docs-sidenav').css({
           'left': $(window).width()/2-$('.ydoc-container-content').width()/2
       });
-      if($(this).scrollTop() >=  $('.ydoc-container-content').scrollTop()){
+      if($(window).scrollTop() >=  $('.ydoc-container-content').offset().top){
           $('.docs-sidenav').addClass('fixed');
       }else{
           $('.docs-sidenav').removeClass('fixed');
