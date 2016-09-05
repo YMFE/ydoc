@@ -97,8 +97,8 @@ sup, sub {
   font-family: ydocfont;
   font-style: normal;
   font-weight: normal;
-  src: url(fonts/ydoc.eot?v=1.0.0);
-  src: url(fonts/ydoc.eot?#iefix&#iefix&amp;v=1.0.0) format("embedded-opentype"), url(fonts/ydoc.woff?v=1.0.0) format("woff"), url(fonts/ydoc.ttf?v=1.0.0) format("truetype"), url(fonts/ydoc.svg?v=1.0.0#icomoonregular) format("svg"); }
+  src: url(./fonts/ydoc.eot?v=1.0.0);
+  src: url(./fonts/ydoc.eot?#iefix&#iefix&amp;v=1.0.0) format("embedded-opentype"), url(./fonts/ydoc.woff?v=1.0.0) format("woff"), url(./fonts/ydoc.ttf?v=1.0.0) format("truetype"), url(./source/fonts/ydoc.svg?v=1.0.0#icomoonregular) format("svg"); }
 .ydoc {
   font-size: .14rem; }
   .ydoc-header {
@@ -199,9 +199,10 @@ sup, sub {
         overflow-x: hidden;
         background: #f6f6f6; }
       .ydoc-container-content .sidebar .docs-sidenav {
-        width: 25%; }
+        width: 100%; }
         .ydoc-container-content .sidebar .docs-sidenav > li {
-          height: .5rem; }
+          height: .5rem;
+          width: 100%; }
           .ydoc-container-content .sidebar .docs-sidenav > li a {
             height: .5rem;
             line-height: .5rem;
@@ -211,13 +212,14 @@ sup, sub {
             position: relative;
             padding-left: 5px;
             text-indent: .15rem;
-            margin: 0 3px; }
+            margin: 0 3px;
+            font-family: ydocfont; }
           .ydoc-container-content .sidebar .docs-sidenav > li a:hover {
             padding-left: 0;
             border-left: 5px solid #ff503f;
             color: #ff503f; }
           .ydoc-container-content .sidebar .docs-sidenav > li a:hover::after {
-            content: ">";
+            content: "\f07f";
             display: block;
             position: absolute;
             right: 10px;
@@ -228,19 +230,21 @@ sup, sub {
           color: #ff503f;
           padding-left: 0; }
         .ydoc-container-content .sidebar .docs-sidenav > li.active a::after {
-          content: ">";
+          content: "\f07f";
           display: block;
           position: absolute;
           right: 10px;
           top: .05rem;
           color: #ff503f; }
         .ydoc-container-content .sidebar .docs-sidenav ul {
+          width: 100%;
           display: none;
           margin-left: 20px;
           color: red; }
           .ydoc-container-content .sidebar .docs-sidenav ul li {
             height: .5rem; }
             .ydoc-container-content .sidebar .docs-sidenav ul li a {
+              font-family: ydocfont;
               height: .5rem;
               line-height: .5rem;
               width: 100%;
@@ -251,12 +255,12 @@ sup, sub {
             .ydoc-container-content .sidebar .docs-sidenav ul li a:hover {
               color: #ff503f; }
             .ydoc-container-content .sidebar .docs-sidenav ul li a:hover::before {
-              content: ".";
-              font-size: .3rem;
+              content: "\f083";
+              font-size: .12rem;
               display: block;
               position: absolute;
               left: -0.15rem;
-              top: -8px;
+              top: 0;
               color: #ff503f; }
     .ydoc-container-content .docs-section {
       margin: 10px; }

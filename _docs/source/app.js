@@ -27,14 +27,16 @@ $(document).ready(function() {
      return false;
   });
   $(window).scroll(function(e){
-      $('.docs-sidenav').width($('.ydoc-container-content').width()*0.25);
-      $('.docs-sidenav').css({
-          'left': $(window).width()/2-$('.ydoc-container-content').width()/2
+      var docSideNav = $('.docs-sidenav'),
+          ydocContainerCon= $('.ydoc-container-content');
+      docSideNav.width(ydocContainerCon.width()*0.25);
+      docSideNav.css({
+          'left': $(window).width()/2-ydocContainerCon.width()/2
       });
-      if($(this).scrollTop() >=  $('.ydoc-container-content').scrollTop()){
-          $('.docs-sidenav').addClass('fixed');
+      if($(window).scrollTop() >=  ydocContainerCon.offset().top){
+          docSideNav.addClass('fixed');
       }else{
-          $('.docs-sidenav').removeClass('fixed');
+          docSideNav.removeClass('fixed');
       }
   })
 })

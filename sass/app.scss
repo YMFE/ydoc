@@ -45,8 +45,8 @@ sup,sub{vertical-align:baseline}
     font-family:ydocfont;
     font-style:normal;
     font-weight:normal;
-    src:url(fonts/ydoc.eot?v=1.0.0);
-    src:url(fonts/ydoc.eot?#iefix&#iefix&amp;v=1.0.0) format('embedded-opentype'),url(fonts/ydoc.woff?v=1.0.0) format('woff'),url(fonts/ydoc.ttf?v=1.0.0) format('truetype'),url(fonts/ydoc.svg?v=1.0.0#icomoonregular) format('svg')}
+    src:url(./fonts/ydoc.eot?v=1.0.0);
+    src:url(./fonts/ydoc.eot?#iefix&#iefix&amp;v=1.0.0) format('embedded-opentype'),url(./fonts/ydoc.woff?v=1.0.0) format('woff'),url(./fonts/ydoc.ttf?v=1.0.0) format('truetype'),url(./source/fonts/ydoc.svg?v=1.0.0#icomoonregular) format('svg')}
 .ydoc{
   font-size: .14rem;
 
@@ -172,9 +172,10 @@ sup,sub{vertical-align:baseline}
               background: #f6f6f6;
           }
           .docs-sidenav{
-              width: 25%;
+              width: 100%;
               >li{
                   height: .5rem;
+                  width: 100%;
                   a{
                       height: .5rem;
                       line-height: .5rem;
@@ -185,6 +186,7 @@ sup,sub{vertical-align:baseline}
                       padding-left:5px;
                       text-indent: .15rem;
                       margin:0 3px;
+                      font-family: ydocfont;
                   }
                   a:hover{
                       padding-left:0;
@@ -192,7 +194,7 @@ sup,sub{vertical-align:baseline}
                       color:#ff503f;
                   }
                    a:hover::after{
-                      content:">";
+                      content:"\f07f";
                       display: block;
                       position: absolute;
                       right:10px;
@@ -207,7 +209,7 @@ sup,sub{vertical-align:baseline}
                       padding-left:0;
                   }
                   a::after{
-                     content:">";
+                     content:"\f07f";
                      display: block;
                      position: absolute;
                      right:10px;
@@ -216,12 +218,14 @@ sup,sub{vertical-align:baseline}
                  }
               }
               ul{
+                 width: 100%;
                  display: none;
                  margin-left:20px;
                  color:red;
                 li{
                     height: .5rem;
                     a{
+                        font-family: ydocfont;
                         height: .5rem;
                         line-height: .5rem;
                         width: 100%;
@@ -235,12 +239,12 @@ sup,sub{vertical-align:baseline}
                         color:#ff503f;
                     }
                     a:hover::before{
-                        content:".";
-                        font-size: .3rem;
+                        content:"\f083";
+                        font-size: .12rem;
                         display: block;
                         position: absolute;
                         left: -0.15rem;
-                        top:-8px;
+                        top:0;
                         color:#ff503f;
                     }
                 }
