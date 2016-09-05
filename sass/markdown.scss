@@ -423,11 +423,26 @@
 }
 
 /*    api 处     */
-.docs-section{
-    .markdown-body{
-        h1{
+.content-left.markdown-body{
+    padding:0;
+}
+.markdown-body{
+    .docs-section{
+        h1,h2{
             border-bottom: none;
         }
-
+        h1{
+            font-size: .18rem;
+        }
+        h2{
+            font-size: .16rem;
+        }
+        h3{
+            font-size: .14rem;
+        }
+        .api{
+            border-top: 1px solid red;
+            padding-top: .1rem;
+        }
     }
 }

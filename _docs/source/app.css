@@ -642,7 +642,19 @@ sup, sub {
   margin: 0; }
 
 /*    api 处     */
-.docs-section .markdown-body h1 {
+.content-left.markdown-body {
+  padding: 0; }
+
+.markdown-body .docs-section h1, .markdown-body .docs-section h2 {
   border-bottom: none; }
+.markdown-body .docs-section h1 {
+  font-size: .18rem; }
+.markdown-body .docs-section h2 {
+  font-size: .16rem; }
+.markdown-body .docs-section h3 {
+  font-size: .14rem; }
+.markdown-body .docs-section .api {
+  border-top: 1px solid red;
+  padding-top: .1rem; }
 
 /*# sourceMappingURL=app.css.map */
