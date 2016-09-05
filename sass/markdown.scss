@@ -387,12 +387,47 @@
     content: normal
 }
 
+#readme.contributing>div {
+	max-height: 250px;
+	overflow: auto
+}
+
+#readme .markdown-body,
+#readme .plain {
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	padding: 30px;
+	word-wrap: break-word
+}
+
+#readme .plain pre {
+	font-size: 15px;
+	white-space: pre-wrap
+}
+
+#readme .markdown-body {
+	border: 0;
+	padding: 30px;
+	border-radius: 0
+}
+
+#readme table[data-table-type="yaml-metadata"] {
+	line-height: 1;
+	font-size: 12px
+}
+
+#readme table[data-table-type="yaml-metadata"] table {
+	margin: 0
+}
+
 /*    api 处     */
 .docs-section{
     .markdown-body{
         h1{
             border-bottom: none;
         }
-        
+
     }
 }

@@ -45,8 +45,8 @@ sup,sub{vertical-align:baseline}
     font-family:ydocfont;
     font-style:normal;
     font-weight:normal;
-    src:url(http://simg1.qunarzz.com/fonts/icomoon/1.0.0/icomoon-webfont.eot?v=1.0.0);
-    src:url(http://simg1.qunarzz.com/fonts/icomoon/1.0.0/icomoon-webfont.eot?#iefix&#iefix&amp;v=1.0.0) format('embedded-opentype'),url(http://simg1.qunarzz.com/fonts/icomoon/1.0.0/icomoon-webfont.woff?v=1.0.0) format('woff'),url(http://simg1.qunarzz.com/fonts/icomoon/1.0.0/icomoon-webfont.ttf?v=1.0.0) format('truetype'),url(http://simg1.qunarzz.com/fonts/icomoon/1.0.0/icomoon-webfont.svg?v=1.0.0#icomoonregular) format('svg')}
+    src:url(fonts/ydoc.eot?v=1.0.0);
+    src:url(fonts/ydoc.eot?#iefix&#iefix&amp;v=1.0.0) format('embedded-opentype'),url(fonts/ydoc.woff?v=1.0.0) format('woff'),url(fonts/ydoc.ttf?v=1.0.0) format('truetype'),url(fonts/ydoc.svg?v=1.0.0#icomoonregular) format('svg')}
 .ydoc{
   font-size: .14rem;
 
@@ -152,12 +152,27 @@ sup,sub{vertical-align:baseline}
          background: #fff;
          padding:15px;
       }
+      .right{
+          float: right;
+      }
       .content-right{
          width: 25%;
-         background: #f6f6f6;
+        //  background: #f6f6f6;
       }
       .sidebar{
+          width: 100%;
+          border:1px solid red;
+          position: relative;
+          .fixed{
+              position: fixed;
+              top:0;
+              height: 100%;
+              overflow-y: auto;
+              overflow-x: hidden;
+              background: #f6f6f6;
+          }
           .docs-sidenav{
+              width: 25%;
               >li{
                   height: .5rem;
                   a{
@@ -187,9 +202,18 @@ sup,sub{vertical-align:baseline}
               }
               >li.active{
                   a,a:hover{
-                      border-left:1px solid #ff503f;
+                      border-left:5px solid #ff503f;
                       color:#ff503f;
+                      padding-left:0;
                   }
+                  a::after{
+                     content:">";
+                     display: block;
+                     position: absolute;
+                     right:10px;
+                     top:.05rem;
+                     color:#ff503f;
+                 }
               }
               ul{
                  display: none;
@@ -225,7 +249,6 @@ sup,sub{vertical-align:baseline}
       }
 
         .docs-section{
-
             margin:10px;
         }
     }
