@@ -14,4 +14,11 @@ $(document).ready(function() {
         }
     }
     });
+
+  $('.docs-sidenav li').click(function(e){
+      if($(this).next('ul')){
+          $(this).next('ul').toggle();
+      }
+      return false;
+  });
 })

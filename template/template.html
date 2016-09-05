@@ -40,6 +40,27 @@
             </nav>
         </div>
     </header>
+    {{if navbars && navbars.length}}
+    <header class="ydoc-header ydoc-second-header">
+        <div class="ydoc-header-area">
+            <nav>
+                <ul class="ydoc-nav">
+                    {{each tabs as tab}}
+                    <li class="{{if tab.active}}active{{/if}}">
+                        {{if tab.url}}
+                        <a href="{{tab.url}}" target="_blank">{{tab.title}}</a>
+                        {{else}}
+                        <a href="{{tab.name}}.html">{{tab.title}}</a>
+                        {{/if}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    {{else}}
+    <header style="height:20px"></header>
+    {{/if}}
       <!-- Docs page layout -->
       {{if banner}}
       <div class="ydoc-banner">
@@ -52,27 +73,7 @@
       <hr style="margin: 0"/>
       {{/if}}
 
-      {{if navbars && navbars.length}}
-      <header class="ydoc-header ydoc-second-header">
-          <div class="ydoc-header-area">
-              <nav>
-                  <ul class="ydoc-nav">
-                      {{each tabs as tab}}
-                      <li class="{{if tab.active}}active{{/if}}">
-                          {{if tab.url}}
-                          <a href="{{tab.url}}" target="_blank">{{tab.title}}</a>
-                          {{else}}
-                          <a href="{{tab.name}}.html">{{tab.title}}</a>
-                          {{/if}}
-                      </li>
-                      {{/each}}
-                  </ul>
-              </nav>
-          </div>
-      </header>
-      {{else}}
-      <header style="height:20px"></header>
-      {{/if}}
+
 
 
       <div class="ydoc-container">
@@ -85,7 +86,7 @@
                         {{each article.sidebars as m index}}
                         {{if m.sub}}
                         {{if index > 0 && !article.sidebars[index - 1].sub}}
-                        <ul class="nav" style="display:block">
+                        <ul class="nav">
                         {{/if}}
                             <li>
                                 <a href="{{m.tag || m.url || ('#' + m.name)}}" {{if article.name == m.name}}style="color:#0088a4"{{/if}}>{{m.name}}</a>
@@ -128,7 +129,7 @@
                   {{each article.sidebars as m index}}
                   {{if m.sub}}
                   {{if index > 0 && !article.sidebars[index - 1].sub}}
-                  <ul class="nav" style="display:block">
+                  <ul class="nav">
                   {{/if}}
                       <li>
                           <a href="{{m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>

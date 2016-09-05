@@ -104,13 +104,13 @@ sup,sub{vertical-align:baseline}
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#f1f1f1', GradientType=0);
     background-repeat: repeat-x;
     color:#333;
-    font-size:.2rem;
-    padding: 50px 30px;
+    font-size:.18rem;
+    padding: 20px 30px;
     text-shadow: 0 1px 0 rgba(0,0,0,.1);
     &-area{
       margin: 0 auto;
       h1{
-        font-size:.36rem;
+        font-size:.28rem;
         margin-bottom: .1rem;
         color:#ff503f;
       }
@@ -192,6 +192,7 @@ sup,sub{vertical-align:baseline}
                   }
               }
               ul{
+                 display: none;
                  margin-left:20px;
                  color:red;
                 li{
@@ -224,7 +225,7 @@ sup,sub{vertical-align:baseline}
       }
 
         .docs-section{
-    
+
             margin:10px;
         }
     }
