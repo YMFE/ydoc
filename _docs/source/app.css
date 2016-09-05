@@ -182,7 +182,8 @@ sup, sub {
       box-sizing: border-box;
       width: 75%;
       background: #fff;
-      padding: 15px; }
+      padding: 15px;
+      float: right; }
     .ydoc-container-content .right {
       float: right; }
     .ydoc-container-content .content-right {
