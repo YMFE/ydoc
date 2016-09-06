@@ -27,19 +27,22 @@ $(document).ready(function() {
      return false;
   });
   $(window).scroll(function(e){
+      // sidebar fixed
       var docSideNav = $('.docs-sidenav'),
           ydocContainerCon= $('.ydoc-container-content');
       docSideNav.width(ydocContainerCon.width()*0.25);
       docSideNav.css({
           'left': $(window).width()/2-ydocContainerCon.width()/2
       });
-      console.log('windowscrolltop',$(window).scrollTop());
-      console.log('footertop',$('.footer').offset().top);
       if($(window).scrollTop() >=  ydocContainerCon.offset().top && $(window).scrollTop() < $('.footer').offset().top){
           docSideNav.addClass('fixed');
       }else{
           docSideNav.removeClass('fixed');
       }
+
+      // content fixed
+      
+
   });
   // 折叠code
   $('.markdown-body pre').map(function(i,item){

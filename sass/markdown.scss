@@ -2,9 +2,11 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 16px;
     line-height: 1.5;
-    word-wrap: break-word
+    word-wrap: break-word;
+    a{
+        color:#337ab7;
+    }
 }
-
 .markdown-body::before {
     display: table;
     content: ""
@@ -423,28 +425,20 @@
 }
 
 /*    api 处     */
-.content-left.markdown-body{
-    padding:0;
-}
-
 // 按原有规则整体缩小2个字号 对比展现、
-// .markdown-body{
-//     .docs-section{
-//         h1,h2{
-//             border-bottom: none;
-//         }
-//         h1{
-//             font-size: .18rem;
-//         }
-//         h2{
-//             font-size: .16rem;
-//         }
-//         h3{
-//             font-size: .14rem;
-//         }
-//         .api{
-//             border-top: 1px solid red;
-//             padding-top: .1rem;
-//         }
-//     }
-// }
+.markdown-body{
+    .docs-section{
+        h1,h2{
+            border-bottom: none;
+        }
+        h3{
+            color:#ff503f;
+            border-left-color:#ff503f;
+        }
+        .con-list-item{
+            border-bottom: 1px solid #ddd;
+            padding: .3rem 0;
+        }
+    }
+
+}
