@@ -1174,7 +1174,7 @@
 
 
 <h2>示例</h2>
-<pre><code>QApp.config({
+<pre class="ydoc-example"><code>QApp.config({
 // 默认的首屏 View
 indexView: 'index',
 // 默认的动画
@@ -1276,7 +1276,7 @@ logLevel: 1
 
 
 <h2>示例</h2>
-<pre><code>QApp.ready(function() {
+<pre class="ydoc-example"><code>QApp.ready(function() {
 todoSomething();
 })</code></pre>
 
@@ -1464,7 +1464,7 @@ todoSomething();
 
 
 <h2>示例</h2>
-<pre><code>QApp.defineView('view', {
+<pre class="ydoc-example"><code>QApp.defineView('view', {
 // 模板
 html: '',
 // 给视图根节点添加的样式
@@ -1797,7 +1797,7 @@ ready: function() {
 
 
 <h2>示例</h2>
-<pre><code>QApp.show('view', {
+<pre class="ydoc-example"><code>QApp.show('view', {
 param: {
 x: 1,
 y: 2
@@ -1964,7 +1964,7 @@ onComplete: function(data) {
 
 
 <h2>示例</h2>
-<pre><code>QApp.getView('someView', function(view) {
+<pre class="ydoc-example"><code>QApp.getView('someView', function(view) {
 // view
 });</code></pre>
 
@@ -3211,7 +3211,7 @@ name 不给出，则取消所有绑定的事件</p>
 
 
 <h2>示例</h2>
-<pre><code>var widget = View.showWidget('searchlist', {
+<pre class="ydoc-example"><code>var widget = View.showWidget('searchlist', {
 onComplete: function() {
 todoSomething();
 }
@@ -3529,7 +3529,7 @@ todoSomething();
 
 
 <h2>示例</h2>
-<pre><code>view.bind('receiveData', function(data) {
+<pre class="ydoc-example"><code>view.bind('receiveData', function(data) {
 execute(data); //TODO 处理data
 });</code></pre>
 
@@ -3747,7 +3747,7 @@ execute(data); //TODO 处理data
 
 
 <h2>示例</h2>
-<pre><code>QApp.open('view', {
+<pre class="ydoc-example"><code>QApp.open('view', {
 param: {
 x: 1,
 y: 2
@@ -4493,7 +4493,7 @@ ani: 'moveEnter',
 
 
 <h2>示例</h2>
-<pre><code>QApp.util.ready(function(){});</code></pre>
+<pre class="ydoc-example"><code>QApp.util.ready(function(){});</code></pre>
 
 
 
@@ -4628,7 +4628,7 @@ ani: 'moveEnter',
 
 
 <h2>示例</h2>
-<pre><code>// 为 el 添加子节点
+<pre class="ydoc-example"><code>// 为 el 添加子节点
 var el = document.getElementById('demo'),
 nodes = [document.createTextNode("1"), document.createTextNode("2")];
 QApp.util.appendNodes(el, nodes);
@@ -4722,7 +4722,7 @@ QApp.util.appendNodes(el, nodes);</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>var node = document.getElementById('demo'),
+<pre class="ydoc-example"><code>var node = document.getElementById('demo'),
 el = document.createElement('p');
 el.innerHTML = 'text';
 QApp.util.insertElement(node, el, 'beforebegin'); // 将node开始前插入el
@@ -4792,7 +4792,7 @@ QApp.util.insertElement(node, el); // 缺省默认为'beforeend'</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>var el = document.getElementById('demo');
+<pre class="ydoc-example"><code>var el = document.getElementById('demo');
 QApp.util.removeNode(el);</code></pre>
 
 
@@ -4873,7 +4873,7 @@ QApp.util.removeNode(el);</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>var el = document.getElementById('demo'),
+<pre class="ydoc-example"><code>var el = document.getElementById('demo'),
 attrKey = 'id', // 属性名
 attrVal1 = 'new-value', // 属性值
 attrVal2 = 'other-value',
@@ -4973,7 +4973,7 @@ QApp.util.attr(el, attr);              // 利用object方式修改属性</code><
 
 
 <h2>示例</h2>
-<pre><code>var el = document.getElementById('demo'),
+<pre class="ydoc-example"><code>var el = document.getElementById('demo'),
 attr1 = 'background-color',
 value1 = 'red',
 attr2 = 'borderColor',
@@ -5066,7 +5066,7 @@ QApp.util.css(el, attr1); // 查找行内样式属性</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>var el = document.getElementById('demo');
+<pre class="ydoc-example"><code>var el = document.getElementById('demo');
 el.style.display = 'none';
 QApp.util.removeStyle(el, 'display');</code></pre>
 
@@ -5136,7 +5136,7 @@ QApp.util.removeStyle(el, 'display');</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>var el = document.getElementById('demo'),
+<pre class="ydoc-example"><code>var el = document.getElementById('demo'),
 type = 'click',//事件类型
 useCapture = false;//是否冒泡
 QApp.util.addEvent(el, type, function(e){
@@ -5238,7 +5238,7 @@ var event = QApp.util.fixEvent(e);//事件修复
 
 
 <h2>示例</h2>
-<pre><code>// 监听 el 的 click 事件
+<pre class="ydoc-example"><code>// 监听 el 的 click 事件
 var el = document.getElementById('demo'),
 type = 'click', //事件类型
 fn = function(){}, //回调函数
@@ -5330,7 +5330,7 @@ QApp.util.addEvent(el, type, fn, useCapture);</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>var el = document.getElementById('demo'),
+<pre class="ydoc-example"><code>var el = document.getElementById('demo'),
 type = 'click',
 fn = function(){},
 useCapture = false;
@@ -5494,7 +5494,7 @@ QApp.util.removeEvent(el, type, fn);</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>// 为 el 新增一个 className 为 new-class
+<pre class="ydoc-example"><code>// 为 el 新增一个 className 为 new-class
 var el = document.getElementById('demo');
 QApp.util.addClass(el, 'new-class');</code></pre>
 
@@ -5571,7 +5571,7 @@ QApp.util.addClass(el, 'new-class');</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>var el = document.getElementById('demo');
+<pre class="ydoc-example"><code>var el = document.getElementById('demo');
 QApp.util.removeClass(el, 'color');</code></pre>
 
 
@@ -6130,7 +6130,7 @@ QApp.util.removeClass(el, 'color');</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>// 修改 ele 的 transform 属性，实现动画（推荐）
+<pre class="ydoc-example"><code>// 修改 ele 的 transform 属性，实现动画（推荐）
 var ele_transform = document.createElement("div");
 QApp.util.animate(ele_transform, {transform: "translate(50%, 0)"}, 500);
 
@@ -6293,7 +6293,7 @@ QApp.util.animate(ele_left, {left: "50%", position: "absolute"}, 500);</code></p
 
 
 <h2>示例</h2>
-<pre><code>var obj1, obj2, obj3, //定义变量
+<pre class="ydoc-example"><code>var obj1, obj2, obj3, //定义变量
 deep; //定义一个布尔值
 QApp.util.extend(true, {}, obj1, obj2, obj3); //深拷贝，obj1, obj2, obj3的属性重新生成后放到{}上
 
@@ -6374,7 +6374,7 @@ QApp.util.extend(obj1, obj2, obj3); //浅拷贝，obj2，obj3的属性被复制�
 
 
 <h2>示例</h2>
-<pre><code>var people = {name: 'xiaoming'};
+<pre class="ydoc-example"><code>var people = {name: 'xiaoming'};
 function fn(key, item){};
 QApp.util.each(obj, fn); //遍历对象，执行函数fn</code></pre>
 
@@ -6444,7 +6444,7 @@ QApp.util.each(obj, fn); //遍历对象，执行函数fn</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>//定义一个类数组对象
+<pre class="ydoc-example"><code>//定义一个类数组对象
 var likeArray = {
 0: param1,
 1: param2,
@@ -6530,7 +6530,7 @@ QApp.util.makeArray(likeArray); //返回一个数组，值为(length-1)下标逆
 
 
 <h2>示例</h2>
-<pre><code>var time = 1000;
+<pre class="ydoc-example"><code>var time = 1000;
 function fn(){}
 QApp.util.delay(fn, time); // 延迟1s执行函数</code></pre>
 
@@ -6612,7 +6612,7 @@ QApp.util.delay(fn, time); // 延迟1s执行函数</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>//对象属性值数组
+<pre class="ydoc-example"><code>//对象属性值数组
 var arrValues = [val1, val2, val3];
 //对象属性名数组
 var arrKeys = [key1, key2, key3];
@@ -6697,7 +6697,7 @@ QApp.util.associate(arrValues, arrKeys); // {key1: val1, key2: val2, key3: val3}
 
 
 <h2>示例</h2>
-<pre><code>var obj = {
+<pre class="ydoc-example"><code>var obj = {
 key1: value1,
 key2: value2,
 key3: value3
@@ -6737,7 +6737,7 @@ QApp.util.mapping(obj, arrKeys);//返回[value1, value3]</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>var variable = QApp.util.getUniqueID; //获取到唯一id</code></pre>
+<pre class="ydoc-example"><code>var variable = QApp.util.getUniqueID; //获取到唯一id</code></pre>
 
 
 
@@ -6769,7 +6769,7 @@ QApp.util.mapping(obj, arrKeys);//返回[value1, value3]</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>QApp.util.getZIndex();//获取自增z-index，最小值是1001</code></pre>
+<pre class="ydoc-example"><code>QApp.util.getZIndex();//获取自增z-index，最小值是1001</code></pre>
 
 
 
@@ -6837,7 +6837,7 @@ QApp.util.mapping(obj, arrKeys);//返回[value1, value3]</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>var str = "div-element"; // 定义一个通过 "-" 或 "/" 分割的变量
+<pre class="ydoc-example"><code>var str = "div-element"; // 定义一个通过 "-" 或 "/" 分割的变量
 QApp.util.camelCase(str);   // 返回divElement</code></pre>
 
 
@@ -6906,7 +6906,7 @@ QApp.util.camelCase(str);   // 返回divElement</code></pre>
 
 
 <h2>示例</h2>
-<pre><code>// 声明一个值为驼峰形式的字符串
+<pre class="ydoc-example"><code>// 声明一个值为驼峰形式的字符串
 var str = "divElement";
 QApp.util.dasherize(str);  // 返回以 "-" 连接的字符串，div-element</code></pre>
 
@@ -6971,7 +6971,7 @@ QApp.util.dasherize(str);  // 返回以 "-" 连接的字符串，div-element</co
 
 
 <h2>示例</h2>
-<pre><code>//定义一个对象
+<pre class="ydoc-example"><code>//定义一个对象
 var programmer = {
 name: "missy",
 age: 22
@@ -7640,7 +7640,7 @@ QApp.util.empty(programmer);//无返回值，对象属性值将被清空。progr
 
 
 <h2>示例</h2>
-<pre><code>QApp.addPlugin('some', someOpt, function(view, opt) {
+<pre class="ydoc-example"><code>QApp.addPlugin('some', someOpt, function(view, opt) {
 view.someAttr = someValue;
 return SomeObject;
 });</code></pre>
@@ -8061,7 +8061,7 @@ return SomeObject;
 
 
 <h2>示例</h2>
-<pre><code>QApp.addWidget('some', function(element, opt, view) {
+<pre class="ydoc-example"><code>QApp.addWidget('some', function(element, opt, view) {
 todoSomething();
 })</code></pre>
 
@@ -8306,7 +8306,7 @@ todoSomething();
 
 
 <h2>示例</h2>
-<pre><code>var widget = QApp.showWidget('searchlist', {
+<pre class="ydoc-example"><code>var widget = QApp.showWidget('searchlist', {
 onComplete: function() {
 todoSomething();
 }

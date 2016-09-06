@@ -104,8 +104,7 @@ sup, sub {
   .ydoc-header {
     height: .48rem;
     line-height: .48rem;
-    background: #252a31;
-    color: #fff;
+    color: #3b3b3b;
     font-size: .14rem;
     text-align: right;
     padding: 0 .2rem;
@@ -113,7 +112,7 @@ sup, sub {
     .ydoc-header-area {
       margin: 0 auto; }
     .ydoc-header a {
-      color: #fff; }
+      color: #000; }
   .ydoc .navbar-brand {
     width: auto;
     float: left; }
@@ -134,6 +133,10 @@ sup, sub {
       color: #ff503f; }
       .ydoc-nav .active a {
         color: #ff503f; }
+  .ydoc-second-header {
+    background: #252a31; }
+    .ydoc-second-header a {
+      color: #fff; }
   .ydoc-banner {
     background-color: #f6f6f6;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#f1f1f1));
@@ -188,6 +191,20 @@ sup, sub {
       float: right; }
     .ydoc-container-content .content-right {
       width: 25%; }
+    .ydoc-container-content .ydoc-example {
+      position: relative;
+      overflow: hidden; }
+      .ydoc-container-content .ydoc-example code {
+        overflow: hidden;
+        display: block; }
+      .ydoc-container-content .ydoc-example .fold, .ydoc-container-content .ydoc-example .extend {
+        color: #337ab7;
+        position: absolute;
+        left: 15px;
+        bottom: 10px;
+        cursor: pointer; }
+      .ydoc-container-content .ydoc-example .fold:hover, .ydoc-container-content .ydoc-example .extend:hover {
+        text-decoration: underline; }
     .ydoc-container-content .sidebar {
       width: 100%;
       position: relative; }
@@ -202,7 +219,8 @@ sup, sub {
         width: 100%; }
         .ydoc-container-content .sidebar .docs-sidenav > li {
           height: .5rem;
-          width: 100%; }
+          width: 100%;
+          overflow: hidden; }
           .ydoc-container-content .sidebar .docs-sidenav > li a {
             height: .5rem;
             line-height: .5rem;
@@ -644,17 +662,5 @@ sup, sub {
 /*    api 处     */
 .content-left.markdown-body {
   padding: 0; }
-
-.markdown-body .docs-section h1, .markdown-body .docs-section h2 {
-  border-bottom: none; }
-.markdown-body .docs-section h1 {
-  font-size: .18rem; }
-.markdown-body .docs-section h2 {
-  font-size: .16rem; }
-.markdown-body .docs-section h3 {
-  font-size: .14rem; }
-.markdown-body .docs-section .api {
-  border-top: 1px solid red;
-  padding-top: .1rem; }
 
 /*# sourceMappingURL=app.css.map */

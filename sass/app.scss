@@ -53,8 +53,7 @@ sup,sub{vertical-align:baseline}
   &-header{
     height: .48rem;
     line-height: .48rem;
-    background: #252a31;
-    color: #fff;
+    color: #3b3b3b;
     font-size: .14rem;
     text-align: right;
     padding: 0 .2rem;
@@ -63,7 +62,7 @@ sup,sub{vertical-align:baseline}
         margin:0 auto;
     }
     a{
-      color:#fff;
+      color:#000;
     }
   }
   .navbar-brand{
@@ -93,6 +92,15 @@ sup,sub{vertical-align:baseline}
       a{
         color:#ff503f;
       }
+    }
+  }
+  &-second-header{
+    background: #252a31;
+    a{
+      color:#fff;
+    }
+    .ydoc-nav{
+
     }
   }
   &-banner{
@@ -160,6 +168,17 @@ sup,sub{vertical-align:baseline}
          width: 25%;
         //  background: #f6f6f6;
       }
+      .ydoc-example{
+          position: relative;
+          overflow: hidden;
+          code{
+              overflow: hidden;
+              display: block;
+          }
+          .fold,.extend{ color:#337ab7; position: absolute; left:15px; bottom:10px; cursor: pointer;}
+          .fold:hover,.extend:hover{  text-decoration: underline; }
+      }
+
       .sidebar{
           width: 100%;
           position: relative;
@@ -176,6 +195,7 @@ sup,sub{vertical-align:baseline}
               >li{
                   height: .5rem;
                   width: 100%;
+                  overflow: hidden;
                   a{
                       height: .5rem;
                       line-height: .5rem;

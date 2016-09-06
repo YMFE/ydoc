@@ -33,10 +33,49 @@ $(document).ready(function() {
       docSideNav.css({
           'left': $(window).width()/2-ydocContainerCon.width()/2
       });
-      if($(window).scrollTop() >=  ydocContainerCon.offset().top){
+      console.log('windowscrolltop',$(window).scrollTop());
+      console.log('footertop',$('.footer').offset().top);
+      if($(window).scrollTop() >=  ydocContainerCon.offset().top && $(window).scrollTop() < $('.footer').offset().top){
           docSideNav.addClass('fixed');
       }else{
           docSideNav.removeClass('fixed');
       }
+  });
+  // 折叠code
+  $('.markdown-body pre').map(function(i,item){
+      console.log('thisHeight',$(this).height());
+      console.log('itemHeight', item);
+
+      if($(item).height() >98){
+          $(item).css({ "padding-bottom":30 });
+          $(item).find('code').height(98);
+          $(item).append('<span class="extend">展开更多……</span>');
+      };
+  });
+
+ $('.ydoc-example').delegate('.extend','click',function(){
+      $(this).removeClass('extend').addClass('fold');
+      $(this).html('折叠代码');
+      $(this).prev().height('auto');
+      $(this).prev().parent().height('auto');
+  });
+  $('.ydoc-example').delegate('.fold','click',function(){
+      $(this).removeClass('fold').addClass('extend');
+      $(this).parent().height(98);
+      $(this).prev().height(98);
+      $(this).html("展开更多……");
   })
+  // $('.extend').click(function(){
+  //     $(this).removeClass('extend').addClass('fold');
+  //     $(this).html('折叠代码');
+  //     $(this).prev().height('auto');
+  //     $(this).prev().parent().height('auto');
+  // });
+  // $('.fold').click(function(){
+  //     alert('sdfsdaf');
+  //     $(this).removeClass('fold').addClass('extend');
+  //     $(this).parent().height(120);
+  //     $(this).prev().height(98);
+  //     $(this).html("展开更多……");
+  // });
 })
