@@ -241,7 +241,7 @@ QApp 从设计上偏向 Native App 的同时，
 <p>用户可以通过 <code>viewOptions</code> 内的每个视图的 <code>nav</code> 选项配置标题、左右按钮的内容和形式。</p>
 <p>同时，Native Header （包括 安卓的物理返回键）的事件监听，QApp-Hy 也做了处理，可以在 QApp-Hy 全局 和 每个 <code>ViewOptions</code> 内的每个视图的 <code>bindEvents</code> 里以 <code>nav:类型</code> 的方式监听。</p>
 <p>同时，为了让业务可以无缝适配，QApp-Hy 在监听到 Native Header 事件时，模拟触发 H5 Header 的 <code>tap</code> 事件。按钮元素的选择，遵循 <a href="http://ued.qunar.com/mobile/yo/">Yo</a> 的设计，选择器如下：（如果不同，可以另行配置）</p>
-<pre><code>{
+<pre class="ydoc-example"><code>{
     left: &#39;header .regret&#39;, // 导航栏左侧按钮
     title: &#39;header .title&#39;, // 标题
     right: &#39;header .affirm&#39; // 导航栏右侧按钮
@@ -434,7 +434,7 @@ QApp.hy.checkLogin(function(ret) {
                   <div class="markdown-body">
                       <h4 id="简介">简介</h4><p><strong>QApp</strong> 对 <strong>Wechat</strong> 的适配器，只要简单配置，即可让 <strong>Touch</strong> 页正常运行在 <strong>Wechat</strong> 环境里。</p>
 <p><em>注意：<code>Hy</code> 里已经包含对 <code>Wechat</code> 的适配哦</em></p>
-<h4 id="配置">配置</h4><pre><code class="lang-js">QApp.wx.config({
+<h4 id="配置">配置</h4><pre class="ydoc-example"><code class="lang-js">QApp.wx.config({
     indexView: &#39;index&#39;,
     viewOptions: {
         a: {

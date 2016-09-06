@@ -140,28 +140,21 @@ sup, sub {
     .ydoc-second-header .ydoc-nav {
       float: right; }
   .ydoc-banner {
-    background-color: #f6f6f6;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#f1f1f1));
-    background-image: -webkit-linear-gradient(top, #f6f6f6 0, #f1f1f1 100%);
-    background-image: -o-linear-gradient(top, #f6f6f6 0, #f1f1f1 100%);
-    background-image: linear-gradient(to bottom, #f6f6f6 0, #f1f1f1 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#f1f1f1', GradientType=0);
-    background-repeat: repeat-x;
-    color: #333;
+    background-color: #ff503f;
+    color: #fff;
     font-size: .18rem;
-    padding: 20px 30px;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); }
+    padding: 20px 30px; }
     .ydoc-banner-area {
       margin: 0 auto; }
       .ydoc-banner-area h1 {
         font-size: .28rem;
         margin-bottom: .1rem;
-        color: #ff503f; }
+        color: #fff; }
       .ydoc-banner-area p {
         margin-right: 3rem;
         line-height: 1.7;
         margin: 0 0 10px;
-        color: #888; }
+        color: #fff; }
   .ydoc .footer {
     margin: 50px 0;
     text-align: center;
@@ -664,6 +657,9 @@ sup, sub {
   margin: 0; }
 
 /*    api 处     */
+.markdown-body blockquote.api {
+  border-left: none;
+  padding: 0; }
 .markdown-body .docs-section h1, .markdown-body .docs-section h2 {
   border-bottom: none; }
 .markdown-body .docs-section h3 {
@@ -672,5 +668,103 @@ sup, sub {
 .markdown-body .docs-section .con-list-item {
   border-bottom: 1px solid #ddd;
   padding: .3rem 0; }
+
+.yo-badge {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-box;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  min-width: .16rem;
+  min-height: .16rem;
+  padding: 0 .03rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: red;
+  border-radius: .1rem;
+  -webkit-background-clip: padding-box !important;
+  -moz-background-clip: padding-box !important;
+  -ms-background-clip: padding-box !important;
+  background-clip: padding-box !important;
+  background-color: red;
+  color: #fff;
+  font-size: .12rem;
+  line-height: 1;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -moz-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -moz-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.yo-badge-primary {
+  border-width: 0;
+  background-color: #337ab7;
+  border-radius: .05rem;
+  vertical-align: super;
+  margin-left: 10px;
+  font-size: 10px;
+  padding: 0.2em 0.6em; }
+
+.yo-badge-success {
+  border-width: 0;
+  background-color: #5cb85c;
+  border-radius: .05rem;
+  vertical-align: super;
+  margin-left: 10px;
+  font-size: 10px;
+  padding: 0.2em 0.6em; }
+
+.yo-badge-info {
+  border-width: 0;
+  background-color: #5bc0de;
+  border-radius: .05rem;
+  vertical-align: super;
+  margin-left: 10px;
+  font-size: 10px;
+  padding: 0.2em 0.6em; }
+
+.yo-badge-warning {
+  border-width: 0;
+  background-color: #f0ad4e;
+  border-radius: .05rem;
+  vertical-align: super;
+  margin-left: 10px;
+  font-size: 10px;
+  padding: 0.2em 0.6em; }
+
+.yo-badge-danger {
+  border-width: 0;
+  background-color: #d9534f;
+  border-radius: .05rem;
+  vertical-align: super;
+  margin-left: 10px;
+  font-size: 10px;
+  padding: 0.2em 0.6em; }
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: ydocfont;
+  font-style: normal;
+  font-weight: 700;
+  font-size: .2rem;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.glyphicon-ok:before {
+  content: ""; }
+
+.text-success {
+  color: #3c763d; }
 
 /*# sourceMappingURL=app.css.map */

@@ -218,7 +218,7 @@
                       <h4 id="简介">简介</h4><p>插件名称: <code>ajax</code> (适配 jQuery 风格，集成 jsonp 和 ajax</p>
 <p>插件配置: <code>{Object}</code></p>
 <p>基本配置如下:</p>
-<pre><code>{
+<pre class="ydoc-example"><code>{
     &quot;charset&quot;: &quot;UTF-8&quot;,
     &quot;timeout&quot;: 30 * 1000,
     &quot;argsType&quot;: &quot;query&quot;,
@@ -376,7 +376,7 @@ QApp.ajax.addRespFilter(function(data, err, opt, deferred) {
 <li>Param <code>container</code>: <code>{String}</code> node的选择器</li>
 <li>Param <code>appendType</code>: <code>{String}</code> 插入位置设置，值为<code>beforebegin</code>(插入目标节点前)、<code>afterbegin</code>(插入到目标节点的第一个子节点前)、<code>inner</code>(替换目标内子元素)、<code>beforeend</code>(插入到目标节点的最后子节点之后)、<code>afterend</code>(插入到目标节点之后)</li>
 </ul>
-<h4 id="示例">示例</h4><pre><code>QApp.defineView(&#39;name&#39; {
+<h4 id="示例">示例</h4><pre class="ydoc-example"><code>QApp.defineView(&#39;name&#39; {
     html: &#39;&lt;p&gt;{{name}}&lt;/p&gt;&#39;,
     plugins: [{
         name: &#39;artTemplate&#39;,
@@ -436,7 +436,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
 <li>插件将 <code>context (this)</code> 设置成当前的 <code>View</code> 实体。</li>
 </ul>
 <p>示例:</p>
-<pre><code>{
+<pre class="ydoc-example"><code>{
     name: &#39;avalon&#39;,
     options: function(vm) {
         //TODO
@@ -482,7 +482,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
 <h3 id="MoveEnter 插件说明">MoveEnter 插件说明</h3><p>插件名称: <code>moveEnter</code></p>
 <p>插件配置：<code>{Object}</code></p>
 <p>基本配置如下:</p>
-<pre><code>{
+<pre class="ydoc-example"><code>{
     &quot;autoHide&quot;: true,
     &quot;position&quot;: &quot;right&quot;,
     &quot;distance&quot;: 0,
@@ -580,7 +580,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
                       <h4 id="简介">简介</h4><p>插件名称: <code>delegated</code></p>
 <p>插件配置：<code>{Object}</code></p>
 <p>默认配置如下:</p>
-<pre><code>{
+<pre class="ydoc-example"><code>{
     &quot;tag&quot;: &quot;action-type&quot;,
     &quot;eventType&quot;: &quot;tap&quot;
 }
@@ -643,7 +643,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
 <li>Param <code>type</code>: <code>{String}</code> node-type属性值</li>
 </ul>
 <p>在 view 的 ready 事件阶段后，可以通过view.find方法快速访问 node 节点。</p>
-<h4 id="示例">示例</h4><pre><code>QApp.defineView(&#39;name&#39; {
+<h4 id="示例">示例</h4><pre class="ydoc-example"><code>QApp.defineView(&#39;name&#39; {
     html: &#39;&lt;p node-type=&quot;abc&quot;&gt;Some&lt;/p&gt;&#39;,
     plugins: [{
         name: &#39;doms&#39;,
@@ -819,7 +819,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
 <li>Param <code>container</code>: <code>{String}</code> node的选择器</li>
 <li>Param <code>appendType</code>: <code>{String}</code> 插入位置设置，值为<code>beforebegin</code>(插入目标节点前)、<code>afterbegin</code>(插入到目标节点的第一个子节点前)、<code>inner</code>(替换目标内子元素)、<code>beforeend</code>(插入到目标节点的最后子节点之后)、<code>afterend</code>(插入到目标节点之后)</li>
 </ul>
-<h4 id="示例">示例</h4><pre><code>QApp.defineView(&#39;name&#39; {
+<h4 id="示例">示例</h4><pre class="ydoc-example"><code>QApp.defineView(&#39;name&#39; {
     html: &#39;&lt;p&gt;{{name}}&lt;/p&gt;&#39;,
     plugins: [{
         name: &#39;hogan&#39;,
