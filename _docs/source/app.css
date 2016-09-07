@@ -662,92 +662,44 @@ sup, sub {
   padding: 0; }
 .markdown-body .docs-section h1, .markdown-body .docs-section h2 {
   border-bottom: none; }
+.markdown-body .docs-section h2 {
+  border-bottom: 1px solid #ff503f; }
 .markdown-body .docs-section h3 {
   color: #ff503f;
-  border-left-color: #ff503f; }
+  border-left-color: #ff503f;
+  font-weight: normal; }
 .markdown-body .docs-section .con-list-item {
   border-bottom: 1px solid #ddd;
   padding: .3rem 0; }
 
 .yo-badge {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -moz-inline-box;
-  display: -moz-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  min-width: .16rem;
-  min-height: .16rem;
-  padding: 0 .03rem;
-  border-width: 1px;
-  border-style: solid;
-  border-color: red;
-  border-radius: .1rem;
-  -webkit-background-clip: padding-box !important;
-  -moz-background-clip: padding-box !important;
-  -ms-background-clip: padding-box !important;
-  background-clip: padding-box !important;
-  background-color: red;
+  display: inline-block;
+  padding: 1px .1rem;
   color: #fff;
   font-size: .12rem;
-  line-height: 1;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -moz-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -moz-align-items: center;
-  -ms-flex-align: center;
-  align-items: center; }
+  margin-left: 10px;
+  border-radius: 12px;
+  font-weight: normal; }
 
 .yo-badge-primary {
-  border-width: 0;
-  background-color: #337ab7;
-  border-radius: .05rem;
-  vertical-align: super;
-  margin-left: 10px;
-  font-size: 10px;
-  padding: 0.2em 0.6em; }
+  color: #337ab7;
+  border: 1px solid #337ab7; }
 
 .yo-badge-success {
-  border-width: 0;
-  background-color: #5cb85c;
-  border-radius: .05rem;
-  vertical-align: super;
-  margin-left: 10px;
-  font-size: 10px;
-  padding: 0.2em 0.6em; }
+  color: #5cb85c;
+  border: 1px solid #5cb85c; }
 
 .yo-badge-info {
-  border-width: 0;
-  background-color: #5bc0de;
-  border-radius: .05rem;
-  vertical-align: super;
-  margin-left: 10px;
-  font-size: 10px;
-  padding: 0.2em 0.6em; }
+  color: #5bc0de;
+  border: 1px solid #5bc0de; }
 
 .yo-badge-warning {
-  border-width: 0;
-  background-color: #f0ad4e;
-  border-radius: .05rem;
-  vertical-align: super;
-  margin-left: 10px;
-  font-size: 10px;
-  padding: 0.2em 0.6em; }
+  color: #f0ad4e;
+  border: 1px solid #f0ad4e; }
 
 .yo-badge-danger {
-  border-width: 0;
-  background-color: #d9534f;
-  border-radius: .05rem;
-  vertical-align: super;
-  margin-left: 10px;
-  font-size: 10px;
-  padding: 0.2em 0.6em; }
+  color: #d9534f;
+  border: 1px solid #d9534f; }
 
 .glyphicon {
   position: relative;

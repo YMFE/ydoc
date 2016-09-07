@@ -41,8 +41,16 @@ $(document).ready(function() {
           docSideNav.removeClass('fixed');
       }
 
+      $(window).scrollTop()
       // content fixed
      var contentIdArray = $('.page-header');
+
+    //  for(var i = 0, i< $('.page-header').length; i++){
+    //     if($(window).scrollTop()>contentIdArray.eq(i).offset().top){
+    //
+    //     };
+    //  }
+
      contentIdArray.map(function(i,item){
         if($(window).scrollTop() > $(item).offset().top){
             $("a[herf="+$(item).id+"]").parent().addClass('active').siblings('li').removeClass('active');
