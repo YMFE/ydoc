@@ -46,7 +46,13 @@ module.exports = function (comment, path, conf, formatter, content) {
         description: ''
     };
     comment.tags.forEach(function(tag) {
-        var content = getContent(tag);
+        var content = getContent(tag).replace(/[0-9]+space/g, function(mat) {
+            var cnt = mat.replace(/[^0-9]+/g, ''), str = ''
+            while(cnt--) {
+                str += ' '
+            }
+            return str
+        });
         switch (tag.tag) {
             case 'param':
                 ret.params.push(readTag(tag));
