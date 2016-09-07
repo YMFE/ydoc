@@ -148,9 +148,9 @@
               </nav>
             </div>
             {{/if}}
-            <div class="content-left right">
+            <div class="content-left right markdown-body">
               {{if intro}}
-              <div class="markdown-body">{{intro}}</div>
+              <div>{{intro}}</div>
               {{/if}}
               {{each article.blocks as c index}}
               {{if c.type == 'html'}}
@@ -163,7 +163,7 @@
                   {{/if}}
                   {{/if}}
                   {{if c.content}}
-                  <div class="markdown-body">
+                  <div>
                       {{c.content}}
                   </div>
                   {{/if}}

@@ -203,7 +203,7 @@
               </nav>
             </div>
             
-            <div class="content-left right">
+            <div class="content-left right markdown-body">
               
               
               
@@ -214,11 +214,11 @@
                   
                   
                   
-                  <div class="markdown-body">
+                  <div>
                       <h4 id="简介">简介</h4><p>插件名称: <code>ajax</code> (适配 jQuery 风格，集成 jsonp 和 ajax</p>
 <p>插件配置: <code>{Object}</code></p>
 <p>基本配置如下:</p>
-<pre class="ydoc-example"><code>{
+<pre><code>{
     &quot;charset&quot;: &quot;UTF-8&quot;,
     &quot;timeout&quot;: 30 * 1000,
     &quot;argsType&quot;: &quot;query&quot;,
@@ -367,7 +367,7 @@ QApp.ajax.addRespFilter(function(data, err, opt, deferred) {
                   
                   
                   
-                  <div class="markdown-body">
+                  <div>
                       <h4 id="简介">简介</h4><p>插件名称: <code>artTemplate</code></p>
 <h4 id="重写或添加的方法">重写或添加的方法</h4><p>添加的方法 <code>renderData(key, data, container, appendType)</code></p>
 <ul>
@@ -376,7 +376,7 @@ QApp.ajax.addRespFilter(function(data, err, opt, deferred) {
 <li>Param <code>container</code>: <code>{String}</code> node的选择器</li>
 <li>Param <code>appendType</code>: <code>{String}</code> 插入位置设置，值为<code>beforebegin</code>(插入目标节点前)、<code>afterbegin</code>(插入到目标节点的第一个子节点前)、<code>inner</code>(替换目标内子元素)、<code>beforeend</code>(插入到目标节点的最后子节点之后)、<code>afterend</code>(插入到目标节点之后)</li>
 </ul>
-<h4 id="示例">示例</h4><pre class="ydoc-example"><code>QApp.defineView(&#39;name&#39; {
+<h4 id="示例">示例</h4><pre><code>QApp.defineView(&#39;name&#39; {
     html: &#39;&lt;p&gt;{{name}}&lt;/p&gt;&#39;,
     plugins: [{
         name: &#39;artTemplate&#39;,
@@ -423,7 +423,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
                   
                   
                   
-                  <div class="markdown-body">
+                  <div>
                       <h4 id="简介">简介</h4><p>插件名称: <code>avalon</code></p>
 <p>插件配置：<code>Function</code> 或者 <code>Map&lt;String, Function&gt;</code></p>
 <ul>
@@ -436,7 +436,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
 <li>插件将 <code>context (this)</code> 设置成当前的 <code>View</code> 实体。</li>
 </ul>
 <p>示例:</p>
-<pre class="ydoc-example"><code>{
+<pre><code>{
     name: &#39;avalon&#39;,
     options: function(vm) {
         //TODO
@@ -473,7 +473,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
                   
                   
                   
-                  <div class="markdown-body">
+                  <div>
                       <h3 id="简介">简介</h3><p>插件名称: <code>basic</code></p>
 <p>基础插件组，主要用于视图的展现效果，
 通过 open 和 show 中配置 ani 使用，
@@ -482,7 +482,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
 <h3 id="MoveEnter 插件说明">MoveEnter 插件说明</h3><p>插件名称: <code>moveEnter</code></p>
 <p>插件配置：<code>{Object}</code></p>
 <p>基本配置如下:</p>
-<pre class="ydoc-example"><code>{
+<pre><code>{
     &quot;autoHide&quot;: true,
     &quot;position&quot;: &quot;right&quot;,
     &quot;distance&quot;: 0,
@@ -576,11 +576,11 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
                   
                   
                   
-                  <div class="markdown-body">
+                  <div>
                       <h4 id="简介">简介</h4><p>插件名称: <code>delegated</code></p>
 <p>插件配置：<code>{Object}</code></p>
 <p>默认配置如下:</p>
-<pre class="ydoc-example"><code>{
+<pre><code>{
     &quot;tag&quot;: &quot;action-type&quot;,
     &quot;eventType&quot;: &quot;tap&quot;
 }
@@ -630,7 +630,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
                   
                   
                   
-                  <div class="markdown-body">
+                  <div>
                       <h4 id="简介">简介</h4><p>插件名称: <code>doms</code></p>
 <p>配置参数：</p>
 <ul>
@@ -643,7 +643,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
 <li>Param <code>type</code>: <code>{String}</code> node-type属性值</li>
 </ul>
 <p>在 view 的 ready 事件阶段后，可以通过view.find方法快速访问 node 节点。</p>
-<h4 id="示例">示例</h4><pre class="ydoc-example"><code>QApp.defineView(&#39;name&#39; {
+<h4 id="示例">示例</h4><pre><code>QApp.defineView(&#39;name&#39; {
     html: &#39;&lt;p node-type=&quot;abc&quot;&gt;Some&lt;/p&gt;&#39;,
     plugins: [{
         name: &#39;doms&#39;,
@@ -676,7 +676,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
                   
                   
                   
-                  <div class="markdown-body">
+                  <div>
                       <h4 id="简介">简介</h4><p>插件名称: <code>fastclick</code> (移动端快速点击)</p>
 <h4 id="说明">说明</h4><p>在视图 <code>View</code> 展现时，给视图增加 <code>fastclick</code> 机制。</p>
 
@@ -693,7 +693,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
                   
                   
                   
-                  <div class="markdown-body">
+                  <div>
                       <h4 id="简介">简介</h4><p>插件名称: <code>gesture</code> (手势库)</p>
 <h4 id="说明">说明</h4><p>现在支持轻触(tap)，双轻触(doubletap)，长按(press)，快滑(flick)，滑动(pan)。</p>
 <p>扩展支持双指缩放(pinch)。</p>
@@ -745,7 +745,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
                   
                   
                   
-                  <div class="markdown-body">
+                  <div>
                       <h4 id="简介">简介</h4><p>插件名：<code>globalContext</code></p>
 <p>全局工具类插件，本地存储组件。本插件提供两种版本的本地存储，请根据使用环境选择。</p>
 <h4 id="使用方式">使用方式</h4><h5 id="1. 直接使用localStorage">1. 直接使用localStorage</h5><blockquote>
@@ -804,7 +804,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
                   
                   
                   
-                  <div class="markdown-body">
+                  <div>
                       <h4 id="简介">简介</h4><p>插件名称: <code>hogan</code></p>
 <p>插件配置：<code>{Object|Function}</code></p>
 <ul>
@@ -819,7 +819,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
 <li>Param <code>container</code>: <code>{String}</code> node的选择器</li>
 <li>Param <code>appendType</code>: <code>{String}</code> 插入位置设置，值为<code>beforebegin</code>(插入目标节点前)、<code>afterbegin</code>(插入到目标节点的第一个子节点前)、<code>inner</code>(替换目标内子元素)、<code>beforeend</code>(插入到目标节点的最后子节点之后)、<code>afterend</code>(插入到目标节点之后)</li>
 </ul>
-<h4 id="示例">示例</h4><pre class="ydoc-example"><code>QApp.defineView(&#39;name&#39; {
+<h4 id="示例">示例</h4><pre><code>QApp.defineView(&#39;name&#39; {
     html: &#39;&lt;p&gt;{{name}}&lt;/p&gt;&#39;,
     plugins: [{
         name: &#39;hogan&#39;,
@@ -865,7 +865,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
                   
                   
                   
-                  <div class="markdown-body">
+                  <div>
                       <h4 id="简介">简介</h4><p>插件名：<code>scroll</code> （同时包含<code>scroll</code>组件）</p>
 <p>说明：滚动插件，对 <code>iScroll</code> 进行封装，包含 <code>nScroll</code> 和 <code>avalon.iscroll</code>，并包括 <code>scroll</code> 组件。</p>
 <p><code>QApp</code> 中滚动依赖库为 <code>iScroll</code>， 版本是 <code>probe</code> <code>5.1.3</code> 版，文档 <a href="http://iscrolljs.com/">iscrolljs.com</a>。</p>
@@ -905,7 +905,7 @@ QApp.defineView(&#39;pageA.pageA-1&#39;, {
                   
                   
                   
-                  <div class="markdown-body">
+                  <div>
                       <h4 id="简介">简介</h4><p>插件名：<code>zepto</code></p>
 <p>引入插件，方便开发者快速、方便引用 <code>zepto</code>，并解决手势冲突问题</p>
 <h4 id="相关">相关</h4><p><a href="http://www.css88.com/doc/zeptojs_api/">zepto.js中文文档</a></p>

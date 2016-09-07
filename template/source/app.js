@@ -52,6 +52,7 @@ $(document).ready(function() {
   });
   // 折叠code
   $('.markdown-body pre').map(function(i,item){
+      $(item).addClass('ydoc-example');
       if($(item).height() >98){
           $(item).css({ "padding-bottom":30 });
           $(item).find('code').height(98);

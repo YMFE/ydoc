@@ -45,16 +45,12 @@ function parser(contents, options) {
         out += '>' + text + '</a>';
         return out;
     }
-    var curContent = marked(contents.join('\n'), {
-        renderer: renderer
-    });
-    var afterContent;
-    afterContent = curContent.replace(/\<pre\>/,'<pre class="ydoc-example">');
-    console.log('afterContent=======', afterContent);
     return {
         type: 'html',
         menus: menus,
-        content: afterContent
+        content: marked(contents.join('\n'), {
+            renderer: renderer
+        })
     };
 }
 
