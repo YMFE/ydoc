@@ -313,7 +313,13 @@ sup, sub {
     display: none; }
 
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
-    width: 100%; } }
+    width: 100%; }
+
+  .ydoc-header {
+    display: none; }
+
+  .ydoc-second-header {
+    display: block; } }
 /*     markdown begin       */
 .markdown-body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

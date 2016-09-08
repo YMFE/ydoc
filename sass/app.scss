@@ -320,6 +320,9 @@ sup,sub{vertical-align:baseline}
   .ydoc-header-area,.ydoc-banner-area,.ydoc-container-content{
     width:100%;
   }
+
+  .ydoc-header{ display:none; }
+  .ydoc-second-header{ display: block; }
 }
 
 /*     markdown begin       */

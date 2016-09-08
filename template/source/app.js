@@ -52,14 +52,16 @@ $(document).ready(function() {
       // $(window).scrollTop()
       // content fixed
      var contentIdArray = $('.page-header');
-     console.log('contentIdArray',contentIdArray);
+     // console.log('contentIdArray',contentIdArray);
      for(var i = 0; i < contentIdArray.length; i++){
-        //  console.log('=======');
-        //  console.log(contentIdArray.eq(i).offset().top);
-        if($(window).scrollTop()>contentIdArray.eq(i).offset().top){
-            console.log('=======');
+        console.log($(window).scrollTop()+"   ///   "+ contentIdArray.eq(i).offset().top);
+        //alert("dsfsdfsdf");
+        if($(window).scrollTop() > contentIdArray.eq(i).offset().top){
+            console.log("======="+ i);
             console.log(contentIdArray.eq(i));
             contentIdArray.eq(i).addClass('active').siblings('li').removeClass('active');
+
+            $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]").trigger('click');
         };
     };
 
