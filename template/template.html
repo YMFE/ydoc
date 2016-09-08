@@ -87,7 +87,7 @@
                         {{each article.sidebars as m index}}
                         {{if m.sub}}
                         {{if index > 0 && !article.sidebars[index - 1].sub}}
-                        <ul class="nav">
+                        <ul class="docs-sidenav-extend">
                         {{/if}}
                             <li>
                                 <a href="{{m.tag || m.url || ('#' + m.name)}}" {{if article.name == m.name}}style="color:#0088a4"{{/if}}>{{m.name}}</a>

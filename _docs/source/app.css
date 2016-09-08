@@ -275,6 +275,16 @@ sup, sub {
               left: -0.15rem;
               top: 0;
               color: #ff503f; }
+          .ydoc-container-content .sidebar .docs-sidenav ul li.active a, .ydoc-container-content .sidebar .docs-sidenav ul li.active a:hover {
+            color: #ff503f; }
+          .ydoc-container-content .sidebar .docs-sidenav ul li.active a::before {
+            content: "\f083";
+            font-size: .12rem;
+            display: block;
+            position: absolute;
+            left: -0.15rem;
+            top: 0;
+            color: #ff503f; }
     .ydoc-container-content .docs-section {
       margin: 10px; }
 

@@ -268,6 +268,20 @@ sup,sub{vertical-align:baseline}
                         color:#ff503f;
                     }
                 }
+                li.active{
+                    a,a:hover{
+                        color:#ff503f;
+                    }
+                    a::before{
+                        content:"\f083";
+                        font-size: .12rem;
+                        display: block;
+                        position: absolute;
+                        left: -0.15rem;
+                        top:0;
+                        color:#ff503f;
+                    }
+                }
               }
           }
       }
