@@ -1,0 +1,280 @@
+@charset "utf-8";
+
+// 定义tab的基础构造
+@mixin _tab {
+    @include flexbox;
+    overflow: hidden;
+    width: map-get($tab, width);
+    height: map-get($tab, height);
+    @include border(
+        $border-width: map-get($tab, border-width),
+        $border-color: map-get($tab, border-color),
+        $radius: map-get($tab, radius)
+    );
+    background-color: map-get($tab, bgcolor);
+    font-size: map-get($tab, font-size);
+    text-align: center;
+    line-height: map-get($tab, height);
+    > .item {
+        display: block;
+        @include flex;
+        position: relative;
+        &:not(:first-child)::after {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            border-left: 1px solid map-get($tab, item-border-color);
+            content: "\0020";
+            // 适配dpr进行缩放
+            @include responsive(retina1x) {
+                width: 10px;
+                height: map-get($tab, item-border-height);
+                @include transform(translatey(-50%));
+            }
+            @include responsive(retina2x) {
+                width: 20px;
+                height: map-get($tab, item-border-height) * 2;
+                @include transform(scale(.5) translatey(-50%));
+            }
+            @include responsive(retina3x) {
+                width: 30px;
+                height: map-get($tab, item-border-height) * 3;
+                @include transform(scale(.33333) translatey(-50%));
+            }
+            @include transform-origin(0 0);
+        }
+        color: map-get($tab, color);
+        &:first-child {
+            border-top-left-radius: map-get($tab, radius);
+            border-bottom-left-radius: map-get($tab, radius);
+        }
+        &:last-child {
+            border-top-right-radius: map-get($tab, radius);
+            border-bottom-right-radius: map-get($tab, radius);
+        }
+        &.item-on {
+            background-color: map-get($tab, on-bgcolor);
+            color: map-get($tab, on-color);
+        }
+        &-y-ico {
+            padding-top: .04rem;
+            line-height: .2rem;
+            .yo-ico {
+                display: block;
+                font-size: map-get($tab, y-ico-size);
+            }
+        }
+        &-x-ico {
+            .yo-ico {
+                font-size: map-get($tab, x-ico-size);
+            }
+        }
+        &-only-ico {
+            .yo-ico {
+                font-size: map-get($tab, only-ico-size);
+            }
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-tab
+ * @version 3.0.0
+ * @description 构造列表的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-tab.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $width 宽度 <3.0.0>
+ * @param {Length} $height 高度 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Length} $border-width 边框厚度 <3.0.0>
+ * @param {Color} $border-color 边框色 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ * @param {Color} $on-bgcolor 激活时背景色 <3.0.0>
+ * @param {Color} $on-color 激活时文本色 <3.0.0>
+ * @param {Length} $font-size 文本字号 <3.0.0>
+ * @param {Length} $x-ico-size 子项内容为水平ico时，ico的大小 <3.0.0>
+ * @param {Length} $y-ico-size 子项内容为垂直ico时，ico的大小 <3.0.0>
+ * @param {Length} $only-ico-size 子项内容仅有ico时，ico的大小 <3.0.0>
+ * @param {Length} $item-border-height 子项的间隔线高度 <3.0.0>
+ * @param {Color} $item-border-color 子项的间隔线颜色 <3.0.0>
+ */
+
+@mixin yo-tab(
+    $name: default,
+    $width: default,
+    $height: default,
+    $radius: default,
+    $border-width: default,
+    $border-color: default,
+    $bgcolor: default,
+    $color: default,
+    $on-border-color: default,
+    $on-bgcolor: default,
+    $on-color: default,
+    $font-size: default,
+    $x-ico-size: default,
+    $y-ico-size: default,
+    $only-ico-size: default,
+    $item-border-height: default,
+    $item-border-color: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $width == default {
+        $width: map-get($tab, width);
+    }
+    @if $height == default {
+        $height: map-get($tab, height);
+    }
+    @if $radius == default {
+        $radius: map-get($tab, radius);
+    }
+    @if $border-width == default {
+        $border-width: map-get($tab, border-width);
+    }
+    @if $border-color == default {
+        $border-color: map-get($tab, border-color);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($tab, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($tab, color);
+    }
+    @if $on-border-color == default {
+        $on-border-color: map-get($tab, on-border-color);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($tab, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($tab, on-color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($tab, font-size);
+    }
+    @if $x-ico-size == default {
+        $x-ico-size: map-get($tab, x-ico-size);
+    }
+    @if $y-ico-size == default {
+        $y-ico-size: map-get($tab, y-ico-size);
+    }
+    @if $only-ico-size == default {
+        $only-ico-size: map-get($tab, only-ico-size);
+    }
+    @if $item-border-height == default {
+        $item-border-height: map-get($tab, item-border-height);
+    }
+    @if $item-border-color == default {
+        $item-border-color: map-get($tab, item-border-color);
+    }
+    .yo-tab#{$name} {
+        @if $width != map-get($tab, width) {
+            width: $width;
+        }
+        @if $height != map-get($tab, height) {
+            height: $height;
+            line-height: $height;
+        }
+        @if $radius != map-get($tab, radius) {
+            border-radius: $radius;
+        }
+        &::after {
+            // 如果$border-width不等于config设定，则重绘边框相关
+            @if $border-width != map-get($tab, border-width) {
+                border-width: $border-width;
+            }
+            // 如果$border-color不等于config设定，则重绘边框颜色
+            @if $border-color != map-get($tab, border-color) {
+                border-color: $border-color;
+            }
+            // 如果$radius不等于config设定，则重绘边框圆角
+            @if $radius != map-get($tab, radius) {
+                @include responsive(retina1x) {
+                    border-radius: $radius;
+                }
+                @include responsive(retina2x) {
+                    border-radius: $radius * 2;
+                }
+                @include responsive(retina3x) {
+                    border-radius: $radius * 3;
+                }
+            }
+        }
+        @if $bgcolor != map-get($tab, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $font-size != map-get($tab, font-size) {
+            font-size: $font-size;
+        }
+        > .item {
+            &:not(:first-child)::after {
+                @if $item-border-height != map-get($tab, item-border-height) {
+                    @include responsive(retina1x) {
+                        height: $item-border-height;
+                    }
+                    @include responsive(retina2x) {
+                        height: $item-border-height * 2;
+                    }
+                    @include responsive(retina3x) {
+                        height: $item-border-height * 3;
+                    }
+                }
+                @if $item-border-color != map-get($tab, item-border-color) {
+                    border-color: $item-border-color;
+                }
+            }
+            @if $color != map-get($tab, color) {
+                color: $color;
+            }
+            @if $radius != map-get($tab, radius) {
+                &:first-child {
+                    border-top-left-radius: $radius;
+                    border-bottom-left-radius: $radius;
+                }
+                &:last-child {
+                    border-top-right-radius: $radius;
+                    border-bottom-right-radius: $radius;
+                }
+            }
+            &.item-on {
+                @if $on-bgcolor != map-get($tab, on-bgcolor) {
+                    background-color: $on-bgcolor;
+                }
+                @if $on-color != map-get($tab, on-color) {
+                    color: $on-color;
+                }
+            }
+            &-top-ico {
+                .yo-ico {
+                    @if $y-ico-size != map-get($tab, y-ico-size) {
+                        font-size: $y-ico-size;
+                    }
+                }
+            }
+            &-left-ico {
+                .yo-ico {
+                    @if $x-ico-size != map-get($tab, x-ico-size) {
+                        font-size: $x-ico-size;
+                    }
+                }
+            }
+            &-only-ico {
+                .yo-ico {
+                    @if $only-ico-size != map-get($tab, only-ico-size) {
+                        font-size: $only-ico-size;
+                    }
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入tab基础构造
+.yo-tab {
+    @include _tab;
+}

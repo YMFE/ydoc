@@ -145,7 +145,10 @@ sup, sub {
   .ydoc .navbar-toggle {
     float: right;
     font-size: .22rem;
-    display: none; }
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer; }
   .ydoc-banner {
     background-color: #ff503f;
     color: #fff;
@@ -218,7 +221,8 @@ sup, sub {
         overflow-x: hidden;
         background: #f6f6f6; }
       .ydoc-container-content .sidebar .docs-sidenav {
-        width: 100%; }
+        width: 100%;
+        overflow: hidden; }
         .ydoc-container-content .sidebar .docs-sidenav > li {
           height: .5rem;
           width: 100%;
@@ -311,9 +315,6 @@ sup, sub {
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 768px; } }
 @media screen and (max-width: 767px) {
-  body {
-    background: yellow; }
-
   .ydoc-container-content .content-left {
     width: 100%; }
   .ydoc-container-content .content-right {
@@ -328,20 +329,25 @@ sup, sub {
     display: none;
     clear: both;
     width: 100%; }
-    .ydoc .ydoc-nav .navbar-left {
+    .ydoc .ydoc-nav .navbar-left, .ydoc .ydoc-nav .navbar-right {
       width: 100%; }
-      .ydoc .ydoc-nav .navbar-left li {
+      .ydoc .ydoc-nav .navbar-left li, .ydoc .ydoc-nav .navbar-right li {
         width: 100%;
         text-align: left;
         display: inline-block; }
-        .ydoc .ydoc-nav .navbar-left li a {
+        .ydoc .ydoc-nav .navbar-left li a, .ydoc .ydoc-nav .navbar-right li a {
           padding: 0;
           width: 100%;
           display: inline-block; }
-        .ydoc .ydoc-nav .navbar-left li a:hover {
+        .ydoc .ydoc-nav .navbar-left li a:hover, .ydoc .ydoc-nav .navbar-right li a:hover {
           color: #ff503f; }
-  .ydoc .ydoc-banner {
-    display: none; } }
+
+  .ydoc-second-header {
+    display: block; }
+    .ydoc-second-header .ydoc-nav {
+      display: block; }
+      .ydoc-second-header .ydoc-nav li {
+        float: left; } }
 /*     markdown begin       */
 .markdown-body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

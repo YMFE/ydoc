@@ -1,0 +1,11 @@
+@charset "utf-8";
+@import "../../lib/fragment/yo-rating";
+
+/**
+ * yo-rating扩展
+ */
+
+@include yo-rating(
+    $name: test,
+    $url: "star2.png"
+);

@@ -1,0 +1,45 @@
+@charset "utf-8";
+/**
+ * module: m-desc
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.6.17
+ */
+.m-desc {
+    margin: .3rem .1rem;
+    padding-bottom: .05rem;
+    border-radius: .05rem;
+    background-color: #ddd;
+    // 修复Webkit下由于 Text Autosizer(Font Boosting/Font Inflation) 引起的字号变大
+    > .title,
+    > .sub-title {
+        max-height: 100%;
+    }
+    > .title {
+        padding: .18rem .1rem .03rem;
+        border-bottom: 1px solid map-get($base, border-color);
+    }
+    > xmp {
+        margin: .1rem;
+        padding: .1rem;
+        background-color: #666;
+        color: #fff;
+        @include user-select(text);
+    }
+    .sub-title {
+        margin: 0 .1rem;
+        padding: .1rem 0 .03rem;
+        border-bottom: 1px solid map-get($base, border-color);
+        &::before {
+            margin-right: .05rem;
+            padding: 0 .03rem;
+            border-radius: .03rem;
+            content: "Note";
+            font-weight: normal;
+            background-color: #f9c027;
+            color: #fff;
+        }
+    }
+    .info {
+        margin: .1rem;
+    }
+}

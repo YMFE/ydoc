@@ -113,6 +113,9 @@ sup,sub{vertical-align:baseline}
       float: right;
       font-size: .22rem;
       display: none;
+      background: none;
+      border:none;
+      cursor: pointer;
   }
   &-banner{
     background-color: #ff503f;
@@ -203,6 +206,7 @@ sup,sub{vertical-align:baseline}
           }
           .docs-sidenav{
               width: 100%;
+              overflow: hidden;
               >li{
                   height: .5rem;
                   width: 100%;
@@ -323,7 +327,7 @@ sup,sub{vertical-align:baseline}
   }
 }
 @media screen and (max-width: 767px) {
-  body{ background: yellow;}
+  // body{ background: yellow;}
   .ydoc-container-content {
       .content-left{ width: 100%;}
       .content-right{ display: none;}
@@ -339,7 +343,7 @@ sup,sub{vertical-align:baseline}
           display: none;
           clear: both;
           width: 100%;
-          .navbar-left{
+          .navbar-left,.navbar-right{
               width: 100%;
               li{
                   width: 100%;
@@ -358,11 +362,18 @@ sup,sub{vertical-align:baseline}
 
       }
       .ydoc-banner{
-          display: none;
+        //   display: none;
       }
   }
   // .ydoc-header{ display:none; }
-  // .ydoc-second-header{ display: block; }
+  .ydoc-second-header{ display: block;
+    .ydoc-nav{
+        display:block;
+        li{
+            float: left;
+        }
+    }
+  }
 }
 
 /*     markdown begin       */

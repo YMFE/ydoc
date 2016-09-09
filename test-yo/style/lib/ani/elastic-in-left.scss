@@ -1,0 +1,51 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @module elastic
+ * @description 定义从左侧弹性进入动画
+ * @method elastic-in-left
+ */
+@-webkit-keyframes elastic-in-left {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(-3000px, 0, 0);
+	}
+	60% {
+		opacity: 1;
+		-webkit-transform: translate3d(25px, 0, 0);
+	}
+	75% {
+		-webkit-transform: translate3d(-10px, 0, 0);
+	}
+	90% {
+		-webkit-transform: translate3d(5px, 0, 0);
+	}
+	100% {
+		-webkit-transform: translate3d(0, 0, 0);
+	}
+}
+@keyframes elastic-in-left {
+	0% {
+		opacity: 0;
+		transform: translate3d(-3000px, 0, 0);
+	}
+	60% {
+		opacity: 1;
+		transform: translate3d(25px, 0, 0);
+	}
+	75% {
+		transform: translate3d(-10px, 0, 0);
+	}
+	90% {
+		transform: translate3d(5px, 0, 0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.ani.elastic-in-left {
+	-webkit-animation-name: elastic-in-left;
+	animation-name: elastic-in-left;
+}

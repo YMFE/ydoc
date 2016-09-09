@@ -1,0 +1,15 @@
+@charset "utf-8";
+@import "../../lib/fragment/yo-header";
+
+/**
+ * yo-header扩展
+ */
+
+@include yo-header(
+    $name: normal,
+    $border-color: #ddd,
+    $bgcolor: #eee,
+    $color: map-get($base, color),
+    $item-color: map-get($base, color),
+    $item-ico-color: map-get($base, color)
+);

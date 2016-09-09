@@ -1,0 +1,57 @@
+@charset "utf-8";
+@import "../../lib/element/yo-badge";
+
+/**
+ * yo-badge扩展
+ */
+
+// 预设常规气泡
+@include yo-badge(
+    $name: normal,
+    $border-color: gray,
+    $bgcolor: gray
+);
+
+// 预设镂空气泡
+@include yo-badge(
+    $name: hollow,
+    $border-color: #666,
+    $bgcolor: white,
+    $color: #666
+);
+
+// 预设ico基础
+@include yo-badge(
+    $name: ident,
+    $bgcolor: white,
+    $radius: .03rem,
+    $font-size: .12rem,
+    $padding: 0
+);
+
+// 预设ico-减
+@include yo-badge(
+    $name: minus,
+    $border-color: #666,
+    $color: #666
+){
+    @extend .yo-badge-ident;
+}
+
+// 预设ico-新
+@include yo-badge(
+    $name: new,
+    $border-color: #1ba9ba,
+    $color: #1ba9ba
+){
+    @extend .yo-badge-ident;
+}
+
+// 预设标签气泡
+@include yo-badge(
+    $name: tag,
+    $border-color: #aaa,
+    $bgcolor: #aaa,
+    $radius: .05rem,
+    $font-size: .12rem
+);

@@ -1,0 +1,433 @@
+@charset "utf-8";
+
+// 定义calendar的基础构造
+@mixin _calendar {
+    @include fullscreen;
+    @include flexbox;
+    @include flex-direction(column);
+    background-color: #fff;
+    text-align: center;
+    > .weeks {
+        @include flex(1, column);
+        position: relative;
+        @include overflow;
+    }
+    > .week-bar,
+    .week {
+        @include flexbox;
+        width: 100%;
+        > li {
+            @include flex;
+        }
+    }
+    // 星期一，二...条（bar）
+    > .week-bar {
+        position: relative;
+        z-index: 2;
+        height: map-get($calendar, week-bar-height);
+        line-height: map-get($calendar, week-bar-height);
+        background-color: map-get($calendar, week-bar-bgcolor);
+        color: map-get($calendar, week-bar-color);
+        font-size: map-get($calendar, week-bar-font-size);
+    }
+    // 底边线设置
+    .month-bar,
+    .sticky-bar,
+    .week {
+        @include border(
+            $border-width: 0 0 1px
+        );
+    }
+    // 月份bar
+    .month-bar,
+    .sticky-bar {
+        height: map-get($calendar, month-bar-height);
+        line-height: map-get($calendar, month-bar-height);
+        background-color: map-get($calendar, month-bar-bgcolor);
+        color: map-get($calendar, month-bar-color);
+        font-size: map-get($calendar, month-bar-font-size);
+        font-weight: normal;
+        &::after {
+            border-color: map-get($calendar, month-bar-border-color);
+        }
+    }
+    // 吸顶月份bar
+    .sticky-bar {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    // 日期每行
+    .week {
+        color: map-get($calendar, week-color);
+        &::after {
+            border-color: map-get($calendar, week-border-color);
+        }
+        > li {
+            position: relative;
+            height: map-get($calendar, week-height);
+        }
+    }
+    .day,
+    .special {
+        display: inline-block;
+        margin: map-get($calendar, day-margin);
+        font-size: map-get($calendar, day-font-size);
+        line-height: map-get($calendar, day-height);
+        vertical-align: top;
+    }
+    // 每个单日定义
+    .day {
+        @include square(map-get($calendar, day-height));
+        @include border-radius(map-get($calendar, day-radius));
+    }
+    // 特殊的日子
+    .special {
+        color: map-get($calendar, special-color);
+        // 今天是特殊日子的场景
+        ~ .special {
+            margin: -.05rem 0 0;
+        }
+    }
+    .today,
+    .holiday {
+        > .day {
+            display: none;
+        }
+    }
+    // 周末
+    .weekend {
+        color: map-get($calendar, weekend-color);
+    }
+    // 不可选的日子
+    .disabled {
+        &,
+        > .special {
+            color: map-get($calendar, disabled-color) !important;
+        }
+    }
+    // 起始和结束日定义
+    .start,
+    .end {
+        > .day {
+            display: inline-block;
+            background-color: map-get($calendar, on-bgcolor);
+            color: map-get($calendar, on-color);
+        }
+        > .special {
+            display: none;
+        }
+        &::after {
+            display: block;
+            color: map-get($calendar, on-tip-color);
+            font-size: map-get($calendar, on-tip-font-size);
+        }
+    }
+    .start::after {
+        content: map-get($calendar, start-content);
+    }
+    .end::after {
+        content: map-get($calendar, end-content);
+    }
+    // 选中日期段背景
+    .range {
+        background-color: map-get($calendar, range-bgcolor);
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-calendar
+ * @version 3.0.0
+ * @description 构造yo-calendar的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-calendar.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $week-bar-height 定义星期bar高度 <3.0.0>
+ * @param {Color} $week-bar-bgcolor 定义星期bar背景色 <3.0.0>
+ * @param {Color} $week-bar-color 定义星期bar文本色 <3.0.0>
+ * @param {Length} $week-bar-font-size 定义星期bar字号 <3.0.0>
+ * @param {Length} $month-bar-height 定义月份bar高度 <3.0.0>
+ * @param {Color} $month-bar-border-color 定义月份bar边线色 <3.0.0>
+ * @param {Color} $month-bar-bgcolor 定义月份bar背景色 <3.0.0>
+ * @param {Color} $month-bar-color 定义月份bar文本色 <3.0.0>
+ * @param {Length} $month-bar-font-size 定义月份bar字号 <3.0.0>
+ * @param {Length} $week-height 定义每行高度 <3.0.0>
+ * @param {Color} $week-border-color 定义每行边线色 <3.0.0>
+ * @param {Color} $week-color 定义每行文本色 <3.0.0>
+ * @param {Length} $day-height 定义每日高度 <3.0.0>
+ * @param {Length} $day-margin 定义每日间距 <3.0.0>
+ * @param {Length} $day-radius 定义每日圆角 <3.0.0>
+ * @param {Length} $day-font-size 定义每日字号 <3.0.0>
+ * @param {Color} $special-color 定义特殊日文本色 <3.0.0>
+ * @param {Color} $weekend-color 定义周末文本色 <3.0.0>
+ * @param {Color} $disabled-color 定义禁用日子文本色 <3.0.0>
+ * @param {Color} $on-bgcolor 定义选中日期背景色 <3.0.0>
+ * @param {Color} $on-color 定义选中日期文本色 <3.0.0>
+ * @param {Color} $on-tip-color 定义选中日期提示语文本色 <3.0.0>
+ * @param {Length} $on-tip-font-size 定义选中日期提示语字号 <3.0.0>
+ * @param {String} $start-content 定义开始日期提示语 <3.0.0>
+ * @param {String} $end-content 定义结束日期提示语 <3.0.0>
+ * @param {Color} $range-bgcolor 选中日期段背景 <3.0.0>
+ */
+
+@mixin yo-calendar(
+    $name: default,
+    $week-bar-height: default,
+    $week-bar-bgcolor: default,
+    $week-bar-color: default,
+    $week-bar-font-size: default,
+    $month-bar-height: default,
+    $month-bar-border-color: default,
+    $month-bar-bgcolor: default,
+    $month-bar-color: default,
+    $month-bar-font-size: default,
+    $week-height: default,
+    $week-border-color: default,
+    $week-color: default,
+    $day-height: default,
+    $day-margin: default,
+    $day-radius: default,
+    $day-font-size: default,
+    $special-color: default,
+    $weekend-color: default,
+    $disabled-color: default,
+    $on-bgcolor: default,
+    $on-color: default,
+    $on-tip-color: default,
+    $on-tip-font-size: default,
+    $start-content: default,
+    $end-content: default,
+    $range-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $week-bar-height == default {
+        $week-bar-height: map-get($calendar, week-bar-height);
+    }
+    @if $week-bar-bgcolor == default {
+        $week-bar-bgcolor: map-get($calendar, week-bar-bgcolor);
+    }
+    @if $week-bar-color == default {
+        $week-bar-color: map-get($calendar, week-bar-color);
+    }
+    @if $week-bar-font-size == default {
+        $week-bar-font-size: map-get($calendar, week-bar-font-size);
+    }
+    @if $month-bar-height == default {
+        $month-bar-height: map-get($calendar, month-bar-height);
+    }
+    @if $month-bar-border-color == default {
+        $month-bar-border-color: map-get($calendar, month-bar-border-color);
+    }
+    @if $month-bar-bgcolor == default {
+        $month-bar-bgcolor: map-get($calendar, month-bar-bgcolor);
+    }
+    @if $month-bar-color == default {
+        $month-bar-color: map-get($calendar, month-bar-color);
+    }
+    @if $month-bar-font-size == default {
+        $month-bar-font-size: map-get($calendar, month-bar-font-size);
+    }
+    @if $week-height == default {
+        $week-height: map-get($calendar, week-height);
+    }
+    @if $week-border-color == default {
+        $week-border-color: map-get($calendar, week-border-color);
+    }
+    @if $week-color == default {
+        $week-color: map-get($calendar, week-color);
+    }
+    @if $day-height == default {
+        $day-height: map-get($calendar, day-height);
+    }
+    @if $day-margin == default {
+        $day-margin: map-get($calendar, day-margin);
+    }
+    @if $day-radius == default {
+        $day-radius: map-get($calendar, day-radius);
+    }
+    @if $day-font-size == default {
+        $day-font-size: map-get($calendar, day-font-size);
+    }
+    @if $special-color == default {
+        $special-color: map-get($calendar, special-color);
+    }
+    @if $weekend-color == default {
+        $weekend-color: map-get($calendar, weekend-color);
+    }
+    @if $disabled-color == default {
+        $disabled-color: map-get($calendar, disabled-color);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($calendar, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($calendar, on-color);
+    }
+    @if $on-tip-color == default {
+        $on-tip-color: map-get($calendar, on-tip-color);
+    }
+    @if $on-tip-font-size == default {
+        $on-tip-font-size: map-get($calendar, on-tip-font-size);
+    }
+    @if $start-content == default {
+        $start-content: map-get($calendar, start-content);
+    }
+    @if $end-content == default {
+        $end-content: map-get($calendar, end-content);
+    }
+    @if $range-bgcolor == default {
+        $range-bgcolor: map-get($calendar, range-bgcolor);
+    }
+    .yo-calendar#{$name} {
+        // 星期一，二...条（bar）
+        > .week-bar {
+            @if $week-bar-height != map-get($calendar, week-bar-height) {
+                height: $week-bar-height;
+                line-height: $week-bar-height;
+            }
+            @if $week-bar-bgcolor != map-get($calendar, week-bar-bgcolor) {
+                background-color: $week-bar-bgcolor;
+            }
+            @if $week-bar-color != map-get($calendar, week-bar-color) {
+                color: $week-bar-color;
+            }
+            @if $week-bar-font-size != map-get($calendar, week-bar-font-size) {
+                font-size: $week-bar-font-size;
+            }
+        }
+        .month-bar,
+        .sticky-bar {
+            &::after {
+                @if $month-bar-border-color != map-get($calendar, month-bar-border-color) {
+                    border-color: $month-bar-border-color;
+                }
+            }
+        }
+        // 月份bar
+        .month-bar {
+            @if $month-bar-height != map-get($calendar, month-bar-height) {
+                height: $month-bar-height;
+                line-height: $month-bar-height;
+            }
+            @if $month-bar-bgcolor != map-get($calendar, month-bar-bgcolor) {
+                background-color: $month-bar-bgcolor;
+            }
+            @if $month-bar-color != map-get($calendar, month-bar-color) {
+                color: $month-bar-color;
+            }
+            @if $month-bar-font-size != map-get($calendar, month-bar-font-size) {
+                font-size: $month-bar-font-size;
+            }
+        }
+        // 吸顶月份bar
+        > .sticky-bar {
+            @if $month-bar-height != map-get($calendar, month-bar-height) {
+                top: $month-bar-height;
+            }
+        }
+        // 日期每行
+        .week {
+            &::after {
+                @if $week-border-color != map-get($calendar, week-border-color) {
+                    border-color: $week-border-color;
+                }
+            }
+            @if $week-color != map-get($calendar, week-color) {
+                color: $week-color;
+            }
+            > li {
+                @if $week-height != map-get($calendar, week-height) {
+                    height: $week-height;
+                }
+            }
+        }
+        .day,
+        .special {
+            @if $day-margin != map-get($calendar, day-margin) {
+                margin: $day-margin;
+            }
+            @if $day-font-size != map-get($calendar, day-font-size) {
+                font-size: $font-size;
+            }
+            @if $day-height != map-get($calendar, day-height) {
+                line-height: $height;
+            }
+        }
+        // 每个单日定义
+        .day {
+            @if $day-height != map-get($calendar, day-height) {
+                @include square($day-height);
+            }
+            @if $day-radius != map-get($calendar, day-radius) {
+                border-radius: $day-radius;
+            }
+        }
+        // 特殊的日子
+        .special {
+            @if $special-color != map-get($calendar, special-color) {
+                color: $special-color;
+            }
+        }
+        // 周末
+        .weekend {
+            @if $weekend-color != map-get($calendar, weekend-color) {
+                color: $weekend-color;
+            }
+        }
+        // 不可选的日子
+        .disabled {
+            &,
+            > .special {
+                @if $disabled-color != map-get($calendar, disabled-color) {
+                    color: $disabled-color !important;
+                }
+            }
+        }
+        // 起始和结束日定义
+        .start,
+        .end {
+            > .day {
+                @if $on-bgcolor != map-get($calendar, on-bgcolor) {
+                    background-color: $on-bgcolor;
+                }
+                @if $on-color != map-get($calendar, on-color) {
+                    color: $on-color;
+                }
+            }
+            &::after {
+                @if $on-tip-color != map-get($calendar, on-tip-color) {
+                    color: $on-tip-color;
+                }
+                @if $on-tip-font-size != map-get($calendar, on-tip-font-size) {
+                    font-size: $on-tip-font-size;
+                }
+            }
+        }
+        .start::after {
+            @if $start-content != map-get($calendar, start-content) {
+                content: $start-content;
+            }
+        }
+        .end::after {
+            @if $end-content != map-get($calendar, end-content) {
+                content: $end-content;
+            }
+        }
+        .range {
+            @if $range-bgcolor != map-get($calendar, range-bgcolor) {
+                background-color: $range-bgcolor;
+            }
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入calendar基础构造
+.yo-calendar {
+    @include _calendar;
+}
