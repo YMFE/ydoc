@@ -53,7 +53,7 @@ $(document).ready(function() {
      var contentIdArray = $('.page-header');
      // console.log('contentIdArray',contentIdArray);
      for(var i = 0; i < contentIdArray.length; i++){
-        console.log($(window).scrollTop()+"   ///   "+ contentIdArray.eq(i).offset().top);
+        //console.log($(window).scrollTop()+"   ///   "+ contentIdArray.eq(i).offset().top);
         //alert("dsfsdfsdf");
         if($(window).scrollTop() > contentIdArray.eq(i).offset().top){
             console.log("======="+ i);
@@ -80,6 +80,48 @@ $(document).ready(function() {
         }
      });
   });
+
+  //
+  var winHeight = $(window).height() - 40,
+         sidebar = $('.sidebar');
+
+     if (sidebar.height() > winHeight) {
+
+         sidebar.css('max-height', winHeight + 'px');
+         sidebar.css('overflow', 'scroll');
+
+         var activeMenu,
+             barScroll = false;
+
+         sidebar.on('mouseover', function() {
+             barScroll = true;
+         });
+
+         sidebar.on('mouseout', function() {
+             barScroll = false;
+         });
+
+         $(window).on('scroll', function(e) {
+             if (!barScroll) {
+                 var activeItem = $('.sidebar li.active a');
+                 if (activeItem.length) {
+                     if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+                         activeMenu = activeItem;
+                         var top = activeMenu.offset().top - sidebar.offset().top;
+                         if (top < 0) {
+                             sidebar.scrollTop(sidebar.scrollTop() + top);
+                         } else if (top > winHeight - 30) {
+                             sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+                         }
+                     }
+                 }
+             }
+         });
+     }
+
+
+
+
   // 折叠code
   $('.markdown-body pre').map(function(i,item){
       $(item).addClass('ydoc-example');
