@@ -62,5 +62,5 @@ grunt.loadNpmTasks('ydoc');
 
 ## 开发者
 
-* 林洋 <adwon.lin@qunar.com> <edwon.lim@gmail.com>
+* 林洋 <adwon.lin@qunar.com> | <edwon.lim@gmail.com>
 * 王丽丽 <leila.wang@qunar.com>
