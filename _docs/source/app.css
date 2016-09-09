@@ -326,12 +326,20 @@ sup, sub {
     display: inline-block; }
   .ydoc .ydoc-nav {
     display: none;
-    clear: both; }
-    .ydoc .ydoc-nav li {
-      width: 100%;
-      text-align: left; }
-      .ydoc .ydoc-nav li a {
-        padding: 0; }
+    clear: both;
+    width: 100%; }
+    .ydoc .ydoc-nav .navbar-left {
+      width: 100%; }
+      .ydoc .ydoc-nav .navbar-left li {
+        width: 100%;
+        text-align: left;
+        display: inline-block; }
+        .ydoc .ydoc-nav .navbar-left li a {
+          padding: 0;
+          width: 100%;
+          display: inline-block; }
+        .ydoc .ydoc-nav .navbar-left li a:hover {
+          color: #ff503f; }
   .ydoc .ydoc-banner {
     display: none; } }
 /*     markdown begin       */

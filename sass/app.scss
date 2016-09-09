@@ -338,13 +338,24 @@ sup,sub{vertical-align:baseline}
       .ydoc-nav{
           display: none;
           clear: both;
-          li{
+          width: 100%;
+          .navbar-left{
               width: 100%;
-              text-align:left;
-              a{
-                  padding:0;
+              li{
+                  width: 100%;
+                  text-align:left;
+                  display: inline-block;
+                  a{
+                      padding:0;
+                      width:100%;
+                      display: inline-block;
+                  }
+                  a:hover{
+                      color:#ff503f;
+                  }
               }
           }
+
       }
       .ydoc-banner{
           display: none;
