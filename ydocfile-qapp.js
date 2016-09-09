@@ -50,7 +50,7 @@ module.exports = function() {
                 "title": "QApp Framework 简介",
                 "description": "简洁 、轻量 、实用的移动前端开发框架"
             },
-            "content": "./README.md"
+            "content": "./test-qapp/README.md"
         }, {
             "name": "api",
             "title": "API",
@@ -58,8 +58,8 @@ module.exports = function() {
                 "title": "QApp Framework API",
                 "description": "简洁 、轻量 、实用的移动前端开发框架"
             },
-            "content": "./testsrc/**/*.js",
-            "ignore": ['./testsrc/qapp.js', './testsrc/qapp-dev.js', './testsrc/qapp.min.js'],
+            "content": "./test-qapp/testsrc/**/*.js",
+            "ignore": ['./test-qapp/testsrc/qapp.js', './test-qapp/testsrc/qapp-dev.js', './test-qapp/testsrc/qapp.min.js'],
             "compile": "js",
             "options": {
                 "type": "lib",
@@ -102,10 +102,10 @@ module.exports = function() {
             "content": {
                 "type": "blocks",
                 "sidebar": true,
-                "blocks": fs.readdirSync('./testmodules/plugins/').map(function(plugin) {
+                "blocks": fs.readdirSync('./test-qapp/testmodules/plugins/').map(function(plugin) {
                     return {
                         name: plugin,
-                        content: './testmodules/plugins/' + plugin + '/README.md'
+                        content: './test-qapp/testmodules/plugins/' + plugin + '/README.md'
                     };
                 })
             }
@@ -116,7 +116,7 @@ module.exports = function() {
                 "title": "QApp Framework 构建",
                 "description": "打包和构建"
             },
-            "content": "./testdocument/build.md"
+            "content": "./test-qapp/testdocument/build.md"
         }, {
             "name": "fekit",
             "title": "For FEKit",
@@ -124,7 +124,7 @@ module.exports = function() {
                 "title": "QApp Framework 构建",
                 "description": "基于 FEKit 开发"
             },
-            "content": "./testdocument/fekit.md"
+            "content": "./test-qapp/testdocument/fekit.md"
         }]
     };
 };

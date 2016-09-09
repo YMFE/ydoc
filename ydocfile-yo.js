@@ -5,7 +5,7 @@ module.exports = function() {
 	        "title": "Yo Documentation",
 	        "footer": "Made By Doyoe.com © 2014 - 2016",
 	        "home": "Yo",
-	        "homeUrl": "./index.html",
+	        "homeUrl": "./test-yo/index.html",
 	        "navbars": []
 	    },
 	    "pages": [{
@@ -17,7 +17,7 @@ module.exports = function() {
 	            "download": "下载 Yo",
 	            "version": "v2.1.3"
 	        },
-	        "content": "./case.md"
+	        "content": "./test-yo/case.md"
 	    }, {
 	        "name": "getting-started",
 	        "title": "起步",
@@ -25,7 +25,7 @@ module.exports = function() {
 	            "title": "起步",
 	            "description": "本文详细描述 Yo 的使用方式，花上几分钟，下述的介绍将会帮助你快速的上手，并让自己沉浸在使用 Yo 的开发之中，感受到乐趣"
 	        },
-	        "content": "./README.md"
+	        "content": "./test-yo/README.md"
 	    }, {
 	        "name": "core",
 	        "title": "核心",
@@ -33,7 +33,7 @@ module.exports = function() {
 	            "title": "核心",
 	            "description": "详细介绍 Yo 的内置扩展函数和扩展方法"
 	        },
-	        "content": "./style/lib/core/*.scss",
+	        "content": "./test-yo/style/lib/core/*.scss",
 	        "compile": "css",
 	        "options": {
 	            "source": true
@@ -45,7 +45,7 @@ module.exports = function() {
 	            "title": "元件",
 	            "description": "详细介绍 Yo 的元件"
 	        },
-	        "content": "./style/lib/+(element|fragment|layout|widget)/*.scss",
+	        "content": "./test-yo/style/lib/+(element|fragment|layout|widget)/*.scss",
 	        "compile": "css",
 	        "options": {
 	            "source": true
@@ -57,7 +57,7 @@ module.exports = function() {
 	            "title": "动画",
 	            "description": "详细介绍 Yo 的动画"
 	        },
-	        "content": "./style/lib/ani/*.scss",
+	        "content": "./test-yo/style/lib/ani/*.scss",
 	        "compile": "css",
 	        "options": {
 	            "source": true
@@ -69,7 +69,7 @@ module.exports = function() {
 	            "title": "版本",
 	            "description": "Yo 的历史版本发布时间及变更记录，帮助你追溯到每个版本的演进过程，同时也有每个版本所对应的下载地址"
 	        },
-	        "content": "./changelog.md"
+	        "content": "./test-yo/changelog.md"
 	    }, {
 	        "name": "demo",
 	        "title": "示例",
