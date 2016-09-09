@@ -4,7 +4,7 @@
 {{each cont.list as el index}}
 <div class="con-list-item">
     <blockquote class="api">
-        <h3 id="{{el.id | anchor}}">
+        <h3 id="{{el.id | anchor}}" class="page-header">
             {{el.title}}
             {{if el.class == 'method'}}
             <span class="yo-badge yo-badge-primary">Method</span>

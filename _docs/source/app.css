@@ -678,8 +678,6 @@ sup, sub {
   padding: 0; }
 .markdown-body .docs-section h1, .markdown-body .docs-section h2 {
   border-bottom: none; }
-.markdown-body .docs-section h2 {
-  border-bottom: 1px solid #ff503f; }
 .markdown-body .docs-section h3 {
   color: #ff503f;
   border-left-color: #ff503f;

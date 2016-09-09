@@ -49,8 +49,7 @@ $(document).ready(function() {
           docSideNav.removeClass('fixed');
       }
 
-      // $(window).scrollTop()
-      // content fixed
+     // 一级导航展开
      var contentIdArray = $('.page-header');
      // console.log('contentIdArray',contentIdArray);
      for(var i = 0; i < contentIdArray.length; i++){
@@ -59,9 +58,18 @@ $(document).ready(function() {
         if($(window).scrollTop() > contentIdArray.eq(i).offset().top){
             console.log("======="+ i);
             console.log(contentIdArray.eq(i));
-            contentIdArray.eq(i).addClass('active').siblings('li').removeClass('active');
-
-            $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]").trigger('click');
+            var curScrollEl = $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]").parent('li');
+            //contentIdArray.eq(i).addClass('active').siblings('li').removeClass('active');
+            curScrollEl.addClass('active').siblings('li').removeClass('active');
+            if(curScrollEl.next('ul')){
+                curScrollEl.next('ul').show().siblings('ul').hide();
+                // var curExtendEl = curScrollEl.next('ul').find('li');
+                // for(var j = 0; j>curExtendEl.length; j++){
+                //     if($(window).scrollTop() > curExtendEl.eq(j).offset().top){
+                //         var curSecondScrollEl = $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]").parent('li');
+                //     }
+                // }
+            }
         };
     };
 
