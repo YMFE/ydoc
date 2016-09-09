@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
-  <title>YDoc 开始</title>
+  <title>YDoc 版本</title>
   <link rel="stylesheet" href="source/app.css"/>
   <link rel="stylesheet" href="source/highlight.min.css"/>
 </head>
@@ -22,7 +22,7 @@
               <ul class="navbar-left">
                 
                     
-                    <li class="active">
+                    <li class="">
                         
                         <a href="index.html">开始</a>
                         
@@ -46,7 +46,7 @@
                         
                     </li>
                     
-                    <li class="">
+                    <li class="active">
                         
                         <a href="release.html">版本</a>
                         
@@ -65,7 +65,7 @@
       <div class="ydoc-banner">
           <div class="ydoc-banner-area">
               <h1>YDoc</h1>
-              <p>开始</p>
+              <p>版本</p>
           </div>
       </div>
       
@@ -82,35 +82,9 @@
                     <ul class="nav docs-sidenav">
                         
                         
-                        <li>
-                            
-                            <a href="#简介" >简介</a>
-                            
-                        </li>
-                        
-                        
-                        
-                        <li>
-                            
-                            <a href="#安装" >安装</a>
-                            
-                        </li>
-                        
-                        
-                        
-                        <li>
-                            
-                            <a href="#使用方式" >使用方式</a>
-                            
-                        </li>
-                        
-                        
-                        
-                        
-                        <ul class="docs-sidenav-extend">
                         
                             <li>
-                                <a href="#命令" >命令</a>
+                                <a href="#v1.0.4" >v1.0.4</a>
                             </li>
                         
                         
@@ -118,7 +92,7 @@
                         
                         
                             <li>
-                                <a href="#脚本" >脚本</a>
+                                <a href="#v1.0.3" >v1.0.3</a>
                             </li>
                         
                         
@@ -126,7 +100,7 @@
                         
                         
                             <li>
-                                <a href="#Gulp" >Gulp</a>
+                                <a href="#v1.0.2" >v1.0.2</a>
                             </li>
                         
                         
@@ -134,19 +108,17 @@
                         
                         
                             <li>
-                                <a href="#Grunt" >Grunt</a>
+                                <a href="#v1.0.1" >v1.0.1</a>
                             </li>
                         
-                        </ul>
                         
                         
                         
                         
-                        <li>
-                            
-                            <a href="#开发者" >开发者</a>
-                            
-                        </li>
+                            <li>
+                                <a href="#v1.0.0" >v1.0.0</a>
+                            </li>
+                        
                         
                         
                     </ul>
@@ -154,36 +126,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1 id="YDoc">YDoc</h1><h2 id="简介">简介</h2><p>前端工程文档生成工具</p>
-<p><a href="http://badge.fury.io/js/ydoc"><img src="https://badge.fury.io/js/ydoc.svg" alt="npm version"></a></p>
-<p><img src="https://nodei.co/npm/ydoc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt=""></p>
-<h2 id="安装">安装</h2><pre><code>npm install ydoc [-g]
-</code></pre><h2 id="使用方式">使用方式</h2><h3 id="命令">命令</h3><pre><code>cd /path/to/project/
-ydoc build
-</code></pre><p>详细请查看<a href="./usage.html">命令使用说明</a>。</p>
-<h3 id="脚本">脚本</h3><pre><code class="lang-javascript">var ydoc = require(&quot;ydoc&quot;);
-
-ydoc.build(&#39;/path/to/project&#39;, options);
-</code></pre>
-<h3 id="Gulp">Gulp</h3><pre><code class="lang-javascript">var ydoc = require(&quot;ydoc&quot;);
-
-gulp.task(&#39;ydoc&#39;, function() {
-    return gulp.src(&#39;./&#39;)
-        .pipe(ydoc({
-            // 配置
-        }));
-});
-</code></pre>
-<h3 id="Grunt">Grunt</h3><pre><code class="lang-javascript">grunt.initConfig({
-    ydoc: {
-        // 配置
-    }
-});
-
-grunt.loadNpmTasks(&#39;ydoc&#39;);
-</code></pre>
-<p>配置及配置文件请查看 <a href="./config.html">配置说明</a>;</p>
-<h2 id="开发者">开发者</h2><p>林洋 <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#x3a;&#97;&#100;&#x77;&#x6f;&#x6e;&#46;&#108;&#105;&#x6e;&#64;&#113;&#117;&#110;&#97;&#114;&#46;&#99;&#x6f;&#x6d;">&#97;&#100;&#x77;&#x6f;&#x6e;&#46;&#108;&#105;&#x6e;&#64;&#113;&#117;&#110;&#97;&#114;&#46;&#99;&#x6f;&#x6d;</a> <a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#101;&#100;&#x77;&#x6f;&#x6e;&#46;&#x6c;&#x69;&#x6d;&#64;&#103;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;">&#101;&#100;&#x77;&#x6f;&#x6e;&#46;&#x6c;&#x69;&#x6d;&#64;&#103;&#109;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#x6d;</a></p>
+                <h3 id="v1.0.4">v1.0.4</h3><ul>
+<li>支持 resources 配置，复制相应资源</li>
+</ul>
+<h3 id="v1.0.3">v1.0.3</h3><ul>
+<li>add @version 版本信息</li>
+<li>add 全面支持 @skip 忽略注释块</li>
+<li>fixed 侧边栏滚动样式问题</li>
+<li>fixed watch 时，更新 ydoc 配置不生效的问题</li>
+<li>如果用户构建项目全部文档，则先删除旧文件</li>
+</ul>
+<h3 id="v1.0.2">v1.0.2</h3><ul>
+<li>更新 package.json 配置</li>
+</ul>
+<h3 id="v1.0.1">v1.0.1</h3><ul>
+<li>修复分页 Markdown 情况下，目录配置的样式</li>
+</ul>
+<h3 id="v1.0.0">v1.0.0</h3><ul>
+<li>正式版</li>
+</ul>
 
               </div>
           </div>
