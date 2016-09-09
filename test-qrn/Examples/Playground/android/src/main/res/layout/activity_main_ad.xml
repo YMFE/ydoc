@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  tools:context="com.mqunar.react.test.androiddemo.MainAdActivity">
+<Button
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:id="@+id/bt_ad_demo_rn_open_scheme"
+  android:text="通过sheme打开rn页面"/>
+  <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bt_ad_demo_rn_open_frame_loading"
+    android:text="通过代码调用打开rn页面"/>
+  <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bt_ad_demo_rn_open_my_loading"
+    android:text="自定义loading打开rn页面"/>
+  <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bt_ad_demo_rn_rootview_baseactivity"
+    android:text="使用rootview继承baseActivity显示rn页面"/>
+  <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bt_ad_demo_rn_rootview_helper"
+    android:text="使用rootview通过helper类显示rn页面"/>
+  <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/bt_ad_demo_rn_demo"
+    android:text="RN调试页面"/>
+</LinearLayout>

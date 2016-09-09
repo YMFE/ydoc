@@ -1,0 +1,260 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C039BC1F1C7C40CA00C1D68E /* QRCTMultiPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C039BC1C1C7C40CA00C1D68E /* QRCTMultiPicker.m */; };
+		C039BC201C7C40CA00C1D68E /* QRCTMultiPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C039BC1E1C7C40CA00C1D68E /* QRCTMultiPickerManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C039BC0D1C7C408800C1D68E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C039BC0F1C7C408800C1D68E /* libQRCTMultiPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQRCTMultiPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C039BC1B1C7C40CA00C1D68E /* QRCTMultiPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCTMultiPicker.h; sourceTree = "<group>"; };
+		C039BC1C1C7C40CA00C1D68E /* QRCTMultiPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCTMultiPicker.m; sourceTree = "<group>"; };
+		C039BC1D1C7C40CA00C1D68E /* QRCTMultiPickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCTMultiPickerManager.h; sourceTree = "<group>"; };
+		C039BC1E1C7C40CA00C1D68E /* QRCTMultiPickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCTMultiPickerManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C039BC0C1C7C408800C1D68E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C039BC061C7C408800C1D68E = {
+			isa = PBXGroup;
+			children = (
+				C039BC111C7C408800C1D68E /* QRCTMultiPicker */,
+				C039BC101C7C408800C1D68E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C039BC101C7C408800C1D68E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C039BC0F1C7C408800C1D68E /* libQRCTMultiPicker.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C039BC111C7C408800C1D68E /* QRCTMultiPicker */ = {
+			isa = PBXGroup;
+			children = (
+				C039BC1B1C7C40CA00C1D68E /* QRCTMultiPicker.h */,
+				C039BC1C1C7C40CA00C1D68E /* QRCTMultiPicker.m */,
+				C039BC1D1C7C40CA00C1D68E /* QRCTMultiPickerManager.h */,
+				C039BC1E1C7C40CA00C1D68E /* QRCTMultiPickerManager.m */,
+			);
+			path = QRCTMultiPicker;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C039BC0E1C7C408800C1D68E /* QRCTMultiPicker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C039BC181C7C408800C1D68E /* Build configuration list for PBXNativeTarget "QRCTMultiPicker" */;
+			buildPhases = (
+				C039BC0B1C7C408800C1D68E /* Sources */,
+				C039BC0C1C7C408800C1D68E /* Frameworks */,
+				C039BC0D1C7C408800C1D68E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QRCTMultiPicker;
+			productName = QRCTMultiPicker;
+			productReference = C039BC0F1C7C408800C1D68E /* libQRCTMultiPicker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C039BC071C7C408800C1D68E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = jingxuan.dou;
+				TargetAttributes = {
+					C039BC0E1C7C408800C1D68E = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = C039BC0A1C7C408800C1D68E /* Build configuration list for PBXProject "QRCTMultiPicker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C039BC061C7C408800C1D68E;
+			productRefGroup = C039BC101C7C408800C1D68E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C039BC0E1C7C408800C1D68E /* QRCTMultiPicker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C039BC0B1C7C408800C1D68E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C039BC1F1C7C40CA00C1D68E /* QRCTMultiPicker.m in Sources */,
+				C039BC201C7C40CA00C1D68E /* QRCTMultiPickerManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C039BC161C7C408800C1D68E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C039BC171C7C408800C1D68E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C039BC191C7C408800C1D68E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../../React/**";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C039BC1A1C7C408800C1D68E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../../React/**";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C039BC0A1C7C408800C1D68E /* Build configuration list for PBXProject "QRCTMultiPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C039BC161C7C408800C1D68E /* Debug */,
+				C039BC171C7C408800C1D68E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C039BC181C7C408800C1D68E /* Build configuration list for PBXNativeTarget "QRCTMultiPicker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C039BC191C7C408800C1D68E /* Debug */,
+				C039BC1A1C7C408800C1D68E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C039BC071C7C408800C1D68E /* Project object */;
+}
