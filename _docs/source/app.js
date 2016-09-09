@@ -50,16 +50,23 @@ $(document).ready(function() {
       }
 
      // 一级导航展开
-     var contentIdArray = $('.page-header');
-     // console.log('contentIdArray',contentIdArray);
+    // var contentIdArray = $('.page-header');
+     var contentH2Array = $("h2[id]");
+     for(var i = 0; i < contentH2Array.length; i++){
+         if($(window).scrollTop() > contentH2Array.eq(i).offset().top){
+             var curScrollEl = $("a[href=#"+($(contentH2Array.eq(i)).attr("id"))+"]").parent('li');
+             curScrollEl.addClass('active').siblings('li').removeClass('active');
+             if(curScrollEl.next('ul')){
+                 curScrollEl.next('ul').show().siblings('ul').hide();
+             };
+         }
+     }
+     var contentIdArray = $("h3[id]");
      for(var i = 0; i < contentIdArray.length; i++){
-        //console.log($(window).scrollTop()+"   ///   "+ contentIdArray.eq(i).offset().top);
-        //alert("dsfsdfsdf");
         if($(window).scrollTop() > contentIdArray.eq(i).offset().top){
             console.log("======="+ i);
             console.log(contentIdArray.eq(i));
             var curScrollEl = $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]").parent('li');
-            //contentIdArray.eq(i).addClass('active').siblings('li').removeClass('active');
             curScrollEl.addClass('active').siblings('li').removeClass('active');
             if(curScrollEl.next('ul')){
                 curScrollEl.next('ul').show().siblings('ul').hide();
