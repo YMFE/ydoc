@@ -18,6 +18,7 @@
             {{if home}}
             <a href="{{homeUrl}}" class="navbar-brand">{{home}}</a>
             {{/if}}
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
             <nav class="ydoc-nav">
               <ul class="{{if navbars && navbars.length}}navbar-right{{else}}navbar-left{{/if}}">
                 {{if navbars && navbars.length}}
@@ -44,8 +45,8 @@
     {{if navbars && navbars.length}}
     <header class="ydoc-header ydoc-second-header">
         <div class="ydoc-header-area">
-            <nav>
-                <ul class="ydoc-nav">
+            <nav class="ydoc-nav">
+                <ul>
                     {{each tabs as tab}}
                     <li class="{{if tab.active}}active{{/if}}">
                         {{if tab.url}}
@@ -60,7 +61,7 @@
         </div>
     </header>
     {{else}}
-    <header style="height:20px"></header>
+    <!-- <header style="height:20px"></header> -->
     {{/if}}
       <!-- Docs page layout -->
       {{if banner}}

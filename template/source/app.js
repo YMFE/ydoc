@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    // 导航
+    $('.navbar-toggle').click(function(){
+        console.log("test test   ");
+        $(this).next(".ydoc-nav").toggle();
+    });
+
     $('code').each(function(i, block) {
     if (block.innerHTML.indexOf('\n') != -1) {
         var pn = block.parentNode;

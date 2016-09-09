@@ -102,7 +102,6 @@ sup, sub {
 .ydoc {
   font-size: .14rem; }
   .ydoc-header {
-    height: .48rem;
     line-height: .48rem;
     color: #3b3b3b;
     font-size: .14rem;
@@ -125,6 +124,8 @@ sup, sub {
       float: left; }
       .ydoc-nav li a {
         padding: 0 15px; }
+      .ydoc-nav li a:hover {
+        color: #ff503f; }
     .ydoc-nav .navbar-right {
       float: right; }
     .ydoc-nav .navbar-left {
@@ -139,6 +140,12 @@ sup, sub {
       color: #fff; }
     .ydoc-second-header .ydoc-nav {
       float: right; }
+  .ydoc .ydocIcon {
+    font-family: ydocfont; }
+  .ydoc .navbar-toggle {
+    float: right;
+    font-size: .22rem;
+    display: none; }
   .ydoc-banner {
     background-color: #ff503f;
     color: #fff;
@@ -313,7 +320,20 @@ sup, sub {
     display: none; }
 
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
-    width: 100%; } }
+    width: 100%; }
+
+  .ydoc .navbar-toggle {
+    display: inline-block; }
+  .ydoc .ydoc-nav {
+    display: none;
+    clear: both; }
+    .ydoc .ydoc-nav li {
+      width: 100%;
+      text-align: left; }
+      .ydoc .ydoc-nav li a {
+        padding: 0; }
+  .ydoc .ydoc-banner {
+    display: none; } }
 /*     markdown begin       */
 .markdown-body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
