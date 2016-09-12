@@ -17,6 +17,9 @@ module.exports = {
             sidebars = [],
             rs;
         contents.forEach(function(content, index) {
+            // console.log('index==',index);
+            // console.log('content==',content);
+
             var commentList = commentParser(content);
             commentList.forEach(function(item) {
                 var ret = analyseComment(item, options.files[index].substring(1), conf)
@@ -36,9 +39,11 @@ module.exports = {
         rs = {
             linkSource: options.source,
             list: groupList.map(function(group) {
+                // console.log('group=======', group);
+                // console.log('tag=======', "#"+group);
                 sidebars.push({
                     name: group,
-                    tag: group
+                    tag: group && "#"+group
                 });
                 return {
                     name: group,

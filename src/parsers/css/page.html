@@ -1,6 +1,6 @@
 <div class="docs-section">
     {{each list as cont}}
-    <h1 id="{{cont.name | anchor}}" class="page-header">{{cont.name}}</h1>
+    <h2 id="{{cont.name | anchor}}" class="page-header">{{cont.name}}</h2>
     {{each cont.list as el index}}
     <blockquote class="api">
         <h3 id="{{el.name | anchor}}">

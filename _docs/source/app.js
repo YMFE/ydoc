@@ -72,7 +72,7 @@ $(document).ready(function() {
      var contentIdArray = $("h3[id]");
      for(var i = 0; i < contentIdArray.length; i++){
         if($(window).scrollTop() > contentIdArray.eq(i).offset().top){
-            if( $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]")){
+            if( $("a[href=#"+($(contentIdArray).eq(i).attr("id"))+"]")){
                 var curScrollEl = $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]").parent('li');
                 curScrollEl.addClass('active').siblings('li').removeClass('active');
                 if(curScrollEl.next('ul')){
