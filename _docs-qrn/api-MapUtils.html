@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native API</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar MFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">开始</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extraUI.html">外部组件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extension.html">EXT</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extending.html">扩展</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="demo.html">DEMO</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="faq.html">FAQ</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="releases.html">Releases</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/react-web/" target="_blank">React Web</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner">
+          <div class="ydoc-banner-area">
+              <h1>Qunar React Native API</h1>
+              <p>API</p>
+          </div>
+      </div>
+      
+
+
+
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-right">
+                  <nav class="sidebar">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <li>
+                            
+                            <a href="api-DeviceInfo.html" >DeviceInfo</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-LoginManager.html" >LoginManager</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-CookieManager.html" >CookieManager</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-CameraRoll.html" >CameraRoll</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-ImageUploader.html" >ImageUploader</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-Toast.html" >Toast</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-QHotDogNetWork.html" >QHotDogNetWork</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-MapUtils.html" style="color:#0088a4">MapUtils</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-UELog.html" >UELog</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-CVParam.html" >CVParam</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-GeoLocation.html" >GeoLocation</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-QStatusBar.html" >QStatusBar</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-ABTest.html" >ABTest</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li>
+                            
+                            <a href="api-QShare.html" >QShare</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-left markdown-body">
+                
+                <h2 id="MapUtils  地图坐标转换和路径规划的API">MapUtils  地图坐标转换和路径规划的API</h2><blockquote>
+<p>API兼容性：<br>QRN:v1.0.0<br>iOS:80011117<br>Android:60001134    </p>
+</blockquote>
+<p><code>MapUtils</code>可以进行地图坐标的转换，路径规划等，使用方法如下:</p>
+<pre><code class="lang-js">import {MapUtils} from &#39;qunar-react-native&#39;;
+
+//坐标
+var coord = {
+    latitude:39.983667;    //纬度
+    longitude:116.312638;  //经度
+}
+
+/* 
+ * 转换坐标
+ *
+ * srcType是转换前坐标类型, desType是需要转换的坐标类型,
+ * 支持的有：
+ * &#39;WGS84&#39;  //GPS定位坐标
+ * &#39;GCJ02&#39;  //火星坐标
+ * &#39;BD09&#39;   //百度坐标
+ */
+var srcType = &#39;WGS84&#39;;
+var desType = &#39;BD09&#39;;
+var newCoord = MapUtils.translate(coord, srcType, desType);//转换GPS坐标到百度坐标
+
+
+/*
+ * 返回该坐标(GPS坐标系)的地理信息
+ */
+MapUtils.getLocation(coord,(placeName)=&gt;{
+    //获取成功，placeName为地理信息
+},err=&gt;{
+    //获取失败
+})
+
+
+/**
+ * 跳转到系统地图进行导航
+ *
+ * 目前只处理两个position的情况,第一个是出发地，第二个为目的地
+ * 字典结构为(其中坐标为GPS坐标)
+ * {
+ *  title:&#39;***&#39;,
+ *  latitude:&#39;*****&#39;,
+ *  longitude:&#39;*****&#39;,
+ *  isCurrentLocation:true,
+ *  }
+ * routeType只能为 &#39;walking&#39;、&#39;automobile&#39;或者&#39;any&#39;
+ */
+MapUtils.goNavigation([startPosition,endPosition],routeType);
+
+
+/* 路径规划，计算出路径
+ * 根据路径设置MapView的overlays属性即可在MapView上显示导航路径，具体可以参看MapView的overlays属性说明
+ * routeType只能为 &#39;walking&#39;、&#39;automobile&#39;或者&#39;any&#39;
+ */
+MapUtils.calculateRoute(startCoord, endCoord, routeType, coordinates=&gt;{
+    //路径规划成功,coordinates为路径的点集,可直接作为MapVie的overlays属性中的coordinates
+},err=&gt;{
+    //路径规划失败
+})
+</code></pre>
+
+              </div>
+          </div>
+          
+        
+      </div>
+
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

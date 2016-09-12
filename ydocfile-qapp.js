@@ -77,19 +77,19 @@ module.exports = function() {
                 "sidebar": true,
                 "blocks": [{
                     name: '简介',
-                    content: 'testdocument/hybrid/README.md'
+                    content: './test-qapp/testdocument/hybrid/README.md'
                 }, {
                     name: 'Hy'
                 }, {
                     name: 'Hy说明',
                     sub: true,
-                    content: 'testmodules/hybrid/hy/README.md'
+                    content: './test-qapp/testmodules/hybrid/hy/README.md'
                 }, {
                     name: 'Wechat'
                 }, {
                     name: 'WeChat说明',
                     sub: true,
-                    content: 'testmodules/hybrid/wx/README.md'
+                    content: './test-qapp/testmodules/hybrid/wx/README.md'
                 }]
             }
         }, {

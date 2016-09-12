@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>QApp For FEKit</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">HY</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-right">
+                
+                
+                <li class="active">
+                    <a href="http://ued.qunar.com/mobile/qapp/doc/" target="">QApp</a>
+                </li>
+                
+                <li class="">
+                    <a href="http://ued.qunar.com/mobile/kami/doc/" target="">Kami</a>
+                </li>
+                
+                <li class="">
+                    <a href="http://ued.qunar.com/mobile/yo/doc/" target="">Yo</a>
+                </li>
+                
+                <li class="">
+                    <a href="http://hy.qunar.com/docs/qunarapi-api.html" target="">QunarAPI</a>
+                </li>
+                
+                <li class="">
+                    <a href="http://ued.qunar.com/mobile/qmb2/" target="">QMB2</a>
+                </li>
+                
+                <li class="">
+                    <a href="http://ued.qunar.com/mobile/statistics/" target="">Statistics</a>
+                </li>
+                
+                <li class="">
+                    <a href="http://ued.qunar.com/mobile/blog/" target="">Blog</a>
+                </li>
+                
+                <li class="">
+                    <a href="http://hy.qunar.com/docs/index.html" target="">Hytive</a>
+                </li>
+                
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <header class="ydoc-header ydoc-second-header">
+        <div class="ydoc-header-area">
+            <nav class="ydoc-nav">
+                <ul>
+                    
+                    <li class="">
+                        
+                        <a href="index.html">简介</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="hybird.html">混合开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="plugins.html">插件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="build.html">构建</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="fekit.html">For FEKit</a>
+                        
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner">
+          <div class="ydoc-banner-area">
+              <h1>QApp Framework 构建</h1>
+              <p>基于 FEKit 开发</p>
+          </div>
+      </div>
+      
+
+
+
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content" id="readme">
+              <article class="markdown-body">
+                  
+                  <h3 id="For FEKit">For FEKit</h3><h4 id="QApp">QApp</h4><p>安装： <code>fekit install QApp</code></p>
+<p>使用： <code>require(&#39;QApp&#39;)</code></p>
+<h4 id="插件和适配模块">插件和适配模块</h4><p>安装： <code>fekit install QApp-Hy</code> 或 <code>fekit install QApp-plugin-ajax</code></p>
+<p>使用： <code>require(&#39;QApp-Hy&#39;)</code> 或 <code>require(&#39;QApp-plugin-ajax&#39;)</code></p>
+<h4 id="提供新的引入方式">提供新的引入方式</h4><p>在 QApp 1.0.0 将所有插件合并到一个工程，方便版本的统一管理。</p>
+<p>在 1.0.0 之后的 <code>QApp</code> 包中，会包含所有插件和适配模块。</p>
+<p>可以通过以下方式使用:</p>
+<p><code>fekit.config</code>:</p>
+<pre><code>{
+    &quot;alias&quot;: {
+        &quot;QApp&quot;: &quot;fekit_modules/QApp&quot;
+    }
+}
+</code></pre><p><code>*.js</code>:</p>
+<pre><code>require(&#39;QApp/ajax&#39;);
+</code></pre>
+              </article>
+          </div>
+          
+        
+      </div>
+
+      <footer class="footer">
+        <div class="copyright">
+            Made By Qunar YMFE TEAM. © 2014 - 2016
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>
