@@ -142,7 +142,9 @@ module.exports = {
     extNames: ['.js', '.jsx'],
     parser: function(contents, options, conf) {
         var fn = execFns[options.type || 'component'];
+        console.log('====options.type====',options.type);
         return fn ? fn(contents.map(function(content) {
+            console.log('====options.type====',options.type);
             //var contents = commentParser(content);
             var contents = commentParser(content.replace(/```[\s\S]+?```/gm, function(mat) {
                 var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]]

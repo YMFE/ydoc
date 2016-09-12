@@ -69,7 +69,10 @@ module.exports = function (comment, path, conf, formatter, content) {
                 };
                 break;
             case 'example':
+
                 if (content.indexOf('./') == 0) {
+                    console.log('content===',content);
+                    // TODOlist
                     var fp = sysPath.join(conf.cwd, conf.examplePath, content.split('[')[0]);
                     if (fs.existsSync(fp)) {
                         var ct = fs.readFileSync(fp, 'UTF-8');
