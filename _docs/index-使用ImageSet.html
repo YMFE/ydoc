@@ -145,7 +145,7 @@
                         
                         
                         
-                        <li >
+                        <li  class="active" >
                             
                             <a href="index-使用ImageSet.html">使用ImageSet</a>
                             
@@ -205,18 +205,28 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <p>Qunar React Native 是 Qunar 基于 React Native 深度定制的移动平台框架，旨在让移动开发者使用 JavaScript 进行移动平台的高效开发。</p>
-<h2 id="Qunar React Native 的优势">Qunar React Native 的优势</h2><ul>
-<li>极高的代码复用率： Qunar React Native 在框架层面抹平了 iOS 与 Android 的平台差异，除了平台特有的特征（如 Android 返回键）外，其他业务逻辑均可在无需修改的情况下运行于 Android 和 iOS 下，大大降低了开发成本。</li>
-<li>丰富的 API 扩展： Qunar React Native 提供了丰富的组件库，开发者可以使用这些组件快速构建应用。</li>
-<li>更快的加载速度</li>
-<li>完善的部署系统</li>
-</ul>
-<h2 id="开始使用 Qunar React Native">开始使用 Qunar React Native</h2><p><a href="index-项目创建.html">======&gt;Start Developing with QRN Now&lt;======</a></p>
-<p><a href="demo.html">===&gt;如果你只想先看看Demo的话，就戳这里&lt;===</a></p>
-<h2 id="提出issue">提出issue</h2><p>如果你遇到bug或者有feature request，可以在<a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native/issues"><strong>这里</strong></a>提出issue。</p>
-<p>在新打开一个issue之前，可以先在现有issues里面查一下是否已经存在。</p>
-<p>如果是报告问题，请说明你当前使用的QRN版本和系统环境（IOS/android），最好附上截图和复现方法。</p>
+                <h1 id="使用 ImageSet">使用 ImageSet</h1><p>通过<a href="index-项目创建.html">项目创建</a>流程创建项目后，会在项目中生成<code>QFontSet.js</code>和<code>QImageSet.js</code>两个文件，用于管理 iconfont 和静态图片资源。</p>
+<p>如果项目中没有这两个文件，可以在<a href="http://gitlab.corp.qunar.com/react_native/js_template/tree/release">这里</a>找到模板文件。</p>
+<p>由命令行生成的项目，应该会在 index.js 中包含如下注释：</p>
+<pre><code class="lang-js">/**
+ * @includesModules QFontSet, QImageSet
+ */
+</code></pre>
+<h2 id="上传图片">上传图片</h2><p>QRN 对于 ImageSet 使用 http url 的形式加载。因此需要将图片上传至外网可访问的位置，推荐使用 <a href="http://wiki.corp.qunar.com/display/corpux/Source">Source</a> 。</p>
+<p>在项目发布时，QImageSet 中的所有图片会由发布系统打包进应用，不会直接连接线上下载。</p>
+<h2 id="向 ImageSet 添加图片">向 ImageSet 添加图片</h2><p>打开项目的<code>QImageSet.js</code>，按照如下形式加入字体：</p>
+<pre><code class="lang-js">module.exports = {
+  // &quot;图片名称&quot; : &quot;图片的线上 URL&quot; 
+  // 可以添加多项
+  // 暂不支持@2x等后缀
+  &quot;icon1&quot; : &quot;http://s.qunarzz.com/qrn_demo/test_hybridId_icon1.png&quot;
+}
+</code></pre>
+<h2 id="使用 ImageSet 中的图片">使用 ImageSet 中的图片</h2><p>直接在<code>&lt;Image&gt;</code>标签中通过source引用图片：</p>
+<pre><code class="lang-js">let Images = require(&#39;QImageSet&#39;);
+
+&lt;Image style={{width: 40, height: 40}} source={{uri: Images.icon1}} /&gt;
+</code></pre>
 
               </div>
           </div>

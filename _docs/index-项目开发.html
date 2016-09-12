@@ -121,7 +121,7 @@
                         
                         
                         
-                        <li >
+                        <li  class="active" >
                             
                             <a href="index-项目开发.html">项目开发</a>
                             
@@ -205,18 +205,37 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <p>Qunar React Native 是 Qunar 基于 React Native 深度定制的移动平台框架，旨在让移动开发者使用 JavaScript 进行移动平台的高效开发。</p>
-<h2 id="Qunar React Native 的优势">Qunar React Native 的优势</h2><ul>
-<li>极高的代码复用率： Qunar React Native 在框架层面抹平了 iOS 与 Android 的平台差异，除了平台特有的特征（如 Android 返回键）外，其他业务逻辑均可在无需修改的情况下运行于 Android 和 iOS 下，大大降低了开发成本。</li>
-<li>丰富的 API 扩展： Qunar React Native 提供了丰富的组件库，开发者可以使用这些组件快速构建应用。</li>
-<li>更快的加载速度</li>
-<li>完善的部署系统</li>
+                <h2 id="开发 QRN 项目">开发 QRN 项目</h2><h3 id="配置开发环境">配置开发环境</h3><p>首先需要配置开发环境，在手机或模拟器中安装客户端并配置好开发工具，请参考 <a href="index-开发工具.html">开发工具</a> 中的详细说明。</p>
+<h3 id="开发建议">开发建议</h3><p>在配置完环境之后，就可以愉快的开始Coding了。</p>
+<ul>
+<li>在 <code>RN</code> 的基础上，<code>QRN</code> 新增和修改了许多 <a href="component.html">基础组件</a> 和 <a href="api.html">API</a>。</li>
+<li>为了更流程的开发，<code>QRN</code> 提供了增强的框架 <a href="extension.html">QRN-Ext</a>。内容包括：<ul>
+<li>插件机制、Utils</li>
+<li>增强的路由方案 <a href="extension-Router.html">Router</a></li>
+<li>增强的前端扩展 <a href="extension-WebX.html">Webx</a></li>
+<li>数据流 <a href="extension-Redux.html">Redux</a></li>
 </ul>
-<h2 id="开始使用 Qunar React Native">开始使用 Qunar React Native</h2><p><a href="index-项目创建.html">======&gt;Start Developing with QRN Now&lt;======</a></p>
-<p><a href="demo.html">===&gt;如果你只想先看看Demo的话，就戳这里&lt;===</a></p>
-<h2 id="提出issue">提出issue</h2><p>如果你遇到bug或者有feature request，可以在<a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native/issues"><strong>这里</strong></a>提出issue。</p>
-<p>在新打开一个issue之前，可以先在现有issues里面查一下是否已经存在。</p>
-<p>如果是报告问题，请说明你当前使用的QRN版本和系统环境（IOS/android），最好附上截图和复现方法。</p>
+</li>
+<li>调试方面，推荐使用 <a href="index-使用Chrome调试.html">chrome调试</a> 或 <a href="index-使用Atom调试（实验性）.html">Atom调试</a></li>
+<li>编程规范在 <a href="http://gitlab.corp.qunar.com/react_native/react-native-code-guide/tree/master">这里</a></li>
+</ul>
+<p><strong>最重要的是，我们有Demo哦！</strong><a href="demo.html">Demo在这儿</a></p>
+<h3 id="静态资源的使用">静态资源的使用</h3><p>在项目的 <code>./src/scripts/assets</code> 文件夹中有 <code>QFontSet.js</code> 和 <code>QImageSet.js</code> 两个文件，分别用来注册字体和图片资源的，只有在这两个文件中注册过的静态资源才能被打包工具打包。</p>
+<p><img src="images/dev-resource.png" alt="dev-resource"></p>
+<p><strong>字体示例</strong></p>
+<pre><code>&lt;Text style={{fontFamily:&#39;hybridId_font1&#39;}}&gt;{&#39;\uf089&#39;}&lt;/Text&gt;
+</code></pre><p><strong>字体使用注意事项</strong></p>
+<ol>
+<li>上图中的 <code>hybridId_font1</code> 和 <code>hybridId_font2</code> 指的是字体文件本身的font-name，也是在项目中使用时的fontFamily。这个名称必须以 <code>hybridid_</code> 开头，否则打包文件会报错。</li>
+<li>可以使用 <a href="http://iconfont.corp.qunar.com/">iconfont服务</a> 来创建项目字体，每个字体项目生成的字体文件的font-name就是对应的项目名。</li>
+<li><p>字体icon的编码是这么转化来的：</p>
+<p><img src="images/dev-icon.png" alt="dev-icon"></p>
+</li>
+</ol>
+<p><strong>图片示例</strong></p>
+<pre><code>&lt;Image style={{height: 800, width: 600}} source={{uri: require(&#39;QImageSet&#39;).img1}} /&gt;
+</code></pre><p>Coding之后，可以进入测试发布环节了。</p>
+<p><a href="index-测试部署.html">下一步：Testing with QRN Now</a></p>
 
               </div>
           </div>

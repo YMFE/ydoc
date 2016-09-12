@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
-  <title>YDoc 命令</title>
+  <title>Qunar React Native 扩展</title>
   <link rel="stylesheet" href="source/app.css"/>
   <link rel="stylesheet" href="source/highlight.min.css"/>
 </head>
@@ -16,7 +16,7 @@
       <header class="ydoc-header">
         <div class="ydoc-header-area">
             
-            <a href="http://ymfe.tech/" class="navbar-brand">YMFE</a>
+            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar MFE</a>
             
             <button class="ydocIcon navbar-toggle">&#xf020;</button>
             <nav class="ydoc-nav">
@@ -29,27 +29,57 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extraUI.html">外部组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extension.html">EXT</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
-                        <a href="usage.html">命令</a>
+                        <a href="extending.html">扩展</a>
                         
                     </li>
                     
                     <li class="">
                         
-                        <a href="config.html">配置</a>
+                        <a href="demo.html">DEMO</a>
                         
                     </li>
                     
                     <li class="">
                         
-                        <a href="comment.html">注释规则</a>
+                        <a href="faq.html">FAQ</a>
                         
                     </li>
                     
                     <li class="">
                         
-                        <a href="release.html">版本</a>
+                        <a href="releases.html">Releases</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/react-web/" target="_blank">React Web</a>
                         
                     </li>
                     
@@ -65,8 +95,8 @@
       
       <div class="ydoc-banner">
           <div class="ydoc-banner-area">
-              <h1>YDoc</h1>
-              <p>使用</p>
+              <h1>Qunar React Native 功能扩展</h1>
+              <p>借助Native组件引入更多功能</p>
           </div>
       </div>
       
@@ -85,7 +115,7 @@
                         
                         <li >
                             
-                            <a href="#安装">安装</a>
+                            <a href="extending-Native组件开发(iOS).html">Native组件开发(iOS)</a>
                             
                         </li>
                         
@@ -93,7 +123,7 @@
                         
                         <li >
                             
-                            <a href="#构建命令">构建命令</a>
+                            <a href="extending-Native组件开发(Android).html">Native组件开发(Android)</a>
                             
                         </li>
                         
@@ -101,7 +131,7 @@
                         
                         <li >
                             
-                            <a href="#初始化命令">初始化命令</a>
+                            <a href="extending-js调用Native组件.html">js调用Native组件</a>
                             
                         </li>
                         
@@ -111,29 +141,7 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h2 id="安装">安装</h2><p>从 NPM 中安装</p>
-<blockquote>
-<p>npm install ydoc -g</p>
-</blockquote>
-<p><a href="http://badge.fury.io/js/ydoc"><img src="https://badge.fury.io/js/ydoc.svg" alt="npm version"></a></p>
-<p><img src="https://nodei.co/npm/ydoc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt=""></p>
-<h2 id="构建命令">构建命令</h2><blockquote>
-<p>ydoc build [-t templatePath] [-p page] [-w] [-o dest]</p>
-</blockquote>
-<p>读取配置，构建文档</p>
-<ul>
-<li><code>-w|--watch</code>: 监听变化自动构建</li>
-<li><code>-t|--template</code>: 参数为自定义模板路径</li>
-<li><code>-o|--output</code>: 输出目录</li>
-<li><code>-p|--page</code>: 指定编译某页，默认编译所有。（多个页面名可以逗号分开，例 -p index,demo）</li>
-</ul>
-<h2 id="初始化命令">初始化命令</h2><blockquote>
-<p>ydoc init [-t templatePath]</p>
-</blockquote>
-<p>初始项目，创建配置文件或自定义模板(-t)</p>
-<ul>
-<li><code>-t|--template</code>: 参数为自定义模板路径</li>
-</ul>
+                <h2 id="扩展 React Native">扩展 React Native</h2><p>React Native 本身提供了借助 Native 来扩展功能的方法。实际上 RN 的相当一部分基础组件都是作为可选模块加入到工程中来的，因此 Native 开发者也可以借由编写 Native 扩展达到让 js 使用更多功能的目的。</p>
 
               </div>
           </div>
@@ -143,7 +151,7 @@
 
       <footer class="footer">
         <div class="copyright">
-            Made By YMFE. © 2014 - 2016
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
         </div>
       </footer>
     </div>

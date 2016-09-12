@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native 外部组件</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar MFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">开始</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="extraUI.html">外部组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extension.html">EXT</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extending.html">扩展</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="demo.html">DEMO</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="faq.html">FAQ</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="releases.html">Releases</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/react-web/" target="_blank">React Web</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner">
+          <div class="ydoc-banner-area">
+              <h1>Qunar React Native UI组件</h1>
+              <p>Qunar React Native 外部UI组件</p>
+          </div>
+      </div>
+      
+
+
+
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-right">
+                  <nav class="sidebar">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-Accordion.html">Accordion</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-Calendar.html">Calendar</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-Carousel.html">Carousel</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-Dialog.html">Dialog</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-Dropdown.html">Dropdown</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-Numbers.html">Numbers</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-Popover.html">Popover</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-RangeSlider.html">RangeSlider</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-Rating.html">Rating</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-SliderMenu.html">SliderMenu</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-Suggest.html">Suggest</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-Tooltip.html">Tooltip</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  class="active" >
+                            
+                            <a href="extraUI-SwipeListView.html">SwipeListView</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-left markdown-body">
+                
+                <h1 id="SwipeListView">SwipeListView</h1><p>有滑动菜单的ListView
+<strong>Author: yuhao.ju</strong></p>
+<p><img src="http://7xkm02.com1.z0.glb.clouddn.com/SwipeListView.png" alt=""></p>
+<h2 id="Install">Install</h2><p>qnpm install @qnpm/react-native-ui-swipe-listview</p>
+<h2 id="Props">Props</h2><table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>renderRow</td>
+<td>func</td>
+<td></td>
+<td>Yes</td>
+<td>(rowData, sectionID, rowID, rows) =&gt; renderable 根据数据渲染这一行</td>
+</tr>
+<tr>
+<td>renderHiddenRow</td>
+<td>func</td>
+<td></td>
+<td>Yes</td>
+<td>(rowData, sectionID, rowID, rows) =&gt; renderable 根据数据渲染这一行背后隐藏的元素</td>
+</tr>
+<tr>
+<td>leftOpenValue</td>
+<td>number</td>
+<td>0</td>
+<td>No</td>
+<td>该行右滑时左边的偏移量（必须为正数）</td>
+</tr>
+<tr>
+<td>rightOpenValue</td>
+<td>number</td>
+<td>0</td>
+<td>No</td>
+<td>该行左滑时右边的偏移量（必须为负数）</td>
+</tr>
+<tr>
+<td>closeOnScroll</td>
+<td>bool</td>
+<td>true</td>
+<td>No</td>
+<td>列表滑动时，收起打开的行</td>
+</tr>
+<tr>
+<td>closeOnRowPress</td>
+<td>bool</td>
+<td>true</td>
+<td>No</td>
+<td>当某一行触发onPress吼，收起打开的行</td>
+</tr>
+<tr>
+<td>disableLeftSwipe</td>
+<td>bool</td>
+<td>false</td>
+<td>No</td>
+<td>禁用左滑</td>
+</tr>
+<tr>
+<td>disableRightSwipe</td>
+<td>bool</td>
+<td>false</td>
+<td>No</td>
+<td>禁用右滑</td>
+</tr>
+<tr>
+<td>onRowOpen</td>
+<td>func</td>
+<td></td>
+<td>No</td>
+<td>某行打开时的回调</td>
+</tr>
+<tr>
+<td>onRowClose</td>
+<td>func</td>
+<td></td>
+<td>No</td>
+<td>某行关闭时的回调</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Example:">Example:</h2><pre><code class="lang-javascript">
+import React, {
+    Component,
+    StyleSheet,
+    View,
+    Text,
+    TouchableOpacity,
+    Image,
+    ListView,
+} from &#39;react-native&#39;
+
+import SwipeListView from &#39;@qnpm/react-native-ui-swipe-listview&#39;
+import commonStyle from &#39;./layout/style.js&#39;
+
+class SwipeListViewExample extends Component {
+    constructor(props){
+        super(props)
+
+        const ds = new ListView.DataSource({
+            rowHasChanged: (r1, r2) =&gt; r1 !== r2,
+        })
+        let rows = []
+        for(let i = 0; i &lt; 20; i++){
+            rows.push(i)
+        }
+        this.state = {
+            rows: rows,
+            dataSource: ds.cloneWithRows(rows),
+        }
+    }
+
+    removeRow(rowData){
+        const ds = new ListView.DataSource({
+            rowHasChanged: (r1, r2) =&gt; r1 !== r2,
+        })
+        let rows = this.state.rows
+        rows = rows.filter((row) =&gt; {
+            return row !== rowData
+        })
+
+        this.setState({
+            rows: rows,
+            dataSource: ds.cloneWithRows(rows),
+        })
+
+        this.refs.SwipeListView.safeCloseOpenRow({animated: false})
+    }
+
+    render() {
+        return (
+            &lt;View style={styles.container}&gt;
+                &lt;SwipeListView
+                    ref=&quot;SwipeListView&quot;
+                    dataSource={this.state.dataSource}
+                    renderRow={(rowData) =&gt;
+                        {
+                            return &lt;SwipeListViewExampleRow title={rowData}/&gt;
+                        }
+                    }
+                    renderHiddenRow={ (rowData) =&gt; (
+                        &lt;TouchableOpacity style={styles.rowBack} onPress={() =&gt; this.removeRow(rowData)}&gt;
+                            &lt;Text style={{color: &#39;#fff&#39;}}&gt;delete&lt;/Text&gt;
+                        &lt;/TouchableOpacity&gt;
+                    )}
+                    rightOpenValue={-65}
+                    disableRightSwipe={true}
+                /&gt;
+            &lt;/View&gt;
+        )
+    }
+}
+
+
+class SwipeListViewExampleRow extends Component {
+    constructor(props){
+        super(props)
+    }
+
+    render() {
+        const {title} = this.props
+        const url = &#39;http://placeholdit.imgix.net/~text?txtsize=33&amp;bg=666&amp;txtclr=fff&amp;txt=&#39; + title + &#39;&amp;w=100&amp;h=110&#39;,
+            randomText = Number(title) % 100
+
+        return (
+            &lt;View style={styles.row}&gt;
+                &lt;Image
+                    style={[styles.rowImg]}
+                    source={{uri: &#39;http://placeholdit.imgix.net/~text?txtsize=33&amp;bg=666&amp;txtclr=fff&amp;txt=&#39; + title + &#39;&amp;w=100&amp;h=110&#39;}}
+                /&gt;
+                &lt;View style={[styles.rowContent]}&gt;
+                    &lt;View style={{flexDirection: &#39;row&#39;}}&gt;
+                        &lt;Text style={styles.titleText}&gt;{title}&lt;/Text&gt;
+                    &lt;/View&gt;
+                    &lt;View&gt;
+                        &lt;Text style={{color: &#39;#25a4bb&#39;}}&gt;{randomText}分 / {randomText}条评论&lt;/Text&gt;
+                        &lt;Text style={[styles.alignRight, {color: &#39;orange&#39;}]}&gt;{randomText}起&lt;/Text&gt;
+                    &lt;/View&gt;
+                    &lt;View&gt;
+                        &lt;View style={[styles.labelWrap]}&gt;
+                            &lt;Text style={[styles.labelText]}&gt;label{randomText}&lt;/Text&gt;
+                            &lt;Text style={[styles.labelText]}&gt;label{randomText}&lt;/Text&gt;
+                            &lt;Text style={[styles.labelText]}&gt;label{randomText}&lt;/Text&gt;
+                        &lt;/View&gt;
+                        &lt;Text style={[styles.alignRight]}&gt;{randomText}折vip&lt;/Text&gt;
+                    &lt;/View&gt;
+                    &lt;View&gt;
+                        &lt;Text style={styles.detailText}&gt;地点：首都机场{randomText}&lt;/Text&gt;
+                        &lt;TouchableOpacity style={[styles.alignRight]}&gt;
+                            &lt;Text style={[styles.button]}&gt;预定&lt;/Text&gt;
+                        &lt;/TouchableOpacity&gt;
+                    &lt;/View&gt;
+                &lt;/View&gt;
+            &lt;/View&gt;
+        )
+    }
+}
+
+const styles = StyleSheet.create({
+    ...commonStyle,
+    container: {
+        flex: 1,
+        backgroundColor: &#39;#fff&#39;,
+    },
+    row: {
+        flexDirection: &#39;row&#39;,
+        alignItems: &#39;center&#39;,
+        overflow: &#39;hidden&#39;,
+        backgroundColor: &#39;#fff&#39;,
+    },
+    rowImg: {
+        flex: 1,
+        height: 100,
+        resizeMode: &#39;stretch&#39;,
+    },
+    rowContent: {
+        flex: 3,
+        padding: 7,
+    },
+    titleText: {
+        fontWeight: &#39;bold&#39;,
+        fontSize: 14,
+    },
+    detailText: {
+        marginTop: 3,
+        color: &#39;#999&#39;,
+        fontSize: 12,
+    },
+    alignRight: {
+        position: &#39;absolute&#39;,
+        top: 0,
+        right: 0,
+    },
+    button: {
+        padding: 2,
+        borderRadius: 4,
+        color: &#39;#fff&#39;,
+        backgroundColor: &#39;#09c&#39;,
+    },
+    labelWrap: {
+        flexDirection: &#39;row&#39;,
+    },
+    labelText: {
+        marginRight: 3,
+        borderRadius: 3,
+        borderWidth: 1,
+        borderColor: &#39;#09c&#39;,
+    },
+    rowBack: {
+        flex: 1,
+        width: 65,
+        backgroundColor: &#39;red&#39;,
+        alignSelf: &#39;flex-end&#39;,
+        alignItems: &#39;center&#39;,
+        justifyContent: &#39;center&#39;,
+    }
+})
+</code></pre>
+
+              </div>
+          </div>
+          
+        
+      </div>
+
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

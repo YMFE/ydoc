@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
-  <title>Qunar React Native 开始</title>
+  <title>Qunar React Native EXT</title>
   <link rel="stylesheet" href="source/app.css"/>
   <link rel="stylesheet" href="source/highlight.min.css"/>
 </head>
@@ -23,7 +23,7 @@
               <ul class="navbar-left">
                 
                     
-                    <li class="active">
+                    <li class="">
                         
                         <a href="index.html">开始</a>
                         
@@ -47,7 +47,7 @@
                         
                     </li>
                     
-                    <li class="">
+                    <li class="active">
                         
                         <a href="extension.html">EXT</a>
                         
@@ -95,8 +95,8 @@
       
       <div class="ydoc-banner">
           <div class="ydoc-banner-area">
-              <h1>Qunar React Native</h1>
-              <p>去哪儿定制版 React Native，更快、更好、更统一。</p>
+              <h1>Qunar React Native Extension</h1>
+              <p>Qunar React Native 增强拓展框架</p>
           </div>
       </div>
       
@@ -115,7 +115,15 @@
                         
                         <li >
                             
-                            <a href="index-项目创建.html">项目创建</a>
+                            <a href="extension-Router.html">Router</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  class="active" >
+                            
+                            <a href="extension-WebX.html">WebX</a>
                             
                         </li>
                         
@@ -123,7 +131,7 @@
                         
                         <li >
                             
-                            <a href="index-项目开发.html">项目开发</a>
+                            <a href="extension-Redux.html">Redux</a>
                             
                         </li>
                         
@@ -131,71 +139,7 @@
                         
                         <li >
                             
-                            <a href="index-开发工具.html">开发工具</a>
-                            
-                        </li>
-                        
-                        
-                        
-                        <li >
-                            
-                            <a href="index-使用iconfont.html">使用iconfont</a>
-                            
-                        </li>
-                        
-                        
-                        
-                        <li >
-                            
-                            <a href="index-使用ImageSet.html">使用ImageSet</a>
-                            
-                        </li>
-                        
-                        
-                        
-                        <li >
-                            
-                            <a href="index-Native集成（iOS）.html">Native集成（iOS）</a>
-                            
-                        </li>
-                        
-                        
-                        
-                        <li >
-                            
-                            <a href="index-Native集成 （Android）.html">Native集成 （Android）</a>
-                            
-                        </li>
-                        
-                        
-                        
-                        <li >
-                            
-                            <a href="index-使用Chrome调试.html">使用Chrome调试</a>
-                            
-                        </li>
-                        
-                        
-                        
-                        <li >
-                            
-                            <a href="index-使用Atom调试（实验性）.html">使用Atom调试（实验性）</a>
-                            
-                        </li>
-                        
-                        
-                        
-                        <li >
-                            
-                            <a href="index-调试日志查看.html">调试日志查看</a>
-                            
-                        </li>
-                        
-                        
-                        
-                        <li >
-                            
-                            <a href="index-测试部署.html">测试部署</a>
+                            <a href="extension-Fetch.html">Fetch</a>
                             
                         </li>
                         
@@ -205,18 +149,106 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <p>Qunar React Native 是 Qunar 基于 React Native 深度定制的移动平台框架，旨在让移动开发者使用 JavaScript 进行移动平台的高效开发。</p>
-<h2 id="Qunar React Native 的优势">Qunar React Native 的优势</h2><ul>
-<li>极高的代码复用率： Qunar React Native 在框架层面抹平了 iOS 与 Android 的平台差异，除了平台特有的特征（如 Android 返回键）外，其他业务逻辑均可在无需修改的情况下运行于 Android 和 iOS 下，大大降低了开发成本。</li>
-<li>丰富的 API 扩展： Qunar React Native 提供了丰富的组件库，开发者可以使用这些组件快速构建应用。</li>
-<li>更快的加载速度</li>
-<li>完善的部署系统</li>
-</ul>
-<h2 id="开始使用 Qunar React Native">开始使用 Qunar React Native</h2><p><a href="index-项目创建.html">======&gt;Start Developing with QRN Now&lt;======</a></p>
-<p><a href="demo.html">===&gt;如果你只想先看看Demo的话，就戳这里&lt;===</a></p>
-<h2 id="提出issue">提出issue</h2><p>如果你遇到bug或者有feature request，可以在<a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native/issues"><strong>这里</strong></a>提出issue。</p>
-<p>在新打开一个issue之前，可以先在现有issues里面查一下是否已经存在。</p>
-<p>如果是报告问题，请说明你当前使用的QRN版本和系统环境（IOS/android），最好附上截图和复现方法。</p>
+                <h1 id="WebX - Ext Plugin">WebX - Ext Plugin</h1><p>增强 web 式开发体验的插件。</p>
+<h2 id="样式增强">样式增强</h2><p>注意，通过 WebX 的方式写样式无需调用 <code>StyleSheet.create()</code> 方法。</p>
+<h3 id="样式名的定义">样式名的定义</h3><h4 id="支持 class 属性">支持 class 属性</h4><pre><code class="lang-js">// jsx
+&lt;View class=&quot;item item-gap&quot; /&gt;
+
+// styles
+styles = {
+    item: {},
+    &#39;item-gap&#39;: {},
+};
+</code></pre>
+<h4 id="支持组件名定义样式">支持组件名定义样式</h4><pre><code class="lang-js">// jsx
+&lt;View /&gt;
+
+// styles
+styles = {
+    View: {},
+}
+</code></pre>
+<h3 id="支持 <code>vh</code> 和 <code>vw</code> 单位">支持 <code>vh</code> 和 <code>vw</code> 单位</h3><pre><code class="lang-js">// jsx
+&lt;Text class=&quot;test&quot; /&gt;
+
+// styles
+styles = {
+    test: {
+        fontSize: &#39;3vh&#39;,
+        width: &#39;50vw&#39;,
+    }
+};
+</code></pre>
+<h3 id="支持 <code>:active</code>">支持 <code>:active</code></h3><h4 id="自身 <code>:active</code>">自身 <code>:active</code></h4><pre><code class="lang-js">// jsx
+&lt;Text class=&quot;test&quot; /&gt;
+
+// styles
+styles = {
+    test: {
+        &#39;:active&#39;: {}
+    }
+};
+</code></pre>
+<h4 id="其他组件 <code>:active</code>">其他组件 <code>:active</code></h4><p>通过获取其他组件的 <code>:active</code> 改变自己样式。</p>
+<pre><code class="lang-js">// jsx
+&lt;View class=&quot;outer&quot;&gt;
+    &lt;Text class=&quot;inner&quot; /&gt;
+&lt;/View&gt;
+
+// styles
+styles = {
+    inner: {
+        &#39;outer:active&#39;: {
+            color: &#39;red&#39;,
+        }
+    }
+};
+</code></pre>
+<p>上例中，<code>outer</code> 激活时，<code>inner</code> 字体颜色变为红色。</p>
+<p>注意：当前组件和其他组件直接没有层级约束（不是父子元素也行）。</p>
+<h3 id="支持媒体查询（宽高）">支持媒体查询（宽高）</h3><p>只支持宽高的媒体查询。</p>
+<h4 id="外部媒体查询">外部媒体查询</h4><pre><code class="lang-js">// jsx
+&lt;Text class=&quot;test&quot; /&gt;
+
+// styles
+styles = {
+    &#39;@media (min-width: 400)&#39;: {
+        test: {}
+    },
+};
+</code></pre>
+<h4 id="内部媒体查询">内部媒体查询</h4><pre><code class="lang-js">// jsx
+&lt;Text class=&quot;test&quot; /&gt;
+
+// styles
+styles = {
+    test: {
+        &#39;@media (min-height: 500)&#39;: {
+            color: &#39;red&#39;
+        },
+        &#39;@media (max-height:900) and (min-height: 500)&#39;: {
+            color: &#39;blue&#39;
+        },
+    },
+};
+</code></pre>
+<h2 id="方法增强">方法增强</h2><h3 id="支持 view 的 onPress 属性">支持 view 的 onPress 属性</h3><pre><code class="lang-js">// jsx
+&lt;View onPress={this.testPressView} /&gt;
+
+// js
+testPressView() {
+    alert(&#39;You pressed a View.&#39;);
+}
+</code></pre>
+<h3 id="组件方法自动 <code>.bind(this)</code>">组件方法自动 <code>.bind(this)</code></h3><p><code>on</code> 开头的方法，无需手动 <code>.bind(this)</code>。</p>
+<pre><code class="lang-js">// jsx
+&lt;TouchableHighlight onPress={this.testAutoBind} /&gt;
+
+// js
+testAutoBind() {
+    console.log(&#39;testAutoBind&#39;, this);
+}
+</code></pre>
 
               </div>
           </div>
