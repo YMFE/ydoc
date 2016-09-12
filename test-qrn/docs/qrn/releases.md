@@ -1,18 +1,7 @@
 ## QRN 发布记录
 
-<style>
-.release-date {
-  font-size: 1em;
-  color: grey;
-}
-.change-type {
-	font-size: 1em;
-	color: #0D98AF
 
-}
-</style>
-
-### QRN 1.3.0 
+### QRN 1.3.0
 
 <span class="release-date">RC发布时间2016.8.18  <br>正式版本预期时间2016.8.26</span>
 
@@ -38,14 +27,14 @@
 * `Switch` 组件 Android 添加支持 `tintColor`、`onTintColor`、`thumbTintColor` 属性
 * QRN `TextInput` 废弃 `autoShowKeyboard` 属性
 * `RefreshControl` 添加两种状态：刷新加载成功、刷新加载失败，对应的文本设置项：`successContent`、`successIcon`、`failContent`、`failIcon`
-* QRN `ScrollView` 
+* QRN `ScrollView`
   * 添加支持在 `stopRefreshing` 时设置动画时长和刷新结果
   * 添加 `keyboardShouldPersistTaps` 属性
   * 添加 `onRefresh` 回调用来给上层组件使用
   * 添加在 `scrollTo` 时支持设置动画时长
 
 ##### Bug fixes
-* `@qnpm/qunar-react-native-ext` 
+* `@qnpm/qunar-react-native-ext`
   * fix `Router.close` 关闭其他VC中的view不生效的问题
   * fix 接受 `biz` 类型的 `scheme` 打开一个尚未 mount 的 RN App 时抛出异常的问题
   * fix `setSwipeBack` 在 `Router.back` 时不生效的问题
@@ -57,14 +46,14 @@
 
 <h4> <span class="change-type">iOS</span></h4>   
 
-##### New feature and enhancements 
+##### New feature and enhancements
 * `Geolocation` 申请的定位权限从后台定位修改为使用期间定位
 * 修改了`QRCTViewController` 的 `VCName` 逻辑，`VCName` 的定制支持使用 `@qnpm/qunar-react-native-ext` 的页面
 
 ##### Bug fixes
 * fix Dev Menu 在VC切换时可能失效的问题
 * fix `Image` 中 `capInsets` 属性失效的问题，该属性 Android 暂不支持
-* fix `CookieManager.removeCookieForKey()` 方法失效的问题 
+* fix `CookieManager.removeCookieForKey()` 方法失效的问题
 * fix `CameraRoll.getPhotosFromGroup()` 方法中第二个参数 `after` 失效的问题
 * fix `Toast`在页面有其他`window`时没法正确显示的问题
 * fix QRN `TextInput` 切换 `multiline` 属性导致已有内容丢失的问题
@@ -81,7 +70,7 @@
 * fix `CameraRoll.getPhotosFromGroup()` 相册获取结果没有 `page_info.end_cursor` 和 `page_info.has_next_page` 属性的问题
 
 
-### QRN 1.2.0 
+### QRN 1.2.0
 
 <span class="release-date">2016.7.26</span>
 
@@ -133,9 +122,9 @@
 * 离线QP资源包  提供单独的离线资源包注册项目组件
 
 ##### Bug fixes
-* QRN `ScrollView`  修复动态header功能失效的问题 
+* QRN `ScrollView`  修复动态header功能失效的问题
 
-###  QRN 1.1.0 
+###  QRN 1.1.0
 
 <span class="release-date">2016.6.22</span>
 
@@ -185,7 +174,7 @@ fresco的fetch支持使用QP包图片资源
 
 
 <br/>
-### QRN 1.1.0-RC 
+### QRN 1.1.0-RC
 <span class="release-date">2016.6.17</span>
 
 <h4> <span class="change-type">General</span></h4>   
@@ -214,7 +203,7 @@ Add support for setState basic props(alwaysBounce*, horizontal, pagingEnabled, c
 stickHeader点击事件穿透的问题
 重新设置stickHeader后位置错误的问题
 
-### QRN 1.0.0 
+### QRN 1.0.0
 <span class="release-date">2016.6.2</span></h3>
 
 - [Android] 6.0权限适配
@@ -275,7 +264,7 @@ stickHeader点击事件穿透的问题
 - [misc] 加入编译时的TTF文件验证
 - [misc] 增强react-native命令，使之可以更快的初始化或者升级react-native的node_moduels库
 
-### QRN 1.0.0-RC2 
+### QRN 1.0.0-RC2
 <span class="release-date">2016.5.17</span>
 
 - 修复若干开发模式红屏问题
@@ -286,7 +275,7 @@ stickHeader点击事件穿透的问题
 - 修复`TextInput`使用输入法联想时长度限制不生效的问题
 - 添加其他组件
 
-### QRN 1.0.0-RC 
+### QRN 1.0.0-RC
 <span class="release-date">2016.4.29</span>
 
 - 正式版本，已支持大客户端多个业务上线
