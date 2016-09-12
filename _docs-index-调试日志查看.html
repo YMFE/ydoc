@@ -185,7 +185,7 @@
                         
                         
                         
-                        <li >
+                        <li  class="active" >
                             
                             <a href="index-调试日志查看.html">调试日志查看</a>
                             
@@ -205,18 +205,23 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <p>Qunar React Native 是 Qunar 基于 React Native 深度定制的移动平台框架，旨在让移动开发者使用 JavaScript 进行移动平台的高效开发。</p>
-<h2 id="Qunar React Native 的优势">Qunar React Native 的优势</h2><ul>
-<li>极高的代码复用率： Qunar React Native 在框架层面抹平了 iOS 与 Android 的平台差异，除了平台特有的特征（如 Android 返回键）外，其他业务逻辑均可在无需修改的情况下运行于 Android 和 iOS 下，大大降低了开发成本。</li>
-<li>丰富的 API 扩展： Qunar React Native 提供了丰富的组件库，开发者可以使用这些组件快速构建应用。</li>
-<li>更快的加载速度</li>
-<li>完善的部署系统</li>
+                <h2 id="查看、收集调试日志">查看、收集调试日志</h2><p>在测试中，有时会遇到一些很难复现的问题，因此 QRN 提供了日志记录的服务器，用于查看操作过程中的日志。这个功能在非调试模式中也可以使用，因此可以在 QA 测试过程中帮助开发寻找问题出现的原因。</p>
+<h3 id="开启日志服务器">开启日志服务器</h3><p>在<a href="index-项目创建.html">项目创建</a>的流程中，已经提到了安装<code>@qnpm/http-log-watch</code>模块。安装好后，在终端启动</p>
+<pre><code class="lang-sh">log-watch
+</code></pre>
+<p>即可开启日志记录服务。访问<a href="http://localhost:3000/console">http://localhost:3000/console</a>即可实时查看设备发来的日志。</p>
+<h3 id="开启设备日志记录">开启设备日志记录</h3><p>首先，确保设备与日志服务机器连接到同一 Wifi 环境下，并位于同一网段内，保证设备可以访问到日志服务机。</p>
+<ul>
+<li>在客户端中打开项目的页面。</li>
+<li>摇动手机，弹出浮动菜单，选择“Log 查看”。</li>
+<li>设置日志服务器的地址为机器ip，端口<code>3000</code>。（例：<code>http://192.168.193.21:3000</code>）</li>
+<li>选择想要发送到服务机的日志类别。<ul>
+<li>jsLog: 所有的 <code>console.*</code>记录的日志</li>
+<li>js -&gt; native: 所有的 native 模块调用（包含大量的 UI 刷新操作记录，可用于跟踪 UI）</li>
+<li>native -&gt; js: native 调用 js 的日志</li>
 </ul>
-<h2 id="开始使用 Qunar React Native">开始使用 Qunar React Native</h2><p><a href="index-项目创建.html">======&gt;Start Developing with QRN Now&lt;======</a></p>
-<p><a href="demo.html">===&gt;如果你只想先看看Demo的话，就戳这里&lt;===</a></p>
-<h2 id="提出issue">提出issue</h2><p>如果你遇到bug或者有feature request，可以在<a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native/issues"><strong>这里</strong></a>提出issue。</p>
-<p>在新打开一个issue之前，可以先在现有issues里面查一下是否已经存在。</p>
-<p>如果是报告问题，请说明你当前使用的QRN版本和系统环境（IOS/android），最好附上截图和复现方法。</p>
+</li>
+</ul>
 
               </div>
           </div>

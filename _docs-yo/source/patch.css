@@ -1,0 +1,19 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+}
+
+.bs-example:after {
+    content: "实例：" !important;
+}
+
+.bs-docs-section > p, .bs-docs-section > ul,
+.bs-docs-section > ol, .bs-callout > p,
+.bs-callout > ol, .bs-callout > ul {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 1em;
+}
+
+.bs-callout *:last-child {
+    margin-bottom: 0;
+}

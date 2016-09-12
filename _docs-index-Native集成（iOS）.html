@@ -153,7 +153,7 @@
                         
                         
                         
-                        <li >
+                        <li  class="active" >
                             
                             <a href="index-Native集成（iOS）.html">Native集成（iOS）</a>
                             
@@ -205,18 +205,56 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <p>Qunar React Native 是 Qunar 基于 React Native 深度定制的移动平台框架，旨在让移动开发者使用 JavaScript 进行移动平台的高效开发。</p>
-<h2 id="Qunar React Native 的优势">Qunar React Native 的优势</h2><ul>
-<li>极高的代码复用率： Qunar React Native 在框架层面抹平了 iOS 与 Android 的平台差异，除了平台特有的特征（如 Android 返回键）外，其他业务逻辑均可在无需修改的情况下运行于 Android 和 iOS 下，大大降低了开发成本。</li>
-<li>丰富的 API 扩展： Qunar React Native 提供了丰富的组件库，开发者可以使用这些组件快速构建应用。</li>
-<li>更快的加载速度</li>
-<li>完善的部署系统</li>
+                <h2 id="在 Native 项目中接入 Qunar React Native">在 Native 项目中接入 Qunar React Native</h2><h3 id="iOS大客户端中使用">iOS大客户端中使用</h3><ul>
+<li>在<code>Podfile</code>中引入<code>ReactNativeLib</code>依赖：<pre><code class="lang-ruby"> pod &#39;ReactNativeLib&#39;, &#39;~&gt; 0.beta&#39;
+</code></pre>
+</li>
+<li><p>使用以下代码来打开一个 React Native 页面：</p>
+<pre><code class="lang-objc">#import &quot;QRCTVCCreater.h&quot;
+// ...
+//在主线程调用
+[QRCTVCCreater createVCWithHybridId:hybridId  // 业务的 hybridId
+                       moduleName:module    // 业务的 module name
+                initialProperties:initProps // 传入的初始属性
+                completionHandler:^(QRCTViewController *qrctVC, NSError *error) {
+                    //回调为主线程
+                    if (error) {
+                        // handle error
+                        return;
+                    }
+                    [VCController pushVC:homeVC WithAnimation:nil];
+                }];
+</code></pre>
+</li>
+<li><p>如果仅是想要在已有的 Native 页面中嵌入一个 React Native 界面，则可使用<code>QRCTViewCreater</code>：</p>
+<pre><code class="lang-objc">#import &quot;QRCTViewCreater.h&quot;
+//  ...
+//在主线程调用
+[QRCTViewCreater createViewWithHybridId:hybridId  // 业务的 hybridId
+                             moduleName:module    // 业务的 module name
+                      initialProperties:initProps // 传入的初始属性
+                      completionHandler:^(RCTRootView *rootView, NSError *error) {
+                          //回调为主线程
+                          if (error) {
+                              // handle error
+                              return;
+                          }
+                          [theMainView addSubview:rootView];
+                      }];
+</code></pre>
+</li>
 </ul>
-<h2 id="开始使用 Qunar React Native">开始使用 Qunar React Native</h2><p><a href="index-项目创建.html">======&gt;Start Developing with QRN Now&lt;======</a></p>
-<p><a href="demo.html">===&gt;如果你只想先看看Demo的话，就戳这里&lt;===</a></p>
-<h2 id="提出issue">提出issue</h2><p>如果你遇到bug或者有feature request，可以在<a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native/issues"><strong>这里</strong></a>提出issue。</p>
-<p>在新打开一个issue之前，可以先在现有issues里面查一下是否已经存在。</p>
-<p>如果是报告问题，请说明你当前使用的QRN版本和系统环境（IOS/android），最好附上截图和复现方法。</p>
+<h3 id="Bridge">Bridge</h3><p>Qunar React Native会对RCTBridge进行缓存和复用的管理，因此不要去自己操作bridge，如果需要给自己业务的bridge发送消息可以使用<code>QRCTEventSender</code></p>
+<pre><code class="lang-objective-c">//可以在任意的线程调用
+[QRCTEventSender sendToHybridId:@&quot;hybridId&quot;     //RN业务hybridId
+                      eventName:@&quot;JSEventName&quot;  //JSEventName
+                       withData:data];          //发送的数据
+</code></pre>
+<p>JS如果需要监听该广播，使用下面的方法：</p>
+<pre><code class="lang-js">RCTDeviceEventEmitter.addListener(JSEventName, (data) =&gt; {
+  //Do something  
+});
+</code></pre>
 
               </div>
           </div>

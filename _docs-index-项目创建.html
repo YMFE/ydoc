@@ -113,7 +113,7 @@
                     <ul class="nav docs-sidenav">
                         
                         
-                        <li >
+                        <li  class="active" >
                             
                             <a href="index-项目创建.html">项目创建</a>
                             
@@ -205,18 +205,33 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <p>Qunar React Native 是 Qunar 基于 React Native 深度定制的移动平台框架，旨在让移动开发者使用 JavaScript 进行移动平台的高效开发。</p>
-<h2 id="Qunar React Native 的优势">Qunar React Native 的优势</h2><ul>
-<li>极高的代码复用率： Qunar React Native 在框架层面抹平了 iOS 与 Android 的平台差异，除了平台特有的特征（如 Android 返回键）外，其他业务逻辑均可在无需修改的情况下运行于 Android 和 iOS 下，大大降低了开发成本。</li>
-<li>丰富的 API 扩展： Qunar React Native 提供了丰富的组件库，开发者可以使用这些组件快速构建应用。</li>
-<li>更快的加载速度</li>
-<li>完善的部署系统</li>
+                <h2 id="创建 QRN 项目">创建 QRN 项目</h2><h3 id="检查环境">检查环境</h3><ul>
+<li>开发 React Native 需要 NodeJS 和 NPM 管理工具。NodeJS 的版本必须大于4.0，NPM 的版本必须高于3.0.0，NPM 过低的情况下，可以运行<code>npm install npm -g</code>来升级。</li>
+<li>配置 <code>qnpm</code> 命令，在qnpm源上有很多私有的工具包。如何配置 <code>qnpm</code> 请参考<a href="http://npm.corp.qunar.com/">这里</a>。</li>
+<li>检查 <code>git</code> 命令并配置ssh免密登陆。</li>
+<li>需要连接到内网（连接VPN或者插网线）。</li>
 </ul>
-<h2 id="开始使用 Qunar React Native">开始使用 Qunar React Native</h2><p><a href="index-项目创建.html">======&gt;Start Developing with QRN Now&lt;======</a></p>
-<p><a href="demo.html">===&gt;如果你只想先看看Demo的话，就戳这里&lt;===</a></p>
-<h2 id="提出issue">提出issue</h2><p>如果你遇到bug或者有feature request，可以在<a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native/issues"><strong>这里</strong></a>提出issue。</p>
-<p>在新打开一个issue之前，可以先在现有issues里面查一下是否已经存在。</p>
-<p>如果是报告问题，请说明你当前使用的QRN版本和系统环境（IOS/android），最好附上截图和复现方法。</p>
+<h3 id="第一步，安装必须的npm包">第一步，安装必须的npm包</h3><p>打开terminal，运行</p>
+<pre><code class="lang-sh">qnpm install @qnpm/react-native-cli -g
+qnpm install @qnpm/http-log-watch -g
+</code></pre>
+<p>安装完成后检查一下</p>
+<pre><code class="lang-sh">react-native -v
+log-watch
+</code></pre>
+<p>terminal内显示如下即表示安装成功：</p>
+<p><img src="images/qnpm-install.png" alt="qnpm-install"></p>
+<h3 id="第二步，初始化项目模板">第二步，初始化项目模板</h3><p>打开terminal，运行</p>
+<pre><code class="lang-sh">react-native init AwesomeProject --skip-android --skip-ios
+</code></pre>
+<p>这一步时间比较长，需要从内网下载较多的资源。完成后看到如下输出：</p>
+<p><img src="images/run-rn-init.png" alt="run-rn-init"></p>
+<h3 id="第三步，启动react-native服务">第三步，启动react-native服务</h3><p>在AwesomeProject文件夹内启动react-native的packager服务</p>
+<pre><code class="lang-sh">npm start
+</code></pre>
+<p>打开Chrome，访问<a href="http://localhost:8081/index.bundle?platform=ios&amp;bundleType=biz">这个页面</a>，如果页面内显示了JavaScript代码，即表示启动服务成功。</p>
+<p>然后你就可以开始愉快的码代码了。</p>
+<p><a href="index-项目开发.html">下一步：Coding with QRN Now</a></p>
 
               </div>
           </div>

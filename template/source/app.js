@@ -1,7 +1,6 @@
 $(document).ready(function() {
     // 导航
     $('.navbar-toggle').click(function(){
-        console.log("test test   ");
         $(this).next(".ydoc-nav").toggle();
     });
 
