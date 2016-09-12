@@ -161,7 +161,7 @@
                         
                         
                         
-                        <li >
+                        <li  class="active" >
                             
                             <a href="index-Native集成 （Android）.html">Native集成 （Android）</a>
                             
@@ -205,18 +205,93 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <p>Qunar React Native 是 Qunar 基于 React Native 深度定制的移动平台框架，旨在让移动开发者使用 JavaScript 进行移动平台的高效开发。</p>
-<h2 id="Qunar React Native 的优势">Qunar React Native 的优势</h2><ul>
-<li>极高的代码复用率： Qunar React Native 在框架层面抹平了 iOS 与 Android 的平台差异，除了平台特有的特征（如 Android 返回键）外，其他业务逻辑均可在无需修改的情况下运行于 Android 和 iOS 下，大大降低了开发成本。</li>
-<li>丰富的 API 扩展： Qunar React Native 提供了丰富的组件库，开发者可以使用这些组件快速构建应用。</li>
-<li>更快的加载速度</li>
-<li>完善的部署系统</li>
-</ul>
-<h2 id="开始使用 Qunar React Native">开始使用 Qunar React Native</h2><p><a href="index-项目创建.html">======&gt;Start Developing with QRN Now&lt;======</a></p>
-<p><a href="demo.html">===&gt;如果你只想先看看Demo的话，就戳这里&lt;===</a></p>
-<h2 id="提出issue">提出issue</h2><p>如果你遇到bug或者有feature request，可以在<a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native/issues"><strong>这里</strong></a>提出issue。</p>
-<p>在新打开一个issue之前，可以先在现有issues里面查一下是否已经存在。</p>
-<p>如果是报告问题，请说明你当前使用的QRN版本和系统环境（IOS/android），最好附上截图和复现方法。</p>
+                <h2 id="Android RN 接入">Android RN 接入</h2><hr>
+<p>引入aar</p>
+<pre><code class="lang-java">atomCompile &#39;com.qunar.spider:react:1.2.0@aar&#39;
+compile &#39;com.qunar.3dparty:infer-annotations:1.5.0&#39;
+
+//这个在自己的独立模块运行需要添加，在正式打大客户端的时候需要去掉。
+compile (&#39;com.qunar.react:qunar-react-native-dependence:0.9.1&#39;){
+        exclude group: &#39;com.facebook.fresco&#39;, module: &#39;imagepipeline&#39;
+        exclude group: &#39;com.facebook.fresco&#39;, module: &#39;fbcore&#39;
+    }
+</code></pre>
+<p>atom</p>
+<pre><code class="lang-java">{
+        &quot;packageName&quot;: &quot;com.mqunar.react&quot;,
+        &quot;versionCode&quot;: &quot;10&quot;
+}
+</code></pre>
+<p>注：如果想要在自己的独立模块运行，需要初始化rn。测试的时候，你可以直接继承ReacApplication,里面的onCreate()会初始化rn。你也可以把里面的初始化方法在自己的Application里面调用。</p>
+<hr>
+<h3 id="1.跳转到rn页面">1.跳转到rn页面</h3><h5 id="通过发送scheme跳转到rn页面：">通过发送scheme跳转到rn页面：</h5><p>qunaraphone://react/open?hybridId=xxx&amp;moduleName=xxx&amp;qInitView=xxx&amp;initProps=encode({})</p>
+<h5 id="通过代码调用打开rn页面,类QReactNative：">通过代码调用打开rn页面,类QReactNative：</h5><p>直接打开rn页面，第一次创建ReactContext会有默认loading.</p>
+<pre><code class="lang-java">public static void startReactActivity(Activity mActivity, String hybridid, String module, Bundle initProps)
+</code></pre>
+<p>如果不希望使用默认loading,你也可以调用接口创建ReactContext显示自己的loading.
+在调用接口创建ReactContext之前显示自己的loadingng,在回调的接口里面隐藏自己的loading.
+然后调用startReactActivity()打开rn页面。</p>
+<pre><code class="lang-java">public static void createReactInstanceWithCallBack(String hybridid,QReactInstanceCreateCallBack back)
+</code></pre>
+<h3 id="2.使用ReactRootView内置到自己的Activity（不推荐）">2.使用ReactRootView内置到自己的Activity（不推荐）</h3><h5 id="使用ReactRootView同时Activity继承我们的QReactBaseActivity：">使用ReactRootView同时Activity继承我们的QReactBaseActivity：</h5><pre><code class="lang-java">    /**
+     * 创建ReactRootView
+     * 回调函数为js加载成功或者失败以及view渲染成功。
+     * 如果js加载成功,在页面渲染完成的时候，会回调onViewShow().可以在里面隐藏自己的loading。
+     */
+    QReactNative.createRootViewUseBaseActivityWithListener(
+      hybridid, module, initProps, this, new QReactNative.QReactInstanceEventListener() {
+        @Override
+        public void onJsLoadingSuccess(View view) {
+          //ReactContext创建完成，js加载成功，返回ReactRootView.可以添加到自己的actiivty
+          frameLayout.addView(view);
+        }
+
+        @Override
+        public void onJsLoadingFailure() {
+          //js加载失败，取消loading页。重试
+          progressDialog.dismiss();
+        }
+
+        @Override
+        public void onViewShow() {
+          //页面渲染完成，取消loading
+          progressDialog.dismiss();
+
+        }
+      });
+</code></pre>
+<h5 id="使用ReactRootView，使用QRnActivityHelper：">使用ReactRootView，使用QRnActivityHelper：</h5><p>如果希望继承自己的Actiivty而不是我们的QReactBaseActivity。可以这样写。使用我们的QRnActivityHelper。</p>
+<pre><code class="lang-java">    QReactNative.createRootViewUseHelperWithListener(hybridid, module,
+      initProps, this, this, qRnActivityHelper, new QReactNative.QReactInstanceEventListener() {
+        @Override
+        public void onJsLoadingSuccess(View view) {
+          //使用view布局
+          frameLayout.addView(view);
+        }
+
+        @Override
+        public void onJsLoadingFailure() {
+          //重试
+          progressDialog.dismiss();
+        }
+
+        @Override
+        public void onViewShow() {
+          //页面渲染完成，取消loading
+          progressDialog.dismiss();
+
+        }
+      });
+</code></pre>
+<h3 id="3.注册自己的Module和ViewManager">3.注册自己的Module和ViewManager</h3><p>我们支持业务注册自己的Module和ViewManager。在打开自己的RN页面之前调用QReactNative的方法注册进来。</p>
+<pre><code class="lang-java">public static void registerReactPackage(String hybridid, ReactPackage reactPackage)
+</code></pre>
+<h3 id="4.Debug调试">4.Debug调试</h3><p>通过发送scheme可以打开debug页面：qunaraphone://react/debug
+长按大客户端的Qbug的第三个按钮会发送这个scheme进入Debug页面。
+可以设置js加载方式。查看Log日志等功能。</p>
+<h3 id="5.Demo实例">5.Demo实例</h3><p>上面说了这么多还不如来个demo来的直观。
+demo地址：<a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native/tree/adr_April_release/Examples/Playground/android/src/main/java/com/mqunar/react/test/androiddemo">http://gitlab.corp.qunar.com/react_native/qunar_react_native/tree/adr_April_release/Examples/Playground/android/src/main/java/com/mqunar/react/test/androiddemo</a>
+里面的MainAdActivity有rn的各种使用方式和注释。</p>
 
               </div>
           </div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
-  <title>Qunar React Native 开始</title>
+  <title>Qunar React Native 外部组件</title>
   <link rel="stylesheet" href="source/app.css"/>
   <link rel="stylesheet" href="source/highlight.min.css"/>
 </head>
@@ -23,7 +23,7 @@
               <ul class="navbar-left">
                 
                     
-                    <li class="active">
+                    <li class="">
                         
                         <a href="index.html">开始</a>
                         
@@ -35,7 +35,7 @@
                         
                     </li>
                     
-                    <li class="">
+                    <li class="active">
                         
                         <a href="extraUI.html">外部组件</a>
                         
@@ -95,8 +95,8 @@
       
       <div class="ydoc-banner">
           <div class="ydoc-banner-area">
-              <h1>Qunar React Native</h1>
-              <p>去哪儿定制版 React Native，更快、更好、更统一。</p>
+              <h1>Qunar React Native UI组件</h1>
+              <p>Qunar React Native 外部UI组件</p>
           </div>
       </div>
       
@@ -115,7 +115,7 @@
                         
                         <li >
                             
-                            <a href="index-项目创建.html">项目创建</a>
+                            <a href="extraUI-Accordion.html">Accordion</a>
                             
                         </li>
                         
@@ -123,7 +123,7 @@
                         
                         <li >
                             
-                            <a href="index-项目开发.html">项目开发</a>
+                            <a href="extraUI-Calendar.html">Calendar</a>
                             
                         </li>
                         
@@ -131,7 +131,7 @@
                         
                         <li >
                             
-                            <a href="index-开发工具.html">开发工具</a>
+                            <a href="extraUI-Carousel.html">Carousel</a>
                             
                         </li>
                         
@@ -139,7 +139,15 @@
                         
                         <li >
                             
-                            <a href="index-使用iconfont.html">使用iconfont</a>
+                            <a href="extraUI-Dialog.html">Dialog</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  class="active" >
+                            
+                            <a href="extraUI-Dropdown.html">Dropdown</a>
                             
                         </li>
                         
@@ -147,7 +155,7 @@
                         
                         <li >
                             
-                            <a href="index-使用ImageSet.html">使用ImageSet</a>
+                            <a href="extraUI-Numbers.html">Numbers</a>
                             
                         </li>
                         
@@ -155,7 +163,7 @@
                         
                         <li >
                             
-                            <a href="index-Native集成（iOS）.html">Native集成（iOS）</a>
+                            <a href="extraUI-Popover.html">Popover</a>
                             
                         </li>
                         
@@ -163,7 +171,7 @@
                         
                         <li >
                             
-                            <a href="index-Native集成 （Android）.html">Native集成 （Android）</a>
+                            <a href="extraUI-RangeSlider.html">RangeSlider</a>
                             
                         </li>
                         
@@ -171,7 +179,7 @@
                         
                         <li >
                             
-                            <a href="index-使用Chrome调试.html">使用Chrome调试</a>
+                            <a href="extraUI-Rating.html">Rating</a>
                             
                         </li>
                         
@@ -179,7 +187,7 @@
                         
                         <li >
                             
-                            <a href="index-使用Atom调试（实验性）.html">使用Atom调试（实验性）</a>
+                            <a href="extraUI-SliderMenu.html">SliderMenu</a>
                             
                         </li>
                         
@@ -187,7 +195,7 @@
                         
                         <li >
                             
-                            <a href="index-调试日志查看.html">调试日志查看</a>
+                            <a href="extraUI-Suggest.html">Suggest</a>
                             
                         </li>
                         
@@ -195,7 +203,15 @@
                         
                         <li >
                             
-                            <a href="index-测试部署.html">测试部署</a>
+                            <a href="extraUI-Tooltip.html">Tooltip</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extraUI-SwipeListView.html">SwipeListView</a>
                             
                         </li>
                         
@@ -205,18 +221,121 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <p>Qunar React Native 是 Qunar 基于 React Native 深度定制的移动平台框架，旨在让移动开发者使用 JavaScript 进行移动平台的高效开发。</p>
-<h2 id="Qunar React Native 的优势">Qunar React Native 的优势</h2><ul>
-<li>极高的代码复用率： Qunar React Native 在框架层面抹平了 iOS 与 Android 的平台差异，除了平台特有的特征（如 Android 返回键）外，其他业务逻辑均可在无需修改的情况下运行于 Android 和 iOS 下，大大降低了开发成本。</li>
-<li>丰富的 API 扩展： Qunar React Native 提供了丰富的组件库，开发者可以使用这些组件快速构建应用。</li>
-<li>更快的加载速度</li>
-<li>完善的部署系统</li>
-</ul>
-<h2 id="开始使用 Qunar React Native">开始使用 Qunar React Native</h2><p><a href="index-项目创建.html">======&gt;Start Developing with QRN Now&lt;======</a></p>
-<p><a href="demo.html">===&gt;如果你只想先看看Demo的话，就戳这里&lt;===</a></p>
-<h2 id="提出issue">提出issue</h2><p>如果你遇到bug或者有feature request，可以在<a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native/issues"><strong>这里</strong></a>提出issue。</p>
-<p>在新打开一个issue之前，可以先在现有issues里面查一下是否已经存在。</p>
-<p>如果是报告问题，请说明你当前使用的QRN版本和系统环境（IOS/android），最好附上截图和复现方法。</p>
+                <h1 id="Dropdown">Dropdown</h1><p>下拉选择组件
+<strong>Author: qianjun.yang</strong></p>
+<p><img src="http://7xkm02.com1.z0.glb.clouddn.com/Dropdown.png" alt=""></p>
+<h2 id="Install">Install</h2><p>qnpm install @qnpm/react-native-ui-dropdown</p>
+<h2 id="Props">Props</h2><table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data</td>
+<td>array</td>
+<td>[]</td>
+<td>No</td>
+<td>下拉选项数据</td>
+</tr>
+<tr>
+<td>config</td>
+<td>object</td>
+<td>{}</td>
+<td>No</td>
+<td>配置对象</td>
+</tr>
+<tr>
+<td>onSelect</td>
+<td>func</td>
+<td></td>
+<td>No</td>
+<td>选中的回调</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Example:">Example:</h2><pre><code class="lang-javascript">
+import React, {Component, StyleSheet, View, Text, TouchableHighlight, TouchableOpacity, ScrollView, TextInput} from &#39;react-native&#39;
+
+import DropDown, {DropDownTrigger} from &#39;@qnpm/react-native-ui-dropdown&#39;
+import commonStyle from &#39;./layout/style.js&#39;
+
+class DropdownExample extends Component {
+
+    constructor (props) {
+        super(props)
+        const me =  this
+        this.state = {
+            opts: {
+                visible: false,
+                style: {
+                    // width:
+                    // left :
+                    // top  :
+                }
+            },
+            value: &#39;点击下拉选择&#39;,
+            drowDownCnf: {
+                valueGetter: function () {
+                    return me.state.value
+                },
+                valueSetter: function (value) {
+                    return me.setState({
+                        value: value,
+                    })
+                },
+                visibleGetter: function () {
+                    return me.state.opts
+                },
+                visibleSetter: function (visible, style) {
+                    return me.setState({opts: {
+                        visible: visible,
+                        style: {...style}
+                    }})
+                },
+            },
+        }
+    }
+
+    render() {
+        const {navigator} = this.props,
+            {drowDownCnf, drowDownCnf2} = this.state
+        return (
+            &lt;View
+                style={{flex: 1}}
+            &gt;
+                &lt;View style={styles.intro}&gt;
+                    &lt;Text style={styles.introText}&gt;
+                        组件分为DropDownTrigger和DropDown两部分。和Dialog类似，应该把DropDown放在靠后的结构上，以使其正常渲染。
+                    &lt;/Text&gt;
+                &lt;/View&gt;
+                &lt;View style={styles.section}&gt;
+                    &lt;View style={styles.sectionHeader}&gt;
+                        &lt;Text&gt;例子&lt;/Text&gt;
+                    &lt;/View&gt;
+                    &lt;View style={styles.sectionBody}&gt;
+                        &lt;DropDownTrigger
+                            style={{backgroundColor: &#39;#3ac&#39;}}
+                            config={drowDownCnf}
+                        /&gt;
+                    &lt;/View&gt;
+                &lt;/View&gt;
+                &lt;DropDown
+                    config={drowDownCnf}
+                    data={[1, 2, ,3, 4, 5, 2, ,3, 4, 5, 2, ,3, 4, 5]}
+                /&gt;
+            &lt;/View&gt;
+        )
+    }
+}
+
+const styles = StyleSheet.create({...commonStyle})
+</code></pre>
 
               </div>
           </div>

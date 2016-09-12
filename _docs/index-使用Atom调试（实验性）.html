@@ -177,7 +177,7 @@
                         
                         
                         
-                        <li >
+                        <li  class="active" >
                             
                             <a href="index-使用Atom调试（实验性）.html">使用Atom调试（实验性）</a>
                             
@@ -205,18 +205,20 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <p>Qunar React Native 是 Qunar 基于 React Native 深度定制的移动平台框架，旨在让移动开发者使用 JavaScript 进行移动平台的高效开发。</p>
-<h2 id="Qunar React Native 的优势">Qunar React Native 的优势</h2><ul>
-<li>极高的代码复用率： Qunar React Native 在框架层面抹平了 iOS 与 Android 的平台差异，除了平台特有的特征（如 Android 返回键）外，其他业务逻辑均可在无需修改的情况下运行于 Android 和 iOS 下，大大降低了开发成本。</li>
-<li>丰富的 API 扩展： Qunar React Native 提供了丰富的组件库，开发者可以使用这些组件快速构建应用。</li>
-<li>更快的加载速度</li>
-<li>完善的部署系统</li>
+                <p>调试React Native的JS代码时，可以使用Chrome或者Atom。使用Chrome调试无需额外的工具和配置，但是Atom集成的IDE和inspector功能更强。目前Atom的Nuclide插件没有完全定制化，还存在一些bug，仅供试用。<strong>本文的章节均使用Android版测试机来说明步骤，iOS的步骤基本一致。</strong></p>
+<h2 id="如何使用Atom调试(试用，还有坑要填)">如何使用Atom调试(试用，还有坑要填)</h2><p>开始这一节前，首先安装一下必须的工具</p>
+<ul>
+<li>安装Atom。前往<a href="https://atom.io/">Atom官网</a>下载并安装最新版的Atom IDE。</li>
+<li>安装Nuclide插件。前往<a href="http://nuclide.io/docs/editor/setup/#mac">Nuclide官网</a>，并按照指引安装完Nuclide插件。</li>
 </ul>
-<h2 id="开始使用 Qunar React Native">开始使用 Qunar React Native</h2><p><a href="index-项目创建.html">======&gt;Start Developing with QRN Now&lt;======</a></p>
-<p><a href="demo.html">===&gt;如果你只想先看看Demo的话，就戳这里&lt;===</a></p>
-<h2 id="提出issue">提出issue</h2><p>如果你遇到bug或者有feature request，可以在<a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native/issues"><strong>这里</strong></a>提出issue。</p>
-<p>在新打开一个issue之前，可以先在现有issues里面查一下是否已经存在。</p>
-<p>如果是报告问题，请说明你当前使用的QRN版本和系统环境（IOS/android），最好附上截图和复现方法。</p>
+<p>好。我们开始使用Atom来调试。</p>
+<ul>
+<li>Terminal内，在项目的根目录下键入<pre>atom ./</pre></li>
+<li>Atom会启动，并且载入了项目的代码。</li>
+<li>按住组合键<span style="border-radius:.2em;border:1px solid;box-shadow:.1em .1em;">⇧⌘P</span>，在弹窗内输入<em>react debugger</em>，并回车
+<img src="./images/01.start-atom-debug.png" alt="pic"></li>
+<li>遵照<a href="./index-使用Chrome调试JavaScript.html">如何使用Chrome调试</a>这一节内的方式，在测试机内开启Chrome Debug，并重启壳程序。随后即可在Atom内调试了。</li>
+</ul>
 
               </div>
           </div>

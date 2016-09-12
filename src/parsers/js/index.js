@@ -143,6 +143,7 @@ module.exports = {
     parser: function(contents, options, conf) {
         var fn = execFns[options.type || 'component'];
         return fn ? fn(contents.map(function(content) {
+            //var contents = commentParser(content);
             var contents = commentParser(content.replace(/```[\s\S]+?```/gm, function(mat) {
                 var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]]
                 while (i < mats.length - 1) {

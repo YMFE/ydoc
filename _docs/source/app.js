@@ -59,8 +59,8 @@ $(document).ready(function() {
      var contentH2Array = $("h2[id]");
      for(var i = 0; i < contentH2Array.length; i++){
          if($(window).scrollTop() > contentH2Array.eq(i).offset().top){
-             if($("a[href=#"+($(contentH2Array.eq(i)).attr("id"))+"]")){
-                 var curScrollEl = $("a[href=#"+($(contentH2Array.eq(i)).attr("id"))+"]").parent('li');
+             if($("a[href='#"+($(contentH2Array.eq(i)).attr("id"))+"']")){
+                 var curScrollEl = $("a[href='#"+($(contentH2Array.eq(i)).attr("id"))+"']").parent('li');
                  curScrollEl.addClass('active').siblings('li').removeClass('active');
                  if(curScrollEl.next('ul')){
                      curScrollEl.next('ul').show().siblings('ul').hide();

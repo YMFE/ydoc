@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native EXT</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar MFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">开始</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extraUI.html">外部组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="extension.html">EXT</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extending.html">扩展</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="demo.html">DEMO</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="faq.html">FAQ</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="releases.html">Releases</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/react-web/" target="_blank">React Web</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner">
+          <div class="ydoc-banner-area">
+              <h1>Qunar React Native Extension</h1>
+              <p>Qunar React Native 增强拓展框架</p>
+          </div>
+      </div>
+      
+
+
+
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-right">
+                  <nav class="sidebar">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <li >
+                            
+                            <a href="extension-Router.html">Router</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extension-WebX.html">WebX</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extension-Redux.html">Redux</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="extension-Fetch.html">Fetch</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-left markdown-body">
+                
+                <h1 id="React-Native-Ext">React-Native-Ext</h1><p>React Native 的增强框架。同时适配公司 <a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native">Qunar-React-Native</a> 框架，共同组成公司 QRN 方案。</p>
+<h2 id="介绍">介绍</h2><p><img src="http://ww2.sinaimg.cn/large/4c8b519dgw1f3p74ps0dwj20z20gkn1m.jpg" alt=""></p>
+<ul>
+<li>Ext-Base: 核心、插件机制、Utils</li>
+<li>Router: 路由部分，包括同 Context 内的路由，以及和 Native View 之间的跳转</li>
+<li>Webx: 前端扩展部分，包括对 Style 的扩展和对事件的一些改动</li>
+<li>redux：数据部分，与 Router 结合的单向数据流操作</li>
+</ul>
+<h2 id="开始">开始</h2><pre><code class="lang-js">// 引入 ext
+import &#39;@qnpm/react-native-ext&#39;
+
+// 定义一个页面
+class pageA extends QView {
+    // ...
+};
+// 定义一个组件
+class MyComp extends QComponent {
+    // ...
+};
+</code></pre>
+<h2 id="Demo">Demo</h2><h3 id="1. 启动打包服务">1. 启动打包服务</h3><p>在本仓库根目录下执行</p>
+<pre><code>npm run start -- --root ./example/&lt;demoName&gt;
+</code></pre><p>或</p>
+<pre><code>npm run &lt;demoName&gt;
+</code></pre><p>该仓库目前有四个 demo：router、webx、redux 和 waimai。</p>
+<h3 id="2. 开启应用">2. 开启应用</h3><p>打开 app，具体请参考：<a href="http://ued.qunar.com/qrn/doc/index-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7.html">QRN 开发工具</a>。</p>
+<h4 id="iOS">iOS</h4><p>克隆<a href="http://gitlab.corp.qunar.com/react_native/app_template_ios_mclient">大客户端壳</a>至本地，分支 <code>ext</code>，在 xcode 中运行 <code>app_template_ios_mclient/ios/QRN-Template.xcworkspace</code>。</p>
+<h4 id="Android">Android</h4><p>在模拟器或真机上安装<a href="https://owncloud.corp.qunar.com/public.php?service=files&amp;t=2099f7b89d6c16fa4022ddd4c8df7484">大客户端壳</a>。</p>
+<h2 id="核心API">核心API</h2><h3 id="业务开发者 API">业务开发者 API</h3><blockquote>
+<p>class React.QView | class React.QComponent</p>
+</blockquote>
+<p>QReact View/Component</p>
+<p>开发者可以通过 <code>class Demo extends QXXX {}</code> 的方式创建 QReact View 或 Component，并使用 QReact 的插件特性</p>
+<p>例：</p>
+<pre><code class="lang-js">import {
+    QView
+} from &quot;react-native&quot;;
+
+class Demo extends QView {
+    static plugins = [&#39;redux&#39;];
+    render() {
+        return &lt;Text&gt;Weact&lt;/Text&gt;
+    }
+}
+</code></pre>
+<blockquote>
+<p>React.Ext.defaults</p>
+</blockquote>
+<p>全局配置，用户可以配置一些全局的设置。</p>
+<p>默认配置：</p>
+<pre><code class="lang-js">React.Ext.defaults = {
+    appName: &#39;&#39;,
+    globalPlugins: [&#39;webx&#39;, &#39;router&#39;]
+};
+</code></pre>
+<h4 id="插件文档">插件文档</h4><ul>
+<li><a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native_ext/tree/dev/plugins/router">Router</a></li>
+<li><a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native_ext/tree/dev/plugins/redux">Redux</a></li>
+<li><a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native_ext/tree/dev/plugins/webx">WebX</a></li>
+<li><a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native_fetch/tree/dev">Fetch</a></li>
+</ul>
+<h3 id="插件开发者 API">插件开发者 API</h3><blockquote>
+<p>React.Ext.addPlugin(name, adapter, ininFn, registerFn);</p>
+</blockquote>
+<p>添加插件</p>
+<ul>
+<li><code>name</code>：<code>{String}</code> 插件名</li>
+<li><code>adapter</code>: <code>{Function}</code> 适配器</li>
+<li><code>ininFn</code>: <code>{Function}</code> QReact-Ext 初始化回调函数</li>
+<li><code>registerFn</code>: <code>{Function}</code> QView/QComponent 注册时回调函数</li>
+</ul>
+<p>示例</p>
+<pre><code class="lang-js">React.Ext.addPlugin(&#39;xxx&#39;, (Comp, opts, React, isView) =&gt; {
+    // Comp : React Comp 组件实例
+    // opts : 插件配置
+    // React : React 对象
+    // isView : 是否是 View （有可能是 Component）
+}, (React) =&gt; {
+    // React : React 对象
+}, (ExtComp, isView) {
+    // ExtComp : QReact Comp 组件 Class (QView/QComponent)
+    // isView : 是否是 View （有可能是 Component）
+});
+</code></pre>
+<h2 id="for Babel">for Babel</h2><p><code>babel-preset-qrn</code></p>
+<p>作用：开发者定义 class XXX extends QView/QComponent 后，会自动将 Class，注册到 QReact-Ext 中。</p>
+<p>请手动更改 <code>node_modules/react-native/packager/react-packager/rn-babelrc.json</code> 为以下内容。</p>
+<pre><code class="lang-json">{
+    &quot;presets&quot;: [&quot;qrn&quot;, &quot;react-native&quot;]
+}
+</code></pre>
+<h2 id="Gulp">Gulp</h2><blockquote>
+<p>gulp all -p webx</p>
+</blockquote>
+<p>启动 example/webx 下的 demo</p>
+<blockquote>
+<p>gulp clean</p>
+</blockquote>
+<p>清理 打包缓存</p>
+<blockquote>
+<p>gulp run -p webx</p>
+</blockquote>
+<p>不重启 打包 和 模拟器，切换 demo</p>
+
+              </div>
+          </div>
+          
+        
+      </div>
+
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>
