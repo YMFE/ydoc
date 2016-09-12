@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
-  <title>Qunar React Native 扩展</title>
+  <title>YDoc 版本</title>
   <link rel="stylesheet" href="source/app.css"/>
   <link rel="stylesheet" href="source/highlight.min.css"/>
 </head>
@@ -16,7 +16,7 @@
       <header class="ydoc-header">
         <div class="ydoc-header-area">
             
-            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar MFE</a>
+            <a href="http://ymfe.tech/" class="navbar-brand">YMFE</a>
             
             <button class="ydocIcon navbar-toggle">&#xf020;</button>
             <nav class="ydoc-nav">
@@ -31,55 +31,25 @@
                     
                     <li class="">
                         
-                        <a href="component.html">组件</a>
+                        <a href="usage.html">命令</a>
                         
                     </li>
                     
                     <li class="">
                         
-                        <a href="extraUI.html">外部组件</a>
+                        <a href="config.html">配置</a>
                         
                     </li>
                     
                     <li class="">
                         
-                        <a href="api.html">API</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="extension.html">EXT</a>
+                        <a href="comment.html">注释规则</a>
                         
                     </li>
                     
                     <li class="active">
                         
-                        <a href="extending.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="demo.html">DEMO</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="faq.html">FAQ</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="releases.html">Releases</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="http://ued.qunar.com/react-web/" target="_blank">React Web</a>
+                        <a href="release.html">版本</a>
                         
                     </li>
                     
@@ -95,8 +65,8 @@
       
       <div class="ydoc-banner">
           <div class="ydoc-banner-area">
-              <h1>Qunar React Native 功能扩展</h1>
-              <p>借助Native组件引入更多功能</p>
+              <h1>YDoc</h1>
+              <p>版本</p>
           </div>
       </div>
       
@@ -113,27 +83,51 @@
                     <ul class="nav docs-sidenav">
                         
                         
-                        <li >
-                            
-                            <a href="extending-Native组件开发(iOS).html">Native组件开发(iOS)</a>
-                            
-                        </li>
+                        
+                            <li >
+                                <a href="#v1.1.0">v1.1.0</a>
+                            </li>
                         
                         
                         
-                        <li  class="active" >
-                            
-                            <a href="extending-Native组件开发(Android).html">Native组件开发(Android)</a>
-                            
-                        </li>
+                        
+                        
+                            <li >
+                                <a href="#v1.0.4">v1.0.4</a>
+                            </li>
                         
                         
                         
-                        <li >
-                            
-                            <a href="extending-js调用Native组件.html">js调用Native组件</a>
-                            
-                        </li>
+                        
+                        
+                            <li >
+                                <a href="#v1.0.3">v1.0.3</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#v1.0.2">v1.0.2</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#v1.0.1">v1.0.1</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#v1.0.0">v1.0.0</a>
+                            </li>
+                        
                         
                         
                     </ul>
@@ -141,10 +135,27 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h2 id="为 Android 平台开发 Native 组件">为 Android 平台开发 Native 组件</h2><p>参见：</p>
-<ul>
-<li><a href="http://reactnative.cn/docs/0.24/native-modules-android.html">http://reactnative.cn/docs/0.24/native-modules-android.html</a></li>
-<li><a href="http://reactnative.cn/docs/0.24/native-component-android.html">http://reactnative.cn/docs/0.24/native-component-android.html</a></li>
+                <h3 id="v1.1.0">v1.1.0</h3><ul>
+<li>支持 注释中 示例代码 的格式</li>
+</ul>
+<h3 id="v1.0.4">v1.0.4</h3><ul>
+<li>支持 resources 配置，复制相应资源</li>
+</ul>
+<h3 id="v1.0.3">v1.0.3</h3><ul>
+<li>add @version 版本信息</li>
+<li>add 全面支持 @skip 忽略注释块</li>
+<li>fixed 侧边栏滚动样式问题</li>
+<li>fixed watch 时，更新 ydoc 配置不生效的问题</li>
+<li>如果用户构建项目全部文档，则先删除旧文件</li>
+</ul>
+<h3 id="v1.0.2">v1.0.2</h3><ul>
+<li>更新 package.json 配置</li>
+</ul>
+<h3 id="v1.0.1">v1.0.1</h3><ul>
+<li>修复分页 Markdown 情况下，目录配置的样式</li>
+</ul>
+<h3 id="v1.0.0">v1.0.0</h3><ul>
+<li>正式版</li>
 </ul>
 
               </div>
@@ -155,7 +166,7 @@
 
       <footer class="footer">
         <div class="copyright">
-            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+            Made By YMFE. © 2014 - 2016
         </div>
       </footer>
     </div>
