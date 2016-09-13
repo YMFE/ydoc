@@ -47,11 +47,11 @@ module.exports = function (comment, path, conf, formatter, content) {
     };
     comment.tags.forEach(function(tag) {
         var content = getContent(tag).replace(/[0-9]+space/g, function(mat) {
-            var cnt = mat.replace(/[^0-9]+/g, ''), str = ''
+            var cnt = mat.replace(/[^0-9]+/g, ''), str = '';
             while(cnt--) {
-                str += ' '
+                str += ' ';
             }
-            return str
+            return str;
         });
         switch (tag.tag) {
             case 'param':
@@ -69,7 +69,7 @@ module.exports = function (comment, path, conf, formatter, content) {
                 };
                 break;
             case 'example':
-
+                console.log('example content ===',content);
                 if (content.indexOf('./') == 0) {
                     console.log('content===',content);
                     // TODOlist
