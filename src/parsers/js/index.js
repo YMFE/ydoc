@@ -143,13 +143,24 @@ module.exports = {
     parser: function(contents, options, conf) {
         var fn = execFns[options.type || 'component'];
         return fn ? fn(contents.map(function(content) {
-            var contents = commentParser(content.replace(/```[\s\S]+?```/gm, function(mat) {
-                var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]]
+            // 解析 /** @example  */格式
+            var contents = commentParser(content.replace(/\/\*\*[\s\S]+?\*\//gm, function(mat) {
+                var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
+                console.log('=====mat======');
+                console.log(mat);
                 while (i < mats.length - 1) {
-                    line = mats[i]
+                    line = mats[i];
+                    console.log("line      =========",line);
+                    console.log("line trim()=========",line.trim());
+                    console.log("indent    =========",indent);
                     if (line.trim() != '*' && indent < 0) {
+                        //console.log("line trim()=========",line.trim());
+                        console.log(line.trim().split('*')[1]);
+                        console.log("==================");
+
                         indent = line.match(/[^*\S]+/g).length
                     }
+
                     if (indent > -1) {
                         line = line.substring(0, indent) + line.substring(indent).replace(/^[ ]+/g, function(mat) {
                             return mat.length + 'space'
@@ -161,6 +172,26 @@ module.exports = {
                 lines.push(mats[i])
                 return lines.join("\n")
             }));
+
+            // jsx 注释
+            // var contents = commentParser(content.replace(/```[\s\S]+?```/gm, function(mat) {
+            //     var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]]
+            //     while (i < mats.length - 1) {
+            //         line = mats[i]
+            //         if (line.trim() != '*' && indent < 0) {
+            //             indent = line.match(/[^*\S]+/g).length
+            //         }
+            //         if (indent > -1) {
+            //             line = line.substring(0, indent) + line.substring(indent).replace(/^[ ]+/g, function(mat) {
+            //                 return mat.length + 'space'
+            //             })
+            //         }
+            //         lines.push(line)
+            //         i++
+            //     }
+            //     lines.push(mats[i])
+            //     return lines.join("\n")
+            // }));
             return contents.filter(function(item) {
                 return item.tags.every(function(tag) {
                     return tag.tag != 'skip';
