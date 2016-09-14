@@ -2,6 +2,7 @@ var fs = require('fs'),
     sysPath = require('path');
 
 function getContent(tag) {
+    //console.log('======tag==',tag);
     return tag.source.substring(tag.tag.length + 2);
 }
 
@@ -46,6 +47,8 @@ module.exports = function (comment, path, conf, formatter, content) {
         description: ''
     };
     comment.tags.forEach(function(tag) {
+        //console.log('before====',tag);
+        //console.log('getContent(tag)===',getContent(tag));
         var content = getContent(tag).replace(/[0-9]+space/g, function(mat) {
             var cnt = mat.replace(/[^0-9]+/g, ''), str = '';
             while(cnt--) {
@@ -53,6 +56,7 @@ module.exports = function (comment, path, conf, formatter, content) {
             }
             return str;
         });
+        //console.log('after=====',content);
         switch (tag.tag) {
             case 'param':
                 ret.params.push(readTag(tag));
@@ -69,7 +73,7 @@ module.exports = function (comment, path, conf, formatter, content) {
                 };
                 break;
             case 'example':
-                console.log('example content ===',content);
+                //console.log('example content ===',content);
                 if (content.indexOf('./') == 0) {
                     console.log('content===',content);
                     // TODOlist
