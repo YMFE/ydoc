@@ -761,4 +761,12 @@ sup, sub {
 .text-success {
   color: #3c763d; }
 
+.release-date {
+  font-size: 1em;
+  color: grey; }
+
+.change-type {
+  font-size: 1em;
+  color: #ff503f; }
+
 /*# sourceMappingURL=app.css.map */

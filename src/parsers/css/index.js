@@ -17,10 +17,28 @@ module.exports = {
             sidebars = [],
             rs;
         contents.forEach(function(content, index) {
-            // console.log('index==',index);
-            // console.log('content==',content);
+            //var commentList = commentParser(content);
+            var commentList = commentParser(content.replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
+              var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]]
+              while (i < mats.length - 1) {
+                  line = mats[i]
+                  if (line.trim() != '*' && indent < 0) {
+                      indent = line.match(/[^*\S]+/g).length
+                  }
+                  if (indent > -1) {
+                      line = line.substring(0, indent) + line.substring(indent).replace(/^[ ]+/g, function(mat) {
+                          return mat.length + 'space'
+                      });
+                  }
+                  console.log('line',line);
+                  lines.push(line);
+                  i++;
+              }
 
-            var commentList = commentParser(content);
+              lines.push(mats[i]);
+              return lines.join("\n");
+          }));
+
             commentList.forEach(function(item) {
                 var ret = analyseComment(item, options.files[index].substring(1), conf)
                 ret.group = ret.class || ret.module;

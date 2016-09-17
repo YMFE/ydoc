@@ -166,6 +166,27 @@ module.exports = {
             });
             return afterExample;
           }));
+          // 优化写法 不通过 TODO line *1space@param {Function} listener 回调函数
+        //   var contents = commentParser(content.replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
+        //     var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]]
+        //     while (i < mats.length - 1) {
+        //         line = mats[i].trim();
+        //         if (line.trim() != '*' && indent < 0) {
+        //             indent = line.match(/[^*\S]+/g).length
+        //         }
+        //         if (indent > -1) {
+        //             line = line.substring(0, indent) + line.substring(indent).replace(/^[ ]+/g, function(mat) {
+        //                 return mat.length + 'space'
+        //             });
+        //         }
+        //         console.log('line',line);
+        //         lines.push(line);
+        //         i++;
+        //     }
+        //     lines.push(mats[i]);
+        //     return lines.join("\n");
+        // }));
+
             // jsx 注释
             // var contents = commentParser(content.replace(/```[\s\S]+?```/gm, function(mat) {
             //     var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]]

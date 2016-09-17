@@ -63,8 +63,11 @@
  * @version 1.7.0
  * @param {String} $property 指定需要进行计算的CSS属性 <1.7.0>
  * @param {String} $value 与原生CSS语法一致，区别在于需要使用引号包裹表达式 <1.7.0>
- * @example <div class="calc">四则运算</div>
- * .calc { @include calc(width, "100% - 100px"); }
+ * @example
+ *  <div class="calc">
+ *      四则运算
+ *  </div>
+ *  .calc { @include calc(width, "100% - 100px"); }
  */
 @mixin calc($property, $value) {
     // 是否开启厂商前缀支持
