@@ -74,24 +74,25 @@ module.exports = function (comment, path, conf, formatter, content) {
                 break;
             case 'example':
                 //console.log('example content ===',content);
-                if (content.indexOf('./') == 0) {
-                    console.log('content===',content);
-                    // TODOlist
-                    var fp = sysPath.join(conf.cwd, conf.examplePath, content.split('[')[0]);
-                    if (fs.existsSync(fp)) {
-                        var ct = fs.readFileSync(fp, 'UTF-8');
-                        var lines = (content.split('[')[1] || '').split(']')[0].split('-').map(function(item) {
-                            return parseInt(item.trim());
-                        });
-                        if (lines.length == 2) {
-                            ct = ct.split('\n').slice(lines[0], lines[1] - lines[0] + 1).join('\n');
-                        }
-                        content = ct;
-                    }
-                }
-                if (formatter) {
-                    ret.example = formatter(ret.example);
-                }
+                // jsx
+                // if (content.indexOf('./') == 0) {
+                //     console.log('content===',content);
+                //     // TODOlist
+                //     var fp = sysPath.join(conf.cwd, conf.examplePath, content.split('[')[0]);
+                //     if (fs.existsSync(fp)) {
+                //         var ct = fs.readFileSync(fp, 'UTF-8');
+                //         var lines = (content.split('[')[1] || '').split(']')[0].split('-').map(function(item) {
+                //             return parseInt(item.trim());
+                //         });
+                //         if (lines.length == 2) {
+                //             ct = ct.split('\n').slice(lines[0], lines[1] - lines[0] + 1).join('\n');
+                //         }
+                //         content = ct;
+                //     }
+                // }
+                // if (formatter) {
+                //     ret.example = formatter(ret.example);
+                // }
                 ret.example = content.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
                 break;
             case 'explain':
