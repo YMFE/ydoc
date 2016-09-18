@@ -107,14 +107,28 @@ sup, sub {
     font-size: .14rem;
     text-align: right;
     padding: 0 .2rem;
-    overflow: hidden; }
+    overflow: hidden;
+    background-color: #252a31;
+    background-image: -moz-linear-gradient(top, #333333, #222222);
+    background-image: -ms-linear-gradient(top, #333333, #222222);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#222222));
+    background-image: -webkit-linear-gradient(top, #333333, #222222);
+    background-image: -o-linear-gradient(top, #333333, #222222);
+    background-image: linear-gradient(top, #333333, #222222);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1); }
     .ydoc-header-area {
       margin: 0 auto; }
     .ydoc-header a {
-      color: #000; }
+      color: #fff; }
   .ydoc .navbar-brand {
     width: auto;
-    float: left; }
+    float: left;
+    margin-right: 20px;
+    font-weight: bold; }
     .ydoc .navbar-brand > li {
       float: left; }
   .ydoc-nav {
@@ -149,8 +163,9 @@ sup, sub {
     background: none;
     border: none;
     cursor: pointer; }
+  .ydoc .ydoc-banner-bg {
+    background: url(http://wrongwaycn.github.io/bootstrap/docs/assets/img/grid-18px-masked.png) repeat-x 0 top; }
   .ydoc-banner {
-    background-color: #ff503f;
     color: #fff;
     font-size: .18rem;
     padding: 20px 30px; }
@@ -159,12 +174,12 @@ sup, sub {
       .ydoc-banner-area h1 {
         font-size: .28rem;
         margin-bottom: .1rem;
-        color: #fff; }
+        color: #333; }
       .ydoc-banner-area p {
         margin-right: 3rem;
         line-height: 1.7;
         margin: 0 0 10px;
-        color: #fff; }
+        color: #333; }
   .ydoc .footer {
     margin: 50px 0;
     text-align: center;
@@ -182,8 +197,26 @@ sup, sub {
       color: #a1a1a1; }
   .ydoc-container-content {
     overflow: hidden;
-    background: #f1f1f1;
-    margin: 20px auto; }
+    background-color: #eeeeee;
+    /* Old browsers */
+    background-repeat: repeat-x;
+    /* Repeat the gradient */
+    background-image: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    /* FF3.6+ */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));
+    /* Chrome,Safari4+ */
+    background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    /* Chrome 10+,Safari 5.1+ */
+    background-image: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    /* IE10+ */
+    background-image: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    /* Opera 11.10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#eeeeee',GradientType=0 );
+    /* IE6-9 */
+    background-image: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
+    /* W3C */
+    margin: 20px auto;
+    box-shadow: 0 0  10px #e5e5e5; }
     .ydoc-container-content .content-left, .ydoc-container-content .content-right {
       float: left; }
     .ydoc-container-content .content-left {
@@ -191,7 +224,8 @@ sup, sub {
       width: 75%;
       background: #fff;
       padding: 15px;
-      float: right; }
+      float: right;
+      min-height: 620px; }
     .ydoc-container-content .right {
       float: right; }
     .ydoc-container-content .content-right {
@@ -216,13 +250,13 @@ sup, sub {
       .ydoc-container-content .sidebar .fixed {
         position: fixed;
         top: 0;
-        height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        background: #f6f6f6; }
+        z-index: 9999;
+        background: #eee; }
       .ydoc-container-content .sidebar .docs-sidenav {
         width: 100%;
-        overflow: hidden; }
+        max-height: 620px;
+        overflow-y: auto;
+        overflow-x: hidden; }
         .ydoc-container-content .sidebar .docs-sidenav > li {
           height: .5rem;
           width: 100%;
@@ -239,16 +273,7 @@ sup, sub {
             margin: 0 3px;
             font-family: ydocfont; }
           .ydoc-container-content .sidebar .docs-sidenav > li a:hover {
-            padding-left: 0;
-            border-left: 5px solid #ff503f;
-            color: #ff503f; }
-          .ydoc-container-content .sidebar .docs-sidenav > li a:hover::after {
-            content: "\f07f";
-            display: block;
-            position: absolute;
-            right: 10px;
-            top: .05rem;
-            color: #ff503f; }
+            font-weight: bold; }
         .ydoc-container-content .sidebar .docs-sidenav > li.active a, .ydoc-container-content .sidebar .docs-sidenav > li.active a:hover {
           border-left: 5px solid #ff503f;
           color: #ff503f;
@@ -277,15 +302,7 @@ sup, sub {
               color: #888;
               text-indent: .1rem; }
             .ydoc-container-content .sidebar .docs-sidenav ul li a:hover {
-              color: #ff503f; }
-            .ydoc-container-content .sidebar .docs-sidenav ul li a:hover::before {
-              content: "\f083";
-              font-size: .12rem;
-              display: block;
-              position: absolute;
-              left: -0.15rem;
-              top: 0;
-              color: #ff503f; }
+              font-weight: bold; }
           .ydoc-container-content .sidebar .docs-sidenav ul li.active a, .ydoc-container-content .sidebar .docs-sidenav ul li.active a:hover {
             color: #ff503f; }
           .ydoc-container-content .sidebar .docs-sidenav ul li.active a::before {
@@ -760,5 +777,13 @@ sup, sub {
 
 .text-success {
   color: #3c763d; }
+
+.release-date {
+  font-size: 1em;
+  color: grey; }
+
+.change-type {
+  font-size: 1em;
+  color: #ff503f; }
 
 /*# sourceMappingURL=app.css.map */

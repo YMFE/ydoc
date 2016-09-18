@@ -4,8 +4,8 @@ module.exports = function() {
 	    "common": {
 	        "title": "Yo Documentation",
 	        "footer": "Made By Doyoe.com © 2014 - 2016",
-	        "home": "Yo",
-	        "homeUrl": "./test-yo/index.html",
+	        // "home": "Yo",
+	        // "homeUrl": "./test-yo/index.html",
 	        "navbars": []
 	    },
 	    "pages": [{

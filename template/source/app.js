@@ -97,43 +97,43 @@ $(document).ready(function() {
   });
 
   //
-  var winHeight = $(window).height() - 40,
-         sidebar = $('.sidebar');
-
-     if (sidebar.height() > winHeight) {
-
-         sidebar.css('max-height', winHeight + 'px');
-         sidebar.css('overflow', 'scroll');
-
-         var activeMenu,
-             barScroll = false;
-
-         sidebar.on('mouseover', function() {
-             barScroll = true;
-         });
-
-         sidebar.on('mouseout', function() {
-             barScroll = false;
-         });
-
-         $(window).on('scroll', function(e) {
-             if (!barScroll) {
-                 var activeItem = $('.sidebar li.active a');
-                 if (activeItem.length) {
-                     if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
-                         activeMenu = activeItem;
-                         var top = activeMenu.offset().top - sidebar.offset().top;
-                         if (top < 0) {
-                             sidebar.scrollTop(sidebar.scrollTop() + top);
-                         } else if (top > winHeight - 30) {
-                             sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
-                         }
-                     }
-                 }
-             }
-         });
-     }
-
+  // var winHeight = $(window).height() - 40,
+  //        sidebar = $('.sidebar');
+  //
+  //    if (sidebar.height() > winHeight) {
+  //
+  //        sidebar.css('max-height', winHeight + 'px');
+  //        sidebar.css('overflow', 'scroll');
+  //
+  //        var activeMenu,
+  //            barScroll = false;
+  //
+  //        sidebar.on('mouseover', function() {
+  //            barScroll = true;
+  //        });
+  //
+  //        sidebar.on('mouseout', function() {
+  //            barScroll = false;
+  //        });
+  //
+  //        $(window).on('scroll', function(e) {
+  //            if (!barScroll) {
+  //                var activeItem = $('.sidebar li.active a');
+  //                if (activeItem.length) {
+  //                    if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+  //                        activeMenu = activeItem;
+  //                        var top = activeMenu.offset().top - sidebar.offset().top;
+  //                        if (top < 0) {
+  //                            sidebar.scrollTop(sidebar.scrollTop() + top);
+  //                        } else if (top > winHeight - 30) {
+  //                            sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+  //                        }
+  //                    }
+  //                }
+  //            }
+  //        });
+  //    }
+  //
 
 
 

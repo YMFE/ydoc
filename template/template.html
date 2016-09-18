@@ -65,12 +65,13 @@
     {{/if}}
       <!-- Docs page layout -->
       {{if banner}}
-      <div class="ydoc-banner">
-          <div class="ydoc-banner-area">
-              <h1>{{banner.title}}</h1>
-              <p>{{banner.description}}</p>
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>{{banner.title}}</h1>
+                  <p>{{banner.description}}</p>
+              </div>
           </div>
-      </div>
       {{/if}}
 
 
@@ -173,7 +174,9 @@
         </div>
         {{/if}}
       </div>
-
+     {{if banner}}
+     </div>
+     {{/if}}
       <footer class="footer">
         <div class="copyright">
             {{footer}}

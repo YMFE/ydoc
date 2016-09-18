@@ -11,8 +11,8 @@ module.exports = function() {
         "common": {
             "title": "Qunar React Native",
             "footer": "© 2015 - 2016 Qunar 平台前端架构组. Powered by <a href=\"http://gitlab.corp.qunar.com/mfe/qdoc\">qdoc</a>",
-            "home": "Qunar MFE",
-            "homeUrl": "http://ued.qunar.com/mobile/",
+            // "home": "Qunar MFE",
+            // "homeUrl": "http://ued.qunar.com/mobile/",
             "navbars": []
         },
         "pages": [{

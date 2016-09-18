@@ -143,18 +143,59 @@ module.exports = {
     parser: function(contents, options, conf) {
         var fn = execFns[options.type || 'component'];
         return fn ? fn(contents.map(function(content) {
-            var contents = commentParser(content.replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
+        //     var contents = commentParser(content.replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
+        //      var afterExample = mat.replace(/\@example[\s\S]+?((\*\/)|\@)/gm,function(item){
+        //         var exampleArr = item.split("\n"),afterExampleArr=[];
+        //         for(var i= 0; i<exampleArr.length; i++){
+        //             if(exampleArr[i].trim().indexOf('*/')< 0 && exampleArr[i].trim().indexOf("*")==0){
+        //                 var line = exampleArr[i], indent = -1;
+        //                 if (line != '*' && indent < 0) {
+        //                    indent = line.match(/[^*\S]+/g).length
+        //                 }
+        //                 if (indent > -1) {
+        //                   line = line.substring(0, indent)+ line.substring(indent).replace(/^[ ]+/g, function(mat) {
+        //                       return mat.length + 'space'
+        //                    })
+        //                    line = line.replace("*","");
+        //                 };
+        //                 exampleArr[i] = "*" + line ;
+        //             }
+        //             afterExampleArr.push(exampleArr[i]);
+        //         };
+        //         return afterExampleArr.join("\n");
+        //     });
+        //     return afterExample;
+        //   }));
+         // 优化写法 不通过 TODO line *1space@param {Function} listener 回调函数 (\/\*\*[\s\S]+?\*\/)
+         var contents = commentParser(content.replace(/(```[\s\S]+?```)/gm, function(mat){
+             var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
+             while (i < mats.length - 1) {
+                 line = mats[i];
+                 if (line.trim() != '*' && indent < 0) {
+                     indent = line.match(/[^*\S]+/g).length;
+                 }
+                 if (indent > -1) {
+                     line = line.substring(0, indent) + line.substring(indent).replace(/^[ ]+/g, function(mat) {
+                         return mat.length + 'space';
+                     })
+                 };
+                 lines.push(line);
+                 i++;
+             }
+             lines.push(mats[i]);
+             return lines.join("\n");
+        }).replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
              var afterExample = mat.replace(/\@example[\s\S]+?((\*\/)|\@)/gm,function(item){
                 var exampleArr = item.split("\n"),afterExampleArr=[];
                 for(var i= 0; i<exampleArr.length; i++){
                     if(exampleArr[i].trim().indexOf('*/')< 0 && exampleArr[i].trim().indexOf("*")==0){
                         var line = exampleArr[i], indent = -1;
                         if (line != '*' && indent < 0) {
-                           indent = line.match(/[^*\S]+/g).length
+                           indent = line.match(/[^*\S]+/g).length;
                         }
                         if (indent > -1) {
                           line = line.substring(0, indent)+ line.substring(indent).replace(/^[ ]+/g, function(mat) {
-                              return mat.length + 'space'
+                              return mat.length + 'space';
                            })
                            line = line.replace("*","");
                         };
@@ -166,26 +207,6 @@ module.exports = {
             });
             return afterExample;
           }));
-          // 优化写法 不通过 TODO line *1space@param {Function} listener 回调函数
-        //   var contents = commentParser(content.replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
-        //     var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]]
-        //     while (i < mats.length - 1) {
-        //         line = mats[i].trim();
-        //         if (line.trim() != '*' && indent < 0) {
-        //             indent = line.match(/[^*\S]+/g).length
-        //         }
-        //         if (indent > -1) {
-        //             line = line.substring(0, indent) + line.substring(indent).replace(/^[ ]+/g, function(mat) {
-        //                 return mat.length + 'space'
-        //             });
-        //         }
-        //         console.log('line',line);
-        //         lines.push(line);
-        //         i++;
-        //     }
-        //     lines.push(mats[i]);
-        //     return lines.join("\n");
-        // }));
 
             // jsx 注释
             // var contents = commentParser(content.replace(/```[\s\S]+?```/gm, function(mat) {
