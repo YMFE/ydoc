@@ -59,20 +59,20 @@ module.exports = function() {
                 "title": "QApp Framework API",
                 "description": "简洁 、轻量 、实用的移动前端开发框架"
             },
-            // "content": "./test-qapp/testsrc/**/*.js",
-            // "ignore": ['./test-qapp/testsrc/qapp.js', './test-qapp/testsrc/qapp-dev.js', './test-qapp/testsrc/qapp.min.js'],
-            // "compile": "js",
-            // "options": {
-            //     "type": "lib",
-            //     "categories": ['Base', 'View', 'Class:View', 'Event:View', 'Router', 'Util-Dom', 'Util-Fn', 'Sniff', 'Plugin', 'Widget']
-            // }
-            "content": "./test-qapp/testsrc/core/viewManager.js",
-            //"ignore": ['./test-qapp/testsrc/qapp.js', './test-qapp/testsrc/qapp-dev.js', './test-qapp/testsrc/qapp.min.js'],
+            "content": "./test-qapp/testsrc/**/*.js",
+            "ignore": ['./test-qapp/testsrc/qapp.js', './test-qapp/testsrc/qapp-dev.js', './test-qapp/testsrc/qapp.min.js'],
             "compile": "js",
             "options": {
                 "type": "lib",
-                "categories": [ 'View', 'Class:View', 'Event:View']
+                "categories": ['Base', 'View', 'Class:View', 'Event:View', 'Router', 'Util-Dom', 'Util-Fn', 'Sniff', 'Plugin', 'Widget']
             }
+            // "content": "./test-qapp/testsrc/core/viewManager.js",
+            // //"ignore": ['./test-qapp/testsrc/qapp.js', './test-qapp/testsrc/qapp-dev.js', './test-qapp/testsrc/qapp.min.js'],
+            // "compile": "js",
+            // "options": {
+            //     "type": "lib",
+            //     "categories": [ 'View', 'Class:View', 'Event:View']
+            // }
         }, {
             "name": "hybird",
             "title": "混合开发",
