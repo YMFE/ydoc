@@ -42,7 +42,7 @@ $(document).ready(function() {
   });
 
   // 鼠标在sidebar区域内滚动 不触发浏览器滚动条
-  var docSideNav = $('.docs-sidenav'), barScroll;
+  var docSideNav = $('.docs-sidenav'), barScroll = true;
   docSideNav.on('mouseover',function(){
       barScroll = false;
   });
