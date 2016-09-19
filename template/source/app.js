@@ -28,6 +28,7 @@ $(document).ready(function() {
         $(this).addClass('active').siblings('li').removeClass('active');
       }
       if($(this).next('ul')){
+          $(this).next('ul').find('li').removeClass('active');
           $(this).next('ul').toggle().siblings('ul').hide();
           //return false;
       }
@@ -40,60 +41,73 @@ $(document).ready(function() {
     };
   });
 
+  // 鼠标在sidebar区域内滚动 不触发浏览器滚动条
+  var docSideNav = $('.docs-sidenav'), barScroll;
+  docSideNav.on('mouseover',function(){
+      barScroll = false;
+  });
+  docSideNav.on('mouseout', function(){
+      barScroll = true;
+  });
   $(window).scroll(function(e){
-      // sidebar fixed
-      var docSideNav = $('.docs-sidenav'),
-          ydocContainerCon= $('.ydoc-container-content');
-      docSideNav.width(ydocContainerCon.width()*0.25);
-      docSideNav.css({
-          'left': $(window).width()/2-ydocContainerCon.width()/2
-      });
-      if($(window).scrollTop() >=  ydocContainerCon.offset().top && $(window).scrollTop() < $('.footer').offset().top){
-          docSideNav.addClass('fixed');
-      }else{
-          docSideNav.removeClass('fixed');
-      }
-
-     // 一级导航展开
-    // var contentIdArray = $('.page-header');
-     var contentH2Array = $("h2[id]");
-     for(var i = 0; i < contentH2Array.length; i++){
-         if($(window).scrollTop() > contentH2Array.eq(i).offset().top){
-             if($("a[href='#"+($(contentH2Array.eq(i)).attr("id"))+"']")){
-                 var curScrollEl = $("a[href='#"+($(contentH2Array.eq(i)).attr("id"))+"']").parent('li');
-                 curScrollEl.addClass('active').siblings('li').removeClass('active');
-                 if(curScrollEl.next('ul')){
-                     curScrollEl.next('ul').show().siblings('ul').hide();
-                 };
-             }
-
-         }
-     }
-     var contentIdArray = $("h3[id]");
-     for(var i = 0; i < contentIdArray.length; i++){
-        if($(window).scrollTop() > contentIdArray.eq(i).offset().top){
-            if( $("a[href='#"+($(contentIdArray).eq(i).attr("id"))+"']")){
-                var curScrollEl = $("a[href='#"+($(contentIdArray.eq(i)).attr("id"))+"']").parent('li');
-                curScrollEl.addClass('active').siblings('li').removeClass('active');
-                if(curScrollEl.next('ul')){
-                    curScrollEl.next('ul').show().siblings('ul').hide();
-                    // var curExtendEl = curScrollEl.next('ul').find('li');
-                    // for(var j = 0; j>curExtendEl.length; j++){
-                    //     if($(window).scrollTop() > curExtendEl.eq(j).offset().top){
-                    //         var curSecondScrollEl = $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]").parent('li');
-                    //     }
-                    // }
-                }
-            }
-        };
+    var docSideNav = $('.docs-sidenav');
+    // sidebar fixed
+    var  ydocContainerCon= $('.ydoc-container-content');
+    docSideNav.width(ydocContainerCon.width()*0.25);
+    docSideNav.css({
+        'left': $(window).width()/2-ydocContainerCon.width()/2
+    });
+    if($(window).scrollTop() >=  ydocContainerCon.offset().top && $(window).scrollTop() < $('.footer').offset().top){
+        docSideNav.addClass('fixed');
+    }else{
+        docSideNav.removeClass('fixed');
     };
 
-     contentIdArray.map(function(i,item){
-        if($(window).scrollTop() > $(item).offset().top){
-            $("a[herf='"+$(item).id+"']").parent().addClass('active').siblings('li').removeClass('active');
-            $("a[herf='"+$(item).id+"']").parent().next('ul').show();
-        }
-     });
+      if(barScroll){
+         // 一级导航展开
+         // var contentIdArray = $('.page-header');
+         var contentH2Array = $("h2[id]");
+         for(var i = 0; i < contentH2Array.length; i++){
+             if($(window).scrollTop() > contentH2Array.eq(i).offset().top){
+                 if($("a[href='#"+($(contentH2Array.eq(i)).attr("id"))+"']")){
+                     var curScrollEl = $("a[href='#"+($(contentH2Array.eq(i)).attr("id"))+"']").parent('li');
+                     curScrollEl.addClass('active').siblings('li').removeClass('active');
+                     if(curScrollEl.next('ul')){
+                         curScrollEl.next('ul').show().siblings('ul').hide();
+                     };
+                 }
+
+             }
+         }
+         // 二级导航展开
+          var contentIdArray = $("h3[id]");
+          for(var i = 0; i < contentIdArray.length; i++){
+             if($(window).scrollTop() > contentIdArray.eq(i).offset().top){
+                 if( $("a[href='#"+($(contentIdArray).eq(i).attr("id"))+"']")){
+                     var curScrollEl = $("a[href='#"+($(contentIdArray.eq(i)).attr("id"))+"']").parent('li');
+                     curScrollEl.addClass('active').siblings('li').removeClass('active');
+                     if(curScrollEl.next('ul')){
+                         curScrollEl.next('ul').show().siblings('ul').hide();
+                         // var curExtendEl = curScrollEl.next('ul').find('li');
+                         // for(var j = 0; j>curExtendEl.length; j++){
+                         //     if($(window).scrollTop() > curExtendEl.eq(j).offset().top){
+                         //         var curSecondScrollEl = $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]").parent('li');
+                         //     }
+                         // }
+                     }
+                 }
+             };
+         };
+
+          contentIdArray.map(function(i,item){
+             if($(window).scrollTop() > $(item).offset().top){
+                 $("a[herf='"+$(item).id+"']").parent().addClass('active').siblings('li').removeClass('active');
+                 $("a[herf='"+$(item).id+"']").parent().next('ul').show();
+             }
+          });
+      }
+
+
   });
 
   //

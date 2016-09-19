@@ -222,7 +222,7 @@ sup,sub{vertical-align:baseline}
           position: relative;
           overflow: hidden;
           code{
-              overflow: hidden;
+              overflow-y: hidden;
               display: block;
           }
           .fold,.extend{ color:#337ab7; position: absolute; left:15px; bottom:10px; cursor: pointer;}
