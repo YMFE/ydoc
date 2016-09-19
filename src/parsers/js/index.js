@@ -168,6 +168,7 @@ module.exports = {
         //   }));
          // 优化写法 不通过 TODO line *1space@param {Function} listener 回调函数 (\/\*\*[\s\S]+?\*\/)
          var contents = commentParser(content.replace(/(```[\s\S]+?```)/gm, function(mat){
+             console.log('jsx~~~~');
              var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
              while (i < mats.length - 1) {
                  line = mats[i];
@@ -185,6 +186,7 @@ module.exports = {
              lines.push(mats[i]);
              return lines.join("\n");
         }).replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
+            console.log('js~~~~');
              var afterExample = mat.replace(/\@example[\s\S]+?((\*\/)|\@)/gm,function(item){
                 var exampleArr = item.split("\n"),afterExampleArr=[];
                 for(var i= 0; i<exampleArr.length; i++){

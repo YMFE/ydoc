@@ -98,8 +98,7 @@ $(document).ready(function() {
                  }
              };
          };
-
-          contentIdArray.map(function(i,item){
+          contentIdArray.each(function(i,item){
              if($(window).scrollTop() > $(item).offset().top){
                  $("a[herf='"+$(item).id+"']").parent().addClass('active').siblings('li').removeClass('active');
                  $("a[herf='"+$(item).id+"']").parent().next('ul').show();

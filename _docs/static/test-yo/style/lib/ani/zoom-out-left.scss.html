@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <title>Yo : ./test-yo/style/lib/ani/zoom-out-left.scss</title>
+    <link type="text/css" rel="stylesheet" href="../../../../../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../../../../../source/app.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../../../../source/shCore.js"></script>
+    <script type="text/javascript" src="../../../../../source/shBrush-css.js"></script>
+    <style>
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+        .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
+    </style>
+</head>
+<body style="background: white; font-family: Helvetica">
+<div class="docs-header" id="content" tabindex="-1">
+    <div class="container">
+        <h1>Yo : ./test-yo/style/lib/ani/zoom-out-left.scss</h1>
+        <p>源代码</p>
+    </div>
+</div>
+<div class="container docs-container">
+
+    <div class="row">
+        <div class="col-md-9" role="main">
+        <pre class="brush: css;">
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @module zoom
+ * @description 定义从左往右缩小退出动画
+ * @method zoom-out-left
+ */
+@-webkit-keyframes zoom-out-left {
+	40% {
+		opacity: 1;
+		-webkit-transform: scale3d(.475, .475, .475) translate3d(45px, 0, 0);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(.1) translate3d(-2000px, 0, 0);
+		-webkit-transform-origin: left center;
+	}
+}
+@keyframes zoom-out-left {
+	40% {
+		opacity: 1;
+		transform: scale3d(.475, .475, .475) translate3d(45px, 0, 0);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(.1) translate3d(-2000px, 0, 0);
+		transform-origin: left center;
+	}
+}
+
+.ani.zoom-out-left {
+	-webkit-animation-name: zoom-out-left;
+	animation-name: zoom-out-left;
+}
+        </pre>
+        </div>
+    </div>
+</div>
+
+<footer class="docs-footer" role="contentinfo">
+    <div class="container">
+        <p></p>
+    </div>
+</footer>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+
+    function getTop(node){
+        return node.offsetTop + (node.offsetParent ? getTop(node.offsetParent) : 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            try {
+                var lineNum = (parseInt(location.hash.replace(/#/g, '')) - 1) || 0,
+                    node = document.querySelectorAll('div.line')[lineNum];
+                document.body.scrollTop = getTop(node);
+                node.className += ' highlight';
+            } catch(e) {}
+        }, 500);
+    }, false);
+</script>
+</body>
+</html>
