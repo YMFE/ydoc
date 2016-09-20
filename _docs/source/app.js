@@ -192,15 +192,13 @@ $(document).ready(function() {
      }
   });
   $(".docs-table").delegate('.extend-params', 'click',function(){
-      alert("sdfsdfs");
       $(this).parents('.docs-table').find('.hide-params').addClass('show-params');
       $(this).removeClass('extend-params').addClass('fold-params');
       $(this).html('折叠代码');
   });
   $('.docs-table').delegate('.fold-params','click',function(){
-       alert("9999");
       $(this).removeClass('fold-params').addClass('extend-params');
-       $(this).parents('docs-table').find('.show-params').removeClass('show-params');
+       $(this).parents('.docs-table').find('.show-params').removeClass('show-params');
       $(this).html("展开更多……");
   });
 

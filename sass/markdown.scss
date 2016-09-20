@@ -425,30 +425,6 @@
 }
 
 /*    api 处     */
-// 按原有规则整体缩小2个字号 对比展现、
-.markdown-body{
-    blockquote.api{
-        border-left:none;
-        padding:0;
-    }
-    .docs-section{
-        h1,h2{
-            border-bottom: none;
-        }
-        // h2{ border-bottom: 1px solid #ff503f;}
-        h3{
-            color:#ff503f;
-            border-left-color:#ff503f;
-            font-weight: normal;
-        }
-        .con-list-item{
-            border-bottom: 1px solid #ddd;
-            padding: .3rem 0;
-        }
-    }
-
-}
-
 
 .yo-badge {
     display: inline-block;
@@ -513,4 +489,38 @@
 .change-type {
 	font-size: 1em;
 	color: #ff503f;
+}
+
+// 按原有规则整体缩小2个字号 对比展现、
+.markdown-body{
+    blockquote.api{
+        border-left:none;
+        padding:0;
+    }
+    .docs-section{
+        h1,h2{
+            border-bottom: none;
+        }
+        // h2{ border-bottom: 1px solid #ff503f;}
+
+        .blockquote.api{
+            padding:0 0 .15rem;
+        }
+        h3{
+            color:#ff503f;
+            border-left-color:#ff503f;
+            font-weight: normal;
+        }
+        .con-list-item{
+            border-bottom: 1px solid #ddd;
+            padding: .3rem 0;
+        }
+        .con-list-item:last-child{
+            border:none;
+        }
+        .hide-params{ display: none; }
+        .show-params{ display: table-row; }
+        .extend-params,.fold-params{ color: #337ab7; margin:-.1rem 0 .15rem; display:block;}
+    }
+
 }
