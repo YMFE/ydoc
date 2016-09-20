@@ -1,0 +1,1 @@
+<li class="item" data-role="list-item" data-index={{dataIndex}}>{{text}}</li>

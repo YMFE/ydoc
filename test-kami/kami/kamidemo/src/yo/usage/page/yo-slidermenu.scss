@@ -1,0 +1,25 @@
+@charset "utf-8";
+@import "../layout/layout";
+
+@import "../module/m-header";
+@import "../module/m-list";
+@import "../module/m-desc";
+@import "../module/m-code";
+
+// 这个import应该放到具体使用了该widget的模块内
+// 此处只为简单描述一个demo，所以写法随意
+@import "../widget/yo-slidermenu";
+
+.m-layer {
+    img {
+        width: 1rem;
+    }
+    .yo-slidermenu {
+        .action {
+            color: #fff;
+            > .item:first-child {
+                background-color: red;
+            }
+        }
+    }
+}

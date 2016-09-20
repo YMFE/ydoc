@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>popcalendar Demo</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/export/yo-flex.css" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/export/yo-all.css" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/kami/popcalendar.css" />
+</head>
+<body>
+<section class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">PopCalendar</h2>
+        <a href="../../../index.html" class="regret yo-ico">&#xf07d;</a>
+        <span class="affirm yo-ico">&#xf067;</span>
+    </header>
+    <div class="yo-list">
+        <div class="item">
+            <div class="yo-btn yo-btn-stacked yo-btn-l js-default">打开</div>
+        </div>
+    </div>
+    <div class="flex" id="container">
+
+    </div>
+</section>
+
+<script type="demo/javascript">
+
+</script>
+<script type="text/javascript" src="../../../prd/scripts/common.js"></script>
+<script type="text/javascript" src="../../../prd/scripts/kami-popcalendar.js"></script>
+<script type="text/javascript">
+
+// 获取组件。require("path/to/calendar")
+var Calendar = Kami.PopCalendar;
+
+var options = {
+    container: '#container',
+    effect: true,
+    // now: '2015-03-03',  // 非必填，默认当前时间
+    dateRange: ['2015-03-02', '2016-04-25']  // 非必填，默认当前日期至10年后
+};
+
+var calendar = new Calendar( options );
+    calendar.on('ok', function(hide){
+        var val = calendar.getValue();
+        Demo.log(val);
+        Demo.log("当前日期为："+[val.year.text, val.month.text, val.date.text].join('-'))
+        hide();
+    })
+    calendar.on('cancel', function(hide){
+        hide();
+    })
+    calendar.show();
+
+// 重新唤起有bug，建议关闭时使用destroy。唤起新打开一个
+function show(){
+    calendar.show()
+}
+
+$('.js-default').tap( show )
+
+</script>
+</body>
+</html>

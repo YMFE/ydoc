@@ -1,0 +1,49 @@
+@charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义mask的基础构造
+@mixin _mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: map-get($z-index, mask);
+    background-color: map-get($mask, bgcolor);
+}
+
+/**
+ * @method yo-mask
+ * @desc 构造yo-mask的自定义使用方法
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-mask.html)
+ * @param {default | String} $name 定义yo-mask名称
+ * @param {default | Color} $bgcolor 定义yo-mask背景色
+ */
+
+@mixin yo-mask(
+    $name: default,
+    $bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $bgcolor == default {
+        $bgcolor: map-get($mask, bgcolor);
+    }
+    .yo-mask#{$name} {
+        @if $bgcolor != map-get($mask, bgcolor) {
+            background-color: rgba($bgcolor, .5);
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入mask基础构造
+.yo-mask {
+    @include _mask;
+}

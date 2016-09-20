@@ -1,0 +1,5 @@
+<div class="{{uiClass}} yo-number">
+    <span class="minus " data-role="minus">-</span>
+    <input class="input" type="text" value="" />
+    <span class="plus" data-role="plus">+</span>
+</div>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QApp Document 简介</title>
+    <link href="source/bootstrap.min.css" rel="stylesheet">
+    <link href="source/patch.css" rel="stylesheet">
+    <link href="source/docs.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="source/highlight.min.css">
+    <style>
+        blockquote.api {
+            padding: 0 10px;
+            border-left-color: #1b809e;
+            margin-top: 50px;
+        }
+
+        table.table {
+            border: 1px solid #1b809e;
+        }
+
+        table.table>tbody>tr>th {
+            border-top: none;
+        }
+
+        h4 {
+            padding: 20px 0 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+
+
+<!-- Docs master nav -->
+<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://ued.qunar.com/mobile/">X1</a>
+                </li>
+                <li class="active">
+                    <a href="index.html">QApp</a>
+                </li>
+                <li>
+                    <a href="http://ued.qunar.com/mobile/kami/">Kami</a>
+                </li>
+                <li>
+                    <a href="http://ued.qunar.com/mobile/yo/demo/">Yo</a>
+                </li>
+                <li>
+                    <a href="http://hy.qunar.com/source/qunarapi.html">QunarAPI</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Docs page layout -->
+
+<div class="bs-docs-header" id="content" tabindex="-1" style="margin-bottom:0">
+    <div class="container">
+        <h1>QApp Framework</h1>
+        <p>简洁 、 轻量 、 实用 的 移动前端开发框架</p>
+    </div>
+</div>
+
+<header class="navbar navbar-static-top bs-docs-nav">
+    <div class="container">
+        <nav class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li class="active">
+                    <a href="index.html">简介</a>
+                </li>
+                
+                <li class="">
+                    <a href="getting-started.html">起步</a>
+                </li>
+                
+                <li class="">
+                    <a href="api.html">API</a>
+                </li>
+                
+                <li class="">
+                    <a href="hybird.html">混合开发</a>
+                </li>
+                
+                <li class="">
+                    <a href="plugins.html">插件</a>
+                </li>
+                
+                <li class="">
+                    <a href="other.html">其他相关</a>
+                </li>
+                
+                <li class="">
+                    <a href="about.html">关于 QApp</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="container bs-docs-container">
+    
+    <div class="row">
+        <div class="col-md-9" role="main">
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="简介" class="page-header">简介</h1>
+            
+            <p>QApp ( QApp Mobile Framework )， 
+<strong>简洁</strong> 、 <strong>轻量</strong> 、 <strong>实用</strong> 的 <strong>移动前端开发框架</strong>， 
+统一管理视图的 <strong>创建</strong> 、 <strong>切换</strong> 、 <strong>通信</strong> 、 <strong>嵌套</strong> 、 <strong>销毁</strong> 等操作， 
+并辅以 <strong>模板引擎</strong> 、 <strong>动画效果</strong> 、 <strong>事件代理</strong> 、 <strong>数据存储</strong> 等一系列实用性 <strong>插件</strong> 和 <strong>组件</strong>， 
+最终形成一套一体化的 <strong>移动前端 SPA 解决方案</strong>。</p>
+
+<p>更多、更详细内容，请访问 <a href="http://ued.qunar.com/mobile/">http://ued.qunar.com/mobile/</a></p>
+
+<h3>使用方式：</h3>
+
+<p>现仅提供基于<code>fekit</code>的组件方式，以后会提供其他方式。</p>
+
+<p>安装： <code>fekit install QApp</code></p>
+
+<p>使用： <code>require(&#39;QApp&#39;)</code></p>
+
+<p>可以通过 fekit ginstall 方式直接从 git 上拉取代码安装</p>
+
+<h3>其他安装方式</h3>
+
+<p><code>fekit ginstall git@gitlab.corp.qunar.com:fed/qapp.git -b dev</code></p>
+
+<p>FEkit ginstall 说明: <a href="other.html#FEKit的ginstall命令">点此查看</a> </p>
+
+<h3>默认样式</h3>
+
+<pre><code>qapp-app {
+    position: absolute;
+    overflow: hidden;
+}
+
+qapp-view {
+    display: block;
+    float: left;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+// 用于 moveEnter 的手势操作
+qapp-view .touch-opacity {
+    top: 0.44rem; // 根据实际情况设置 0.44rem 为 header 高度，避免返回按钮点击不上。
+    bottom: 0;
+}</code></pre>
+
+<h3>版本信息</h3>
+
+<p>最新版本 <code>0.4.3</code></p>
+
+<p>同时，提供 <code>QApp-dev</code> 版本, 通过 <code>fekit install QApp-dev</code> 安装，提供详细 <code>log</code></p>
+
+<h3>项目地址</h3>
+
+<blockquote><p><code>Git</code> : <a href="http://gitlab.corp.qunar.com/fed/qapp">http://gitlab.corp.qunar.com/fed/qapp</a></p></blockquote>
+
+<h3>插件说明</h3>
+
+<p>插件的设计是基于视图的，其 <strong>主要的</strong> 宿主对象就是视图。</p>
+
+<p>插件是可插拔的，通过配置，在创建视图时，将插件加载进去。</p>
+
+<p>插件的实现形式是重写宿主视图的方法或者根据宿主的事件进行相关针对宿主视图的操作。</p>
+
+<p>除了基于视图的，也提供基于 <code>App</code> 以及工具类的插件。</p>
+
+<p>现在提供的插件列表如下: <a href="plugins.html">Plugin List</a>。</p>
+
+<p>开发者可以通过 <a href="api.html#QApp-plugin-add">QApp.addPlugin</a> 方法自行添加插件。</p>
+
+<h3>组件说明</h3>
+
+<p>组件部分的设计比较 <strong>灵活</strong> 、<strong>开放</strong>， 几乎任何形式的组件都可以通过适配的方式添加到 <code>QApp</code> 中。</p>
+
+<p>把组件归为两类：</p>
+
+<ul><li>一类是渲染式（render），当节点渲染时启用组件，例如 <code>Switch</code>。</li><li>一类是事件触发式（event），当触发某一事件时启动组件，例如 <code>dialog</code>。</li></ul>
+
+<p>使用方法有两种：</p>
+
+<ul><li>标签法，在元素上添加 <code>qapp-widget</code> 属性。</li><li>通过 <code>showWidget</code> 接口调用</li></ul>
+
+<p>使用 <code>qapp-widget</code> 时，可以通过 <code>data-{widget-name}-{option-key}</code> 来配置组件。
+其中 <code>data-{widget-name}-id</code> 会指定组件的 <code>id</code>，开发者可以从 <code>View.widgets</code> 里通过 <code>id</code> 获取组件实例。</p>
+
+<p>开发者可以通过 <a href="api.html#QApp-widget-add">QApp.addWidget</a> 方法自行添加组件。</p>
+
+<h3>备注</h3>
+
+<p>关于视图切换动画的一些说明，可以参考 <a href="plugins.html#QApp-plugin-basic">QApp-plugin-basic</a> 插件</p>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="TODO" class="page-header">TODO</h1>
+            
+            <h4>以下是近期的工作</h4>
+
+<ul><li>针对组件适配和渲染逻辑的优化</li><li>针对框架易用性的优化</li><li>底层代码效率的优化</li><li>动画效果的更新和完善</li><li>部分插件的优化和完善，例 <code>Ajax</code> 和 <code>scroll</code></li><li>基于 <code>Avalon</code> 的项目构建实践 </li><li>自动化测试</li><li>文档的完善和更新</li><li>...</li></ul>
+
+<h4>Hybrid 方面：</h4>
+
+<ul><li>独立 <code>APP</code> 的适配</li><li>物理回退键的控制优化</li><li>跨多 <code>WebView</code> 数据存储机制和全局事件机制</li><li>登录逻辑的封装与实现</li><li>...</li></ul>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="历史版本" class="page-header">历史版本</h1>
+            
+            <h5>0.4.3</h5>
+
+<ul><li>fixed 不开 Hash 时，路由回退的 Bug</li><li>fixed 渲染 Widget 时，处理参数名的错误</li></ul>
+
+<h5>0.4.2</h5>
+
+<ul><li>视图支持 this.showWidget 方法，Widget 会伴随 View 销毁</li><li>支持 __ 开头的用于中间跳转的不进入历史的视图</li><li>优化 工具库内部分方法</li></ul>
+
+<h5>0.4.1</h5>
+
+<ul><li>增加文档！！！！！！！！！！！！！！！！！！！</li><li>fixed global plugins 添加全局插件失败</li><li>fixed router.goto 的逻辑问题</li><li>fixed queryToJson decodeFormat 时将 undefined 转为 字符串的问题</li><li>fixed 在pc上浏览时，click失效的问题</li><li>fixed 在某些逻辑下 destroy 报错的问题</li></ul>
+
+<h5>0.4.0 新的稳定版本</h5>
+
+<ul><li>路由 Router 优化</li><li>视图 View 生命周期 优化</li><li>修复一些底层代码的效率问题</li></ul>
+            </div>
+            
+            
+        </div>
+        <div class="col-md-3" role="complementary">
+            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+                <ul class="nav bs-docs-sidenav">
+                    
+                    <li>
+                        <a href="#简介">简介</a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#TODO">TODO</a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#历史版本">历史版本</a>
+                        
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015<br /> Style Build By <a href="http://bootcss.com">Bootstrap</a></p>
+    </div>
+</footer>
+
+<script src="source/jquery.min.js"></script>
+<script src="source/bootstrap.min.js"></script>
+<script src="source/docs.min.js"></script>
+<script src="source/highlight.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('code').each(function(i, block) {
+            if (block.innerHTML.indexOf('\n') != -1) {
+                var pn = block.parentNode;
+                if (pn.tagName.toUpperCase() == 'PRE') {
+                    try {
+                        hljs.highlightBlock(block);
+                    } catch(e) {}
+                } else {
+                    pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
+                    try {
+                        hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
+                    } catch(e) {}
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

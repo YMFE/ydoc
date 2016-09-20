@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>file - The Yo API Yo 文档站</title>
+    <!-- <link href="../source/bootstrap.min.css" rel="stylesheet">
+    <link href="../source/patch.css" rel="stylesheet">
+    <link href="../source/docs.min.css" rel="stylesheet"> -->
+    <script type="text/javascript" src="../source/shCore.js"></script>
+    <script type="text/javascript" src="../source/shBrushSass.js"></script>
+    <link type="text/css" rel="stylesheet" href="../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../source/app.css" rel="stylesheet">
+    <style> 
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+    </style>
+    
+    
+</head>
+<body style="background: white; font-family: Helvetica">
+<div class="bs-docs-header" id="content" tabindex="-1">
+    <div class="container">
+        <h1>YO  <em style="font-size:18px;">库版本：0.1.2 moduleVersion </em></h1>
+        <p>一个基于 Sass 开发的 CSS Framework，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。</p>
+    </div>
+</div>
+<div class="container bs-docs-container">
+ 
+    <div class="row">
+        <div class="col-md-9" role="main">
+        <pre class="brush: sass;">
+                @charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义rating的基础构造
+@mixin _rating {
+    display: inline-block;
+    position: relative;
+    width: map-get($rating, item-width) * 5;
+    height: map-get($rating, item-height);
+    overflow: hidden;
+    &,
+    > .index,
+    > .item {
+        background: url(#{map-get($setting, bgimg-domain)}#{map-get($rating, url)}) repeat-x;
+        @if map-get($rating, item-height) != null {
+            background-size: auto map-get($rating, item-height) * 2;
+        }
+    }
+    > .index,
+    > .item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        line-height: 10;
+    }
+    > .index {
+        background-position: 0 -#{map-get($rating, item-height)};
+    }
+    > .item {
+        z-index: 3;
+        width: 20%;
+        // 默认情况下不显示
+        background-position: 0 100px;
+        cursor: pointer;
+        &:nth-of-type(2) {
+            left: 20%;
+            &:hover {
+                width: 40%;
+            }
+        }
+        &:nth-of-type(3) {
+            left: 40%;
+            &:hover {
+                width: 60%;
+            }
+        }
+        &:nth-of-type(4) {
+            left: 60%;
+            &:hover {
+                width: 80%;
+            }
+        }
+        &:nth-of-type(5) {
+            left: 80%;
+            &:hover {
+                width: 100%;
+            }
+        }
+        &:hover {
+            z-index: 2;
+            left: 0 !important;
+            background-position: 0 -#{map-get($rating, item-height)};
+        }
+    }
+    &-readonly {
+        > .item {
+            &:hover {
+                background-position: 0 1rem !important;
+            }
+        }
+    }
+}
+
+/**
+ * @module widget
+ * @method yo-rating
+ * @description 构造yo-rating的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-rating.html
+ * @param {String} $name 定义yo-rating名称
+ * @param {Length} $item-width 定义yo-rating 单项宽度
+ * @param {Length} $item-height 定义yo-rating 单项高度
+ * @param {Color} $url 定义yo-rating 图片url
+ */
+
+@mixin yo-rating(
+    $name: default,
+    $item-width: default,
+    $item-height: default,
+    $url: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $item-width == default {
+        $item-width: map-get($rating, item-width);
+    }
+    @if $item-height == default {
+        $item-height: map-get($rating, item-height);
+    }
+    @if $url == default {
+        $url: map-get($rating, url);
+    }
+    .yo-rating#{$name} {
+        @if $item-width != map-get($rating, item-width) {
+            width: $item-width * 5;
+        }
+        @if $item-height != map-get($rating, item-height) {
+            height: $item-height;
+        }
+        &,
+        > .index,
+        > .item {
+            @if $url != map-get($rating, url) {
+                background-image: url(#{map-get($setting, bgimg-domain)}#{$url});
+            }
+            @if $item-height != map-get($rating, item-height) {
+                background-size: auto $item-height * 2;
+            }
+        }
+        > .index {
+            @if $item-height != map-get($rating, item-height) {
+                background-position: 0 -#{$item-height};
+            }
+        }
+        > .item {
+            &:hover {
+                @if $item-height != map-get($rating, item-height) {
+                    background-position: 0 -#{$item-height};
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入rating基础构造
+.yo-rating {
+    @include _rating;
+}
+        </pre>
+        </div>
+    
+    </div>
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015</p>
+    </div>
+</footer>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    window.addEventListener('load',function(){
+       Array.prototype.slice.call(document.querySelectorAll('.line')).forEach(function(item){
+               item.id = 'doc'+ item.classList[1].substr(6);
+           });
+    },false)
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+
+<div class="{{uiClass}} yo-dialog yo-popselect">
+    {{#if header}}
+    <header class="hd">
+        {{#if header.title}}
+        <h2 class="title ">{{header.title}}</h2>
+        {{/if}}
+        {{#if header.cancelBtn}}
+        <span class="regret " data-role="close" >{{header.cancelBtn.text}}</span>
+        {{/if}}
+        {{#if header.okBtn}}
+        <span class="affirm " data-role="ok" >{{header.okBtn.text}}</span>
+        {{/if}}
+    </header>
+    {{/if}}
+    {{#if content}}
+    <div class="bd " data-role="content">
+        {{content}}
+    </div>
+    {{/if}}
+    {{#if footer}}
+    <footer class="ft">
+        {{#if footer.cancelBtn}}
+        <a href="javascript:void(0)" class="yo-btn yo-btn-dialog yo-btn-l " data-role="close" >{{footer.cancelBtn.text}}</a>
+        {{/if}}
+        {{#if footer.okBtn}}
+        <a href="javascript:void(0)" class="yo-btn yo-btn-dialog yo-btn-l " data-role="ok">{{footer.okBtn.text}}</a>
+        {{/if}}
+    </footer>
+    {{/if}}
+</div>

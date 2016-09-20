@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>button btnbar - 按钮组</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<script src="../../js/viewport.js"></script>
+<link rel="stylesheet" href="../../usage/export/yo-btnbar.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-btnbar</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-list">
+            <h2 class="title">常规：</h2>
+            <ul class="yo-list">
+                <li class="item">
+                    <div class="yo-btnbar">
+                        <button class="yo-btn yo-btn-m">取消</button>
+                        <button class="yo-btn yo-btn-m">取消</button>
+                        <button class="yo-btn yo-btn-m">取消</button>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="yo-btnbar">
+                        <button class="yo-btn yo-btn-m"><i class="yo-ico">&#xf07d;</i></button>
+                        <button class="yo-btn yo-btn-m"><i class="yo-ico">&#xf07e;</i></button>
+                        <button class="yo-btn yo-btn-m"><i class="yo-ico">&#xf07f;</i></button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-btnbar">
+    <button class="yo-btn yo-btn-m">取消</button>
+    <button class="yo-btn yo-btn-m">取消</button>
+    <button class="yo-btn yo-btn-m">取消</button>
+</div>
+<div class="yo-btnbar">
+    <button class="yo-btn yo-btn-m"><i class="yo-ico">&#xf07d;</i></button>
+    <button class="yo-btn yo-btn-m"><i class="yo-ico">&#xf07e;</i></button>
+    <button class="yo-btn yo-btn-m"><i class="yo-ico">&#xf07f;</i></button>
+</div></xmp>
+        </section>
+
+        <section class="m-list">
+            <h2 class="title">扩展：</h2>
+            <ul class="yo-list yo-list-group">
+                <li class="item">
+                    <div class="yo-btnbar yo-btnbar-test">
+                        <button class="yo-btn yo-btn-m">按钮</button>
+                        <button class="yo-btn yo-btn-m">按钮</button>
+                        <button class="yo-btn yo-btn-m">按钮</button>
+                        <button class="yo-btn yo-btn-m">按钮</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">假设你想要改变圆角，那么你可以这样扩展：</h3>
+            <xmp>// 自定义一个 `yo-btnbar-test` 按钮组
+@include yo-btnbar(
+    $name: test,
+    $radius: .1rem
+);</xmp>
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><div class="yo-btnbar yo-btnbar-test">
+    ...
+</div></xmp>
+        </section>
+
+        <pre class="m-code"><span class="method">@include yo-btnbar</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{String} 为新的扩展定义一个名称</mark>
+    $radius<span class="colon">:</span>default <mark>//{Length} 圆角半径长度</mark>
+<span class="bracket">)</span>
+</pre>
+    </div>
+</div>
+
+</body>
+</html>

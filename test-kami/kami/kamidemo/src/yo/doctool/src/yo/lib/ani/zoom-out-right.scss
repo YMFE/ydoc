@@ -1,0 +1,40 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class ani
+ * @module Yo
+ */
+
+/**
+ * 定义从右往左缩小退出动画
+ * @method zoom-out-right
+ */
+
+@-webkit-keyframes zoom-out-right {
+	40% {
+		opacity: 1;
+		-webkit-transform: scale3d(.475, .475, .475) translate3d(-45px, 0, 0);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(.1) translate3d(2000px, 0, 0);
+		-webkit-transform-origin: right center;
+	}
+}
+@keyframes zoom-out-right {
+	40% {
+		opacity: 1;
+		transform: scale3d(.475, .475, .475) translate3d(-45px, 0, 0);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(.1) translate3d(2000px, 0, 0);
+		transform-origin: right center;
+	}
+}
+
+.ani.zoom-out-right {
+	-webkit-animation-name: zoom-out-right;
+	animation-name: zoom-out-right;
+}

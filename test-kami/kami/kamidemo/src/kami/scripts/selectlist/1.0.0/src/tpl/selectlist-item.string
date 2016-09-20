@@ -1,0 +1,7 @@
+<li class="item" data-index={{dataIndex}} data-role="list-item">
+    <span class="mark flex">{{text}}</span>
+    <div class="yo-checked">
+        <input type="{{multi ? 'checkbox' : 'radio'}}" name="citem"/>
+        <span class="type"></span>
+    </div>
+</li>

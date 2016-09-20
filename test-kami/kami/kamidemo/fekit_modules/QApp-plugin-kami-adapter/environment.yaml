@@ -1,0 +1,11 @@
+local:
+    DEBUG: true
+
+dev:
+    DEBUG: true
+
+beta:
+    DEBUG: false
+
+prd:
+    DEBUG: false

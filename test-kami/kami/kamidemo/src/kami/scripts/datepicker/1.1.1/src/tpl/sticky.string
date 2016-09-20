@@ -1,0 +1,1 @@
+<div class="month-bar sticky-bar">{{letter}}</div>

@@ -1,0 +1,308 @@
+@charset "UTF-8";
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/widget/classes.scss
+ * widget的基础构造
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Edit: 2014.12.5
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/element/classes.scss
+ * element的基础构造
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * Element: yo-btn
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * 定义按钮使用方法
+ * @method yo-btn
+ * variables length(8)
+ * @param {default | String} $name 定义按钮名称
+ * @param {default | Color} $bgcolor 定义按钮背景色
+ * @param {default | Color} $color 定义按钮文本色
+ * @param {default | Boole} $is-border 定义按钮是否有边框
+ * @param {default | Length} $width 定义按钮宽度
+ * @param {default | Length} $height 定义按钮高度
+ * @param {default | Length} $padding 定义按钮横向补白
+ * @param {default | Length} $radius 定义按钮圆角
+ */
+.yo-btn {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0 1.5em;
+  border: 1px solid #e1e1e1;
+  box-shadow: inset 1px 1px rgba(255, 255, 255, 0.1);
+  border-radius: 0.03rem;
+  background-color: #fafafa;
+  color: #212121;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer; }
+  .yo-btn:hover, .yo-btn:focus, .yo-btn:active {
+    border-color: #ebebeb;
+    background-color: white;
+    color: #3b3b3b; }
+  .yo-btn-s {
+    height: 0.28rem;
+    line-height: 0.28rem;
+    font-size: 0.12rem; }
+
+  .yo-btn-m {
+    height: 0.36rem;
+    line-height: 0.36rem;
+    font-size: 0.14rem; }
+
+  .yo-btn-l {
+    height: 0.44rem;
+    line-height: 0.44rem;
+    font-size: 0.18rem; }
+
+.yo-btn-primary {
+  background-color: #ff801a;
+  border: 1px solid #e66600;
+  color: #fff; }
+  .yo-btn-primary:hover, .yo-btn-primary:focus, .yo-btn-primary:active {
+    background-color: #ff8b2e;
+    border-color: #fa7000 !important;
+    color: white; }
+
+.yo-btn-info {
+  background-color: #4a87ee;
+  border: 1px solid #1b68ea;
+  color: #fff; }
+  .yo-btn-info:hover, .yo-btn-info:focus, .yo-btn-info:active {
+    background-color: #5d93f0;
+    border-color: #2e74eb !important;
+    color: white; }
+
+.yo-btn-disabled {
+  background-color: #eee;
+  border: 1px solid #d4d4d4;
+  color: #d9d9d9;
+  cursor: not-allowed; }
+  .yo-btn-disabled:hover, .yo-btn-disabled:focus, .yo-btn-disabled:active {
+    background-color: #eee;
+    border: 1px solid #d4d4d4;
+    color: #d9d9d9; }
+
+/**
+ * widget: yo-dialog
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ ------------------------
+ * @method yo-dialog
+ * variables length(11)
+ * @param {default | String} $name 定义dialog名称
+ * @param {default | Length | null} $width 定义dialog宽度
+ * @param {default | Length} $height 定义dialog高度
+ * @param {default | Length} $radius 定义dialog圆角
+ * @param {default | Number} $shadow-opacity 定义dialog阴影透明度
+ * @param {default | Color} $bordercolor 定义dialog边框色
+ * @param {default | Length} $hd-height 定义dialog头部高度
+ * @param {default | Color} $hd-bgcolor 定义dialog头部背景色
+ * @param {default | Color} $title-color 定义dialog标题文本色
+ * @param {default | Length} $title-font-size 定义dialog标题字号
+ * @param {default | Length} $bd-padding 定义dialog主体补白
+ */
+.yo-dialog {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  position: fixed;
+  z-index: 1001;
+  overflow: hidden;
+  border-radius: 0.05rem;
+  box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
+  border: 1px solid #ddd;
+  min-width: 2.8rem;
+  min-height: 1rem;
+  height: 3rem;
+  background: #fff; }
+  .yo-dialog > .hd {
+    border-radius: 0.05rem 0.05rem 0 0;
+    height: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    background: #eee;
+    line-height: 0.5rem;
+    text-align: center; }
+    .yo-dialog > .hd .title {
+      overflow: hidden;
+      height: 100%;
+      margin: 0 60px;
+      font-size: 0.16rem; }
+    .yo-dialog > .hd .regret,
+    .yo-dialog > .hd .affirm {
+      position: absolute;
+      top: 0; }
+    .yo-dialog > .hd .regret {
+      left: .1rem; }
+    .yo-dialog > .hd .affirm {
+      right: .1rem; }
+  .yo-dialog > .bd {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0.1rem; }
+  .yo-dialog > .ft {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    border-top: 1px solid #ddd;
+    text-align: center; }
+    .yo-dialog > .ft > .yo-btn {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1;
+      border: 0 none;
+      border-radius: 0;
+      color: #00afc7; }
+      .yo-dialog > .ft > .yo-btn:last-child:not(:only-child), .yo-dialog > .ft > .yo-btn:only-child {
+        font-weight: bold; }
+      .yo-dialog > .ft > .yo-btn:last-child:not(:only-child) {
+        border-left: 1px solid #ddd; }
+
+/*# sourceMappingURL=yo-dialog.css.map */

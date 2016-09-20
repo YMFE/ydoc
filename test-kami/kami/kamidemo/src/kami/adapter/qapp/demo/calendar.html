@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test Page</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <!--iOS 隐藏地址栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!--iOS 隐藏工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!--qq 全屏-->
+    <meta name="x5-fullscreen" content="true" />
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black|default|black-translucent" /> -->
+    <link rel="stylesheet" type="text/css" href="../../../../../prd/index@VERSION.css"/>
+    <style>
+        body {
+            height: 538px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<script>
+
+</script>
+<body>
+    
+    
+    <script src="../../../../../prd/kami/adapter/qapp/index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded');
+            var showPopCl = document.createElement('BUTTON');
+            showPopCl.innerHTML = '点击显示popcalendar';
+            showPopCl.addEventListener('click', function () {
+                QApp.showWidget('popcalendar', {
+                    dateRange: ['2014-05-20', '2015-06-29'],
+                    now: '2014-05-31'
+                });
+            });
+            var qapp = document.querySelector('qapp-app');
+            qapp.appendChild(showPopCl);
+        });
+        
+
+    </script>
+</body>
+</html>

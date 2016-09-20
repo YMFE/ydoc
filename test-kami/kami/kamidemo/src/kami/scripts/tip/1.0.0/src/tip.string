@@ -1,0 +1,1 @@
+<div class="{{uiClass}} yo-tip">{{content}}</div> 

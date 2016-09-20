@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>按钮</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<script src="../../js/viewport.js"></script>
+<link rel="stylesheet" href="../../usage/export/yo-btn.css" />
+</head>
+<body>
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-btn</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-list">
+            <div class="yo-list yo-list-group">
+                <h3 class="label">常规：</h3>
+                <div class="item">
+                    <a href="?" class="yo-btn yo-btn-s">Button</a>
+                    <button class="yo-btn yo-btn-s">Button</button>
+                    <input type="button" value="Button" class="yo-btn yo-btn-s" />
+                </div>
+                <div class="item">
+                    <a href="?" class="yo-btn yo-btn-m">Button</a>
+                    <button class="yo-btn yo-btn-m">Button</button>
+                    <input type="button" value="Button" class="yo-btn yo-btn-m" />
+                </div>
+                <div class="item">
+                    <a href="?" class="yo-btn yo-btn-l">Button</a>
+                    <button class="yo-btn yo-btn-l">Button</button>
+                    <input type="button" value="Button" class="yo-btn yo-btn-l" />
+                </div>
+            </div>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><a href="?" class="yo-btn">Button</a>
+<button class="yo-btn">Button</button>
+<input type="button" value="Button" class="yo-btn" /></xmp>
+            <h3 class="sub-title">yo-btn预置了3种size：s, m, l</h3>
+            <xmp><a href="?" class="yo-btn yo-btn-s">Button</a>
+<a href="?" class="yo-btn yo-btn-m">Button</a>
+<a href="?" class="yo-btn yo-btn-l">Button</a></xmp>
+            <h3 class="sub-title">你可以在业务代码配置文件config.scss中对这3种size进行定义</h3>
+            <xmp>$btn: (
+    ...
+    // {Length} 默认预设3种尺寸按钮：
+    // small
+    s-height:       .28rem,
+    s-font-size:    .12rem,
+    // medium
+    m-height:       .36rem,
+    m-font-size:    .14rem,
+    // large
+    l-height:       .44rem,
+    l-font-size:    .16rem
+);</xmp>
+        </section>
+
+        <section class="m-list">
+            <div class="yo-list yo-list-group">
+                <h3 class="label">自定义按钮：</h3>
+                <div class="item">
+                    <a href="?" class="yo-btn yo-btn-light yo-btn-s">Button</a>
+                    <button class="yo-btn yo-btn-light yo-btn-s">Button</button>
+                    <input type="button" value="Button" class="yo-btn yo-btn-light yo-btn-s" />
+                </div>
+                <div class="item">
+                    <a href="?" class="yo-btn yo-btn-light yo-btn-m">Button</a>
+                    <button class="yo-btn yo-btn-light yo-btn-m">Button</button>
+                    <input type="button" value="Button" class="yo-btn yo-btn-light yo-btn-m" />
+                </div>
+                <div class="item">
+                    <a href="?" class="yo-btn yo-btn-light yo-btn-l">Button</a>
+                    <button class="yo-btn yo-btn-light yo-btn-l">Button</button>
+                    <input type="button" value="Button" class="yo-btn yo-btn-light yo-btn-l" />
+                </div>
+                <h3 class="label">自定义按钮：</h3>
+                <div class="item">
+                    <a href="?" class="yo-btn yo-btn-info yo-btn-s">Button</a>
+                    <button class="yo-btn yo-btn-info yo-btn-s">Button</button>
+                    <input type="button" value="Button" class="yo-btn yo-btn-info yo-btn-s" />
+                </div>
+                <div class="item">
+                    <a href="?" class="yo-btn yo-btn-info yo-btn-m">Button</a>
+                    <button class="yo-btn yo-btn-info yo-btn-m">Button</button>
+                    <input type="button" value="Button" class="yo-btn yo-btn-info yo-btn-m" />
+                </div>
+                <div class="item">
+                    <a href="?" class="yo-btn yo-btn-info yo-btn-l">Button</a>
+                    <button class="yo-btn yo-btn-info yo-btn-l">Button</button>
+                    <input type="button" value="Button" class="yo-btn yo-btn-info yo-btn-l" />
+                </div>
+                <h3 class="label">禁用：</h3>
+                <div class="item">
+                    <a href="?" class="yo-btn yo-btn-disabled yo-btn-s">Button</a>
+                    <button class="yo-btn yo-btn-disabled yo-btn-s">Button</button>
+                    <input type="button" value="Button" class="yo-btn yo-btn-disabled yo-btn-s" />
+                </div>
+                <div class="item">
+                    <a href="?" class="yo-btn yo-btn-disabled yo-btn-m">Button</a>
+                    <button class="yo-btn yo-btn-disabled yo-btn-m">Button</button>
+                    <input type="button" value="Button" class="yo-btn yo-btn-disabled yo-btn-m" />
+                </div>
+                <div class="item">
+                    <a href="?" class="yo-btn yo-btn-disabled yo-btn-l">Button</a>
+                    <button class="yo-btn yo-btn-disabled yo-btn-l">Button</button>
+                    <input type="button" value="Button" class="yo-btn yo-btn-disabled yo-btn-l" />
+                </div>
+            </div>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">假设你想要多种风格的按钮，只需这样扩展：</h3>
+            <xmp>// 自定义一个 `yo-btn-light` 按钮
+@include yo-btn(
+$name: light,
+$bordercolor: #ddd,
+$bgcolor: #fff,
+$color: map-get($base, color)
+);
+
+// 自定义一个 `yo-btn-info` 按钮
+@include yo-btn(
+$name: info,
+$bordercolor: #0456e2,
+$bgcolor: #4a87ee
+);</xmp>
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><input class="yo-btn yo-btn-light" value="Button" />
+<button class="yo-btn yo-btn-info">Button</button></xmp>
+            <h3 class="sub-title">如果需要禁用按钮，你需要这样：</h3>
+            <xmp><input class="yo-btn yo-btn-light" value="Button" />
+<button class="yo-btn yo-btn-info">Button</button>
+                ↓↓↓
+<input class="yo-btn yo-btn-disbaled" value="Button" />
+<button class="yo-btn yo-btn-disabled">Button</button></xmp>
+            <p class="info">所有按钮的禁用时统一使用 `yo-btn-disabled`</p>
+        </section>
+
+        <section class="m-list">
+            <div class="yo-list yo-list-group">
+                <h3 class="label">通栏按钮：</h3>
+                <div class="item">
+                    <input type="button" value="Button" class="yo-btn yo-btn-l yo-btn-stacked" />
+                </div>
+                <div class="item">
+                    <input type="button" value="Button" class="yo-btn yo-btn-light yo-btn-l yo-btn-stacked" />
+                </div>
+                <div class="item">
+                    <input type="button" value="Button" class="yo-btn yo-btn-info yo-btn-l yo-btn-stacked" />
+                </div>
+                <div class="item">
+                    <input type="button" value="Button" class="yo-btn yo-btn-disabled yo-btn-l yo-btn-stacked" />
+                </div>
+            </div>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">`yo-btn-stacked` 让你拥有通栏按钮：</h3>
+            <xmp><input type="button" value="Button" class="yo-btn yo-btn-stacked" />
+<button class="yo-btn yo-btn-stacked">Button</button></xmp>
+        </section>
+
+<pre class="m-code"><span class="method">@include yo-btn</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{String} 扩展的名称</mark>
+    $border-width<span class="colon">:</span>default, <mark>//{Length} 边框厚度</mark>
+    $bordercolor<span class="colon">:</span>default, <mark>//{Color} 边框色</mark>
+    $bgcolor<span class="colon">:</span>default, <mark>//{Color} 背景色</mark>
+    $color<span class="colon">:</span>default, <mark>//{Color} 文本色</mark>
+    $active-bordercolor<span class="colon">:</span>default, <mark>//{Color} 激活时边框色</mark>
+    $active-bgcolor<span class="colon">:</span>default, <mark>//{Color} 激活时背景色</mark>
+    $active-color<span class="colon">:</span>default, <mark>//{Color} 激活时文本色</mark>
+    $padding<span class="colon">:</span>default, <mark>//{Length} 内补白</mark>
+    $radius<span class="colon">:</span>default, <mark>//{Length} 圆角半径</mark>
+    $font-size<span class="colon">:</span>default, <mark>//{Length} 字号</mark>
+    $width<span class="colon">:</span>default, <mark>//{Length} 宽度</mark>
+    $height<span class="colon">:</span>default <mark>//{Length} 高度</mark>
+<span class="bracket">)</span>
+</pre>
+    </div>
+</div>
+
+
+
+</body>
+</html>

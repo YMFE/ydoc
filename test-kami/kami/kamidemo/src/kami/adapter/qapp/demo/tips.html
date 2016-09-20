@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>qapp adapter tips</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../index.css"/>
+    <style>
+        body {
+            height: 538px;
+            overflow: hidden;
+        }
+       /* .yo-tip {
+            margin-top: 20%;
+        }*/
+    </style>
+</head>
+
+<script>
+
+</script>
+<body>
+    
+    <script src="../../../../../prd/kami/adapter/qapp/index.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded');
+            var qapp = document.querySelector('qapp-app');
+
+            var text = document.createElement('div');
+
+            var textArr = [];
+            textArr.push('使用说明');
+            textArr.push('1. content是tips显示的内容');
+            textArr.push('2. autoHide 为是否自动隐藏');
+            textArr.push('3. autoHideTime 自动隐藏的时间s, 需要autoHide为true');
+            textArr.push('4. fore表示，每次显示都重新创建');
+            textArr.push('5. effect是否使用动画');
+            text.style.background = '#f0f';
+            text.style.marginBottom = '20px'; 
+            text.innerHTML = textArr.join('<br/>');
+            qapp.appendChild(text);
+            
+            var show = document.createElement('BUTTON');
+            show.innerHTML = '点击显示tips';
+            var cntArr = ['我是内容1', '我是内容2'];
+            show.addEventListener('click', function () {
+                var index = Math.round(Math.random());
+                var tips = QApp.showWidget('tips', {
+                    
+                    content: cntArr[index],
+                    autoHide: true,
+                    autoHideTime: 3,
+                    force: true,
+                    effect: true
+                });
+                
+            });
+            
+            qapp.appendChild(show);
+        });
+    </script>
+</body>
+</html>

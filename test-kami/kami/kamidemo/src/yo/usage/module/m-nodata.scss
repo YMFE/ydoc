@@ -1,0 +1,17 @@
+@charset "utf-8";
+@import "../element/yo-btn";
+
+.m-nodata {
+    padding-top: .55rem;
+    background: url("#{map-get($setting, bgimg-domain)}what.png") no-repeat center 0;
+    @include background-size(.9rem .55rem);
+    text-align: center;
+    .info {
+        padding: .12rem 0;
+        color: #999;
+        font-size: .16rem;
+    }
+    .yo-btn-normal {
+        width: 1.35rem;
+    }
+}

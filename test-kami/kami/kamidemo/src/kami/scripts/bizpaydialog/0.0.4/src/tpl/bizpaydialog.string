@@ -1,0 +1,48 @@
+
+<div class="yo-dialog yo-dialog-pay">
+    {{#if title}}
+        <header class="hd">
+            <h2 class="title js-title"  data-role="title">{{title.text}}</h2>
+            <span class="regret js-close"  data-role="close">{{title.icon}}</span>
+        </header>
+    {{/if}}
+    
+    <div class="bd js-selectlist" data-role="selectlist">
+        <!-- <div class="yo-group">
+            <div class="scroll-wrap" data-role="scroller">
+                <ul class="yo-list" data-role="itemwrap">
+                    <li class="item item-on">
+                        <div class="cont flex">
+                            <h3>招商银行储蓄卡</h3>
+                            <p>尾号2123</p>
+                        </div>
+                        <div class="yo-checked">  <input type="radio" name="citem">  <span class="type"></span>  </div>
+                    </li>
+                    <li class="item">
+                        <div class="cont flex">
+                            <h3>建设银行储蓄卡</h3>
+                            <p>尾号0011</p>
+                        </div>
+                    </li>
+                    <li class="item item-active">
+                        <div class="cont flex">
+                            <h3>添加银行卡</h3>
+                        </div>
+                        <i class="yo-ico">&#xf03e;</i>
+                    </li>
+                </ul>
+            </div>
+        </div> -->
+    </div>
+     <footer class="fd js-footer" data-role="footer">
+         <ul class="yo-list">
+             <li class="item">
+                <div class="cont flex">
+                    <h3>添加银行卡</h3>
+                </div>
+                <i class="yo-ico">&#xf03e;</i>
+            </li>
+        </ul>
+    </footer>
+</div>
+

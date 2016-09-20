@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Tip tests</title>
+    <link rel="stylesheet" type="text/css" href="/prd/yo/usage/kami/tips.css"/>
+    <link rel="stylesheet" type="text/css" href="/prd/yo/usage/export/yo-all.css"/>
+    <style type="text/css">
+    
+    </style>
+</head>
+<body>
+<div id="container">
+    <header class="yo-header m-header">
+        <h2 class="title">Tip</h2>
+    </header>
+    <ul class="yo-list">
+        <li class="item">
+            <div class="yo-btn yo-btn-stacked yo-btn-l js-default">单例</div>
+        </li>
+        <li class="item">
+            <div class="yo-btn yo-btn-stacked yo-btn-l js-polymorphic">实例</div>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="/prd/kami/scripts/tip/tests/index.js"></script>
+<script type="text/javascript">
+// 获取组件。require("path/to/tip")
+var Tip = Kami.Tip;
+
+function show(){
+    Tip.show({
+        content: '<i>单例提示...</i>',
+        autoHide: true,
+        autoHideTime: 1,
+        onhide: function () {
+            console.log('is hide')
+        }
+    });
+}
+
+var ld;
+function polymorphic(){
+    if(!ld){
+        ld = new Tip({
+            content: '<i>实例提示...</i>',
+            autoHide: true,
+            autoHideTime: 1,
+            effect: {
+                duration: 0.5,
+                easing: 'linear',
+                delay: 0
+            }
+        });
+        ld.on('hide', function(){
+            console.log('hide')
+        });
+        ld.render();
+    }
+    ld.show();
+    setTimeout(function(){ld.hide()}, 1000)
+}
+
+
+document.querySelector('.js-default').addEventListener('click', show)
+document.querySelector('.js-polymorphic').addEventListener('click', polymorphic)
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<div class="yo-rating">
+    <h3 class="index" data-role="curIndex"></h3>
+    {{#each list as item}}
+    <span class="item" index="{{item.index}}" data-role="item"></span>
+    {{/each}}
+</div>
+

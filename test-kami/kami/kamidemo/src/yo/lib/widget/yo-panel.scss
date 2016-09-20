@@ -1,0 +1,67 @@
+@charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义panel的基础构造
+@mixin _panel {
+    position: absolute;
+    top: map-get($group, top);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    > .sticky,
+    > .scroll-index {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        right: 0;
+    }
+    > .sticky {
+        left: 0;
+        padding: map-get($list, label-padding);
+        background-color: map-get($list, label-bgcolor);
+        color: map-get($base, sub-color);
+    }
+    .no-data {
+        height: 100%;
+        padding-top: 1rem;
+        text-align: center;
+    }
+}
+
+/**
+ * @module widget
+ * @method yo-panel
+ * @description 构造yo-panel的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-panel.html
+ * @param {String} $name 定义yo-panel名称
+ * @param {Length} $top 定义yo-panel顶部偏移值
+ */
+
+@mixin yo-panel(
+    $name: default,
+    $top: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $top == default {
+        $top: map-get($group, top);
+    }
+    .yo-panel#{$name} {
+        @if $top != map-get($group, top) {
+            top: $top;
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入panel基础构造
+.yo-panel {
+    @include _panel;
+}

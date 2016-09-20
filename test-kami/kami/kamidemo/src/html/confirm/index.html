@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>confirm Demo</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/export/yo-flex.css" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/kami/confirm.css" />
+</head>
+<body>
+<section class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">Confirm</h2>
+        <a href="../../../index.html" class="regret yo-ico">&#xf07d;</a>
+        <span class="affirm yo-ico">&#xf067;</span>
+    </header>
+    <div class="flex" >
+        <ul class="yo-list">
+            <li class="item">
+                <div class="yo-btn yo-btn-stacked yo-btn-l js-default">单例Confirm</div>
+            </li>
+            <li class="item">
+                <div class="yo-btn yo-btn-stacked yo-btn-l js-polymorphic">实例confirm</div>
+            </li>
+            <li class="item">
+                <div class="yo-btn yo-btn-stacked yo-btn-l js-polymorphic-noheader">实例confirm无Header</div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<script type="text/javascript" src="../../../prd/scripts/common.js"></script>
+<script type="text/javascript" src="../../../prd/scripts/kami-confirm.js"></script>
+<script type="text/javascript">
+
+// 获取组件。require("path/to/confirm")
+var Confirm = Kami.Confirm;
+
+function showConfirm () {
+    Confirm.show({
+        // title : '<span>title</span>',
+        content: '<span>提示</span>',
+        okText: '确定',
+        cancelText: '取消',
+        onok: function() {
+            Demo.log('确定了');
+            this.hide();
+            
+        },
+        oncancel: function() {
+            Demo.log('取消了');
+            this.hide();
+        }
+    });
+}
+var at;
+function polymorphicConfirm(){
+    if(!at){
+        at = new Confirm({
+            title: "提示",
+            content: "test"
+        });
+        at.on('ok', function(){
+            Demo.log('ok')
+        });
+        at.on('cancel', function(){
+            Demo.log('cancel')
+        });
+        at.render();
+    }else{
+        at.setContent('teeee')
+    }
+    at.show();
+}
+var bt;
+function polymorphicAlertNoHeader() {
+
+    if(!bt){
+        bt = new Confirm({
+            // title: "提示",
+            content: "test"
+        });
+        bt.on('ok', function(){
+            Demo.log('ok')
+        });
+        bt.on('cancel', function(){
+            Demo.log('cancel')
+        });
+        bt.render();
+    }else{
+        bt.setContent('teeee')
+    }
+    bt.show();
+    
+}
+$('.js-default').tap( showConfirm )
+$('.js-polymorphic').tap( polymorphicConfirm )
+
+$('.js-polymorphic-noheader').tap(polymorphicAlertNoHeader);
+</script>
+</body>
+</html>

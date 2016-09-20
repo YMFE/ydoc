@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>suggest - 搜索框</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<script src="../../js/viewport.js"></script>
+<link rel="stylesheet" href="../../usage/export/yo-suggest.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-suggest</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex-inherit">
+        <div class="yo-suggest m-suggest">
+            <div class="operate">
+                <form class="action">
+                    <input type="search" id="yo-suggest-input" class="input" />
+                    <label class="label" for="yo-suggest-input">
+                        <i class="yo-ico yo-ico-suggest">&#xf067;</i>
+                        <span class="placeholder">搜索</span>
+                    </label>
+                    <i class="yo-ico yo-ico-delete">&#xf077;</i>
+                    <i class="yo-ico yo-ico-fresh">&#xf07a;</i>
+                    <i class="yo-ico yo-ico-stop">&#xf063;</i>
+                    <i class="yo-ico yo-ico-loading">&#xf089;</i>
+                </form>
+                <span class="cancel">取消</span>
+            </div>
+            <div class="cont">
+                <div class="recommend"><!-- 推荐搜索内容 --></div>
+                <div class="result"><!-- 搜索结果内容 --></div>
+            </div>
+        </div>
+        <div class="yo-suggest yo-suggest-on yo-suggest-modal m-suggest">
+            <div class="operate">
+                <form class="action">
+                    <input type="search" id="yo-suggest-input" class="input" />
+                    <label class="label" for="yo-suggest-input">
+                        <i class="yo-ico yo-ico-suggest">&#xf067;</i>
+                        <span class="placeholder">搜索</span>
+                    </label>
+                    <i class="yo-ico yo-ico-delete">&#xf077;</i>
+                    <i class="yo-ico yo-ico-fresh">&#xf07a;</i>
+                    <i class="yo-ico yo-ico-stop">&#xf063;</i>
+                    <i class="yo-ico yo-ico-loading">&#xf089;</i>
+                </form>
+                <span class="cancel">取消</span>
+            </div>
+            <div class="cont">
+                <div class="recommend"><!-- 推荐搜索内容 --></div>
+                <div class="result"><!-- 搜索结果内容 --></div>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="yo-group">
+                <div class="sticky">A</div>
+                <div class="scroll-wrap">
+                    <ul class="yo-list">
+                        <li class="label">A</li>
+                        <li class="item">list item</li>
+                        <li class="item">list item</li>
+                        <li class="item">list item</li>
+                        <li class="label">B</li>
+                        <li class="item">list item</li>
+                        <li class="item">list item</li>
+                        <li class="item">list item</li>
+                        <li class="label">C</li>
+                        <li class="item">list item</li>
+                        <li class="item">list item</li>
+                        <li class="item">list item</li>
+                    </ul>
+                </div>
+                <div class="scroll-wrap scroll-index">
+                    <ul class="yo-index">
+                        <li><i class="yo-ico">&#xf04a;</i></li>
+                        <li>历史</li>
+                        <li>热门</li>
+                        <li>A</li>
+                        <li>b</li>
+                        <li>c</li>
+                        <li>d</li>
+                        <li><span class="ellipsis"></span></li>
+                        <li>g</li>
+                        <li>h</li>
+                        <li>i</li>
+                        <li>j</li>
+                        <li>k</li>
+                        <li>l</li>
+                        <li><span class="ellipsis"></span></li>
+                        <li>o</li>
+                        <li>p</li>
+                        <li>q</li>
+                        <li>r</li>
+                        <li>s</li>
+                        <li>t</li>
+                        <li>u</li>
+                        <li>v</li>
+                        <li>w</li>
+                        <li>x</li>
+                        <li>y</li>
+                        <li>z</li>
+                    </ul>
+                </div>
+            </div>
+            <pre class="m-code" style="margin-top:5rem"><span class="method">@include yo-suggest</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{String} suggest名称</mark>
+    $height<span class="colon">:</span>default, <mark>//{Length} suggest搜索框高度</mark>
+    $font-size<span class="colon">:</span>default, <mark>//{Length} suggest文本大小</mark>
+    $op-padding<span class="colon">:</span>default, <mark>//{Length} suggest搜索区内补白</mark>
+    $radius<span class="colon">:</span>default <mark>//{Length} suggest搜索框圆角大小</mark>
+    $bordercolor<span class="colon">:</span>default, <mark>//{Color} suggest边框色</mark>
+    $bgcolor<span class="colon">:</span>default, <mark>//{Color} suggest输入框背景色</mark>
+    $color<span class="colon">:</span>default, <mark>//{Color} suggest输入框文本色</mark>
+    $on-bordercolor<span class="colon">:</span>default <mark>//{Color} suggest激活边框色</mark>
+    $on-bgcolor<span class="colon">:</span>default, <mark>//{Length} suggest激活输入框背景色</mark>
+    $placeholder-color<span class="colon">:</span>default, <mark>//{Length} suggest placeholder文本色</mark>
+    $ico-color<span class="colon">:</span>default, <mark>//{Color} suggest ico颜色</mark>
+    $cancel-color<span class="colon">:</span>default <mark>//{Color} suggest取消操作颜色</mark>
+    $op-bgcolor<span class="colon">:</span>default, <mark>//{Color} suggest 搜索区背景色</mark>
+    $mask-bgcolor<span class="colon">:</span>default <mark>//{Color} suggest遮罩背景色</mark>
+<span class="bracket">)</span>
+</pre>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

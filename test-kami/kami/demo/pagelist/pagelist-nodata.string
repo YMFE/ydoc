@@ -1,0 +1,7 @@
+ <a href="#" id="btnRefresh">
+    {{#if status == 0}}
+    网络不给力,点击重试
+    {{#else if status == 1}}
+    没有数据,点击刷新
+    {{/if}}
+</a>

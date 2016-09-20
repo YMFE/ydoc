@@ -1,0 +1,254 @@
+.yo-searchlist .yo-group {
+    top: 0.51rem;
+}
+.yo-suggest .yo-group{
+    top: 0rem;
+}
+.header {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    height: 51px;
+    left: 0;
+    width: 100%;
+    line-height: 51px;
+    background: #CD235C;
+    color: #eee;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.yo-list > .item-active,
+.yo-list > .item-on {
+    cursor: pointer;
+}
+.yo-list > .item-active {
+    background-color: #f8f8f8;
+}
+
+.yo-loadtip {
+    font-size: .12rem;
+    color: #1ba9ba;
+}
+
+
+.yo-rating > .item {
+    background-image: url(http://simg3.qunarzz.com/mobile-fe/kami/widget/star.png);
+    background-size: auto 0.36rem;
+}
+.yo-rating, .yo-rating > .index, .yo-rating > .item {
+    background-image: url(http://simg3.qunarzz.com/mobile-fe/kami/widget/star.png);
+    background-size: auto 0.36rem;
+}
+
+@font-face {
+    font-family: yofont;
+    src: url("yofont.woff") format("woff"), url("yofont.ttf") format("truetype");
+}
+
+.yo-suggest > .operate .input:focus + .label {
+    left: .1rem;
+    -webkit-transform: translatex(0) translatez(0);
+    transform: translatex(0) translatez(0);
+}
+
+
+
+/**
+ * dialog扩展
+ * Author: leila.wang
+ * Time: 2015.6.05
+ */
+.yo-dialog-verification {
+  position: absolute;
+}
+
+.yo-dialog-verification {
+  height: auto;
+  /*  手机验证谈层  */
+}
+.yo-dialog-verification .hd {
+  border-bottom: 0.01rem solid #ddd;
+}
+.yo-dialog-verification .hd > .title {
+  font-size: .18rem;
+}
+.yo-dialog-verification .hd > .regret {
+  color: #ccc;
+  font-size: .20rem;
+}
+.yo-dialog-verification .price {
+  font-size: .25rem;
+  padding: .12rem 0;
+}
+.yo-dialog-verification .price > i {
+  font-size: .20rem;
+}
+.yo-dialog-verification .tip {
+  font-size: .14rem;
+  color: #888;
+}
+.yo-dialog-verification .tip > .time {
+  margin-left: .06rem;
+  color: #bbb;
+}
+.yo-dialog-verification .tip > .reacquire {
+  margin-left: .03rem;
+  color: #1ba9ba;
+}
+.yo-dialog-verification .verification {
+  margin: .16rem 0;
+  height: .42rem;
+  position: relative;
+}
+.yo-dialog-verification .verification-style {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 2.43rem;
+  border-radius: .05rem;
+  border: 0.02rem solid #1ba9ba;
+  height: .42rem;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  /*>input {
+    @include flex();
+    font-size: .25rem;
+    color: $basic-blue;
+    text-align: center;
+    font-weight: bold;
+    height: 100%;
+  }
+  >input:not(:last-child){
+    border: 0;
+    border-right: .01rem solid $basic-blue;
+  }*/
+}
+.yo-dialog-verification .verification-style > i {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: 100%;
+  height: auto;
+  font-size: 0;
+  height: 100%;
+  display: block;
+}
+.yo-dialog-verification .verification-style > i:not(:last-child) {
+  border-right: 1px solid #1ba9ba;
+}
+.yo-dialog-verification .verification-input {
+                /*width:2.71rem;
+                height: .42rem;
+                letter-spacing: .25rem;
+                font-size: .25rem;
+                color: $basic-blue;
+                font-weight: bold;
+  
+                margin-left: -1.06rem;
+                border: 0;
+                background-color: transparent;*/
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2.25rem;
+  height: 0;
+ /*   width:2.25rem;
+    height: .42rem;*/
+  margin-left: -1.06rem;
+  font-size: .01rem;
+  text-indent: -20px;
+  opacity: 0;
+}
+.yo-dialog-verification .verification-label {
+  width: 2.25rem;
+  height: .42rem;
+  letter-spacing: .25rem;
+  font-size: .25rem;
+  color: #1ba9ba;
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -1.06rem;
+  line-height: .42rem;
+  border: 0;
+  text-align: left;
+}
+.yo-dialog-verification .verification > .active {
+  border: 3px solid #ff0;
+}
+.yo-dialog-verification .bd  .hide {
+  display: none;
+}
+
+
+/*@import "../../lib/fragment/yo-list";*/
+/**
+ * dialog扩展
+ * Author: leila.wang
+ * Time: 2015.6.05
+ */
+.yo-dialog-pay {
+  height: auto;
+  padding: .44rem 0 .68rem;
+}
+.yo-dialog-pay > .hd {
+  margin-bottom: 0;
+  border-bottom: 0.01rem solid #ddd;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.yo-dialog-pay > .hd > .title {
+  font-size: .18rem;
+}
+.yo-dialog-pay > .hd > .regret {
+  color: #ccc;
+  font-size: .20rem;
+}
+.yo-dialog-pay > .bd {
+  height: 1.3rem;
+  text-align: left;
+}
+.yo-dialog-pay > .bd .yo-group {
+  top: .43rem;
+  bottom: .68rem;
+}
+.yo-dialog-pay > .bd .hide {
+  display: none;
+}
+.yo-dialog-pay > .fd {
+  text-align: left;
+  height: .45rem;
+  position: absolute;
+  right: 0;
+  bottom: .24rem;
+  left: 0;
+}
+.yo-dialog-pay .yo-list {
+  color: #333;
+}
+.yo-dialog-pay .yo-list .cont > h3 {
+  font-size: .16rem;
+}
+.yo-dialog-pay .yo-list .cont > p {
+  color: #999;
+  font-size: .12rem;
+}
+.yo-dialog-pay .yo-list > .item:first-child {
+  border-top: 0.01rem solid #ddd;
+}
+.yo-dialog-pay .yo-list .item {
+  border-bottom: 0.01rem solid #ddd;
+}
+.yo-dialog-pay .yo-list .item .yo-ico {
+  color: #ccc;
+}
+.yo-dialog-pay .yo-list .item-on .yo-ico {
+  color: #1ba9ba;
+}
+

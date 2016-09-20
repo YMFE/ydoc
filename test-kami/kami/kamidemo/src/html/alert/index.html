@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>alert Demo</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/export/yo-flex.css" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/kami/alert.css" />
+</head>
+<body>
+<section class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">Alert</h2>
+        <a href="../../../index.html" class="regret yo-ico">&#xf07d;</a>
+        <span class="affirm yo-ico">&#xf067;</span>
+    </header>
+    <div class="flex" >
+        <ul class="yo-list">
+            <li class="item">
+                <div class="yo-btn yo-btn-stacked yo-btn-l js-default">单例alert</div>
+            </li>
+            <li class="item">
+                <div class="yo-btn yo-btn-stacked yo-btn-l js-polymorphic">实例alert</div>
+            </li>
+            <li class="item">
+                <div class="yo-btn yo-btn-stacked yo-btn-l js-polymorphic-noheader">实例alert无header</div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<script type="text/javascript" src="../../../prd/scripts/common.js"></script>
+<script type="text/javascript" src="../../../prd/scripts/kami-alert.js"></script>
+<script type="text/javascript">
+
+// 获取组件。require("path/to/alert")
+var Alert = Kami.Alert;
+
+function showAlert () {
+    Alert.show({
+        content: '提示',
+        title : '标题',
+        okText: '确定',
+        onok: function () {
+            Demo.log('ok')
+        }
+    });
+}
+var at;
+function polymorphicAlert(){
+    if(!at){
+        at = new Alert({
+            title: "提示",
+            content: "test"
+        });
+        at.on('ok', function(){
+            Demo.log('ok')
+        });
+        at.render();
+    }else{
+        at.setContent('teeee')
+    }
+    at.show();
+}
+var bt;
+function polymorphicAlertNoHeader() {
+
+    if (!bt) {
+        bt = new Alert({
+            // title: "提示",
+            content: "test"
+        });
+        bt.on('ok', function(){
+            Demo.log('ok')
+        });
+        bt.render();
+    }else{
+        bt.setContent('teeee')
+    }
+    bt.show();
+    
+}
+$('.js-default').tap( showAlert )
+$('.js-polymorphic').tap( polymorphicAlert )
+$('.js-polymorphic-noheader').tap( polymorphicAlertNoHeader )
+
+
+</script>
+</body>
+</html>

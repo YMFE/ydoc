@@ -1,0 +1,42 @@
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">QApp中使用kami</h2>
+        <a href="../../../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <div class="yo-list yo-list-group">
+            <h2 class="label">Panel:</h2>
+            <div class="item item-active" action-type="panel">
+                <i class="yo-ico">&#xf078;</i>
+                <span class="flex">通过实例打开Panel</span>
+                <i class="yo-ico">&#xf03e;</i>
+            </div>
+            <div class="item item-active" action-type="panel-attr">
+                <i class="yo-ico">&#xf078;</i>
+                <span class="flex">通过属性打开Panel</span>
+                <i class="yo-ico">&#xf03e;</i>
+            </div>
+
+            <h2 class="label">PageList:</h2>
+            <div class="item item-active" action-type="pagelist">
+                <i class="yo-ico">&#xf078;</i>
+                <span class="flex">常用pagelist样式</span>
+                <i class="yo-ico">&#xf03e;</i>
+            </div>
+
+            <h2 class="label">单例调用:</h2>
+            <div class="item item-active" action-type="alert-singleton">
+                <i class="yo-ico">&#xf078;</i>
+                <span class="flex">Alert</span>
+                <i class="yo-ico">&#xf03e;</i>
+            </div>
+
+            <h2 class="label">非单例调用:</h2>
+            <div class="item item-active" action-type="alert">
+                <i class="yo-ico">&#xf078;</i>
+                <span class="flex">Alert</span>
+                <i class="yo-ico">&#xf03e;</i>
+            </div>
+        </div>
+    </div>
+</div>

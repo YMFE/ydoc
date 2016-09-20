@@ -1,0 +1,38 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class ani
+ * @module Yo
+ */
+
+/**
+ * 定义从下面淡出动画
+ * @method fade-out-down
+ */
+
+@-webkit-keyframes fade-out-down {
+	0% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 0, 0);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0)
+	}
+}
+@keyframes fade-out-down {
+	0% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		opacity: 0;
+		transform: translate3d(0, 100%, 0)
+	}
+}
+
+.ani.fade-out-down {
+	-webkit-animation-name: fade-out-down;
+	animation-name: fade-out-down;
+}

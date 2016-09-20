@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<link rel="stylesheet" href="../../../index.css">
+	<style>
+		#target li{
+			height: 4em;
+			line-height: 4em;
+			text-indent: 2em;
+			border-bottom: 1px solid #555;
+		}
+		.top, #kamiGoTop{
+			position: fixed;
+			bottom: 20px;
+			right: 10px;
+			z-index: 100;
+			width:0px;
+			height:0px;
+			border-width:5px 15px 20px 15px;
+			border-style:solid;
+			border-color:transparent transparent rgba(0,0,0,.7) transparent ;
+		}
+		html,body{
+			height: 100%;
+			overflow: hidden;
+		}
+		#container1,#container2{
+			position: relative;
+			height: 50%;
+			width: 100%;
+			overflow: scroll;
+			border-bottom: 1px solid #000;
+		}
+		#target{
+			/*transform: translate(0,-300px) translateZ(0);*/
+
+		}
+	/*	body{
+			height: 100%;
+		}*/
+	</style>
+</head>
+<body>
+	<div id="container1">
+		<ul id="target"></ul>
+	</div>
+	<div id="container2">
+	</div>
+	<script src="../../../../prd/kami/demo/goTop/goTop-demo.js"></script>
+</body>
+</html>

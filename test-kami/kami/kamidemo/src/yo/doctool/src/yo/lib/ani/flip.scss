@@ -1,0 +1,54 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class ani
+ * @module Yo
+ */
+
+/**
+ * 定义翻转动画
+ * @method flip
+ */
+
+@-webkit-keyframes flip {
+	0% {
+		-webkit-transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
+	}
+	40% {
+		-webkit-transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
+	}
+	50% {
+		-webkit-transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
+	}
+	80% {
+		-webkit-transform: perspective(400px) scale3d(.9, .9, .9);
+	}
+	100% {
+		-webkit-transform: perspective(400px);
+	}
+}
+@keyframes flip {
+	0% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
+	}
+	40% {
+		transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
+	}
+	50% {
+		transform: perspective(400px) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
+	}
+	80% {
+		transform: perspective(400px) scale3d(.9, .9, .9);
+	}
+	100% {
+		transform: perspective(400px);
+	}
+}
+
+.ani.flip {
+	-webkit-backface-visibility: visible;
+	backface-visibility: visible;
+	-webkit-animation-name: flip;
+	animation-name: flip;
+}

@@ -1,0 +1,1 @@
+<div class="yo-loading"><div class="inner" data-role="inner"><i class="yo-ico"></i>{{content}}</div></div>

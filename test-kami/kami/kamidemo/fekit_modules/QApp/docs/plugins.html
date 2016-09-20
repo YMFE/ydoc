@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QApp Document 插件</title>
+    <link href="source/bootstrap.min.css" rel="stylesheet">
+    <link href="source/patch.css" rel="stylesheet">
+    <link href="source/docs.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="source/highlight.min.css">
+    <style>
+        blockquote.api {
+            padding: 0 10px;
+            border-left-color: #1b809e;
+            margin-top: 50px;
+        }
+
+        table.table {
+            border: 1px solid #1b809e;
+        }
+
+        table.table>tbody>tr>th {
+            border-top: none;
+        }
+
+        h4 {
+            padding: 20px 0 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+
+
+<!-- Docs master nav -->
+<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="http://ued.qunar.com/mobile/">X1</a>
+                </li>
+                <li class="active">
+                    <a href="index.html">QApp</a>
+                </li>
+                <li>
+                    <a href="http://ued.qunar.com/mobile/kami/">Kami</a>
+                </li>
+                <li>
+                    <a href="http://ued.qunar.com/mobile/yo/demo/">Yo</a>
+                </li>
+                <li>
+                    <a href="http://hy.qunar.com/source/qunarapi.html">QunarAPI</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Docs page layout -->
+
+<hr style="border-color: #6f5499; margin: 0"/>
+
+<header class="navbar navbar-static-top bs-docs-nav">
+    <div class="container">
+        <nav class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                
+                <li class="">
+                    <a href="index.html">简介</a>
+                </li>
+                
+                <li class="">
+                    <a href="getting-started.html">起步</a>
+                </li>
+                
+                <li class="">
+                    <a href="api.html">API</a>
+                </li>
+                
+                <li class="">
+                    <a href="hybird.html">混合开发</a>
+                </li>
+                
+                <li class="active">
+                    <a href="plugins.html">插件</a>
+                </li>
+                
+                <li class="">
+                    <a href="other.html">其他相关</a>
+                </li>
+                
+                <li class="">
+                    <a href="about.html">关于 QApp</a>
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<div class="container bs-docs-container">
+    
+    <div class="row">
+        <div class="col-md-9" role="main">
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="简介" class="page-header">简介</h1>
+            
+            <p>插件的设计是基于视图的，其 <strong>主要的</strong> 宿主对象就是视图。</p>
+
+<p>插件是可插拔的，通过配置，在创建视图时，将插件加载进去。</p>
+
+<p>插件的实现形式是重写宿主视图的方法或者根据宿主的事件进行相关针对宿主视图的操作。</p>
+
+<p>除了基于视图的，也提供基于 <code>App</code> 以及工具类的插件。</p>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-ajax" class="page-header">QApp-plugin-ajax</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-ajax-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名称: <code>ajax</code> (推荐使用 ajax2, 集成 jsonp 和 ajax);</p>
+
+<p>插件安装: <code>fekit install QApp-plugin-ajax</code></p>
+
+<p>插件版本： <strong>0.1.0</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-ajax.git</code></p>
+
+<p>插件配置: <code>{Object}</code></p>
+
+<p>基本配置如下:</p>
+
+<pre><code>{
+    &quot;charset&quot;: &quot;UTF-8&quot;,
+    &quot;timeout&quot;: 30 * 1000,
+    &quot;argsType&quot;: &quot;query&quot;,
+    &quot;method&quot;: &quot;get&quot;,
+    &quot;isEncode&quot;: false,
+    &quot;responseType&quot;: &quot;json&quot;,
+    &quot;withCredentials&quot;: false
+}</code></pre>
+
+<p>配置参数：</p>
+
+<ul><li><code>url</code>: <code>{String}</code> 请求地址。</li><li><code>charset</code>: <code>{String}</code> 编码。默认 <code>UTF-8</code> 。</li><li><code>timeout</code>: <code>{Number}</code> 请求超时时间。默认 <code>30 * 1000</code> 。</li><li><code>args</code>: <code>{Object}</code> 请求参数。</li><li><code>argsType</code>: <code>{String}</code> 请求参数类型。默认 <code>query</code> 。</li><li><code>method</code>: <code>{String}</code> 请求方式。默认 <code>get</code> 。</li><li><code>header</code>: <code>{Object}</code> 请求头信息。</li><li><code>isEncode</code>: <code>{Boolean}</code> 否是编码。默认 <code>false</code> 。</li><li><code>responseType</code>: <code>{JSON}</code> 返回数据的数据类型。默认 <code>json</code> 。</li><li><code>withCredentials</code>: <code>{Boolean}</code> 是否带有验证信息。默认 <code>false</code> 。</li><li><code>onComplete</code>: <code>{Function}</code> 请求成功后的函数调用。</li><li><code>onAbort</code>: <code>{Function}</code> 取消请求后的函数调用。</li><li><code>onFail</code>: <code>{Function}</code> 请求失败后的函数调用。</li></ul>
+
+<h4>添加的方法</h4>
+
+<blockquote><p>QApp.ajax.setBizOptions(key, opt)</p></blockquote>
+
+<p>说明：设置业务的基本参数</p>
+
+<p>参数：</p>
+
+<ul><li><code>key</code>: <code>{String|Object}</code> 业务参数关键字。当key类型为字符串时，以key-value的形式进行设置；key类型为Object时，将对象作为参数对象进行添加</li><li><code>opt</code>: <code>{String|Undefined}</code> 业务参数值</li></ul>
+
+<blockquote><p>QApp.ajax.addMock(key, mock)</p></blockquote>
+
+<p>说明：mock数据</p>
+
+<p>参数：</p>
+
+<ul><li><code>key</code>: <code>{String|Object}</code> key类型为String时，为mock数据的关键字；key的类型为Object时，表示mock数据对象。</li><li><code>mock</code>: <code>{Object}</code> mock数据</li></ul>
+
+<blockquote><p>QApp.ajax.addReqFilter(filter)</p></blockquote>
+
+<p>说明：添加请求参数的过滤函数</p>
+
+<p>参数：</p>
+
+<ul><li><code>filter</code>: <code>{Function}</code> 过滤函数</li></ul>
+
+<blockquote><p>QApp.ajax.removeReqFilter(filter)</p></blockquote>
+
+<p>说明：移除某个请求时的过滤参数</p>
+
+<p>参数：</p>
+
+<ul><li><code>filter</code>: <code>{Function}</code> 过滤函数</li></ul>
+
+<blockquote><p>QApp.ajax.addRespFilter(filter)</p></blockquote>
+
+<p>说明：添加数据的过滤函数</p>
+
+<p>参数：</p>
+
+<ul><li><code>filter</code>: <code>{Function}</code> 过滤函数</li></ul>
+
+<blockquote><p>QApp.ajax.removeRespFilter(filter)</p></blockquote>
+
+<p>说明：移除数据的过滤函数</p>
+
+<p>参数：</p>
+
+<ul><li><code>filter</code>: <code>{Function}</code> 过滤函数</li></ul>
+
+<h4>本地mock数据</h4>
+
+<p><code>QApp-plugin-ajax</code> 插件提供本地 mock 数据的功能，使用方法:</p>
+
+<pre><code>// 添加 mock 数据方式
+// QApp.ajax.addMock(&quot;key&quot;, data); or
+QApp.ajax.addMock({
+    &quot;key&quot; : data
+});
+
+self.ajax({
+    mockKey: &quot;key&quot;,
+    mock: true,
+    url: requestURL
+}).done(function (data) {
+ // TODO
+});</code></pre>
+
+<h4>使用示例</h4>
+
+<pre><code>// 在defineView时，plugins 内添加 ajax
+// 正常的 ajax 请求
+self.ajax({
+    url: requestURL
+}).done(function (data) {
+    // TODO
+}).fail(function () {
+    // TODO
+})</code></pre>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-ajax-历史版本" class="page-header">历史版本</h2>
+            
+            <h2>Changelog</h2>
+
+<h3>0.1.1</h3>
+
+<ul><li>fixed bizOptions bug</li></ul>
+
+<h3>0.1.0</h3>
+
+<ul><li>优化并适配 新版 QApp</li></ul>
+
+<h3>0.0.5</h3>
+
+<ul><li>fixed: fixed bug</li></ul>
+
+<h3>0.0.4</h3>
+
+<ul><li>fixed: bizType配置被覆盖问题</li></ul>
+
+<h3>0.0.3</h3>
+
+<ul><li>加入的 mockTime 参数</li></ul>
+
+<h3>0.0.2</h3>
+
+<ul><li>reqFilter 和 respFilter 支持 return false 阻止原有逻辑</li></ul>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-ajax2" class="page-header">QApp-plugin-ajax2</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-ajax2-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名称: <code>ajax2</code> (适配 jQuery 风格，集成 jsonp 和 ajax)</p>
+
+<p>插件安装: <code>fekit install QApp-plugin-ajax2</code></p>
+
+<p>插件版本： <strong>0.1.0</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-ajax2.git</code></p>
+
+<p>插件配置: <code>{Object}</code></p>
+
+<p>基本配置如下:</p>
+
+<pre><code>{
+    &quot;charset&quot;: &quot;UTF-8&quot;,
+    &quot;timeout&quot;: 30 * 1000,
+    &quot;argsType&quot;: &quot;query&quot;,
+    &quot;method&quot;: &quot;get&quot;,
+    &quot;isEncode&quot;: false,
+    &quot;responseType&quot;: &quot;json&quot;,
+    &quot;withCredentials&quot;: false
+}</code></pre>
+
+<p>配置参数：</p>
+
+<ul><li><code>url</code>: <code>{String}</code> 请求地址。</li><li><code>bizType</code>: <code>{String}</code> 业务中默认参数设置。默认 <code>false</code> 。</li><li><code>charset</code>: <code>{String}</code> 编码。默认 <code>UTF-8</code> 。</li><li><code>timeout</code>: <code>{Number}</code> 请求超时时间。默认 <code>30 * 1000</code> 。</li><li><code>data</code>: <code>{Object}</code> 请求参数。</li><li><code>argsType</code>: <code>{String}</code> 请求参数类型。默认 <code>query</code> 。</li><li><code>method</code>: <code>{String}</code> 请求方式。默认 <code>get</code> 。</li><li><code>headers</code>: <code>{Object}</code> 请求头信息。</li><li><code>isEncode</code>: <code>{Boolean}</code> 否是编码。默认 <code>false</code> 。</li><li><code>dataType</code>: <code>{JSON}</code> 返回数据的数据类型。默认 <code>json</code> 。</li><li><code>withCredentials</code>: <code>{Boolean}</code> 是否带有验证信息。默认 <code>false</code> 。</li><li><code>jsonp</code>: <code>{String}</code> 为 jsonp 请求重写回调函数名对应的 key。这个值用来替代在 url 中&quot;callback=?&quot;的&quot;callback&quot;部分。</li><li><code>jsonpCallback</code>: <code>{String}</code> 为 jsonp 请求指定一个回调函数名。这个值将用来取代自动生成的随机函数名。</li><li><code>success</code>: <code>{Function}</code> 请求成功后的函数调用。</li><li><code>error</code>: <code>{Function}</code> 请求失败后的函数调用。</li><li><code>onAbort</code>: <code>{Function}</code> 取消请求后的函数调用。</li><li><code>onFail</code>: <code>{Function}</code> 请求失败后的函数调用。</li></ul>
+
+<h4>添加的方法</h4>
+
+<blockquote><p>QApp.ajax.setBizOptions(key, opt)</p></blockquote>
+
+<p>说明：设置业务的基本参数</p>
+
+<p>参数：</p>
+
+<ul><li><code>key</code>: <code>{String|Object}</code> 业务参数关键字。当key类型为字符串时，以key-value的形式进行设置；key类型为Object时，将对象作为参数对象进行添加</li><li><code>opt</code>: <code>{String|Undefined}</code> 业务参数值</li></ul>
+
+<blockquote><p>QApp.ajax.addMock(key, mock)</p></blockquote>
+
+<p>说明：mock数据</p>
+
+<p>参数：</p>
+
+<ul><li><code>key</code>: <code>{String|Object}</code> key类型为String时，为mock数据的关键字；key的类型为Object时，表示mock数据对象。</li><li><code>mock</code>: <code>{Object}</code> mock数据</li></ul>
+
+<blockquote><p>QApp.ajax.addReqFilter(filter)</p></blockquote>
+
+<p>说明：添加请求参数的过滤函数</p>
+
+<p>参数：</p>
+
+<ul><li><code>filter</code>: <code>{Function}</code> 过滤函数</li></ul>
+
+<blockquote><p>QApp.ajax.removeReqFilter(filter)</p></blockquote>
+
+<p>说明：移除某个请求时的过滤参数</p>
+
+<p>参数：</p>
+
+<ul><li><code>filter</code>: <code>{Function}</code> 过滤函数</li></ul>
+
+<blockquote><p>QApp.ajax.addRespFilter(filter)</p></blockquote>
+
+<p>说明：添加数据的过滤函数</p>
+
+<p>参数：</p>
+
+<ul><li><code>filter</code>: <code>{Function}</code> 过滤函数</li></ul>
+
+<blockquote><p>QApp.ajax.removeRespFilter(filter)</p></blockquote>
+
+<p>说明：移除数据的过滤函数</p>
+
+<p>参数：</p>
+
+<ul><li><code>filter</code>: <code>{Function}</code> 过滤函数</li></ul>
+
+<h4>本地mock数据</h4>
+
+<p><code>QApp-plugin-ajax</code> 插件提供本地 mock 数据的功能，使用方法:</p>
+
+<pre><code>// 添加 mock 数据方式
+// QApp.ajax.addMock(&quot;key&quot;, data); or
+QApp.ajax.addMock({
+    &quot;key&quot; : data
+});
+
+self.ajax({
+    mockKey: &quot;key&quot;,
+    mock: true,
+    url: requestURL
+}).done(function (data) {
+ // TODO
+});</code></pre>
+
+<h4>使用示例</h4>
+
+<pre><code>// 在defineView时，plugins 内添加 ajax
+// 正常的 ajax 请求
+self.ajax({
+    url: requestURL
+}).done(function (data) {
+    // TODO
+}).fail(function () {
+    // TODO
+})</code></pre>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-ajax2-历史版本" class="page-header">历史版本</h2>
+            
+            <h2>Changelog</h2>
+
+<h3>0.1.0</h3>
+
+<ul><li>合并原 ajax 插件和 jsonp 插件</li><li>api 使用 jQuery 风格</li></ul>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-artTemplate" class="page-header">QApp-plugin-artTemplate</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-artTemplate-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名称: <code>artTemplate</code></p>
+
+<p>插件安装: <code>fekit install QApp-plugin-artTemplate</code></p>
+
+<p>插件版本： <strong>0.1.0</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-arttemplate.git</code></p>
+
+<h4>重写或添加的方法</h4>
+
+<p>添加的方法 <code>renderData(key, data, container, appendType)</code></p>
+
+<ul><li>Param <code>key</code>: <code>{String}</code> 关键字</li><li>Param <code>data</code>: <code>{Object}</code> 渲染数据</li><li>Param <code>container</code>: <code>{String}</code> node的选择器</li><li>Param <code>appendType</code>: <code>{String}</code> 插入位置设置，值为<code>beforebegin</code>(插入目标节点前)、<code>afterbegin</code>(插入到目标节点的第一个子节点前)、<code>inner</code>(替换目标内子元素)、<code>beforeend</code>(插入到目标节点的最后子节点之后)、<code>afterend</code>(插入到目标节点之后)</li></ul>
+
+<h4>示例</h4>
+
+<pre><code>QApp.defineView(&#39;name&#39; {
+    html: &#39;&lt;p&gt;{{name}}&lt;/p&gt;&#39;,
+    plugins: [{
+        name: &#39;artTemplate&#39;,
+        options: {
+            global: {
+                data: {&#39;name&#39;: &#39;david&#39;}
+            }
+        }
+    }]
+});
+
+// 动态渲染
+QApp.defineView(&#39;pageA.pageA-1&#39;, {
+    html: html,
+    plugins: [{
+        name: &#39;artTemplate&#39;,
+        options: {
+            key: {
+                template : tpl,
+                container : &#39;[node-type=hoganContainer]&#39;,
+                appendType : &#39;inner&#39;
+            }
+        }
+    }],
+    init: {
+        myFunc: function() {
+            this.renderData(&#39;key&#39;, { // render data
+                data: data
+            });
+        }
+    }
+});</code></pre>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-artTemplate-历史版本" class="page-header">历史版本</h2>
+            
+            <h2>Changelog</h2>
+
+<h3>0.1.0</h3>
+
+<ul><li>优化并适配 新版 QApp</li></ul>
+
+<h3>0.0.3</h3>
+
+<ul><li>增加 exports 导出形式</li></ul>
+
+<h3>0.0.2</h3>
+
+<ul><li>global 支持 view.param 参数</li></ul>
+
+<h3>0.0.1 新版本</h3>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-avalon" class="page-header">QApp-plugin-avalon</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-avalon-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名称: <code>avalon</code></p>
+
+<p>插件安装: <code>fekit install QApp-plugin-avalon</code></p>
+
+<p>插件版本： <strong>0.1.0</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-avalon.git</code></p>
+
+<p>插件配置：<code>Function</code> 或者 <code>Map&lt;String, Function&gt;</code></p>
+
+<ul><li>当配置为 <code>Function</code> 时，则是一个 <code>factory</code>， 然后以 <code>View</code> 的 <code>root</code> 为根节点，并在其上自己添加 <code>ms-controller</code> ， 并 <code>scan</code>。</li><li>当配置为 <code>Map</code> 时，则是多个 <code>factory</code> ，相应的<code>key</code> 则是其<code>id</code>，需要用户自己在模板上添加 <code>ms-controller</code>。</li></ul>
+
+<p>注：</p>
+
+<ul><li><code>avalon</code> 的 <code>factory</code> 没有绑定 <code>context (this)</code>。</li><li>插件将 <code>context (this)</code> 设置成当前的 <code>View</code> 实体。</li></ul>
+
+<p>示例:</p>
+
+<pre><code>{
+    name: &#39;avalon&#39;,
+    options: function(vm) {
+        //TODO
+    }
+}</code></pre>
+
+<p>在 <code>View</code> 的 <code>extra</code> 配置中配置 <code>vmcache</code> 可开启 <code>vm</code> 缓存功能。</p>
+
+<h4>重写或添加的方法</h4>
+
+<p>添加的方法: <code>getVM(key)</code></p>
+
+<ul><li>Param <code>key</code>: <code>{Undefined|String}</code> 关键字</li><li>Return <code>{VModel}</code></li><li>当包含单一的 <code>vm</code> 时，用 <code>getVM()</code> 获取；如果是包含多个 <code>vm</code> 时，用 <code>getVM(key)</code>，<code>key</code> 为 <code>vm</code> 的 <code>id</code>。</li></ul>
+
+<p>重写的方法: <code>mergeParam(newParam)</code></p>
+
+<ul><li>逻辑和原来一样，增加了更改 <code>vm</code> 的逻辑。</li></ul>
+
+<p>重写的方法: <code>destory()</code></p>
+
+<ul><li>和原来逻辑一样，增加了序列化保存 <code>vm</code> 的逻辑。</li></ul>
+
+<h4>其他事宜</h4>
+
+<p>重写了 <code>QApp.addWidget</code> 方法，对于此方法的说明，详见 <code>widget.md</code>。</p>
+
+<p>作用是，将注册到 <code>QApp</code> 的组件，同时注册到 <code>avalon</code> 组件内。可以使用 <code>ms-widget=qapp-组件名</code> 的形式调用，主要解决，<code>avalon</code> 的 <code>vm</code> 更改，影响到 <code>Dom</code> 增添时，会触发组件的逻辑。</p>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-avalon-历史版本" class="page-header">历史版本</h2>
+            
+            <h2>Changelog</h2>
+
+<h3>0.1.0</h3>
+
+<ul><li>优化并适配 新版 QApp</li></ul>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-basic" class="page-header">QApp-plugin-basic</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-basic-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名称: <code>basic</code></p>
+
+<p>插件安装: <code>fekit install QApp-plugin-basic</code></p>
+
+<p>插件版本： <strong>0.1.0</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-basic.git</code></p>
+
+<p>基础插件组，主要用于视图的展现效果，
+通过 open 和 show 中配置 ani 使用，
+其中包括 dialog, actionSheet, popup 三个动画插件。</p>
+
+<p>PS: <strong>moveEnter</strong> 插件放到 <code>QApp</code> 核心包内，作为默认效果。</p>
+
+<h4>MoveEnter 插件说明</h4>
+
+<p>插件名称: <code>moveEnter</code> </p>
+
+<p>插件配置：<code>{Object}</code></p>
+
+<p>基本配置如下:</p>
+
+<p><code>
+{
+    &quot;autoHide&quot;: true,
+    &quot;position&quot;: &quot;right&quot;,
+    &quot;distance&quot;: 0,
+    &quot;duration&quot;: 300
+}
+</code></p>
+
+<p>配置参数：</p>
+
+<ul><li><code>autoHide</code>: <code>{Boolean}</code> 是否自动隐藏。 默认 <code>true</code> 。</li><li><code>position</code>: <code>{String}</code> 从何方移入。 默认 <code>right</code> 。可能的值 <code>right</code> | <code>left</code></li><li><code>distance</code>: <code>{Number}</code> 移入距离。 默认 <code>0</code>。 （如果为 <code>0</code>， 自动获取视图的对应尺寸作为 <code>distance</code>， 当 <code>App</code> 的 <code>type</code> 为 <code>mobile</code> 时，默认全屏尺寸）</li><li><code>duration</code>: <code>{Number}</code> 动画效果时长。 默认 <code>300</code>。</li></ul>
+
+<h4>重写或添加的方法</h4>
+
+<p>重写 <code>show</code> 和 <code>hide</code> 方法，两个方法均没参数。</p>
+
+<h4>Dialog 插件说明</h4>
+
+<p>插件名称: <code>dialog</code></p>
+
+<p>插件配置：<code>{Object}</code></p>
+
+<p>基本配置如下:</p>
+
+<p><code>
+{
+    &quot;autoHide&quot;: false,
+    &quot;maskColor&quot;: &quot;#000&quot;,
+    &quot;maskOpacity&quot;: &quot;0.4&quot;,
+    &quot;duration&quot;: 200,
+    &quot;width&quot;: 0,
+    &quot;height&quot;: 0
+}
+</code></p>
+
+<p>配置参数：</p>
+
+<ul><li><code>autoHide</code>: <code>{Boolean}</code> 是否自动隐藏。 默认 <code>false</code> 。</li><li><code>maskColor</code>: <code>{String}</code> 蒙层颜色。 默认 <code>#CCC</code> 。</li><li><code>maskOpacity</code>: <code>{String}</code> 蒙层透明度。 默认 <code>0.5</code>。</li><li><code>duration</code>: <code>{Number}</code> 动画效果时长。 默认 <code>300</code>。</li><li><code>width</code>: <code>{Number}</code> <code>dialog</code> 宽度。 默认 <code>0</code>。（如果为 <code>0</code>， 自动获取视图的宽度）</li><li><code>height</code>: <code>{Number}</code> <code>dialog</code> 高度。 默认 <code>0</code>。（如果为 <code>0</code>， 自动获取视图的高度）</li></ul>
+
+<h4>重写或添加的方法</h4>
+
+<p>重写 <code>show</code> 和 <code>hide</code> 方法，两个方法均没参数。</p>
+
+<h4>Popup 插件说明</h4>
+
+<p>插件名称: <code>popup</code></p>
+
+<p>插件配置：<code>{Object}</code></p>
+
+<p>基本配置如下:</p>
+
+<p><code>
+{
+  &quot;autoHide&quot;: true,
+  &quot;autoDirection&quot;: true,
+  &quot;direction&quot;: &quot;right&quot;,
+  &quot;duration&quot;: 100,
+  &quot;width&quot;: 0,
+  &quot;height&quot;: 0,
+  &quot;position&quot;: &quot;center&quot;
+}
+</code></p>
+
+<p>配置参数：</p>
+
+<ul><li><code>autoHide</code>: <code>{Boolean}</code> 是否自动隐藏。 默认 <code>true</code> 。</li><li><code>autoDirection</code>: <code>{Boolean}</code> 自动选择方向。 默认 <code>true</code> 。</li><li><code>direction</code>: <code>{String}</code> 从何方移入。 默认 <code>right</code> 。可能的值 <code>right</code> | <code>left</code> | <code>top</code> | <code>bottom</code></li><li><code>duration</code>: <code>{Number}</code> 动画效果时长。 默认 <code>100</code>。</li><li><code>width</code>: <code>{Number}</code> <code>popup</code> 宽度。 默认 <code>0</code>。</li><li><code>height</code>: <code>{Number}</code> <code>popup</code> 高度。 默认 <code>0</code>。</li><li><code>position</code>: <code>{String}</code> 上下显示时的居中情况。 默认 <code>center</code> 。可能的值 <code>center</code> | <code>right</code> | <code>left</code></li></ul>
+
+<h4>重写或添加的方法</h4>
+
+<p>重写 <code>show</code> 和 <code>hide</code> 方法，<code>show</code>方法有参数，要指定显示时相对应的 <code>element</code>。</p>
+
+<h4>ActionSheet 插件说明</h4>
+
+<p>插件名称: <code>actionSheet</code></p>
+
+<p>插件配置：<code>{Object}</code></p>
+
+<p>基本配置如下:</p>
+
+<p><code>
+{
+  &quot;autoHide&quot;: true,
+  &quot;distance&quot;: 0,
+  &quot;duration&quot;: 200, 
+  &quot;showMask&quot;: true,
+  &quot;maskColor&quot;: &quot;#000&quot;,
+  &quot;maskOpacity&quot;: &quot;0.4&quot;
+}
+</code></p>
+
+<p>配置参数：</p>
+
+<ul><li><code>autoHide</code>: <code>{Boolean}</code> 是否自动隐藏。 默认 <code>false</code> 。</li><li><code>distance</code>: <code>{Number}</code> 移入距离。 默认 <code>0</code>。</li><li><code>duration</code>: <code>{Number}</code> 动画效果时长。 默认 <code>200</code>。</li><li><code>showMask</code>: <code>{Booleamn}</code> 是否显示蒙层。 默认 <code>true</code>。</li><li><code>maskColor</code>: <code>{String}</code> 蒙层颜色。 默认 <code>#000</code> 。</li><li><code>maskOpacity</code>: <code>{String}</code> 蒙层透明度。 默认 <code>0.4</code>。</li></ul>
+
+<h4>重写或添加的方法</h4>
+
+<p>重写 <code>show</code> 和 <code>hide</code> 方法，两个方法均没参数。</p>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-basic-历史版本" class="page-header">历史版本</h2>
+            
+            <h2>Changelog</h2>
+
+<h3>0.1.0</h3>
+
+<ul><li>优化并适配 新版 QApp</li><li>actionSheet: 消除 qapp-view 标签上 css <code>height: 100%</code> 对移动距离的影响</li><li>moveEnter: 移除 moveEnter 插件（已成为 QApp 默认动画样式）</li><li>移除 pop 组件</li></ul>
+
+<h3>0.0.4</h3>
+
+<ul><li>更改 moveEnter panBack， config 配置方式（原为 config.app 为 true， 现为 type 为 app）</li><li>添加 basic 插件是，自动设定 defaultAnimate 为 moveEnter</li><li>moveEnter autoHide 默认改为 false</li><li>fixed simpleShow 判定中的一个问题</li></ul>
+
+<h3>0.0.3</h3>
+
+<ul><li>监听事件从 actived 到 completed</li></ul>
+
+<h3>0.0.2</h3>
+
+<ul><li>修复 moveEnter 时，两次触发 beforeHide 的问题。</li></ul>
+
+<h3>0.0.1 新版本</h3>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-delegated" class="page-header">QApp-plugin-delegated</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-delegated-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名称: <code>delegated</code></p>
+
+<p>插件安装: <code>fekit install QApp-plugin-delegated</code></p>
+
+<p>插件版本： <strong>0.1.1</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-delegated.git</code></p>
+
+<p>插件配置：<code>{Object}</code></p>
+
+<p>默认配置如下:</p>
+
+<p><code>
+{
+    &quot;tag&quot;: &quot;action-type&quot;,
+    &quot;eventType&quot;: &quot;tap&quot;
+}
+</code></p>
+
+<p>配置参数：</p>
+
+<ul><li><code>tag</code>: <code>{String}</code> 监听DOM中具有<code>action-type</code>属性的节点。</li><li><code>eventType</code>: <code>{String}</code> 事件类型，默认为<code>tap</code>事件。</li></ul>
+
+<h4>重写或添加的方法</h4>
+
+<p>添加的方法: <code>bind(action, eventType, process)</code></p>
+
+<ul><li>Param <code>action</code>: <code>{String}</code> 监听关键字</li><li>Param <code>eventType</code>: <code>{String|Function}</code> 事件类型或处理函数</li><li>Param <code>process</code>: <code>{Function}</code> 处理函数</li><li>Return <code>{Undefined}</code></li></ul>
+
+<h4>示例</h4>
+
+<p><code>
+QApp.defineView(&#39;name&#39; {
+    html: &#39;&lt;p action-type=&quot;abc&quot; data-arg=&quot;xyz&quot;&gt;Some&lt;/p&gt;&lt;p action-type=&quot;def&quot; data-arg=&quot;xyz&quot;&gt;Any&lt;/p&gt;&#39;,
+    plugins: [{
+        name: &#39;delegated&#39;,
+        options: {
+            tag: &#39;aciton-type&#39;,
+            eventType: &#39;tap&#39;
+        }
+    }],
+    ready: function() {
+        this.bind(&#39;abc&#39;, function(e, data) {
+            // data.arg === &#39;xyz&#39;
+        });
+    },
+    bindActions: {
+        &#39;def&#39; : function(e, data) {
+            // data.arg === &#39;xyz&#39;
+        }
+    }
+});
+</code></p>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-delegated-历史版本" class="page-header">历史版本</h2>
+            
+            <h2>Changelog</h2>
+
+<h3>0.1.1</h3>
+
+<ul><li>添加销毁时方法存在的判断</li></ul>
+
+<h3>0.1.0</h3>
+
+<ul><li>优化并适配 新版 QApp</li></ul>
+
+<h3>0.0.3</h3>
+
+<ul><li>简化时间绑定</li></ul>
+
+<h3>0.0.2</h3>
+
+<ul><li>修复 不能阻止事件冒泡的问题。</li></ul>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-doms" class="page-header">QApp-plugin-doms</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-doms-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名称: <code>doms</code></p>
+
+<p>插件安装: <code>fekit install QApp-plugin-doms</code></p>
+
+<p>插件版本： <strong>0.1.0</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-doms.git</code></p>
+
+<p>插件配置：<code>{Object}</code></p>
+
+<p>配置参数：</p>
+
+<ul><li><code>tag</code>: <code>{String}</code> 查找DOM中具有相同属性的节点，并建立以值建立映射。默认为 <code>node-type</code>。</li></ul>
+
+<p>说明：</p>
+
+<p>通过 view.doms 访问属性为 tag 的节点。</p>
+
+<h4>重写或添加的方法</h4>
+
+<p>添加的方法: <code>find(type)</code></p>
+
+<ul><li>Param <code>type</code>: <code>{String}</code> node-type属性值</li></ul>
+
+<p>在 view 的 ready 事件阶段后，可以通过view.find方法快速访问 node 节点。</p>
+
+<h4>示例</h4>
+
+<p><code>
+QApp.defineView(&#39;name&#39; {
+    html: &#39;&lt;p node-type=&quot;abc&quot;&gt;Some&lt;/p&gt;&#39;,
+    plugins: [{
+        name: &#39;doms&#39;,
+        options: {
+            tag: &#39;node-type&#39;
+        }
+    }],
+    init: {
+        pHandler: function(event) {
+            // this.doms.abc === &lt;p/&gt;
+        }
+    },
+    ready: function() {
+        var p = view.find(&#39;abc&#39;), // p === &lt;p /&gt;
+            self = this;
+        p.addEventListener(&#39;tap&#39;, self.pHandler, false)
+    }
+});
+</code></p>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-doms-历史版本" class="page-header">历史版本</h2>
+            
+            <h2>Changelog</h2>
+
+<h3>0.1.0</h3>
+
+<ul><li>优化并适配 新版 QApp</li></ul>
+
+<h5>0.0.2</h5>
+
+<ul><li>fixed find的问题，强制加 &quot; 符号，以免出问题。（例如 node-type=&quot;value=1&quot;, PS: 属性值里理论不应该含有 = , 有需要转义。）</li></ul>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-globalContext" class="page-header">QApp-plugin-globalContext</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-globalContext-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名：<code>globalContext</code></p>
+
+<p>插件安装: <code>fekit install QApp-plugin-globalContext</code></p>
+
+<h4>简介</h4>
+
+<p>====================</p>
+
+<p>插件版本： <strong>0.1.0</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-globalContext.git</code></p>
+
+<p>全局工具类插件，本地存储组件。</p>
+
+<h4>使用方式</h4>
+
+<blockquote><p>QApp.util.globalContext.set(key, value)</p><p>QApp.util.globalContext.get(key)</p><p>QApp.util.globalContext.addLocalKeys(key)</p><p>QApp.util.globalContext.merge(key, value)</p><p>QApp.util.globalContext.remove(key)</p><p>QApp.util.globalContext.clear(key)</p></blockquote>
+
+<p><strong>注意事项：</strong></p>
+
+<p>所有多个webview之间通用的数据，使用前都需要通过<code>QApp.util.globalContext.addLocalKeys</code>来注册。</p>
+
+<p>SPA项目（比如touch项目）不需要注册。</p>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-hogan" class="page-header">QApp-plugin-hogan</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-hogan-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名称: <code>hogan</code></p>
+
+<p>插件安装: <code>fekit install QApp-plugin-hogan</code></p>
+
+<p>插件版本： <strong>0.1.0</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-hogan.git</code></p>
+
+<p>插件配置：<code>{Object|Function}</code></p>
+
+<ul><li>当为 <code>Function</code> 时，执行结果为配置，并且方法 <code>context</code> 为此视图 <code>View</code> 示例。</li><li>配置有两个属性, <code>data</code> 为模板数据，<code>options</code> 为 <code>hogan</code> 配置。</li></ul>
+
+<h4>重写或添加的方法</h4>
+
+<p>添加的方法 <code>renderData(key, data, hoganOpt, container, appendType)</code></p>
+
+<ul><li>Param <code>key</code>: <code>{String}</code> 关键字</li><li>Param <code>data</code>: <code>{Object}</code> 渲染数据</li><li>Param <code>hoganOpt</code>: <code>{Object}</code> 参数对象</li><li>Param <code>container</code>: <code>{String}</code> node的选择器</li><li>Param <code>appendType</code>: <code>{String}</code> 插入位置设置，值为<code>beforebegin</code>(插入目标节点前)、<code>afterbegin</code>(插入到目标节点的第一个子节点前)、<code>inner</code>(替换目标内子元素)、<code>beforeend</code>(插入到目标节点的最后子节点之后)、<code>afterend</code>(插入到目标节点之后)</li></ul>
+
+<h4>示例</h4>
+
+<pre><code>QApp.defineView(&#39;name&#39; {
+    html: &#39;&lt;p&gt;{{name}}&lt;/p&gt;&#39;,
+    plugins: [{
+        name: &#39;hogan&#39;,
+        options: {
+            global: {
+                data: {&#39;name&#39;: &#39;david&#39;}
+            }
+        }
+    }]
+});
+
+// 动态渲染
+QApp.defineView(&#39;pageA.pageA-1&#39;, {
+    html: html,
+    plugins: [&#39;hogan&#39;],
+    hoganOptions: {
+        // 模板配置
+        key: {
+            template : tpl,
+            container : &#39;[node-type=hoganContainer]&#39;,
+            appendType : &#39;inner&#39;
+        }
+    },
+    init: {
+        myFunc: function() {
+            this.renderData(&#39;key&#39;, {
+                data: data // hogan data
+            });
+        }
+    }
+});</code></pre>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-hogan-历史版本" class="page-header">历史版本</h2>
+            
+            <h2>Changelog</h2>
+
+<h3>0.1.0</h3>
+
+<ul><li>优化并适配 新版 QApp</li></ul>
+
+<h3>0.0.2</h3>
+
+<ul><li>global 支持 view.param 参数</li></ul>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-jsonp" class="page-header">QApp-plugin-jsonp</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-jsonp-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名称: <code>jsonp</code> (推荐使用 ajax2, 集成 jsonp 和 ajax);</p>
+
+<p>插件安装: <code>fekit install QApp-plugin-jsonp</code></p>
+
+<p>插件版本： <strong>0.1.0</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-jsonp.git</code></p>
+
+<p>插件配置: <code>{Object}</code></p>
+
+<p>基本配置如下:</p>
+
+<p><code>
+{
+    &quot;charset&quot;: &quot;UTF-8&quot;,
+    &quot;timeout&quot;: 30 * 1000,
+    &quot;argsType&quot;: &quot;query&quot;,
+    &quot;method&quot;: &quot;get&quot;,
+    &quot;bizType&quot;: false,
+    &quot;callbackName&quot;: &quot;callback&quot;
+}
+</code></p>
+
+<p>配置参数：</p>
+
+<ul><li><code>url</code>: <code>{String}</code> 请求地址。</li><li><code>charset</code>: <code>{String}</code> 编码。默认 <code>UTF-8</code> 。</li><li><code>timeout</code>: <code>{Number}</code> 请求超时时间。默认 <code>30 * 1000</code> 。</li><li><code>args</code>: <code>{Object}</code> 请求参数。</li><li><code>bizType</code>: <code>{String}</code> 业务中默认参数设置。默认 <code>false</code> 。</li><li><code>callbackName</code>: <code>{String}</code> 回调函数名。</li><li><code>onComplete</code>: <code>{Function}</code> 请求成功后的函数调用。</li><li><code>onTimeout</code>: <code>{Function}</code> 请求超时后的函数调用。</li><li><code>onFail</code>: <code>{Function}</code> 请求失败后的函数调用。</li></ul>
+
+<h4>配置业务参数</h4>
+
+<p><code>jsonp</code> 插件能够动态添加业务所需的参数：</p>
+
+<p>添加业务所需参数方法: <code>QApp.jsonp.setBizOptions(key, opt)</code></p>
+
+<ul><li><code>key</code>: <code>{Object|String}</code> 含有特定参数的对象或关键字。</li><li><code>opt</code>: <code>{Object|Undefined}</code> 含有特定参数的对象。</li></ul>
+
+<h4>示例</h4>
+
+<p><code>
+// 在defineView时，plugins 内添加 jsonp
+// 正常的 jsonp 请求
+this.jsonp({
+	url: requestURL
+})
+</code></p>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-jsonp-历史版本" class="page-header">历史版本</h2>
+            
+            <h2>Changelog</h2>
+
+<h3>0.1.0</h3>
+
+<ul><li>优化并适配 新版 QApp</li></ul>
+
+<h3>0.0.3</h3>
+
+<ul><li>fixed：args一直没有的问题</li></ul>
+
+<h3>0.0.2</h3>
+
+<ul><li>参数变更</li><li>支持修改 callbackName</li><li>代码优化</li></ul>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-scroll" class="page-header">QApp-plugin-scroll</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-scroll-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名：<code>scroll</code> （同时包含<code>scroll</code>组件）</p>
+
+<p>插件安装: <code>fekit install QApp-plugin-scroll</code></p>
+
+<p>插件版本： <strong>0.1.4</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-scroll.git</code></p>
+
+<p>说明：滚动插件，对 <code>iScroll</code> 进行封装，包含 <code>nScroll</code> 和 <code>avalon.iscroll</code>，并包括 <code>scroll</code> 组件。</p>
+
+<p><code>QApp</code> 中滚动依赖库为 <code>iScroll</code>， 版本是 <code>probe</code> <code>5.1.3</code> 版，文档 <a href="http://iscrolljs.com/">iscrolljs.com</a>。</p>
+
+<p>希望使用 <code>scroll</code> 的同学可以了解一下 <code>iscroll</code>，这个组件是世界上<strong>最好</strong>的前端滚动组件，<strong>没有之一</strong>。</p>
+
+<p>这里列一下 <code>iscroll</code> 必须 <code>注意</code> 的问题：（一般情况）</p>
+
+<ul><li>滚动的父容器，同时也是 <code>iScroll</code> 配置的第一个参数 <code>el</code>，此元素必须是 <code>可单独计算高度</code> 的，也就是不依赖于内部元素的。（当然你横向滚动时，需要的是宽度）</li><li>父容器应该是 <code>overflow:hidden</code> 的，这样可以显示成内部区域可滚动。</li><li>父容器需包含一个子节点<code>container</code>用来滚动，<strong>这是 <code>iScroll</code> 约定的</strong>，这个节点的<code>size</code>是滚动计算的依据。</li></ul>
+
+<p>对于目前业务中的可动态加载的大列表，进行了优化，添加了懒加载功能。
+使用的是基于<code>iscroll</code>自己编写的<code>nscroll</code>组件。</p>
+
+<h4>如何使用</h4>
+
+<p>最常用的方式是通过组件的方式。</p>
+
+<p>开发者可以用在父容器上添加 <code>qapp-widget=&quot;scroll&quot;</code> 的方式使用，此时父容器需要定高。</p>
+
+<h4>有关Avalon</h4>
+
+<p>由于业务中多使用 <code>avalon</code> ，所以自己额外开发了<code>avalon.iscroll</code>组件。</p>
+
+<p>对于<code>avalon.iscroll</code>的说明如下：</p>
+
+<ul><li>添加 <code>ms-iscroll</code> 命令， 值为 <code>id, opt</code>, 和<code>avalon.oniui</code>类似。</li></ul>
+
+<p>如果使用加载功能：</p>
+
+<ul><li><code>dom</code> 需要结构与 <code>iscroll</code> 相同，因此，孙子节点应该是<code>ms-repeat</code>元素。</li><li>因为要计算位置，所以每个元素的初始位置都应该是<code>(0, 0)</code>，不论怎么实现（<code>absolute</code>或使用<code>margin</code>进行偏移）。</li><li>在定义<code>vm</code>时，如果是循环元素是<code>list</code>，那么需要用户主动添加僵尸元素<code>list$</code>。</li></ul>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-scroll-历史版本" class="page-header">历史版本</h2>
+            
+            <h2>Changelog</h2>
+
+<h3>0.1.4</h3>
+
+<ul><li>修正部分机型白屏问题。Android 4.3 及更低版本下，QApp view 默认动画样式 moveEnter 初始会先让 view visibility: hidden，导致 iScroll 部分白屏。因此需在 view show 后创建 iScroll 实例。</li></ul>
+
+<h3>0.1.3</h3>
+
+<ul><li>修正通过 <code>view.scanWidget</code> 方法无法生成 scroll 的 bug</li></ul>
+
+<h3>0.1.2</h3>
+
+<ul><li>修正通过 <code>data-scroll-id</code> 指定组件名，但 <code>view.widget.scrollid</code> 为空对象的 bug</li></ul>
+
+<h3>0.1.1</h3>
+
+<ul><li>修正安卓 5.0 更低版本，由于 <code>touchmove</code> 只被触发一次导致的卡顿现象</li><li>修正安卓 4.3 及更低版本，iScroll 部分白屏</li></ul>
+
+<h3>0.1.0</h3>
+
+<ul><li>优化并适配 新版 QApp</li></ul>
+
+<h3>0.0.2</h3>
+
+<ul><li>scroll 组件 增加默认 配置</li></ul>
+
+<h3>0.0.1 新版本</h3>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-storage" class="page-header">QApp-plugin-storage</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-storage-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名：<code>storage</code></p>
+
+<p>插件安装: <code>fekit install QApp-plugin-storage</code></p>
+
+<h4>简介</h4>
+
+<p>====================</p>
+
+<p>插件版本： <strong>0.2.0</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-storage.git</code></p>
+
+<p>全局工具类插件，本地存储组件，新增了<code>QApp.util.globalContext</code>，推荐使用<code>QApp.util.globalContext</code>来存取数据</p>
+
+<h4>使用方式</h4>
+
+<blockquote><p>QApp.util.globalContext.set(key, value)</p><p>QApp.util.globalContext.get(key)</p><p>QApp.util.globalContext.addLocalKeys(key)</p><p>QApp.util.globalContext.merge(key, value)</p><p>QApp.util.globalContext.remove(key)</p><p>QApp.util.globalContext.clear(key)</p></blockquote>
+
+<p><strong>注意事项：</strong></p>
+
+<p>所有多个webview之间通用的数据，使用前需要通过<code>QApp.util.globalContext.addLocalKeys</code>来注册。</p>
+
+<p>====================</p>
+
+<p>插件版本： <strong>0.1.0</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-storage.git</code></p>
+
+<p>全局工具类插件，本地存储组件，封装<code>localStorage</code>和<code>sessionStorage</code>，支持缓存，支持数据项存在时长。</p>
+
+<h4>使用方式</h4>
+
+<blockquote><p>QApp.util.storage(key[, value[, time]]);</p></blockquote>
+
+<p>说明：存取数据</p>
+
+<ul><li>如果只有 <strong>一个参数</strong> 时，为<code>get</code>方法；如果 <strong>多个参数</strong> 时，为<code>set</code>方法。</li><li>第二个参数 <code>value</code> 支持任何类型的值。</li><li><code>value</code> 为 <code>undefined</code> 或 <code>null</code> 为删除操作。</li><li><code>time</code> 为存储时间，</li><li><code>-1</code> 表示仅存在会话里（sessionStorage）；</li><li><code>0</code> 或没有此参数，表示永久存储；</li><li>其他数值，表示存储的时间，超过后，会被删除。</li></ul>
+
+<blockquote><p>QApp.util.storage.clear();</p></blockquote>
+
+<p>说明：清除所有数据</p>
+
+<blockquote><p>QApp.util.storage.init(version)</p></blockquote>
+
+<p>说明：初始化</p>
+
+<ul><li>此方法在于优化相关业务逻辑，如果只做一个库来用，那么可以不关心此方法。</li><li>参数<code>version</code>为当前业务前端代码版本号，如果版本号更改了，那么会自动清除所有数据（代码变了，存储的数据的结构可能会影响到代码，代码要做兼容，因此清除数据，避免此麻烦）</li><li>在<code>init</code>过程中，会自动检查是否到该清理数据的时间，如果到了，那么会去清理无效数据。</li></ul>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h1 id="QApp-plugin-zepto" class="page-header">QApp-plugin-zepto</h1>
+            
+            
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-zepto-插件介绍" class="page-header">插件介绍</h2>
+            
+            <h4>简介</h4>
+
+<p>插件名：<code>zepto</code></p>
+
+<p>插件安装: <code>fekit install QApp-plugin-zepto</code></p>
+
+<p>插件版本： <strong>0.1.0</strong></p>
+
+<p>Git地址：<code>git@gitlab.corp.qunar.com:qapp/qapp-plugin-zepto.git</code></p>
+
+<p>引入 <code>QApp-plugin-zepto</code> 插件，方便开发者快速、方便引用 <code>zepto</code>，并解决手势冲突问题</p>
+
+<h4>相关</h4>
+
+<p><a href="http://www.css88.com/doc/zeptojs_api/">zepto.js中文文档</a> </p>
+            </div>
+            
+            
+            
+            <div class="bs-docs-section">
+            
+            <h2 id="QApp-plugin-zepto-历史版本" class="page-header">历史版本</h2>
+            
+            <h2>Changelog</h2>
+
+<h3>0.1.0</h3>
+
+<ul><li>优化并适配 新版 QApp</li></ul>
+
+<h3>0.0.2</h3>
+
+<ul><li>增加 zepto 插件形式，支持bindActions形式</li></ul>
+
+<h3>0.0.1 新版本</h3>
+            </div>
+            
+            
+        </div>
+        <div class="col-md-3" role="complementary">
+            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm">
+                <ul class="nav bs-docs-sidenav">
+                    
+                    <li>
+                        <a href="#简介">简介</a>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-ajax">QApp-plugin-ajax</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-ajax-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-ajax-历史版本">
+                                    历史版本
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-ajax2">QApp-plugin-ajax2</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-ajax2-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-ajax2-历史版本">
+                                    历史版本
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-artTemplate">QApp-plugin-artTemplate</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-artTemplate-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-artTemplate-历史版本">
+                                    历史版本
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-avalon">QApp-plugin-avalon</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-avalon-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-avalon-历史版本">
+                                    历史版本
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-basic">QApp-plugin-basic</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-basic-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-basic-历史版本">
+                                    历史版本
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-delegated">QApp-plugin-delegated</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-delegated-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-delegated-历史版本">
+                                    历史版本
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-doms">QApp-plugin-doms</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-doms-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-doms-历史版本">
+                                    历史版本
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-globalContext">QApp-plugin-globalContext</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-globalContext-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-hogan">QApp-plugin-hogan</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-hogan-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-hogan-历史版本">
+                                    历史版本
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-jsonp">QApp-plugin-jsonp</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-jsonp-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-jsonp-历史版本">
+                                    历史版本
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-scroll">QApp-plugin-scroll</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-scroll-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-scroll-历史版本">
+                                    历史版本
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-storage">QApp-plugin-storage</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-storage-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                    <li>
+                        <a href="#QApp-plugin-zepto">QApp-plugin-zepto</a>
+                        
+                        <ul class="nav">
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-zepto-插件介绍">
+                                    插件介绍
+                                </a>
+                                
+                            </li>
+                            
+                            <li>
+                                
+                                <a href="#QApp-plugin-zepto-历史版本">
+                                    历史版本
+                                </a>
+                                
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015<br /> Style Build By <a href="http://bootcss.com">Bootstrap</a></p>
+    </div>
+</footer>
+
+<script src="source/jquery.min.js"></script>
+<script src="source/bootstrap.min.js"></script>
+<script src="source/docs.min.js"></script>
+<script src="source/highlight.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('code').each(function(i, block) {
+            if (block.innerHTML.indexOf('\n') != -1) {
+                var pn = block.parentNode;
+                if (pn.tagName.toUpperCase() == 'PRE') {
+                    try {
+                        hljs.highlightBlock(block);
+                    } catch(e) {}
+                } else {
+                    pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
+                    try {
+                        hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
+                    } catch(e) {}
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

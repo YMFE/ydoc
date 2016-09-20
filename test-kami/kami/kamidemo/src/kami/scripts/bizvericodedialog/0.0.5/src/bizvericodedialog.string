@@ -1,0 +1,33 @@
+<div class="yo-dialog yo-dialog-verification">
+    {{#if title}}
+        <header class="hd">
+            <h2 class="title js-title">{{title.text}}</h2>
+            <span class="regret js-close">{{title.icon}}</span>
+        </header>
+    {{/if}}
+    {{#if content}}
+        <div class="bd">
+            <div class="price"><i>¥</i>{{content.amount}}</div>
+            <div class="tip js-send-code">
+                <span class="js-state">
+                    <span class="js-state-valid {{#if !content.mobile}}hide{{/if}}">已下发到
+                        <span class="js-mobile">{{content.mobile}}</span>
+                    </span>
+                    <span class="js-state-error {{#if content.mobile}}hide{{/if}}">{{failText}}
+                    </span>
+                </span>
+                <span class="time js-gettime {{#if !content.mobile}}hide{{/if}}">(<em class="time-num js-time">0</em>秒)</span>
+                <a class="reacquire js-getcode {{#if content.mobile}}hide{{/if}}" href="javascript:void(0)">重新获取验证码</a>
+            </div>
+            
+            <!-- <div class="tip js-retry-code">已下发到{{content.mobile}}<a class="reacquire js-getcode" href="javascript:void(0)">重新获取验证码</a></div> -->
+            <div class="verification">
+                
+                <div class="verification-style js-verification-wrap"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <input id="{{id}}" type="tel" class="verification-input js-input-validcode" maxlength="6">
+                <label for="{{id}}" class="verification-label js-label-validcode"></label>
+            </div>
+
+        </div>
+    {{/if}}
+</div>

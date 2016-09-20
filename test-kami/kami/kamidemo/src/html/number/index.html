@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>numbers Demo</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/export/yo-flex.css" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/kami/number.css" />
+</head>
+<body>
+<section class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">number</h2>
+        <a href="../../../index.html" class="regret yo-ico">&#xf07d;</a>
+        <span class="affirm yo-ico">&#xf067;</span>
+    </header>
+    <div class="flex" id="container">
+    </div>
+</section>
+
+<script type="demo/javascript">
+
+</script>
+<script type="text/javascript" src="../../../prd/scripts/common.js"></script>
+<script type="text/javascript" src="../../../prd/scripts/kami-number.js"></script>
+<script type="text/javascript">
+
+// 获取组件。require("path/to/number")
+var Numbers = Kami.Number;
+
+var options = {
+    container: '#container',
+    max: 10,
+    min: -2,
+    step: 1,
+    value: 0
+};
+
+var number = new Numbers( options );
+    number.render();
+
+</script>
+</body>
+</html>

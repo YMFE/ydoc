@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>qapp adapter alert</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    
+    <link rel="stylesheet" type="text/css" href="../style/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/custom.css"/>
+    <style>
+        .yo-group {
+            top: 0;
+        }
+    </style>
+</head>
+
+<script>
+
+</script>
+<body>
+    
+    <script src="../../../../../prd/kami/adapter/qapp/index.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var qapp = document.querySelector('qapp-app');
+            var text = document.createElement('div');
+            var textArr = [];
+            // textArr.push('使用说明');
+            // textArr.push('1.如果不需要标题，那么不要穿title.');
+            // textArr.push('2.如果提示框的确认没有其他额外需要，那么不需要传oncomplete，如果有额外的处理逻辑，用户需要在处理逻辑后手动调close.');
+            text.innerHTML = textArr.join('<br/>');
+            qapp.appendChild(text);
+
+            var showAlert = document.createElement('BUTTON');
+            showAlert.innerHTML = '点击显示pagelist';
+
+            var datasource = [];
+            var index = 1, max = index + 5;
+            for (; index < max; index++) {
+                datasource.push({id: index, text: 'row' + index});
+            }
+
+            showAlert.addEventListener('click', function () {
+                this.style.display = 'none';
+                QApp.showWidget('poppagelist', {
+                    datasource: datasource,
+                    pagesize: 15,
+                    refreshResultDelay: 300,
+                    activeClass: 'item-active',
+                    onSelectItem: function (data) {
+                        console.log(data);
+                    },
+                    onRefresh: function () {
+                        var self = this;
+                        // 模拟异步请求
+                        setTimeout(function () {
+                            if (index < 140) {
+                                var data = [], max = index + 15;
+                                for (; index < max; index++) {
+                                    data.push({id: index, text: 'row' + index});
+                                }
+                                self.refresh(true, data);
+                            } else {
+                                self.refresh(false);
+                            }
+
+                        }, 1000);
+                    },
+                    onLoadMore: function () {
+                        var self = this;
+                        // 模拟异步请求
+                        setTimeout(function () {
+                            if (index < 80) {
+                                var data = [], max = index + 15;
+                                for (; index < max; index++) {
+                                    data.push({id: index, text: 'row' + index});
+                                }
+                                self.loadMore(true, data);
+                            } else {
+                                self.loadMore(false);
+                            }
+                        }, 1000);
+                    }
+                });
+            });
+
+            qapp.appendChild(showAlert);
+        });
+    </script>
+</body>
+</html>

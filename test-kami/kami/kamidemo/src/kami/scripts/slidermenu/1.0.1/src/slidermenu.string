@@ -1,0 +1,4 @@
+<div class="yo-panel" data-role="slideMenuItem">
+    <div class="front" data-role="slideMenuCnt">这是默认的panel内容</div>
+    <div class="action" data-role="slideMenuAction">查看详情</div>
+</div>

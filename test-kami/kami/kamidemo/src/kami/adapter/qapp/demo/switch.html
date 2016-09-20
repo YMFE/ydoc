@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>qapp adapter switch</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../../../../prd/index@VERSION.css"/>
+    <style>
+        body {
+           width: 100%;
+           height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../../../../../prd/kami/adapter/qapp/index.js"></script>
+    <script>
+        // QApp.util.gesture.removeSupportEvents('tap');
+
+        QApp.defineView('index', {
+            html: '<div qapp-widget="switch" data-switch-id="swtichW"></div><button>Get!</button>',
+            ready: function() {
+                var me = this;
+
+                QApp.util.addEvent(me.root.querySelector('button'), 'tap', function() {
+                    alert(me.widgets.swtichW.getState());
+                });
+            }
+        });
+
+        QApp.ready(function() {
+
+            QApp.show('index');
+
+        });
+        
+        
+        window.Kami.disableTapEvent = true;
+
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     console.log('DOMContentLoaded');
+        //     var qapp = document.querySelector('qapp-app');
+
+        //     var text = document.createElement('div');
+        //     var textArr = [];
+        //     textArr.push('使用说明');
+            
+            
+        //     text.innerHTML = textArr.join('<br/>');
+        //     qapp.appendChild(text);
+
+            
+        //     var show = document.createElement('BUTTON');
+        //     show.innerHTML = '点击显示numbers';
+
+
+        //     qapp.appendChild(show);
+
+        //     var container = document.createElement('div');
+        //     container.style.background = '#f0f';
+        //     container.style.border = '1px solid #ff0';
+        //     container.style.height = '30px';
+        //     qapp.appendChild(container);
+
+
+            
+        //     show.addEventListener('click', function () {
+                
+        //         var numbers = QApp.showWidget('switch', container,{
+        //             max: 12,
+        //             min: 1,
+        //             value: 1,
+        //             step: 1,
+        //             onchangevalue: function(value, prevValue) {
+        //                 // console.log('cur=' + value + ', prev=' + prevValue);
+        //                 console.log(this.getValue());
+        //             }
+        //         });
+                
+        //     });
+            
+            
+        // });
+    </script>
+</body>
+</html>

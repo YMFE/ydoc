@@ -1,0 +1,86 @@
+@charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义slidermenu的基础构造
+@mixin _slidermenu {
+    &,
+    > .item {
+        position: relative;
+        // 当yo-slidermenu被应用到yo-list里时，需要重置yo-list item的flex定义
+        display: block !important;
+        // 清除.item的内补白，交由yo-slidermenu的子项来处理
+        // 底部1px补白用于不覆盖yo-list的item的底边线（因为底边线使用背景渐变色实现）
+        padding: 0 0 1px 0 !important;
+    }
+    .front {
+        position: relative;
+        z-index: 2;
+        background-color: #fff;
+    }
+    .action {
+        position: absolute;
+        top: 0;
+        // 底部1px间隙用于不覆盖yo-list的item的底边线（因为底边线使用背景渐变色实现）
+        bottom: 1px;
+        right: 0;
+        overflow: hidden;
+        width: map-get($slidermenu, action-width);
+        background-color: map-get($slidermenu, action-bgcolor);
+        @include flexbox;
+        > .item {
+            @include flex(auto);
+            width: auto;
+            text-align: center;
+            // 使用align-self实现垂直居中
+            // 通过垂直方法的大数值内补白变相让item充满父容器侧轴
+            @include align-self;
+            padding: 1rem 0;
+        }
+    }
+}
+
+/**
+ * @method yo-slidermenu
+ * @desc 构造yo-slidermenu的自定义使用方法
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-slidermenu.html)
+ * @param {default | String} $name 扩展的名称
+ * @param {default | Length} $action-width 定义action宽度
+ * @param {default | Color} $action-bgcolor 定义action背景色
+ */
+
+@mixin yo-slidermenu(
+    $name: default,
+    $action-width: default,
+    $action-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $action-width == default {
+        $action-width: map-get($slidermenu, action-width);
+    }
+    @if $action-bgcolor == default {
+        $action-bgcolor: map-get($slidermenu, action-bgcolor);
+    }
+    .yo-slidermenu#{$name} {
+        > .action {
+            @if $action-width != map-get($slidermenu, action-width) {
+                width: $action-width;
+            }
+            @if $action-bgcolor != map-get($slidermenu, action-bgcolor) {
+                background-color: $action-bgcolor;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入slidermenu基础构造
+.yo-slidermenu {
+    @include _slidermenu;
+}

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>file - The Yo API Yo 文档站</title>
+    <!-- <link href="../source/bootstrap.min.css" rel="stylesheet">
+    <link href="../source/patch.css" rel="stylesheet">
+    <link href="../source/docs.min.css" rel="stylesheet"> -->
+    <script type="text/javascript" src="../source/shCore.js"></script>
+    <script type="text/javascript" src="../source/shBrushSass.js"></script>
+    <link type="text/css" rel="stylesheet" href="../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../source/app.css" rel="stylesheet">
+    <style> 
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+    </style>
+    
+    
+</head>
+<body style="background: white; font-family: Helvetica">
+<div class="bs-docs-header" id="content" tabindex="-1">
+    <div class="container">
+        <h1>YO  <em style="font-size:18px;">库版本：0.1.2 moduleVersion </em></h1>
+        <p>一个基于 Sass 开发的 CSS Framework，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。</p>
+    </div>
+</div>
+<div class="container bs-docs-container">
+ 
+    <div class="row">
+        <div class="col-md-9" role="main">
+        <pre class="brush: sass;">
+                @charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义tab的基础构造
+@mixin _tab {
+    @include flexbox;
+    overflow: hidden;
+    width: map-get($tab, width);
+    height: map-get($tab, height);
+    @include border-radius(map-get($tab, radius));
+    border-width: map-get($tab, border-width);
+    border-style: solid;
+    border-color: map-get($tab, bordercolor);
+    background-color: map-get($tab, bgcolor);
+    font-size: map-get($tab, font-size);
+    text-align: center;
+    line-height: map-get($tab, height);
+    > .item {
+        display: block;
+        @include flex;
+        position: relative;
+        &:not(:last-child)::after {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            @include transform(translatey(-50%));
+            width: 1px;
+            height: map-get($tab, item-border-height);
+            background-color: map-get($tab, item-bordercolor);
+            content: "\0020";
+        }
+        color: map-get($tab, color);
+        &.item-on {
+            background-color: map-get($tab, on-bgcolor);
+            color: map-get($tab, on-color);
+        }
+        &-y-ico {
+            padding-top: .04rem;
+            line-height: .2rem;
+            .yo-ico {
+                display: block;
+                font-size: map-get($tab, y-ico-size);
+            }
+        }
+        &-x-ico {
+            .yo-ico {
+                font-size: map-get($tab, x-ico-size);
+            }
+        }
+        &-only-ico {
+            .yo-ico {
+                font-size: map-get($tab, only-ico-size);
+            }
+        }
+    }
+}
+
+/**
+ * @module widget
+ * @method yo-tab
+ * @description 构造列表的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-tab.html
+ * @param {String} $name 扩展的名称
+ * @param {Length} $width 组件宽度 {add:1.8.3}
+ * @param {Length} $height 组件高度
+ * @param {Length} $radius 圆角半径
+ * @param {Length} $border-width 边框厚度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 文本色
+ * @param {Color} $on-bgcolor 激活时背景色
+ * @param {Color} $on-color 激活时文本色
+ * @param {Color} $font-size 文本字号
+ * @param {Color} $x-ico-size 子项内容为水平ico时，ico的大小
+ * @param {Color} $y-ico-size 子项内容为垂直ico时，ico的大小
+ * @param {Color} $only-ico-size 子项内容仅有ico时，ico的大小
+ * @param {Length} $item-border-height 子项的间隔线高度
+ * @param {Color} $item-bordercolor 子项的间隔线颜色
+ */
+
+@mixin yo-tab(
+    $name: default,
+    $width: default,
+    $height: default,
+    $radius: default,
+    $border-width: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $color: default,
+    $on-bordercolor: default,
+    $on-bgcolor: default,
+    $on-color: default,
+    $font-size: default,
+    $x-ico-size: default,
+    $y-ico-size: default,
+    $only-ico-size: default,
+    $item-border-height: default,
+    $item-bordercolor: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $width == default {
+        $width: map-get($tab, width);
+    }
+    @if $height == default {
+        $height: map-get($tab, height);
+    }
+    @if $radius == default {
+        $radius: map-get($tab, radius);
+    }
+    @if $border-width == default {
+        $border-width: map-get($tab, border-width);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($tab, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($tab, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($tab, color);
+    }
+    @if $on-bordercolor == default {
+        $on-bordercolor: map-get($tab, on-bordercolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($tab, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($tab, on-color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($tab, font-size);
+    }
+    @if $x-ico-size == default {
+        $x-ico-size: map-get($tab, x-ico-size);
+    }
+    @if $y-ico-size == default {
+        $y-ico-size: map-get($tab, y-ico-size);
+    }
+    @if $only-ico-size == default {
+        $only-ico-size: map-get($tab, only-ico-size);
+    }
+    @if $item-border-height == default {
+        $item-border-height: map-get($tab, item-border-height);
+    }
+    @if $item-bordercolor == default {
+        $item-bordercolor: map-get($tab, item-bordercolor);
+    }
+    .yo-tab#{$name} {
+        @if $width != map-get($tab, width) {
+            width: $width;
+        }
+        @if $height != map-get($tab, height) {
+            height: $height;
+            line-height: $height;
+        }
+        // 如果边框色与config值不同，则重设边框色
+        @if $radius != map-get($tab, radius) {
+            border-radius: $radius;
+        }
+        @if $border-width != map-get($tab, border-width) {
+            border-width: $border-width;
+        }
+        @if $bordercolor != map-get($tab, bordercolor) {
+            border-color: $bordercolor;
+        }
+        @if $bgcolor != map-get($tab, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $font-size != map-get($tab, font-size) and map-get($tab, font-size) != map-get($base, font-size) {
+            font-size: $font-size;
+        }
+        > .item {
+            &:not(:last-child)::after {
+                @if $item-border-height != map-get($tab, item-border-height) {
+                    height: $item-border-height;
+                }
+                @if $item-bordercolor != map-get($tab, item-bordercolor) {
+                    background-color: $item-bordercolor;
+                }
+            }
+            @if $color != map-get($tab, color) {
+                color: $color;
+            }
+            &.item-on {
+                @if $on-bgcolor != map-get($tab, on-bgcolor) {
+                    background-color: $on-bgcolor;
+                }
+                @if $on-color != map-get($tab, on-color) {
+                    color: $on-color;
+                }
+            }
+            &-top-ico {
+                .yo-ico {
+                    @if $y-ico-size != map-get($tab, y-ico-size) {
+                        font-size: $y-ico-size;
+                    }
+                }
+            }
+            &-left-ico {
+                .yo-ico {
+                    @if $x-ico-size != map-get($tab, x-ico-size) {
+                        font-size: $x-ico-size;
+                    }
+                }
+            }
+            &-only-ico {
+                .yo-ico {
+                    @if $only-ico-size != map-get($tab, only-ico-size) {
+                        font-size: $only-ico-size;
+                    }
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入tab基础构造
+.yo-tab {
+    @include _tab;
+}
+        </pre>
+        </div>
+    
+    </div>
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015</p>
+    </div>
+</footer>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    window.addEventListener('load',function(){
+       Array.prototype.slice.call(document.querySelectorAll('.line')).forEach(function(item){
+               item.id = 'doc'+ item.classList[1].substr(6);
+           });
+    },false)
+</script>
+</body>
+</html>

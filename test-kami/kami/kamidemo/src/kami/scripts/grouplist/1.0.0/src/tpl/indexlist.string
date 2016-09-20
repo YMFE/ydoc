@@ -1,0 +1,11 @@
+<div class="scroll-wrap scroll-index" data-role="index-wrap">
+    <ul class="yo-index" data-role="index-container">
+        {{#each data as item}}
+            <li data-title="{{item.title}}" data-role="index-item"
+                {{#if item.cls}}
+                    class="{{item.cls}}"
+                {{/if}}
+            >{{item.text}}</li>
+        {{/each}}
+    </ul>
+</div>

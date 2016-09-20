@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>selectlist Demo</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/export/yo-flex.css" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/kami/selectlist.css" />
+</head>
+<body>
+<section class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">selectlist</h2>
+        <a href="../../../index.html" class="regret yo-ico">&#xf07d;</a>
+        <span class="affirm yo-ico">&#xf067;</span>
+    </header>
+    <div class="flex yo-flex">
+        <div class="flex">
+            <div class="yo-flex">
+                <h3>单选</h3>
+                <div class="flex" id="container"></div>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="yo-flex">
+                <h3>多选</h3>
+                <div class="flex" id="containerMulti"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="demo/javascript">
+
+</script>
+<script type="text/javascript" src="../../../prd/scripts/common.js"></script>
+<script type="text/javascript" src="../../../prd/scripts/kami-selectlist.js"></script>
+<script type="text/javascript">
+
+// 获取组件。require("path/to/selectlist")
+var Selectlist = Kami.SelectList;
+
+// 默认版本，只支持text属性
+var datasource = function(){
+    var arr = [];
+    for(var i= 1, j = 20; i<=j;i++){
+        arr.push({
+            text: i,
+            value: i
+        })
+    }
+    return arr;
+}();
+
+var options = {
+    container: '#container',
+    datasource: datasource,
+    onSelectItem: function(obj){
+        Demo.log(arguments)
+    }
+}
+
+var selectlist = new Selectlist( options );
+    selectlist.render();
+
+var optionsMulti = {
+    container: '#containerMulti',
+    datasource: datasource,
+    multi: true, // 设置多选
+    onSelectItem: function(obj){
+        Demo.log(arguments)
+    }
+}
+
+var selectlistMulti = new Selectlist( optionsMulti );
+    selectlistMulti.render();
+
+</script>
+</body>
+</html>

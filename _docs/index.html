@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
-  <title>Yo Documentation Yo</title>
+  <title>KAMI 简介</title>
   <link rel="stylesheet" href="source/app.css"/>
   <link rel="stylesheet" href="source/highlight.min.css"/>
 </head>
@@ -23,49 +23,13 @@
                     
                     <li class="active">
                         
-                        <a href="index.html">Yo</a>
+                        <a href="index.html">简介</a>
                         
                     </li>
                     
                     <li class="">
                         
-                        <a href="getting-started.html">起步</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="core.html">核心</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="element.html">元件</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="animate.html">动画</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="changelog.html">版本</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="http://doyoe.github.io/Yo/demo/" target="_blank">示例</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="https://github.com/doyoe/Yo" target="_blank">Github</a>
+                        <a href="组件API.html">组件API</a>
                         
                     </li>
                     
@@ -79,14 +43,6 @@
     
       <!-- Docs page layout -->
       
-      <div class="ydoc-banner-bg">
-          <div class="ydoc-banner">
-              <div class="ydoc-banner-area">
-                  <h1>Yo</h1>
-                  <p>Yo 是基于 Mobile First 的策略而设计，并使用 Sass 开发的 CSS Framework，具备轻量，易用，可配置，强扩展等特性，同时也适应于PC端的高级浏览器</p>
-              </div>
-          </div>
-      
 
 
 
@@ -97,23 +53,97 @@
           <div class="ydoc-container-content" id="readme">
               <article class="markdown-body">
                   
-                  <h2 id="基于 Yo 构建的网站">基于 Yo 构建的网站</h2><p>越来越多的移动Web应用基于 Yo 来构建。你可以先参观一下我们提供的 <a href="../demo/index.html">实例代码</a> 或者看一看使用 Yo 构建的案例。</p>
+                  <h1 id="Kami起步">Kami起步</h1><h4 id="Kami开发前须知">Kami开发前须知</h4><p>Kami组件依赖于Yo样式，因此引入组件的同时需要引入同名Yo样式，若非如此则需用户重写相关组件样式。</p>
 <ul>
-<li><p><img src="http://source.qunarzz.com/common/hf/logo.png" alt="去哪儿网"></p>
-<p>  在去哪儿网已有“近百个”移动Web应用基于 Yo 来构建</p>
-</li>
-<li><p><img src="http://www.doyoe.com/pimg/amily.png" alt="Amily"></p>
-<p>  北京美至网络科技有限公司大部分移动Web应用均基于 Yo 构建</p>
-</li>
-<li><p><img src="http://www.doyoe.com/pimg/benmu.png" alt="本木医疗"></p>
-<p>  本木医疗已接入使用 Yo 框架来构建移动应用UI</p>
-</li>
-<li><p><img src="http://www.doyoe.com/pimg/jimu.png" alt="积木盒子"></p>
-<p>  积木盒子已接入使用 Yo 框架来构建移动应用UI</p>
-</li>
-<li><p><img src="http://www.doyoe.com/pimg/medlinker.png" alt="医联"></p>
-<p>  医联已接入使用 Yo 框架来构建移动应用UI</p>
-</li>
+<li><a href="http://ued.qunar.com/mobile/yo/doc/">使用Yo进行移动端开发</a></li>
+</ul>
+<h4 id="CMD规范下的Kami组件使用方式">CMD规范下的Kami组件使用方式</h4><p>基于kami的开发首先需要安装Kami构建工具， kami构建工具依赖fekit，如需使用默认样式则需要安装Yo构建工具。</p>
+<ul>
+<li><a href="http://wiki.corp.qunar.com/pages/viewpage.action?pageId=42273573">如何安装fekit</a></li>
+<li><a href="tool.html">如何安装构建工具</a></li>
+<li><a href="http://ued.qunar.com/mobile/yo/doc/">如何安装Yo构建工具</a></li>
+</ul>
+<p>在使用构建工具安装完组件和相应的样式以后，用户在需要引入组件的JS文件中<code>require</code>方式直接引用即可。如下：</p>
+<pre><code>var KamiAlert = require(&#39;./kami/scripts/alert/index.js&#39;);
+</code></pre><h4 id="引入脚本文件的Kami组件使用方式">引入脚本文件的Kami组件使用方式</h4><ul>
+<li>下载Kami组件和Yo样式压缩文件</li>
+<li>直接在页面引入这两个文件</li>
+</ul>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://ued.qunar.com/mobile/source/kami/release/1.0.0/kami.css&quot;/&gt;
+&lt;script src=&quot;http://ued.qunar.com/mobile/source/kami/release/1.0.0/kami.js&quot; /&gt;&lt;/script&gt;
+</code></pre><ul>
+<li>使用组件</li>
+</ul>
+<pre><code>var alert = new window.Kami.Alert({
+    title: &quot;提示&quot;,
+    content: &quot;test&quot;
+});
+</code></pre><blockquote>
+<p><strong>注意:</strong>
+所有组件，均在 <em>window.Kami</em> 命名空间中</p>
+</blockquote>
+<h4 id="基于QApp的Kami组件使用方式">基于QApp的Kami组件使用方式</h4><p>QApp作为一套完善的移动端框架提供了组件生命周期的管理，Kami组件使用适配器的方式来使用户无需关心组件的销毁。
+ <a href="http://ued.qunar.com/mobile/qapp/doc/">使用QApp进行移动端开发</a></p>
+<ul>
+<li>安装Kami-QApp适配器</li>
+</ul>
+<pre><code>fekit install QApp-plugin-kami-adapter
+</code></pre><ul>
+<li>引入Kami组件</li>
+</ul>
+<pre><code>var KamiPagelist = require(&#39;Kami/scripts/pagelist/index.js&#39;);
+</code></pre><ul>
+<li>注册Kami组件到QApp上</li>
+</ul>
+<pre><code>QApp.util.KamiAdapterFactory.register(&#39;pagelist&#39;, KamiPagelist);
+</code></pre><ul>
+<li>为QApp上设置Kami组件默认配置</li>
+</ul>
+<pre><code>QApp.util.KamiAdapterFactory.setDefaultOptions(&#39;pagelist&#39;, {
+   refreshTpl: refreshTpl,
+    loadmoreTpl: loadmoreTpl,
+    // 刷新激活高度
+    refreshActiveY: 40,
+    // 加载更多容器高度
+    loadmoreContY: 40,
+    preventDefault: false,
+    tapInterval: 1000,
+    infinite: false
+});
+</code></pre><ul>
+<li>在QApp中使用Kami组件</li>
+</ul>
+<pre><code>var pageList = QApp.showWidget(&#39;pagelist&#39;, {
+        container: self.doms.list,
+        datasource: err ? [] : data.shopList,
+        checkedClass: &#39;item-on&#39;,
+        pagesize: PAGE_SIZE,
+        template: listWrapperTpl,
+        itemTpl: listItemTpl,
+        infinite: true,
+        nodataTpl: noDataTpl,
+        activeClass: &#39;item-light&#39;
+});
+pageList.on(&#39;loadmore&#39;, function() {});
+</code></pre><blockquote>
+<p><strong>注意:</strong>
+使用Kami组件时请在QAppView生命周期处于Show时使用</p>
+</blockquote>
+<ul>
+<li>禁用Kami组件的<code>Tap</code>事件</li>
+</ul>
+<p>由于Kami内部实现了Tap事件，QApp内部也实现了Tap事件，避免事件冲突所以需要禁用掉Kami的Tap事件</p>
+<pre><code>window.Kami.disableTapEvent = true;
+</code></pre><ul>
+<li>设置全局样式</li>
+</ul>
+<pre><code>window.Kami.theme = &#39;yo&#39;;
+</code></pre><blockquote>
+<p><strong> 附加:</strong>
+QMB作为QApp项目构建管理工具，可以安装管理Kami组件。使用QApp的用户使用QMB项目的构建工具上配置Kami组价。</p>
+</blockquote>
+<ul>
+<li>dhfudhfuhd</li>
 </ul>
 
               </article>
@@ -122,11 +152,9 @@
         
       </div>
      
-     </div>
-     
       <footer class="footer">
         <div class="copyright">
-            Made By Doyoe.com © 2014 - 2016
+            Made By Qunar YMFE TEAM. © 2014 - 2016
         </div>
       </footer>
     </div>

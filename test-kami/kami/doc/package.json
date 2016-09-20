@@ -1,0 +1,47 @@
+{
+  "name": "doc",
+  "version": "1.0.0",
+  "description": "kami文档站自动生成工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.corp.qunar.com:kami/doc.git"
+  },
+  "keywords": [
+    "kami",
+    "docsite",
+    "grunt",
+    "gulp"
+  ],
+  "author": "sharon.li",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "art-template": "3.0.3",
+    "atropa-jsformatter": "^0.1.2",
+    "browser-sync": "^2.9.11",
+    "comment-parser": "0.3.0",
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-data": "^1.2.0",
+    "gulp-dest": "^0.2.2",
+    "gulp-filter": "^3.0.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-load-plugins": "^1.0.0",
+    "gulp-markdown": "^1.1.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-template": "^3.0.0",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.5",
+    "parse-filepath": "^0.6.3",
+    "rewrite-ext": "^0.2.0",
+    "rte": "^2.0.1",
+    "through-gulp": "^0.3.8",
+    "underscore": "^1.8.3"
+  }
+}

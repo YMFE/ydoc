@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>Alert tests</title>
+    <link rel="stylesheet" type="text/css" href="/prd/yo/usage/kami/alert.css"/>
+    <link rel="stylesheet" type="text/css" href="/prd/yo/usage/export/yo-all.css"/>
+    <style type="text/css">
+    
+    </style>
+</head>
+<body>
+<div id="container">
+    <header class="yo-header m-header">
+        <h2 class="title">Alert</h2>
+    </header>
+    <ul class="yo-list">
+        <li class="item">
+            <div class="yo-btn yo-btn-stacked yo-btn-l js-default">单例</div>
+        </li>
+        <li class="item">
+            <div class="yo-btn yo-btn-stacked yo-btn-l js-polymorphic">实例</div>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="/prd/kami/scripts/alert/tests/index.js"></script>
+<script type="text/javascript">
+    
+// 获取组件。require("path/to/alert")
+var Alert = Kami.Alert;
+
+function showAlert () {
+    Alert.show({
+        content: '提示',
+        title : '标题',
+        okText: '确定',
+        onok: function () {
+            console.log('ok')
+        }
+    });
+}
+var at;
+function polymorphicAlert(){
+    if(!at){
+        at = new Alert({
+            title: "提示",
+            content: "test"
+        });
+        at.on('ok', function(){
+            console.log('ok')
+        });
+        at.render();
+    }else{
+        at.setContent('teeee')
+    }
+    at.show();
+}
+
+document.querySelector('.js-default').addEventListener('click', showAlert)
+document.querySelector('.js-polymorphic').addEventListener('click', polymorphicAlert)
+
+
+</script>
+</body>
+</html>

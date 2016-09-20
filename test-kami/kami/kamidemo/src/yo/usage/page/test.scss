@@ -1,0 +1,49 @@
+@charset "utf-8";
+@import "../layout/layout";
+@import "../fragment/yo-list";
+@import "../element/yo-checked";
+
+.yo-nav {
+    // 构造一个横纵向参数，用来配置nav的流向
+    @include flexbox;
+    height: 100px;
+    > .item {
+        @include flex;
+        margin: .1rem;
+        background-color: gray;
+    }
+    > .item:nth-child(3) {
+        @include order(1);
+    }
+    > div {
+        color: red;
+        &::after {
+            content: "\0020";
+        }
+    }
+}
+// Android4.3及以下
+.img {
+    display: inline-block;
+    overflow: hidden;
+    @include border-radius(20px);
+    border: 10px solid blue;
+    background-color: blue;
+}
+.img > img {
+    // border-radius: 50%;
+}
+
+.test {
+    display: inline-block;
+    overflow: hidden;
+    zoom:1;
+    @include border-radius(50%);
+    border: 1px solid blue;
+    background-color: red;
+    padding: 10px;
+    > div {
+        @include square(100px);
+        background-color: #fff;
+    }
+}

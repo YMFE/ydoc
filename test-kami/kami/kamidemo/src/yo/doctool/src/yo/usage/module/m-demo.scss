@@ -1,0 +1,95 @@
+@charset "utf-8";
+/**
+ * module: m-demo
+ * Author: joy.du(飘零雾雨)
+ * Time: 2013.10.17
+ */
+.m-demo {
+    .device {
+        .stage {
+            position: relative;
+            min-height: 2rem;
+            background-color: map-get($base, doc-bgcolor);
+        }
+    }
+    // 如果是PC
+    @include responsive(pc) {
+        @include flexbox;
+        margin: .1rem;
+        .device {
+            position: relative;
+            width: 3.66rem;
+            height: 7.83rem;
+            border: .05rem solid #505559;
+            border-radius: .55rem;
+            background-color: #313538;
+            &::before,
+            &::after {
+                position: absolute;
+                left: 50%;
+                @include transform(translate(-50%));
+                content: "\0020";
+            }
+            &::before {
+                top: .58rem;
+                width: .68rem;
+                height: .08rem;
+                border-radius: 4px;
+                background-color: #3e4243;
+            }
+            &::after {
+                bottom: .18rem;
+                @include square(.65rem);
+                border: .05rem solid #3e4243;
+                border-radius: 50%;
+            }
+            .stage {
+                @include flexbox;
+                @include flex-direction(column);
+                top: .99rem;
+                left: .18rem;
+                overflow: hidden;
+                width: 3.20rem;
+                height: 5.68rem;
+                .wrap {
+                    @include flex(1, column);
+                    @include overflow;
+                }
+                &,
+                &::before {
+                    position: absolute;
+                }
+                &::before {
+                    top: -.68rem;
+                    left: 50%;
+                    @include transform(translate(-50%));
+                    @include square(.1rem);
+                    border-radius: 50%;
+                    background-color: #3e4243;
+                    box-shadow: -.5rem .26rem #3e4243;
+                    content: "\0020";
+                }
+            }
+        }
+    }
+    .code {
+        display: block;
+        @include flex();
+        @include overflow();
+        // 开启demo中的选中功能，用以拷贝代码
+        @include user-select(text);
+        margin: .1rem 0;
+        border-width: .04rem 0 .04rem 0;
+        border-style: solid;
+        border-color: map-get($base, bordercolor);
+        @include responsive(pc) {
+            margin: .1rem;
+            border-width: 0 0 0 .04rem;
+        }
+        padding: .1rem;
+        background-color: #F0F3F8;
+        h3 {
+            margin-top: .1rem;
+        }
+    }
+}

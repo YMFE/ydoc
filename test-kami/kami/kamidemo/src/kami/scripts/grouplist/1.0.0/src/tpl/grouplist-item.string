@@ -1,0 +1,16 @@
+{{#if data.isLetter}}
+    <li class="label" data-role="title">{{data.text}}</li>
+{{#else}}
+    <li class="item" data-role="list-item"
+        {{#if data.preIndex}}
+            pre-index={{data.preIndex}}
+        {{#else if data.notgroupIndex}}
+            notgroup-index={{data.notgroupIndex}}
+        {{#else}}
+            data-index={{data.dataIndex}}
+        {{/if}}
+        {{#if data.flag}}
+            item-flag={{data.flag}}
+        {{/if}}
+    >{{data.text}}</li>
+{{/if}}

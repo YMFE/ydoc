@@ -1,0 +1,78 @@
+@charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义index的基础构造
+@mixin _index {
+    width: map-get($index, width);
+    text-transform: uppercase;
+    color: map-get($index, color);
+    font-size: map-get($index, font-size);
+    line-height: 1.1;
+    text-align: center;
+    .ellipsis {
+        display: inline-block;
+        @include square(map-get($index, font-size) / 2);
+        border-radius: 50%;
+        background-color: map-get($index, color);
+    }
+}
+
+/**
+ * @method yo-index
+ * @desc 构造yo-index的自定义使用方法
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-index.html)
+ * @param {default | String} $name 定义yo-index名称
+ * @param {default | Length} $width 定义yo-index宽度
+ * @param {default | Color} $color 定义yo-index文本色
+ * @param {default | Length} $font-size 定义yo-index文本字号
+ */
+
+@mixin yo-index(
+    $name: default,
+    $width: default,
+    $color: default,
+    $font-size: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $width == default {
+        $width: map-get($index, width);
+    }
+    @if $color == default {
+        $color: map-get($index, color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($index, font-size);
+    }
+    .yo-index#{$name} {
+        @if $width != map-get($index, width) {
+            width: $width;
+        }
+        @if $color != map-get($index, color) {
+            color: $color;
+        }
+        @if $font-size != map-get($index, font-size) {
+            font-size: $font-size;
+        }
+        .ellipsis {
+            @if $color != map-get($index, color) {
+                background-color: $color;
+            }
+            @if $font-size != map-get($index, font-size) {
+                @include square($font-size / 2);
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入index基础构造
+.yo-index {
+    @include _index;
+}

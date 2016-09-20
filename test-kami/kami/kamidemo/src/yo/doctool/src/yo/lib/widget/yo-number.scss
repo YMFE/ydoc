@@ -1,0 +1,146 @@
+@charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义number的基础构造
+@mixin _number {
+    @include flexbox(inline-flex);
+    overflow: hidden;
+    width: map-get($number, width);
+    height: map-get($number, height);
+    line-height: map-get($number, height);
+    border: 1px solid map-get($number, bordercolor);
+    box-shadow: 1px 1px 1px rgba(map-get($number, bordercolor),.3);
+    background-color: #fff;
+    font-size: 0;
+    vertical-align: middle;
+    > .minus,
+    > .plus,
+    > .input {
+        text-align: center;
+    }
+    > .minus,
+    > .plus {
+        display: block;
+        width: .35rem;
+        background-color: map-get($number, sign-bgcolor);
+        color: map-get($number, sign-color);
+        font-size: .3rem;
+        font-family: arial;
+        cursor: pointer;
+        &.disabled {
+            color: map-get($number, disabled-sign-color);
+            cursor: not-allowed;
+        }
+    }
+    > .input{
+        @include flex();
+        border: 1px solid map-get($number, bordercolor);
+        border-width: 0 1px;
+        box-shadow: inset 1px 1px 1px rgba(map-get($number, bordercolor), .1);
+        border-radius: 0;
+        color: map-get($number, color);
+        font-size: .16rem;
+        &,
+        &::-webkit-inner-spin-button{
+            @include appearance();
+        }
+    }
+}
+
+/**
+ * @method yo-number
+ * @desc 构造列表的自定义使用方法
+ * @demp 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-number.html)
+ * @param {default | String} $name 定义yo-number名称
+ * @param {default | Length} $width 定义yo-number宽度
+ * @param {default | Length} $height 定义yo-number高度
+ * @param {default | Color} $bordercolor 定义yo-number边框色
+ * @param {default | Color} $color 定义yo-number输入框文本色
+ * @param {default | Color} $sign-bgcolor 定义yo-number加减号背景色
+ * @param {default | Color} $sign-color 定义yo-number加减号文本色
+ * @param {default | Color} $disabled-sign-color 定义yo-number禁用文本色
+ */
+
+@mixin yo-number(
+    $name: default,
+    $width: default,
+    $height: default,
+    $bordercolor: default,
+    $color: default,
+    $sign-bgcolor: default,
+    $sign-color: default,
+    $disabled-sign-color: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $width == default {
+        $width: map-get($number, width);
+    }
+    @if $height == default {
+        $height: map-get($number, height);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($number, bordercolor);
+    }
+    @if $color == default {
+        $color: map-get($number,color);
+    }
+    @if $sign-bgcolor == default {
+        $sign-bgcolor: map-get($number, sign-bgcolor);
+    }
+    @if $sign-color == default {
+        $sign-color: map-get($number, sign-color);
+    }
+    @if $disabled-sign-color == default {
+        $disabled-sign-color: map-get($number, disabled-sign-color);
+    }
+    .yo-number#{$name} {
+        @if $width != map-get($number, width) {
+            width: $width;
+        }
+        @if $height != map-get($number, height) {
+            height: $height;
+            line-height: $height;
+        }
+        @if $bordercolor != map-get($number, bordercolor) {
+            border-color: $bordercolor;
+            box-shadow: 1px 1px 1px rgba($bordercolor,.3);
+        }
+        > .minus,
+        > .plus {
+            width: .35rem;
+            @if $sign-bgcolor != map-get($number, sign-bgcolor) {
+                background-color: $sign-bgcolor;
+            }
+            @if $sign-color != map-get($number, sign-color) {
+                color: $sign-color;
+            }
+            &.disabled{
+                @if $disabled-sign-color != map-get($number, disabled-sign-color) {
+                    color: $disabled-sign-color;
+                }
+            }
+        }
+        > .input {
+            @if $bordercolor != map-get($number, bordercolor) {
+                border-color: $bordercolor;
+                box-shadow: inset 1px 1px 1px rgba($bordercolor,.2);
+            }
+            @if $color != map-get($number, color) {
+                color: $color;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入number基础构造
+.yo-number {
+    @include _number;
+}

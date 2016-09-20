@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kami</title>
+        <link rel="stylesheet" href="source/highlight.min.css">
+        <link rel="stylesheet" href="source/app.css">
+        <style>
+        /* blockquote.api {
+        padding: 0 10px;
+        border-left-color: #1b809e;
+        margin-top: 50px;
+        }
+        table.table {
+        border: 1px solid #1b809e;
+        }
+        table.table>tbody>tr>th {
+        border-top: none;
+        }
+        h4 {
+        padding: 20px 0 10px 0;
+        border-bottom: 1px solid #eee;
+        }*/
+        .category-header{
+        font-size: 22px;
+        text-align: center;
+        color: #888;
+        font-style: italic;
+        }
+        </style>
+    </head>
+    <body>
+        <a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+        <header class="navbar navbar-static-top docs-nav" id="top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a href="http://ued.qunar.com/mobile/" class="navbar-brand">HY</a>
+                </div>
+                <nav id="bs-navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="http://ued.qunar.com/mobile/qapp/doc/">QApp</a>
+                        </li>
+                        <li class="active">
+                            <a href="info.html">Kami</a>
+                        </li>
+                        <li class="">
+                            <a href="http://ued.qunar.com/mobile/yo/doc/">Yo</a>
+                        </li>
+                        <li>
+                            <a href="http://hy.qunar.com/source/qunarapi.html" >QunarAPI</a>
+                        </li>
+                        <li>
+                            <a href="http://ued.qunar.com/mobile/qmb2/" target="_blank">QMB2</a>
+                        </li>
+                        <li>
+                            <a href="http://ued.qunar.com/mobile/statistics/">Statistics</a>
+                        </li>
+                        <li>
+                            <a href="http://ued.qunar.com/mobile/blog/" target="_blank">Blog</a>
+                        </li>
+                        <li>
+                            <a href="http://hy.qunar.com/">Hytive</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- Docs page layout -->
+        
+        <div class="docs-header" id="content" tabindex="-1" style="margin-bottom:0">
+            <div class="container">
+                <h1>Kami</h1>
+                <p>为移动而生的组件库</p>
+            </div>
+        </div>
+        
+        <header class="navbar navbar-static-top docs-second-nav">
+            <div class="container">
+                <nav>
+                    <ul class="nav navbar-nav">
+                        
+                        <li class="">
+                            <a href="info.html">简介</a>
+                        </li>
+                        
+                        <li class="">
+                            <a href="startup.html">起步</a>
+                        </li>
+                        
+                        <li class="">
+                            <a href="widget.html">组件API</a>
+                        </li>
+                        
+                        <li class="">
+                            <a href="tool.html">工具</a>
+                        </li>
+                        
+                        <li class="active">
+                            <a href="devspecification.html">开发规范</a>
+                        </li>
+                        
+                        <li class="">
+                            <a href="history.html">历史</a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="container docs-container">
+
+            
+
+            <div class="markdown-body">
+                <h1 id="kami-">Kami组件开发规范</h1>
+<h4 id="0-kami-">0.如何基于开发Kami的组件</h4>
+<p><a href="http://ued.qunar.com/mobile/kami/doc/tool.html">安装kamibuilder</a></p>
+<pre><code>//fekit kami init TestWidget
+$ fekit kami init [组件名]
+</code></pre><p>  ...</p>
+<pre><code>//引用Widget
+//Kami是Kami组件所在为路径的alias
+
+var Widget = require(&#39;Kami/scripts/core/index.js&#39;);
+//创建TestWidget UI组件
+var TestWidget =  Widget.extend({
+    options : {
+        type: &#39;widgetName&#39;,
+        container: &#39;组件的容器&#39;,
+        template: &#39;组件的模板如果需要&#39;//和ui的唯一样式命名空间
+
+    },
+    //组件的事件，需要代理到this._widgetEl上，其中this._widgetEl是在解析模板后获得的
+    // &#39;tap [data-role=&quot;list-item&quot;]&#39;: &#39;handler&#39;
+    events: {
+        &#39;&lt;eventType&gt; &lt;selector&gt;&#39;: &#39;&lt;functionName | eventHandlerFunction&gt;&#39;
+    },
+    //当前组件的模板解析，返回解析好的模板字符串
+    parseTemplate: function(tpl) {
+
+    },
+    //处理组件的数据
+    init: function() {},
+    //将组件渲染到容器中，默认基类提供渲染
+    render: function() {
+        //组件自有的处理逻辑
+        //...
+        //调用父类的方法，将组件渲染到文档中
+        TestWidget.superClass.render.call(this);
+    },
+    //销毁组件，默认不需要写，基类提供销毁方法，如果组件有自己内部的事件，需要在destroy时销毁事件或者定时器.然后调用父类destroy方法即可
+    destroy: function() {
+        //销毁组件自身的定时器或者事件
+        //....
+
+        //调用父类的方法，将组件销毁
+        TestWidget.superClass.destroy.call(this);
+    }
+});
+</code></pre><h4 id="1-">1.组件样式组织</h4>
+<p>kami中的组件样式默认是依赖<a href="http://ued.qunar.com/mobile/yo/doc/index.html">Yo</a>的。</p>
+<ul>
+<li>开发新组件<code>{widget}</code>时，需要提供同名的<code>{widget}.scss</code>文件</li>
+</ul>
+<h4 id="2-">2.目录规范</h4>
+<p>可以通过使用脚手架来完成新组件的创建，脚手架基于fekit，请先安装fekit</p>
+<pre><code>0. [sudo] npm install fekit -g
+1. [sudo] npm install fekit-extension-kami [-g]
+2. fekit kami init &lt;widgetName&gt;
+</code></pre><p>一个组件的目录结构如下：</p>
+<pre><code>{widget}
+├── HISTORY.md
+├── README.md
+├── build.sh
+├── index.js
+├── kami.config
+├── test
+└── src
+    ├── {widget}.js
+    └── tpl
+        ├── {widget}.string
+</code></pre><h5 id="2-1-history-md-">2.1 <code>HISTORY.md</code> 文件</h5>
+<p>组件的更新历史记录。</p>
+<h5 id="2-2-readme-md-">2.2 <code>README.md</code> 文件</h5>
+<p>组件使用说明，包括 Web 组件 API 介绍、使用技巧、注意事项等。</p>
+<h5 id="2-3-index-js-">2.3 <code>index.js</code> 文件</h5>
+<p>组件的入口文件，默认引用src/{widget}.js</p>
+<h5 id="2-4-kami-config-">2.4 <code>kami.config</code> 文件</h5>
+<p>组件的说明和配置</p>
+<pre><code>{
+    //组件的集合名称，默认都为kami
+    &quot;family&quot;: &quot;kami&quot;,
+
+    //组件的名称
+    &quot;name&quot;: &quot;base&quot;,
+
+    //组件的分类，core，primary, business, tool, external
+    &quot;category&quot;: &quot;core&quot;,
+
+    //组建的版本号
+    &quot;version&quot;: &quot;1.0.0&quot;,
+
+    //组件的依赖
+    &quot;dependance&quot;: {
+        &quot;class&quot;: &quot;1.0.0&quot;
+    },
+
+    //组件的描述
+    &quot;description&quot;: &quot;非ui类的组件工具的基类&quot;,
+
+    //组件的默认的git仓库地址
+    &quot;repository&quot;: {
+        &quot;git&quot;: &quot;git@gitlab.corp.qunar.com:kami/base.git&quot;
+    }
+}
+</code></pre><p><strong>组件的分类</strong></p>
+<ul>
+<li>core 核心库</li>
+<li>external 外部组件封装</li>
+<li>tool 工具类组件</li>
+<li>primary 基础组件</li>
+<li>business 业务组件</li>
+</ul>
+<h5 id="2-5-src-">2.5 <code>src</code> 文件夹</h5>
+<p><code>src</code> 目录包含 Web 组件的模板（string）、交互（js）,默认所有的模板(string)都需要放到<code>tpl</code>文件夹下</p>
+<h6 id="2-5-1-widget-js-">2.5.1 <code>{widget}.js</code> 文件</h6>
+<p>组件的交互逻辑。组件默认开发使用CMD规范。工具类组件默认继承<code>Base</code>，UI类组件默认继承<code>Widget</code>，组件内部的选择器通过<code>data-role</code>来实现，例如：</p>
+<pre><code>data-role=&quot;scroll&quot;
+</code></pre><h6 id="2-5-2-tpl-">2.5.2 tpl 文件夹，存放组件需要的模板文件</h6>
+<ul>
+<li>组件的模板文件默认用<code>.string</code>拓展名</li>
+<li><code>yo-{组件名}</code>为组件的基础标识符，组件的所有子元素的样式都基于此命名</li>
+<li>模板默认语法</li>
+</ul>
+<p>如下：</p>
+<pre><code>//条件语句
+{{#if}} {{#else if}} {{/if}}
+//循环语句
+{{#each}}{{/each}}
+//变量输出
+{{value}}
+//html转义
+{{#htmlString}}
+</code></pre><p>具体模板例如：</p>
+<pre><code>&lt;div class=&quot;yo-calendar yo-select {{className}}&quot;&gt;
+    {{#each list as section}}
+    &lt;div class=&quot;{{itemClass}} yo-select-item&quot; data-role=&quot;item&quot;&gt;
+        {{#if section.tag}}
+        &lt;span class=&quot;{{tagClass}} yo-select-item-tag&quot;&gt;{{section.tag}}&lt;/span&gt;
+        {{/if}}
+    &lt;/div&gt;
+    {{/each}}
+    &lt;div class=&quot;mask&quot; data-role=&quot;mask&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><h5 id="2-5-test-">2.5 <code>test</code> 文件夹</h5>
+<p>用于存放用户的测试demo的测试用例</p>
+<h3 id="3-">3.命名规范</h3>
+<h5 id="3-1-">3.1 文件和文件夹命名</h5>
+<ol>
+<li>所有文件或者文件夹的命名都只能包含 <strong>[a-zA-Z]</strong>，除<code>HISTORY.md</code>和 <code>README.md</code>外，其他文件都必须小写 例如pagelist、pagelist.js</li>
+</ol>
+<h5 id="3-2-">3.2 变量、常量、方法命名</h5>
+<ol>
+<li>类名首字母必须大写，遵守Pascal命名规范，如 <code>Base</code>、<code>Widget</code>等</li>
+<li>模板文件名称首字母必须大写，遵守Pascal命名规范， 如 <code>LoadingTpl</code></li>
+<li>常量需要全部大写，并且中间使用<code>_</code>连接， 如 <code>EVENT_PREFIX</code></li>
+<li>默认选项必须全部大写并且中间使用<code>_</code>连接， 如 <code>DEFAULT_OPT</code></li>
+<li>私有变量和方法以<code>_</code>开始， 如 <code>_cacheWidget</code> 私有方法、 <code>_widgetMap</code>私有变量</li>
+<li>其他变量和方法遵守驼峰，如 <code>parentNode</code> 变量、 <code>getClassNamePrefix</code>方法</li>
+</ol>
+<h3 id="4-">4.历史记录书写规范</h3>
+<p>记录组件变更，如果有issue最好和issue进行绑定</p>
+<pre><code>### 1.1.0
+*  #18 修复了 XXX 问题
+* [fixed] #29 修复了 YYY 问题
+* [add] #12 增加了 ZZZ 功能
+* [modify] #23 优化了 BBB 代码
+### 1.0.0
+* [new] 第一个发布版本
+</code></pre><h3 id="5-">5.注释规范</h3>
+<p>所有注释都必须使用多行注释</p>
+<pre><code>/**
+ * 
+ */
+</code></pre><p>目前支持的注释标签 </p>
+<ul>
+<li>@class 标签表明当前对象是个js的类</li>
+<li>@constructor 标签表明当前的方法是个构造函数</li>
+<li>@namespace 标签表明当前的对象是个命名空间</li>
+<li>@event 标签表明当前function是一个事件</li>
+<li>@function 标签表明当前的对象是一个<code>@function</code></li>
+<li>@property 标签表明当前的对象是一个属性，可用于class或者<code>@namespace</code></li>
+<li>@extends 标签表明当前对象继承用于<code>@class</code>对象</li>
+<li>@mixin 标签表明当前对象混入了哪些<code>@class</code>或者<code>@namespace</code>对象</li>
+<li>@category 标签用于标明js对象的分类，目前用于<code>@class</code>和<code>@namespace</code></li>
+<li>@name 标签用来表示当前对象的名称</li>
+<li>@param 标签表示当前是个参数对象</li>
+<li>@paramDetails 标签用于和@param使用用来说明<code>@param</code>的具体内容</li>
+<li>@memberOf 标签所有的<code>@function</code>,<code>@event</code>, <code>property</code>都需要只通过<code>@memberOf</code>来指定</li>
+<li>@private 标签默认只支持<code>@class</code>,<code>@namespace</code>,<code>@function</code></li>
+<li>@demo 标签默认支持<code>@class</code>,<code>@namespace</code></li>
+<li>@example 标签默认支持<code>@class</code>,<code>@namespace</code>,<code>@function</code>,<code>@event</code></li>
+<li>@template 标签用来表示当前是个模板对象</li>
+</ul>
+<h5 id="5-1-class-">5.1 <code>class</code>类</h5>
+<p>使用@class</p>
+<pre><code>/**
+ * @class className
+ * @constructor
+ * @extends extendClassName
+ * @category cactegoryName
+ * @demo demoLinkAddress
+ */
+</code></pre><h5 id="5-2-namespace-">5.2 <code>namespace</code>命名空间</h5>
+<p>使用@namespace</p>
+<pre><code>/**
+ * @namespace namespaceName
+ * 命名空间的描述
+ * @name {Object} namespaceName
+ * @private
+ */
+</code></pre><h5 id="5-3-function-">5.3 <code>function</code>函数</h5>
+<p>使用@function
+函数必须使用<code>@memberOf</code>来标记当前函数是属于那个类或者命名空间</p>
+<pre><code>    /**
+     * 函数描述
+     * 
+     * @function functionName
+     * @memberOf  memberOf
+     * @private
+     * @param  {paramType} paramName paramDescription
+     */
+</code></pre><h5 id="5-3-event-">5.3 <code>event</code>事件</h5>
+<p>使用@event</p>
+<pre><code>    /**
+     * 事件描述
+     * @event eventName
+     * @param  {paramType} paramName paramDescription
+     * @memberOf memberOf
+     */
+</code></pre><h5 id="5-4-example-">5.4 <code>example</code>例子</h5>
+<p>使用@example</p>
+<pre><code>    /**
+     * @function functionName 
+     * @example
+     * Alert.show({
+     *     content: &#39;aaa&#39;,
+     * });
+     */
+</code></pre><h5 id="5-5-property-">5.5 <code>property</code>属性</h5>
+<p>使用@property</p>
+<pre><code>    /**
+     * @property {propertyType} propertyName propertyDescription
+     * @property {propertyType} propertyName propertyDescription
+     * @memberOf memberOf
+     */
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+</code></pre><p>=======</p>
+<h5 id="5-5-template-">5.5 <code>template</code>属性</h5>
+<p>使用@template</p>
+<pre><code>/**
+ *
+ * @template itemTpl
+ * 列表选项的模板，该模板自定义时，itemTpl的模板
+ * 必须含有data-role=&quot;list-item&quot; 和 data-index={{dataIndex}}两个属性
+ * @memberOf Pagelist
+ * @path ./tpl/pagelist-item.string
+ * 
+ */
+</code></pre><p>@path表示当前模板的相对路径，@path必须写在注释块最后</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>494b4723fcaa97f08485e701bacd6ac67f97bc7c</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+
+            </div>
+
+            
+            </div>
+        </div>
+        <!-- Footer
+        ================================================== -->
+        <footer class="docs-footer" role="contentinfo">
+            <div class="container">
+                <p>Kami</p>
+            </div>
+        </footer>
+        <script src="source/jquery.min.js"></script>
+        <script src="source/bootstrap.min.js"></script>
+        <script src="source/docs.min.js"></script>
+        <script src="source/highlight.min.js"></script>
+        <script src="source/qrcode.min.js"></script>
+        <script>
+        $(document).ready(function() {
+        $('code').each(function(i, block) {
+        if (block.innerHTML.indexOf('\n') != -1) {
+        var pn = block.parentNode;
+        if (pn.tagName.toUpperCase() == 'PRE') {
+        try {
+        hljs.highlightBlock(block);
+        } catch(e) {}
+        } else {
+    pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
+    try {
+    hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
+    } catch(e) {}
+    }
+    }
+    });
+    });
+    </script>
+    <script>
+    [].slice.call(document.getElementsByClassName('qrcode')).forEach(function(item){
+    new QRCode(item, $(item).data('src'));
+    })
+    </script>
+</body>
+</html>

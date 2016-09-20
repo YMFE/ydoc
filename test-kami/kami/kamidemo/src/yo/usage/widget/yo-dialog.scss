@@ -1,0 +1,13 @@
+@charset "utf-8";
+@import "../../lib/widget/yo-dialog";
+
+/**
+ * yo-dialog扩展
+ * Author: joy.du(飘零雾雨)
+ * Time: 2015.1.16
+ */
+
+@include yo-dialog(
+    $name: test,
+    $height: 3rem
+);

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>file - The Yo API Yo 文档站</title>
+    <!-- <link href="../source/bootstrap.min.css" rel="stylesheet">
+    <link href="../source/patch.css" rel="stylesheet">
+    <link href="../source/docs.min.css" rel="stylesheet"> -->
+    <script type="text/javascript" src="../source/shCore.js"></script>
+    <script type="text/javascript" src="../source/shBrushSass.js"></script>
+    <link type="text/css" rel="stylesheet" href="../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../source/app.css" rel="stylesheet">
+    <style> 
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+    </style>
+    
+    
+</head>
+<body style="background: white; font-family: Helvetica">
+<div class="bs-docs-header" id="content" tabindex="-1">
+    <div class="container">
+        <h1>YO  <em style="font-size:18px;">库版本：0.1.2 moduleVersion </em></h1>
+        <p>一个基于 Sass 开发的 CSS Framework，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。</p>
+    </div>
+</div>
+<div class="container bs-docs-container">
+ 
+    <div class="row">
+        <div class="col-md-9" role="main">
+        <pre class="brush: sass;">
+                @charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义header的基础构造
+@mixin _header {
+    position: relative;
+    height: map-get($header, height);
+    line-height: map-get($header, height);
+    border-bottom: 1px solid map-get($header, bordercolor);
+    background-color: map-get($header, bgcolor);
+    // 如果config预设值不等于base color，则重绘color
+    @if map-get($header, color) != map-get($base, color) {
+        color: map-get($header, color);
+    }
+    // 如果config预设值不等于base font-size，则重绘font-size
+    @if map-get($header, font-size) != map-get($base, font-size) {
+        font-size: map-get($header, font-size);
+    }
+    @include ellipsis;
+    text-align: center;
+    > .title {
+        @include ellipsis;
+        margin: 0 map-get($header, item-width);
+    }
+    > .regret,
+    > .affirm {
+        position: absolute;
+        top: 0;
+        width: map-get($header, item-width);
+        // 如果config预设值不等于parent color，则重绘子项的color
+        @if map-get($header, item-color) != map-get($header, color) {
+            color: map-get($header, item-color);
+        }
+        cursor: pointer;
+        &:active {
+            opacity: .5;
+        }
+        // 如果config预设值不等于parent font-size，则重绘子项的font-size
+        @if map-get($header, item-font-size) != map-get($header, font-size) {
+            font-size: map-get($header, item-font-size);
+        }
+        &.yo-ico,
+        > .yo-ico {
+            color: map-get($header, item-ico-color);
+            font-size: map-get($header, item-ico-size);
+        }
+    }
+    > .regret {
+        left: 0;
+        padding-left: map-get($header, item-space);
+        text-align: left;
+    }
+    > .affirm {
+        right: 0;
+        padding-right: map-get($header, item-space);
+        text-align: right;
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-header
+ * @description 构造头的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-header.html
+ * @param {String} $name 定义yo-header名称
+ * @param {Length} $height 定义yo-header高度
+ * @param {Length} $item-width 定义yo-header两侧子项宽度
+ * @param {Length} $item-space 定义yo-header两侧子项离边界的间隙
+ * @param {Color} $bordercolor 定义yo-header边框色
+ * @param {Color} $bgcolor 定义yo-header背景色
+ * @param {Color} $color 定义yo-header文本色
+ * @param {Length} $font-size 定义yo-header文本大小
+ * @param {Color} $item-color 定义yo-header两侧的子项文本色
+ * @param {Color} $item-ico-color 定义yo-header两侧的ico色
+ * @param {Length} $item-font-size 定义yo-header两侧的子项文本大小
+ * @param {Length} $item-ico-size 定义yo-header两侧的ico大小
+ */
+
+@mixin yo-header(
+    $name: default,
+    $height: default,
+    $item-width: default,
+    $item-space: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $color: default,
+    $font-size: default,
+    $item-color: default,
+    $item-ico-color: default,
+    $item-font-size: default,
+    $item-ico-size: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $height == default {
+        $height: map-get($header, height);
+    }
+    @if $item-width == default {
+        $item-width: map-get($header, item-width);
+    }
+    @if $item-space == default {
+        $item-space: map-get($header, item-space);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($header, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($header, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($header, color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($header, font-size);
+    }
+    @if $item-color == default {
+        $item-color: map-get($header, item-color);
+    }
+    @if $item-ico-color == default {
+        $item-ico-color: map-get($header, item-ico-color);
+    }
+    @if $item-font-size == default {
+        $item-font-size: map-get($header, item-font-size);
+    }
+    @if $item-ico-size == default {
+        $item-ico-size: map-get($header, item-ico-size);
+    }
+    .yo-header#{$name} {
+        @if $height != map-get($header, height) {
+            height: $height;
+            line-height: $height;
+        }
+        @if $bordercolor != map-get($header, bordercolor) {
+            border-color: $bordercolor;
+        }
+        @if $bgcolor != map-get($header, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $color != map-get($header, color) {
+            color: $color;
+        }
+        @if $font-size != map-get($header, font-size) {
+            font-size: $font-size;
+        }
+        > .title {
+            @if $item-width != map-get($header, item-width) {
+                margin: 0 $item-width;
+            }
+        }
+        > .regret,
+        > .affirm {
+            @if $item-width != map-get($header, item-width) {
+                width: $item-width;
+            }
+            @if $item-color != map-get($header, item-color) {
+                color: $item-color;
+            }
+            @if $item-font-size != map-get($header, item-font-size) {
+                font-size: $item-font-size;
+            }
+            &.yo-ico,
+            > .yo-ico {
+                @if $item-ico-color != map-get($header, item-ico-color) {
+                    color: $item-ico-color;
+                }
+                @if $item-ico-size != map-get($header, item-ico-size) {
+                    font-size: $item-ico-size;
+                }
+            }
+        }
+        @if $item-space != map-get($header, item-space) {
+            > .regret {
+                    padding-left: $item-space;
+            }
+            > .affirm {
+                    padding-right: $item-space;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入header基础构造
+.yo-header {
+    @include _header;
+}
+        </pre>
+        </div>
+    
+    </div>
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015</p>
+    </div>
+</footer>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    window.addEventListener('load',function(){
+       Array.prototype.slice.call(document.querySelectorAll('.line')).forEach(function(item){
+               item.id = 'doc'+ item.classList[1].substr(6);
+           });
+    },false)
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{{#each data as item}}
+
+    <h3 class="month-bar" data-role="title">{{item.month}}</h3>
+
+    {{#each item.weeks as weeks}}
+    <ul class="week">
+        {{#each weeks as date}}
+        {{#if (date.isLastMonth || date.isNextMonth)}}
+        <li
+            data-role="dpl-item"
+            class="
+            {{#if date.diffBeginDate}}
+            disabled
+            {{/if}}"></li>
+        {{#else}}
+            <li
+                data-role="dpl-item"
+                data-date={{date.day}}
+                class="
+                {{#if date.isToday}}
+                today
+                {{/if}}
+                {{#if (date.isWeekend || date.isHoliday) && date.isHoliday !== 0}}
+                weekend
+                {{/if}}
+                {{#if date.holiday}}
+                holiday
+                {{/if}}
+                {{#if (date.isCheckIn)}}
+                start
+                {{/if}}
+                {{#if (date.isCheckOut)}}
+                end
+                {{/if}}
+                {{#if (date.diffBeginDate < 0 || date.diffEndDate > 0)}}
+                disabled
+                {{/if}}
+                ">
+                    <span class="day">{{date.date}}</span>
+
+                    {{#if date.isToday}}
+                    <ins class="special">今天</ins>
+                    {{/if}}
+                    {{#if date.holiday}}
+                    <ins class="special">{{date.holiday}}</ins>
+                    {{/if}}
+            </li>
+        {{/if}}
+        {{/each}}
+    </ul>
+    {{/each}}
+{{/each}}

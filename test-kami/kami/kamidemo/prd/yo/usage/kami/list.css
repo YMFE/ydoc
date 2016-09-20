@@ -1,0 +1,19 @@
+.yo-list>.label,.yo-list>.item,.yo-list .front{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;-webkit-transform:translatez(0);transform:translatez(0)}
+.yo-list>.label>.mark:not(:last-child),.yo-list>.label>.yo-ico:not(:last-child),.yo-list>.item>.mark:not(:last-child),.yo-list>.item>.yo-ico:not(:last-child),.yo-list .front>.mark:not(:last-child),.yo-list .front>.yo-ico:not(:last-child){margin-right:.1rem}
+.yo-list>.label>.flex,.yo-list>.item>.flex,.yo-list .front>.flex{-webkit-box-flex:1;-webkit-flex:1;flex:1;width:.1px}
+.yo-list>.label>.mark,.yo-list>.label>.yo-ico,.yo-list>.label>.col,.yo-list>.label>.flex,.yo-list>.item>.mark,.yo-list>.item>.yo-ico,.yo-list>.item>.col,.yo-list>.item>.flex,.yo-list .front>.mark,.yo-list .front>.yo-ico,.yo-list .front>.col,.yo-list .front>.flex{display:block}
+.yo-list>.label.tr,.yo-list>.item.tr,.yo-list .front.tr{padding:0}
+.yo-list>.label{padding:.03rem .1rem;border:1px solid #eee;border-width:0 0 1px 0;background-color:#fafafa;color:#666;font-size:.13rem;font-weight:normal}
+.yo-list>.label>.col{padding:.03rem .1rem}
+.yo-list>.label:not(:first-child){border-width:1px 0;margin-top:-1px}
+.yo-list>.item,.yo-list .front{padding:.11rem .1rem .12rem}
+.yo-list>.item{background-color:#fff;color:#212121;font-size:.14rem;background-image:-webkit-linear-gradient#ddd,#ddd;background-image:linear-gradient(#ddd,#ddd);-webkit-background-size:100% 1px;background-size:100% 1px;background-repeat:no-repeat;background-position:.1rem bottom}
+.yo-list>.item:last-child{margin-bottom:-1px;background-image:-webkit-linear-gradient#ccc,#ccc;background-image:linear-gradient(#ccc,#ccc);background-position:0 bottom}
+.yo-list>.item-stacked{display:block}
+.yo-list>.item-stacked>.mark{padding-bottom:.05rem}
+.yo-list>.item-input>.yo-input{height:auto;padding:0;border:0}
+.yo-list>.item.item-active:active,.yo-list>.item.item-active:active .front,.yo-list>.item.item-light,.yo-list>.item.item-light .front{background-color:#f8f8f8}
+.yo-list>.item>.col{padding:.11rem .1rem .12rem}
+.yo-list-inset{margin:.2rem .1rem 0 .1rem;border-radius:.02rem;border-width:1px;border-color:#ccc;border-style:solid}
+.yo-list-group>.label{padding:.18rem .1rem .03rem;border-color:#ccc;background-color:transparent}
+.yo-list-group>.label>.col{padding:.18rem .1rem .03rem}

@@ -1,0 +1,36 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class ani
+ * @module Yo
+ */
+
+/**
+ * 定义从左侧翻滚出去动画
+ * @method roll-out-left
+ */
+
+@-webkit-keyframes roll-out-left {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+	}
+}
+@keyframes roll-out-left {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+	}
+}
+
+.ani.roll-out-left {
+	-webkit-animation-name: roll-out-left;
+	animation-name: roll-out-left;
+}

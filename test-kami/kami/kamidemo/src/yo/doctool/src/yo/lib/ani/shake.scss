@@ -1,0 +1,56 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class ani
+ * @module Yo
+ */
+
+/**
+ * 定义摇动动画
+ * @method shake
+ */
+
+@-webkit-keyframes shake {
+	0%,
+	100% {
+		-webkit-transform: translate3d(0, 0, 0);
+	}
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: translate3d(-10px, 0, 0);
+	}
+	20%,
+	40%,
+	60%,
+	80% {
+		-webkit-transform: translate3d(10px, 0, 0);
+	}
+}
+@keyframes shake {
+	0%,
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+	10%,
+	30%,
+	50%,
+	70%,
+	90% {
+		transform: translate3d(-10px, 0, 0);
+	}
+	20%,
+	40%,
+	60%,
+	80% {
+		transform: translate3d(10px, 0, 0);
+	}
+}
+
+.ani.shake {
+	-webkit-animation-name: shake;
+	animation-name: shake;
+}

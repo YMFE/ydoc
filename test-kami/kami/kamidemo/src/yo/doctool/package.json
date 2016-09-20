@@ -1,0 +1,20 @@
+{
+  "name": "yo",
+  "description": "Yo 是一款基于 Mobile First 理念而设计的 CSS Framework，当然，你使用在PC高级浏览器中也完全没有问题；其具备轻量，易用，快速且高度强大的自定义能力。",
+  "compiler": "node-sass",
+  "dependencies": {
+    "css": "2.2.1",
+    "gulp": "3.8.11",
+    "gulp-plumber": "1.0.1",
+    "gulp-sass-china": "2.0.4",
+    "node-sass-china": "3.2.0",
+    "gulp-util": "3.0.6",
+    "node-notifier": "4.2.3",
+    "through2": "2.0.0", 
+    "comment-parser": "0.3.0 ",
+    "art-template": "3.0.3",
+    "github-markdown": "0.5.0"
+  },
+  "repository": "https://github.com/doyoe/Yo",
+  "license": "MIT"
+}

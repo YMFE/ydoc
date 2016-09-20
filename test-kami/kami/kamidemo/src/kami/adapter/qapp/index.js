@@ -1,0 +1,12 @@
+require('QApp');
+require('./src/calendar.js');
+require('./src/dialog.js');
+require('./src/numbers.js');
+require('./src/select.js');
+require('./src/time.js');
+require('./src/suggest.js');
+require('./src/searchlist.js');
+require('./src/selectlist.js');
+require('./src/pagelist.js');
+require('./src/doublelist.js');
+require('./src/switch.js');

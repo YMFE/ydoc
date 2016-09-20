@@ -1,0 +1,17 @@
+.yo-rating{display:inline-block;position:relative;width:1.2rem;height:.18rem;overflow:hidden}
+.yo-rating,.yo-rating>.index,.yo-rating>.item{background:url(http://source.qunarzz.com/yo/bgimg/star.png) repeat-x;background-size:auto .36rem}
+.yo-rating>.index,.yo-rating>.item{position:absolute;top:0;left:0;height:100%;line-height:10}
+.yo-rating>.index{background-position:0 - .18rem}
+.yo-rating>.item{z-index:3;width:20%;background-position:0 100px;cursor:pointer}
+.yo-rating>.item:nth-of-type(2){left:20%}
+.yo-rating>.item:nth-of-type(2):hover{width:40%}
+.yo-rating>.item:nth-of-type(3){left:40%}
+.yo-rating>.item:nth-of-type(3):hover{width:60%}
+.yo-rating>.item:nth-of-type(4){left:60%}
+.yo-rating>.item:nth-of-type(4):hover{width:80%}
+.yo-rating>.item:nth-of-type(5){left:80%}
+.yo-rating>.item:nth-of-type(5):hover{width:100%}
+.yo-rating>.item:hover{z-index:2;left:0!important;background-position:0 - .18rem}
+.yo-rating-readonly>.item:hover{background-position:0 1rem!important}
+.yo-rating-test{width:.9rem}
+.yo-rating-test,.yo-rating-test>.index,.yo-rating-test>.item{background-image:url(http://source.qunarzz.com/yo/bgimg/star2.png)}

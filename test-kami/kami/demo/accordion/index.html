@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<title>accordion</title>
+	<style>
+		html, body{
+			width: 100%;
+			padding: 0;
+			margin: 0;
+		}
+		.accordion{
+			padding: 0;
+			text-decoration: none;
+			width: 100%;
+			
+		}
+		ul{
+			list-style-type: none;
+			padding: 0;
+		}
+		.tit{
+			background-color: #000;
+			color: #fff;
+			line-height: 2rem;
+		}
+		.show{
+			display: block;
+			
+			/*height: 119px;*/
+			/*overflow: hidden;*/
+		}
+		[data-role="accordion-detail"]{
+			display: none;
+			-webkit-transform:translateZ(0);
+		}
+		.img{
+			width: 100%;
+			height: 119px;
+		}
+		.getHideEleStyle{
+			position : fixed;
+			left: -100%;
+			height: auto;
+			visibility: hidden;
+			display: block;
+		}
+		.ready{
+			display: block;
+			height: 0px;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+<!-- 	<ul id="accordion">
+			<div class="tit"  data-role="accordion-main">aaaaaaaaaaaa</div>
+			<div data-role ="accordion-detail">
+				<img class="img" src="http://i.mmcdn.cn/simba/img/TB1U7GdHpXXXXbPXVXXSutbFXXX.jpg_q50.jpg" alt="">
+				<ul id="accordionChild">
+					<div class="tit"  data-role="accordion-main">aaaaaaaaaaaa</div>
+					<div data-role ="accordion-detail">
+						<img class="img" src="http://i.mmcdn.cn/simba/img/TB1U7GdHpXXXXbPXVXXSutbFXXX.jpg_q50.jpg" alt="">
+					</div>
+				</ul>
+			</div>
+		</li>
+	</ul>
+ -->
+
+	<div id="target">
+		<div class="tit" data-role="accordion-main">
+			你瞅，再瞅就把你喝掉
+		</div>
+		<div data-role ="accordion-detail">
+			<p>你是我的旺仔牛奶~~~</p>
+			<img class="img" src="http://i.mmcdn.cn/simba/img/TB1U7GdHpXXXXbPXVXXSutbFXXX.jpg_q50.jpg" alt="">
+		</div>
+		<div class="tit" data-role="accordion-main">
+			你瞅，再瞅就把你喝掉
+		</div>
+		<div data-role ="accordion-detail">
+			<p>你是我的旺仔牛奶~~~</p>
+			<img class="img" src="http://i.mmcdn.cn/simba/img/TB1U7GdHpXXXXbPXVXXSutbFXXX.jpg_q50.jpg" alt="">
+		</div>
+		<div class="tit" data-role="accordion-main">
+			你瞅，再瞅就把你喝掉
+		</div>
+		<div data-role ="accordion-detail">
+			<p>你是我的旺仔牛奶~~~</p>
+			<img class="img" src="http://i.mmcdn.cn/simba/img/TB1U7GdHpXXXXbPXVXXSutbFXXX.jpg_q50.jpg" alt="">
+		</div>
+	</div>
+	
+
+	<script src="../../../../prd/kami/demo/accordion/accordion-demo.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<div data-role="switchable" class="yo-switchable">
+	<ul data-role="switchableContainer" class="cont">
+		{{#each list as item}}
+		<li data-role="switchableItem" class="item yo-loading">
+			{{#if item.href}}
+			<a href="{{item.href}}" class="href">
+			{{/if}}
+				{{#if item.img}}
+				<img src="{{item.img}}"  data-role="switchableImg" class="img" />
+				{{/if}}
+			{{#if item.href}}
+			</a>
+			{{/if}}
+		</li>
+		{{/each}}
+	</ul>
+
+	{{#if dots}}
+	<ul data-role="switchableDotslist" class="index">
+		{{#each  originData}}
+		<li data-role="switchableDotsitem"></li>
+		{{/each}}
+	</ul>
+	{{/if}}
+
+	{{#if button}}
+		<span class="yo-ico yo-ico-prev" data-role="switchable-button-l">&#xf07d;</span>
+		<span class="yo-ico yo-ico-next" data-role="switchable-button-r">&#xf07f;</span>
+	{{/if}}
+</div>

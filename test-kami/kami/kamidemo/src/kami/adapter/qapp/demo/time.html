@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>qapp adapter time</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../../../../prd/index@VERSION.css"/>
+    <style>
+        body {
+            height: 538px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<script>
+
+</script>
+<body>
+    
+    
+    <script src="../../../../../prd/kami/adapter/qapp/index.js"></script>
+    <script>
+        window.Kami.disableTapEvent = true;
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded');
+            var showPopCl = document.createElement('BUTTON');
+            showPopCl.innerHTML = '点击显示time';
+            showPopCl.addEventListener('click', function () {
+                QApp.showWidget('poptime');
+            });
+            var qapp = document.querySelector('qapp-app');
+            qapp.appendChild(showPopCl);
+        });
+        
+
+    </script>
+</body>
+</html>

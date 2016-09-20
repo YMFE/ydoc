@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>badge - 消息提示气泡</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<script src="../../js/viewport.js"></script>
+<link rel="stylesheet" href="../../usage/export/yo-badge.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-badge</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-list">
+            <ul class="yo-list">
+                <li class="item">
+                    <div class="cont flex">list item</div>
+                    <span class="yo-badge">9</span>
+                </li>
+                <li class="item">
+                    <div class="cont flex">list item</div>
+                    <span class="yo-badge yo-badge-normal">9</span>
+                </li>
+                <li class="item">
+                    <div class="cont flex">list item</div>
+                    <span class="yo-badge yo-badge-hollow">9</span>
+                </li>
+                <li class="item">
+                    <div class="cont flex">list item</div>
+                    <span class="yo-badge yo-badge-ident">减</span>
+                </li>
+                <li class="item">
+                    <div class="cont flex">list item</div>
+                    <span class="yo-badge">999</span>
+                </li>
+                <li class="item">
+                    <span class="mark">当前类别</span>
+                    <div class="cont">
+                        <span class="yo-badge yo-badge-tag">便宜</span>
+                        <span class="yo-badge yo-badge-tag">实惠</span>
+                        <span class="yo-badge yo-badge-tag">好用</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">使用方法：</h3>
+            <xmp><span class="yo-badge">9</span></xmp>
+            <h3 class="sub-title">假设你想要多种风格，只需这样扩展：</h3>
+            <xmp>@include yo-badge(
+    $name: normal,
+    $bordercolor: gray
+);</xmp>
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><span class="yo-badge yo-badge-normal">9</span></xmp>
+        </section>
+
+        <pre class="m-code"><span class="method">@include yo-badge</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{String} yo-badge名称</mark>
+    $padding<span class="colon">:</span>default, <mark>//{Length} 内补白</mark>
+    $border-width<span class="colon">:</span>default, <mark>//{Length} 边框厚度</mark>
+    $bordercolor<span class="colon">:</span>default, <mark>//{Color} 边框色</mark>
+    $bgcolor<span class="colon">:</span>default, <mark>//{Color} 背景色</mark>
+    $color<span class="colon">:</span>default, <mark>//{Color} 文本色</mark>
+    $radius<span class="colon">:</span>default, <mark>//{Number} 圆角半径大小</mark>
+    $font-size<span class="colon">:</span>default <mark>//{Length} 字号</mark>
+<span class="bracket">)</span>
+</pre>
+
+    </div>
+</div>
+
+</body>
+</html>

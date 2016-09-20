@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>doublelist Demo</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/export/yo-flex.css" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/kami/doublelist.css" />
+    <style type="text/css">
+    .yo-doublelist > .item:first-child,
+    .yo-dblist > .item:first-child {
+        width: 100px;
+    }
+    </style>
+</head>
+<body>
+<section class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">Doublelist</h2>
+        <a href="../../../index.html" class="regret yo-ico">&#xf07d;</a>
+        <span class="affirm yo-ico">&#xf067;</span>
+    </header>
+    <div class="flex" id="container">
+
+    </div>
+</section>
+
+<script type="text/javascript" src="../../../prd/scripts/common.js"></script>
+<script type="text/javascript" src="../../../prd/scripts/kami-doublelist.js"></script>
+<script type="text/javascript">
+// 获取组件。require("path/to/doublelist")
+var DoubleList = Kami.DoubleList;
+
+var categoryDS = [
+    {id: 1, text: '销量排行', cate: 'xl'},
+    {id: 2, text: '特色炸鸡类', cate: 'zj'},
+    {id: 3, text: '套餐类(中薯+中可)', cate: 'tc'},
+    {id: 4, text: '汉堡类', cate: 'hb'},
+    {id: 5, text: '米饭类', cate: 'mf'},
+    {id: 6, text: '汤品类', cate: 'tp'}
+];
+
+var mainDS = {
+    'xl': [
+        {id: 1, text: '香辣鸡翅', saleNum: 437, zan: 32, price: 10},
+        {id: 2, text: '吮指原味鸡', saleNum: 333, zan: 22, price: 10.5},
+        {id: 3, text: '新奥良烤翅', saleNum: 123, zan: 18, price: 11},
+        {id: 4, text: '香辣鸡腿堡', saleNum: 243, zan: 15, price: 16.5},
+        {id: 5, text: '老北京鸡肉卷', saleNum: 111, zan: 0, price: 15},
+        {id: 1, text: '香辣鸡翅', saleNum: 437, zan: 32, price: 10},
+        {id: 2, text: '吮指原味鸡', saleNum: 333, zan: 22, price: 10.5},
+        {id: 3, text: '新奥良烤翅', saleNum: 123, zan: 18, price: 11},
+        {id: 4, text: '香辣鸡腿堡', saleNum: 243, zan: 15, price: 16.5},
+        {id: 5, text: '老北京鸡肉卷', saleNum: 111, zan: 0, price: 15},
+        {id: 1, text: '香辣鸡翅', saleNum: 437, zan: 32, price: 10},
+        {id: 2, text: '吮指原味鸡', saleNum: 333, zan: 22, price: 10.5},
+        {id: 3, text: '新奥良烤翅', saleNum: 123, zan: 18, price: 11},
+        {id: 4, text: '香辣鸡腿堡', saleNum: 243, zan: 15, price: 16.5},
+        {id: 5, text: '老北京鸡肉卷', saleNum: 111, zan: 0, price: 15},
+        {id: 1, text: '香辣鸡翅', saleNum: 437, zan: 32, price: 10},
+        {id: 2, text: '吮指原味鸡', saleNum: 333, zan: 22, price: 10.5},
+        {id: 3, text: '新奥良烤翅', saleNum: 123, zan: 18, price: 11},
+        {id: 4, text: '香辣鸡腿堡', saleNum: 243, zan: 15, price: 16.5},
+        {id: 5, text: '老北京鸡肉卷', saleNum: 111, zan: 0, price: 15}
+    ],
+    'zj': [
+        {id: 1, text: '香辣鸡翅zj', saleNum: 437, zan: 32, price: 10},
+        {id: 2, text: '吮指原味鸡', saleNum: 333, zan: 22, price: 10.5},
+        {id: 3, text: '新奥良烤翅', saleNum: 123, zan: 18, price: 11},
+        {id: 4, text: '香辣鸡腿堡', saleNum: 243, zan: 15, price: 16.5},
+        {id: 5, text: '老北京鸡肉卷', saleNum: 111, zan: 0, price: 15},
+        {id: 1, text: '香辣鸡翅', saleNum: 437, zan: 32, price: 10},
+        {id: 2, text: '吮指原味鸡', saleNum: 333, zan: 22, price: 10.5},
+        {id: 3, text: '新奥良烤翅', saleNum: 123, zan: 18, price: 11},
+        {id: 4, text: '香辣鸡腿堡', saleNum: 243, zan: 15, price: 16.5},
+        {id: 5, text: '老北京鸡肉卷', saleNum: 111, zan: 0, price: 15},
+        {id: 1, text: '香辣鸡翅', saleNum: 437, zan: 32, price: 10}
+    ]
+};
+
+var options = {
+    container: '#container',
+    category: categoryDS,
+    key: 'cate',
+    // 阻止浏览器默认行为
+    preventDefault: true,
+
+    mainListActiveClass: "",
+    mainListSelectedClass: "",
+    categoryListActiveClass: "",
+    categoryListSelectedClass: "",
+    
+    pagesize: 100
+};
+
+var doubleList = new DoubleList( options );
+
+    doubleList.on('selectcategory', function(data){
+        var cate = data[this.get('key')];
+        var ds = mainDS[cate];
+        this.reloadMainList(ds);
+    });
+
+    doubleList.on('SelectMain', function(data){
+        Demo.log(data);
+    });
+
+    doubleList.render();
+
+</script>
+</body>
+</html>

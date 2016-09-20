@@ -1,0 +1,5 @@
+<div class="yo-panel">
+    <div data-role="scroller">
+        <div data-role="body"></div>
+    </div>
+</div>

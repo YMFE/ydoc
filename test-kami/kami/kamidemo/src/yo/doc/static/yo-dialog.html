@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>file - The Yo API Yo 文档站</title>
+    <!-- <link href="../source/bootstrap.min.css" rel="stylesheet">
+    <link href="../source/patch.css" rel="stylesheet">
+    <link href="../source/docs.min.css" rel="stylesheet"> -->
+    <script type="text/javascript" src="../source/shCore.js"></script>
+    <script type="text/javascript" src="../source/shBrushSass.js"></script>
+    <link type="text/css" rel="stylesheet" href="../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../source/app.css" rel="stylesheet">
+    <style> 
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+    </style>
+    
+    
+</head>
+<body style="background: white; font-family: Helvetica">
+<div class="bs-docs-header" id="content" tabindex="-1">
+    <div class="container">
+        <h1>YO  <em style="font-size:18px;">库版本：0.1.2 moduleVersion </em></h1>
+        <p>一个基于 Sass 开发的 CSS Framework，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。</p>
+    </div>
+</div>
+<div class="container bs-docs-container">
+ 
+    <div class="row">
+        <div class="col-md-9" role="main">
+        <pre class="brush: sass;">
+                @charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+@import "../element/yo-btn";
+
+// 定义dialog的基础构造
+@mixin _dialog {
+    @include flexbox;
+    @include flex-direction(column);
+    position: fixed;
+    z-index: map-get($z-index, dialog);
+    overflow: hidden;
+    @include border-radius(map-get($dialog, radius));
+    @if map-get($dialog, shadow-opacity) != null {
+        box-shadow: 0 0 5px rgba(map-get($dialog, bordercolor), map-get($dialog, shadow-opacity));
+    }
+    border: 1px solid map-get($dialog, bordercolor);
+    min-width: 2.8rem;
+    max-width: 90%;
+    width: map-get($dialog, width);
+    height: map-get($dialog, height);
+    background: #fff;
+    text-align: center;
+    > .hd {
+        position: relative;
+        height: map-get($dialog, hd-height);
+        background: map-get($dialog, hd-bgcolor);
+        line-height: map-get($dialog, hd-height);
+        .title {
+            overflow: hidden;
+            height: 100%;
+            margin: 0 60px;
+            @if map-get($dialog, title-color) != map-get($base, color) {
+                color: map-get($dialog, title-color);
+            }
+            @if map-get($dialog, title-font-size) != map-get($base, font-size) {
+                font-size: map-get($dialog, title-font-size);
+            }
+        }
+        .regret,
+        .affirm {
+            position: absolute;
+            top: 0;
+        }
+        .regret {
+            left: .1rem;
+        }
+        .affirm {
+            right: .1rem;
+        }
+    }
+    > .bd {
+        @include flex(1, column);
+        @include overflow;
+        min-height: .45rem;
+        padding: map-get($dialog, bd-padding);
+        @if map-get($dialog, bd-font-size) != map-get($base, font-size) {
+            font-size: map-get($dialog, bd-font-size);
+        }
+    }
+    > .ft {
+        @include flexbox;
+        text-align: center;
+        @include yo-btn(
+            $border-width: 1px 0 0,
+            $bordercolor: map-get($base, bordercolor),
+            $bgcolor: #fff,
+            $color: map-get($base, link-color),
+            $radius: 0,
+            $active-bgcolor: #f9f9f9
+        ){
+            display: block;
+            @include flex;
+            &:last-child:not(:only-child),
+            &:only-child {
+                font-weight: bold;
+            }
+            &:last-child:not(:only-child) {
+                border-left-width: 1px;
+            }
+        }
+    }
+}
+
+/**
+ * @module widget
+ * @method yo-dialog
+ * @description 构造yo-dialog的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-dialog.html
+ * @param {String} $name 定义dialog名称
+ * @param {Length | null} $width 定义dialog宽度
+ * @param {Length} $height 定义dialog高度
+ * @param {Length} $radius 定义dialog圆角
+ * @param {Number} $shadow-opacity 定义dialog阴影透明度
+ * @param {Color} $bordercolor 定义dialog边框色
+ * @param {Length} $hd-height 定义dialog头部高度
+ * @param {Color} $hd-bgcolor 定义dialog头部背景色
+ * @param {Color} $title-color 定义dialog标题文本色
+ * @param {Length} $title-font-size 定义dialog标题字号
+ * @param {Length} $bd-padding 定义dialog主体补白
+ * @param {Length} $bd-font-size 定义dialog主体字号
+ */
+
+@mixin yo-dialog(
+    $name: default,
+    $width: default,
+    $height: default,
+    $radius: default,
+    $shadow-opacity: default,
+    $bordercolor: default,
+    $hd-height: default,
+    $hd-bgcolor: default,
+    $title-color: default,
+    $title-font-size: default,
+    $bd-padding: default,
+    $bd-font-size: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $width == default {
+        $width: map-get($dialog, width);
+    }
+    @if $height == default {
+        $height: map-get($dialog, height);
+    }
+    @if $radius == default {
+        $radius: map-get($dialog, radius);
+    }
+    @if $shadow-opacity == default {
+        $shadow-opacity: map-get($dialog, shadow-opacity);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($dialog, bordercolor);
+    }
+    @if $hd-height == default {
+        $hd-height: map-get($dialog, hd-height);
+    }
+    @if $hd-bgcolor == default {
+        $hd-bgcolor: map-get($dialog, hd-bgcolor);
+    }
+    @if $title-color == default {
+        $title-color: map-get($dialog, title-color);
+    }
+    @if $title-font-size == default {
+        $title-font-size: map-get($dialog, title-font-size);
+    }
+    @if $bd-padding == default {
+        $bd-padding: map-get($dialog, bd-padding);
+    }
+    @if $bd-font-size == default {
+        $bd-font-size: map-get($dialog, bd-font-size);
+    }
+    .yo-dialog#{$name} {
+        @if $radius != map-get($dialog, radius) {
+            border-radius: $radius;
+        }
+        @if $bordercolor != map-get($dialog, bordercolor) {
+            border-color: $bordercolor;
+            box-shadow: 0 0 5px rgba($bordercolor, $shadow-opacity);
+        } @else {
+            @if $shadow-opacity != map-get($dialog, shadow-opacity) {
+                box-shadow: 0 0 5px rgba($bordercolor, $shadow-opacity);
+            }
+        }
+        @if $width != map-get($dialog, width) {
+            width: $width;
+        }
+        @if $height != map-get($dialog, height) {
+            height: $height;
+        }
+        > .hd {
+            @if $hd-height != map-get($dialog, hd-height) {
+                height: $hd-height;
+                line-height: $hd-height;
+            }
+            @if $hd-bgcolor != map-get($dialog, hd-bgcolor) {
+                background: $hd-bgcolor;
+            }
+            .title {
+                @if $title-color != map-get($dialog, title-color) and $title-color != map-get($base, color) {
+                    color: $title-color;
+                }
+                @if $title-font-size != map-get($dialog, title-font-size) and $title-font-size != map-get($base, font-size) {
+                    font-size: $title-font-size;
+                }
+            }
+        }
+        > .bd {
+            @if $bd-padding != map-get($dialog, bd-padding) {
+                padding: $bd-padding;
+            }
+            @if $bd-font-size != map-get($dialog, bd-font-size) and $bd-font-size != map-get($base, font-size) {
+                font-size: $bd-font-size;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入dialog基础构造
+.yo-dialog {
+    @include _dialog;
+}
+        </pre>
+        </div>
+    
+    </div>
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015</p>
+    </div>
+</footer>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    window.addEventListener('load',function(){
+       Array.prototype.slice.call(document.querySelectorAll('.line')).forEach(function(item){
+               item.id = 'doc'+ item.classList[1].substr(6);
+           });
+    },false)
+</script>
+</body>
+</html>

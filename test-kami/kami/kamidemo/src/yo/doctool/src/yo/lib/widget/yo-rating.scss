@@ -1,0 +1,144 @@
+@charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义rating的基础构造
+@mixin _rating {
+    display: inline-block;
+    position: relative;
+    width: map-get($rating, item-width) * 5;
+    height: map-get($rating, item-height);
+    overflow: hidden;
+    &,
+    > .index,
+    > .item {
+        background: url(#{map-get($setting, bgimg-domain)}#{map-get($rating, url)}) repeat-x;
+        @if map-get($rating, item-height) != null {
+            background-size: auto map-get($rating, item-height) * 2;
+        }
+    }
+    > .index,
+    > .item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        line-height: 10;
+    }
+    > .index {
+        background-position: 0 -#{map-get($rating, item-height)};
+    }
+    > .item {
+        z-index: 3;
+        width: 20%;
+        // 默认情况下不显示
+        background-position: 0 100px;
+        cursor: pointer;
+        &:nth-of-type(2) {
+            left: 20%;
+            &:hover {
+                width: 40%;
+            }
+        }
+        &:nth-of-type(3) {
+            left: 40%;
+            &:hover {
+                width: 60%;
+            }
+        }
+        &:nth-of-type(4) {
+            left: 60%;
+            &:hover {
+                width: 80%;
+            }
+        }
+        &:nth-of-type(5) {
+            left: 80%;
+            &:hover {
+                width: 100%;
+            }
+        }
+        &:hover {
+            z-index: 2;
+            left: 0 !important;
+            background-position: 0 -#{map-get($rating, item-height)};
+        }
+    }
+    &-readonly {
+        > .item {
+            &:hover {
+                background-position: 0 1rem !important;
+            }
+        }
+    }
+}
+
+/**
+ * @method yo-rating
+ * @desc 构造yo-rating的自定义使用方法
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-rating.html)
+ * @param {default | String} $name 定义yo-rating名称
+ * @param {default | Length} $item-width 定义yo-rating 单项宽度
+ * @param {default | Length} $item-height 定义yo-rating 单项高度
+ * @param {default | Color} $url 定义yo-rating 图片url
+ */
+
+@mixin yo-rating(
+    $name: default,
+    $item-width: default,
+    $item-height: default,
+    $url: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $item-width == default {
+        $item-width: map-get($rating, item-width);
+    }
+    @if $item-height == default {
+        $item-height: map-get($rating, item-height);
+    }
+    @if $url == default {
+        $url: map-get($rating, url);
+    }
+    .yo-rating#{$name} {
+        @if $item-width != map-get($rating, item-width) {
+            width: $item-width * 5;
+        }
+        @if $item-height != map-get($rating, item-height) {
+            height: $item-height;
+        }
+        &,
+        > .index,
+        > .item {
+            @if $url != map-get($rating, url) {
+                background-image: url(#{map-get($setting, bgimg-domain)}#{$url});
+            }
+            @if $item-height != map-get($rating, item-height) {
+                background-size: auto $item-height * 2;
+            }
+        }
+        > .index {
+            @if $item-height != map-get($rating, item-height) {
+                background-position: 0 -#{$item-height};
+            }
+        }
+        > .item {
+            &:hover {
+                @if $item-height != map-get($rating, item-height) {
+                    background-position: 0 -#{$item-height};
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入rating基础构造
+.yo-rating {
+    @include _rating;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>slidermenu - 侧滑</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<script src="../../js/viewport.js"></script>
+<link rel="stylesheet" href="../../usage/export/yo-slidermenu.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-slidermenu</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-layer">
+            <div class="yo-slidermenu">
+                <div class="front" style="-webkit-transform:translate(-1rem, 0) translatez(0);">这是默认的slidermenu内容</div>
+                <div class="action">
+                    <span class="item">查看详情</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-slidermenu">
+    <div class="front">这是默认的slidermenu内容</div>
+    <div class="action">
+        <span class="item">查看详情</span>
+    </div>
+</div></xmp>
+        </section>
+
+        <section class="m-layer">
+            <div class="yo-list">
+                <a href="#" class="item yo-slidermenu">
+                    <div class="front">
+                        <div class="mark">
+                            <img src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
+                        </div>
+                        <div class="flex">
+                            <h3>高圆圆</h3>
+                            <p>这是一个我很喜欢的美女</p>
+                        </div>
+                    </div>
+                    <div class="action">
+                        <span>详情</span>
+                        <span>删除</span>
+                    </div>
+                </a>
+                <a href="#" class="item yo-slidermenu">
+                    <div class="front" style="-webkit-transform:translate(-1rem, 0) translatez(0);">
+                        <div class="mark">
+                            <img src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
+                        </div>
+                        <div class="flex">
+                            <h3>高圆圆</h3>
+                            <p>这是一个我很喜欢的美女</p>
+                        </div>
+                    </div>
+                    <div class="action">
+                        <span class="item">详情</span>
+                        <span class="item">删除</span>
+                    </div>
+                </a>
+                <a href="#" class="item yo-slidermenu">
+                    <div class="front">
+                        <div class="mark">
+                            <img src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
+                        </div>
+                        <div class="flex">
+                            <h3>高圆圆</h3>
+                            <p>这是一个我很喜欢的美女</p>
+                        </div>
+                    </div>
+                    <div class="action">
+                        <span>详情</span>
+                        <span>删除</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-list">
+    <a href="#" class="item yo-slidermenu">
+        <div class="front">
+            <div class="mark">
+                <img src="*.jpg" alt="美女" />
+            </div>
+            <div class="flex">
+                <h3>高圆圆</h3>
+                <p>这是一个我很喜欢的美女</p>
+            </div>
+        </div>
+        <div class="action">
+            <span>详情</span>
+            <span>删除</span>
+        </div>
+    </a>
+    ...
+</div></xmp>
+        </section>
+
+
+        <pre class="m-code"><span class="method">@include yo-slidermenu</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{String} yo-slidermenu名称</mark>
+    $action-width<span class="colon">:</span>default, <mark>//{Length} action宽度</mark>
+    $action-bgcolor<span class="colon">:</span>default <mark>//{Color} action背景色</mark>
+<span class="bracket">)</span>
+</pre>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+local:
+    DEBUG: true
+    SCRIPT_URL: /prd/scripts
+    STYLE_URL: /prd/yo/usage
+
+dev:
+    DEBUG: true
+    SCRIPT_URL: /prd/scripts
+    STYLE_URL: /prd/yo/usage
+
+beta:
+    DEBUG: false
+    SCRIPT_URL: /prd/scripts
+    STYLE_URL: /prd/yo/usage
+
+prd:
+    DEBUG: false
+    SCRIPT_URL: //ued.qunar.com/mobile/kami/demos/prd/scripts
+    STYLE_URL: //ued.qunar.com/mobile/kami/demos/prd/yo/usage

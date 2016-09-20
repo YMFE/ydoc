@@ -1,0 +1,38 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class ani
+ * @module Yo
+ */
+
+/**
+ * 定义淡入落下动画
+ * @method fade-in-down
+ */
+
+@-webkit-keyframes fade-in-down {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 0, 0)
+	}
+}
+@keyframes fade-in-down {
+	0% {
+		opacity: 0;
+		transform: translate3d(0, -100%, 0);
+	}
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0)
+	}
+}
+
+.ani.fade-in-down {
+	-webkit-animation-name: fade-in-down;
+	animation-name: fade-in-down;
+}

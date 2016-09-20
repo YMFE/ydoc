@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>range - 区间</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<script src="../../js/viewport.js"></script>
+<link rel="stylesheet" href="../../usage/export/yo-range.css" />
+</head>
+<body>
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-range</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-list">
+        	<ul class="yo-list yo-list-group">
+                <li class="label">常规：</li>
+                <li class="item yo-range">
+                    <input type="range" />
+                </li>
+                <li class="label">禁用：</li>
+                <li class="item yo-range">
+                    <input type="range" disabled />
+                </li>
+                <li class="label">扩展：</li>
+                <li class="item yo-range yo-range-a">
+                    <input type="range" min="0" max="100" value="30" />
+                </li>
+                <li class="item yo-range yo-range-b">
+                    <input type="range" min="0" max="100" value="40" />
+                </li>
+                <li class="item yo-range yo-range-c">
+                    <input type="range" min="0" max="100" value="50" />
+                </li>
+                <li class="item yo-range yo-range-d">
+                    <input type="range" min="0" max="100" value="60" />
+                </li>
+                <li class="item yo-range yo-range-e">
+                    <input type="range" min="0" max="100" value="70" />
+                </li>
+                <li class="item yo-range yo-range-f">
+                    <input type="range" min="0" max="100" value="80" />
+                </li>
+            </ul>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-range">
+    <input type="range" />
+</div></xmp>
+            <h3 class="sub-title">假设你想要多种风格，只需这样扩展：</h3>
+            <xmp>@include yo-range(
+    $name: test,
+    $inner-bgcolor: #4a87ee
+);</xmp>
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><div class="yo-range yo-range-test">
+    <input type="range" />
+</div></xmp>
+        </section>
+
+        <pre class="m-code"><span class="method">@include yo-range</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{String} range名称</mark>
+    $inner-bgcolor<span class="colon">:</span>default, <mark>//{Color} 定义range已选择区域滑条色</mark>
+    $outer-bgcolor<span class="colon">:</span>default, <mark>//{Color} 定义range未选择区域滑条色</mark>
+    $ball-color<span class="colon">:</span>default <mark>//{Color} 定义range滑块色</mark>
+<span class="bracket">)</span>
+</pre>
+    </div>
+</div>
+
+
+
+</body>
+</html>

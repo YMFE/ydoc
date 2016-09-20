@@ -1,0 +1,170 @@
+@charset "UTF-8";
+/**
+ * Directory: lib/core/variables.scss
+ * CSS Variables 定义各种页面沙粒变量
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * Directory: lib/core/classes.scss
+ * Global Classes 约定常规解决方案
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ * 使用方法如下，结合variables中的$media-types：
+    @include responsive(phone) {
+        .foo {
+            background: blue;
+        }
+    }
+ */
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与原生语法一致
+ */
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+/**
+ * Directory: lib/core/reset.scss
+ * Css Reset
+ * Author: joy.du(飘零雾雨)
+ * Time: 2012.1.1
+ */
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html {
+  background-color: white;
+  color: #333333;
+  font-size: 100px;
+  -webkit-user-select: none;
+  user-select: none; }
+
+body {
+  font-size: 16px; }
+
+body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
+  margin: 0;
+  padding: 0; }
+
+body, input, textarea, button, select, pre, tt, code, kbd, samp, optgroup, option {
+  line-height: 1.5;
+  font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  text-align: left; }
+
+caption, th {
+  text-align: inherit; }
+
+ul, ol, menu {
+  list-style: none; }
+
+fieldset, img {
+  border: 0 none; }
+
+img, object, input, textarea, button, select {
+  vertical-align: top; }
+
+article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu, main {
+  display: block; }
+
+audio, canvas, video {
+  display: inline-block; }
+
+h1, h2, h3, h4, h5, h6, input, textarea, button, select, small, big {
+  font-size: 100%; }
+
+address, cite, dfn, em, i, optgroup, var {
+  font-style: normal; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "\0020"; }
+
+textarea {
+  overflow: auto; }
+
+textarea, input, button {
+  outline: none; }
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  padding: 0;
+  border: 0 none; }
+
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button {
+  -webkit-appearance: none;
+  appearance: none; }
+
+mark {
+  background-color: transparent; }
+
+ins, s, u, del {
+  text-decoration: none; }
+
+input, textarea, button, a {
+  -webkit-tap-highlight-color: transparent; }
+
+a, img {
+  -webkit-touch-callout: none; }
+
+a {
+  color: #25a4bb;
+  text-decoration: none; }
+  a:hover {
+    color: #ff6600; }
+
+.g-clear::after, .g-mod::after, #bd::after {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  content: "\0020"; }

@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/**
+ * Ani - Yo框架的动画解决方案
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2014 Joy Du
+ * Time: 2012.1.1
+ */
+/**
+ * 定义动画基本特性
+ */
+.ani {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.ani.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite; }
+
+/**
+ * 定义淡出动画
+ * @method fade-out
+ * 使用方式，code: 
+   <div class="ani fade-out"...
+ */
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+@keyframes fade-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+.ani.fade-out {
+  -webkit-animation-name: fade-out;
+  animation-name: fade-out; }
+
+/*# sourceMappingURL=fade-out.css.map */

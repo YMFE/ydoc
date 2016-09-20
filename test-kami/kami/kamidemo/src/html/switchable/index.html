@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>switchable Demo</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/export/yo-flex.css" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/kami/switchable.css" />
+    <style type="text/css">
+    .yo-switchable > .yo-ico {
+        display: block;
+    }
+    </style>
+</head>
+<body>
+<section class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">switchable</h2>
+        <a href="../../../index.html" class="regret yo-ico">&#xf07d;</a>
+        <span class="affirm yo-ico">&#xf067;</span>
+    </header>
+    <div class="flex" id="container">
+    </div>
+</section>
+
+<script type="demo/javascript">
+
+</script>
+<script type="text/javascript" src="../../../prd/scripts/common.js"></script>
+<script type="text/javascript" src="../../../prd/scripts/kami-switchable.js"></script>
+<script type="text/javascript">
+
+// 获取组件。require("path/to/switchable")
+var Switchable = Kami.Switchable;
+
+var options = {
+    container: '#container',
+    indicator: true,  // 是否展示圆点指示器
+    auto : true,  // 自动滚动
+    delay: 2000,
+    button: true,
+    datasource:[
+        {
+            img:'http://img02.taobaocdn.com/imgextra/i2/420567757/TB2isO1bFXXXXXUXpXXXXXXXXXX-420567757.jpg_q50.jpg',
+            href:'www.baidu.com'
+        },{
+            img:'http://i.mmcdn.cn/simba/img/TB10J9OHXXXXXbUXFXXSutbFXXX.jpg_q50.jpg',
+            href:'www.baidu.com'
+        },{
+            img:'http://gw.alicdn.com/tps/i1/TB12_iHHXXXXXaCXVXXdIns_XXX-1125-352.jpg_q50.jpg',
+            href:'www.baidu.com'
+        }
+    ],
+    onaftermove : function(index) {
+        Demo.log(index);
+    }
+}
+
+var switchable = new Switchable( options );
+    switchable.render();
+
+</script>
+</body>
+</html>

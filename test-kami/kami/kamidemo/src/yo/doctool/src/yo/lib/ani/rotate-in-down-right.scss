@@ -1,0 +1,42 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class ani
+ * @module Yo
+ */
+
+/**
+ * 定义旋转从右向下进入动画
+ * @method rotate-in-down-right
+ */
+
+@-webkit-keyframes rotate-in-down-right {
+	0% {
+		-webkit-transform-origin: right bottom;
+		-webkit-transform: rotate3d(0, 0, 1, 45deg);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform-origin: right bottom;
+		-webkit-transform: none;
+		opacity: 1;
+	}
+}
+@keyframes rotate-in-down-right {
+	0% {
+		transform-origin: right bottom;
+		transform: rotate3d(0, 0, 1, 45deg);
+		opacity: 0;
+	}
+	100% {
+		transform-origin: right bottom;
+		transform: none;
+		opacity: 1;
+	}
+}
+
+.ani.rotate-in-down-right {
+	-webkit-animation-name: rotate-in-down-right;
+	animation-name: rotate-in-down-right;
+}

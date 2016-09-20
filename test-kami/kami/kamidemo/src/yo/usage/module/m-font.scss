@@ -1,0 +1,18 @@
+@charset "utf-8";
+@import "../fragment/yo-list";
+
+.m-font {
+    @include user-select(text);
+    .flex {
+        &::before,
+        &::after {
+            color: #999;
+        }
+        &::before {
+            content: "( ";
+        }
+        &::after {
+            content: " )";
+        }
+    }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>qapp adapter confirm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" href="../../../../../prd/index@VERSION.css"/>
+    <style>
+        body {
+            height: 538px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<script>
+
+</script>
+<body>
+    
+    <script src="../../../../../prd/kami/adapter/qapp/index.js"></script>
+    <script>
+        window.Kami.disableTapEvent = true;
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded');
+            var qapp = document.querySelector('qapp-app');
+
+            var text = document.createElement('div');
+            var textArr = [];
+            textArr.push('使用说明');
+            textArr.push('1.如果不需要标题，那么不要穿title.');
+            textArr.push('2.如果提示框的确认没有其他额外需要，那么不需要传oncomplete，如果有额外的处理逻辑，用户需要在处理逻辑后手动调close.');
+            text.innerHTML = textArr.join('<br/>');
+            qapp.appendChild(text);
+            /**
+             * 不传title则不显示header
+             * 
+             */
+            var showConfirm = document.createElement('BUTTON');
+            showConfirm.innerHTML = '点击显示confirm';
+            showConfirm.addEventListener('click', function () {
+                QApp.showWidget('confirm', {
+                    // title: '提示', 
+                    content: '我是提示框',
+                    onComplete: function (result, close) {
+                        var me = this;
+                        if (result) {
+
+                            setTimeout(function() {
+                                console.log('异步请求结束');
+                                close();
+                            }, 2000);
+                        }
+                        else {
+                            close();
+                        }
+                        
+                    }
+                });
+            });
+            
+            qapp.appendChild(showConfirm);
+        });
+    </script>
+</body>
+</html>

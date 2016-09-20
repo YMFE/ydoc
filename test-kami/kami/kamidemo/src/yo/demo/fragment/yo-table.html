@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>table - 表格</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<script src="../../js/viewport.js"></script>
+<link rel="stylesheet" href="../../usage/export/yo-table.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-table</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-layer">
+            <table class="yo-table">
+                <colgroup>
+                    <col class="c1" />
+                    <col class="c2" />
+                    <col class="c3" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>类型</th>
+                        <th>手机号码</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>18623133202</td>
+                    </tr>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>18623133202</td>
+                    </tr>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>18623133202</td>
+                    </tr>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>18623133202</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><table class="yo-table">
+    <colgroup>
+        <col class="c1" />
+        <col class="c2" />
+        <col class="c3" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>类型</th>
+            <th>手机号码</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>疾风</td>
+            <td>决策者</td>
+            <td>18623133202</td>
+        </tr>
+        <tr>
+            <td>疾风</td>
+            <td>决策者</td>
+            <td>18623133202</td>
+        </tr>
+    </tbody>
+</table></xmp>
+        </section>
+
+        <section class="m-layer">
+            <table class="yo-table yo-table-test">
+                <colgroup>
+                    <col class="c1" />
+                    <col class="c2" />
+                    <col class="c3" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>类型</th>
+                        <th>手机号码</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>18623133202</td>
+                    </tr>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>18623133202</td>
+                    </tr>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>18623133202</td>
+                    </tr>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>18623133202</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">假设你想要有竖线的，那么你可以这样扩展：</h3>
+            <xmp>@include yo-table(
+    $name: test,
+    $has-vertical-border: true
+);</xmp>
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><table class="yo-table yo-table-test">
+    ...
+</table></xmp>
+        </section>
+
+        <section class="m-layer">
+            <table class="yo-table yo-table-test2">
+                <colgroup>
+                    <col class="c1" />
+                    <col class="c2" />
+                    <col class="c3" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>类型</th>
+                        <th>职务</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>决策者</td>
+                    </tr>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>决策者</td>
+                    </tr>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>决策者</td>
+                    </tr>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>决策者</td>
+                    </tr>
+                    <tr>
+                        <td>疾风</td>
+                        <td>决策者</td>
+                        <td>决策者</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">假设你想要有间隔色，那么你可以这样扩展：</h3>
+            <xmp>@include yo-table(
+    $name: test2,
+    $even-bgcolor: #f9f9f9
+);</xmp>
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><table class="yo-table yo-table-test2">
+    ...
+</table></xmp>
+        </section>
+
+        <pre class="m-code"><span class="method">@include yo-table</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{String} table名称</mark>
+    $width<span class="colon">:</span>default, <mark>//{Length} table宽度</mark>
+    $has-vertical-border<span class="colon">:</span>default, <mark>//{Boole} table是否需要纵向边框</mark>
+    $thead-padding<span class="colon">:</span>default, <mark>//{Length} table头部内补白</mark>
+    $tbody-padding<span class="colon">:</span>default, <mark>//{Length} table主体内补白</mark>
+    $bordercolor<span class="colon">:</span>default, <mark>//{Color} table边框色</mark>
+    $thead-bgcolor<span class="colon">:</span>default, <mark>//{Color} table头部背景色</mark>
+    $odd-bgcolor<span class="colon">:</span>default, <mark>//{Color} table奇数行背景色</mark>
+    $even-bgcolor<span class="colon">:</span>default, <mark>//{Color} table偶数行背景色</mark>
+    $active-bgcolor<span class="colon">:</span>default, <mark>//{Color} table激活背景色</mark>
+    $on-bgcolor<span class="colon">:</span>default <mark>//{Color} table选中背景色</mark>
+<span class="bracket">)</span>
+</pre>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>pagelist Demo</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/export/yo-flex.css" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/kami/pagelist.css" />
+</head>
+<body>
+<section class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">基础用法</h2>
+        <a href="index.html" class="regret yo-ico">&#xf07d;</a>
+        <span class="affirm yo-ico">&#xf067;</span>
+    </header>
+    <div class="flex" id="container">
+    </div>
+</section>
+
+<script type="demo/javascript">
+
+</script>
+<script type="text/javascript" src="../../../prd/scripts/common.js"></script>
+<script type="text/javascript" src="../../../prd/scripts/kami-pagelist.js"></script>
+<script type="text/javascript">
+
+// 获取组件。require("path/to/pagelist")
+var Pagelist = Kami.PageList;
+
+// 默认版本，只支持text属性
+var datasource = function(){
+    var arr = [];
+    for(var i= 1, j = 20; i<=j;i++){
+        arr.push({
+            text: i,
+            value: i + 'v'
+        })
+    }
+    return arr;
+}();
+
+// 生成数据数据
+function getRandomData () {
+    return datasource.sort(function(){
+        return Math.random() - 0.5;
+    })
+}
+
+var options = {
+    container: '#container',
+    datasource: datasource,
+    pagesize: 20,
+    // 加载更多的时候开启，可以提升性能
+    infinite: true,
+    // 开启上拉加载更多
+    useLoadmore: true,
+    useRefresh: true
+}
+
+var pagelist = new Pagelist( options );
+    
+    pagelist.on('loadmore', function(){
+        var self = this;
+        var data = getRandomData();
+        // 模拟ajax
+        setTimeout(function(){
+            // 刷新数据，并且关闭刷新提示
+            // 使用loadMore方法添加数据
+            self.loadMore( data );
+        }, 500)
+    });
+
+    pagelist.on('refresh', function(){
+        var data = getRandomData();
+        // 刷新数据，并且关闭刷新提示
+        // 使用refresh刷新数据
+        this.refresh( data );
+    });
+
+    pagelist.on('tap', function(e){
+        var target = $(e.currentTarget);
+        Demo.log("tap index:" + target.data('index'))
+    });
+
+    pagelist.render();
+
+</script>
+</body>
+</html>

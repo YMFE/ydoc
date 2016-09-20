@@ -1,0 +1,9 @@
+<div style="position: absolute; text-align: center; height: 40px; line-height: 40px; width: 100%; bottom: -40px;">
+    <div class="yo-loadtip">
+        <i class="yo-ico yo-ico-loading">&#xf089;</i>
+        <div class="text">正在加载...</div>
+    </div>
+    <div class="yo-loadtip">
+        <div class="text">没有更多了...</div>
+    </div>
+</div>

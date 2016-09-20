@@ -1,0 +1,38 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class ani
+ * @module Yo
+ */
+
+/**
+ * 定义从右侧翻滚进入动画
+ * @method roll-in-righ
+ */
+
+@-webkit-keyframes roll-in-right {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+	}
+}
+@keyframes roll-in-right {
+	0% {
+		opacity: 0;
+		transform: translate3d(100%, 0, 0) rotate3d(0, 0, 1, 120deg);
+	}
+	100% {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.ani.roll-in-right {
+	-webkit-animation-name: roll-in-right;
+	animation-name: roll-in-right;
+}

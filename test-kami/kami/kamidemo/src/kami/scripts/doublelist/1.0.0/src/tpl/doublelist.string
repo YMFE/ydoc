@@ -1,0 +1,4 @@
+<div class="yo-doublelist">
+    <div class="item" data-role="categorylist"></div>
+    <div class="item" data-role="mainlist"></div>
+</div>

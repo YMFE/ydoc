@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>file - The Yo API Yo 文档站</title>
+    <!-- <link href="../source/bootstrap.min.css" rel="stylesheet">
+    <link href="../source/patch.css" rel="stylesheet">
+    <link href="../source/docs.min.css" rel="stylesheet"> -->
+    <script type="text/javascript" src="../source/shCore.js"></script>
+    <script type="text/javascript" src="../source/shBrushSass.js"></script>
+    <link type="text/css" rel="stylesheet" href="../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../source/app.css" rel="stylesheet">
+    <style> 
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+    </style>
+    
+    
+</head>
+<body style="background: white; font-family: Helvetica">
+<div class="bs-docs-header" id="content" tabindex="-1">
+    <div class="container">
+        <h1>YO  <em style="font-size:18px;">库版本：0.1.2 moduleVersion </em></h1>
+        <p>一个基于 Sass 开发的 CSS Framework，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。</p>
+    </div>
+</div>
+<div class="container bs-docs-container">
+ 
+    <div class="row">
+        <div class="col-md-9" role="main">
+        <pre class="brush: sass;">
+                @charset "utf-8";
+@import "classes";
+
+/**
+ * @module animate
+ * @class zoom
+ * @description 定义上升缩小退出动画
+ * @method zoom-out-up
+ */
+@-webkit-keyframes zoom-out-up {
+	40% {
+		opacity: 1;
+		-webkit-transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+		-webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: scale3d(.1, .1, .1) translate3d(0, -2000px, 0);
+		-webkit-transform-origin: center bottom;
+		-webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+	}
+}
+@keyframes zoom-out-up {
+	40% {
+		opacity: 1;
+		transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
+		animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+	}
+	100% {
+		opacity: 0;
+		transform: scale3d(.1, .1, .1) translate3d(0, -2000px, 0);
+		transform-origin: center bottom;
+		animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+	}
+}
+
+.ani.zoom-out-up {
+	-webkit-animation-name: zoom-out-up;
+	animation-name: zoom-out-up;
+}
+        </pre>
+        </div>
+    
+    </div>
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015</p>
+    </div>
+</footer>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    window.addEventListener('load',function(){
+       Array.prototype.slice.call(document.querySelectorAll('.line')).forEach(function(item){
+               item.id = 'doc'+ item.classList[1].substr(6);
+           });
+    },false)
+</script>
+</body>
+</html>

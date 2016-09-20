@@ -1,0 +1,12 @@
+
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="yo-header m-header">PageList</h2>
+        <span class="regret yo-ico" action-type="close">&#xf07d;</span>
+    </header>
+    <!-- 组件容器 必须 -->
+    <div class="flex" id="container" style='overflow:hidden;'>
+    </div>
+
+</div>

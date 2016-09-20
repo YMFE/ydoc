@@ -30,6 +30,16 @@ target/
 .DS_Store
 Thumbs.db
 
+test-kami/**/*/.git
+test-kami/*/.git
+test-kami/kami/scripts/../../../../../.git/
+test-kami/kami/scripts/accordion/../../../../.git/
+test-kami/kami/scripts/accordion/../../../../.git/modules/src/kami/scripts/accordion
+test-kami/kami/scripts/**/src/.git
+test-kami/kami/scripts/alert/../../../../.git/
+
+
+
 # package ignore (optional)
 # *.jar
 # *.war

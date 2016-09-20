@@ -1,0 +1,46 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class ani
+ * @module Yo
+ */
+
+/**
+ * 定义翻转动画
+ * @method flip-out-x
+ */
+
+@-webkit-keyframes flip-out-x {
+	0% {
+		-webkit-transform: perspective(400px);
+	}
+	30% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		opacity: 0;
+	}
+}
+@keyframes flip-out-x {
+	0% {
+		transform: perspective(400px);
+	}
+	30% {
+		transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+		opacity: 1;
+	}
+	100% {
+		transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+		opacity: 0;
+	}
+}
+
+.ani.flip-out-x {
+	-webkit-backface-visibility: visible;
+	backface-visibility: visible;
+	-webkit-animation-name: flip-out-x;
+	animation-name: flip-out-x;
+}

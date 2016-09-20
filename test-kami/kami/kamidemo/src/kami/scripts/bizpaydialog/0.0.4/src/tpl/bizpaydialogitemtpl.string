@@ -1,0 +1,11 @@
+
+<li class="item" data-index={{dataIndex}} data-role="list-item">
+    <div class="cont flex">
+        <h3>{{bankName}}</h3>
+        <p>{{cardNo}}</p>
+    </div>
+    <div class="yo-checked">
+        <input type="{{multi ? 'checkbox' : 'radio'}}" name="citem"/>
+        <span class="type"></span>
+    </div>
+</li>

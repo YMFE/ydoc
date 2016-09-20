@@ -1,0 +1,4 @@
+<div>
+    <div data-role="suggest"></div>
+    <div data-role="searchlist"></div>
+</div>

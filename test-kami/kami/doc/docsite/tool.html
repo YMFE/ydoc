@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kami</title>
+        <link rel="stylesheet" href="source/highlight.min.css">
+        <link rel="stylesheet" href="source/app.css">
+        <style>
+        /* blockquote.api {
+        padding: 0 10px;
+        border-left-color: #1b809e;
+        margin-top: 50px;
+        }
+        table.table {
+        border: 1px solid #1b809e;
+        }
+        table.table>tbody>tr>th {
+        border-top: none;
+        }
+        h4 {
+        padding: 20px 0 10px 0;
+        border-bottom: 1px solid #eee;
+        }*/
+        .category-header{
+        font-size: 22px;
+        text-align: center;
+        color: #888;
+        font-style: italic;
+        }
+        </style>
+    </head>
+    <body>
+        <a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+        <header class="navbar navbar-static-top docs-nav" id="top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a href="http://ued.qunar.com/mobile/" class="navbar-brand">HY</a>
+                </div>
+                <nav id="bs-navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="http://ued.qunar.com/mobile/qapp/doc/">QApp</a>
+                        </li>
+                        <li class="active">
+                            <a href="info.html">Kami</a>
+                        </li>
+                        <li class="">
+                            <a href="http://ued.qunar.com/mobile/yo/doc/">Yo</a>
+                        </li>
+                        <li>
+                            <a href="http://hy.qunar.com/source/qunarapi.html" >QunarAPI</a>
+                        </li>
+                        <li>
+                            <a href="http://ued.qunar.com/mobile/qmb2/" target="_blank">QMB2</a>
+                        </li>
+                        <li>
+                            <a href="http://ued.qunar.com/mobile/statistics/">Statistics</a>
+                        </li>
+                        <li>
+                            <a href="http://ued.qunar.com/mobile/blog/" target="_blank">Blog</a>
+                        </li>
+                        <li>
+                            <a href="http://hy.qunar.com/">Hytive</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- Docs page layout -->
+        
+        <div class="docs-header" id="content" tabindex="-1" style="margin-bottom:0">
+            <div class="container">
+                <h1>Kami</h1>
+                <p>为移动而生的组件库</p>
+            </div>
+        </div>
+        
+        <header class="navbar navbar-static-top docs-second-nav">
+            <div class="container">
+                <nav>
+                    <ul class="nav navbar-nav">
+                        
+                        <li class="">
+                            <a href="info.html">简介</a>
+                        </li>
+                        
+                        <li class="">
+                            <a href="startup.html">起步</a>
+                        </li>
+                        
+                        <li class="">
+                            <a href="widget.html">组件API</a>
+                        </li>
+                        
+                        <li class="active">
+                            <a href="tool.html">工具</a>
+                        </li>
+                        
+                        <li class="">
+                            <a href="devspecification.html">开发规范</a>
+                        </li>
+                        
+                        <li class="">
+                            <a href="history.html">历史</a>
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="container docs-container">
+
+            
+
+            <div class="markdown-body">
+                <h1 id="kami-">Kami组件构建工具</h1>
+<p>当前构建工具版本为0.2.7，如果工具版本小于0.2.7请移步旧版本工具说明<a href="http://ued.qunar.com/mobile/kami/tool/build/">老版本</a></p>
+<p>版本查看 如下，当前kami工具版本为0.2.7</p>
+<pre><code>$ fekit
+
+===================== FEKIT 0.2.133 ====================
+
+ completion       # TAB 自动补全
+ config           # 显示 fekit 的配置项
+ export           # 文件首行添加 &#39;/* [export] */&#39; 或 &#39;/* [export no_version] */&#39;
+            将被自动添加 fekit.config &#39;export&#39; 列表中
+ init             # 初始化目录为标准[fekit项目]
+ install          # 安装 fekit 组件
+ login            # 登录至源服务器
+ logout           # 登出
+ min              # 压缩/混淆项目文件
+ pack             # 合并项目文件
+ plugin           # 安装或删除插件
+ publish          # 发布当前项目为组件包
+ server           # 创建本地服务器, 可以基于其进行本地开发
+ sync             # 同步/上传当前目录至远程服务器(依赖rsync)
+ test             # 进行单元测试
+ uninstall        # 删除指定的包
+ unpublish        # 取消发布特定的组件包
+ upgrade          # 更新自身及更新已安装扩展
+ kami( 0.2.7 )  # Kami 构建工具
+</code></pre><h3 id="-">安装构建工具</h3>
+<pre><code>$ [sudo] npm install fekit-extension-kami
+</code></pre><h3 id="-">初始化组件</h3>
+<pre><code>$ fekit kami init [组件名]
+</code></pre><p>其中 <code>组件名</code> 是可选。如果不加 <code>组件名</code> ，则在当前目录下初始化组件目录及文件。否则，在当前目录下，会创建一个新的名为 <code>组件名</code> 的目录，在它下面初始化目录及文件。</p>
+<p><em>初始化的结构如下：</em></p>
+<pre><code>{widget}
+├── HISTORY.md
+├── README.md
+├── build.sh
+├── index.js
+├── kami.config
+├── test
+└── src
+    ├── {widget}.js
+    └── tpl
+        ├── {widget}.string
+</code></pre><h3 id="-">安装组件</h3>
+<ul>
+<li>执行下面命令，安装单个组件</li>
+</ul>
+<p>```$ fekit kami install [组件名]</p>
+<pre><code>
++ 安装线上所有组件，忽略根目录下的kami.config
+</code></pre><p>$ fekit kami install --all</p>
+<pre><code>
++ 安装指定组件
+</code></pre><p>$ fekit kami install [组件名/组件名@版本号] [--save]</p>
+<pre><code>
+### 显示安装组件
+
+
+    $ fekit kami list [--remote]
+
+[--remote] 参数显示线上目前支持的组件
+
+加入 `--remove` 参数，直接显示线上所有组件。
+
+### 移除组件
+
+
+    $ fekit kami remove 组件名/组件名@版本号 [--save]
+
+
+加入 `--save` 参数，移除组件的同时，也从kami.config的依赖项中移除（只针对组件，删除包含版本号的组件不起作用）
+
+### 更新组件
+</code></pre><p>$ fekit kami update 组件名/组件名@版本号
+```</p>
+<p>只更新入口文件。如果组件不存在，返回更新失败。</p>
+<h3 id="kami-config-">kami.config配置文件示例</h3>
+<pre><code>{
+    &quot;scripts&quot;: {
+        &quot;alert&quot;: &quot;0.0.4&quot;
+    }
+}
+</code></pre>
+            </div>
+
+            
+            </div>
+        </div>
+        <!-- Footer
+        ================================================== -->
+        <footer class="docs-footer" role="contentinfo">
+            <div class="container">
+                <p>Kami</p>
+            </div>
+        </footer>
+        <script src="source/jquery.min.js"></script>
+        <script src="source/bootstrap.min.js"></script>
+        <script src="source/docs.min.js"></script>
+        <script src="source/highlight.min.js"></script>
+        <script src="source/qrcode.min.js"></script>
+        <script>
+        $(document).ready(function() {
+        $('code').each(function(i, block) {
+        if (block.innerHTML.indexOf('\n') != -1) {
+        var pn = block.parentNode;
+        if (pn.tagName.toUpperCase() == 'PRE') {
+        try {
+        hljs.highlightBlock(block);
+        } catch(e) {}
+        } else {
+    pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
+    try {
+    hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
+    } catch(e) {}
+    }
+    }
+    });
+    });
+    </script>
+    <script>
+    [].slice.call(document.getElementsByClassName('qrcode')).forEach(function(item){
+    new QRCode(item, $(item).data('src'));
+    })
+    </script>
+</body>
+</html>

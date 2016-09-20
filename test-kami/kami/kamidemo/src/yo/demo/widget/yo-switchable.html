@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>switchable - 轮播</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<script src="../../js/viewport.js"></script>
+<link rel="stylesheet" href="../../usage/export/yo-switchable.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-switchable</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+    </header>
+    <div class="flex">
+        <section class="m-layer">
+            <div class="yo-switchable">
+                <ul class="cont">
+                    <li class="item">
+                        <img class="img" src="http://img7.ph.126.net/e9RD4hshTKggMMnLoyzkWQ==/2881177861627391097.jpg" alt="美女" />
+                    </li>
+                    <li class="item">
+                        <img class="img" src="http://img7.ph.126.net/e9RD4hshTKggMMnLoyzkWQ==/2881177861627391097.jpg" alt="美女" />
+                    </li>
+                    <li class="item">
+                        <img class="img" src="http://img7.ph.126.net/e9RD4hshTKggMMnLoyzkWQ==/2881177861627391097.jpg" alt="美女" />
+                    </li>
+                    <li class="item">
+                        <img class="img" src="http://img7.ph.126.net/e9RD4hshTKggMMnLoyzkWQ==/2881177861627391097.jpg" alt="美女" />
+                    </li>
+                </ul>
+                <ul class="index">
+                    <li class="on"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <span class="yo-ico yo-ico-prev">&#xf07d;</span>
+                <span class="yo-ico yo-ico-next">&#xf07f;</span>
+            </div>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-switchable">
+    <ul class="cont">
+        <li class="item">
+            <img class="img" src="*.jpg" alt="美女" />
+        </li>
+        <li class="item">
+            <img class="img" src="*.jpg" alt="美女" />
+        </li>
+        <li class="item">
+            <img class="img" src="*.jpg" alt="美女" />
+        </li>
+        <li class="item">
+            <img class="img" src="*.jpg" alt="美女" />
+        </li>
+    </ul>
+    <ul class="index">
+        <li class="on"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <span class="yo-ico yo-ico-prev">&#xf07d;</span>
+    <span class="yo-ico yo-ico-next">&#xf07f;</span>
+</div></xmp>
+        </section>
+
+        <section class="m-layer">
+            <div class="yo-switchable yo-switchable-test">
+                <ul class="cont">
+                    <li class="item">
+                        <img class="img" src="http://img7.ph.126.net/e9RD4hshTKggMMnLoyzkWQ==/2881177861627391097.jpg" alt="美女" />
+                    </li>
+                    <li class="item">
+                        <img class="img" src="http://img7.ph.126.net/e9RD4hshTKggMMnLoyzkWQ==/2881177861627391097.jpg" alt="美女" />
+                    </li>
+                    <li class="item">
+                        <img class="img" src="http://img7.ph.126.net/e9RD4hshTKggMMnLoyzkWQ==/2881177861627391097.jpg" alt="美女" />
+                    </li>
+                    <li class="item">
+                        <img class="img" src="http://img7.ph.126.net/e9RD4hshTKggMMnLoyzkWQ==/2881177861627391097.jpg" alt="美女" />
+                    </li>
+                </ul>
+                <ul class="index">
+                    <li class="on"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <span class="yo-ico yo-ico-prev">&#xf07d;</span>
+                <span class="yo-ico yo-ico-next">&#xf07f;</span>
+            </div>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">假设你想要翻页按钮：</h3>
+            <xmp>@include yo-switchable(
+    $name: test,
+    $has-btn: true
+);</xmp>
+        </section>
+
+        <pre class="m-code"><span class="method">@include yo-switchable</span><span class="bracket">(</span>
+    $name<span class="colon">:</span>default, <mark>//{String} 扩展的名称</mark>
+    $has-btn<span class="colon">:</span>default, <mark>//{Length} 是否有按钮</mark>
+    $btn-size<span class="colon">:</span>default, <mark>//{Color} 按钮大小</mark>
+    $btn-bgcolor<span class="colon">:</span>default, <mark>//{Length} 按钮背景色</mark>
+    $btn-color<span class="colon">:</span>default, <mark>//{Length} 按钮文本色</mark>
+    $btn-active-bgcolor<span class="colon">:</span>default, <mark>//{Color} 按钮按下背景色</mark>
+    $btn-active-color<span class="colon">:</span>default, <mark>//{Length} 按钮按下文本色</mark>
+    $index-size<span class="colon">:</span>default, <mark>//{Length} 索引大小</mark>
+    $index-bgcolor<span class="colon">:</span>default, <mark>//{Color} 索引背景色</mark>
+    $index-on-bgcolor<span class="colon">:</span>default <mark>//{Length} 索引当前项背景色</mark>
+<span class="bracket">)</span>
+</pre>
+    </div>
+</div>
+
+</body>
+</html>

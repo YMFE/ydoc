@@ -1,0 +1,9 @@
+<li class="item yo-slidermenu" data-role="list-item" data-index={{dataIndex}}>
+    <div class="front" data-role="slideMenuCnt">
+        <img src="http://misc.360buyimg.com/lib/img/e/logo-201305.png" width=230 height=60 draggable="false"/>
+        {{text}}
+    </div>
+    <div class="action" data-role="slideMenuAction">  
+        <div class="del js-del" orderid="61925447160602097">删除</div>
+    </div>
+</li>

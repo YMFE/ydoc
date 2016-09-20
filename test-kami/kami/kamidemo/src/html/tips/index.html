@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>tips Demo</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/export/yo-flex.css" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/export/yo-all.css" />
+    <link rel="stylesheet" href="../../../prd/yo/usage/kami/tip.css" />
+</head>
+<body>
+<section class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">Tips</h2>
+        <a href="../../../index.html" class="regret yo-ico">&#xf07d;</a>
+        <span class="affirm yo-ico">&#xf067;</span>
+    </header>
+    <div class="flex" id="container">
+        <ul class="yo-list">
+            <li class="item">
+                <div class="yo-btn yo-btn-stacked yo-btn-l js-default">打开</div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<script type="demo/javascript">
+
+</script>
+<script type="text/javascript" src="../../../prd/scripts/common.js"></script>
+<script type="text/javascript" src="../../../prd/scripts/kami-tips.js"></script>
+<script type="text/javascript">
+
+// 获取组件。require("path/to/tips")
+var Tips = Kami.Tips;
+
+function show(){
+    Tips.show({
+        content: '<i>提示...</i>',
+        autoHide: true,
+        autoHideTime: 1,
+        effect: {
+            duration: 0.5,
+            easing: 'linear',
+            delay: 0
+        },
+        onhide: function () {
+            Demo.log('is hide')
+        }
+    });
+}
+
+show();
+$('.js-default').tap( show )
+
+</script>
+</body>
+</html>

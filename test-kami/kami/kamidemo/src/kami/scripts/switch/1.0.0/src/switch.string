@@ -1,0 +1,7 @@
+
+<div class="yo-switch" data-role="switch-container">
+	<input class="checkbox" type="checkbox" data-role="switch-input" form={{form}} name={{name}} value="{{value}}">
+	<div class="track" data-role="switch-track">
+	 	<div class="handle" data-role="switch-handle"></div>
+	</div>
+</div>

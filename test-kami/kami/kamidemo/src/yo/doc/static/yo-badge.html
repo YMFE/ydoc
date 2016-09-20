@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>file - The Yo API Yo 文档站</title>
+    <!-- <link href="../source/bootstrap.min.css" rel="stylesheet">
+    <link href="../source/patch.css" rel="stylesheet">
+    <link href="../source/docs.min.css" rel="stylesheet"> -->
+    <script type="text/javascript" src="../source/shCore.js"></script>
+    <script type="text/javascript" src="../source/shBrushSass.js"></script>
+    <link type="text/css" rel="stylesheet" href="../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../source/app.css" rel="stylesheet">
+    <style> 
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+    </style>
+    
+    
+</head>
+<body style="background: white; font-family: Helvetica">
+<div class="bs-docs-header" id="content" tabindex="-1">
+    <div class="container">
+        <h1>YO  <em style="font-size:18px;">库版本：0.1.2 moduleVersion </em></h1>
+        <p>一个基于 Sass 开发的 CSS Framework，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。</p>
+    </div>
+</div>
+<div class="container bs-docs-container">
+ 
+    <div class="row">
+        <div class="col-md-9" role="main">
+        <pre class="brush: sass;">
+                @charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义badge的基础构造
+@mixin _badge {
+    @include flexbox(inline-flex);
+    min-width: .16rem;
+    min-height: .16rem;
+    padding: map-get($badge, padding);
+    // 当边框厚度大于0时，才定义边框相关属性
+    @if map-get($badge, border-width) != null and
+        map-get($badge, border-width) != 0 {
+        border-width: map-get($badge, border-width);
+        border-style: solid;
+        border-color: map-get($badge, bordercolor);
+    }
+    @include border-radius(map-get($badge, radius));
+    background-color: map-get($badge, bgcolor);
+    color: map-get($badge, color);
+    font-size: map-get($badge, font-size);
+    line-height: 1;
+    @include justify-content;
+    @include align-items;
+}
+
+/**
+ * @module element
+ * @method yo-badge
+ * @description 构造提醒气泡的自定义使用方法，可以扩展为：tag,文字ico等形态
+ * @demo http://doyoe.github.io/Yo/demo/element/yo-btn.html
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {Length} $padding 内补白
+ * @param {Length} $border-width 边框厚度
+ * @param {Color} $bordercolor 边框色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $color 文本色
+ * @param {Length} $radius 圆角半径长度
+ * @param {Length} $font-size 字号大小
+ */
+
+@mixin yo-badge(
+    $name: default,
+    $padding: default,
+    $border-width: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $color: default,
+    $radius: default,
+    $font-size: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $padding == default {
+        $padding: map-get($badge, padding);
+    }
+    @if $border-width == default {
+        $border-width: map-get($badge, border-width);
+    }
+    @if $bordercolor == default {
+        $bordercolor: map-get($badge, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($badge, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($badge, color);
+    }
+    @if $radius == default {
+        $radius: map-get($badge, radius);
+    }
+    @if $font-size == default {
+        $font-size: map-get($badge, font-size);
+    }
+    .yo-badge#{$name} {
+        // 如果$padding不等于config设定，则重绘内补白
+        @if $padding != map-get($badge, padding) {
+            padding: $padding;
+        }
+        // 如果$border-width不等于config设定，则重绘边框相关
+        @if $border-width != map-get($badge, border-width) {
+            // 如果$border-width为null，重设置为0
+            @if $border-width == null {
+                $border-width: 0;
+            }
+            border-width: $border-width;
+            // 如果$bordercolor不等于config设定，则重绘边框色
+            @if $bordercolor != map-get($badge, bordercolor) {
+                @if $border-width != 0 {
+                    border-color: $bordercolor;
+                }
+            } @else {
+                // 如果config的边框厚度定义为null或者0，在扩展时，加上边框色
+                @if map-get($badge, border-width) == null or
+                    map-get($badge, border-width) == 0 {
+                    border-color: map-get($badge, bordercolor);
+                }
+            }
+            // 如果config的边框厚度定义为null或者0，在扩展时，加上border-style
+            @if map-get($badge, border-width) == null or
+                map-get($badge, border-width) == 0 {
+                border-style: solid;
+            }
+        } @else {
+            // 如果扩展的边框厚度大于0且边框色和config边框色不同，在扩展时，重绘边框色
+            @if $border-width != null and
+                $border-width != 0 and
+                $bordercolor != map-get($badge, bordercolor) {
+                border-color: $bordercolor;
+            }
+        }
+        // 如果$bgcolor不等于config设定，则重绘背景色
+        @if $bgcolor != map-get($badge, bgcolor) {
+            background-color: $bgcolor;
+        }
+        // 如果$color不等于config设定，则重绘文本色
+        @if $color != map-get($badge, color) {
+            color: $color;
+        }
+        // 如果$radius不等于config设定，则重绘圆角
+        @if $radius != map-get($badge, radius) {
+            // 构造里已处理过边框+圆角+背景溢出的问题，所以这里写原生即可
+            border-radius: $radius;
+        }
+        // 如果$font-size不等于config设定，则重绘字号
+        @if $font-size != map-get($badge, font-size) {
+            font-size: $font-size;
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入气泡基础构造
+.yo-badge {
+    @include _badge;
+}
+        </pre>
+        </div>
+    
+    </div>
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015</p>
+    </div>
+</footer>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    window.addEventListener('load',function(){
+       Array.prototype.slice.call(document.querySelectorAll('.line')).forEach(function(item){
+               item.id = 'doc'+ item.classList[1].substr(6);
+           });
+    },false)
+</script>
+</body>
+</html>

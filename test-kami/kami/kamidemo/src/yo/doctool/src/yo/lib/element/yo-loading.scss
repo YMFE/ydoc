@@ -1,0 +1,126 @@
+@charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+@import "../ani/rotate";
+
+// 定义loading的基础构造
+@mixin _loading {
+    @include flexbox;
+    @include fullscreen(map-get($z-index, loading));
+    @include justify-content;
+    @include align-items;
+    background-color: map-get($loading, mask-bgcolor);
+    line-height: 1;
+    > .inner {
+        display: block;
+        text-align: center;
+        padding: .1rem .2rem;
+        @include border-radius(.05rem);
+        background-color: map-get($loading, bgcolor);
+        color: map-get($loading, color);
+        font-size: map-get($loading, font-size);
+        // 增加 .yo-ico 这一级用以fix某些浏览器不支持伪元素动画
+        > .yo-ico {
+            display: block;
+            margin-bottom: .1rem;
+            @include animation(rotate 1s infinite linear);
+            @include transform-origin(center);
+            &::before {
+                content: map-get($loading, content);
+                color: map-get($loading, ico-color);
+                font-family: map-get($ico, font-name);
+                font-size: map-get($loading, ico-size);
+            }
+        }
+    }
+}
+
+/**
+ * @method yo-loading
+ * @desc 构造加载中的自定义使用方法
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/element/yo-loading.html)
+ * @param {String} $name 为新的扩展定义一个名称
+ * @param {Length} $ico-size loading的尺寸
+ * @param {Color} $ico-color loading的颜色
+ * @param {Color} $bgcolor 背景色
+ * @param {Color} $mask-bgcolor 遮罩背景色
+ * @param {Length} $font-size 文本字号
+ * @param {Color} $color 文本颜色
+ * @param {String} $content loading形态
+ */
+
+@mixin yo-loading(
+    $name: default,
+    $ico-size: default,
+    $ico-color: default,
+    $bgcolor: default,
+    $mask-bgcolor: default,
+    $font-size: default,
+    $color: default,
+    $content: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $ico-size == default {
+        $ico-size: map-get($loading, ico-size);
+    }
+    @if $ico-color == default {
+        $ico-color: map-get($loading, ico-color);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($loading, bgcolor);
+    }
+    @if $mask-bgcolor == default {
+        $mask-bgcolor: map-get($loading, mask-bgcolor);
+    }
+    @if $font-size == default {
+        $font-size: map-get($loading, font-size);
+    }
+    @if $color == default {
+        $color: map-get($loading, color);
+    }
+    @if $content == default {
+        $content: map-get($loading, content);
+    }
+    .yo-loading#{$name} {
+        // 如果$bgcolor不等于config预设值时，则重写遮罩背景色
+        @if $mask-bgcolor != map-get($loading, mask-bgcolor) {
+            background-color: $mask-bgcolor;
+        }
+        > .inner {
+            @if $bgcolor != map-get($loading, bgcolor) {
+                background-color: $bgcolor;
+            }
+            @if $color != map-get($loading, color) {
+                color: $color;
+            }
+            @if $font-size != map-get($loading, font-size) {
+                font-size: $font-size;
+            }
+            > .yo-ico {
+                &::before {
+                    @if $content != map-get($loading, content) {
+                        content: $content;
+                    }
+                    @if $ico-color != map-get($loading, ico-color) {
+                        color: $ico-color;
+                    }
+                    @if $ico-size != map-get($loading, ico-size) {
+                        font-size: $ico-size;
+                    }
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入loading基础构造
+.yo-loading {
+    @include _loading;
+}

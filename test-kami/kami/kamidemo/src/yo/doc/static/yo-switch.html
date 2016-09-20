@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>file - The Yo API Yo 文档站</title>
+    <!-- <link href="../source/bootstrap.min.css" rel="stylesheet">
+    <link href="../source/patch.css" rel="stylesheet">
+    <link href="../source/docs.min.css" rel="stylesheet"> -->
+    <script type="text/javascript" src="../source/shCore.js"></script>
+    <script type="text/javascript" src="../source/shBrushSass.js"></script>
+    <link type="text/css" rel="stylesheet" href="../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../source/app.css" rel="stylesheet">
+    <style> 
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+    </style>
+    
+    
+</head>
+<body style="background: white; font-family: Helvetica">
+<div class="bs-docs-header" id="content" tabindex="-1">
+    <div class="container">
+        <h1>YO  <em style="font-size:18px;">库版本：0.1.2 moduleVersion </em></h1>
+        <p>一个基于 Sass 开发的 CSS Framework，Mobile First 的设计理念使得 Yo 的体积超轻量，同时又能延伸到支持PC端。</p>
+    </div>
+</div>
+<div class="container bs-docs-container">
+ 
+    <div class="row">
+        <div class="col-md-9" role="main">
+        <pre class="brush: sass;">
+                @charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义switch的基础构造
+@mixin _switch {
+    display: inline-block;
+    > input {
+        display: none;
+    }
+    > .track {
+        display: inline-block;
+        position: relative;
+        width: .6rem;
+        height: .32rem;
+        margin: 0;
+        cursor: pointer;
+        border: .02rem solid map-get($switch, bordercolor);
+        @include border-radius(.16rem);
+        background-color: map-get($switch, bgcolor);
+        vertical-align: middle;
+        @include transition(border-color .1s ease-out, background-color .1s ease-out);
+        > .handle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include square(.28rem);
+            border-radius: 50%;
+            background-color: map-get($switch, ball-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+            @include transition(transform .1s ease-out);
+            -webkit-transform: translate(0, 0); // samsung s4 4.4.2 如果写了Z或者3D，元素的边框及背景色无法被圆角化
+            transform: translate(0, 0) translatez(0);
+        }
+    }
+    > input:checked + .track {
+        border-color: map-get($switch, checked-bordercolor);
+        background-color: map-get($switch, checked-bgcolor);
+        > .handle {
+            -webkit-transform: translate(100%, 0);
+            transform: translate(100%, 0) translatez(0);
+        }
+    }
+    > input:disabled + .track {
+        opacity: .4;
+        border-color: map-get($base, disabled-bordercolor);
+        background-color: map-get($base, disabled-bordercolor);
+    }
+}
+
+/**
+ * @module widget
+ * @method yo-switch
+ * @description 构造yo-switch的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/widget/yo-switch.html
+ * @param {String} $name 定义switch名称
+ * @param {Color} $checked-bordercolor 定义switch激活边框色
+ * @param {Color} $checked-bgcolor 定义switch激活背景色
+ * @param {Color} $bordercolor 定义switch边框色
+ * @param {Color} $bgcolor 定义switch背景色
+ * @param {Color} $ball-color 定义switch滑块色
+ */
+
+@mixin yo-switch(
+    $name: default,
+    $checked-bordercolor: default,
+    $checked-bgcolor: default,
+    $bordercolor: default,
+    $bgcolor: default,
+    $ball-color: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $bordercolor == default {
+        $bordercolor: map-get($switch, bordercolor);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($switch, bgcolor);
+    }
+    @if $ball-color == default {
+        $ball-color: map-get($switch, ball-color);
+    }
+    @if $checked-bordercolor == default {
+        $checked-bordercolor: map-get($switch, checked-bordercolor);
+    }
+    @if $checked-bgcolor == default {
+        $checked-bgcolor: map-get($switch, checked-bgcolor);
+    }
+    .yo-switch#{$name} {
+        > .track {
+            @if $bordercolor != map-get($switch, bordercolor) {
+                border-color: $bordercolor;
+            }
+            @if $bgcolor != map-get($switch, bgcolor) {
+                background-color: $bgcolor;
+            }
+            > .handle {
+                @if $ball-color != map-get($switch, ball-color) {
+                    background-color: $ball-color;
+                }
+            }
+        }
+        > input:checked + .track {
+            @if $checked-bordercolor != map-get($switch, checked-bordercolor) {
+                border-color: $checked-bordercolor;
+            }
+            @if $checked-bgcolor != map-get($switch, checked-bgcolor) {
+                background-color: $checked-bgcolor;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入switch基础构造
+.yo-switch {
+    @include _switch;
+}
+        </pre>
+        </div>
+    
+    </div>
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+        <p>Made By Qunar Hotel FE Mobile Team. © 2014 - 2015</p>
+    </div>
+</footer>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+    window.addEventListener('load',function(){
+       Array.prototype.slice.call(document.querySelectorAll('.line')).forEach(function(item){
+               item.id = 'doc'+ item.classList[1].substr(6);
+           });
+    },false)
+</script>
+</body>
+</html>

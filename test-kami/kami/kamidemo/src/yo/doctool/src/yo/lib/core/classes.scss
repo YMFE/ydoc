@@ -1,0 +1,839 @@
+@charset "utf-8";
+/**
+ * Yo框架全局基础方法
+ -----------------------
+ * Yo内置了包括响应式方案，CSS3兼容性方案，厂商前缀方案，iconfont方案，flex布局等全局方法
+ *
+ * @class classes
+ * @module Yo
+ */
+
+/**
+ * 给需要的属性加厂家前缀
+ * @method prefix
+ * @param {String} $property 指定属性
+ * @param {String} $value 指定属性值
+ */
+@mixin prefix($property, $value) {
+    // 老式浏览器
+    // 是否开启厂商前缀支持
+    @if map-get($setting, is-vendor-prefix) {
+        // 遍历输出厂商代码
+        @each $vendor in map-get($setting, vendor-prefix) {
+            #{$vendor}#{$property}: $value;
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    #{$property}: $value;
+}
+
+/**
+ * 四则运算
+ * @method calc
+ * @param {String} $property 指定需要进行计算的CSS属性
+ * @param {String} $value 与原生CSS语法一致，使用方式如：@include calc(width, #{100%} - #{.1rem});
+ */
+@mixin calc($property, $value) {
+    // 是否开启厂商前缀支持
+    @if map-get($setting, is-vendor-prefix) {
+        // 遍历输出厂商代码
+        @each $vendor in map-get($setting, vendor-prefix) {
+            // 输出所有厂商前缀（IE9.0+支持标准写法，更早版本不支持该函数）
+            @if $vendor != -ms- {
+                #{$property}: #{$vendor}calc(#{$value});
+            }
+        }
+    }
+    #{$property}: calc(#{$value});
+}
+
+/**
+ * 定义渐变色值
+ * @method gradient
+ * @param {String} $type 指定渐变的4种类型：linear, repeating-linear, radial, repeating-radial
+ * @param {String} $gradient 指定渐变取值，与w3c最新原生语法一致
+ */
+@mixin gradient($type, $gradient...) {
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            background-image: #{$vendor}#{$type}-gradient($gradient);
+        }
+    }
+    background-image: #{$type}-gradient($gradient);
+}
+
+/**
+ * 定义响应式方案
+ * @method responsive
+ * @param {String} $media 指定媒体查询条件
+ */
+@mixin responsive($media) {
+    @if not map-has-key($media-types, $media) {
+        @warn "#{$media} is not a known media type. Using portrait instead.";
+        $media: portrait;
+    }
+    @media #{map-get($media-types, $media)} {
+        @content;
+    }
+}
+
+/**
+ * 定义字体图标
+ * @method yofont
+ */
+@mixin yofont() {
+    // 是否开启图标字体
+    @if map-get($ico, is-use) {
+        @font-face {
+            font-family: map-get($ico, font-name);
+            // 如果只需要其中的某种字体，其它的几种字体可以使用空文件（不会请求），但必须存在
+            // IE9 - 不考虑IE9
+            // src: url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.eot");
+            src:
+                // IE6-8 - 不考虑
+                // url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.eot?#iefix") format("embedded-opentype"),
+                // chrome、firefox
+                url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.woff") format("woff"),
+                // chrome、firefox、opera、Safari, Android, iOS 4.2+
+                url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.ttf") format("truetype");
+                // iOS 4.1- - 不考虑
+                // url("#{map-get($ico,font-path)}#{map-get($ico,font-name)}.svg#iconfont") format("svg");
+        }
+        .yo-ico {
+            font-family: map-get($ico, font-name) !important;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            // PC端chrome有锯齿问题，Mobile不需要
+            // -webkit-text-stroke-width: .1px;
+            -moz-osx-font-smoothing: grayscale;
+            vertical-align: middle;
+        }
+    }
+}
+
+/**
+ * 滤镜
+ * @method filter
+ * @param {String} $filter 取值与原生语法一致
+ */
+@mixin filter($filter...) {
+    @include prefix(filter, $filter);
+}
+
+/**
+ * 定义UA默认外观
+ * @method appearance
+ * @param {String} $appearance 指定UA外观类型
+ */
+@mixin appearance($appearance: none) {
+    @include prefix(appearance, $appearance);
+}
+
+/**
+ * 定义是否可以选中元素
+ * @method user-select
+ * @param {String} $user-select 指定是否可以选中
+ */
+@mixin user-select($user-select: none) {
+    @include prefix(user-select, $user-select);
+}
+
+/**
+ * 定义背景图像缩放（Android Browser2.3.*还需要厂商前缀）
+ * @method background-size
+ * @param {String | Length} $background-size 指定背景图缩放值
+ */
+@mixin background-size($background-size...) {
+    @include prefix(background-size, $background-size);
+}
+
+/**
+ * 定义背景裁减（Android Browser2.3.*还需要厂商前缀）
+ * @method background-clip
+ * @param {String} $background-clip 指定背景图缩放值
+ */
+@mixin background-clip($background-clip...) {
+    @include prefix(background-clip, $background-clip);
+}
+
+/**
+ * 定义背景显示区域（Android Browser2.3.*还需要厂商前缀）
+ * @method background-origin
+ * @param {String} $background-origin 指定背景图缩放值
+ */
+@mixin background-origin($background-origin...) {
+    @include prefix(background-origin, $background-origin);
+}
+
+/**
+ * 定义盒模型
+ * @method box-sizing
+ * @param {String} $box-sizing 的2个值分别为：content-box(标准盒模型) | border-box(怪异盒模型)
+ */
+@mixin box-sizing($box-sizing: border-box) {
+    @include prefix(box-sizing, $box-sizing);
+}
+
+/**
+ * 定义圆角
+ * @method border-radius
+ * @param {String} $border-radius 取值与原生语法一致
+ */
+@mixin border-radius($border-radius...) {
+    border-radius: $border-radius;
+    // 修复某些安卓机型上“边框+背景”，背景溢出的情况
+    // 之所以会这样是因为这些机型的背景是从边框处开始渲染，所以只需要改成从padding处渲染即可
+    @include background-clip(padding-box !important);
+}
+
+/**
+ * 定义简单变换
+ * @method transform
+ * @param {String} $transform 取值与原生语法一致
+ */
+@mixin transform($transform...) {
+    @include prefix(transform, $transform);
+}
+
+/**
+ * 定义变换原点
+ * @method transform-origin
+ * @param {String} $transform-origin 取值与原生语法一致
+ */
+@mixin transform-origin($transform-origin) {
+    @include prefix(transform-origin, $transform-origin);
+}
+
+/**
+ * 定义动画
+ * @method animation
+ * @param {String} $animation 取值与原生语法一致
+ */
+@mixin animation($animation...) {
+    @include prefix(animation, $animation);
+}
+
+/**
+ * 定义补间
+ * @method transition
+ * @param {String} $transition 取值与原生语法一致
+ */
+@mixin transition($transition...){
+    $transitionable-prefixed-values: transform, transform-origin !default;
+    $vendor-list: ();
+    $list: ();
+
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            @for $i from 1 through length($transition) {
+                @if type-of(nth($transition, $i)) == list {
+                    @if index($transitionable-prefixed-values, nth(nth($transition, $i), 1)){
+                        $vendor-list: join($vendor-list, #{$vendor}#{nth($transition, $i)}, $separator: comma);
+                    } @else {
+                        $vendor-list: join($vendor-list, #{nth($transition, $i)}, $separator: comma);
+                    }
+                }
+            }
+            #{$vendor}transition: $vendor-list;
+            $vendor-list: ();
+        }
+    }
+
+    @for $i from 1 through length($transition) {
+        $list: join($list, #{nth($transition, $i)}, $separator: comma);
+    }
+    transition: $list;
+}
+
+/**
+ * 定义显示类型为伸缩盒
+ * @method flexbox
+ * @param {String} $flexbox 默认值：flex，可选值：flex | inline-flex
+ */
+@mixin flexbox($flexbox: flex) {
+    @if $flexbox == inline-flex or $flexbox == inline {
+        $flexbox: "inline-";
+    } @else {
+        $flexbox: "";
+    }
+    // 老式浏览器（实验性质支持3个阶段草案）
+    // 原始草案：20090723
+    // 过渡草案：20110322-20120322（以后面这个日期为准）
+    // 最新草案：20120612-20140925（以后面这个日期为准）
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            @if $vendor != -ms- {
+                // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                display: #{$vendor}#{$flexbox}box;
+                display: #{$vendor}#{$flexbox}flex;
+            } @else {
+                // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                display: #{$vendor}#{$flexbox}flexbox;
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    display: #{$flexbox}flex;
+}
+
+/**
+ * 定义伸缩盒子元素如何分配空间
+ * @method flex
+ * @param {String} $flex 默认值：1，取值与最新原生语法一致
+ * @param {String} $direction 默认值: row
+ */
+@mixin flex($flex: 1, $direction: row) {
+    // 老式浏览器（实验性质支持3个阶段草案）
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            @if $vendor != -ms- {
+                // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                #{$vendor}box-flex: $flex;
+                #{$vendor}flex: $flex;
+            } @else {
+                // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                #{$vendor}flex: $flex;
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    flex: $flex;
+    // 修复Android Browser4.3及以下，iOS Safari6.1及以下按比例分配错误的问题
+    @if $direction == row {
+        width: .1px;
+    }
+    // @else {
+    //     height: .1px;
+    // }
+}
+
+/**
+ * 定义伸缩盒子元素的排版顺序
+ * @method order
+ * @param {String} $order 默认值：1，取值范围与最新草案语法一致
+ */
+@mixin order($order: 1) {
+    // 老式浏览器（实验性质支持3个阶段草案）
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            @if $vendor != -ms- {
+                // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                #{$vendor}box-ordinal-group: $order;
+                #{$vendor}order: $order;
+            } @else {
+                // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                #{$vendor}flex-order: $order;
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    order: $order;
+}
+
+/**
+ * 定义伸缩盒子元素的流动方向
+ * @method flex-direction
+ * @param {String} $flex-direction 默认值：row，取值范围与最新草案语法一致
+ */
+@mixin flex-direction($flex-direction: row) {
+    // 老式浏览器（实验性质支持原始草案）
+    // 当厂商前缀不为`-ms-`时输出原始草案厂商前缀版
+    @if $flex-direction == row {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    #{$vendor}box-orient: horizontal;
+                    #{$vendor}box-direction: normal;
+                }
+            }
+        }
+    } @else if $flex-direction == column {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    #{$vendor}box-orient: vertical;
+                    #{$vendor}box-direction: normal;
+                }
+            }
+        }
+    } @else if $flex-direction == row-reverse {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    #{$vendor}box-orient: horizontal;
+                    #{$vendor}box-direction: reverse;
+                }
+            }
+        }
+    } @else if $flex-direction == column-reverse {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    #{$vendor}box-orient: vertical;
+                    #{$vendor}box-direction: reverse;
+                }
+            }
+        }
+    }
+    // 老式浏览器（实验性质支持过渡及最新草案）
+    @if map-get($setting, is-vendor-prefix) {
+        @each $vendor in map-get($setting, vendor-prefix) {
+            // `flex-direction`属性在过渡和最新草案中语法一致
+            #{$vendor}flex-direction: $flex-direction;
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    flex-direction: $flex-direction;
+}
+
+/**
+ * 定义弹性盒子元素溢出排版
+ * @method flex-wrap
+ * @param {String} $flex-wrap 默认值：nowrap，取值范围与最新草案语法一致
+ */
+@mixin flex-wrap($flex-wrap: nowrap) {
+    // 老式浏览器（实验性质支持过渡和最新2个阶段草案）+ 现代浏览器
+    // 原始草案有`box-lines`对应本书，不过虽然被webkit实验性质支援，但却未被任何浏览器实现（等同于未实现）
+    @include prefix(flex-wrap, $flex-wrap);
+}
+
+/**
+ * 定义弹性容器主轴对齐方式
+ * @method justify-content
+ * @param {String} $justify-content 默认值：center，取值范围与最新草案语法一致
+ */
+@mixin justify-content($justify-content: center) {
+    // 老式浏览器（实验性质支持3个阶段草案）
+    @if $justify-content == center {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-pack: $justify-content;
+                    #{$vendor}justify-content: $justify-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-pack: $justify-content;
+                }
+            }
+        }
+    } @else if $justify-content == flex-start {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-pack: start;
+                    #{$vendor}justify-content: $justify-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-pack: start;
+                }
+            }
+        }
+    } @else if $justify-content == flex-end {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-pack: end;
+                    #{$vendor}justify-content: $justify-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-pack: end;
+                }
+            }
+        }
+    } @else if $justify-content == space-between {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-pack: justify;
+                    #{$vendor}justify-content: $justify-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-pack: justify;
+                }
+            }
+        }
+    } @else if $justify-content == space-around {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    // 原始草案不支持`space-around`(过渡版本中的`distribute`) 值
+                    //#{$vendor}box-pack: distribute;
+                    #{$vendor}justify-content: $justify-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-pack: distribute;
+                }
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    justify-content: $justify-content;
+}
+
+/**
+ * 定义多行弹性容器侧轴对齐方式
+ * @method align-content
+ * @version 1.8.5
+ * @param {String} $align-content 默认值：center，取值范围与最新草案语法一致
+ */
+@mixin align-content($align-content: center) {
+    // 老式浏览器（实验性质支持2个阶段草案）
+    @if $align-content == flex-start {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-content: $align-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-line-pack: start;
+                }
+            }
+        }
+    } @else if $align-content == flex-end {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-content: $align-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-line-pack: end;
+                }
+            }
+        }
+    } @else if $align-content == space-between {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-content: $align-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-line-pack: justify;
+                }
+            }
+        }
+    } @else if $align-content == space-around {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-content: $align-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-line-pack: distribute;
+                }
+            }
+        }
+    } @else if $align-content == center or $align-content == stretch {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-content: $align-content;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-line-pack: $align-content;
+                }
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    align-content: $align-content;
+}
+
+/**
+ * 定义单行弹性容器侧轴对齐方式
+ * @method align-items
+ * @param {String} $align-items 默认值：center，取值与最新原生语法一致
+ */
+@mixin align-items($align-items: center) {
+    // 老式浏览器（实验性质支持3个阶段草案）
+    @if $align-items == flex-start {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-align: start;
+                    #{$vendor}align-items: $align-items;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-align: start;
+                }
+            }
+        }
+    } @else if $align-items == flex-end {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-align: end;
+                    #{$vendor}align-items: $align-items;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-align: end;
+                }
+            }
+        }
+    } @else if $align-items == center or $align-items == baseline or $align-items == stretch {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输出原始和最新草案厂商前缀版
+                    #{$vendor}box-align: $align-items;
+                    #{$vendor}align-items: $align-items;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-align: $align-items;
+                }
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    align-items: $align-items;
+}
+
+/**
+ * 定义弹性容器中子元素自身的在侧轴对齐方式
+ * @method align-self
+ * @param {String} $align-self 默认值：center，取值与最新原生语法一致
+ */
+@mixin align-self($align-self: center) {
+    // 老式浏览器（实验性质支持3个阶段草案）
+    @if $align-self == flex-start {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-self: $align-self;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-item-align: start;
+                }
+            }
+        }
+    } @else if $align-self == flex-end {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-self: $align-self;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-item-align: end;
+                }
+            }
+        }
+    } @else if $align-self == auto or $align-self == center or $align-self == baseline or $align-self == stretch {
+        @if map-get($setting, is-vendor-prefix) {
+            @each $vendor in map-get($setting, vendor-prefix) {
+                @if $vendor != -ms- {
+                    // 当厂商前缀不为`-ms-`时输最新草案厂商前缀版（原始草案没有类似属性）
+                    #{$vendor}align-self: $align-self;
+                } @else {
+                    // 当厂商前缀为`-ms-`时输出过渡草案厂商前缀版
+                    #{$vendor}flex-item-align: $align-self;
+                }
+            }
+        }
+    }
+    // 现代浏览器（支持最新草案）
+    align-self: $align-self;
+}
+
+/**
+ * 定义root root-scroll
+ * @method root-scroll
+ * @param {String} $root-scroll 指定scroll类型，取值overflow属性的标准值
+ */
+@mixin root-scroll($root-scroll: hidden) {
+    html,
+    body {
+        overflow: $root-scroll;
+        height: 100%;
+    }
+}
+
+/**
+ * 定义是否有滚动条
+ * @method overflow
+ * @param {String} $overflow 默认值：auto，取值与最新原生语法一致
+ */
+@mixin overflow($overflow: auto) {
+    @if $overflow == auto {
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    } @else {
+        overflow: $overflow;
+    }
+}
+
+/**
+ * 生成矩形方法
+ * @method rect
+ * @param {Length} $width 定义矩形的长度
+ * @param {Length} $height 定义矩形的高度
+ */
+@mixin rect($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+/**
+ * 生成正方形方法
+ * @method square
+ * @param {Length} $size 定义正方形的边长
+ */
+@mixin square($size) {
+    width: $size;
+    height: $size;
+}
+
+/**
+ * 生成圆形方法
+ * @method circle
+ * @param {Length} $size 定义圆的半径长度
+ * @param {Length} $radius 定义圆的圆角半径长度
+ */
+@mixin circle($size, $radius: 50%) {
+    @include square($size);
+    @include border-radius($radius);
+}
+
+/**
+ * 生成全屏方法
+ * @method fullscreen
+ * @param {Integer} $z-index 定义层叠级别
+ */
+@mixin fullscreen($z-index: null, $position: absolute) {
+    position: $position;
+    z-index: $z-index;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/**
+ * 清除浮动方案
+ * @method clearfix
+ */
+@mixin clearfix() {
+    &::after{
+        display: block;
+        overflow: hidden;
+        clear: both;
+        height: 0;
+        content: "\0020";
+    }
+}
+
+/**
+ * 链接处理方法
+ * @method link
+ * @param {Color} $color 定义链接颜色
+ */
+@mixin link($color: map-get($base, link-color)) {
+    color: $color;
+    cursor: pointer;
+    &:active {
+        opacity: .5;
+    }
+}
+
+/**
+ * 强制换行方案
+ * @method wrap
+ */
+@mixin wrap() {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+/**
+ * 单行文本溢出显示方案
+ * @method ellipsis
+ * @param {Boolen} $ellipsis 定义是否需要省略号
+ */
+@mixin ellipsis($ellipsis: true) {
+    overflow: hidden;
+    white-space: nowrap;
+    @if $ellipsis {
+        text-overflow: ellipsis;
+    }
+}
+
+/**
+ * 文字隐藏方案
+ * @method texthide
+ */
+@mixin texthide() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+}
+
+/**
+ * 清除间隙方案-容器
+ * @method killspace
+ */
+@mixin killspace() {
+    font-size: 0;
+    font-family: arial;
+}
+
+/**
+ * 清除间隙方案-子级
+ * @method killspace-item
+ */
+@mixin killspace-item() {
+    display: inline-block;
+    font-size: map-get($base, font-size);
+    font-family: map-get($base, font-family);
+}
+
+/**
+ * 未知尺寸元素垂直居中解决方案-容器
+ * @method valign
+ */
+@mixin valign() {
+    @include killspace();
+    &::after{
+        overflow: hidden;
+        width: 0;
+        height: 100%;
+        content: "\0020";
+        vertical-align: middle;
+    }
+}
+
+/**
+ * 未知尺寸元素垂直居中解决方案-子级
+ * @method valign-item
+ */
+@mixin valign-item() {
+    @include killspace-item();
+    vertical-align: middle;
+}
+
+/**
+ * 已知尺寸元素垂直居中解决方案
+ * @method alignment
+ * @param {Length} $width 居中元素的宽度
+ * @param {Length} $height 居中元素的高度
+ */
+@mixin alignment($width: 2rem, $height: 2rem) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: $width;
+    height: $height;
+    margin-top: -$height/2;
+    margin-left: -$width/2;
+}

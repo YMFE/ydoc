@@ -1,0 +1,64 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @class ani
+ * @module Yo
+ */
+
+/**
+ * 定义橡皮圈挤压回弹动画
+ * @method extrusion
+ */
+
+@-webkit-keyframes extrusion {
+	0% {
+		-webkit-transform: scale3d(1, 1, 1);
+	}
+	30% {
+		-webkit-transform: scale3d(.65, 1.35, 1);
+	}
+	40% {
+		-webkit-transform: scale3d(1.35, .65, 1);
+	}
+	50% {
+		-webkit-transform: scale3d(.85, 1.15, 1);
+	}
+	65% {
+		-webkit-transform: scale3d(1.05, .95, 1);
+	}
+	75% {
+		-webkit-transform: scale3d(.95, 1.05, 1);
+	}
+	100% {
+		-webkit-transform: scale3d(1, 1, 1);
+	}
+}
+@keyframes extrusion {
+	0% {
+		transform: scale3d(1, 1, 1);
+	}
+	30% {
+		transform: scale3d(.65, 1.35, 1);
+	}
+	40% {
+		transform: scale3d(1.35, .65, 1);
+	}
+	50% {
+		transform: scale3d(.85, 1.15, 1);
+	}
+	65% {
+		transform: scale3d(1.05, .95, 1);
+	}
+	75% {
+		transform: scale3d(.95, 1.05, 1);
+	}
+	100% {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+.ani.extrusion {
+	-webkit-animation-name: extrusion;
+	animation-name: extrusion;
+}

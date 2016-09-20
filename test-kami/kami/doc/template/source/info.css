@@ -1,0 +1,98 @@
+.section li {
+    list-style-type: disc;
+}
+#demo {
+    margin-top: 50px;
+    text-align: center;
+}
+#demo a, #demo h1, #demo p {
+    text-align: center;
+    display: block;
+}
+#demo a {
+    margin-bottom: 20px;
+}
+#target {
+    margin: 0 auto;
+    width: 256px;
+    overflow: hidden;
+}
+
+@media screen and (min-width:995px) {
+    .bg-img {
+        width: 50%;
+        margin-top: 30px;
+    }
+    .img2 {
+        width: 30%;
+        display: inline-block;
+    }
+    .img3 {
+        width: 60%;
+        display: inline-block;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: perspective(400px) rotateY(20deg);
+        -ms-transform: perspective(400px) rotateY(20deg);
+        -o-transform: perspective(400px) rotateY(20deg);
+        transform: perspective(400px) rotateY(20deg); 
+    }
+    .img4 {
+        width: 30%;
+        margin-left: 20%;
+        margin: 0;
+        right: 0;
+    }
+    .info {
+        width: 40%;
+        transform: translateY(50%);
+    }
+    .first-info {
+        top: 50%;
+        right: 0;
+        position: absolute;
+    }
+    .second-info {
+        transform: translateY(50%);
+        top: 70%;
+        display: inline-block;
+        width: 50%;
+        margin-right: 10%;
+    }
+    .third-info {
+        width: 40%;
+        top: 50px;
+        right: 0;
+        position: absolute;
+    }
+    .forth-info {
+        transform: translateY(0);
+        display: inline-block;
+        width: 40%;
+    }
+    .section h1 {
+        text-align: left;
+        border-bottom: 1px solid #5e5e5e;
+        padding-bottom: 10px;
+    }
+    .section {
+        position: relative;
+        margin-bottom: 50px;
+    }
+}
+@media screen and (max-width:994px) {
+    .bg-img, .img2, .img3 {
+        display: none;
+    }
+    .info {
+        margin: 0;
+    }
+    .section {
+        margin: 50px 5%;
+    }
+    .info h1 {
+        text-align: center;
+    }
+}

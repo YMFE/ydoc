@@ -1,0 +1,5 @@
+.yo-slidermenu,.yo-slidermenu>.item{position:relative;display:block!important;padding:0 0 1px 0!important}
+.yo-slidermenu .front{position:relative;z-index:2;background-color:#fff}
+.yo-slidermenu .transition{-webkit-transition:-webkit-transform .3s;transition:transform .3s}
+.yo-slidermenu .action{position:absolute;top:0;bottom:1px;right:0;overflow:hidden;width:1rem;background-color:#ccc;display:-webkit-box;display:-webkit-flex;display:flex}
+.yo-slidermenu .action>.item{-webkit-box-flex:auto;-webkit-flex:auto;flex:auto;width:.1px;width:auto;text-align:center;-webkit-align-self:center;align-self:center;padding:1rem 0}

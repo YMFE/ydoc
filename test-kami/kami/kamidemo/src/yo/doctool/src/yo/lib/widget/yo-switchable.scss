@@ -1,0 +1,180 @@
+@charset "utf-8";
+@import "../core/variables";
+@import "../core/classes";
+
+// 定义switchable的基础构造
+@mixin _switchable {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    > .cont {
+        position: relative;
+        white-space: nowrap;
+        @include killspace;
+        > .item {
+            @include killspace-item;
+            width: 100%;
+            background-color: #eee;
+        }
+        .img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+        }
+    }
+    > .index {
+        position: absolute;
+        bottom: .05rem;
+        left: 50%;
+        @include transform(translate(-50%, 0) translatez(0));
+        > li {
+            float: left;
+            margin: 0 .05rem;
+            @include square(map-get($switchable, index-size));
+            border-radius: 50%;
+            background-color: map-get($switchable, index-bgcolor);
+            &.on {
+                background-color: map-get($switchable, index-on-bgcolor);
+            }
+        }
+    }
+    > .yo-ico {
+        @if map-get($switchable, has-btn) == false {
+            display: none;
+        }
+        position: absolute;
+        top: 50%;
+        @include transform(translate(0, -50%) translatez(0));
+        @include square(map-get($switchable, btn-size));
+        border-radius: 50%;
+        background-color: map-get($switchable, btn-bgcolor);
+        color: map-get($switchable, btn-color);
+        line-height: map-get($switchable, btn-size);
+        cursor: pointer;
+        &:active {
+            background-color: map-get($switchable, btn-active-bgcolor);
+            color: map-get($switchable, btn-active-color);
+        }
+    }
+    > .yo-ico-prev {
+        left: 0;
+    }
+    > .yo-ico-next {
+        right: 0;
+    }
+}
+
+/**
+ * @method yo-switchable
+ * @desc 构造yo-switchable的自定义使用方法
+ * @demo 使用方法，详见 [Demo](http://doyoe.github.io/Yo/demo/widget/yo-switchable.html)
+ * @param {default | String} $name 扩展的名称
+ * @param {default | Boolen} $has-btn 是否有按钮
+ * @param {default | Length} $btn-size 按钮大小
+ * @param {default | Length} $btn-bgcolor 按钮背景色
+ * @param {default | Length} $btn-color 按钮文本色
+ * @param {default | Color} $btn-active-bgcolor 按钮按下背景色
+ * @param {default | Length} $btn-active-color 按钮按下文本色
+ * @param {default | Length} $index-size 索引大小
+ * @param {default | Color} $index-bgcolor 索引背景色
+ * @param {default | Length} $index-on-bgcolor 索引当前项背景色
+ */
+
+@mixin yo-switchable(
+    $name: default,
+    $has-btn: default,
+    $btn-size: default,
+    $btn-bgcolor: default,
+    $btn-color: default,
+    $btn-active-bgcolor: default,
+    $btn-active-color: default,
+    $index-size: default,
+    $index-bgcolor: default,
+    $index-on-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    @if $name == default {
+        $name: "";
+    } @else {
+        $name: "-#{$name}";
+    }
+    // 如果值为default，则取config的定义
+    @if $has-btn == default {
+        $has-btn: map-get($switchable, has-btn);
+    }
+    @if $btn-size == default {
+        $btn-size: map-get($switchable, btn-size);
+    }
+    @if $btn-bgcolor == default {
+        $btn-bgcolor: map-get($switchable, btn-bgcolor);
+    }
+    @if $btn-color == default {
+        $btn-color: map-get($switchable, btn-color);
+    }
+    @if $btn-active-bgcolor == default {
+        $btn-active-bgcolor: map-get($switchable, btn-active-bgcolor);
+    }
+    @if $btn-active-color == default {
+        $btn-active-color: map-get($switchable, btn-active-color);
+    }
+    @if $index-size == default {
+        $index-size: map-get($switchable, index-size);
+    }
+    @if $index-bgcolor == default {
+        $index-bgcolor: map-get($switchable, index-bgcolor);
+    }
+    @if $index-on-bgcolor == default {
+        $index-on-bgcolor: map-get($switchable, index-on-bgcolor);
+    }
+    .yo-switchable#{$name} {
+        > .index {
+            > li {
+                @if $index-size != map-get($switchable, index-size) {
+                    @include square($index-size);
+                }
+                @if $index-bgcolor != map-get($switchable, index-bgcolor) {
+                    background-color: $index-bgcolor;
+                }
+                &.on {
+                    @if $index-on-bgcolor != map-get($switchable, index-on-bgcolor) {
+                        background-color: $index-on-bgcolor;
+                    }
+                }
+            }
+        }
+        > .yo-ico {
+            @if $has-btn != map-get($switchable, has-btn) {
+                @if $has-btn == false {
+                    display: none;
+                } @else {
+                    display: inline;
+                }
+            }
+            @if $btn-size != map-get($switchable, btn-size) {
+                @include square($btn-size);
+                line-height: $btn-size;
+            }
+            @if $btn-bgcolor != map-get($switchable, btn-bgcolor) {
+                background-color: $btn-bgcolor;
+            }
+            @if $btn-color != map-get($switchable, btn-color) {
+                color: $btn-color;
+            }
+            &:active {
+                @if $btn-active-bgcolor != map-get($switchable, btn-active-bgcolor) {
+                background-color: $btn-active-bgcolor;
+                }
+                @if $btn-active-color != map-get($switchable, btn-active-color) {
+                    color: $btn-active-color;
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入switchableable基础构造
+.yo-switchable {
+    @include _switchable;
+}
