@@ -201,6 +201,10 @@ sup, sub {
     /* Old browsers */
     margin: 20px auto;
     box-shadow: 0 0  10px #e5e5e5; }
+    .ydoc-container-content .static-code-content {
+      width: 100%;
+      background: #fff;
+      padding: .15rem; }
     .ydoc-container-content .content-left, .ydoc-container-content .content-right {
       float: left; }
     .ydoc-container-content .content-left {
@@ -780,6 +784,7 @@ sup, sub {
 .markdown-body .docs-section .extend-params, .markdown-body .docs-section .fold-params {
   color: #337ab7;
   margin: -.1rem 0 .15rem;
-  display: block; }
+  display: block;
+  cursor: pointer; }
 
 /*# sourceMappingURL=app.css.map */

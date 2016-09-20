@@ -13,19 +13,20 @@
         .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
     </style>
 </head>
-<body style="background: white; font-family: Helvetica">
-<div class="docs-header" id="content" tabindex="-1">
-    <div class="container">
-        <h1>Yo : ./test-yo/style/lib/core/function.scss</h1>
-        <p>源代码</p>
-    </div>
-</div>
-<div class="container docs-container">
-
-    <div class="row">
-        <div class="col-md-9" role="main">
-        <pre class="brush: css;">
-@charset "utf-8";
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./test-yo/style/lib/core/function.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
 /**
  * Yo框架自定义全局函数
  * 扩充Sass默认函数库，用以增强语法
@@ -216,16 +217,24 @@
 
     @return $new-list;
 }
-        </pre>
+                </pre>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./test-yo/style/lib/core/function.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
 
-<footer class="docs-footer" role="contentinfo">
-    <div class="container">
-        <p></p>
-    </div>
-</footer>
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
 <script type="text/javascript">
     SyntaxHighlighter.all();
 

@@ -520,7 +520,7 @@
         }
         .hide-params{ display: none; }
         .show-params{ display: table-row; }
-        .extend-params,.fold-params{ color: #337ab7; margin:-.1rem 0 .15rem; display:block;}
+        .extend-params,.fold-params{ color: #337ab7; margin:-.1rem 0 .15rem; display:block; cursor:pointer;}
     }
 
 }

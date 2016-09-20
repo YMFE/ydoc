@@ -183,7 +183,7 @@ $(document).ready(function() {
          curTbody = $(this).parents('.docs-table');
 
      if(paramsLength > DEFAULT_SHOW_PARAMS){
-         curTbody.append('<span class="extend-params">展开更多……</span>');
+         curTbody.append('<span class="extend-params">展开更多参数……</span>');
          paramsArray.each(function(index,item){
              if(index >= DEFAULT_SHOW_PARAMS ){
                  $(this).removeClass('hide-params').addClass('hide-params');
@@ -194,12 +194,12 @@ $(document).ready(function() {
   $(".docs-table").delegate('.extend-params', 'click',function(){
       $(this).parents('.docs-table').find('.hide-params').addClass('show-params');
       $(this).removeClass('extend-params').addClass('fold-params');
-      $(this).html('折叠代码');
+      $(this).html('折叠参数');
   });
   $('.docs-table').delegate('.fold-params','click',function(){
       $(this).removeClass('fold-params').addClass('extend-params');
        $(this).parents('.docs-table').find('.show-params').removeClass('show-params');
-      $(this).html("展开更多……");
+      $(this).html("展开更多参数……");
   });
 
 
