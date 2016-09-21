@@ -62,8 +62,8 @@ $(document).ready(function() {
         'left': $(window).width()/2-ydocContainerCon.width()/2
     });
     var cancelfixed = $('.footer').offset().top;
-    console.log('$(window).scrollTop()',$(window).scrollTop());
-    console.log('cancelfixed====',cancelfixed);
+    // console.log('$(window).scrollTop()',$(window).scrollTop());
+    // console.log('cancelfixed====',cancelfixed);
     if(($(window).scrollTop() >=  ydocContainerCon.offset().top) && ($(window).scrollTop() < cancelfixed)){
         docSideNav.addClass('fixed');
     }else{
