@@ -1,6 +1,7 @@
 module.exports = function() {
     return {
 	    "name": "Yo",
+        "dest": "./_docs-yo/",
 	    "common": {
 	        "title": "Yo Documentation",
 	        "footer": "Made By Doyoe.com © 2014 - 2016",

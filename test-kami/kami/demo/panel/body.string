@@ -1,7 +1,0 @@
-{{#each data as item}}
-<tr>
-    <td>{{item.name}}</td>
-    <td>{{item.type}}</td>
-    <td>{{item.phone}}</td>
-</tr>
-{{/each}}

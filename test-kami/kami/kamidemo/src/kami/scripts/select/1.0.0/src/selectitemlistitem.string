@@ -1,1 +1,0 @@
-<li class="{{itemClass}}" value="{{item.value}}" data-role="list-item">{{item.text}}</li>

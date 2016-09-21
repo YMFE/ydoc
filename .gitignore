@@ -4,6 +4,9 @@
 
 node_modules
 node_modules/
+test-kami/scripts/**/*
+!test-kami/scripts/**/src/
+
 
 # maven ignore
 target/
@@ -29,8 +32,6 @@ target/
 # system ignore
 .DS_Store
 Thumbs.db
-
-test-kami/**/*/.git
 
 
 # package ignore (optional)

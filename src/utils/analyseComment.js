@@ -44,12 +44,10 @@ module.exports = function (comment, path, conf, formatter, content) {
         _path: path,
         params: [],
         prototypes: [],
-        property: [],
+        //property: [],
         description: ''
     };
     comment.tags.forEach(function(tag) {
-        //console.log('before====',tag);
-        console.log('getContent(tag)===',getContent(tag));
         var content = getContent(tag).replace(/[0-9]+space/g, function(mat) {
             var cnt = mat.replace(/[^0-9]+/g, ''), str = '';
             while(cnt--) {
@@ -57,16 +55,14 @@ module.exports = function (comment, path, conf, formatter, content) {
             }
             return str;
         });
-        //console.log('after=====',content);
-        console.log('tag.tag==',tag.tag);
         switch (tag.tag) {
             case 'param':
                 ret.params.push(readTag(tag));
                 break;
             case 'prototype':
                 ret.prototypes.push(readTag(tag));
-            case 'property': // kami
-                ret.property.push(readTag(tag));
+            // case 'property': // kami
+            //     ret.property.push(readTag(tag));
             case 'return':
             case 'returns':
                 ret.returns = {
@@ -77,7 +73,6 @@ module.exports = function (comment, path, conf, formatter, content) {
                 };
                 break;
             case 'example':
-                console.log('example content ===',content);
                 // jsx
                 if (content.indexOf('./') == 0) {
                     var fp = sysPath.join(conf.cwd, conf.examplePath, content.split('[')[0]);
@@ -105,6 +100,5 @@ module.exports = function (comment, path, conf, formatter, content) {
                 ret[tag.tag] = content || true;
         }
     });
-    console.log('ret===',ret);
     return ret;
 };

@@ -201,6 +201,10 @@ sup, sub {
     /* Old browsers */
     margin: 20px auto;
     box-shadow: 0 0  10px #e5e5e5; }
+    .ydoc-container-content .static-code-content {
+      width: 100%;
+      background: #fff;
+      padding: .15rem; }
     .ydoc-container-content .content-left, .ydoc-container-content .content-right {
       float: left; }
     .ydoc-container-content .content-left {
@@ -702,19 +706,6 @@ sup, sub {
   margin: 0; }
 
 /*    api 处     */
-.markdown-body blockquote.api {
-  border-left: none;
-  padding: 0; }
-.markdown-body .docs-section h1, .markdown-body .docs-section h2 {
-  border-bottom: none; }
-.markdown-body .docs-section h3 {
-  color: #ff503f;
-  border-left-color: #ff503f;
-  font-weight: normal; }
-.markdown-body .docs-section .con-list-item {
-  border-bottom: 1px solid #ddd;
-  padding: .3rem 0; }
-
 .yo-badge {
   display: inline-block;
   padding: 1px .1rem;
@@ -769,5 +760,31 @@ sup, sub {
 .change-type {
   font-size: 1em;
   color: #ff503f; }
+
+.markdown-body blockquote.api {
+  border-left: none;
+  padding: 0; }
+.markdown-body .docs-section h1, .markdown-body .docs-section h2 {
+  border-bottom: none; }
+.markdown-body .docs-section .blockquote.api {
+  padding: 0 0 .15rem; }
+.markdown-body .docs-section h3 {
+  color: #ff503f;
+  border-left-color: #ff503f;
+  font-weight: normal; }
+.markdown-body .docs-section .con-list-item {
+  border-bottom: 1px solid #ddd;
+  padding: .3rem 0; }
+.markdown-body .docs-section .con-list-item:last-child {
+  border: none; }
+.markdown-body .docs-section .hide-params {
+  display: none; }
+.markdown-body .docs-section .show-params {
+  display: table-row; }
+.markdown-body .docs-section .extend-params, .markdown-body .docs-section .fold-params {
+  color: #337ab7;
+  margin: -.1rem 0 .15rem;
+  display: block;
+  cursor: pointer; }
 
 /*# sourceMappingURL=app.css.map */

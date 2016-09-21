@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
-  <title>KAMI 简介</title>
+  <title>YDoc 开始</title>
   <link rel="stylesheet" href="source/app.css"/>
   <link rel="stylesheet" href="source/highlight.min.css"/>
 </head>
@@ -16,6 +16,8 @@
       <header class="ydoc-header">
         <div class="ydoc-header-area">
             
+            <a href="http://ymfe.tech/" class="navbar-brand">YMFE</a>
+            
             <button class="ydocIcon navbar-toggle">&#xf020;</button>
             <nav class="ydoc-nav">
               <ul class="navbar-left">
@@ -23,13 +25,31 @@
                     
                     <li class="active">
                         
-                        <a href="index.html">简介</a>
+                        <a href="index.html">开始</a>
                         
                     </li>
                     
                     <li class="">
                         
-                        <a href="组件API.html">组件API</a>
+                        <a href="usage.html">命令</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="config.html">配置</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="comment.html">注释规则</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="release.html">版本</a>
                         
                     </li>
                     
@@ -43,6 +63,14 @@
     
       <!-- Docs page layout -->
       
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>YDoc</h1>
+                  <p>开始</p>
+              </div>
+          </div>
+      
 
 
 
@@ -50,111 +78,129 @@
       <div class="ydoc-container">
         
           
-          <div class="ydoc-container-content" id="readme">
-              <article class="markdown-body">
-                  
-                  <h1 id="Kami起步">Kami起步</h1><h4 id="Kami开发前须知">Kami开发前须知</h4><p>Kami组件依赖于Yo样式，因此引入组件的同时需要引入同名Yo样式，若非如此则需用户重写相关组件样式。</p>
-<ul>
-<li><a href="http://ued.qunar.com/mobile/yo/doc/">使用Yo进行移动端开发</a></li>
-</ul>
-<h4 id="CMD规范下的Kami组件使用方式">CMD规范下的Kami组件使用方式</h4><p>基于kami的开发首先需要安装Kami构建工具， kami构建工具依赖fekit，如需使用默认样式则需要安装Yo构建工具。</p>
-<ul>
-<li><a href="http://wiki.corp.qunar.com/pages/viewpage.action?pageId=42273573">如何安装fekit</a></li>
-<li><a href="tool.html">如何安装构建工具</a></li>
-<li><a href="http://ued.qunar.com/mobile/yo/doc/">如何安装Yo构建工具</a></li>
-</ul>
-<p>在使用构建工具安装完组件和相应的样式以后，用户在需要引入组件的JS文件中<code>require</code>方式直接引用即可。如下：</p>
-<pre><code>var KamiAlert = require(&#39;./kami/scripts/alert/index.js&#39;);
-</code></pre><h4 id="引入脚本文件的Kami组件使用方式">引入脚本文件的Kami组件使用方式</h4><ul>
-<li>下载Kami组件和Yo样式压缩文件</li>
-<li>直接在页面引入这两个文件</li>
-</ul>
-<pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://ued.qunar.com/mobile/source/kami/release/1.0.0/kami.css&quot;/&gt;
-&lt;script src=&quot;http://ued.qunar.com/mobile/source/kami/release/1.0.0/kami.js&quot; /&gt;&lt;/script&gt;
-</code></pre><ul>
-<li>使用组件</li>
-</ul>
-<pre><code>var alert = new window.Kami.Alert({
-    title: &quot;提示&quot;,
-    content: &quot;test&quot;
+          <div class="ydoc-container-content">
+              <div class="content-right">
+                  <nav class="sidebar">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <li >
+                            
+                            <a href="#简介">简介</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="#安装">安装</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="#使用方式">使用方式</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="docs-sidenav-extend" >
+                        
+                            <li >
+                                <a href="#命令">命令</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#脚本">脚本</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#Gulp">Gulp</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#Grunt">Grunt</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <li >
+                            
+                            <a href="#开发者">开发者</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-left markdown-body">
+                
+                <h1 id="YDoc">YDoc</h1><h2 id="简介">简介</h2><p>前端工程文档生成工具</p>
+<p><a href="http://badge.fury.io/js/ydoc"><img src="https://badge.fury.io/js/ydoc.svg" alt="npm version"></a></p>
+<p><img src="https://nodei.co/npm/ydoc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt=""></p>
+<h2 id="安装">安装</h2><pre><code>npm install ydoc [-g]
+</code></pre><h2 id="使用方式">使用方式</h2><h3 id="命令">命令</h3><pre><code>cd /path/to/project/
+ydoc build
+</code></pre><p>详细请查看<a href="./usage.html">命令使用说明</a>。</p>
+<h3 id="脚本">脚本</h3><pre><code class="lang-javascript">var ydoc = require(&quot;ydoc&quot;);
+
+ydoc.build(&#39;/path/to/project&#39;, options);
+</code></pre>
+<h3 id="Gulp">Gulp</h3><pre><code class="lang-javascript">var ydoc = require(&quot;ydoc&quot;);
+
+gulp.task(&#39;ydoc&#39;, function() {
+    return gulp.src(&#39;./&#39;)
+        .pipe(ydoc({
+            // 配置
+        }));
 });
-</code></pre><blockquote>
-<p><strong>注意:</strong>
-所有组件，均在 <em>window.Kami</em> 命名空间中</p>
-</blockquote>
-<h4 id="基于QApp的Kami组件使用方式">基于QApp的Kami组件使用方式</h4><p>QApp作为一套完善的移动端框架提供了组件生命周期的管理，Kami组件使用适配器的方式来使用户无需关心组件的销毁。
- <a href="http://ued.qunar.com/mobile/qapp/doc/">使用QApp进行移动端开发</a></p>
-<ul>
-<li>安装Kami-QApp适配器</li>
-</ul>
-<pre><code>fekit install QApp-plugin-kami-adapter
-</code></pre><ul>
-<li>引入Kami组件</li>
-</ul>
-<pre><code>var KamiPagelist = require(&#39;Kami/scripts/pagelist/index.js&#39;);
-</code></pre><ul>
-<li>注册Kami组件到QApp上</li>
-</ul>
-<pre><code>QApp.util.KamiAdapterFactory.register(&#39;pagelist&#39;, KamiPagelist);
-</code></pre><ul>
-<li>为QApp上设置Kami组件默认配置</li>
-</ul>
-<pre><code>QApp.util.KamiAdapterFactory.setDefaultOptions(&#39;pagelist&#39;, {
-   refreshTpl: refreshTpl,
-    loadmoreTpl: loadmoreTpl,
-    // 刷新激活高度
-    refreshActiveY: 40,
-    // 加载更多容器高度
-    loadmoreContY: 40,
-    preventDefault: false,
-    tapInterval: 1000,
-    infinite: false
+</code></pre>
+<h3 id="Grunt">Grunt</h3><pre><code class="lang-javascript">grunt.initConfig({
+    ydoc: {
+        // 配置
+    }
 });
-</code></pre><ul>
-<li>在QApp中使用Kami组件</li>
-</ul>
-<pre><code>var pageList = QApp.showWidget(&#39;pagelist&#39;, {
-        container: self.doms.list,
-        datasource: err ? [] : data.shopList,
-        checkedClass: &#39;item-on&#39;,
-        pagesize: PAGE_SIZE,
-        template: listWrapperTpl,
-        itemTpl: listItemTpl,
-        infinite: true,
-        nodataTpl: noDataTpl,
-        activeClass: &#39;item-light&#39;
-});
-pageList.on(&#39;loadmore&#39;, function() {});
-</code></pre><blockquote>
-<p><strong>注意:</strong>
-使用Kami组件时请在QAppView生命周期处于Show时使用</p>
-</blockquote>
-<ul>
-<li>禁用Kami组件的<code>Tap</code>事件</li>
-</ul>
-<p>由于Kami内部实现了Tap事件，QApp内部也实现了Tap事件，避免事件冲突所以需要禁用掉Kami的Tap事件</p>
-<pre><code>window.Kami.disableTapEvent = true;
-</code></pre><ul>
-<li>设置全局样式</li>
-</ul>
-<pre><code>window.Kami.theme = &#39;yo&#39;;
-</code></pre><blockquote>
-<p><strong> 附加:</strong>
-QMB作为QApp项目构建管理工具，可以安装管理Kami组件。使用QApp的用户使用QMB项目的构建工具上配置Kami组价。</p>
-</blockquote>
-<ul>
-<li>dhfudhfuhd</li>
+
+grunt.loadNpmTasks(&#39;ydoc&#39;);
+</code></pre>
+<p>配置及配置文件请查看 <a href="./config.html">配置说明</a>;</p>
+<h2 id="开发者">开发者</h2><ul>
+<li>林洋 <a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#x3a;&#x61;&#100;&#x77;&#x6f;&#x6e;&#46;&#108;&#x69;&#110;&#x40;&#113;&#117;&#x6e;&#97;&#x72;&#46;&#x63;&#111;&#x6d;">&#x61;&#100;&#x77;&#x6f;&#x6e;&#46;&#108;&#x69;&#110;&#x40;&#113;&#117;&#x6e;&#97;&#x72;&#46;&#x63;&#111;&#x6d;</a> | <a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#58;&#x65;&#x64;&#119;&#111;&#x6e;&#x2e;&#x6c;&#x69;&#x6d;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#109;">&#x65;&#x64;&#119;&#111;&#x6e;&#x2e;&#x6c;&#x69;&#x6d;&#64;&#103;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#109;</a></li>
+<li>王丽丽 <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#108;&#101;&#105;&#x6c;&#97;&#46;&#119;&#97;&#x6e;&#x67;&#64;&#x71;&#117;&#x6e;&#x61;&#114;&#46;&#x63;&#x6f;&#x6d;">&#108;&#101;&#105;&#x6c;&#97;&#46;&#119;&#97;&#x6e;&#x67;&#64;&#x71;&#117;&#x6e;&#x61;&#114;&#46;&#x63;&#x6f;&#x6d;</a></li>
 </ul>
 
-              </article>
+              </div>
           </div>
           
         
       </div>
      
+     </div>
+     
       <footer class="footer">
         <div class="copyright">
-            Made By Qunar YMFE TEAM. © 2014 - 2016
+            Made By YMFE. © 2014 - 2016
         </div>
       </footer>
     </div>

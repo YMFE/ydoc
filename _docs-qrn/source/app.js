@@ -1,3 +1,6 @@
+var EXAMPLE_MAX_HEIGHT = 98,
+    DEFAULT_SHOW_PARAMS = 5;
+
 $(document).ready(function() {
     // 导航
     $('.navbar-toggle').click(function(){
@@ -153,9 +156,9 @@ $(document).ready(function() {
   // 折叠code
   $('.markdown-body pre').map(function(i,item){
       $(item).addClass('ydoc-example');
-      if($(item).height() >98){
+      if($(item).height() >EXAMPLE_MAX_HEIGHT){
           $(item).css({ "padding-bottom":30 });
-          $(item).find('code').height(98);
+          $(item).find('code').height(EXAMPLE_MAX_HEIGHT);
           $(item).append('<span class="extend">展开更多……</span>');
       };
   });
@@ -168,8 +171,37 @@ $(document).ready(function() {
   });
   $('.ydoc-example').delegate('.fold','click',function(){
       $(this).removeClass('fold').addClass('extend');
-      $(this).parent().height(98);
-      $(this).prev().height(98);
+      $(this).parent().height(EXAMPLE_MAX_HEIGHT);
+      $(this).prev().height(EXAMPLE_MAX_HEIGHT);
       $(this).html("展开更多……");
-  })
+  });
+
+  // 参数默认显示 5个
+  $(".docs-table tbody").each(function(){
+     var paramsLength = $(this).find('tr').length,
+         paramsArray = $(this).find('tr'),
+         curTbody = $(this).parents('.docs-table');
+
+     if(paramsLength > DEFAULT_SHOW_PARAMS){
+         curTbody.append('<span class="extend-params">展开更多参数……</span>');
+         paramsArray.each(function(index,item){
+             if(index >= DEFAULT_SHOW_PARAMS ){
+                 $(this).removeClass('hide-params').addClass('hide-params');
+             }
+         });
+     }
+  });
+  $(".docs-table").delegate('.extend-params', 'click',function(){
+      $(this).parents('.docs-table').find('.hide-params').addClass('show-params');
+      $(this).removeClass('extend-params').addClass('fold-params');
+      $(this).html('折叠参数');
+  });
+  $('.docs-table').delegate('.fold-params','click',function(){
+      $(this).removeClass('fold-params').addClass('extend-params');
+       $(this).parents('.docs-table').find('.show-params').removeClass('show-params');
+      $(this).html("展开更多参数……");
+  });
+
+
+
 })

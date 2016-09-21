@@ -3,7 +3,7 @@ var fs = require('fs'),
     JSON5 = require('json5');
 
 module.exports = function(cwd, callback) {
-    var confPath = sysPath.join(cwd, 'ydocs.config'),
+    var confPath = sysPath.join(cwd, 'ydoc.config'),
         confJSPath = sysPath.join(cwd, 'ydocfile-kami.js'),
         conf;
     if (fs.existsSync(confPath)) {

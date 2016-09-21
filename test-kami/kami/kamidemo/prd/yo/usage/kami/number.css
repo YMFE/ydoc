@@ -1,6 +1,0 @@
-.yo-number{display:-webkit-inline-box;display:-webkit-inline-flex;display:inline-flex;overflow:hidden;width:1.2rem;height:.36rem;line-height:.36rem;border:1px solid #ccc;box-shadow:1px 1px 1px rgba(204,204,204,0.3);background-color:#fff;font-size:0;vertical-align:middle}
-.yo-number>.minus,.yo-number>.plus,.yo-number>.input{text-align:center}
-.yo-number>.minus,.yo-number>.plus{display:block;width:.35rem;background-color:#fafafa;color:#999;font-size:.3rem;font-family:arial;cursor:pointer}
-.yo-number>.minus.disabled,.yo-number>.plus.disabled{color:#bbb;cursor:not-allowed}
-.yo-number>.input{-webkit-box-flex:1;-webkit-flex:1;flex:1;width:.1px;border:1px solid #ccc;border-width:0 1px;box-shadow:inset 1px 1px 1px rgba(204,204,204,0.1);border-radius:0;color:#212121;font-size:.16rem}
-.yo-number>.input,.yo-number>.input::-webkit-inner-spin-button{-webkit-appearance:none;appearance:none}

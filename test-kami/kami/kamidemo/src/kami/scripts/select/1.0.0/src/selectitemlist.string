@@ -1,8 +1,0 @@
-<div class="{{uiClass}} yo-select-item-list" data-role="list-wrap"> 
-    <!-- ui-select-item-list -->
-    <ul class="{{listClass}}" data-role="list">
-        {{#each list as item}}
-        <li class="{{itemClass}}" value="{{item.value}}" data-role="list-item">{{item.text}}</li>
-        {{/each}}
-    </ul>
-</div>

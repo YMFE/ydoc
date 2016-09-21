@@ -3,6 +3,7 @@ var fs = require('fs');
 module.exports = function() {
     return {
         "name": "QApp",
+        "dest": "./_docs-qapp/",
         "options": {
             "js": {
                 "lib": "js",

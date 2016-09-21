@@ -4,6 +4,7 @@ var path = require('path');
 module.exports = function() {
     return {
         "name": "Qunar React Native",
+        "dest": "./_docs-qrn/",
         "examplePath": "./test-qrn/Examples/",
         "resources": {
             "images": './test-qrn/docs/images/'

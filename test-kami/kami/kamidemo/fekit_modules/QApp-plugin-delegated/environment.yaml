@@ -1,8 +1,0 @@
-local:
-    DEBUG: true
-
-dev:
-    DEBUG: true
-
-prd:
-    DEBUG: false
