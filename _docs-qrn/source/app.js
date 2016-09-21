@@ -45,7 +45,8 @@ $(document).ready(function() {
   });
 
   // 鼠标在sidebar区域内滚动 不触发浏览器滚动条
-  var docSideNav = $('.docs-sidenav'), barScroll = true;
+  var winHeight = $(window).height() - 40;
+  var docSideNav = $('.docs-sidenav'), barScroll = true,activeMenu;
   docSideNav.on('mouseover',function(){
       barScroll = false;
   });
@@ -60,13 +61,16 @@ $(document).ready(function() {
     docSideNav.css({
         'left': $(window).width()/2-ydocContainerCon.width()/2
     });
-    if($(window).scrollTop() >=  ydocContainerCon.offset().top && $(window).scrollTop() < $('.footer').offset().top){
+    var cancelfixed = $('.footer').height()+ ;
+    console.log('$(window).scrollTop()',$(window).scrollTop());
+    console.log('cancelfixed====',cancelfixed);
+    if(($(window).scrollTop() >=  ydocContainerCon.offset().top) && ($(window).scrollTop() < cancelfixed)){
         docSideNav.addClass('fixed');
     }else{
         docSideNav.removeClass('fixed');
     };
 
-      if(barScroll){
+     if(barScroll){
          // 一级导航展开
          // var contentIdArray = $('.page-header');
          var contentH2Array = $("h2[id]");
@@ -109,7 +113,20 @@ $(document).ready(function() {
           });
       }
 
-
+      if (!barScroll) {
+            var activeItem = $('.docs-sidenav li.active a');
+            if (activeItem.length) {
+                if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+                    activeMenu = activeItem;
+                    var top = activeMenu.offset().top - docSideNav.offset().top;
+                    if (top < 0) {
+                        docSideNav.scrollTop(docSideNav.scrollTop() + top);
+                    } else if (top > winHeight - 30) {
+                        docSideNav.scrollTop(docSideNav.scrollTop() + top - winHeight + 30);
+                    }
+                }
+            }
+        }
   });
 
   //

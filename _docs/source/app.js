@@ -45,6 +45,7 @@ $(document).ready(function() {
   });
 
   // 鼠标在sidebar区域内滚动 不触发浏览器滚动条
+  var winHeight = $(window).height() - 40;
   var docSideNav = $('.docs-sidenav'), barScroll = true,activeMenu;
   docSideNav.on('mouseover',function(){
       barScroll = false;
@@ -60,7 +61,10 @@ $(document).ready(function() {
     docSideNav.css({
         'left': $(window).width()/2-ydocContainerCon.width()/2
     });
-    if($(window).scrollTop() >=  ydocContainerCon.offset().top && $(window).scrollTop() < $('.footer').offset().top){
+    var cancelfixed = $('.footer').offset().top+ydocContainerCon.height();
+    console.log('cancelfixed====',cancelfixed);
+    if($(window).scrollTop() >=  ydocContainerCon.offset().top &&
+    (window).scrollTop() < cancelfixed){
         docSideNav.addClass('fixed');
     }else{
         docSideNav.removeClass('fixed');

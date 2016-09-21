@@ -61,7 +61,10 @@ $(document).ready(function() {
     docSideNav.css({
         'left': $(window).width()/2-ydocContainerCon.width()/2
     });
-    if($(window).scrollTop() >=  ydocContainerCon.offset().top && $(window).scrollTop() < $('.footer').offset().top){
+    var cancelfixed = $('.footer').height()+ ;
+    console.log('$(window).scrollTop()',$(window).scrollTop());
+    console.log('cancelfixed====',cancelfixed);
+    if(($(window).scrollTop() >=  ydocContainerCon.offset().top) && ($(window).scrollTop() < cancelfixed)){
         docSideNav.addClass('fixed');
     }else{
         docSideNav.removeClass('fixed');
