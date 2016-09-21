@@ -61,7 +61,7 @@ $(document).ready(function() {
     docSideNav.css({
         'left': $(window).width()/2-ydocContainerCon.width()/2
     });
-    var cancelfixed = $('.footer').height()+ ;
+    var cancelfixed = $('.footer').height();
     console.log('$(window).scrollTop()',$(window).scrollTop());
     console.log('cancelfixed====',cancelfixed);
     if(($(window).scrollTop() >=  ydocContainerCon.offset().top) && ($(window).scrollTop() < cancelfixed)){
