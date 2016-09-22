@@ -159,203 +159,203 @@ module.exports = function() {
                     "content": "./test-qrn/Libraries/qunar-extension/libs/Modal/Modal.js"
                 }]
             }
-        }, {
-            "name": "extraUI",
-            "title": "外部组件",
-            "banner": {
-                "title": "Qunar React Native UI组件",
-                "description": "Qunar React Native 外部UI组件"
-            },
-            "content":{
-                "index": './test-qrn/docs/ui/INTRO.md',
-                "type": "blocks",
-                "sidebar": true,
-                "multi": true,
-                "pages": [{
-                        "name": "Accordion",
-                        "content": "./test-qrn/docs/ui/Accordion.md"
-                    }, {
-                        "name": "Calendar",
-                        "content": "./test-qrn/docs/ui/Calendar.md"
-                    }, {
-                        "name": "Carousel",
-                        "content": "./test-qrn/docs/ui/Carousel.md"
-                    }, {
-                        "name": "Dialog",
-                        "content": "./test-qrn/docs/ui/Dialog.md"
-                    }, {
-                        "name": "Dropdown",
-                        "content": "./test-qrn/docs/ui/Dropdown.md"
-                    }, {
-                        "name": "Numbers",
-                        "content": "./test-qrn/docs/ui/Numbers.md"
-                    }, {
-                        "name": "Popover",
-                        "content": "./test-qrn/docs/ui/Popover.md"
-                    }, {
-                        "name": "RangeSlider",
-                        "content": "./test-qrn/docs/ui/RangeSlider.md"
-                    }, {
-                        "name": "Rating",
-                        "content": "./test-qrn/docs/ui/Rating.md"
-                    }, {
-                        "name": "SliderMenu",
-                        "content": "./test-qrn/docs/ui/SliderMenu.md"
-                    }, {
-                        "name": "Suggest",
-                        "content": "./test-qrn/docs/ui/Suggest.md"
-                    }, {
-                        "name": "Tooltip",
-                        "content": "./test-qrn/docs/ui/Tooltip.md"
-                    }, {
-                        "name": "SwipeListView",
-                        "content": "./test-qrn/docs/ui/SwipeListView.md"
-                    }
-                ]
-            }
-        }, {
-            "name": "api",
-            "title": "API",
-            "banner": {
-                "title": "Qunar React Native API",
-                "description": "API"
-            },
-            "content": {
-                "type": "blocks",
-                "sidebar": true,
-                "multi": true,
-                "index": './test-qrn/docs/qrn/api-intro.md',
-                "pages": [{
-                    "name": "DeviceInfo",
-                    "content": "./test-qrn/docs/qrn/api-deviceinfo.md"
-                }, {
-                    "name": "LoginManager",
-                    "content": "./test-qrn/docs/qrn/api-loginManager.md"
-                }, {
-                    "name": "CookieManager",
-                    "content": "./test-qrn/docs/qrn/api-cookieManager.md"
-                }, {
-                    "name": "CameraRoll",
-                    "content": "./test-qrn/docs/qrn/api-cameraRoll.md"
-                }, {
-                    "name": "ImageUploader",
-                    "content": "./test-qrn/docs/qrn/api-imageUploader.md"
-                }, {
-                    "name": "Toast",
-                    "content": "./test-qrn/docs/qrn/api-toast.md"
-                }, {
-                    "name": "QHotDogNetWork",
-                    "content": "./test-qrn/docs/qrn/api-QHotDogNetWork.md"
-                }, {
-                    "name": "MapUtils",
-                    "content": "./test-qrn/docs/qrn/api-mapUtils.md"
-                }, {
-                    "name": "UELog",
-                    "content":"./test-qrn/docs/qrn/api-uelog.md"
-                }, {
-                    "name": "CVParam",
-                    "content":"./test-qrn/docs/qrn/api-cvparam.md"
-                }, {
-                    name: "GeoLocation",
-                    content: "./test-qrn/docs/qrn/api-location.md"
-                }, {
-                    name: "QStatusBar",
-                    content: "./test-qrn/docs/qrn/api-statusBar.md"
-                }, {
-                    name: "ABTest",
-                    content: "./test-qrn/docs/qrn/api-abTest.md"
-                }, {
-                    name: "QShare",
-                    content:"./test-qrn/docs/qrn/api-qshare.md"
-                }]
-            }
-        }, {
-            "name": "extension",
-            "title": "EXT",
-            "banner": {
-                "title": "Qunar React Native Extension",
-                "description": "Qunar React Native 增强拓展框架"
-            },
-            "content":{
-                "index": './test-qrn/docs/ext/ext.md',
-                "type": "blocks",
-                "sidebar": true,
-                "multi": true,
-                "pages": [{
-                        "name": "Router",
-                        "content": "./test-qrn/docs/ext/router.md",
-                        "options": {
-                            "menuLevel": 2
-                        }
-                    }, {
-                        "name": "WebX",
-                        "content": "./test-qrn/docs/ext/webx.md"
-                    }, {
-                        "name": "Redux",
-                        "content": "./test-qrn/docs/ext/redux.md",
-                        "options": {
-                            "menuLevel": 2
-                        }
-                    }, {
-                        "name": "Fetch",
-                        "content": "./test-qrn/docs/ext/fetch.md"
-                    }
-                ]
-            }
-        }, {
-            "name": "extending",
-            "title": "扩展",
-            "banner": {
-                "title": "Qunar React Native 功能扩展",
-                "description": "借助Native组件引入更多功能"
-            },
-            "content": {
-                "index": "./test-qrn/docs/qrn/extending.md",
-                "type": "blocks",
-                "sidebar": true,
-                "multi": true,
-                "pages": [
-                    {
-                        "name": "Native组件开发(iOS)",
-                        "content": "./test-qrn/docs/qrn/native-module-ios.md"
-                    },
-                    {
-                        "name": "Native组件开发(Android)",
-                        "content": "./test-qrn/docs/qrn/native-module-adr.md"
-                    },
-                    {
-                        "name": "js调用Native组件",
-                        "content": "./test-qrn/docs/qrn/native-module-js.md"
-                    }
-                ]
-            }
-        }, {
-            "name": "demo",
-            "title": "DEMO",
-            "banner": {
-                "title": "Qunar React Native 示例",
-                "description": "零基础玩儿转示例"
-            },
-            "content": "./test-qrn/docs/qrn/demo.md"
-        }, {
-            "name": "faq",
-            "title": "FAQ",
-            "banner": {
-                "title": "Qunar React Native 常见问题",
-                "description": "开发中经常见到的一些坑"
-            },
-            "content": "./test-qrn/docs/qrn/faq.md"
-        }, {
-            "name": "releases",
-            "title": "Releases",
-            "banner": {
-                "title": "Qunar React Native Releases",
-                "description": "Releases"
-            },
-            "content": "./test-qrn/docs/qrn/releases.md",
-            "options": {
-                "menuLevel": 3
-            }
+        // }, {
+        //     "name": "extraUI",
+        //     "title": "外部组件",
+        //     "banner": {
+        //         "title": "Qunar React Native UI组件",
+        //         "description": "Qunar React Native 外部UI组件"
+        //     },
+        //     "content":{
+        //         "index": './test-qrn/docs/ui/INTRO.md',
+        //         "type": "blocks",
+        //         "sidebar": true,
+        //         "multi": true,
+        //         "pages": [{
+        //                 "name": "Accordion",
+        //                 "content": "./test-qrn/docs/ui/Accordion.md"
+        //             }, {
+        //                 "name": "Calendar",
+        //                 "content": "./test-qrn/docs/ui/Calendar.md"
+        //             }, {
+        //                 "name": "Carousel",
+        //                 "content": "./test-qrn/docs/ui/Carousel.md"
+        //             }, {
+        //                 "name": "Dialog",
+        //                 "content": "./test-qrn/docs/ui/Dialog.md"
+        //             }, {
+        //                 "name": "Dropdown",
+        //                 "content": "./test-qrn/docs/ui/Dropdown.md"
+        //             }, {
+        //                 "name": "Numbers",
+        //                 "content": "./test-qrn/docs/ui/Numbers.md"
+        //             }, {
+        //                 "name": "Popover",
+        //                 "content": "./test-qrn/docs/ui/Popover.md"
+        //             }, {
+        //                 "name": "RangeSlider",
+        //                 "content": "./test-qrn/docs/ui/RangeSlider.md"
+        //             }, {
+        //                 "name": "Rating",
+        //                 "content": "./test-qrn/docs/ui/Rating.md"
+        //             }, {
+        //                 "name": "SliderMenu",
+        //                 "content": "./test-qrn/docs/ui/SliderMenu.md"
+        //             }, {
+        //                 "name": "Suggest",
+        //                 "content": "./test-qrn/docs/ui/Suggest.md"
+        //             }, {
+        //                 "name": "Tooltip",
+        //                 "content": "./test-qrn/docs/ui/Tooltip.md"
+        //             }, {
+        //                 "name": "SwipeListView",
+        //                 "content": "./test-qrn/docs/ui/SwipeListView.md"
+        //             }
+        //         ]
+        //     }
+        // }, {
+        //     "name": "api",
+        //     "title": "API",
+        //     "banner": {
+        //         "title": "Qunar React Native API",
+        //         "description": "API"
+        //     },
+        //     "content": {
+        //         "type": "blocks",
+        //         "sidebar": true,
+        //         "multi": true,
+        //         "index": './test-qrn/docs/qrn/api-intro.md',
+        //         "pages": [{
+        //             "name": "DeviceInfo",
+        //             "content": "./test-qrn/docs/qrn/api-deviceinfo.md"
+        //         }, {
+        //             "name": "LoginManager",
+        //             "content": "./test-qrn/docs/qrn/api-loginManager.md"
+        //         }, {
+        //             "name": "CookieManager",
+        //             "content": "./test-qrn/docs/qrn/api-cookieManager.md"
+        //         }, {
+        //             "name": "CameraRoll",
+        //             "content": "./test-qrn/docs/qrn/api-cameraRoll.md"
+        //         }, {
+        //             "name": "ImageUploader",
+        //             "content": "./test-qrn/docs/qrn/api-imageUploader.md"
+        //         }, {
+        //             "name": "Toast",
+        //             "content": "./test-qrn/docs/qrn/api-toast.md"
+        //         }, {
+        //             "name": "QHotDogNetWork",
+        //             "content": "./test-qrn/docs/qrn/api-QHotDogNetWork.md"
+        //         }, {
+        //             "name": "MapUtils",
+        //             "content": "./test-qrn/docs/qrn/api-mapUtils.md"
+        //         }, {
+        //             "name": "UELog",
+        //             "content":"./test-qrn/docs/qrn/api-uelog.md"
+        //         }, {
+        //             "name": "CVParam",
+        //             "content":"./test-qrn/docs/qrn/api-cvparam.md"
+        //         }, {
+        //             name: "GeoLocation",
+        //             content: "./test-qrn/docs/qrn/api-location.md"
+        //         }, {
+        //             name: "QStatusBar",
+        //             content: "./test-qrn/docs/qrn/api-statusBar.md"
+        //         }, {
+        //             name: "ABTest",
+        //             content: "./test-qrn/docs/qrn/api-abTest.md"
+        //         }, {
+        //             name: "QShare",
+        //             content:"./test-qrn/docs/qrn/api-qshare.md"
+        //         }]
+        //     }
+        // }, {
+        //     "name": "extension",
+        //     "title": "EXT",
+        //     "banner": {
+        //         "title": "Qunar React Native Extension",
+        //         "description": "Qunar React Native 增强拓展框架"
+        //     },
+        //     "content":{
+        //         "index": './test-qrn/docs/ext/ext.md',
+        //         "type": "blocks",
+        //         "sidebar": true,
+        //         "multi": true,
+        //         "pages": [{
+        //                 "name": "Router",
+        //                 "content": "./test-qrn/docs/ext/router.md",
+        //                 "options": {
+        //                     "menuLevel": 2
+        //                 }
+        //             }, {
+        //                 "name": "WebX",
+        //                 "content": "./test-qrn/docs/ext/webx.md"
+        //             }, {
+        //                 "name": "Redux",
+        //                 "content": "./test-qrn/docs/ext/redux.md",
+        //                 "options": {
+        //                     "menuLevel": 2
+        //                 }
+        //             }, {
+        //                 "name": "Fetch",
+        //                 "content": "./test-qrn/docs/ext/fetch.md"
+        //             }
+        //         ]
+        //     }
+        // }, {
+        //     "name": "extending",
+        //     "title": "扩展",
+        //     "banner": {
+        //         "title": "Qunar React Native 功能扩展",
+        //         "description": "借助Native组件引入更多功能"
+        //     },
+        //     "content": {
+        //         "index": "./test-qrn/docs/qrn/extending.md",
+        //         "type": "blocks",
+        //         "sidebar": true,
+        //         "multi": true,
+        //         "pages": [
+        //             {
+        //                 "name": "Native组件开发(iOS)",
+        //                 "content": "./test-qrn/docs/qrn/native-module-ios.md"
+        //             },
+        //             {
+        //                 "name": "Native组件开发(Android)",
+        //                 "content": "./test-qrn/docs/qrn/native-module-adr.md"
+        //             },
+        //             {
+        //                 "name": "js调用Native组件",
+        //                 "content": "./test-qrn/docs/qrn/native-module-js.md"
+        //             }
+        //         ]
+        //     }
+        // }, {
+        //     "name": "demo",
+        //     "title": "DEMO",
+        //     "banner": {
+        //         "title": "Qunar React Native 示例",
+        //         "description": "零基础玩儿转示例"
+        //     },
+        //     "content": "./test-qrn/docs/qrn/demo.md"
+        // }, {
+        //     "name": "faq",
+        //     "title": "FAQ",
+        //     "banner": {
+        //         "title": "Qunar React Native 常见问题",
+        //         "description": "开发中经常见到的一些坑"
+        //     },
+        //     "content": "./test-qrn/docs/qrn/faq.md"
+        // }, {
+        //     "name": "releases",
+        //     "title": "Releases",
+        //     "banner": {
+        //         "title": "Qunar React Native Releases",
+        //         "description": "Releases"
+        //     },
+        //     "content": "./test-qrn/docs/qrn/releases.md",
+        //     "options": {
+        //         "menuLevel": 3
+        //     }
         }, {
             "name": "React Web",
             "title": "React Web",

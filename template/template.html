@@ -87,7 +87,7 @@
                         {{each article.sidebars as m index}}
                         {{if m.sub}}
                         {{if index > 0 && !article.sidebars[index - 1].sub}}
-                        <ul class="docs-sidenav-extend" {{if article.name == m.name}} style="display:block;" {{/if}}>
+                        <ul class="docs-sidenav-extend" {{if article.name == m.name}} style="display:block;" {{/if}} {{if article.parentName == m.pName}}  style="display:block;" {{/if}}>
                         {{/if}}
                             <li {{if article.name == m.name}} class="active" {{/if}}>
                                 <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
@@ -96,7 +96,7 @@
                         </ul>
                         {{/if}}
                         {{else}}
-                        <li {{if article.name == m.name}} class="active" {{/if}}>
+                        <li {{if article.name == m.name}} class="active" {{/if}} {{if article.parentName == m.name}} class="active" {{/if}}>
                             {{if m.blank == true}}
                             <a href="javascript:void(0);">{{m.name}}</a>
                             {{else}}

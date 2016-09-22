@@ -119,14 +119,20 @@ module.exports = function(cwd, conf) {
             }
             if (page.content && (!conf.buildPages.length || conf.buildPages.indexOf(page.name) > -1)) {
                 if (page.content.multi) {
+                    var pName;
                     var navs = page.content.pages.map(function(p) {
+                        if(!(p.sub)){
+                            pName = p.name;
+                        }
                         return {
                             name: p.name,
+                            pName: pName,
                             sub: !!p.sub,
                             blank: !p.content,
                             url: page.name + '-' + p.name + '.html'
                         };
                     });
+
                     page.content.pages.forEach(function(p, index) {
                         if (p.content) {
                             var curNavs = navs.slice(0);
@@ -141,6 +147,11 @@ module.exports = function(cwd, conf) {
                             }
                             data.article.sidebars = curNavs;
                             data.article.name = p.name;
+                            curNavs.forEach(function(item){
+                                if(item.name == data.article.name){
+                                    data.article.parentName  = item.pName;
+                                }
+                            });
                             fs.writeFileSync(sysPath.join(conf.dest, page.name + '-' + p.name + '.html'), render(data));
                             console.log(('√ 生成文件: ' + sysPath.join(conf.dest, page.name + '-' + p.name + '.html')).yellow);
                         }

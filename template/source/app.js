@@ -25,23 +25,26 @@ $(document).ready(function() {
     });
 
   $('.docs-sidenav>li').click(function(e){
-      if($(this).hasClass('active')){
-          $(this).removeClass('active');
-      }else{
-        $(this).addClass('active').siblings('li').removeClass('active');
-      }
-      if($(this).next('ul')){
-          $(this).next('ul').find('li').removeClass('active');
-          $(this).next('ul').toggle().siblings('ul').hide();
-          //return false;
-      }
+      //$(this).addClass('active').siblings('li').removeClass('active');
+      $(this).addClass('active').siblings('li').removeClass('active');
+      $(this).next('ul').show().siblings('ul').hide();
+    //   if($(this).hasClass('active')){
+    //       $(this).removeClass('active');
+    //   }else{
+    //     $(this).addClass('active').siblings('li').removeClass('active');
+    //   }
+    //   if($(this).next('ul')){
+    //       $(this).next('ul').find('li').removeClass('active');
+    //       $(this).next('ul').toggle().siblings('ul').hide();
+    //       //return false;
+    //   }
   });
   $('.docs-sidenav-extend li').click(function(e){
-      if($(this).hasClass('active')){
-          $(this).removeClass('active');
-      }else{
+    //   if($(this).hasClass('active')){
+    //       $(this).removeClass('active');
+    //   }else{
         $(this).addClass('active').siblings('li').removeClass('active');
-    };
+    //};
   });
 
   // 鼠标在sidebar区域内滚动 不触发浏览器滚动条
@@ -61,13 +64,25 @@ $(document).ready(function() {
     docSideNav.css({
         'left': $(window).width()/2-ydocContainerCon.width()/2
     });
-    var cancelfixed = $('.footer').offset().top;
+    var cancelfixed = $('.footer').offset().top - 620 -20,
+        fixedbottom = $('.footer').height + 20;
+
     // console.log('$(window).scrollTop()',$(window).scrollTop());
+    // console.log('footer', $('.footer').offset().top);
+    // console.log('sidebar top', $('.sidebar').height());
     // console.log('cancelfixed====',cancelfixed);
-    if(($(window).scrollTop() >=  ydocContainerCon.offset().top) && ($(window).scrollTop() < cancelfixed)){
+    // if(($(window).scrollTop() >=  ydocContainerCon.offset().top)&& ($(window).scrollTop() < cancelfixed)){
+    if($(window).scrollTop() >=  ydocContainerCon.offset().top){
         docSideNav.addClass('fixed');
+        // if($(window).scrollTop() < cancelfixed){
+        //     docSideNav.css({'bottom':fixedbottom,top:'auto'});
+        // }else{
+        //     docSideNav.css({'bottom':'auto',top:0});
+        // }
+        //console.log('window.scrollTop',$(window).scrollTop());
     }else{
         docSideNav.removeClass('fixed');
+        //docSideNav.css({'bottom':'auto',top:0});
     };
 
      if(barScroll){
