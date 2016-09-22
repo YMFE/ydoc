@@ -8,23 +8,26 @@ $(document).ready(function() {
     });
 
     $('code').each(function(i, block) {
-    if (block.innerHTML.indexOf('\n') != -1) {
+    if (block.innerHTML.indexOf('\n') !== -1) {
         var pn = block.parentNode;
-        if (pn.tagName.toUpperCase() == 'PRE') {
+        if (pn.tagName.toUpperCase() === 'PRE') {
             try {
                 hljs.highlightBlock(block);
-            } catch(e) {}
+            } catch(e) {
+                console.log(e);
+             }
         } else {
-            console.log('block.innerHTML=============',block.innerHTML);
             pn.innerHTML = '<pre class="ydoc-example"><code>' + block.innerHTML + '</code></pre>';
             try {
                 hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
-            } catch(e) {}
+            } catch(e) {
+                console.log(e);
+            }
         }
     }
     });
 
-  $('.docs-sidenav>li').click(function(e){
+  $('.docs-sidenav>li').click(function(){
       //$(this).addClass('active').siblings('li').removeClass('active');
       $(this).addClass('active').siblings('li').removeClass('active');
       $(this).next('ul').show().siblings('ul').hide();
@@ -39,7 +42,7 @@ $(document).ready(function() {
     //       //return false;
     //   }
   });
-  $('.docs-sidenav-extend li').click(function(e){
+  $('.docs-sidenav-extend li').click(function(){
     //   if($(this).hasClass('active')){
     //       $(this).removeClass('active');
     //   }else{
@@ -96,14 +99,9 @@ $(document).ready(function() {
                      curScrollEl.addClass('active').siblings('li').removeClass('active');
                      //curScrollEl.next('ul').show().siblings('ul').hide();
                      console.log('===',curScrollEl);
-
-                     debugger
-
-                     if(curScrollEl.next()){
-                         console.log("dsfsdf");
+                     if(curScrollEl.next('ul')){
                          curScrollEl.next('ul').show().siblings('ul').hide();
                      }else{
-                         console.log("2432423");
                         curScrollEl.siblings('ul').hide();
                         curScrollEl.siblings('ul').find('li').removeClass('active');
                      };
