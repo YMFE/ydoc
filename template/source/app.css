@@ -165,7 +165,7 @@ sup, sub {
     cursor: pointer;
     color: #fff; }
   .ydoc .ydoc-banner-bg {
-    background: url(http://wrongwaycn.github.io/bootstrap/docs/assets/img/grid-18px-masked.png) repeat-x 0 top; }
+    background: url(./images/grid-18px-masked.png) repeat-x 0 top; }
   .ydoc-banner {
     color: #fff;
     font-size: .18rem;
@@ -198,7 +198,7 @@ sup, sub {
       color: #a1a1a1; }
   .ydoc-container-content {
     overflow: hidden;
-    background-color: #eeeeee;
+    background-color: #eee;
     /* Old browsers */
     margin: 20px auto;
     box-shadow: 0 0  10px #e5e5e5; }
