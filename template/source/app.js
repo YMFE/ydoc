@@ -94,8 +94,18 @@ $(document).ready(function() {
                  if($("a[href='#"+($(contentH2Array.eq(i)).attr("id"))+"']")){
                      var curScrollEl = $("a[href='#"+($(contentH2Array.eq(i)).attr("id"))+"']").parent('li');
                      curScrollEl.addClass('active').siblings('li').removeClass('active');
-                     if(curScrollEl.next('ul')){
+                     //curScrollEl.next('ul').show().siblings('ul').hide();
+                     console.log('===',curScrollEl);
+
+                     debugger
+
+                     if(curScrollEl.next()){
+                         console.log("dsfsdf");
                          curScrollEl.next('ul').show().siblings('ul').hide();
+                     }else{
+                         console.log("2432423");
+                        curScrollEl.siblings('ul').hide();
+                        curScrollEl.siblings('ul').find('li').removeClass('active');
                      };
                  }
 
@@ -110,12 +120,12 @@ $(document).ready(function() {
                      curScrollEl.addClass('active').siblings('li').removeClass('active');
                      if(curScrollEl.next('ul')){
                          curScrollEl.next('ul').show().siblings('ul').hide();
-                         // var curExtendEl = curScrollEl.next('ul').find('li');
-                         // for(var j = 0; j>curExtendEl.length; j++){
-                         //     if($(window).scrollTop() > curExtendEl.eq(j).offset().top){
-                         //         var curSecondScrollEl = $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]").parent('li');
-                         //     }
-                         // }
+                        //  var curExtendEl = curScrollEl.next('ul').find('li');
+                        //  for(var j = 0; j>curExtendEl.length; j++){
+                        //      if($(window).scrollTop() > curExtendEl.eq(j).offset().top){
+                        //          var curSecondScrollEl = $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]").parent('li');
+                        //      }
+                        //  }
                      }
                  }
              };
