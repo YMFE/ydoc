@@ -132,7 +132,6 @@ var execFns = {
             linkSource: options.source,
             list: content
         });
-        console.log('ret',ret);
         return ret;
     }
 }

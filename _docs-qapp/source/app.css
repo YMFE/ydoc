@@ -162,7 +162,8 @@ sup, sub {
     display: none;
     background: none;
     border: none;
-    cursor: pointer; }
+    cursor: pointer;
+    color: #fff; }
   .ydoc .ydoc-banner-bg {
     background: url(http://wrongwaycn.github.io/bootstrap/docs/assets/img/grid-18px-masked.png) repeat-x 0 top; }
   .ydoc-banner {
@@ -308,15 +309,9 @@ sup, sub {
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 1200px; } }
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  body {
-    background: blue; }
-
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 992px; } }
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  body {
-    background: green; }
-
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 768px; } }
 @media screen and (max-width: 767px) {
