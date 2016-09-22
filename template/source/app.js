@@ -98,8 +98,9 @@ $(document).ready(function() {
                      var curScrollEl = $("a[href='#"+($(contentH2Array.eq(i)).attr("id"))+"']").parent('li');
                      curScrollEl.addClass('active').siblings('li').removeClass('active');
                      //curScrollEl.next('ul').show().siblings('ul').hide();
-                     console.log('===',curScrollEl);
-                     if(curScrollEl.next('ul')){
+                    //  console.log('===',curScrollEl.next());
+                    //  console.log('$(curScrollEl.next()[0]', $(curScrollEl.next())[0]);
+                     if($(curScrollEl.next())[0].tagName.toLowerCase()  === "ul"){
                          curScrollEl.next('ul').show().siblings('ul').hide();
                      }else{
                         curScrollEl.siblings('ul').hide();
