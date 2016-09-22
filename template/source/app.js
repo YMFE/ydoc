@@ -74,11 +74,11 @@ $(document).ready(function() {
     // if(($(window).scrollTop() >=  ydocContainerCon.offset().top)&& ($(window).scrollTop() < cancelfixed)){
     if($(window).scrollTop() >=  ydocContainerCon.offset().top){
         docSideNav.addClass('fixed');
-        // if($(window).scrollTop() < cancelfixed){
-        //     docSideNav.css({'bottom':fixedbottom,top:'auto'});
-        // }else{
-        //     docSideNav.css({'bottom':'auto',top:0});
-        // }
+        if($(window).scrollTop() < cancelfixed){
+            docSideNav.css({'bottom':fixedbottom,top:'auto'});
+        }else{
+            docSideNav.css({'bottom':'auto',top:0});
+        }
         //console.log('window.scrollTop',$(window).scrollTop());
     }else{
         docSideNav.removeClass('fixed');

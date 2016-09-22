@@ -766,7 +766,8 @@ sup, sub {
 .markdown-body .docs-section h3 {
   color: #ff503f;
   border-left-color: #ff503f;
-  font-weight: normal; }
+  font-weight: normal;
+  padding-bottom: .1rem; }
 .markdown-body .docs-section .con-list-item {
   border-bottom: 1px solid #ddd;
   padding: .3rem 0; }

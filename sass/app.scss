@@ -192,7 +192,7 @@ sup,sub{vertical-align:baseline}
     &-content{
       overflow:hidden;
     //   background: #f1f1f1;
-      background-color: #eeeeee; /* Old browsers */
+      background-color: #eee; /* Old browsers */
     //   background-repeat: repeat-x; /* Repeat the gradient */
     //   background-image: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%); /* FF3.6+ */
     //   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
@@ -243,14 +243,6 @@ sup,sub{vertical-align:baseline}
               top:0;
               z-index: 9999;
               background: #eee;
-            //   background-repeat: repeat-x; /* Repeat the gradient */
-            //   background-image: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%); /* FF3.6+ */
-            //   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
-            //   background-image: -webkit-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* Chrome 10+,Safari 5.1+ */
-            //   background-image: -ms-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* IE10+ */
-            //   background-image: -o-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* Opera 11.10+ */
-            //   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
-            //   background-image: linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* W3C */
           }
           .docs-sidenav{
               width: 100%;
@@ -276,19 +268,6 @@ sup,sub{vertical-align:baseline}
                   a:hover{
                       font-weight:bold;
                   }
-                //   a:hover{
-                //       padding-left:0;
-                //       border-left:5px solid #ff503f;
-                //       color:#ff503f;
-                //   }
-                //    a:hover::after{
-                //       content:"\f07f";
-                //       display: block;
-                //       position: absolute;
-                //       right:10px;
-                //       top:.05rem;
-                //       color:#ff503f;
-                //   }
               }
               >li.active{
                   a,a:hover{
