@@ -75,5 +75,6 @@ var cli = module.exports = {
         console.info(' 如果需要帮助, 请使用 ydoc {命令名} --help ');
     }
 };
-console.log('========');
-cli.run('build');
+// 本地测试用
+// console.log('========');
+// cli.run('build');
