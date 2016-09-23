@@ -4,3 +4,4 @@ release.md
 ydoc.config
 _docs
 .gitignore
+.sass-cache/
