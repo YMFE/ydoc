@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+// 定义常见横向弹性布局
+@mixin _column {
+    @include flexbox;
+    @if map-get($column, size) == cover {
+        @include fullscreen;
+    }
+    > .item {
+        display: block;
+    }
+    > .flex {
+        @include flex;
+    }
+}
+
+/**
+ * @module layout
+ * @method yo-column
+ * @version 3.0.0
+ * @description 构造弹性布局使用方法，可以是横向和纵向
+ * @demo http://doyoe.github.io/Yo/demo/layout/yo-flex.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {String} $size 指定容器的大小，取值：[auto|cover] <3.0.0>
+ */
+
+@mixin yo-column(
+    $name: default,
+    $size: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $size == default {
+        $size: map-get($column, size);
+    }
+    .yo-column#{$name} {
+        @if $size != map-get($column, size) and $size == cover {
+            @include fullscreen;
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入弹性布局基础构造
+.yo-column {
+    @include _column;
+}

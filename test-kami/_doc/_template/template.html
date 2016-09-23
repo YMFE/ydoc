@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="source/app.css"/>
+    <link rel="stylesheet" href="source/highlight.min.css">
+</head>
+<body>
+<a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
+
+
+<!-- Docs master nav -->
+<header class="navbar navbar-static-top docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            {{if home}}
+            <a href="{{homeUrl}}" class="navbar-brand">{{home}}</a>
+            {{/if}}
+        </div>
+        <nav id="bs-navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav {{if navbars && navbars.length}}navbar-right{{else}}navbar-left{{/if}}">
+                {{if navbars && navbars.length}}
+                {{each navbars as navbar}}
+                <li class="{{if navbar.active}}active{{/if}}">
+                    <a href="{{navbar.url}}" target="">{{navbar.name}}</a>
+                </li>
+                {{/each}}
+                {{else}}
+                    {{each tabs as tab}}
+                    <li class="{{if tab.active}}active{{/if}}">
+                        {{if tab.url}}
+                        <a href="{{tab.url}}" target="_blank">{{tab.title}}</a>
+                        {{else}}
+                        <a href="{{tab.name}}.html">{{tab.title}}</a>
+                        {{/if}}
+                    </li>
+                    {{/each}}
+                {{/if}}
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Docs page layout -->
+{{if banner}}
+<div class="docs-header" id="content" style="margin-bottom:0">
+    <div class="container">
+        <h1>{{banner.title}}</h1>
+        <p>{{banner.description}}</p>
+    </div>
+</div>
+{{else}}
+<hr style="margin: 0"/>
+{{/if}}
+
+{{if navbars && navbars.length}}
+<header class="navbar navbar-static-top docs-second-nav">
+    <div class="container">
+        <nav>
+            <ul class="nav navbar-nav">
+                {{each tabs as tab}}
+                <li class="{{if tab.active}}active{{/if}}">
+                    {{if tab.url}}
+                    <a href="{{tab.url}}" target="_blank">{{tab.title}}</a>
+                    {{else}}
+                    <a href="{{tab.name}}.html">{{tab.title}}</a>
+                    {{/if}}
+                </li>
+                {{/each}}
+            </ul>
+        </nav>
+    </div>
+</header>
+{{else}}
+<header style="height:20px"></header>
+{{/if}}
+
+<div class="container docs-container">
+    {{if article.type == 'html'}}
+    {{if article.sidebars}}
+    <div class="row">
+        <div class="col-md-9 markdown-body" role="main">
+            {{if intro}}{{intro}}{{/if}}
+            {{article.content}}
+        </div>
+        <div class="col-md-3" role="complementary">
+            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm" style="overflow:scroll">
+                <ul class="nav docs-sidenav">
+                    {{each article.sidebars as m index}}
+                    {{if m.sub}}
+                    {{if index > 0 && !article.sidebars[index - 1].sub}}
+                    <ul class="nav" style="display:block">
+                    {{/if}}
+                        <li>
+                            <a href="{{m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
+                        </li>
+                    {{if index < article.sidebars.length - 1 && !article.sidebars[index + 1].sub}}
+                    </ul>
+                    {{/if}}
+                    {{else}}
+                    <li>
+                        <a href="{{m.tag || m.url || ('#' + m.name)}}" {{if article.name == m.name}}style="color:#0088a4"{{/if}}>{{m.name}}</a>
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    {{else}}
+    <div id="readme">
+        <article class="markdown-body">
+            {{if intro}}{{intro}}{{/if}}
+            {{article.content}}
+        </article>
+    </div>
+    {{/if}}
+    {{else if article.type == 'block'}}
+    <div class="row">
+        <div class="col-md-9" role="main">
+
+            {{if intro}}
+            <div class="markdown-body">{{intro}}</div>
+            {{/if}}
+            {{each article.blocks as c index}}
+            {{if c.type == 'html'}}
+            <div class="docs-section">
+                {{if c.name}}
+                {{if c.sub}}
+                <h2 id="{{c.name}}" class="page-header">{{c.name}}</h2>
+                {{else}}
+                <h1 id="{{c.name}}" class="page-header">{{c.name}}</h1>
+                {{/if}}
+                {{/if}}
+                {{if c.content}}
+                <div class="markdown-body">
+                    {{c.content}}
+                </div>
+                {{/if}}
+            </div>
+            {{/if}}
+            {{/each}}
+        </div>
+        {{if article.sidebars}}
+        <div class="col-md-3" role="complementary">
+            <nav class="docs-sidebar hidden-print hidden-xs hidden-sm" style="overflow:scroll">
+                <ul class="nav docs-sidenav">
+                    {{each article.sidebars as m index}}
+                    {{if m.sub}}
+                    {{if index > 0 && !article.sidebars[index - 1].sub}}
+                    <ul class="nav" style="display:block">
+                    {{/if}}
+                        <li>
+                            <a href="{{m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
+                        </li>
+                    {{if index < article.sidebars.length - 1 && !article.sidebars[index + 1].sub}}
+                    </ul>
+                    {{/if}}
+                    {{else}}
+                    <li>
+                        <a href="{{m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
+                    </li>
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </nav>
+        </div>
+        {{/if}}
+    </div>
+    {{/if}}
+</div>
+
+<!-- Footer
+================================================== -->
+<footer class="docs-footer" role="contentinfo">
+    <div class="container">
+        <p>{{footer}}</p>
+    </div>
+</footer>
+
+<script src="source/jquery.min.js"></script>
+<script src="source/bootstrap.min.js"></script>
+<script src="source/docs.min.js"></script>
+<script src="source/highlight.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('code').each(function(i, block) {
+            if (block.innerHTML.indexOf('\n') != -1) {
+                var pn = block.parentNode;
+                if (pn.tagName.toUpperCase() == 'PRE') {
+                    try {
+                        hljs.highlightBlock(block);
+                    } catch(e) {}
+                } else {
+                    pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
+                    try {
+                        hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
+                    } catch(e) {}
+                }
+            }
+        });
+
+        var winHeight = $(window).height() - 40;
+
+        $('.docs-sidebar').css('max-height', winHeight + 'px');
+
+        var activeMenu,
+            sidebar = $('.docs-sidebar'),
+            barScroll = false;
+
+        sidebar.on('mouseover', function() {
+            barScroll = true;
+        });
+
+        sidebar.on('mouseout', function() {
+            barScroll = false;
+        });
+
+        $(window).on('scroll', function(e) {
+            if (!barScroll) {
+                var activeItem = $('.docs-sidebar li.active a');
+                if (activeItem.length) {
+                    if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+                        activeMenu = activeItem;
+                        var top = activeMenu.offset().top - sidebar.offset().top;
+                        if (top < 0) {
+                            sidebar.scrollTop(sidebar.scrollTop() + top);
+                        } else if (top > winHeight - 30) {
+                            sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

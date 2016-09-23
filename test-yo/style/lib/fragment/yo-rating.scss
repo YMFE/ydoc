@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+// 定义rating的基础构造
+@mixin _rating {
+    @include flexbox(inline-flex);
+    > .item {
+        width: map-get($rating, item-width);
+        cursor: pointer;
+        // 子项间间隙
+        &:not(:first-child) {
+            margin-left: map-get($rating, item-space);
+        }
+        &,
+        > span {
+            height: map-get($rating, item-height);
+            background-image: url(#{map-get($setting, bgimg-domain)}#{map-get($rating, url)});
+            background-repeat: no-repeat;
+            background-size: auto 200%;
+        }
+        > span {
+            display: block;
+            overflow: hidden;
+            width: 0;
+            background-position: 0 100%;
+            font: 0/0 arial;
+        }
+    }
+    &-readonly {
+        > .item {
+            cursor: default;
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-rating
+ * @version 3.0.0
+ * @description 构造yo-rating的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-rating.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $item-width 单个子项的宽度 <3.0.0>
+ * @param {Length} $item-height 单个子项的高度 <3.0.0>
+ * @param {Length} $item-space 子项间间隙 <3.0.0>
+ * @param {Color} $url 分数图像url（注意：只需要配置文件名即可） <3.0.0>
+ * @example 假设你需要只读状态，可以这样：
+ * <div class="yo-rating yo-rating-readonly">...</div>
+ */
+
+@mixin yo-rating(
+    $name: default,
+    $item-width: default,
+    $item-height: default,
+    $item-space: default,
+    $url: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $item-width == default {
+        $item-width: map-get($rating, item-width);
+    }
+    @if $item-height == default {
+        $item-height: map-get($rating, item-height);
+    }
+    @if $item-space == default {
+        $item-space: map-get($rating, item-space);
+    }
+    @if $url == default {
+        $url: map-get($rating, url);
+    }
+    .yo-rating#{$name} {
+        > .item {
+            @if $item-width != map-get($rating, item-width) {
+                width: $item-width * 5;
+            }
+            &:not(:first-child) {
+                @if $item-space != map-get($rating, item-space) {
+                    margin-left: $item-space;
+                }
+            }
+            &,
+            > span {
+                @if $item-height != map-get($rating, item-height) {
+                    height: $item-height;
+                }
+                @if $url != map-get($rating, url) {
+                    background-image: url(#{map-get($setting, bgimg-domain)}#{$url});
+                }
+            }
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入rating基础构造
+.yo-rating {
+    @include _rating;
+}

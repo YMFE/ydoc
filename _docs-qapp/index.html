@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>QApp 简介</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="active">
+                        
+                        <a href="index.html">简介</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="hybird.html">混合开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="plugins.html">插件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="build.html">构建</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="fekit.html">For FEKit</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>QApp Framework 简介</h1>
+                  <p>简洁 、轻量 、实用的移动前端开发框架</p>
+              </div>
+          </div>
+      
+
+
+
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content" id="readme">
+              <article class="markdown-body">
+                  
+                  <p>QApp ( QApp Mobile Framework )，
+<strong>简洁</strong> 、 <strong>轻量</strong> 、 <strong>实用</strong> 的 <strong>移动前端开发框架</strong>，
+统一管理视图的 <strong>创建</strong> 、 <strong>切换</strong> 、 <strong>通信</strong> 、 <strong>嵌套</strong> 、 <strong>销毁</strong> 等操作，
+并辅以 <strong>模板引擎</strong> 、 <strong>动画效果</strong> 、 <strong>事件代理</strong> 、 <strong>数据存储</strong> 等一系列实用性 <strong>插件</strong> 和 <strong>组件</strong>，
+最终形成一套一体化的 <strong>移动前端 SPA 解决方案</strong>。</p>
+<p>查看示例，请访问 <a href="http://ued.qunar.com/hy/qapp/demo/">http://ued.qunar.com/hy/qapp/demo/</a></p>
+<h3 id="默认配置">默认配置</h3><pre><code class="lang-js">QApp.config({
+    // 默认的首屏 View
+    indexView: &#39;index&#39;,
+    // 默认的动画
+    defaultAnimate: &#39;moveEnter&#39;,
+    // 是否自动初始化视图
+    autoInit: true,
+    // 是否开启 hash router
+    hashRouter: true,
+    hashSupport: {
+        // 是否默认全部
+        all: true,
+        // 白名单
+        exist: [],
+        // 黑名单
+        except: [],
+        // 是否使用 path 变换（需要服务端支持）
+        usePath: false
+    },
+    // 是否使用 json 形式参数
+    jsonParam: false,
+    screen: {
+        // 是否支持屏幕旋转
+        rotate: false,
+        // 检测屏幕大小变换
+        autoResize: true
+    },
+    gesture: {
+        // 是否开启手势
+        open: true,
+        // 是否开启手势控制 (在 View 切换时，禁用手势)
+        ctrl: true,
+        // 长按是否触发 Tap 事件
+        longTap: true,
+        // 自动控制元素失去焦点
+        autoBlur: true
+    }
+});
+</code></pre>
+<h3 id="默认样式">默认样式</h3><pre><code class="lang-css">qapp-app {
+    position: absolute;
+    overflow: hidden;
+}
+
+qapp-view {
+    display: block;
+    float: left;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+// 用于 moveEnter 的手势操作
+qapp-view .touch-opacity {
+    top: 0.44rem; // 根据实际情况设置 0.44rem 为 header 高度，避免返回按钮点击不上。
+    bottom: 0;
+}
+</code></pre>
+<h3 id="版本信息">版本信息</h3><p>最新版本 <code>1.0.0</code></p>
+<h3 id="项目地址">项目地址</h3><blockquote>
+<p><code>Git</code> : <a href="http://gitlab.corp.qunar.com/qapp/QApp">http://gitlab.corp.qunar.com/qapp/QApp</a></p>
+</blockquote>
+<h3 id="插件说明">插件说明</h3><p>插件的设计是基于视图的，其 <strong>主要的</strong> 宿主对象就是视图。</p>
+<p>插件是可插拔的，通过配置，在创建视图时，将插件加载进去。</p>
+<p>插件的实现形式是重写宿主视图的方法或者根据宿主的事件进行相关针对宿主视图的操作。</p>
+<p>除了基于视图的，也提供基于 <code>App</code> 以及工具类的插件。</p>
+<p>现在提供的插件列表如下: <a href="plugins.html">Plugin List</a>。</p>
+<p>开发者可以通过 <a href="api.html#QApp-plugin-add">QApp.addPlugin</a> 方法自行添加插件。</p>
+<h3 id="组件说明">组件说明</h3><p>组件部分的设计比较 <strong>灵活</strong> 、<strong>开放</strong>， 几乎任何形式的组件都可以通过适配的方式添加到 <code>QApp</code> 中。</p>
+<p>把组件归为两类：</p>
+<ul>
+<li>一类是渲染式（render），当节点渲染时启用组件，例如 <code>Switch</code>。</li>
+<li>一类是事件触发式（event），当触发某一事件时启动组件，例如 <code>dialog</code>。</li>
+</ul>
+<p>使用方法有两种：</p>
+<ul>
+<li>标签法，在元素上添加 <code>qapp-widget</code> 属性。</li>
+<li>通过 <code>showWidget</code> 接口调用</li>
+</ul>
+<p>使用 <code>qapp-widget</code> 时，可以通过 <code>data-{widget-name}-{option-key}</code> 来配置组件。
+其中 <code>data-{widget-name}-id</code> 会指定组件的 <code>id</code>，开发者可以从 <code>View.widgets</code> 里通过 <code>id</code> 获取组件实例。</p>
+<p>开发者可以通过 <a href="api.html#QApp-widget-add">QApp.addWidget</a> 方法自行添加组件。</p>
+<h3 id="备注">备注</h3><p>关于视图切换动画的一些说明，可以参考 <a href="plugins.html#QApp-plugin-basic">QApp-plugin-basic</a> 插件</p>
+
+              </article>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            Made By Qunar YMFE TEAM. © 2014 - 2016
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

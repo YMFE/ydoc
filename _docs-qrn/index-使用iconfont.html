@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native 开始</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="active">
+                        
+                        <a href="index.html">开始</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/react-web/" target="_blank">React Web</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>Qunar React Native</h1>
+                  <p>去哪儿定制版 React Native，更快、更好、更统一。</p>
+              </div>
+          </div>
+      
+
+
+
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-right">
+                  <nav class="sidebar">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-项目创建.html">项目创建</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-项目开发.html">项目开发</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-开发工具.html">开发工具</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  class="active"   class="active" >
+                            
+                            <a href="index-使用iconfont.html">使用iconfont</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-使用ImageSet.html">使用ImageSet</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-Native集成（iOS）.html">Native集成（iOS）</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-Native集成 （Android）.html">Native集成 （Android）</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-使用Chrome调试.html">使用Chrome调试</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-使用Atom调试（实验性）.html">使用Atom调试（实验性）</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-调试日志查看.html">调试日志查看</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-测试部署.html">测试部署</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-left markdown-body">
+                
+                <h1 id="使用 iconfont">使用 iconfont</h1><p>通过<a href="index-项目创建.html">项目创建</a>流程创建项目后，会在项目中生成<code>QFontSet.js</code>和<code>QImageSet.js</code>两个文件，用于管理 iconfont 和静态图片资源。</p>
+<p>如果项目中没有这两个文件，可以在<a href="http://gitlab.corp.qunar.com/react_native/js_template/tree/release">这里</a>找到模板文件。</p>
+<p>由命令行生成的项目，应该会在 index.js 中包含如下注释：</p>
+<pre><code class="lang-js">/**
+ * @includesModules QFontSet, QImageSet
+ */
+</code></pre>
+<h2 id="确定 hybridId">确定 hybridId</h2><p>由于字体的加载流程与 hybridId 相关，因此务必在使用 iconfont 前申请好 hybridId ，并使用此 hybridId 继续。</p>
+<p>申请好之后，修改项目的<code>index.yaml</code>文件，替换其<code>hybridid</code>字段。</p>
+<h2 id="生成 iconfont">生成 iconfont</h2><p>前往 <a href="http://iconfont.corp.qunar.com/">iconfont 平台</a>，选择要使用的 icon 。完成后，可以在网站右上的“待选图标”中看到已经选择的 icon 。</p>
+<p>选择“保存为项目”，会提示输入项目名称。<strong>此处的项目名称必须为项目的 hybridId 或 hybridId_xxxxxx。</strong> 比如，当前项目的 hybridId 为<code>myHybridId</code>，则字体的项目名称必须是 <code>myHybridId</code> 或 <code>myHybridId_xxxxxx</code>。</p>
+<p>生成项目之后，可以下载 iconfont 字体文件。对于客户端来说，只需要 ttf 格式的字体即可。</p>
+<h2 id="上传 iconfont">上传 iconfont</h2><p>QRN 对于 iconfont 使用 http url 的形式加载。因此需要将字体上传至外网可访问的位置，推荐使用 <a href="http://wiki.corp.qunar.com/display/corpux/Source">Source</a> 。</p>
+<p>在项目发布时，已注册的字体会由发布系统打包进应用，不会直接连接线上下载。</p>
+<h2 id="向项目添加 iconfont">向项目添加 iconfont</h2><p>以 hybridId 为 myHybridId 为例，在项目的<code>QFontSet.js</code>中，按照如下形式加入字体：</p>
+<pre><code class="lang-js">module.exports = {
+  // &quot;字体的项目名称&quot; : &quot;字体的线上 URL&quot;
+  // 可以添加多项
+  // 推荐在字体存放的时候，加上一层字体的版本目录，这样方便做版本控制，想要升级的时候，把这里的目录改成1.1.0就行了，不用改动别的地方。
+  &quot;myHybridId&quot;: &quot;http://s.qunarzz.com/.../1.0.0/myHybridId.ttf&quot;,
+  // 如果一个项目（即一个hybridId）对应多个字体文件，可以通过加后缀的方式进行区分。
+  &quot;myHybridId_font&quot; : &quot;http://s.qunarzz.com/.../1.0.0/myHybridId_font.ttf&quot;
+}
+</code></pre>
+<h2 id="使用 iconfont">使用 iconfont</h2><p>直接在<code>&lt;Text&gt;</code>标签中引用字体的名称作为<code>fontFamily</code>即可：</p>
+<pre><code class="lang-html">&lt;Text style={{fontFamily: &quot;myHybridId&quot;}}&gt;&amp;#xf00b;&lt;/Text&gt;
+&lt;Text style={{fontFamily: &quot;myHybridId_font&quot;}}&gt;&amp;#xf00b;&lt;/Text&gt;
+</code></pre>
+<p>icon 的书写形式有两种：</p>
+<ul>
+<li>一种如上面的例子，使用 html 实体来写，如<code>&amp;#x1234;</code>。这种写法只能写在 JSX 中。</li>
+<li>一种使用 js 的书写方式，如<code>&#39;\u1234&#39;</code>。这种写法只能写在 js 代码中。</li>
+</ul>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

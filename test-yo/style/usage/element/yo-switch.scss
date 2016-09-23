@@ -1,0 +1,13 @@
+@charset "utf-8";
+@import "../../lib/element/yo-switch";
+
+/**
+ * yo-switch扩展
+ */
+
+@include yo-switch(a,#4a87ee);
+@include yo-switch(b,#43cee6);
+@include yo-switch(c,#f0b840);
+@include yo-switch(d,#ef4e3a);
+@include yo-switch(e,#8a6de9);
+@include yo-switch(f,#444);

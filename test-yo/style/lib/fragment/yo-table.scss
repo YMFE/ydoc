@@ -1,0 +1,194 @@
+@charset "utf-8";
+
+// 定义table的基础构造
+@mixin _table {
+    width: map-get($table, width);
+    @include border(
+        $border-width: 0,
+        $border-color: map-get($table, border-color)
+    );
+    @if map-get($table, has-vertical-border) == true {
+        border-width: 1px;
+    }
+    background-color: #fff;
+    thead {
+        background-color: map-get($table, thead-bgcolor);
+        th {
+            padding: map-get($table, thead-padding);
+        }
+    }
+    td {
+        padding: map-get($table, tbody-padding);
+    }
+    th,
+    td {
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($table, border-color)
+        );
+        // 判断是够需要垂直边框
+        &::after {
+            @if map-get($table, has-vertical-border) {
+                border-width: 0 1px 1px 0;
+            }
+        }
+    }
+    tbody {
+        tr:nth-child(odd) {
+            background-color: map-get($table, odd-bgcolor);
+        }
+        tr:nth-child(even) {
+            background-color: map-get($table, even-bgcolor);
+        }
+        tr:active,
+        tr.active {
+            background-color: map-get($table, active-bgcolor);
+        }
+        tr.on{
+            background-color: map-get($table, on-bgcolor);
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-table
+ * @version 3.0.0
+ * @description 构造表格的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-table.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $width 宽度 <3.0.0>
+ * @param {Boolean} $has-vertical-border 是否需要纵向边框 <3.0.0>
+ * @param {Length} $thead-padding 头部内补白 <3.0.0>
+ * @param {Length} $tbody-padding 主体内补白 <3.0.0>
+ * @param {Color} $border-color 边框色 <2.0.0>
+ * @param {Color} $thead-bgcolor 头部背景色 <3.0.0>
+ * @param {Color} $odd-bgcolor 主体奇数行背景色 <3.0.0>
+ * @param {Color} $even-bgcolor 主体偶数行背景色 <3.0.0>
+ * @param {Color} $active-bgcolor 主体激活背景色 <3.0.0>
+ * @param {Color} $on-bgcolor 主体选中背景色 <3.0.0>
+ */
+
+@mixin yo-table(
+    $name: default,
+    $width: default,
+    $has-vertical-border: default,
+    $thead-padding: default,
+    $tbody-padding: default,
+    $border-color: default,
+    $thead-bgcolor: default,
+    $odd-bgcolor: default,
+    $even-bgcolor: default,
+    $active-bgcolor: default,
+    $on-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $has-vertical-border == default {
+        $has-vertical-border: map-get($table, has-vertical-border);
+    }
+    @if $thead-padding == default {
+        $thead-padding: map-get($table, thead-padding);
+    }
+    @if $tbody-padding == default {
+        $tbody-padding: map-get($table, tbody-padding);
+    }
+    @if $border-color == default {
+        $border-color: map-get($table, border-color);
+    }
+    @if $thead-bgcolor == default {
+        $thead-bgcolor: map-get($table, thead-bgcolor);
+    }
+    @if $odd-bgcolor == default {
+        $odd-bgcolor: map-get($table, odd-bgcolor);
+    }
+    @if $even-bgcolor == default {
+        $even-bgcolor: map-get($table, even-bgcolor);
+    }
+    @if $active-bgcolor == default {
+        $active-bgcolor: map-get($table, active-bgcolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($table, on-bgcolor);
+    }
+    .yo-table#{$name} {
+        @if $width != default {
+            width: $width;
+        }
+        &::after {
+            @if $has-vertical-border == false {
+                @if $has-vertical-border != map-get($table, has-vertical-border) {
+                    border-width: 0;
+                }
+            } @else {
+                @if $has-vertical-border != map-get($table, has-vertical-border) {
+                    border-width: 1px;
+                }
+            }
+            @if $border-color != map-get($table, border-color) {
+                border-color: $border-color;
+            }
+        }
+        thead {
+            @if $thead-bgcolor != none and $thead-bgcolor != map-get($table, thead-bgcolor) {
+                background-color: $thead-bgcolor;
+            }
+            th {
+                @if $thead-padding != map-get($table, thead-padding) {
+                    padding: $thead-padding;
+                }
+            }
+        }
+        td {
+            @if $tbody-padding != map-get($table, tbody-padding) {
+                padding: $tbody-padding;
+            }
+        }
+        th,td {
+            &::after {
+                @if $has-vertical-border == false {
+                    @if $has-vertical-border != map-get($table, has-vertical-border) {
+                        border-width: 0 0 1px;
+                    }
+                } @else {
+                    @if $has-vertical-border != map-get($table, has-vertical-border) {
+                        border-width: 0 1px 1px 0;
+                    }
+                }
+                @if $border-color != map-get($table, border-color) {
+                    border-color: $border-color;
+                }
+            }
+        }
+        tbody {
+            tr:nth-child(odd) {
+                @if $odd-bgcolor != map-get($table, odd-bgcolor) {
+                    background-color: $odd-bgcolor;
+                }
+            }
+            tr:nth-child(even) {
+                @if $even-bgcolor != map-get($table, even-bgcolor) {
+                    background-color: $even-bgcolor;
+                }
+            }
+            tr:active,
+            tr.active {
+                @if $active-bgcolor != map-get($table, active-bgcolor) {
+                    background-color: $active-bgcolor;
+                }
+            }
+            tr.on {
+                @if $on-bgcolor != map-get($table, on-bgcolor) {
+                    background-color: $on-bgcolor;
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入table基础构造
+.yo-table {
+    @include _table;
+}

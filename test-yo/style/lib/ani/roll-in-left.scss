@@ -1,0 +1,33 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @module roll
+ * @description 定义从左侧翻滚进入动画
+ * @method roll-in-left
+ */
+@-webkit-keyframes roll-in-left {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+	}
+}
+@keyframes roll-in-left {
+	0% {
+		opacity: 0;
+		transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+	}
+	100% {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.ani.roll-in-left {
+	-webkit-animation-name: roll-in-left;
+	animation-name: roll-in-left;
+}

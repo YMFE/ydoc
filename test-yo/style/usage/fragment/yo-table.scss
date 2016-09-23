@@ -1,0 +1,18 @@
+@charset "utf-8";
+@import "../../lib/fragment/yo-table";
+
+/**
+ * yo-table扩展
+ */
+
+// 有竖线
+@include yo-table(
+    $name: test,
+    $has-vertical-border: true
+);
+
+// 有间隔色
+@include yo-table(
+    $name: test2,
+    $even-bgcolor: #f9f9f9
+);

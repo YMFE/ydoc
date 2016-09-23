@@ -1,0 +1,134 @@
+@charset "utf-8";
+
+// 定义picker的基础构造
+@mixin _picker {
+    @include flexbox;
+    @include justify-content;
+    position: relative;
+    overflow: hidden;
+    height: map-get($picker, item-height) * map-get($picker, item);
+    background-color: white;
+    > .list {
+        position: relative;
+        @include flex;
+        text-align: center;
+        > .item {
+            height: map-get($picker, item-height);
+            line-height: map-get($picker, item-height);
+            padding: 0 .1rem;
+            &.disabled {
+                opacity: .4;
+            }
+        }
+    }
+    > .unit {
+        margin: auto;
+        &:last-child {
+            padding-right: .1rem;
+        }
+    }
+    > .mask {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        content: "\0020";
+        pointer-events: none;
+        background: -webkit-linear-gradient(top, white, rgba(255, 255, 255, .4) 40%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0) 60.5%, rgba(255, 255, 255, .4) 60.5%, white);
+    }
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        content: ".";
+        color: transparent;
+        border: 1px solid map-get($picker, border-color);
+        border-width: 1px 0;
+        @include responsive(retina1x) {
+            width: 100%;
+            height: map-get($picker, item-height);
+            @include transform(translatey(-50%));
+        }
+        @include responsive(retina2x) {
+            width: 200%;
+            height: map-get($picker, item-height) * 2;
+            @include transform(scale(0.5) translatey(-50%));
+        }
+        @include responsive(retina3x) {
+            width: 300%;
+            height: map-get($picker, item-height) * 3;
+            @include transform(scale(0.33333) translatey(-50%));
+        }
+        @include transform-origin(0 0);
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-picker
+ * @version 3.0.0
+ * @description 构造yo-picker的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-picker.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Integer} $item 显示的子项个数 <3.0.0>
+ * @param {Length} $item-height 子项高度 <3.0.0>
+ * @param {Color} $border-color 边框色 <3.0.0>
+ */
+
+@mixin yo-picker(
+    $name: default,
+    $item: default,
+    $item-height: default,
+    $border-color: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $item == default {
+        $item: map-get($picker, item);
+    }
+    @if $item-height == default {
+        $item-height: map-get($picker, item-height);
+    }
+    @if $border-color == default {
+        $border-color: map-get($picker, border-color);
+    }
+    .yo-picker#{$name} {
+        @if $item-height != map-get($picker, item-height) or $item != map-get($picker, item) {
+            height: $item-height * $item;
+        }
+        > .list {
+            > .item {
+                @if $item-height != map-get($picker, item-height) {
+                    height: $item-height;
+                    line-height: $item-height;
+                }
+            }
+        }
+        &::before {
+            @if $item-height != map-get($picker, item-height) {
+                @include responsive(retina1x) {
+                    height: $item-height;
+                }
+                @include responsive(retina2x) {
+                    height: $item-height * 2;
+                }
+                @include responsive(retina3x) {
+                    height: $item-height * 3;
+                }
+            }
+            @if $border-color != map-get($picker, border-color) {
+                border-color: $border-color;
+            }
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入picker基础构造
+.yo-picker {
+    @include _picker;
+}

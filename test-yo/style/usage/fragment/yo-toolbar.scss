@@ -1,0 +1,16 @@
+@charset "utf-8";
+@import "../../lib/fragment/yo-toolbar";
+
+/**
+ * yo-toolbar扩展
+ */
+
+@include yo-toolbar(
+    $name: test,
+    $border-color: #ccc,
+    $bgcolor: #eee,
+    $color: #666,
+    $on-bgcolor: #ddd,
+    $on-color: #000,
+    $radius: .05rem
+);
