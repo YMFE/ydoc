@@ -1,0 +1,172 @@
+@charset "utf-8";
+
+// 定义toolbar的基础构造
+@mixin _toolbar {
+    @include flexbox;
+    font-size: map-get($toolbar, font-size);
+    line-height: map-get($toolbar, height);
+    cursor: default;
+    > .item {
+        padding: map-get($toolbar, item-padding);
+        background-color: map-get($toolbar, bgcolor);
+        color: map-get($toolbar, color);
+        // 为了避免安卓各种手机上的圆角背景溢出，将圆角和边框放到子元素上处理
+        @include border(
+            $border-width: map-get($toolbar, border-width),
+            $border-color: map-get($toolbar, border-color),
+            $radius: map-get($toolbar, radius)
+        );
+        &:not(:first-child) {
+            &::after {
+                border-left-width: 0;
+            }
+        }
+        &:not(:only-child):not(:first-child) {
+            &, &::after {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+        &:not(:only-child):not(:last-child) {
+            &, &::after {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+        &.item-on {
+            background-color: map-get($toolbar, on-bgcolor);
+            color: map-get($toolbar, on-color);
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-toolbar
+ * @version 3.0.0
+ * @description 构造工具条的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-toolbar.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $width 工具条固定宽度 <3.0.0>
+ * @param {Length} $height 工具条固定高度 <3.0.0>
+ * @param {Length} $border-width 边框厚度 <3.0.0>
+ * @param {Color} $border-color 边框颜色 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ * @param {Color} $on-bgcolor 选中时背景色 <3.0.0>
+ * @param {Color} $on-color 选中时文本色 <3.0.0>
+ * @param {Length} $item-padding 子项内补白 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Length} $font-size 文本字号 <3.0.0>
+ */
+
+@mixin yo-toolbar(
+    $name: default,
+    $width: default,
+    $height: default,
+    $border-width: default,
+    $border-color: default,
+    $bgcolor: default,
+    $color: default,
+    $on-bgcolor: default,
+    $on-color: default,
+    $item-padding: default,
+    $radius: default,
+    $font-size: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $width == default {
+        $width: map-get($toolbar, width);
+    }
+    @if $height == default {
+        $height: map-get($toolbar, height);
+    }
+    @if $border-width == default {
+        $border-width: map-get($toolbar, border-width);
+    }
+    @if $border-color == default {
+        $border-color: map-get($toolbar, border-color);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($toolbar, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($toolbar, color);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($toolbar, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($toolbar, on-color);
+    }
+    @if $item-padding == default {
+        $item-padding: map-get($toolbar, item-padding);
+    }
+    @if $radius == default {
+        $radius: map-get($toolbar, radius);
+    }
+    @if $font-size == default {
+        $font-size: map-get($toolbar, font-size);
+    }
+    .yo-toolbar#{$name} {
+        @if $font-size != map-get($toolbar, font-size) {
+            font-size: $font-size;
+        }
+        @if $height != map-get($toolbar, height) {
+            line-height: $height;
+        }
+        > .item {
+            @if $item-padding != map-get($toolbar, item-padding) {
+                padding: $item-padding;
+            }
+            @if $bgcolor != map-get($toolbar, bgcolor) {
+                background-color: $bgcolor;
+            }
+            @if $color != map-get($toolbar, color) {
+                color: $color;
+            }
+            // 如果$radius不等于config设定，则重绘容器圆角
+            @if $radius != map-get($toolbar, radius) {
+                border-radius: $radius;
+            }
+            &::after {
+                // 如果$border-width不等于config设定，则重绘边框厚度
+                @if $border-width != map-get($toolbar, border-width) {
+                    border-width: $border-width;
+                }
+                // 如果$border-color不等于config设定，则重绘边框颜色
+                @if $border-color != map-get($toolbar, border-color) {
+                    border-color: $border-color;
+                }
+                // 如果$radius不等于config设定，则重绘边框圆角
+                @if $radius != map-get($toolbar, radius) {
+                    @include responsive(retina1x) {
+                        border-radius: $radius;
+                    }
+                    @include responsive(retina2x) {
+                        border-radius: $radius * 2;
+                    }
+                    @include responsive(retina3x) {
+                        border-radius: $radius * 3;
+                    }
+                }
+            }
+            &.item-on {
+                @if $on-bgcolor != map-get($toolbar, on-bgcolor) {
+                    background-color: $on-bgcolor;
+                }
+                @if $on-color != map-get($toolbar, on-color) {
+                    color: $on-color;
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入toolbar基础构造
+.yo-toolbar {
+    @include _toolbar;
+}

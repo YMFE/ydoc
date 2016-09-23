@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native 开始</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="active">
+                        
+                        <a href="index.html">开始</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/react-web/" target="_blank">React Web</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>Qunar React Native</h1>
+                  <p>去哪儿定制版 React Native，更快、更好、更统一。</p>
+              </div>
+          </div>
+      
+
+
+
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-right">
+                  <nav class="sidebar">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-项目创建.html">项目创建</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-项目开发.html">项目开发</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-开发工具.html">开发工具</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-使用iconfont.html">使用iconfont</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-使用ImageSet.html">使用ImageSet</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-Native集成（iOS）.html">Native集成（iOS）</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-Native集成 （Android）.html">Native集成 （Android）</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-使用Chrome调试.html">使用Chrome调试</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-使用Atom调试（实验性）.html">使用Atom调试（实验性）</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="index-调试日志查看.html">调试日志查看</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  class="active"   class="active" >
+                            
+                            <a href="index-测试部署.html">测试部署</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-left markdown-body">
+                
+                <h2 id="测试和部署">测试和部署</h2><!-- TODO: 调试工具部分 -->
+<p>在准备进行测试和部署前，需要准备一下发布所需要的各种资源。</p>
+<h3 id="hybridId配置">hybridId配置</h3><p>如果已经申请了 hybridId ，可直接转到<a href="#git-repo-config">git仓库配置</a>。</p>
+<p>hybridId 是项目的标识，在客户端中启动某个项目、在发布系统中发布某个项目，均需要使用 hybridId 来标识。</p>
+<p>申请 hybridId ，参见<a href="http://wiki.corp.qunar.com/pages/viewpage.action?pageId=89134521">Wiki</a>。</p>
+<p><a name="git-repo-config"/></p>
+<h3 id="git 仓库配置">git 仓库配置</h3><p>在<a href="index-项目创建.html">项目创建</a>过程中，通过<code>react-native init</code>命令创建的项目，会在项目的根目录中存在如下几个文件：</p>
+<ul>
+<li>package.json</li>
+<li>index.yaml</li>
+<li>build.sh</li>
+<li>index.js</li>
+<li>QFontSet.js</li>
+<li>QImageSet.js</li>
+</ul>
+<p>如果你的项目是手动创建的，确保你的项目中存在以上几个文件。如果没有，可以在<a href="http://gitlab.corp.qunar.com/react_native/js_template/tree/release">这里</a>下载到模板文件，复制到项目的根目录。</p>
+<h3 id="项目准备">项目准备</h3><p><a name="prepare-index-yaml"/></p>
+<p>修改<code>index.yaml</code>文件，来决定项目的发布目标。一个 RN 项目的<code>index.yaml</code>文件内容如下：</p>
+<pre><code class="lang-yaml">hybridid : template
+iOS_vid : vid_80019999 # 所需iOS客户端最低版本
+android_vid : vid_60009999,com.mqunar.react_2 # 所需android客户端及模块最低版本
+rnpackage : true
+</code></pre>
+<ul>
+<li>修改<code>hybridid</code>的值为项目申请到的 hybridId 。</li>
+<li>修改<code>iOS_vid</code>的值为本次发布所适用的 iOS 客户端版本。该版本及更新版本的客户端均可以在代码发布后更新到此次发布的代码。</li>
+<li>修改<code>android_vid</code>的值为本次发布所适用的 android 客户端及模块版本。该版本及更新版本的客户端均可以在代码发布后更新到此次发布的代码。</li>
+</ul>
+<h4 id="需要提交的文件">需要提交的文件</h4><p>需要向 git 仓库中提交的文件包括以上提到的文件，项目的其他源文件，以及<code>node_modules</code>目录。</p>
+<blockquote>
+<p>为什么要提交<code>node_modules</code>？<br>因为项目中可能会写入各种各样的其他依赖，而它们的版本可能不固定，因此在发布机上进行npm install的结果可能与开发时不同，会导致编译结果出问题时难以排查。因此我们要求开发者提交<code>node_modules</code>目录。</p>
+</blockquote>
+<h3 id="发布 job 配置">发布 job 配置</h3><p>RN Job 现在可以自助创建了~ 直接在<a href="http://wanshiwu.corp.qunar.com/mobile/register?id=4">万事屋</a>自助创建即可。</p>
+<p><span style="text-decoration:line-through;">联系 CM 创建 RN 前端项目的 job ，需要提供 hybridId 、 git 仓库地址，即可创建项目的发布 job 。这个 job 将用于项目的测试和发布。</span></p>
+<p>RN job 的主要参数如下：</p>
+<ul>
+<li>deploy_type: 发布类型（beta/线上）</li>
+<li>git_root: 项目的 git 地址</li>
+<li>tag_name: 要发布的分支</li>
+<li>app_platform: 要发布的目标平台，用逗号分隔</li>
+<li>app_pid: 如果项目面向多个应用，填写本次发布使用的pid。否则不必填写</li>
+<li>vid_info: prod发布时，需要发布人员填写此参数手动确认发布目标版本</li>
+</ul>
+<p><a name="beta-online-test"/></p>
+<h3 id="beta 测试（在线）">beta 测试（在线）</h3><p>在 job 中进行 beta 发布后，可以在客户端中通过设置 RN 为 beta 加载模式来进行 beta 测试。方法如下：</p>
+<ul>
+<li>在客户端中打开项目的页面。第一次打开会使用线上模式，在项目未进行线上发布前会出错，可以关掉错误提示。</li>
+<li>摇动手机，出现浮动菜单。选中“JS Bundle 加载方式”。</li>
+<li>选中项目的 hybridId</li>
+<li>在弹出的设置内，选中“beta”选项，并填入项目当前正在开发的分支名称（不是 btag ）。</li>
+<li>如果代码有更新，同一分支重新发布 beta 版本，则无需重新设置，只需要退出并重新进入页面即可看到新发布的代码生效。</li>
+</ul>
+<p>这种 beta 测试直接由机器向 beta 机器拉取发布结果，需要机器能够访问网络（不需要内网访问）。</p>
+<h3 id="beta/prod 测试（离线）">beta/prod 测试（离线）</h3><p>每次在 job 中进行发布，会生成一个 qp 格式的发布产物，可以在发布记录中点击查看。</p>
+<p>qp 是客户端使用的离线资源包，将 qp 包加入客户端的资源中后，无需联网即可使用发布后的代码。在发布完成后，点击发布的产物链接，可以看到<code>build.qp.ios</code>和<code>build.qp.android</code>两个目录，分别对应两个平台的资源包。将各平台目录下 <strong>扩展名为<code>qp</code>和<code>qpmd5</code>的文件</strong> 加入到 Native 工程的资源列表中，随客户端打包即可。</p>
+<p>客户端在测试时，需要按照<a href="#beta-online-test">beta 测试（在线）</a>中的流程，设置代码的加载方式为“release”。</p>
+<blockquote>
+<p><strong>注意</strong>： 由于 beta 版本的离线包版本号与 prod 的版本号是分别计数的，因此如果你在 native 项目里加入了 prod 的打包产物，则在安装之前，请删除之前安装的 beta 版本，再继续安装应用。否则客户端将使用已经保存的高版本号的包。</p>
+</blockquote>
+<h4 id="iOS 大客户端自动集成">iOS 大客户端自动集成</h4><p>如果你的项目是针对 Qunar 的 iOS 大客户端，你可以不必手动加入 RN 资源文件到 bundle 中，而由所在业务线的 lib 在打包时自动完成。（感谢 CM 的大力支持）</p>
+<p>在业务线 lib 发布时，可以填写<code>rn_config</code>参数，在打包时自动将发布的 RN 资源加入。具体格式如下：</p>
+<pre><code>hybridIdA:b-160504-102734-xxx.yyy
+hybridIdB:master
+</code></pre><p>冒号后面填写 tag 时，使用对应 tag 的内容；填写分支时，则使用对应分支最新一次发布的内容。</p>
+<blockquote>
+<p>如果你所在的业务线的 lib 没有这样的打包参数，请联系 CM 进行修改。</p>
+</blockquote>
+<h3 id="项目热发布">项目热发布</h3><p>得益于直接使用 hybrid 的发布系统， RN 直接支持代码的热发布。只要在 job 中进行项目的 prod 发布，对应版本的客户端即可在再次进入客户端后更新到新版本的代码。有关如何确定热发的目标版本，参考<a href="#prepare-index-yaml">准备index.yaml文件</a>。</p>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

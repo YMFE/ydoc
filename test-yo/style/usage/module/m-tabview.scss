@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+.m-tabview {
+    // do something...
+    @at-root {
+        @include yo-tab(
+            $name: view,
+            $font-size: .12rem
+        );
+    }
+}

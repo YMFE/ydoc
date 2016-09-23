@@ -1,0 +1,87 @@
+@charset "utf-8";
+@import "../ani/rotate";
+
+// 定义loadtip的基础构造
+@mixin _loadtip {
+    @include flexbox(inline-flex);
+    @include align-items;
+    color: map-get($loadtip, color);
+    font-size: map-get($loadtip, font-size);
+    > .yo-ico {
+        display: block;
+        color: map-get($loadtip, ico-color);
+        -webkit-transition: -webkit-transform .3s;
+        transition: transform .3s;
+        @include transform(rotatez(0deg));
+        &-flip {
+            @include transform(rotatez(180deg));
+        }
+    }
+    > .yo-ico-loading {
+        position: relative;
+        z-index: 1000;
+        @include animation(rotate 1s infinite linear);
+    }
+    > .text {
+        margin-left: .1rem;
+        > .time {
+            display: block;
+            font-size: .12rem;
+        }
+    }
+}
+
+/**
+ * @module element
+ * @method yo-loadtip
+ * @version 3.0.0
+ * @description 构造加载提示的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/element/yo-loadtip.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ * @param {Length} $font-size 字号大小 <3.0.0>
+ * @param {Color} $ico-color ico颜色 <3.0.0>
+ */
+
+@mixin yo-loadtip(
+    $name: default,
+    $color: default,
+    $font-size: default,
+    $ico-color: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $color == default {
+        $color: map-get($loadtip, color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($loadtip, font-size);
+    }
+    @if $ico-color == default {
+        $ico-color: map-get($loadtip, ico-color);
+    }
+
+    .yo-loadtip#{$name} {
+        // 如果$color不等于config设定，则重绘文本色
+        @if $color != map-get($loadtip, color) {
+            color: $color;
+        }
+        // 如果$font-size不等于config设定，则重绘字号
+        @if $font-size != map-get($loadtip, font-size) {
+            font-size: $font-size;
+        }
+        > .yo-ico {
+            // 如果$ico-color不等于config设定，则重绘ico颜色
+            @if $ico-color != map-get($loadtip, ico-color) {
+                color: $ico-color;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入气泡基础构造
+.yo-loadtip {
+    @include _loadtip;
+}

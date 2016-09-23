@@ -1,0 +1,12 @@
+@charset "utf-8";
+@import "../../lib/fragment/yo-tooltip";
+
+/**
+ * yo-tooltip扩展
+ */
+
+@include yo-tooltip {
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+}

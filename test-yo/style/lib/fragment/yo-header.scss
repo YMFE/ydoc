@@ -1,0 +1,188 @@
+@charset "utf-8";
+
+// 定义header的基础构造
+@mixin _header {
+    position: relative;
+    height: map-get($header, height);
+    line-height: map-get($header, height);
+    @include border(
+        $border-width: map-get($header, border-width),
+        $border-color: map-get($header, border-color)
+    );
+    background-color: map-get($header, bgcolor);
+    color: map-get($header, color);
+    font-size: map-get($header, font-size);
+    @include ellipsis;
+    text-align: center;
+    > .title {
+        @include ellipsis;
+        margin: 0 map-get($header, item-width);
+    }
+    > .regret,
+    > .affirm {
+        position: absolute;
+        top: 0;
+        width: map-get($header, item-width);
+        color: map-get($header, item-color);
+        cursor: pointer;
+        font-size: map-get($header, item-font-size);
+        &:active {
+            opacity: .5;
+        }
+        &.yo-ico,
+        > .yo-ico {
+            color: map-get($header, item-ico-color);
+            font-size: map-get($header, item-ico-size);
+        }
+    }
+    > .regret {
+        left: 0;
+        padding-left: map-get($header, item-space);
+        text-align: left;
+    }
+    > .affirm {
+        right: 0;
+        padding-right: map-get($header, item-space);
+        text-align: right;
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-header
+ * @version 3.0.0
+ * @description 构造头的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-header.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $height 高度 <3.0.0>
+ * @param {Length} $item-width 两侧子项操作区宽度 <3.0.0>
+ * @param {Length} $item-space 两侧子项离边界的间隙 <3.0.0>
+ * @param {Length} $border-width 边框厚度 <3.0.0>
+ * @param {Color} $border-color 边框色 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ * @param {Length} $font-size 字号大小 <3.0.0>
+ * @param {Color} $item-color 两侧子项操作区文本色 <3.0.0>
+ * @param {Color} $item-ico-color 两侧子项操作区ico色 <3.0.0>
+ * @param {Length} $item-font-size 两侧子项操作区字号大小 <3.0.0>
+ * @param {Length} $item-ico-size 两侧子项操作区ico大小 <3.0.0>
+ */
+
+@mixin yo-header(
+    $name: default,
+    $height: default,
+    $item-width: default,
+    $item-space: default,
+    $border-width: default,
+    $border-color: default,
+    $bgcolor: default,
+    $color: default,
+    $font-size: default,
+    $item-color: default,
+    $item-ico-color: default,
+    $item-font-size: default,
+    $item-ico-size: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $height == default {
+        $height: map-get($header, height);
+    }
+    @if $item-width == default {
+        $item-width: map-get($header, item-width);
+    }
+    @if $item-space == default {
+        $item-space: map-get($header, item-space);
+    }
+    @if $border-width == default {
+        $border-width: map-get($header, border-width);
+    }
+    @if $border-color == default {
+        $border-color: map-get($header, border-color);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($header, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($header, color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($header, font-size);
+    }
+    @if $item-color == default {
+        $item-color: map-get($header, item-color);
+    }
+    @if $item-ico-color == default {
+        $item-ico-color: map-get($header, item-ico-color);
+    }
+    @if $item-font-size == default {
+        $item-font-size: map-get($header, item-font-size);
+    }
+    @if $item-ico-size == default {
+        $item-ico-size: map-get($header, item-ico-size);
+    }
+    .yo-header#{$name} {
+        @if $height != map-get($header, height) {
+            height: $height;
+            line-height: $height;
+        }
+        &::after {
+            @if $border-width != map-get($header, border-width) {
+                border-width: $border-width;
+            }
+            @if $border-color != map-get($header, border-color) {
+                border-color: $border-color;
+            }
+        }
+        @if $bgcolor != map-get($header, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $color != map-get($header, color) {
+            color: $color;
+        }
+        @if $font-size != map-get($header, font-size) {
+            font-size: $font-size;
+        }
+        > .title {
+            @if $item-width != map-get($header, item-width) {
+                margin: 0 $item-width;
+            }
+        }
+        > .regret,
+        > .affirm {
+            @if $item-width != map-get($header, item-width) {
+                width: $item-width;
+            }
+            @if $item-color != map-get($header, item-color) {
+                color: $item-color;
+            }
+            @if $item-font-size != map-get($header, item-font-size) {
+                font-size: $item-font-size;
+            }
+            &.yo-ico,
+            > .yo-ico {
+                @if $item-ico-color != map-get($header, item-ico-color) {
+                    color: $item-ico-color;
+                }
+                @if $item-ico-size != map-get($header, item-ico-size) {
+                    font-size: $item-ico-size;
+                }
+            }
+        }
+        @if $item-space != map-get($header, item-space) {
+            > .regret {
+                    padding-left: $item-space;
+            }
+            > .affirm {
+                    padding-right: $item-space;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入header基础构造
+.yo-header {
+    @include _header;
+}

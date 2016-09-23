@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+// 定义swipemenu的基础构造
+@mixin _swipemenu {
+    &,
+    > .item {
+        position: relative;
+        // 当yo-swipemenu被应用到yo-list里时，需要重置yo-list item的flex定义
+        display: block !important;
+        // 清除.item的内补白，交由yo-swipemenu的子项来处理
+        padding: 0 !important;
+    }
+    .front {
+        position: relative;
+        z-index: 2;
+        background-color: #fff;
+    }
+    .transition {
+        @include transition(transform .3s);
+    }
+    .action {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        overflow: hidden;
+        width: map-get($swipemenu, action-width);
+        background-color: map-get($swipemenu, action-bgcolor);
+        @include flexbox;
+        > .item {
+            @include flex;
+            @include align;
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-swipemenu
+ * @version 3.0.0
+ * @description 构造yo-swipemenu的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-swipemenu.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $action-width action宽度 <3.0.0>
+ * @param {Color} $action-bgcolor action背景色 <3.0.0>
+ */
+
+@mixin yo-swipemenu(
+    $name: default,
+    $action-width: default,
+    $action-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $action-width == default {
+        $action-width: map-get($swipemenu, action-width);
+    }
+    @if $action-bgcolor == default {
+        $action-bgcolor: map-get($swipemenu, action-bgcolor);
+    }
+    .yo-swipemenu#{$name} {
+        > .action {
+            @if $action-width != map-get($swipemenu, action-width) {
+                width: $action-width;
+            }
+            @if $action-bgcolor != map-get($swipemenu, action-bgcolor) {
+                background-color: $action-bgcolor;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入swipemenu基础构造
+.yo-swipemenu {
+    @include _swipemenu;
+}

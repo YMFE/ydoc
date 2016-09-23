@@ -1,0 +1,11 @@
+@charset "utf-8";
+@import "../../lib/fragment/yo-breadcrumb";
+
+/**
+ * yo-breadcrumb扩展
+ */
+
+@include yo-breadcrumb(
+    $name: test,
+    $arrow-content: "/"
+);

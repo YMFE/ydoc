@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.m-nodata {
+    padding-top: .55rem;
+    background: url(#{map-get($setting, bgimg-domain)}what.png) no-repeat center 0;
+    @include background-size(.9rem .55rem);
+    text-align: center;
+    .info {
+        padding: .12rem 0;
+        color: #999;
+        font-size: .16rem;
+    }
+    @include yo-btn(
+        $width: 1.3rem
+    );
+}
