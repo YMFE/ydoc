@@ -8,23 +8,26 @@ $(document).ready(function() {
     });
 
     $('code').each(function(i, block) {
-    if (block.innerHTML.indexOf('\n') != -1) {
+    if (block.innerHTML.indexOf('\n') !== -1) {
         var pn = block.parentNode;
-        if (pn.tagName.toUpperCase() == 'PRE') {
+        if (pn.tagName.toUpperCase() === 'PRE') {
             try {
                 hljs.highlightBlock(block);
-            } catch(e) {}
+            } catch(e) {
+                console.log(e);
+             }
         } else {
-            console.log('block.innerHTML=============',block.innerHTML);
             pn.innerHTML = '<pre class="ydoc-example"><code>' + block.innerHTML + '</code></pre>';
             try {
                 hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
-            } catch(e) {}
+            } catch(e) {
+                console.log(e);
+            }
         }
     }
     });
 
-  $('.docs-sidenav>li').click(function(e){
+  $('.docs-sidenav>li').click(function(){
       //$(this).addClass('active').siblings('li').removeClass('active');
       $(this).addClass('active').siblings('li').removeClass('active');
       $(this).next('ul').show().siblings('ul').hide();
@@ -39,7 +42,7 @@ $(document).ready(function() {
     //       //return false;
     //   }
   });
-  $('.docs-sidenav-extend li').click(function(e){
+  $('.docs-sidenav-extend li').click(function(){
     //   if($(this).hasClass('active')){
     //       $(this).removeClass('active');
     //   }else{
@@ -75,9 +78,9 @@ $(document).ready(function() {
     if($(window).scrollTop() >=  ydocContainerCon.offset().top){
         docSideNav.addClass('fixed');
         // if($(window).scrollTop() < cancelfixed){
-        //     docSideNav.css({'bottom':fixedbottom,top:'auto'});
+        //     docSideNav.css({'bottom':'0',top:'auto','position':"absolute"});
         // }else{
-        //     docSideNav.css({'bottom':'auto',top:0});
+        //     docSideNav.removeAttr('style');
         // }
         //console.log('window.scrollTop',$(window).scrollTop());
     }else{
@@ -94,8 +97,14 @@ $(document).ready(function() {
                  if($("a[href='#"+($(contentH2Array.eq(i)).attr("id"))+"']")){
                      var curScrollEl = $("a[href='#"+($(contentH2Array.eq(i)).attr("id"))+"']").parent('li');
                      curScrollEl.addClass('active').siblings('li').removeClass('active');
-                     if(curScrollEl.next('ul')){
+                     //curScrollEl.next('ul').show().siblings('ul').hide();
+                    //  console.log('===',curScrollEl.next());
+                    //  console.log('$(curScrollEl.next()[0]', $(curScrollEl.next())[0]);
+                     if($(curScrollEl.next())[0].tagName.toLowerCase()  === "ul"){
                          curScrollEl.next('ul').show().siblings('ul').hide();
+                     }else{
+                        curScrollEl.siblings('ul').hide();
+                        curScrollEl.siblings('ul').find('li').removeClass('active');
                      };
                  }
 
@@ -110,12 +119,12 @@ $(document).ready(function() {
                      curScrollEl.addClass('active').siblings('li').removeClass('active');
                      if(curScrollEl.next('ul')){
                          curScrollEl.next('ul').show().siblings('ul').hide();
-                         // var curExtendEl = curScrollEl.next('ul').find('li');
-                         // for(var j = 0; j>curExtendEl.length; j++){
-                         //     if($(window).scrollTop() > curExtendEl.eq(j).offset().top){
-                         //         var curSecondScrollEl = $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]").parent('li');
-                         //     }
-                         // }
+                        //  var curExtendEl = curScrollEl.next('ul').find('li');
+                        //  for(var j = 0; j>curExtendEl.length; j++){
+                        //      if($(window).scrollTop() > curExtendEl.eq(j).offset().top){
+                        //          var curSecondScrollEl = $("a[href=#"+($(contentIdArray.eq(i)).attr("id"))+"]").parent('li');
+                        //      }
+                        //  }
                      }
                  }
              };

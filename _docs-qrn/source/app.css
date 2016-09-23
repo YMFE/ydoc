@@ -165,7 +165,7 @@ sup, sub {
     cursor: pointer;
     color: #fff; }
   .ydoc .ydoc-banner-bg {
-    background: url(http://wrongwaycn.github.io/bootstrap/docs/assets/img/grid-18px-masked.png) repeat-x 0 top; }
+    background: url(./images/grid-18px-masked.png) repeat-x 0 top; }
   .ydoc-banner {
     color: #fff;
     font-size: .18rem;
@@ -198,7 +198,7 @@ sup, sub {
       color: #a1a1a1; }
   .ydoc-container-content {
     overflow: hidden;
-    background-color: #eeeeee;
+    background-color: #eee;
     /* Old browsers */
     margin: 20px auto;
     box-shadow: 0 0  10px #e5e5e5; }
@@ -766,7 +766,8 @@ sup, sub {
 .markdown-body .docs-section h3 {
   color: #ff503f;
   border-left-color: #ff503f;
-  font-weight: normal; }
+  font-weight: normal;
+  padding-bottom: .1rem; }
 .markdown-body .docs-section .con-list-item {
   border-bottom: 1px solid #ddd;
   padding: .3rem 0; }
@@ -781,5 +782,3 @@ sup, sub {
   margin: -.1rem 0 .15rem;
   display: block;
   cursor: pointer; }
-
-/*# sourceMappingURL=app.css.map */
