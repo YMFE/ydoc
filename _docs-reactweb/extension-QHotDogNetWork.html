@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native for Web 扩展</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">简介</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="extension.html">扩展</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">使用与发布流程</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="hack.html">黑科技</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="demo.html">DEMO</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="releases.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/qrn/" target="_blank">QRN</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>Qunar React Native for Web 扩展</h1>
+                  <p>扩展</p>
+              </div>
+          </div>
+      
+
+
+
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-right">
+                  <nav class="sidebar">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <li  >
+                            
+                            <a href="extension-ABTest.html">ABTest</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="extension-CookieManager.html">CookieManager</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="extension-CameraRoll.html">CameraRoll</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="extension-CVParam.html">CVParam</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="extension-DeviceInfo.html">DeviceInfo</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="extension-MapUtils.html">MapUtils</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  class="active"   class="active" >
+                            
+                            <a href="extension-QHotDogNetWork.html">QHotDogNetWork</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="extension-QShare.html">QShare</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="extension-QLoginManager.html">QLoginManager</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="extension-ImageUploader.html">ImageUploader</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="extension-UElog.html">UElog</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-left markdown-body">
+                
+                <h1>
+    QHotDogNetWork
+    <small>QHotDogNetWork 模块</small>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
+</h1>
+<div class="api-content"></div>
+
+<h2>属性</h2>
+
+<blockquote class="api">
+    <strong>postRequest</strong>
+     <span>{ function }</span>
+    
+</blockquote>
+<div class="api-content"><p>该方法用来发起请求，请求时需要传入一个配置对象， 该配置对象用来设定请求的 url， 以及成功或失败的回调等等。
+该方法使用 GET 方法发起请求， 另外目前不支持 useCache 选项， 同样也就不支持 cacheCallback。</p>
+<h4 id="options-">options 的配置项</h4>
+<ul>
+<li>url：网络请求的 url</li>
+<li>param：网络请求的参数</li>
+<li>successCallback：网络请求成功的回调</li>
+<li>failCallback：网络请求失败的回调</li>
+</ul>
+</div>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>options</td>
+            <td>object</td>
+            <td>网络请求的配置项</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+<blockquote class="api">
+    <strong>cancelNetWorkTask</strong>
+     <span>{ function }</span>
+    
+</blockquote>
+<div class="api-content"><p>该方法用来取消网络请求</p>
+</div>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>id</td>
+            <td>number</td>
+            <td>postRequest 返回的网络请求 id</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+
+<h2>示例</h2>
+<pre class="ydoc-example"><code>./QHotDogNetWork.js
+ @description 这里的 QHotDogNetWork 是 QRN 中 QHotDogNetWork 的弱化版， 由于在 web 上存在诸多限制，且脱离了客户端的环境,
+这里的 QHotDogNetWork 已经不算是 HotDog 了。具体差异存在在以下几点:
+
+- 仅仅封装了 XMLHttpRequest 用来简化 GET 请求。
+- 数据没有加密传输。
+- 只能请求同域或者允许跨域的资源。
+- 不能使用 serviceType 配置，因此必须提供 url。
+- 由于在 web 上存在跨域的限制，在 web 上 QHotDogNetWork 只能进行同域或者允许跨域的资源。
+
+总的来说，在 web 上它仅仅能帮助你简化 GET 请求，因此你或许可以用 fetch 来实现更加灵活的 HTTP 请求。</code></pre>
+
+
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

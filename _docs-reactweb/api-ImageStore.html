@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native for Web API</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">简介</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extension.html">扩展</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">使用与发布流程</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="hack.html">黑科技</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="demo.html">DEMO</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="releases.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/qrn/" target="_blank">QRN</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>Qunar React Native for Web API</h1>
+                  <p>API</p>
+              </div>
+          </div>
+      
+
+
+
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-right">
+                  <nav class="sidebar">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-AppRegistry.html">AppRegistry</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-AppState.html">AppState</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-Animated.html">Animated</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-AsyncStorage.html">AsyncStorage</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-Clipboard.html">Clipboard</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-Dimensions.html">Dimensions</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-Fetch.html">Fetch</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-ImageEditor.html">ImageEditor</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  class="active"   class="active" >
+                            
+                            <a href="api-ImageStore.html">ImageStore</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-ImagePicker.html">ImagePicker</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-Geolocation.html">Geolocation</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-Linking.html">Linking</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-StyleSheet.html">StyleSheet</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-NetInfo.html">NetInfo</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-NativeModules.html">NativeModules</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-NativeModules.UIManager.html">NativeModules.UIManager</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-NativeModules.NativeAPI.html">NativeModules.NativeAPI</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-PanResponder.html">PanResponder</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-PixelRatio.html">PixelRatio</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li  >
+                            
+                            <a href="api-Vibration.html">Vibration</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-left markdown-body">
+                
+                <h1>
+    ImageStore
+    <small>ImageStore 接口</small>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>= v1.4</span>
+</h1>
+<div class="api-content"></div>
+
+
+<h2>方法</h2>
+
+<blockquote class="api">
+    <strong>hasImageForTag</strong>
+    
+</blockquote>
+<div class="api-content"><p> 检测uri是否存在于ImageStore中</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>uri</td>
+            <td>string</td>
+            <td>存储图片uri</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>callback</td>
+            <td>function</td>
+            <td>回调函数，图片存在于ImageStore中，参数为1，不存在参数为0.</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <strong>removeImageForTag</strong>
+    
+</blockquote>
+<div class="api-content"><p> 从ImageStore中删除该图片</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>uri</td>
+            <td>string</td>
+            <td>图片uri</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <strong>addImageFromBase64</strong>
+    
+</blockquote>
+<div class="api-content"><p> 将一个base64格式的图片存储在ImageStore中，并返回该图标的uri，你可以在页面中引用并渲染该图片。</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>base64ImageData</td>
+            <td>string</td>
+            <td>图片base64格式</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>success</td>
+            <td>function</td>
+            <td>成功的回调函数，参数为该图片的uri</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>failure</td>
+            <td>function</td>
+            <td>失败的回调函数</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <strong>getBase64ForTag</strong>
+    
+</blockquote>
+<div class="api-content"><p> 通过uri得到ImageStore中与之关联的base64位格式</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>uri</td>
+            <td>string</td>
+            <td>存储图片uri</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>success</td>
+            <td>function</td>
+            <td>成功的回调函数，参数为存储在ImageStore中的base64位格式。</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>failure</td>
+            <td>function</td>
+            <td>失败的回调函数</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+
+<h2>示例</h2>
+<pre class="ydoc-example"><code> * @providesModule ImageStoreExample
+ **/
+'use strict';
+
+import React, {
+    Component,
+    Image,
+    StyleSheet,
+    Text,
+    View,
+    ImageStore,
+    TouchableOpacity,
+    AppRegistry
+} from 'qunar-react-native';
+
+
+// 兼容一下两种形式，第二种默认类型为image/png 
+const base64Icon = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAQAAACSR7JhAAADtUlEQVR4Ac3YA2Bj6QLH0XPT1Fzbtm29tW3btm3bfLZtv7e2ObZnms7d8Uw098tuetPzrxv8wiISrtVudrG2JXQZ4VOv+qUfmqCGGl1mqLhoA52oZlb0mrjsnhKpgeUNEs91Z0pd1kvihA3ULGVHiQO2narKSHKkEMulm9VgUyE60s1aWoMQUbpZOWE+kaqs4eLEjdIlZTcFZB0ndc1+lhB1lZrIuk5P2aib1NBpZaL+JaOGIt0ls47SKzLC7CqrlGF6RZ09HGoNy1lYl2aRSWL5GuzqWU1KafRdoRp0iOQEiDzgZPnG6DbldcomadViflnl/cL93tOoVbsOLVM2jylvdWjXolWX1hmfZbGR/wjypDjFLSZIRov09BgYmtUqPQPlQrPapecLgTIy0jMgPKtTeob2zWtrGH3xvjUkPCtNg/tm1rjwrMa+mdUkPd3hWbH0jArPGiU9ufCsNNWFZ40wpwn+62/66R2RUtoso1OB34tnLOcy7YB1fUdc9e0q3yru8PGM773vXsuZ5YIZX+5xmHwHGVvlrGPN6ZSiP1smOsMMde40wKv2VmwPPVXNut4sVpUreZiLBHi0qln/VQeI/LTMYXpsJtFiclUN+5HVZazim+Ky+7sAvxWnvjXrJFneVtLWLyPJu9K3cXLWeOlbMTlrIelbMDlrLenrjEQOtIF+fuI9xRp9ZBFp6+b6WT8RrxEpdK64BuvHgDk+vUy+b5hYk6zfyfs051gRoNO1usU12WWRWL73/MMEy9pMi9qIrR4ZpV16Rrvduxazmy1FSvuFXRkqTnE7m2kdb5U8xGjLw/spRr1uTov4uOgQE+0N/DvFrG/Jt7i/FzwxbA9kDanhf2w+t4V97G8lrT7wc08aA2QNUkuTfW/KimT01wdlfK4yEw030VfT0RtZbzjeMprNq8m8tnSTASrTLti64oBNdpmMQm0eEwvfPwRbUBywG5TzjPCsdwk3IeAXjQblLCoXnDVeoAz6SfJNk5TTzytCNZk/POtTSV40NwOFWzw86wNJRpubpXsn60NJFlHeqlYRbslqZm2jnEZ3qcSKgm0kTli3zZVS7y/iivZTweYXJ26Y+RTbV1zh3hYkgyFGSTKPfRVbRqWWVReaxYeSLarYv1Qqsmh1s95S7G+eEWK0f3jYKTbV6bOwepjfhtafsvUsqrQvrGC8YhmnO9cSCk3yuY984F1vesdHYhWJ5FvASlacshUsajFt2mUM9pqzvKGcyNJW0arTKN1GGGzQlH0tXwLDgQTurS8eIQAAAABJRU5ErkJggg==';
+const base64Icon2 = 'iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAQAAACSR7JhAAADtUlEQVR4Ac3YA2Bj6QLH0XPT1Fzbtm29tW3btm3bfLZtv7e2ObZnms7d8Uw098tuetPzrxv8wiISrtVudrG2JXQZ4VOv+qUfmqCGGl1mqLhoA52oZlb0mrjsnhKpgeUNEs91Z0pd1kvihA3ULGVHiQO2narKSHKkEMulm9VgUyE60s1aWoMQUbpZOWE+kaqs4eLEjdIlZTcFZB0ndc1+lhB1lZrIuk5P2aib1NBpZaL+JaOGIt0ls47SKzLC7CqrlGF6RZ09HGoNy1lYl2aRSWL5GuzqWU1KafRdoRp0iOQEiDzgZPnG6DbldcomadViflnl/cL93tOoVbsOLVM2jylvdWjXolWX1hmfZbGR/wjypDjFLSZIRov09BgYmtUqPQPlQrPapecLgTIy0jMgPKtTeob2zWtrGH3xvjUkPCtNg/tm1rjwrMa+mdUkPd3hWbH0jArPGiU9ufCsNNWFZ40wpwn+62/66R2RUtoso1OB34tnLOcy7YB1fUdc9e0q3yru8PGM773vXsuZ5YIZX+5xmHwHGVvlrGPN6ZSiP1smOsMMde40wKv2VmwPPVXNut4sVpUreZiLBHi0qln/VQeI/LTMYXpsJtFiclUN+5HVZazim+Ky+7sAvxWnvjXrJFneVtLWLyPJu9K3cXLWeOlbMTlrIelbMDlrLenrjEQOtIF+fuI9xRp9ZBFp6+b6WT8RrxEpdK64BuvHgDk+vUy+b5hYk6zfyfs051gRoNO1usU12WWRWL73/MMEy9pMi9qIrR4ZpV16Rrvduxazmy1FSvuFXRkqTnE7m2kdb5U8xGjLw/spRr1uTov4uOgQE+0N/DvFrG/Jt7i/FzwxbA9kDanhf2w+t4V97G8lrT7wc08aA2QNUkuTfW/KimT01wdlfK4yEw030VfT0RtZbzjeMprNq8m8tnSTASrTLti64oBNdpmMQm0eEwvfPwRbUBywG5TzjPCsdwk3IeAXjQblLCoXnDVeoAz6SfJNk5TTzytCNZk/POtTSV40NwOFWzw86wNJRpubpXsn60NJFlHeqlYRbslqZm2jnEZ3qcSKgm0kTli3zZVS7y/iivZTweYXJ26Y+RTbV1zh3hYkgyFGSTKPfRVbRqWWVReaxYeSLarYv1Qqsmh1s95S7G+eEWK0f3jYKTbV6bOwepjfhtafsvUsqrQvrGC8YhmnO9cSCk3yuY984F1vesdHYhWJ5FvASlacshUsajFt2mUM9pqzvKGcyNJW0arTKN1GGGzQlH0tXwLDgQTurS8eIQAAAABJRU5ErkJggg=='
+
+const styles = StyleSheet.create({
+    base: {
+        width: 38,
+        height: 38,
+    },
+    button:{
+        height:40,
+        backgroundColor:'#1ba9ba',
+        marginBottom:10,
+        alignItems:'center',
+        justifyContent:'center',
+    },
+    buttonText:{
+        color:'#fff',
+    }
+});
+
+
+class ImageStoreExample extends Component{
+    constructor(props) {
+      super(props);
+    
+      this.state = {
+        uri:''
+      };
+    }
+    addImageFromBase64(){
+        ImageStore.addImageFromBase64(base64Icon,(uri)=&gt;{
+            console.log('addImageFromBase64 success',uri)
+            this.setState({uri:uri})
+        },(error)=&gt;{
+            console.log('addImageFromBase64 fail',error)
+        })
+    }
+    getBase64ForTag(){
+        ImageStore.getBase64ForTag(this.state.uri,(data)=&gt;{
+            console.log('getBase64ForTag success',data)
+        },(error)=&gt;{
+            console.log('getBase64ForTag error',error)
+        })
+    }
+    hasImageForTag(uri,callback){
+        ImageStore.hasImageForTag(this.state.uri,(e)=&gt;{console.log('hasImageForTag',e)})
+        ImageStore.hasImageForTag('test',(e)=&gt;{console.log('hasImageForTag a error uri ',e)})
+    }
+    removeImageForTag(uri){
+        ImageStore.removeImageForTag(this.state.uri);
+    }
+
+    render(){
+        return(
+            &lt;View&gt;
+                &lt;TouchableOpacity style={styles.button} onPress={this.addImageFromBase64.bind(this)}&gt;
+                    &lt;Text style={styles.buttonText} &gt;addImageFromBase64&lt;/Text&gt;
+                &lt;/TouchableOpacity&gt;
+                &lt;TouchableOpacity style={styles.button} onPress={this.getBase64ForTag.bind(this)}&gt;
+                    &lt;Text style={styles.buttonText} &gt;getBase64ForTag&lt;/Text&gt;
+                &lt;/TouchableOpacity&gt;
+                &lt;TouchableOpacity style={styles.button} onPress={this.hasImageForTag.bind(this)}&gt;
+                    &lt;Text style={styles.buttonText} &gt;hasImageForTag&lt;/Text&gt;
+                &lt;/TouchableOpacity&gt;
+                &lt;TouchableOpacity style={styles.button} onPress={this.removeImageForTag.bind(this)}&gt;
+                    &lt;Text style={styles.buttonText} &gt;removeImageForTag&lt;/Text&gt;
+                &lt;/TouchableOpacity&gt;
+                &lt;Image
+                    source={{uri: this.state.uri}}
+                    style={styles.base}
+                /&gt;
+            &lt;/View&gt;
+        )
+    }
+
+}
+
+AppRegistry.registerComponent('ImageStoreExample', () =&gt; ImageStoreExample)
+
+
+</code></pre>
+
+
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

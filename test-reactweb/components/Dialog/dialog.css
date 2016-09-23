@@ -1,0 +1,100 @@
+$background=#fff
+$activeColor=#f9f9f9
+$modalColor=#000
+$footerHeight=44px
+
+$boderRadius=5px
+
+.dialogLayout {
+    /*flex: 1;*/
+    background: rgba(0, 0, 0, 0.2);
+    justify-content: space-around; /*竖直居中*/
+    align-items: center;/*让dialog水平居中*/
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.dialog {
+    background: $background;
+    border: 1px solid #ccc;
+    flex-direction:column;
+    border-radius: $boderRadius;
+    align-self: center;
+    width: 280px;
+    overflow: hidden;
+}
+.dialogNoModal {
+    position: absolute;
+    margin-left: -140px;
+}
+.title {
+    background: transparent;
+    height: 44px;
+    overflow: hidden;
+    position: relative;
+    justify-content: center;
+}
+.titleText {
+    font-size: 16px;
+    margin: 0 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.titleButton {
+    position: absolute;
+    top: 0px;
+    height: 44px;
+    justify-content: center;
+}
+.titleLeft {
+    left: 10px;
+}
+.titleRight {
+    right: 10px;
+}
+.titleButtonText {
+    color: #212121;
+}
+.titleButtonClose {
+}
+.content {
+    flex: 1;
+    padding: 10px;
+    overflow: visible;
+}
+.contentText {
+    font-size: 16px;
+}
+.footer {
+    background: transparent;
+    border-top: 1px solid #ccc;
+    height: $footerHeight;
+    flex-direction: row;
+    border-radius: 0 0 $boderRadius $boderRadius;/*这个在android上是不支持的*/
+}
+.button{
+    background: transparent;
+    height: 44px;
+    flex: 1;
+    justify-content: center;
+}
+.buttonActive {
+    background: $activeColor;
+}
+.buttonLeft {
+    border-right: 1px solid #ccc;
+}
+.buttonRight {
+}
+.buttonText {
+    text-align: center;
+    color: #00afc7;
+    font-size: 16px;
+}
+.hidden {
+    width: 0.1;/*设置成0在android上不work*/
+    height: 0.1;
+}

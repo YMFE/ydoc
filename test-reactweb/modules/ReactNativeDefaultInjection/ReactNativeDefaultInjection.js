@@ -1,0 +1,5 @@
+/* 
+ * @providesModule ReactNativeDefaultInjection
+ */
+
+module.exports = {}

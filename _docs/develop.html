@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native for Web 开发</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">简介</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extension.html">扩展</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="demo.html">DEMO</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="releases.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/qrn/" target="_blank">QRN</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>开发</h1>
+                  <p>开发</p>
+              </div>
+          </div>
+      
+
+
+
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-right">
+                  <nav class="sidebar">
+                    <ul class="nav docs-sidenav">
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-left markdown-body">
+                
+                <h2 id="React Web开发秘籍">React Web开发秘籍</h2><p>React Web最大程度公用Native的业务代码，以下是需要注意的技术点：</p>
+<h4 id="- 定制React web专属代码">- 定制React web专属代码</h4><h5 id="+ 通过命名规则">+ 通过命名规则</h5><p>getData.js</p>
+<pre><code>/**
+ * @providesModule getData
+ * @description Native专属
+ */
+// Native会打包getData.js
+</code></pre><p>getData.web.js</p>
+<pre><code>/**
+ * @providesModule getData
+ * @description Web专属
+ */
+// Web会打包getData.web.js
+</code></pre><h5 id="+ 通过逻辑判断定制">+ 通过逻辑判断定制</h5><pre><code>var os = require(&#39;react-native&#39;).Platform.OS
+if(os === &#39;web&#39;) {
+    // 打个酱油
+}
+</code></pre><h4 id="- 补齐自定组件和接口">- 补齐自定组件和接口</h4><ul>
+<li>依赖native模块的自定义组件、接口，需要业务提供Web版实现</li>
+<li>不依赖native模块的自定义组件、接口，在确保兼容性情况下可以共用</li>
+</ul>
+<h4 id="- 补齐sendScheme">- 补齐sendScheme</h4><p>在React Native里通过sendScheme跳转、新开应用，scheme指定的url在浏览器上默认会唤起native应用，如果想阻止这个默认行为，你需要配置跳转规则函数<a href="./api-NativeModules.NativeAPI.html">NativeModules UrlMapping</a></p>
+<h4 id="- 在hy内的运用">- 在hy内的运用</h4><p>与hy webView的通信还是必须通过<a href="http://hy.qunar.com/docs/qunarapi-api.html">QunarAPI</a>来进行</p>
+<pre><code>QunarAPI.hy.onReiveData({
+    ...
+})
+</code></pre><h4 id="- 通过fekit mock数据">- 通过fekit mock数据</h4><p>开发阶段，通过mock请求数据，解决浏览器内不能跨域fetch数据</p>
+<pre><code>{
+    &quot;/api/xx&quot;: xxxx
+}
+</code></pre>
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

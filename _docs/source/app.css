@@ -758,7 +758,8 @@ sup, sub {
 
 .markdown-body blockquote.api {
   border-left: none;
-  padding: 0; }
+  padding: 0;
+  color: #ff503f; }
 .markdown-body .docs-section h1, .markdown-body .docs-section h2 {
   border-bottom: none; }
 .markdown-body .docs-section .blockquote.api {
@@ -782,3 +783,5 @@ sup, sub {
   margin: -.1rem 0 .15rem;
   display: block;
   cursor: pointer; }
+
+/*# sourceMappingURL=app.css.map */
