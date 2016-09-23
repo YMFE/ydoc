@@ -4,9 +4,7 @@
 
 node_modules
 node_modules/
-test-kami/scripts/**/*
-!test-kami/scripts/**/src/
-
+.sass-cache/
 
 # maven ignore
 target/
