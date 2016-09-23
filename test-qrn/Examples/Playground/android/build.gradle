@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion 23
+  buildToolsVersion "23.0.1"
+
+  packagingOptions {
+    exclude 'resources.arsc'
+  }
+
+  defaultConfig {
+    applicationId "com.mqunar.react.test"
+    minSdkVersion 14
+    targetSdkVersion 22
+    versionCode 1
+    versionName "1.0"
+    ndk {
+//      abiFilters "armeabi","armeabi-v7a", "x86"
+      abiFilters "armeabi"
+    }
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+  lintOptions {
+    abortOnError false
+  }
+
+}
+
+dependencies {
+  compile fileTree(dir: 'libs', include: ['*.jar'])
+  compile 'com.android.support:appcompat-v7:23.0.1'
+
+  // Build React Native from source
+  compile project(':ReactAndroid')
+}

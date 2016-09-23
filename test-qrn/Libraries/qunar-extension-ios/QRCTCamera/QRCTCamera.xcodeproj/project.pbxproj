@@ -1,0 +1,278 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE8A3D551C4652B8005528E3 /* QRCTCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8A3D501C4652B8005528E3 /* QRCTCamera.m */; };
+		BE8A3D561C4652B8005528E3 /* QRCTCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8A3D521C4652B8005528E3 /* QRCTCameraView.m */; };
+		BE8A3D571C4652B8005528E3 /* QRCTCameraViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8A3D541C4652B8005528E3 /* QRCTCameraViewManager.m */; };
+		BE8A3D5A1C4652D7005528E3 /* UIImage+QRCTFixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8A3D581C4652D7005528E3 /* UIImage+QRCTFixOrientation.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BE8A3D2D1C464A11005528E3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BE8A3D2F1C464A11005528E3 /* libQRCTCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQRCTCamera.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8A3D4F1C4652B8005528E3 /* QRCTCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCTCamera.h; sourceTree = "<group>"; };
+		BE8A3D501C4652B8005528E3 /* QRCTCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCTCamera.m; sourceTree = "<group>"; };
+		BE8A3D511C4652B8005528E3 /* QRCTCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCTCameraView.h; sourceTree = "<group>"; };
+		BE8A3D521C4652B8005528E3 /* QRCTCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCTCameraView.m; sourceTree = "<group>"; };
+		BE8A3D531C4652B8005528E3 /* QRCTCameraViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCTCameraViewManager.h; sourceTree = "<group>"; };
+		BE8A3D541C4652B8005528E3 /* QRCTCameraViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCTCameraViewManager.m; sourceTree = "<group>"; };
+		BE8A3D581C4652D7005528E3 /* UIImage+QRCTFixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+QRCTFixOrientation.m"; sourceTree = "<group>"; };
+		BE8A3D591C4652D7005528E3 /* UIImage+QRCTFixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+QRCTFixOrientation.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE8A3D2C1C464A11005528E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE8A3D261C464A11005528E3 = {
+			isa = PBXGroup;
+			children = (
+				BE8A3D311C464A11005528E3 /* QRCTCamera */,
+				BE8A3D301C464A11005528E3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE8A3D301C464A11005528E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE8A3D2F1C464A11005528E3 /* libQRCTCamera.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE8A3D311C464A11005528E3 /* QRCTCamera */ = {
+			isa = PBXGroup;
+			children = (
+				BE8A3D4F1C4652B8005528E3 /* QRCTCamera.h */,
+				BE8A3D501C4652B8005528E3 /* QRCTCamera.m */,
+				BE8A3D511C4652B8005528E3 /* QRCTCameraView.h */,
+				BE8A3D521C4652B8005528E3 /* QRCTCameraView.m */,
+				BE8A3D531C4652B8005528E3 /* QRCTCameraViewManager.h */,
+				BE8A3D541C4652B8005528E3 /* QRCTCameraViewManager.m */,
+				BE8A3D581C4652D7005528E3 /* UIImage+QRCTFixOrientation.m */,
+				BE8A3D591C4652D7005528E3 /* UIImage+QRCTFixOrientation.h */,
+			);
+			path = QRCTCamera;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE8A3D2E1C464A11005528E3 /* QRCTCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE8A3D381C464A11005528E3 /* Build configuration list for PBXNativeTarget "QRCTCamera" */;
+			buildPhases = (
+				BE8A3D2B1C464A11005528E3 /* Sources */,
+				BE8A3D2C1C464A11005528E3 /* Frameworks */,
+				BE8A3D2D1C464A11005528E3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QRCTCamera;
+			productName = QRCTCamera;
+			productReference = BE8A3D2F1C464A11005528E3 /* libQRCTCamera.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE8A3D271C464A11005528E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Qunar;
+				TargetAttributes = {
+					BE8A3D2E1C464A11005528E3 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = BE8A3D2A1C464A11005528E3 /* Build configuration list for PBXProject "QRCTCamera" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BE8A3D261C464A11005528E3;
+			productRefGroup = BE8A3D301C464A11005528E3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE8A3D2E1C464A11005528E3 /* QRCTCamera */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE8A3D2B1C464A11005528E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE8A3D5A1C4652D7005528E3 /* UIImage+QRCTFixOrientation.m in Sources */,
+				BE8A3D551C4652B8005528E3 /* QRCTCamera.m in Sources */,
+				BE8A3D571C4652B8005528E3 /* QRCTCameraViewManager.m in Sources */,
+				BE8A3D561C4652B8005528E3 /* QRCTCameraView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BE8A3D361C464A11005528E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BE8A3D371C464A11005528E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE8A3D391C464A11005528E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../../React/**",
+					"${SRCROOT}/../../../Libraries/**",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BE8A3D3A1C464A11005528E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../../React/**",
+					"${SRCROOT}/../../../Libraries/**",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE8A3D2A1C464A11005528E3 /* Build configuration list for PBXProject "QRCTCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE8A3D361C464A11005528E3 /* Debug */,
+				BE8A3D371C464A11005528E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE8A3D381C464A11005528E3 /* Build configuration list for PBXNativeTarget "QRCTCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE8A3D391C464A11005528E3 /* Debug */,
+				BE8A3D3A1C464A11005528E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE8A3D271C464A11005528E3 /* Project object */;
+}
