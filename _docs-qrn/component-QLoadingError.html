@@ -276,21 +276,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     QLoadingError
     <small>Qunar骆驼加载失败组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger">>=v1.0.0</span>
+</h2>
 <div class="api-content"><p>渲染出一个带问号的骆驼的组件。</p>
 <p><img src="./images/component-QLoadingError.png" alt="QLoadingError"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>titleText</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>骆驼下面显示的第一行文字</p>
 </div>
@@ -302,9 +306,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>titleStyle</strong>
-     <span>{ Text.propTypes.style }</span>
+     <span class="prop-type">{ Text.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>标题的样式</p>
 <p><strong>注意：此属性的如果传入样式，会以merge的形式覆盖默认样式。</strong></p>
@@ -317,9 +323,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>hintText</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>骆驼下面显示的第二行文字</p>
 </div>
@@ -331,9 +339,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>hintStyle</strong>
-     <span>{ Text.propTypes.style }</span>
+     <span class="prop-type">{ Text.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>提示内容的样式</p>
 <p><strong>注意：此属性的如果传入样式，会以merge的形式覆盖默认样式。</strong></p>
@@ -346,9 +356,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>buttonText</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>骆驼下面显示的按钮的文字</p>
 </div>
@@ -360,9 +372,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>buttonStyle</strong>
-     <span>{ View.propTypes.style }</span>
+     <span class="prop-type">{ View.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>按钮的样式</p>
 <p><strong>注意：此属性的如果传入样式，会以merge的形式覆盖默认样式。</strong></p>
@@ -375,9 +389,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>buttonTextStyle</strong>
-     <span>{ Text.propTypes.style }</span>
+     <span class="prop-type">{ Text.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>按钮文本的样式</p>
 <p><strong>注意：此属性的如果传入样式，会以merge的形式覆盖默认样式。</strong></p>
@@ -390,9 +406,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>hideTitle</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>是否隐藏骆驼下面的第一行文字，默认为false不隐藏</p>
 </div>
@@ -404,9 +422,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>hideHint</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>是否隐藏骆驼下面的第二行文字，默认为false不隐藏</p>
 </div>
@@ -418,9 +438,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>hideButton</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>是否隐藏骆驼下面的按钮，默认为false不隐藏</p>
 </div>
@@ -432,9 +454,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderButton</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>() =&gt; renderable</p>
 <p>渲染按钮的方法，用来实现自定义的按钮（可以使用<a href="./component-Button.html">Button</a>组件来渲染，它提供了更多的配置和更多的状态）</p>
@@ -443,9 +467,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onPress</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(event) =&gt; void</p>
 <p>点击骆驼下面的按钮时调用</p>
@@ -491,7 +517,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 import React, {QLoadingError, View, Button} from 'qunar-react-native';
 
@@ -532,6 +558,8 @@ module.exports = {
 };</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

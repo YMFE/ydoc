@@ -516,6 +516,17 @@
         .con-list-item{
             border-bottom: 1px solid #ddd;
             padding: .3rem 0;
+            .con-head{
+                font-size: 22px;
+                font-weight: bold;
+                border-bottom: 1px solid #ddd;
+                margin: 0 0 .3rem;
+                padding: .1rem 0;
+                width: 100%;
+            }
+            .prop-type{
+                font-size: 14px;
+            }
         }
         .con-list-item:last-child{
             border:none;

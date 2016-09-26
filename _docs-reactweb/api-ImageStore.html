@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -272,19 +278,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     ImageStore
     <small>ImageStore 接口</small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>= v1.4</span>
-</h1>
-<div class="api-content"></div>
+</h2>
+<div class="api-content"><p>ImageStore 提供React Native <code>ImageStore</code> API的web实现</p>
+<p>注意：该方法耗费内存，所以当使用完时请手动调用<code>removeImageForTag</code>方法。</p>
+</div>
+<div class="con-list-item">
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>hasImageForTag</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> 检测uri是否存在于ImageStore中</p>
 </div>
@@ -338,8 +350,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>removeImageForTag</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> 从ImageStore中删除该图片</p>
 </div>
@@ -382,8 +396,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>addImageFromBase64</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> 将一个base64格式的图片存储在ImageStore中，并返回该图标的uri，你可以在页面中引用并渲染该图片。</p>
 </div>
@@ -448,8 +464,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>getBase64ForTag</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> 通过uri得到ImageStore中与之关联的base64位格式</p>
 </div>
@@ -515,7 +533,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code> * @providesModule ImageStoreExample
  **/
 'use strict';
@@ -616,6 +634,8 @@ AppRegistry.registerComponent('ImageStoreExample', () =&gt; ImageStoreExample)
 </code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

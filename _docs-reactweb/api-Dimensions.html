@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -272,21 +278,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Dimensions
     <small></small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    
+</h2>
 <div class="api-content"><p>本模块用于获取设备屏幕的宽高。初始的尺寸信息应该在runApplication之后被执行，
 所以它可以在任何其他的require被执行之前就可用。不过在稍后可能还会更新。</p>
 </div>
+<div class="con-list-item">
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>get</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>通过制定字符串返回对应的尺寸信息，可选的参数为 <code>&#39;screen&#39;</code> 或者 <code>&#39;window&#39;</code>。
 举例如下：</p>
@@ -345,8 +355,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>set</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置设备屏幕的大小。在 web 中，设备的宽高会固定被设置为 <code>window.innerWidth</code>
 和 <code>window.innerHeight</code> ,字体缩放量被设置为 1 ,设备缩放量被设置为设备的设备像素比。</p>
@@ -356,6 +368,8 @@
 
 
 
+</div>
+</div>
 
               </div>
           </div>

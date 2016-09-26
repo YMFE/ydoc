@@ -4,12 +4,16 @@ var path = require('path');
 module.exports = function() {
     return {
         "name": "Kami",
-        "dest": "./_docs-kami/",
+        "dest": "./_docs-kami",
+        //"examplePath": "./test-qrn/Examples/",
+        "resources": {
+            "images": './test-kami/_doc/_template/images/'
+        },
         "common": {
             "title": "Kami",
             "footer": "© 2015 - 2016 Qunar 平台前端架构组. Powered by <a href=\"http://gitlab.corp.qunar.com/mfe/qdoc\">qdoc</a>",
-            // "home": "HY",
-            // "homeUrl": "http://ued.qunar.com/hy/",
+            "home": "HY",
+            "homeUrl": "http://ued.qunar.com/hy/",
             "navbars": []
         },
         "pages": [{

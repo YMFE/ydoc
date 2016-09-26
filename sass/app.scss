@@ -140,15 +140,6 @@ sup,sub{vertical-align:baseline}
       background: url(./images/grid-18px-masked.png) repeat-x 0 top;
   }
   &-banner{
-     // background: url(http://wrongwaycn.github.io/bootstrap/docs/assets/img/grid-18px-masked.png) repeat-x 0 bottom;
-    //background-color: #ff503f;
-
-    // background-image: -webkit-gradient(linear,left top,left bottom,from(#f6f6f6),to(#f1f1f1));
-    // background-image: -webkit-linear-gradient(top,#f6f6f6 0,#f1f1f1 100%);
-    // background-image: -o-linear-gradient(top,#f6f6f6 0,#f1f1f1 100%);
-    // background-image: linear-gradient(to bottom,#f6f6f6 0,#f1f1f1 100%);
-    // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#f1f1f1', GradientType=0);
-    // background-repeat: repeat-x;
     color:#fff;
     font-size:.18rem;
     padding: 20px 30px;
@@ -184,6 +175,11 @@ sup,sub{vertical-align:baseline}
           font-size: 14px;
           text-align: center;
           color: #a1a1a1;
+          a{
+            color:#a1a1a1;
+            text-decoration: underline;
+          }
+
       }
   }
 
@@ -191,18 +187,9 @@ sup,sub{vertical-align:baseline}
 
     &-content{
       overflow:hidden;
-    //   background: #f1f1f1;
       background-color: #eee; /* Old browsers */
-    //   background-repeat: repeat-x; /* Repeat the gradient */
-    //   background-image: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%); /* FF3.6+ */
-    //   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
-    //   background-image: -webkit-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* Chrome 10+,Safari 5.1+ */
-    //   background-image: -ms-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* IE10+ */
-    //   background-image: -o-linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* Opera 11.10+ */
-    //   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
-    //   background-image: linear-gradient(top, #f5f5f5 0%,#eeeeee 100%); /* W3C */
       margin:20px auto;
-      box-shadow: 0 0  10px #e5e5e5;
+      box-shadow: 0 0  3px #e5e5e5;
       .static-code-content{
            width: 100%;
            background: #fff;

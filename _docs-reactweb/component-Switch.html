@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,19 +310,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Switch
     <small>Switch组件</small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4.0</span>
-</h1>
-<div class="api-content"></div>
+</h2>
+<div class="api-content"><p> Switch是一个可以在两个状态中进行切换的组件。</p>
+<p><img src="./images/component/Switch.gif" alt="Switch"></p>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>value</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>表示Switch开关是否打开</p>
 </div>
@@ -328,9 +340,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>disabled</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>是否禁用该组件，如果为true，这个组件不能进行交互。</p>
 </div>
@@ -338,9 +352,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onValueChange</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当值改变的时候调用此回调函数</p>
 </div>
@@ -382,9 +398,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onTintColor</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>开启状态时的背景颜色。</p>
 </div>
@@ -392,9 +410,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>thumbTintColor</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>开关圆形按钮的背景颜色。</p>
 </div>
@@ -402,9 +422,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>tintColor</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>关闭状态时的背景颜色。</p>
 </div>
@@ -414,7 +436,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 var React = require('react');
 var ReactNative = require('qunar-react-native');
@@ -527,6 +549,8 @@ var styles = StyleSheet.create({
 AppRegistry.registerComponent('AwesomeProject', () =&gt; Demo);</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

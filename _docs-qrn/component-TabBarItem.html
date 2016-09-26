@@ -276,19 +276,23 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     TabBarItem
     <small>单个标签项</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger">>=v1.0.0</span>
+</h2>
 <div class="api-content"></div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>badge</strong>
-     <span>{ String|Number }</span>
+     <span class="prop-type">{ String|Number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>在图标右上角显示一个红色的气泡。</p>
 </div>
@@ -296,9 +300,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>badgeStyle</strong>
-     <span>{ View.propTypes.style }</span>
+     <span class="prop-type">{ View.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>在图标右上角气泡样式。</p>
 </div>
@@ -306,9 +312,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>icon</strong>
-     <span>{ Image.propTypes.source }</span>
+     <span class="prop-type">{ Image.propTypes.source }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>给当前标签指定一个自定义的图标。</p>
 </div>
@@ -316,9 +324,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderIcon</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>() =&gt; renderable</p>
 <p>自己渲染一个icon，而不用默认图片icon，配置此函数时props.icon不生效。</p>
@@ -327,9 +337,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onPress</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当此标签被选中时调用。你应该修改组件的状态来使得selected={true}。</p>
 </div>
@@ -337,9 +349,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>selected</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>这个属性决定了子视图是否可见，如果你看到一个空白的页面，很可能是没有选中任何一个标签。</p>
 </div>
@@ -347,9 +361,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>style</strong>
-     <span>{ View.propTypes.style }</span>
+     <span class="prop-type">{ View.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>此标签元素样式。</p>
 </div>
@@ -357,9 +373,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>iconStyle</strong>
-     <span>{ Text.propTypes.style }</span>
+     <span class="prop-type">{ Text.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>标签icon样式。</p>
 </div>
@@ -367,9 +385,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>titleStyle</strong>
-     <span>{ Text.propTypes.style }</span>
+     <span class="prop-type">{ Text.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>标签标题样式。</p>
 </div>
@@ -377,9 +397,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>title</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>在图标下面显示的标题文字。</p>
 </div>
@@ -389,7 +411,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 import React, {Component, StyleSheet, View, Text, Image, TabBar} from 'qunar-react-native'
 
@@ -491,6 +513,8 @@ const styles = StyleSheet.create({
 </code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

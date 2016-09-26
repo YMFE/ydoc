@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,19 +310,24 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Navigator.NavigationBar
     <small>导航条组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
-<div class="api-content"></div>
+    
+</h2>
+<div class="api-content"><p>导航条组件</p>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>navigator</strong>
      <span>{ {object} }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>导航器对象，参见 Navigator 组件</p>
 </div>
@@ -324,9 +335,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>routeMapper</strong>
      <span>{ {object} }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>一个用于描述导航条左右两侧按钮，以及中间内容的对象，必须提供该参数，其中包含三个属性：</p>
 <ul>
@@ -339,9 +352,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>navState</strong>
      <span>{ {object} }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>导航栏的状态，可选参数。其中包含两个属性：</p>
 <ul>
@@ -353,9 +368,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>style</strong>
      <span>{ {style} }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>导航栏的样式</p>
 </div>
@@ -365,11 +382,140 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./Navigator.js
- @description 导航条组件</code></pre>
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>'use strict';
+var React = require('qunar-react-native');
+var {
+    AppRegistry,
+    View,
+    StyleSheet,
+    Text,
+    Navigator
+} = React;
 
 
+var Page = React.createClass({
+    _push:function(){
+        this.props.navigator.push({
+            index:this.props.index + 1,
+            component:Page,
+            name: this.props.index + 1
+        });
+    },
+    _pop:function(){
+        this.props.navigator.pop();
+    },
+    _popToTop:function(){
+        this.props.navigator.popToTop();
+    },
+    render:function(){
+        return (
+            &lt;View style={styles.page}&gt;
+                &lt;Text style={styles.btn} onPress={()=&gt; this._push()}&gt;push&lt;/Text&gt;
+                &lt;Text style={styles.btn} onPress={()=&gt; this._pop()}&gt;pop&lt;/Text&gt;
+                &lt;Text style={styles.btn} onPress={()=&gt; this._popToTop()}&gt;popToTop&lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+});
+
+
+var NavigatorExample = React.createClass({
+    NavigationBarRouteMapper:{
+        LeftButton: function (route, navigator, index, navState) {
+            return (
+                &lt;Text
+                    style={{marginLeft:10}}
+                    onPress={()=&gt;{
+                        navigator.jumpBack();
+                    }}
+                &gt;返回&lt;/Text&gt;
+            );
+        },
+        RightButton: function (route, navigator, index, navState) {
+            return (
+                &lt;Text
+                    style={{marginRight:10}}
+                    onPress={()=&gt;{
+                        navigator.jumpForward();
+                    }}
+                &gt;前进&lt;/Text&gt;
+            );
+        },
+        Title: function (route, navigator, index, navState) {
+            return (
+                &lt;Text style={styles.title}&gt;
+                    #{route.index}
+                &lt;/Text&gt;
+            );
+        },
+    },
+    render:function(){
+        return (
+            &lt;Navigator
+                initialRoute={{
+                    index:0,
+                    component:Page
+                }}
+                configureScene={(route,routeStack) =&gt; {
+                    let configs = Object.keys(Navigator.SceneConfigs);
+                    let randomConfig = configs[Math.floor(Math.random() * configs.length)];
+                    console.log(randomConfig);
+                    return Navigator.SceneConfigs[randomConfig];
+                }}
+                renderScene={(route,navigator) =&gt; {
+                    let Component = route.component;
+                    return &lt;Component index={route.index} navigator={navigator} /&gt;;
+                }}
+                navigationBar={
+                    &lt;Navigator.NavigationBar
+                        style={styles.nav}
+                        routeMapper={this.NavigationBarRouteMapper}
+                    /&gt;
+                }
+            /&gt;
+        );
+    }
+});
+
+var styles = StyleSheet.create({
+    nav:{
+        backgroundColor:'#00afc7',
+        color:'#fff',
+        flex:1,
+        paddingLeft:10,
+        paddingRight:10
+    },
+    btn:{
+        width:120,
+        textAlign:'center',
+        paddingTop:5,
+        paddingBottom:5,
+        paddingLeft:10,
+        paddingRight:10,
+        marginBottom:5,
+        marginTop:5,
+        backgroundColor:'#ccc',
+        borderRadius:5
+    },
+    page:{
+        flex:1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#fff',
+    },
+    title:{
+        fontSize:20,
+    }
+});
+
+
+AppRegistry.registerComponent('NavigatorExample', () =&gt; NavigatorExample);
+</code></pre>
+
+
+</div>
+</div>
 
               </div>
           </div>

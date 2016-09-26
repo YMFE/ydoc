@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,21 +310,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     TouchableWithoutFeedback
     <small>TouchableWithoutFeedback组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4.0</span>
+</h2>
 <div class="api-content"><p> TouchableWithoutFeedback是一个无触摸操作反馈的组件。除非有足够的理由，否则应该尽量避免使用此组件。</p>
 <p><img src="./images/component/TouchableWithoutFeedback.gif" alt="TouchableWithoutFeedback"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>accessible</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>是否启用无障碍功能，当此属性为true时，则启用。</p>
 </div>
@@ -326,9 +336,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>disabled</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>是否禁止组件交互，如果设为true，则禁止。</p>
 </div>
@@ -336,9 +348,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onPress</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当触摸操作结束时调用此回调函数，如果被取消了则不调用</p>
 </div>
@@ -380,9 +394,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onPressIn</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"></div>
 
@@ -423,9 +439,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onPressOut</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"></div>
 
@@ -466,9 +484,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onLayout</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当组件挂载或者布局变化的时候调用，参数为：{nativeEvent: { layout: {x, y, width, height}}}。</p>
 </div>
@@ -476,9 +496,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onLongPress</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>长按时调用此回调函数</p>
 </div>
@@ -520,9 +542,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>delayPressIn</strong>
      <span>{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>从触摸操作开始到onPressIn被调用的延迟,单位是毫秒。</p>
 </div>
@@ -530,9 +554,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>delayPressOut</strong>
      <span>{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>从触摸操作开始到onPressOut被调用的延迟,单位是毫秒。</p>
 </div>
@@ -540,9 +566,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>delayPressOut</strong>
      <span>{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>从onPressIn开始，到onLongPress被调用的延迟。单位是毫秒。</p>
 </div>
@@ -552,7 +580,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 var React = require('qunar-react-native');
 var {
@@ -614,6 +642,8 @@ var styles = StyleSheet.create({
 AppRegistry.registerComponent('AwesomeProject', () =&gt; AwesomeProject);</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

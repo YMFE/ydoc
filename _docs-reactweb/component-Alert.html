@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,22 +310,26 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Alert
     <small>Alert 组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=0.20.0</span>
+</h2>
 <div class="api-content"><p> 启动一个带有特定标题和信息的对话框。通常传入一组按钮作为参数，
 点击按钮会触发 <code>onPress</code> 事件且关闭对话框。默认情况下只有一个 <code>Ok</code> 按钮。</p>
 <p><img src="./images/component/Alert.gif" alt="Alert"></p>
 </div>
+<div class="con-list-item">
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>alert</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"></div>
 
@@ -391,8 +401,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>prompt</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>直接用浏览器prompt实现</p>
 </div>
@@ -466,11 +478,134 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./Alert.js
- @version &gt;=0.20.0</code></pre>
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>// -*- mode: web; -*-
+
+'use strict';
+
+import React, {Alert, StyleSheet, Text, TouchableHighlight, View, Component, AppRegistry} from 'qunar-react-native';
+
+const styles = StyleSheet.create({
+    wrapper: {
+        borderRadius: 5,
+        marginBottom: 5,
+    },
+    button: {
+        backgroundColor: '#eeeeee',
+        padding: 10,
+    },
+    text: {
+        padding: 10,
+    }
+});
+
+let alertMessage = 'Credibly reintermediate next-generation potentialities after goal-oriented ' +
+                   'catalysts for change. Dynamically revolutionize.';
+
+class AlertExample extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            threeButtonValue: 'none',
+            tooManyButtonValue: 'none'
+        }
+    }
+
+    getConsoleButton(arr, stateKey) {
+        return arr.map(key =&gt; {
+            return {
+                text: key,
+                onPress: () =&gt; this.setState({
+                    [stateKey]: key
+                })
+            }
+        });
+    }
+
+    render() {
+        let threeButtonValue = this.getConsoleButton(['乖乖站好', '乖', '不乖'], 'threeButtonValue');
+        let tooMany = new Array(10).fill('').map((_, index) =&gt; 'Button ' + index);
+        let tooManyButtonValue = this.getConsoleButton(tooMany, 'tooManyButtonValue');
+
+        return (
+            &lt;View&gt;
+                &lt;TouchableHighlight
+                    style={styles.wrapper}
+                    onPress={() =&gt; Alert.alert(
+                        'Alert Title',
+                        alertMessage,
+                    )}&gt;
+                    &lt;View style={styles.button}&gt;
+                        &lt;Text&gt;Alert with message and default button&lt;/Text&gt;
+                    &lt;/View&gt;
+                &lt;/TouchableHighlight&gt;
+                &lt;TouchableHighlight
+                    style={styles.wrapper}
+                    onPress={() =&gt; Alert.alert(
+                        'Alert Title',
+                        alertMessage,
+                        [{text: 'OK', onPress: () =&gt; console.log('OK Pressed!')}]
+                    )}&gt;
+                    &lt;View style={styles.button}&gt;
+                        &lt;Text&gt;Alert with one button&lt;/Text&gt;
+                    &lt;/View&gt;
+                &lt;/TouchableHighlight&gt;
+                &lt;TouchableHighlight
+                    style={styles.wrapper}
+                    onPress={() =&gt; Alert.alert(
+                        'Alert Title',
+                        alertMessage,
+                        [
+                            {text: 'Cancel', onPress: () =&gt; console.log('Cancel Pressed!')},
+                            {text: 'OK', onPress: () =&gt; console.log('OK Pressed!')},
+                        ]
+                    )}&gt;
+                    &lt;View style={styles.button}&gt;
+                        &lt;Text&gt;Alert with two buttons&lt;/Text&gt;
+                    &lt;/View&gt;
+                &lt;/TouchableHighlight&gt;
+                &lt;TouchableHighlight
+                    style={styles.wrapper}
+                    onPress={() =&gt; Alert.alert(
+                        'Alert Title',
+                        null,
+                        threeButtonValue
+                    )}&gt;
+                    &lt;View style={styles.button}&gt;
+                        &lt;Text&gt;Alert with three buttons&lt;/Text&gt;
+                    &lt;/View&gt;
+                &lt;/TouchableHighlight&gt;
+                &lt;View style={styles.text}&gt;
+                    &lt;Text&gt;You selected: {this.state.threeButtonValue}&lt;/Text&gt;
+                &lt;/View&gt;
+                &lt;TouchableHighlight
+                    style={styles.wrapper}
+                    onPress={() =&gt; Alert.alert(
+                        'Foo Title',
+                        alertMessage,
+                        tooManyButtonValue
+                    )}&gt;
+                    &lt;View style={styles.button}&gt;
+                        &lt;Text&gt;Alert with too many buttons&lt;/Text&gt;
+                    &lt;/View&gt;
+                &lt;/TouchableHighlight&gt;
+                &lt;View style={styles.text}&gt;
+                    &lt;Text&gt;You selected: {this.state.tooManyButtonValue}&lt;/Text&gt;
+                &lt;/View&gt;
+            &lt;/View&gt;
+        );
+    }
+}
 
 
+
+
+AppRegistry.registerComponent('AlertExample', () =&gt; AlertExample)
+</code></pre>
+
+
+</div>
+</div>
 
               </div>
           </div>

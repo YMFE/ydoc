@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -272,19 +278,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     ImagePicker
     <small>ImagePicker 接口</small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>= v1.4</span>
-</h1>
-<div class="api-content"></div>
+</h2>
+<div class="api-content"><p>ImagePicker 提供React Native <code>ImagePicker</code> API的web实现,用来实现web与相册和摄像头的交互</p>
+<p><strong>注:</strong> Hy模式中，依赖于<code>QunarAPI.chooseImage</code>,H5模式中，依赖于Html接口。</p>
+</div>
+<div class="con-list-item">
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>canRecordVideos</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> 是否可以调用录像功能，返回值为false（不支持）</p>
 </div>
@@ -327,8 +339,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>canUseCamera</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> 是否可以调用相机，返回值为true（支持）</p>
 </div>
@@ -371,8 +385,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>openCameraDialog</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> 打开相机，拍照成功后调用successCallback</p>
 </div>
@@ -437,8 +453,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>openSelectDialog</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> 打开相册，选择相册成功后调用successCallback</p>
 <p><strong>注意：</strong> web模式下只能选择一张图片，Hy模式下可选择多张，为何rn保持统一，分别返回string和array，请注意兼容。</p>
@@ -505,7 +523,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code> * @providesModule ImagePickerExample
  **/
 'use strict'
@@ -604,6 +622,8 @@ class Example extends Component {
 AppRegistry.registerComponent('Example', () =&gt; Example)</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

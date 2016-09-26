@@ -276,21 +276,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Tab
     <small>分段组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger">>=v1.0.0</span>
+</h2>
 <div class="api-content"><p>iOS风格的分段组件（SegmentedControlIOS）。</p>
 <p><img src="./images/component-Tab.png" alt="Tab"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>enabled</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>是否可用</p>
 </div>
@@ -302,9 +306,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>momentary</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>选中的状态是否是临时的。如果为true，选中的段不会一直保持特效。但onValueChange回调还是会正常工作。</p>
 </div>
@@ -316,9 +322,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onChange</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(event, selectedIndex, value) =&gt; void</p>
 <p>当用户点击某一段并且选项发生变化的时候调用。参数是event, selectedIndex, value。</p>
@@ -384,9 +392,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onPress</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(event, selectedIndex, value) =&gt; void</p>
 <p>当用户点击某一段的时候调用。参数是event, selectedIndex, value。</p>
@@ -452,9 +462,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>selectedIndex</strong>
-     <span>{ number }</span>
+     <span class="prop-type">{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>组件显示时，一开始被选中的段落的下标。</p>
 </div>
@@ -462,9 +474,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>tintColor</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>被选中的段的颜色。</p>
 </div>
@@ -472,9 +486,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>tintTextColor</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>被选中的段的文字颜色。</p>
 </div>
@@ -482,9 +498,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>values</strong>
-     <span>{ array }</span>
+     <span class="prop-type">{ array }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>按顺序每一段的标题文字（值）。</p>
 </div>
@@ -492,9 +510,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>style</strong>
-     <span>{ View.propTypes.style }</span>
+     <span class="prop-type">{ View.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>外层容器的样式。</p>
 </div>
@@ -504,7 +524,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 import React, {Component, StyleSheet, View, Text, ScrollView, Tab} from 'qunar-react-native';
 
@@ -599,6 +619,8 @@ module.exports = {
     }],</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

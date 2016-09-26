@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="active">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -200,19 +206,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     ABTest
     <small>ABTest</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
-<div class="api-content"></div>
+    
+</h2>
+<div class="api-content"><p>获取 abTest 的策略信息, 关于 abTest, 请参见 <a href="http://wiki.corp.qunar.com/pages/viewpage.action?pageId=114429300">ABTest wiki</a></p>
+<p>注: 仅支持Hy模式，H5模式不支持</p>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>abTest</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>获取成功后会调用 <code>successCallback</code> 回调，调用时传入一个对象，其中包含下面两个字段:</p>
 <ul>
@@ -295,13 +307,27 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./ABTest.js
- @description 获取 abTest 的策略信息, 关于 abTest, 请参见 [ABTest wiki](http://wiki.corp.qunar.com/pages/viewpage.action?pageId=114429300)
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>let ReactNative = require('qunar-react-native');
+let {ABTest} = ReactNative;
 
-注: 仅支持Hy模式，H5模式不支持</code></pre>
+let abId = 'id'; //实验ID
+let simpleName = 'vcName'; //使用该策略信息的来源
+
+ABTest.abTest(abId, simpleName,
+    (ABTestInfo) =&gt; {
+        //获取成功的回调
+        // ABTestInfo.ab_type: 策略类型
+        // ABTestInfo.ab_achieve: 策略信息
+    }, (err)=&gt;{
+        //获取失败的回调
+        console.log(err.message);
+    });
+</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

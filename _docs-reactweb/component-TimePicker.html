@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,23 +310,27 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     DatePicker
     <small>DatePicker组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.3</span>
+</h2>
 <div class="api-content"><p> DatePicker 同 TimePicker, 为了和 rn 官方兼容,且和 qrn 兼容, TimePicker 只是 DatePicker 的一个 alias 。
 DatePicker是一个时间选择器组件。这是一个受控组件，用户需要在 onDateChange 的回调中设置 date 属性
 才能修改 DatePicker 展示的时间, 否则 DatePicker 会在用户停止触摸后跳转至最初的 date 所对应的位置。</p>
 <p><img src="./images/component/DatePicker.gif" alt="DatePicker"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>date</strong>
      <span>{ Date }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>一个 Date 对象的实例,用来指定 DatePicker 初始的时间</p>
 </div>
@@ -328,9 +338,11 @@ DatePicker是一个时间选择器组件。这是一个受控组件，用户需�
 
 
 <blockquote class="api">
+    <h3>
     <strong>onDateChange</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当用户改变了 DatePicker 的时间后调用, 调用时候带有唯一的参数
 该参数是一个 Date 对象,表示选择的时间</p>
@@ -339,9 +351,11 @@ DatePicker是一个时间选择器组件。这是一个受控组件，用户需�
 
 
 <blockquote class="api">
+    <h3>
     <strong>maximumDate</strong>
      <span>{ Date }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>最大可选的时间</p>
 </div>
@@ -349,9 +363,11 @@ DatePicker是一个时间选择器组件。这是一个受控组件，用户需�
 
 
 <blockquote class="api">
+    <h3>
     <strong>minimumDate</strong>
      <span>{ Date }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>最小可选的时间</p>
 </div>
@@ -359,9 +375,11 @@ DatePicker是一个时间选择器组件。这是一个受控组件，用户需�
 
 
 <blockquote class="api">
+    <h3>
     <strong>mode</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>DatePicker 的模式, 一个有三种模式可选:</p>
 <ul>
@@ -374,9 +392,11 @@ DatePicker是一个时间选择器组件。这是一个受控组件，用户需�
 
 
 <blockquote class="api">
+    <h3>
     <strong>minuteInterval</strong>
      <span>{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>用来描述分钟的间隔, 可取的值为 <code>1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30</code></p>
 </div>
@@ -384,9 +404,11 @@ DatePicker是一个时间选择器组件。这是一个受控组件，用户需�
 
 
 <blockquote class="api">
+    <h3>
     <strong>timeZoneOffsetInMinutes</strong>
      <span>{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>默认情况下 DatePicker 使用设备本地的时区, 如果提供了这个参数,就可以强制使用另外一个时区
 比如要使用美国纽约的时区, 北京是比纽约快12个小时的, 所以你可以传入 -12 * 60</p>
@@ -397,11 +419,122 @@ DatePicker是一个时间选择器组件。这是一个受控组件，用户需�
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./DatePicker.js
- @version &gt;=v1.3</code></pre>
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>var React = require('react-native');
+var range = require('lodash/range');
+var {
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    DatePicker,
+    Picker,
+    ScrollView
+} = React;
+
+var Demo = React.createClass({
+    getInitialState: function(){
+        let date = new Date();
+        return {
+            initialDate: date,
+            date: date,
+            timeZoneOffsetInMinutes: 0,
+            selectedValue: 0,
+            maximumDate: new Date(date.valueOf() + 1000 * 60 * 60 * 24 * 359),
+            minimumDate: new Date(date.valueOf() - 1000 * 60 * 60 * 24 * 359)
+        };
+    },
+    render: function() {
+        return (
+            &lt;ScrollView&gt;
+                &lt;Text style={styles.title}&gt;初始时间: { this.state.initialDate.toString() }&lt;/Text&gt;
+                &lt;Text style={styles.title}&gt;当前时间: { this.state.date.toString() }&lt;/Text&gt;
+                &lt;View&gt;
+                    &lt;Text style={styles.title}&gt;时区偏移: { this.state.timeZoneOffsetInMinutes } min&lt;/Text&gt;
+                    &lt;Picker
+                        style={styles.picker}
+                        selectedValue={this.state.selectedValue}
+                        onValueChange={(value) =&gt; {
+                            this.setState({
+                                timeZoneOffsetInMinutes: value * 60,
+                                selectedValue: value
+                            });
+                        }}
+                    &gt;
+                        {
+                            range(-12, 13).map(offset =&gt; {
+                                return &lt;Picker.Item  value={offset} label={''+offset} /&gt;
+                            })
+                        }
+                    &lt;/Picker&gt;
+                &lt;/View&gt;
+                &lt;View className="example"  &gt;
+                    &lt;Text style={styles.title}&gt;mode: datetime&lt;/Text&gt;
+                    &lt;DatePicker
+                        style={styles.picker}
+                        date={this.state.date}
+                        mode="datetime"
+                        timeZoneOffsetInMinutes={this.state.timeZoneOffsetInMinutes}
+                        minuteInterval={1}
+                        onDateChange={(date)=&gt;{
+                            this.setState({
+                                date: date
+                            });
+                        }}
+                    /&gt;
+                    &lt;Text style={styles.title}&gt;mode: date&lt;/Text&gt;
+                    &lt;DatePicker
+                        style={styles.picker}
+                        date={this.state.date}
+                        mode="date"
+                        timeZoneOffsetInMinutes={this.state.timeZoneOffsetInMinutes}
+                        minuteInterval={1}
+                        maximumDate={this.state.maximumDate}
+                        minimumDate={this.state.minimumDate}
+                        onDateChange={(date)=&gt;{
+                            this.setState({
+                                date: date
+                            });
+                        }}
+                    /&gt;
+                    &lt;Text style={styles.title}&gt;mode: time , minuteInterval: 5&lt;/Text&gt;
+                    &lt;DatePicker
+                        style={styles.picker}
+                        date={this.state.date}
+                        mode="time"
+                        timeZoneOffsetInMinutes={this.state.timeZoneOffsetInMinutes}
+                        minuteInterval={5}
+                        maximumDate={this.state.maximumDate}
+                        minimumDate={this.state.minimumDate}
+                        onDateChange={(date)=&gt;{
+                            this.setState({
+                                date: date
+                            });
+                        }}
+                    /&gt;
+                &lt;/View&gt;
+            &lt;/ScrollView&gt;
+        );
+    }
+});
+
+var styles = StyleSheet.create({
+    title:{
+        backgroundColor: '#ccc',
+        padding: 10
+    },
+    picker:{
+        borderWidth: 1,
+        borderColor: '#ccc',
+    }
+});
+
+AppRegistry.registerComponent('AwesomeProject', () =&gt; Demo);
+</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

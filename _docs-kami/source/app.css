@@ -758,7 +758,8 @@ sup, sub {
 
 .markdown-body blockquote.api {
   border-left: none;
-  padding: 0; }
+  padding: 0;
+  color: #ff503f; }
 .markdown-body .docs-section h1, .markdown-body .docs-section h2 {
   border-bottom: none; }
 .markdown-body .docs-section .blockquote.api {
@@ -771,6 +772,13 @@ sup, sub {
 .markdown-body .docs-section .con-list-item {
   border-bottom: 1px solid #ddd;
   padding: .3rem 0; }
+  .markdown-body .docs-section .con-list-item .con-head {
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 .3rem;
+    padding: .1rem 0;
+    width: 100%; }
 .markdown-body .docs-section .con-list-item:last-child {
   border: none; }
 .markdown-body .docs-section .hide-params {
@@ -782,3 +790,5 @@ sup, sub {
   margin: -.1rem 0 .15rem;
   display: block;
   cursor: pointer; }
+
+/*# sourceMappingURL=app.css.map */

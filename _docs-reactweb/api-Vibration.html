@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -272,20 +278,24 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Vibration
     <small>Vibration 接口</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4.0</span>
+</h2>
 <div class="api-content"><p>Vibration提供了控制设备震动的方法。</p>
 </div>
+<div class="con-list-item">
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>vibrate</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>震动设备</p>
 <p>注：在web端，此方法依赖于window.navigator.vibrate()。</p>
@@ -329,8 +339,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>cancel</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>停止震动设备</p>
 <p>注：在web端，此方法依赖于window.navigator.vibrate(0)。</p>
@@ -339,7 +351,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 var React = require('qunar-react-native');
 var {
@@ -371,6 +383,8 @@ module.exports = Demo
 </code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

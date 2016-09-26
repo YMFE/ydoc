@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -272,27 +278,34 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Clipboard
     <small>Clipboard API</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
-<div class="api-content"></div>
+    
+</h2>
+<div class="api-content"><p>提供从剪切板读取和设置数据的接口, 由于 Safari 不支持 <code>document.execCommand(&quot;copy&quot;)</code> 因此,该 API 在 Safari 上不能使用。</p>
+</div>
+<div class="con-list-item">
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>getString</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>得到剪切板中的内容，这个方法返回一个 <code>Promise</code>。</p>
 </div>
 
 
 <blockquote class="api">
+    <h3>
     <strong>setString</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"></div>
 
@@ -341,11 +354,63 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./Clipboard.js
- @description 提供从剪切板读取和设置数据的接口, 由于 Safari 不支持 `document.execCommand("copy")` 因此,该 API 在 Safari 上不能使用。</code></pre>
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>'use strict';
+var React = require('qunar-react-native');
+var {
+    AppRegistry,
+    StyleSheet,
+    View,
+    Text,
+    Clipboard
+} = React;
+
+var ClipboardExample = React.createClass({
+    getInitialState:function(){
+        return {
+            content:''
+        };
+    },
+    render:function(){
+        return (
+            &lt;View&gt;
+                &lt;Text
+                    style={styles.btn}
+                    onPress={()=&gt;{
+                        Clipboard.setString('Hello World!');
+                        Clipboard.getString().then(str =&gt; {
+                            this.setState({
+                                content:str
+                            });
+                        });
+                    }}&gt;
+                    Tap to put "Hello World" in the clipboard
+                &lt;/Text&gt;
+                &lt;Text style={styles.row}&gt;
+                    Clipboard content:{this.state.content}
+                &lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+});
+
+const styles = StyleSheet.create({
+    btn:{
+        padding:10,
+        backgroundColor:'#ccc',
+        marginBottom:10
+    },
+    row:{
+        padding:10
+    }
+});
+
+AppRegistry.registerComponent('ClipboardExample', () =&gt; ClipboardExample);
+</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,21 +310,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     ViewPager
     <small>ViewPager组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4.0</span>
+</h2>
 <div class="api-content"><p> 一个子视图之间可滑动的翻页容器组件</p>
 <p><img src="./images/component/ViewPager.gif" alt="ViewPager"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>initialPage</strong>
      <span>{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>初始化时选中的页的下标。</p>
 </div>
@@ -330,9 +340,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onPageScroll</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>切换页面时执行的回调函数</p>
 </div>
@@ -374,9 +386,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onPageSelected</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>切换页面完成后执行的回调函数</p>
 </div>
@@ -418,9 +432,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>keyboardDismissMode</strong>
      <span>{ enum }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>滑动时是否显示键盘</p>
 <ul>
@@ -438,7 +454,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 var React = require('qunar-react-native');
 var {
@@ -517,6 +533,8 @@ var styles = StyleSheet.create({
 AppRegistry.registerComponent('AwesomeProject', () =&gt; Demo)</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

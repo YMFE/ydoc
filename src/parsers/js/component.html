@@ -1,18 +1,22 @@
-<h1>
+<div class="docs-section">
+<h2>
     {{component}}
     <small>{{_desc}}</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">{{version}}</span>
-</h1>
+    {{if version}}<span class="yo-badge yo-badge-danger">{{version}}</span>{{/if}}
+</h2>
 <div class="api-content">{{description | markdown}}</div>
+<div class="con-list-item">
 {{if props.length}}
-<h2>属性</h2>
+<div class="con-head">属性</div>
 {{each props as prop}}
 <blockquote class="api">
+    <h3>
     <strong>{{prop.property}}</strong>
-     <span>{ {{prop.type}} }</span>
+     <span class="prop-type">{ {{prop.type}} }</span>
     {{if prop.version}}
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">{{prop.version}}</span>
+    <span class="yo-badge yo-badge-danger">{{prop.version}}</span>
     {{/if}}
+    </h3>
 </blockquote>
 <div class="api-content">{{prop.description | markdown}}</div>
 {{if prop.default}}
@@ -59,13 +63,15 @@
 {{/each}}
 {{/if}}
 {{if methods.length}}
-<h2>方法</h2>
+<div class="con-head">方法</div>
 {{each methods as method}}
 <blockquote class="api">
+    <h3>
     <strong>{{method.method}}</strong>
     {{if method.version}}
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">{{method.version}}</span>
+    <span class="yo-badge yo-badge-danger">{{method.version}}</span>
     {{/if}}
+    </h3>
 </blockquote>
 <div class="api-content">{{method.description | markdown}}</div>
 {{if method.params.length}}
@@ -114,7 +120,7 @@
 {{/each}}
 {{/if}}
 {{if example}}
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>{{example}}</code></pre>
 {{/if}}
 {{if demo}}
@@ -123,3 +129,5 @@
     <a href="{{demo}}" target="_blank">点击访问</a>
 </p>
 {{/if}}
+</div>
+</div>

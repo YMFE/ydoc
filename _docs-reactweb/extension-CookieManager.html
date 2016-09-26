@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="active">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -200,19 +206,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     CookieManager
     <small>CookieManager</small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4</span>
-</h1>
-<div class="api-content"></div>
+</h2>
+<div class="api-content"><p>提供了用于操作 Cookie 的API, 简化了 Cookie 的操作。</p>
+<p><img src="./images/api/CookieManager.gif" alt="CookieManager"></p>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>setCookie</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置Cookie, cookie 中可以包含下列字段:</p>
 <ul>
@@ -271,9 +283,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>getCookieForKey</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> 根据key值获取Cookie，获取成功则调用onSuccess,失败则调用onError。</p>
 </div>
@@ -348,9 +362,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>getCookiesForURL</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> 根据url值获取Cookie，获取成功则调用onSuccess,失败则调用onError。</p>
 </div>
@@ -414,9 +430,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>removeCookie</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> 移除指定cookie值，移除完成后调用callback。</p>
 </div>
@@ -472,13 +490,133 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./CookieManager.js
- @description 提供了用于操作 Cookie 的API, 简化了 Cookie 的操作。
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code> 'use strict';
+var React = require('qunar-react-native');
+var {
+    Component,
+    Text,
+    TextInput,
+    View,
+    TouchableHighlight,
+    StyleSheet,
+    CookieManager,
+    AppRegistry,
+} = React;
 
-![CookieManager](./images/api/CookieManager.gif)</code></pre>
+console.log(CookieManager);
+
+var Demo = React.createClass({
+    getInitialState:function(){
+        return {
+            key: '',
+            domain: '',
+            value: '',
+            cookie: {}
+        }
+    },
+
+    getCookie() {
+        const { key, domain } = this.state;
+        CookieManager.getCookieForKey(
+            key,
+            `http://${domain}`,
+            cookie =&gt; this.setState({cookie}),
+            () =&gt; {}
+        );
+    },
+
+    setCookie() {
+        const { key, domain, value } = this.state;
+
+        CookieManager.setCookie(
+            { key, domain, value },
+            () =&gt; console.log(arguments)
+        );
+    },
+
+    removeCookie(){
+        const { key, domain, value } = this.state;
+        CookieManager.removeCookie(key,()=&gt;console.log(arguments));
+    },
 
 
+
+    render(){
+        var cookies = JSON.stringify(this.state.cookie, null, 4);
+        return(
+            &lt;View&gt;
+                &lt;Text&gt;CookieManager&lt;/Text&gt;
+                &lt;Text&gt;Key&lt;/Text&gt;
+                &lt;TextInput
+                    autoCapitalize="none"
+                    style={style.textInput}
+                    onChangeText={key =&gt; this.setState({key})}
+                    value={this.state.key}
+                /&gt;
+                &lt;Text&gt;Domain&lt;/Text&gt;
+                &lt;TextInput
+                    autoCapitalize="none"
+                    style={style.textInput}
+                    onChangeText={domain =&gt; this.setState({domain})}
+                    value={this.state.domain}
+                /&gt;
+                &lt;Text&gt;Value&lt;/Text&gt;
+                &lt;TextInput
+                    autoCapitalize="none"
+                    style={style.textInput}
+                    onChangeText={value =&gt; this.setState({value})}
+                    value={this.state.value}
+                /&gt;
+
+                &lt;TouchableHighlight
+                    style={style.button}
+                    onPress={this.getCookie}&gt;
+                    &lt;Text&gt;getCookie&lt;/Text&gt;
+                &lt;/TouchableHighlight&gt;
+                &lt;TouchableHighlight
+                    style={style.button}
+                    onPress={this.setCookie}&gt;
+                    &lt;Text&gt;setCookie&lt;/Text&gt;
+                &lt;/TouchableHighlight&gt;
+                &lt;TouchableHighlight
+                    style={style.button}
+                    onPress={this.removeCookie}&gt;
+                    &lt;Text&gt;removeCookie&lt;/Text&gt;
+                &lt;/TouchableHighlight&gt;
+                &lt;View&gt;
+                    &lt;Text&gt;cookies: {cookies}&lt;/Text&gt;
+                &lt;/View&gt;
+                
+            &lt;/View&gt;
+        )
+    }
+}) 
+
+var style = StyleSheet.create({
+    textInput: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1
+    },
+    button: {
+        borderColor: '#999',
+        borderRadius: 8,
+        borderWidth: 1,
+        padding: 10,
+        margin: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#fff',
+      },
+});
+
+AppRegistry.registerComponent('Demo', () =&gt; Demo)
+</code></pre>
+
+
+</div>
+</div>
 
               </div>
           </div>

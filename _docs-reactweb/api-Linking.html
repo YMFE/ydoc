@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -272,20 +278,24 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Linking
     <small>Linking接口</small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4.0</span>
-</h1>
+</h2>
 <div class="api-content"><p> 提供了一个通用的接口来与传入和传出的App链接进行交互</p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>removeEventListener</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>移除一个监听Linking变化的事件
 注：web尚未实现</p>
@@ -339,11 +349,13 @@
 
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>getInitialURL</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>如果应用是被一个链接调起的，则会返回相应的链接地址。否则它会返回null 返回promise
 注：web总是返回null</p>
@@ -351,8 +363,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>openURL</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>打开url 返回promise
 注：在web下，如果是一个正确的url，会以window.open的形式打开。</p>
@@ -395,8 +409,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>canOpenURL</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>是否可以打开链接。返回promise。
 注：在web上其实没什么用处，似乎直接window.open就可以。</p>
@@ -449,8 +465,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>addEventListener</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>添加一个监听Linking变化的事件
 注：web尚未实现</p>
@@ -505,6 +523,8 @@
 
 
 
+</div>
+</div>
 
               </div>
           </div>

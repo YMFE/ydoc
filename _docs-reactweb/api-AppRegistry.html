@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -272,11 +278,12 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     AppRegistry
     <small></small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4.0</span>
-</h1>
+</h2>
 <div class="api-content"><p><code>AppRegistry</code> 是 JS 运行所有 React Native 应用的入口。应用的根组件需要
 使用 <code>AppRegistry.registerComponent</code> 注册，而后原生系统才能加载打包的代码，在启动完成后通过
 <code>AppRegistry.runApplication</code> 来运行应用。</p>
@@ -284,13 +291,16 @@
 方法并传入在 <code>runApplication</code> 中使用到的标签名。</p>
 <p><code>AppRegistry</code> 应该尽早地被 require ，以确保 JS 运行环境在其他模块之前被准备好。</p>
 </div>
+<div class="con-list-item">
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>registerConfig</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"></div>
 
@@ -332,8 +342,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>registerRunnable</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"></div>
 
@@ -392,8 +404,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>runApplication</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>运行应用</p>
 </div>
@@ -447,8 +461,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>registerComponent</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>组件需要使用此方法来注册自己，然后才能够运行。</p>
 </div>
@@ -502,8 +518,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>unmountApplicationComponentAtRootTag</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>销毁</p>
 </div>
@@ -512,6 +530,8 @@
 
 
 
+</div>
+</div>
 
               </div>
           </div>

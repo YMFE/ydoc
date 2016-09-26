@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="active">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -200,19 +206,33 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     QHotDogNetWork
     <small>QHotDogNetWork 模块</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
-<div class="api-content"></div>
+    
+</h2>
+<div class="api-content"><p>这里的 QHotDogNetWork 是 QRN 中 QHotDogNetWork 的弱化版， 由于在 web 上存在诸多限制，且脱离了客户端的环境,
+这里的 QHotDogNetWork 已经不算是 HotDog 了。具体差异存在在以下几点:</p>
+<ul>
+<li>仅仅封装了 XMLHttpRequest 用来简化 GET 请求。</li>
+<li>数据没有加密传输。</li>
+<li>只能请求同域或者允许跨域的资源。</li>
+<li>不能使用 serviceType 配置，因此必须提供 url。</li>
+<li>由于在 web 上存在跨域的限制，在 web 上 QHotDogNetWork 只能进行同域或者允许跨域的资源。</li>
+</ul>
+<p>总的来说，在 web 上它仅仅能帮助你简化 GET 请求，因此你或许可以用 fetch 来实现更加灵活的 HTTP 请求。</p>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>postRequest</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>该方法用来发起请求，请求时需要传入一个配置对象， 该配置对象用来设定请求的 url， 以及成功或失败的回调等等。
 该方法使用 GET 方法发起请求， 另外目前不支持 useCache 选项， 同样也就不支持 cacheCallback。</p>
@@ -263,9 +283,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>cancelNetWorkTask</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>该方法用来取消网络请求</p>
 </div>
@@ -310,20 +332,65 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./QHotDogNetWork.js
- @description 这里的 QHotDogNetWork 是 QRN 中 QHotDogNetWork 的弱化版， 由于在 web 上存在诸多限制，且脱离了客户端的环境,
-这里的 QHotDogNetWork 已经不算是 HotDog 了。具体差异存在在以下几点:
-
-- 仅仅封装了 XMLHttpRequest 用来简化 GET 请求。
-- 数据没有加密传输。
-- 只能请求同域或者允许跨域的资源。
-- 不能使用 serviceType 配置，因此必须提供 url。
-- 由于在 web 上存在跨域的限制，在 web 上 QHotDogNetWork 只能进行同域或者允许跨域的资源。
-
-总的来说，在 web 上它仅仅能帮助你简化 GET 请求，因此你或许可以用 fetch 来实现更加灵活的 HTTP 请求。</code></pre>
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>var React = require('react');
+var ReactNative = require('qunar-react-native');
+var {
+    AppRegistry,
+    View,
+    Text,
+    QHotDogNetWork
+} = ReactNative;
 
 
+let QHotDogNetWorkExample = React.createClass({
+    getInitialState: function(){
+        return {
+            name: '',
+            watchers: 0,
+            forks: 0,
+            stargazersCount: 0
+        };
+    },
+    componentWillMount: function(){
+        let id = QHotDogNetWork.postRequest({
+            url: 'https://api.github.com/repos/facebook/react',
+            successCallback: (data) =&gt; {
+                this.setState({
+                    name: data.name,
+                    watchers: data.watchers,
+                    forks: data.forks,
+                    stargazersCount: data.stargazers_count
+                });
+            },
+            failCallback: (err) =&gt; {
+                console.log(err);
+            }
+        });
+        setTimeout(()=&gt;{
+            // 两秒内网络请求没有完成，就取消请求
+            QHotDogNetWork.cancelNetWorkTask(id);
+        }, 2000);
+
+    },
+    render: function(){
+        return (
+            &lt;View&gt;
+                &lt;Text&gt;name: {this.state.name}&lt;/Text&gt;
+                &lt;Text&gt;watch: {this.state.watchers}&lt;/Text&gt;
+                &lt;Text&gt;star: {this.state.stargazersCount}&lt;/Text&gt;
+                &lt;Text&gt;folk: {this.state.forks}&lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+});
+
+AppRegistry.registerComponent('QHotDogNetWorkExample', () =&gt; QHotDogNetWorkExample);
+</code></pre>
+
+
+</div>
+</div>
 
               </div>
           </div>

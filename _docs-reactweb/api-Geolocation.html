@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -272,19 +278,24 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Geolocation
     <small>Geolocation 接口</small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>= v1.4</span>
-</h1>
-<div class="api-content"></div>
+</h2>
+<div class="api-content"><p>Geolocation 接口提供了获取位置信息的一组方法</p>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>getCurrentPosition</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p><code>Geolocation.getCurrentPosition()</code> 用来获取设备当前的位置，调用方法如下：</p>
 <pre><code class="lang-javascript">Geolocation.getCurrentPosition(onSuccess, onError, options)
@@ -376,9 +387,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>watchPosition</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p><code>Geolocation.watchPosition()</code> 用于注册一个回调函数，每当设备的位置改变，
 该函数就会自动调用 onSuccess 或者 onError（获取位置失败时）。这个函数返回一个 id ，
@@ -445,9 +458,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>clearWatch</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> <code>Geolocation.clearWatch()</code> 用于取消持续定位</p>
 </div>
@@ -492,11 +507,65 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./Geolocation.js
- @description Geolocation 接口提供了获取位置信息的一组方法</code></pre>
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>var React = require('react');
+var ReactNative = require('qunar-react-native');
+var {
+    AppRegistry,
+    View,
+    StyleSheet,
+    Text,
+    Geolocation
+} = ReactNative;
 
 
+let GeolocationExample = React.createClass({
+    getInitialState: function(){
+        return {
+            position: null,
+            status: '正在获取地理位置'
+        };
+    },
+    componentWillMount: function(){
+        Geolocation.watchPosition((position) =&gt; {
+            console.log(position);
+            this.setState({position:position});
+        },(positionError) =&gt; {
+            this.setState({
+                status: '获取地理位置失败, 错误原因: ' + positionError.message
+            });
+            console.error(positionError.message);
+        }, {
+            timeout: 5000,
+            enableHighAccuracy: true,
+        });
+    },
+    render: function(){
+        let position = this.state.position;
+        if (position){
+            return (
+                &lt;View&gt;
+                    &lt;Text&gt;海拔: {position.coords.altitude || '未知' }&lt;/Text&gt;
+                    &lt;Text&gt;经度: {position.coords.longitude || '未知'}&lt;/Text&gt;
+                    &lt;Text&gt;纬度: {position.coords.latitude || '未知'}&lt;/Text&gt;
+                    &lt;Text&gt;速度: {position.coords.speed || '未知' }&lt;/Text&gt;
+                    &lt;Text&gt;角度: {position.coords.heading || '未知' }&lt;/Text&gt;
+                    &lt;Text&gt;用移动设备打开本页面四处走走看看, 地球很大的, 不要仅仅在办公桌附加走动&lt;/Text&gt;
+                &lt;/View&gt;
+            );
+        } else {
+            return &lt;Text&gt;{this.state.status}&lt;/Text&gt;
+        }
+    }
+});
+
+
+AppRegistry.registerComponent('GeolocationExample', () =&gt; GeolocationExample);
+</code></pre>
+
+
+</div>
+</div>
 
               </div>
           </div>

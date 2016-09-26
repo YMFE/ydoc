@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,19 +310,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Modal
     <small>Modal 组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
-<div class="api-content"></div>
+    
+</h2>
+<div class="api-content"><p>通用的模态弹层组件,支持多种位置/动画效果</p>
+<p><img src="./images/component/Modal.gif" alt="Modal"></p>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>visible</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>模态层显示/隐藏属性</p>
 </div>
@@ -328,9 +340,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onShow</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>模态层显示时的时间回调</p>
 </div>
@@ -342,9 +356,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onHide</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>模态层隐藏时的事件回调</p>
 </div>
@@ -356,9 +372,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onMaskPress</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>点击遮罩层时的事件回调</p>
 </div>
@@ -370,9 +388,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>animation</strong>
      <span>{ string/array }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置打开/关闭模态框时的动画效果。</p>
 <p>已经实现的几种动画效果为:&quot;fade&quot;,&quot;slideFromBottom&quot;,&quot;slideFromTop&quot;,&quot;slideFromLeft&quot;,&quot;slideFromRight&quot;</p>
@@ -386,9 +406,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>maskOpacity</strong>
      <span>{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>遮罩层的透明度[0-1]</p>
 </div>
@@ -400,9 +422,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>offset</strong>
      <span>{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>可以通过设置offset来使模态框向上/向下偏移,例如-100就可以让模态层向上偏移100个像素</p>
 </div>
@@ -414,9 +438,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>position</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置模态层显示的位置,共支持5种位置:center,top,bottom,left,right,默认为center</p>
 </div>
@@ -428,9 +454,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>showNavBarMask</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>是否让遮罩层遮盖住导航条,只对Ext的导航条生效</p>
 </div>
@@ -444,13 +472,200 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./Modal.js
- @description 通用的模态弹层组件,支持多种位置/动画效果
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>import React, { Component } from 'react';
+import {
+    Modal,
+    StyleSheet,
+    View,
+    Text,
+    AppRegistry,
+    TouchableOpacity,
+    Picker,
+    Switch,
+    ScrollView
+} from 'react-native';
 
-![Modal](./images/component/Modal.gif)</code></pre>
+
+class ModalExample extends Component {
+    constructor(){
+        super();
+        this.state = {
+            visible: false,
+            animation:'none',
+            maskOpacity: 0.4,
+            offset: 0,
+            position:'center',
+            closeModalAfterClickMask: true
+        };
+    }
+    toggleModal(){
+        this.setState({
+            visible: !this.state.visible
+        });
+    }
+    maskPressHandle(){
+        this.setState({
+            visible: !this.state.closeModalAfterClickMask
+        });
+    }
+    render(){
+        return (
+            &lt;ScrollView
+                style={{flex:1}}
+            &gt;
+            &lt;View
+                style={styles.container}
+            &gt;
+                &lt;Text style={styles.text}&gt;当前动画效果：{this.state.animation}&lt;/Text&gt;
+                &lt;Text style={styles.text}&gt;遮罩层的透明度：{this.state.maskOpacity}&lt;/Text&gt;
+                &lt;Text style={styles.text}&gt;偏移量：{this.state.offset}&lt;/Text&gt;
+                &lt;Text style={styles.text}&gt;模态框显示位置：{this.state.position}&lt;/Text&gt;
+                &lt;View
+                    style={{flex:1,flexDirection: 'row',justifyContent: 'space-between',alignItems: 'center'}}
+                &gt;
+                    &lt;Text style={styles.text}&gt;点击遮罩关闭 modal：{this.state.closeModalAfterClickMask ? 'true' : 'false'}&lt;/Text&gt;
+                    &lt;Switch
+                        value={this.state.closeModalAfterClickMask}
+                        onValueChange = {(value)=&gt;this.setState({closeModalAfterClickMask:value})}
+                    /&gt;
+                &lt;/View&gt;
+                &lt;View
+                    style={{
+                        flex: 1,
+                        flexDirection: 'row',
+                        borderTopWidth:1,
+                        borderBottomWidth: 1,
+                        borderColor: '#ccc'
+                    }}
+                &gt;
+                    &lt;Picker
+                        style={{flex:2}}
+                        selectedValue={this.state.animation}
+                        onValueChange={(value)=&gt;{
+                            this.setState({animation:value})
+                        }}
+                    &gt;
+                        &lt;Picker.Item label="none" value="none" /&gt;
+                        &lt;Picker.Item label="fade" value="fade" /&gt;
+                        &lt;Picker.Item label="slideFromBottom" value="slideFromBottom" /&gt;
+                        &lt;Picker.Item label="slideFromTop" value="slideFromTop" /&gt;
+                        &lt;Picker.Item label="slideFromLeft" value="slideFromLeft" /&gt;
+                        &lt;Picker.Item label="slideFromRight" value="slideFromRight" /&gt;
+                    &lt;/Picker&gt;
+                    &lt;Picker
+                        style={{flex:1}}
+                        selectedValue={this.state.maskOpacity}
+                        onValueChange={(value)=&gt;{
+                            this.setState({maskOpacity:value})
+                        }}
+                    &gt;
+                        &lt;Picker.Item label="0" value={0} /&gt;
+                        &lt;Picker.Item label="0.4" value={0.4} /&gt;
+                        &lt;Picker.Item label="0.6" value={0.6} /&gt;
+                        &lt;Picker.Item label="1" value={1} /&gt;
+                    &lt;/Picker&gt;
+                    &lt;Picker
+                        style={{flex:1}}
+                        selectedValue={this.state.offset}
+                        onValueChange={(value)=&gt;{
+                            this.setState({offset:value})
+                        }}
+                    &gt;
+                        &lt;Picker.Item label="-200" value={-200} /&gt;
+                        &lt;Picker.Item label="-100" value={-100} /&gt;
+                        &lt;Picker.Item label="0" value={0} /&gt;
+                        &lt;Picker.Item label="100" value={100} /&gt;
+                        &lt;Picker.Item label="200" value={200} /&gt;
+                    &lt;/Picker&gt;
+                    &lt;Picker
+                        style={{flex:1}}
+                        selectedValue={this.state.position}
+                        onValueChange={(value)=&gt;{
+                            this.setState({position:value})
+                        }}
+                    &gt;
+                        &lt;Picker.Item label="center" value="center" /&gt;
+                        &lt;Picker.Item label="top" value="top" /&gt;
+                        &lt;Picker.Item label="bottom" value="bottom" /&gt;
+                        &lt;Picker.Item label="left" value="left" /&gt;
+                        &lt;Picker.Item label="right" value="right" /&gt;
+                    &lt;/Picker&gt;
+                &lt;/View&gt;
+                &lt;Text
+                    onPress={()=&gt;{this.toggleModal()}}
+                    style={styles.btn}
+                &gt;打开模态框&lt;/Text&gt;
+                &lt;Modal
+                    visible={this.state.visible}
+                    animation={this.state.animation}
+                    offset={this.state.offset}
+                    position={this.state.position}
+                    maskOpacity={this.state.maskOpacity}
+                    onMaskPress={() =&gt; this.maskPressHandle()}
+                &gt;
+                    &lt;View
+                        style={styles.dialog}
+                    &gt;
+                        &lt;Text
+                            style={styles.content}
+                        &gt;
+                            Modal 实例
+                        &lt;/Text&gt;
+                        &lt;TouchableOpacity
+                            underlayColor="#38adff"
+                            activeOpacity={0.5}
+                            onPress={()=&gt;{this.toggleModal()}}
+                        &gt;
+                            &lt;Text
+                                style={styles.btn}
+                            &gt;关闭模态框&lt;/Text&gt;
+                        &lt;/TouchableOpacity&gt;
+                    &lt;/View&gt;
+                &lt;/Modal&gt;
+            &lt;/View&gt;
+            &lt;/ScrollView&gt;
+        )
+    }
+}
+
+var styles = StyleSheet.create({
+    container: {
+        flexDirection: 'column',
+        padding: 15
+    },
+    btn:{
+        padding: 5,
+        color: '#fff',
+        backgroundColor: '#1f6f96',
+        textAlign: 'center',
+        borderRadius: 4,
+        marginTop: 15,
+        marginBottom: 15
+    },
+    dialog:{
+        flex: 1,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        backgroundColor:'#fff',
+        width: 300,
+        padding: 20,
+        borderRadius: 6
+    },
+    text:{
+        lineHeight: 30
+    },
+    content:{
+        marginBottom: 30
+    }
+});
+
+AppRegistry.registerComponent('ModalExample', () =&gt; ModalExample);
+</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -272,21 +278,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     PixelRatio
     <small>PixelRatio</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4.0</span>
+</h2>
 <div class="api-content"><p>PixelRatio为用户提供了获得设备像素密度的方法。</p>
 <p><img src="./images/api/PixelRatio.gif" alt="PixelRatio"></p>
 </div>
+<div class="con-list-item">
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>get</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>返回设备的像素密度。例如：</p>
 <p><strong> PixelRatio.get() === 1 </strong></p>
@@ -317,8 +327,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>getPixelSizeForLayoutSize</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>将布局尺寸（dp）转换为像素尺寸（px），返回一个整数值。</p>
 </div>
@@ -361,8 +373,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>roundToNearestPixel</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>得到一个布局尺寸转化为像素尺寸保留整数时最接近的布局尺寸值。例如，在一个PixelRatio为3的设备中，<code>PixelRatio.roundToNearestPixel(8.4) = 8.333333333333334</code>, 因为 <code>(8.33 * 3) = 25 px</code>, 25px是8.4dp在3像素密度的情况下最接近的px值。</p>
 </div>
@@ -406,7 +420,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>var React = require('qunar-react-native');
 var {
     Component,
@@ -433,6 +447,8 @@ AppRegistry.registerComponent('Demo', () =&gt; Demo)
 </code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

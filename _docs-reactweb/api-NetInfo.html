@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -272,19 +278,24 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     NetInfo
     <small>NetInfo 接口</small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>= v1.4</span>
-</h1>
-<div class="api-content"></div>
+</h2>
+<div class="api-content"><p>NetInfo 是一个用来获取当前设备的网络状态的一组 API</p>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>addEventListener</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>用来添加网络变化时的回调</p>
 </div>
@@ -338,9 +349,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>removeEventListener</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>用来删除网络变化时的回调</p>
 </div>
@@ -394,9 +407,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>fetch</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>该方法返回一个 Promise 对象，resolve 的时候会传入网络连接状态，
 在大客户端环境下, 借助于 QuanrAPI 可以获取到网络类型, 网络状态可能是 2g，3g，2g/3g，4g，wifi，unknown 。
@@ -406,9 +421,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>isConnectionExpensive</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>用来获知当前的网络连接是否付费, 这里认为所有非 wifi 的环境均需要付费。</p>
 </div>
@@ -416,9 +433,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>isConnected</strong>
      <span>{ object }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>该对象同样提供了一组同 NetInfo 上具有的方法，不同的是该对象上挂载的方法仅仅
 告诉回调当前设备是否在线。比如使用 <code>NetInfo.isConnected.addEventListener</code> 添加的回调，
@@ -430,11 +449,66 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./NetInfo.js
- @description NetInfo 是一个用来获取当前设备的网络状态的一组 API</code></pre>
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>/**
+ * Created by wangxiaoyu.wang on 16/8/18.
+ */
+
+var React = require('react');
+var ReactNative = require('qunar-react-native');
+var {
+    AppRegistry,
+    View,
+    StyleSheet,
+    Text,
+    NetInfo,
+} = ReactNative;
 
 
+
+
+let NetInfoExample = React.createClass({
+    getInitialState: function(){
+        return {
+            online: window.navigator.onLine,
+            status: 'unknown'
+        }
+    },
+    componentWillMount: function(){
+        NetInfo.addEventListener('change', (status) =&gt; {
+            alert('网络状态改变了，当前的状态是：' + status);
+        });
+        NetInfo.fetch().then((status)=&gt;{
+            this.setState({status: status});
+        });
+        NetInfo.isConnected.addEventListener('change', (isConnected) =&gt; {
+            this.setState({online: isConnected});
+            alert('网络状态改变了，当前是否在线呢：' + isConnected);
+        });
+    },
+    render: function(){
+        return (
+            &lt;View&gt;
+                &lt;Text style={styles.text}&gt;当前是否在线? {this.state.online ? '是' : '否'}&lt;/Text&gt;
+                &lt;Text style={styles.text}&gt;当前网络状态：{this.state.status}&lt;/Text&gt;
+            &lt;/View&gt;
+        )
+    }
+});
+
+var styles = StyleSheet.create({
+    text: {
+        padding: 10,
+        backgroundColor: '#ccc'
+    }
+})
+
+AppRegistry.registerComponent('NetInfoExample', () =&gt; NetInfoExample);
+</code></pre>
+
+
+</div>
+</div>
 
               </div>
           </div>

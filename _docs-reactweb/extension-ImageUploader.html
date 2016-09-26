@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="active">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -200,19 +206,27 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     ImageUploader
     <small>ImageUploader 模块</small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>= v1.4</span>
-</h1>
-<div class="api-content"></div>
+</h2>
+<div class="api-content"><p>ImageUploader 是一个用于图片上传的组件。在上传中的时候可以配置最大尺寸，
+超出尺寸的图片将会按比例进行缩放。这里是 QRN 中 ImageUploader 来 web 上的实现, 功能上和 QRN 中的 ImageUploader
+有很大不同, 在 touch 页面上，上传的资源仅限于 HTML 概念上的 img, 当然这个 img 可以是一个 url、一个 img 元素或者通过 input
+得到的 file。</p>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>uploadImage</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>uploadImage 是真正用来上传的图片的方法，该方法接受 4 个参数，可以参见下面的方法参数
 列表，于第二个参数 options 是一个对象，用来配置上传相关的信息，其中可选的配置项如下表所示：</p>
@@ -344,14 +358,117 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./ImageUploader.js
- @description ImageUploader 是一个用于图片上传的组件。在上传中的时候可以配置最大尺寸，
-超出尺寸的图片将会按比例进行缩放。这里是 QRN 中 ImageUploader 来 web 上的实现, 功能上和 QRN 中的 ImageUploader
-有很大不同, 在 touch 页面上，上传的资源仅限于 HTML 概念上的 img, 当然这个 img 可以是一个 url、一个 img 元素或者通过 input
-得到的 file。</code></pre>
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>/**
+ * Created by wangxiaoyu.wang on 16/8/18.
+ */
+
+var React = require('react');
+var ReactDOM = require('ReactDOM')
+var ReactNative = require('qunar-react-native');
+var {
+    AppRegistry,
+    View,
+    Image,
+    StyleSheet,
+    TouchableHighlight,
+    Text,
+    ImageUploader,
+    Alert
+} = ReactNative;
 
 
+let ImageUploaderExample = React.createClass({
+    render: function(){
+        return (
+            &lt;View&gt;
+                &lt;Image
+                    crossOrigin="Anonymous"
+                    ref="img"
+                    source={{uri: 'https://avatars3.githubusercontent.com/u/1024025?v=3&s=400'}} /&gt;
+                &lt;TouchableHighlight underlayColor="#38adff" onPress={this.uploadByImg}&gt;
+                    &lt;View style={[styles.btn]}&gt;
+                        &lt;Text style={{color:'#fff'}}&gt;通过 img 元素上传&lt;/Text&gt;
+                    &lt;/View&gt;
+                &lt;/TouchableHighlight&gt;
+                &lt;TouchableHighlight underlayColor="#38adff" onPress={this.uploadByUrl}&gt;
+                    &lt;View style={[styles.btn]}&gt;
+                        &lt;Text style={{color:'#fff'}}&gt;通过 url 上传&lt;/Text&gt;
+                    &lt;/View&gt;
+                &lt;/TouchableHighlight&gt;
+                &lt;TouchableHighlight underlayColor="#38adff" onPress={this.uploadByFile}&gt;
+                    &lt;View style={[styles.btn]}&gt;
+                        &lt;Text style={{color:'#fff'}}&gt;通过 file 上传&lt;/Text&gt;
+                    &lt;/View&gt;
+                &lt;/TouchableHighlight&gt;
+                &lt;input type="file" style={styles.input} ref="input" onChange={this.onChange}/&gt;
+            &lt;/View&gt;
+        );
+    },
+    uploadByUrl: function(){
+        let uri = this.refs.img.props.source.uri;
+        ImageUploader.uploadImage(uri, {
+            serverAddress: 'http://127.0.0.1:8080/',
+            serverParams: {
+                param1: 1,
+                param2: 2
+            },
+            fileKey: 'image',
+        }, function(data){
+            Alert.alert('上传成功');
+        }, function(err){
+            Alert.alert('上传失败', err.message);
+        });
+    },
+    uploadByImg: function(){
+        let image = ReactDOM.findDOMNode(this.refs.img);
+        ImageUploader.uploadImage(image, {
+            serverAddress: 'http://127.0.0.1:8080/',
+            fileKey: 'image',
+            maxWidth: 50
+        }, function(data){
+            Alert.alert('上传成功');
+        }, function(err){
+            Alert.alert('上传失败', err.message);
+        });
+    },
+    uploadByFile: function(){
+        var input = ReactDOM.findDOMNode(this.refs.input);
+        input.click();
+    },
+    onChange: function(){
+        var files = ReactDOM.findDOMNode(this.refs.input).files;
+        ImageUploader.uploadImage(files[0], {
+            serverAddress: 'http://127.0.0.1:8080/',
+            fileKey: 'image',
+            maxWidth: 50
+        }, function(data){
+            Alert.alert('上传成功');
+        }, function(err){
+            Alert.alert('上传失败', err.message);
+        });
+    }
+});
+
+var styles = StyleSheet.create({
+    btn:{
+        backgroundColor: '#38adff',
+        borderRadius: 4,
+        padding:5,
+        textAlign: 'center',
+        marginTop: 10
+    },
+    input: {
+        display: 'none'
+    }
+});
+
+AppRegistry.registerComponent('ImageExample', () =&gt; ImageUploaderExample);
+</code></pre>
+
+
+</div>
+</div>
 
               </div>
           </div>

@@ -276,11 +276,12 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     LoadControl
     <small>上拉加载组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger">>=v1.0.0</span>
+</h2>
 <div class="api-content"><p>这一组件用在 <code>ScrollView</code> 内部，作为 <code>loadControl</code> 属性，为其添加上拉加载的功能。</p>
 <p>该组件分为三种状态：</p>
 <ul>
@@ -291,13 +292,16 @@
 <p>当变成 <code>LOADING</code> 状态会触发 <code>onLoad</code> 事件，此时，可以通过 <code>ScrollView</code> 的 <code>stopLoading</code> 方法来停止刷新。</p>
 <p><img src="./images/component-LoadControl.png" alt="LoadControl"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>height</strong>
-     <span>{ number }</span>
+     <span class="prop-type">{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>LoadControl的高度</p>
 </div>
@@ -309,9 +313,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>noMore</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>如果为true，则显示 <code>NOMORE</code> 状态</p>
 </div>
@@ -323,9 +329,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>noticeContent</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>显示在最下方的提示文本</p>
 </div>
@@ -337,9 +345,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>loadingContent</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>加载时的文本</p>
 </div>
@@ -351,11 +361,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>loadingIcon</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=1.3.0</span>
+    <span class="yo-badge yo-badge-danger">>=1.3.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>加载时旋转的图标</p>
 </div>
@@ -367,9 +379,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>noMoreContent</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>没有更多时显示的文本</p>
 </div>
@@ -381,9 +395,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onLoad</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>变成正在加载时触发的事件</p>
 </div>
@@ -391,9 +407,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onPress</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>点击LoadControl时触发的事件</p>
 </div>
@@ -401,9 +419,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>style</strong>
-     <span>{ View.propTypes.style }</span>
+     <span class="prop-type">{ View.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>LoadControl样式</p>
 </div>
@@ -411,11 +431,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>textStyle</strong>
-     <span>{ Text.propTypes.style }</span>
+     <span class="prop-type">{ Text.propTypes.style }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=1.3.0</span>
+    <span class="yo-badge yo-badge-danger">>=1.3.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>LoadControl的文本样式</p>
 </div>
@@ -423,11 +445,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>iconStyle</strong>
-     <span>{ Text.propTypes.style }</span>
+     <span class="prop-type">{ Text.propTypes.style }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=1.3.0</span>
+    <span class="yo-badge yo-badge-danger">>=1.3.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>LoadControl的按钮样式</p>
 </div>
@@ -437,7 +461,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 import React, {
     Component,
@@ -565,6 +589,8 @@ module.exports = {
 </code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

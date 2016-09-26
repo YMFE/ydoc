@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -272,19 +278,49 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     StyleSheet
     <small>StyleSheet</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
-<div class="api-content"></div>
+    
+</h2>
+<div class="api-content"><p> StyleSheet提供了类似 CSS 样式表的抽象。</p>
+<h4 id="-">声明样式</h4>
+<pre><code>var styles = StyleSheet.create({});
+</code></pre><p>StyleSheet.create()可将样式值转化为数字id，指向内部样式表，使得样式不可更改和不可见。本项目会自动抹平浏览器差异，对样式进行兼容处理。</p>
+<p>将样式声明放到文件的末尾处，可保证在应用中只被创建一次。在render中直接创建样式对象，每次渲染都会被重复创建。</p>
+<h4 id="-">使用样式</h4>
+<p>所有核心组件都可以接受style属性。</p>
+<p>可接受一个style</p>
+<pre><code>&lt;View style={styles.container} /&gt;
+</code></pre><p>也可以以数组的形式接受多个style,最右侧优先级越高，否定值（如false，undefined，null）会被忽略。</p>
+<pre><code>&lt;View style={[styles.base, styles.background, this.state.active &amp;&amp; styles.active]} /&gt;
+</code></pre><p>也可在render中建立，但会重复渲染，不推荐。</p>
+<pre><code>&lt;Text style={{color:&#39;red&#39;}}&gt;hello&lt;/Text&gt;
+</code></pre><h4 id="-">作为参数调用</h4>
+<p>你可以将样式作为参数进行传递，可使用 <code>View.propTypes.style</code> 和 <code>Text.propType.style</code> 来确保参数是style类型的。</p>
+<pre><code>propTypes: {
+  style: View.propTypes.style
+}
+</code></pre><p>示例描述了StyleSheet应如何创建和使用。</p>
+<h4 id="-">注意事项</h4>
+<ul>
+<li>本组件将 React Native 中的 style 属性转换为 React web 属性，同时会兼容浏览器差异。如 flexbox 相关属性会根据浏览器所使用的flexbox规范进行兼容，增加浏览器厂商前缀等等，可放心使用。</li>
+<li>本组件会将涉及到长度的不带单位样式值转化为rem，例如，width:10会自动变为width:&#39;0.10 rem&#39;。而对于那些需要保持 css 的独立性的样式值，如flex:1,则不会进行转换。</li>
+<li>本组件几乎覆盖了 React Native 的全部style属性，除了 shadowOpacity(浏览器不支持)。</li>
+<li>样式对象的键名应遵循驼峰风格，如borderColor，以达到最佳效果。</li>
+</ul>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>hairlineWidth</strong>
      <span>{ static }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>这一常量定义了当前平台上的最细的宽度。可以用作边框或是两个元素间的分隔线,然而，你不能把它“视为一个常量”，因为不同的平台和不同的屏幕像素密度会导致不同的结果。在web上此值为1px</p>
 </div>
@@ -292,9 +328,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>flatten</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>将一个style数组转化为一个style对象。如果传入的是对象，则直接返回此对象，如果传入的值 == false，则返回undefined</p>
 </div>
@@ -337,9 +375,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>absoluteFill</strong>
      <span>{ object }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>一个可直接使用的绝对布局定位</p>
 <p>它是由<code>{position:&#39;absolute&#39;,left:0,right:0,top:0,bottom:0,}</code>变换过可直接使用的style，</p>
@@ -349,9 +389,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>absoluteFillObject</strong>
      <span>{ object }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>一个便捷的绝对定位数组，它实际上就是<code>{position:&#39;absolute&#39;,left:0,right:0,top:0,bottom:0,}</code></p>
 <p>你可以这样使用它：</p>
@@ -362,11 +404,13 @@
 
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>create</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>StyleSheet的构造函数，将样式值转化为数字id，指向内部样式表，使得样式不可更改和不可见。本项目会自动抹平浏览器差异，对样式进行兼容处理。</p>
 </div>
@@ -416,7 +460,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>var React = require('react-native');
 var {
     AppRegistry,
@@ -470,6 +514,8 @@ var styles = StyleSheet.create({
 });</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

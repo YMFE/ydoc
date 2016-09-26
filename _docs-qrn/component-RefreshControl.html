@@ -276,11 +276,12 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     RefreshControl
     <small>下拉刷新组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger">>=v1.0.0</span>
+</h2>
 <div class="api-content"><p>这一组件用在 <code>ScrollView</code> 内部，作为 <code>refreshControl</code> 属性，为其添加下拉刷新的功能。</p>
 <p>该组件分为五种展示状态：</p>
 <ul>
@@ -293,13 +294,16 @@
 <p>当变成 <code>REFRESHING</code> 状态会触发 <code>onRefresh</code> 事件，此时，可以通过 <code>ScrollView</code> 的 <code>stopRefreshing</code> 方法来停止刷新。</p>
 <p><img src="./images/component-RefreshControl.png" alt="RefreshControl"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>height</strong>
-     <span>{ number }</span>
+     <span class="prop-type">{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>RefreshControl的高度，下拉距离超过该距离时松手，会开始刷新</p>
 </div>
@@ -311,9 +315,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>pullStartContent</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>正在下拉，未达到刷新高度时的文本</p>
 </div>
@@ -325,9 +331,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>pullContinueContent</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>正在下拉，达到刷新高度时的文本</p>
 </div>
@@ -339,11 +347,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>pullIcon</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=1.3.0</span>
+    <span class="yo-badge yo-badge-danger">>=1.3.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>PULLSTART和PULLCONTINUE时旋转的icon</p>
 </div>
@@ -355,9 +365,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>refreshingContent</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>正在刷新时的文本</p>
 </div>
@@ -369,11 +381,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>refreshingIcon</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=1.3.0</span>
+    <span class="yo-badge yo-badge-danger">>=1.3.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>REFRESHING时的旋转的icon文本</p>
 </div>
@@ -385,11 +399,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>successContent</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>= 1.3.0</span>
+    <span class="yo-badge yo-badge-danger">>= 1.3.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>加载成功时的文本</p>
 </div>
@@ -401,11 +417,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>successIcon</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=1.3.0</span>
+    <span class="yo-badge yo-badge-danger">>=1.3.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>加载成功时的icon文本</p>
 </div>
@@ -417,11 +435,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>failContent</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>= 1.3.0</span>
+    <span class="yo-badge yo-badge-danger">>= 1.3.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>加载失败时的文本</p>
 </div>
@@ -433,11 +453,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>failIcon</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=1.3.0</span>
+    <span class="yo-badge yo-badge-danger">>=1.3.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>加载失败时的icon文本</p>
 </div>
@@ -449,9 +471,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onRefresh</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>切换到正在刷新状态时触发的事件</p>
 </div>
@@ -459,9 +483,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>style</strong>
-     <span>{ View.propTypes.style }</span>
+     <span class="prop-type">{ View.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>RefreshControl 容器样式</p>
 </div>
@@ -469,9 +495,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>iconStyle</strong>
-     <span>{ Text.propTypes.style }</span>
+     <span class="prop-type">{ Text.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>RefreshControl iconfont样式</p>
 </div>
@@ -479,9 +507,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>textStyle</strong>
-     <span>{ Text.propTypes.style }</span>
+     <span class="prop-type">{ Text.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>RefreshControl 提示文字样式</p>
 </div>
@@ -491,7 +521,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 import React, {
     Component,
@@ -629,6 +659,8 @@ module.exports = {
 </code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

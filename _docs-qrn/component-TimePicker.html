@@ -276,21 +276,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     TimePicker
     <small>日期/时间选择组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger">>=1.3.0</span>
+</h2>
 <div class="api-content"><p>渲染出一个可以选择日期/时间的组件。这是一个受控组件，需要在 onDateChange 的回调中设置 date。</p>
 <p><img src="./images/component-TimePicker.png" alt="ScrollView"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>mode</strong>
-     <span>{ 'date' / 'time' / 'datetime' }</span>
+     <span class="prop-type">{ 'date' / 'time' / 'datetime' }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>选择时间的模式，支持三种：datetime为日期和时间，time为时间，date为日期。</p>
 </div>
@@ -302,9 +306,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>date</strong>
-     <span>{ Date }</span>
+     <span class="prop-type">{ Date }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当前的选中值，由于这是一个受控组件，所以需要在 onDateChange 回调中每次修改这个值。</p>
 </div>
@@ -316,9 +322,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>minimumDate</strong>
-     <span>{ Date }</span>
+     <span class="prop-type">{ Date }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>可选的最小值，超过范围会自动回弹。</p>
 </div>
@@ -326,9 +334,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>maximumDate</strong>
-     <span>{ Date }</span>
+     <span class="prop-type">{ Date }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>可选的最大值，超过范围会自动回弹。</p>
 </div>
@@ -336,9 +346,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>minuteInterval</strong>
-     <span>{ oneOf([1, 2, 3, 5, 6, 10, 12, 15, 20, 30]) }</span>
+     <span class="prop-type">{ oneOf([1, 2, 3, 5, 6, 10, 12, 15, 20, 30]) }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>可选的最小的分钟单位。</p>
 </div>
@@ -350,9 +362,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onDateChange</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(date) =&gt; void</p>
 <p>当选择的事件发生变化之后触发的回调</p>
@@ -398,7 +412,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 import React, { TimePicker, View, Component, StyleSheet, Text, Button } from 'qunar-react-native';
 
@@ -546,6 +560,8 @@ module.exports = {
 };</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

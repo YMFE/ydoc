@@ -276,11 +276,12 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     ScrollView
     <small>滚动组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger">>=v1.0.0</span>
+</h2>
 <div class="api-content"><p>一个包装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。</p>
 <ul>
 <li>记住ScrollView必须有一个确定的高度才能正常工作，因为它实际上所做的就是将一系列不确定高度的子组件装进一个确定高度的容器（通过滚动操作）。</li>
@@ -289,13 +290,16 @@
 </ul>
 <p><img src="./images/component-ScrollView.png" alt="ScrollView"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>contentInset</strong>
-     <span>{ EdgeInsetsPropType }</span>
+     <span class="prop-type">{ EdgeInsetsPropType }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>内容范围相对滚动视图边缘的坐标。</p>
 </div>
@@ -307,9 +311,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>contentOffset</strong>
-     <span>{ PointPropType }</span>
+     <span class="prop-type">{ PointPropType }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>用来手动设置初始的滚动坐标。</p>
 </div>
@@ -321,9 +327,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>alwaysBounceHorizontal</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当此属性为true时，水平方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。</p>
 </div>
@@ -335,9 +343,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>alwaysBounceVertical</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当此属性为true时，垂直方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。</p>
 </div>
@@ -349,11 +359,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>bounces</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=v1.1.0</span>
+    <span class="yo-badge yo-badge-danger">>=v1.1.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当值为true时，如果内容范围比滚动视图本身大，在到达内容末尾的时候，可以弹性地拉动一截。如果为false，尾部的所有弹性都会被禁用，即使alwaysBounce*属性为true。默认值为true。</p>
 </div>
@@ -365,9 +377,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>contentContainerStyle</strong>
-     <span>{ View.propTypes.style }</span>
+     <span class="prop-type">{ View.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>ScrollView内容容器的样式，所有的子视图都会包裹在内容容器内。</p>
 </div>
@@ -375,9 +389,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>decelerationRate</strong>
-     <span>{ number|'fast'|'normal' }</span>
+     <span class="prop-type">{ number|'fast'|'normal' }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>一个浮点数，用于决定当用户抬起手指之后进行惯性滚动时，滚动视图减速停下的速度。normal为0.998，fast为0.9。</p>
 </div>
@@ -389,9 +405,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>horizontal</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>水平滚动。当该属性为true的时候，所有的的子视图会在水平方向上排成一行，而不是默认的在垂直方向上排成一列。</p>
 </div>
@@ -403,9 +421,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onScroll</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(event) =&gt; void</p>
 <p>在滚动的过程中，每帧调用一次此回调函数。</p>
@@ -450,9 +470,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onScrollAnimationEnd</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(event) =&gt; void</p>
 <p>当滚动动画结束之后调用此回调。</p>
@@ -496,9 +518,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>pagingEnabled</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当值为true时，滚动条会停在滚动视图的尺寸的整数倍位置。这个可以用在水平或垂直的分页上。默认值为false。</p>
 <p><strong>注意：当使用pagingEnabled属性的时候，不允许在非scroll方向上使用 <code>alwaysBounce*</code> 属性。即：当 horizontal 为 true，pagingEnabled 为 true 的时候，不允许使用 alwaysBounceVertical ；当 horizontal 为 flase，pagingEnabled 为 true 的时候，不允许使用 alwaysBounceHorizontal</strong></p>
@@ -511,9 +535,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>scrollEnabled</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当值为false的时候，内容不能滚动，默认值为true。</p>
 </div>
@@ -525,9 +551,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>showsHorizontalScrollIndicator</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当此属性为true的时候，显示一个水平方向的滚动条。</p>
 </div>
@@ -539,9 +567,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>showsVerticalScrollIndicator</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当此属性为true的时候，显示一个垂直方向的滚动条。</p>
 </div>
@@ -553,9 +583,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>stickyHeaderIndices</strong>
-     <span>{ array[number] }</span>
+     <span class="prop-type">{ array[number] }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>一个子视图下标的数组，用于决定哪些成员会在滚动之后固定在屏幕顶端。举个例子，传递stickyHeaderIndices={[0]}会让第一个成员固定在滚动视图顶端。这个属性不能和horizontal={true}一起使用。</p>
 </div>
@@ -563,11 +595,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>keyboardDismissMode</strong>
-     <span>{ enum('none', 'on-drag') }</span>
+     <span class="prop-type">{ enum('none', 'on-drag') }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=v1.2.0</span>
+    <span class="yo-badge yo-badge-danger">>=v1.2.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>用户拖拽滚动视图的时候，是否要隐藏软键盘。<code>none</code>(默认值)，拖拽时不隐藏软键盘。<code>on-drag</code>，当拖拽开始的时候隐藏软键盘。</p>
 </div>
@@ -579,11 +613,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>keyboardShouldPersistTaps</strong>
-     <span>{ PropTypes.bool }</span>
+     <span class="prop-type">{ PropTypes.bool }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=v1.3.0</span>
+    <span class="yo-badge yo-badge-danger">>=v1.3.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>默认值为true<strong>（默认值与rn不一样，主要是为了兼容之前的版本）</strong>。当此属性为<code>true</code>的时候，在软键盘激活之后，点击焦点文本输入框以外的地方，键盘不会自动消失。当此属性为<code>false</code>的时候，在软键盘激活之后，点击焦点文本输入框以外的地方，键盘就会隐藏。</p>
 <p><strong>注：该属性的默认值与官方相反，默认在点击其他区域时不会收起键盘。同时，该属性的表现也与官方有区别：官方版本，在点击其他区域时会首先收起键盘，再次点击才会触发对应的操作；qrn的版本，在点击其他区域时会同时收起键盘，触发对应的操作。
@@ -597,11 +633,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onMomentumScrollBegin</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=v1.2.0</span>
+    <span class="yo-badge yo-badge-danger">>=v1.2.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(event) =&gt; void</p>
 <p>惯性滚动开始时的回调。</p>
@@ -645,11 +683,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onMomentumScrollEnd</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=v1.2.0</span>
+    <span class="yo-badge yo-badge-danger">>=v1.2.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(event) =&gt; void</p>
 <p>惯性滚动结束时的回调。</p>
@@ -693,11 +733,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onScrollBeginDrag</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=v1.2.0</span>
+    <span class="yo-badge yo-badge-danger">>=v1.2.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(event) =&gt; void</p>
 <p>拖拽滚动开始时的回调。</p>
@@ -741,11 +783,13 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onScrollEndDrag</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.10rem;vertical-align: top;">>=v1.2.0</span>
+    <span class="yo-badge yo-badge-danger">>=v1.2.0</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(event) =&gt; void</p>
 <p>拖拽滚动结束时的回调。</p>
@@ -789,9 +833,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>refreshControl</strong>
-     <span>{ element }</span>
+     <span class="prop-type">{ element }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>指定RefreshControl组件，用于为ScrollView提供下拉刷新功能。</p>
 </div>
@@ -799,9 +845,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>loadControl</strong>
-     <span>{ element }</span>
+     <span class="prop-type">{ element }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>指定LoadControl组件，用于为ScrollView提供上拉加载功能。</p>
 </div>
@@ -809,9 +857,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onContentSizeChange</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(width, height) =&gt; void</p>
 <p>ScrollView内容容器onLayout时触发，所有的子视图都会包裹在内容容器内。</p>
@@ -866,9 +916,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>style</strong>
-     <span>{ View.propTypes.style }</span>
+     <span class="prop-type">{ View.propTypes.style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>ScrollView的样式。</p>
 </div>
@@ -877,11 +929,13 @@
 
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>scrollTo</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>滚动到某一位置，如果只在某一方向滚动，可以只传{x: x}或{y: y}。默认animated为true。</p>
 <p><strong> 如果使用了RefreshControl组件，则y需要包含RefreshControl组件的高度。即：滚动到顶部，正常是 <code>scrollTo({y: 0})</code>，如果有RefreshControl组件，则 <code>scrollTo({y: 35})</code> （35为RefreshControl的默认高度）。</strong></p>
@@ -965,16 +1019,20 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>startRefreshing</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当前组件有refreshControl属性，并且没有正在下拉刷新，则强制触发下拉刷新，变成正在刷新的状态</p>
 </div>
 
 
 <blockquote class="api">
+    <h3>
     <strong>stopRefreshing</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当前组件有refreshControl属性，并且正在下拉刷新，则停止下拉刷新的状态。默认带有动画，可以设置{animated: false}取消。</p>
 <p><strong>停止刷新时，会自动ScrollTo顶部，所以不需要外部再调用。滚动到顶部的过程中，会禁止ScrollView响应。</strong></p>
@@ -1047,24 +1105,30 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>startLoading</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当前组件有loadControl属性，并且没有正在加载，则强制触发加载更多，变成正在加载更多的状态</p>
 </div>
 
 
 <blockquote class="api">
+    <h3>
     <strong>stopLoading</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当前组件有loadControl属性，并且正在加载，则停止加载更多的状态</p>
 </div>
 
 
 <blockquote class="api">
+    <h3>
     <strong>setContentOffsetBeforeLayout</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>本方法用来设置contentOffset相对当前的contentOffset偏移多少，在下一次render的时候会生效。本方法的主要使用场景是，当滚动内容的高度发生变化时（尤其是变小时），希望render之后，用户看到的内容位置是不变的。</p>
 </div>
@@ -1108,7 +1172,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 import React, {
     Component,
@@ -1261,6 +1325,8 @@ module.exports = {
 };</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,22 +310,26 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     TextInput
     <small>TextInput组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4.0</span>
+</h2>
 <div class="api-content"><p> TextInput组件是一个允许用户在应用中通过键盘输入文本的基本组件。</p>
 <p><strong>注意</strong> 该组件是受控组件，如果提供了value属性，原生值会强制与value值保持一致。你可以通过onChangeText事件来读取用户的输入并重设value以达到更改的目的。</p>
 <p><img src="./images/component/TextInput.gif" alt="TextInput"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>accessibilityLabel</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>无障碍标签。</p>
 </div>
@@ -327,9 +337,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>autoCapitalize</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>控制TextInput是否要自动将特定字符切换为大写。</p>
 <ul>
@@ -343,9 +355,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>autoComplete</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>input autoComplete属性</p>
 </div>
@@ -353,9 +367,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>autoCorrect</strong>
      <span>{ boolean }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>暂不支持</p>
 </div>
@@ -363,9 +379,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>autoFocus</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p> 自动获取焦点，如果为true，在componentDidMount后会获得焦点。</p>
 </div>
@@ -377,9 +395,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>blurOnSubmit</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>如果为true，文本框会在提交的时候失焦。对于单行输入框默认值为true，多行则为false。注意：对于多行输入框来说，如果将blurOnSubmit设为true，则在按下回车键时就会失去焦点同时触发onSubmitEditing事件，而不会换行。</p>
 </div>
@@ -387,9 +407,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>defaultValue</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>提供一个文本框中的初始值。当用户开始输入的时候，值就可以改变。</p>
 <p>在一些简单的使用情形下，如果你不想用监听消息然后更新value属性的方法来保持属性和状态同步的时候，就可以用defaultValue来代替。</p>
@@ -398,9 +420,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>editable</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>文本框是否可编辑，如果为false，文本框是不可编辑的。</p>
 </div>
@@ -412,9 +436,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>keyboardType</strong>
      <span>{ enum }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>决定弹出的何种软键盘</p>
 <ul>
@@ -440,9 +466,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>maxLength</strong>
      <span>{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>限制文本框中最多的字符数。</p>
 </div>
@@ -450,9 +478,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>multiline</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>如果为true，文本框中可以输入多行文字。</p>
 </div>
@@ -464,9 +494,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>numberOfLines</strong>
      <span>{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置输入框的行数。当multiline设置为true时使用它，可以占据对应的行数。</p>
 </div>
@@ -474,9 +506,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onBlur</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当文本框失去焦点的时候调用此回调函数。</p>
 </div>
@@ -518,9 +552,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onChange</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当文本框内容变化时调用此回调函数。</p>
 </div>
@@ -562,9 +598,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onChangeText</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当文本框内容变化时调用此回调函数。改变后的文字内容会作为参数传递。</p>
 </div>
@@ -606,9 +644,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onEndEditing</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当文本输入结束后调用此回调函数。</p>
 </div>
@@ -650,9 +690,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onFocus</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当文本框获得焦点的时候调用此回调函数。</p>
 </div>
@@ -694,9 +736,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onLayout</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当组件挂载或者布局变化的时候调用，参数为<code>{x, y, width, height}</code></p>
 </div>
@@ -704,9 +748,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onKeyDown</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当键盘按键被按下时调用此回调函数。</p>
 </div>
@@ -748,9 +794,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onKeyUp</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当在键盘按键被松开时调用此回调函数。</p>
 </div>
@@ -792,9 +840,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onKeyPress</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当键盘按键被按下并释放一个键时调用此回调函数。</p>
 </div>
@@ -836,9 +886,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onSelectionChange</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>此回调函数当软键盘的确定/提交按钮被按下的时候调用此函数。如果<code>multiline={true}</code>，此属性不可用</p>
 </div>
@@ -880,9 +932,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onSelectionChange</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当文本框选中状态变化时调用此回调函数。</p>
 </div>
@@ -924,9 +978,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>placeholder</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>如果没有任何文字输入，会显示此字符串。</p>
 </div>
@@ -934,9 +990,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>password</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>如果是true，输入的内容为密码</p>
 </div>
@@ -948,9 +1006,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>secureTextEntry</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>是否启用安全输入，如果为true，文本框会遮住之前输入的文字，这样类似密码之类的敏感文字可以更加安全。默认值为false。</p>
 </div>
@@ -962,9 +1022,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>style</strong>
      <span>{ object }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>样式，本组件继承了所有Text的样式</p>
 </div>
@@ -976,9 +1038,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>value</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>文本框中的文字内容。</p>
 </div>
@@ -986,9 +1050,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>isFocused</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>返回值表明当前输入框是否获得了焦点。true表示获取到焦点，false表示没有获取焦点</p>
 </div>
@@ -996,9 +1062,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>clear</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>清空输入框的内容</p>
 </div>
@@ -1008,7 +1076,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>var React = require('react-native');
 var {
     Animated,
@@ -1128,6 +1196,8 @@ AppRegistry.registerComponent('AwesomeProject', () =&gt; Demo);
 </code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

@@ -5,6 +5,11 @@
 node_modules
 node_modules/
 .sass-cache/
+test-kami/scripts/
+test-kami/scripts/**/src/.git/
+test-kami/scripts/**/src/.DS_Store/
+test-kami/scripts/**/src/.gitignore
+
 
 # maven ignore
 target/

@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,21 +310,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     ActionSheet
     <small>ActionSheet 组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=0.20.0</span>
+</h2>
 <div class="api-content"><p> 选择器组件。</p>
 <p><img src="./images/component/ActionSheet.gif" alt="ActionSheet"></p>
 </div>
+<div class="con-list-item">
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>ActionSheet.showActionSheetWithOptions(options:object, callback:function)</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>显示一个 ActionSheet 弹出框，其中 options 对象需要包含下面的一项或多项：</p>
 <ul>
@@ -333,8 +343,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>ActionSheet.showActionSheetWithOptions(options:object, callback:function)</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>在引用了<code>qunar-react-native</code>时部分支持（依赖于QShare），仅仅引用<code>react-native</code>情况下不支持</p>
 </div>
@@ -342,11 +354,206 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./ActionSheet.js
- @version &gt;=0.20.0</code></pre>
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>import React, { Component } from 'react';
+import {
+    AppRegistry,
+    ListView,
+    ActionSheet,
+    StyleSheet,
+    Text,
+    View
+} from 'qunar-react-native';
+
+var BUTTONS = [
+    'Option 0',
+    'Option 1',
+    'Option 2',
+    'Delete',
+    'Cancel',
+];
+var DESTRUCTIVE_INDEX = 3;
+var CANCEL_INDEX = 4;
+
+class ActionSheetExample extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = { clicked: 'none' };
+    }
+
+    render() {
+        return (
+            &lt;View&gt;
+                &lt;Text onPress={this.showActionSheet.bind(this)} style={styles.button}&gt;
+                    Click to show the ActionSheet
+                &lt;/Text&gt;
+                &lt;Text&gt;
+                    Clicked button: {this.state.clicked}
+                &lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+
+    showActionSheet() {
+        ActionSheet.showActionSheetWithOptions(
+            {
+                options: BUTTONS,
+                cancelButtonIndex: CANCEL_INDEX,
+                destructiveButtonIndex: DESTRUCTIVE_INDEX,
+            },
+            (buttonIndex) =&gt; {
+                this.setState({ clicked: BUTTONS[buttonIndex] });
+            }
+        );
+    }
+}
+
+class ActionSheetTintExample extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = { clicked: 'none' };
+    }
+
+    render() {
+        return (
+            &lt;View&gt;
+                &lt;Text onPress={this.showActionSheet.bind(this)} style={styles.button}&gt;
+                    Click to show the ActionSheet
+                &lt;/Text&gt;
+                &lt;Text&gt;
+                    Clicked button: {this.state.clicked}
+                &lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+
+    showActionSheet() {
+        ActionSheet.showActionSheetWithOptions(
+            {
+                options: BUTTONS,
+                cancelButtonIndex: CANCEL_INDEX,
+                destructiveButtonIndex: DESTRUCTIVE_INDEX,
+                tintColor: 'green',
+            },
+            (buttonIndex) =&gt; {
+                this.setState({ clicked: BUTTONS[buttonIndex] });
+            }
+        );
+    }
+}
+
+class ShareActionSheetExample extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = { text: '' };
+    }
+
+    render() {
+        return (
+            &lt;View&gt;
+                &lt;Text onPress={this.showShareActionSheet.bind(this)} style={styles.button}&gt;
+                    Click to show the Share ActionSheet
+                &lt;/Text&gt;
+                &lt;Text&gt;
+                    {this.state.text}
+                &lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+
+    showShareActionSheet() {
+        ActionSheet.showShareActionSheetWithOptions(
+            {
+                url: this.props.url,
+                message: 'message to go with the shared url',
+                subject: 'a subject to go in the email heading',
+                excludedActivityTypes: [
+                    'com.apple.UIKit.activity.PostToTwitter'
+                ]
+            },
+            (error) =&gt; alert(error),
+            (success, method) =&gt; {
+                var text;
+                if (success) {
+                    text = `Shared via ${method}`;
+                } else {
+                    text = 'You didn\'t share';
+                }
+                this.setState({text});
+            }
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    button: {
+        marginBottom: 10,
+        fontWeight: '500',
+        backgroundColor:'#ccc',
+        padding:10,
+        borderRadius:5
+
+    },
+    subtitle:{
+        padding:10,
+        backgroundColor:'#eee',
+        borderBottom:'1px solid #ccc'
+    },
+    content:{
+        padding:10
+    }
+});
+
+let examples = [
+    {
+        subtitle: 'Show Action Sheet',
+        render: () =&gt; &lt;ActionSheetExample /&gt;
+    },
+    {
+        subtitle: 'Show Action Sheet with tinted buttons',
+        render: () =&gt; &lt;ActionSheetTintExample /&gt;
+    },
+    {
+        subtitle: 'Show Share Action Sheet',
+        render: () =&gt; &lt;ShareActionSheetExample url="https://code.facebook.com" /&gt;
+    },
+    {
+        subtitle: 'Share Local Image',
+        render: () =&gt; &lt;ShareActionSheetExample url="bunny.png" /&gt;
+    },
+];
 
 
+var Example = React.createClass({
+    getInitialState:function(){
+        var ds = new ListView.DataSource({rowHasChanged:(row1,row2)=&gt;{return row1 !== row2}});
+        return {
+            dataSource: ds.cloneWithRows(examples)
+        }
+    },
+    render: function(){
+        return (
+            &lt;ListView
+                dataSource={this.state.dataSource}
+                renderRow={(rowData) =&gt; {
+                    return (
+                        &lt;View&gt;
+                            &lt;Text style={styles.subtitle}&gt;{rowData.subtitle}&lt;/Text&gt;
+                            &lt;View style={styles.content}&gt;{rowData.render()}&lt;/View&gt;
+                        &lt;/View&gt;
+                    )
+                }}
+            /&gt;
+        );
+    }
+});
+
+AppRegistry.registerComponent('ActionSheet', () =&gt; Example)
+</code></pre>
+
+
+</div>
+</div>
 
               </div>
           </div>

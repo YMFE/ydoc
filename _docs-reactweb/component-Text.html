@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,19 +310,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Text
     <small>Text组件</small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4.0</span>
-</h1>
-<div class="api-content"></div>
+</h2>
+<div class="api-content"><p> Text是一个用于显示文本的React组件。</p>
+<p><img src="./images/component/Text.gif" alt="Text"></p>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>style</strong>
      <span>{ object或array }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>Text组件的样式</p>
 </div>
@@ -331,9 +343,11 @@ fontSize: 14
 
 
 <blockquote class="api">
+    <h3>
     <strong>onPress</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>触摸Text组件时调用的函数。</p>
 </div>
@@ -341,9 +355,11 @@ fontSize: 14
 
 
 <blockquote class="api">
+    <h3>
     <strong>suppressHighlighting</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>按下Text组件时视觉效果，如果为true，则无视觉效果。</p>
 </div>
@@ -357,7 +373,7 @@ fontSize: 14
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 var React = require('qunar-react-native');
 var {
@@ -435,6 +451,8 @@ var Example3 = React.createClass({
 var Demo = React.createClass({</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

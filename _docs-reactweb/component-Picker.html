@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,22 +310,26 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Picker
     <small>Picker 组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    
+</h2>
 <div class="api-content"><p>选择器组件, 该组件是一个受控组件,当 Picker 的值被修改后, 需要在其 onValueChange 的回调函数中修改 selectedValue 的值
 这样 Picker 选中的项目才会改变。否则在下一次 render 的时候时候,选中项又会回到最初的 selectedValue 对应的哪一项上。</p>
 <p><img src="./images/component/DatePicker.gif" alt="DatePicker"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>onValueChange</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当某项被选中时被调用，调用时传入以下参数：</p>
 <ul>
@@ -331,9 +341,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>selectedValue</strong>
      <span>{ any }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>与该值匹配的项默认会被选中</p>
 </div>
@@ -341,9 +353,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>itemStyle</strong>
      <span>{ style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>Picker 中的每一项的样式</p>
 </div>
@@ -353,7 +367,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>var React = require('react');
 var ReactNative = require('qunar-react-native');
 var {
@@ -402,6 +416,8 @@ AppRegistry.registerComponent('AwesomeProject', () =&gt; PickerExample)
 </code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

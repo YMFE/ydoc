@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,19 +310,33 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     WbView
     <small>WebView 组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
-<div class="api-content"></div>
+    
+</h2>
+<div class="api-content"><p>创建一个原生的WebView，可以用于访问一个网页。</p>
+<p><img src="./images/component/WebView.gif" alt="WebView"></p>
+<h2 id="-webview-">关于 WebView 的一些注意事项</h2>
+<p>在 web 上 WebView 是采用 iframe 模拟实现的，因此在功能上存在一些局限，具体表现在以下方面：</p>
+<ul>
+<li>iframe 如果加载的是跨域的文档，就不能直接去操作其中的 dom 元素，这导致如同注入 JavaScript、前进、后退等功能无法实现。</li>
+<li>如果 source 中提供了 headers 或者 不同于 GET 的 method，以及 method 为 GET 且提供了 headers，这样是不能直接将
+uri 设置为 iframe 的 src 的，而是使用了 fetch 来加载文档，然后将内容通过 <code>URL.createObjectURL</code> 得到一个 url
+并设置为 iframe 的 src。这里存在跨域限制，要确保资源能够被成功加载。</li>
+</ul>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>source</strong>
      <span>{ {uri: string, method: string, headers: object, body: string}, {html: string, baseUrl: string} }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>在WebView中载入一段静态的html代码或是一个url（还可以附带一些header选项）。</p>
 <p>通过网络加载页面，可以指定一个包含下列参数的对象</p>
@@ -336,9 +356,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderError</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置一个函数，返回一个视图用于显示错误。</p>
 </div>
@@ -346,9 +368,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderLoading</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置一个函数，返回一个加载指示器。</p>
 </div>
@@ -356,9 +380,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderLoading</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置一个函数，加载成功时调用。</p>
 </div>
@@ -366,9 +392,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onLoadEnd</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置一个函数，加载结束时（无论成功或失败）调用。</p>
 </div>
@@ -376,9 +404,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onLoadStart</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置一个函数，加载开始时调用。</p>
 </div>
@@ -386,9 +416,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onError</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置一个函数，加载失败时调用。</p>
 </div>
@@ -396,9 +428,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onNavigationStateChange</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>一个将在 webview 开始加载和加载结束的时候调用的函数。</p>
 </div>
@@ -406,9 +440,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>startInLoadingState</strong>
      <span>{ boolean }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>一个布尔值表示是否强制展示 loading 页面</p>
 </div>
@@ -416,9 +452,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>javaScriptEnabled</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>一个布尔值，表示在 webView 是否允许执行 javaScript。</p>
 </div>
@@ -426,9 +464,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>injectedJavaScript</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>一段将在页面加载成功后被注入的 js 脚本，不包含 <code>&lt;script&gt;</code> 标签。</p>
 </div>
@@ -438,21 +478,341 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./WebView.js
- @description 创建一个原生的WebView，可以用于访问一个网页。
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>'use strict';
 
-![WebView](./images/component/WebView.gif)
+var React = require('react');
+var ReactNative = require('react-native');
+var {
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableWithoutFeedback,
+    TouchableOpacity,
+    View,
+    WebView,
+    ActivityIndicator,
+    AppRegistry
+} = ReactNative;
 
-## 关于 WebView 的一些注意事项
+var HEADER = '#3b5998';
+var BGWASH = 'rgba(255,255,255,0.8)';
+var DISABLED_WASH = 'rgba(255,255,255,0.25)';
 
-在 web 上 WebView 是采用 iframe 模拟实现的，因此在功能上存在一些局限，具体表现在以下方面：
-- iframe 如果加载的是跨域的文档，就不能直接去操作其中的 dom 元素，这导致如同注入 JavaScript、前进、后退等功能无法实现。
-- 如果 source 中提供了 headers 或者 不同于 GET 的 method，以及 method 为 GET 且提供了 headers，这样是不能直接将
-uri 设置为 iframe 的 src 的，而是使用了 fetch 来加载文档，然后将内容通过 `URL.createObjectURL` 得到一个 url
-并设置为 iframe 的 src。这里存在跨域限制，要确保资源能够被成功加载。</code></pre>
+var TEXT_INPUT_REF = 'urlInput';
+var WEBVIEW_REF = 'webview';
+var DEFAULT_URL = 'http://ued.qunar.com';
+
+class WebViewExample extends React.Component {
+    state = {
+        url: DEFAULT_URL,
+        status: 'No Page Loaded',
+        backButtonEnabled: false,
+        forwardButtonEnabled: false,
+        loading: true,
+        scalesPageToFit: true,
+    };
+
+    inputText = '';
+
+    handleTextInputChange = (event) =&gt; {
+        var url = event.nativeEvent.text;
+        if (!/^[a-zA-Z-_]+:/.test(url)) {
+            url = 'http://' + url;
+        }
+        this.inputText = url;
+    };
+
+    render() {
+        this.inputText = this.state.url;
+
+        return (
+            &lt;View style={[styles.container]}&gt;
+                &lt;View style={[styles.addressBarRow]}&gt;
+                    &lt;TouchableOpacity
+                        onPress={this.goBack}
+                        style={this.state.backButtonEnabled ? styles.navButton : styles.disabledButton}&gt;
+                        &lt;Text&gt;
+                            {'&lt;'}
+                        &lt;/Text&gt;
+                    &lt;/TouchableOpacity&gt;
+                    &lt;TouchableOpacity
+                        onPress={this.goForward}
+                        style={this.state.forwardButtonEnabled ? styles.navButton : styles.disabledButton}&gt;
+                        &lt;Text&gt;
+                            {'&gt;'}
+                        &lt;/Text&gt;
+                    &lt;/TouchableOpacity&gt;
+                    &lt;TextInput
+                        ref={TEXT_INPUT_REF}
+                        autoCapitalize="none"
+                        defaultValue={this.state.url}
+                        onSubmitEditing={this.onSubmitEditing}
+                        onChange={this.handleTextInputChange}
+                        clearButtonMode="while-editing"
+                        style={styles.addressBarTextInput}
+                    /&gt;
+                    &lt;TouchableOpacity onPress={this.pressGoButton}&gt;
+                        &lt;View style={styles.goButton}&gt;
+                            &lt;Text&gt;
+                                Go!
+                            &lt;/Text&gt;
+                        &lt;/View&gt;
+                    &lt;/TouchableOpacity&gt;
+                &lt;/View&gt;
+                &lt;WebView
+                    renderLoading={()=&gt;{
+                        return (
+                            &lt;ActivityIndicator
+                                style={{flex: 1}}
+                                animating={true}
+                                hidesWhenStopped={true}
+                                size="large"
+                            /&gt;
+                        )
+                    }}
+                    renderError={()=&gt;{
+                        return &lt;Text&gt;加载失败&lt;/Text&gt;
+                    }}
+                    ref={WEBVIEW_REF}
+                    style={styles.webView}
+                    source={{uri: this.state.url}}
+                    javaScriptEnabled={true}
+                    bounces={true}
+                    domStorageEnabled={true}
+                    decelerationRate="normal"
+                    onNavigationStateChange={this.onNavigationStateChange}
+                    onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
+                    startInLoadingState={true}
+                    scalesPageToFit={this.state.scalesPageToFit}
+                /&gt;
+                &lt;View style={styles.statusBar}&gt;
+                    &lt;Text style={styles.statusBarText}&gt;{this.state.status}&lt;/Text&gt;
+                &lt;/View&gt;
+            &lt;/View&gt;
+        );
+    }
+
+    goBack = () =&gt; {
+        this.refs[WEBVIEW_REF].goBack();
+    };
+
+    goForward = () =&gt; {
+        this.refs[WEBVIEW_REF].goForward();
+    };
+
+    reload = () =&gt; {
+        this.refs[WEBVIEW_REF].reload();
+    };
+
+    onShouldStartLoadWithRequest = (event) =&gt; {
+        // Implement any custom loading logic here, don't forget to return!
+        return true;
+    };
+
+    onNavigationStateChange = (navState) =&gt; {
+        this.setState({
+            backButtonEnabled: navState.canGoBack,
+            forwardButtonEnabled: navState.canGoForward,
+            url: navState.url,
+            status: navState.title,
+            loading: navState.loading,
+            scalesPageToFit: true
+        });
+    };
+
+    onSubmitEditing = (event) =&gt; {
+        this.pressGoButton();
+    };
+
+    pressGoButton = () =&gt; {
+        var url = this.inputText.toLowerCase();
+        if (url === this.state.url) {
+            this.reload();
+        } else {
+            this.setState({
+                url: url,
+            });
+        }
+        // dismiss keyboard
+        this.refs[TEXT_INPUT_REF].blur();
+    };
+}
+
+class Button extends React.Component {
+    _handlePress = () =&gt; {
+        if (this.props.enabled !== false && this.props.onPress) {
+            this.props.onPress();
+        }
+    };
+
+    render() {
+        return (
+            &lt;TouchableWithoutFeedback onPress={this._handlePress}&gt;
+                &lt;View style={styles.button}&gt;
+                    &lt;Text&gt;{this.props.text}&lt;/Text&gt;
+                &lt;/View&gt;
+            &lt;/TouchableWithoutFeedback&gt;
+        );
+    }
+}
+
+class ScaledWebView extends React.Component {
+    state = {
+        scalingEnabled: true,
+    };
+
+    render() {
+        return (
+            &lt;View&gt;
+                &lt;WebView
+                    style={{
+                        backgroundColor: BGWASH,
+                        height: 200,
+                    }}
+                    source={{uri: 'https://facebook.github.io/react/'}}
+                    scalesPageToFit={this.state.scalingEnabled}
+                /&gt;
+                &lt;View style={styles.buttons}&gt;
+                    { this.state.scalingEnabled ?
+                        &lt;Button
+                            text="Scaling:ON"
+                            enabled={true}
+                            onPress={() =&gt; this.setState({scalingEnabled: false})}
+                        /&gt; :
+                        &lt;Button
+                            text="Scaling:OFF"
+                            enabled={true}
+                            onPress={() =&gt; this.setState({scalingEnabled: true})}
+                        /&gt; }
+                &lt;/View&gt;
+            &lt;/View&gt;
+        );
+    }
+}
+
+var styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: HEADER,
+    },
+    addressBarRow: {
+        flexDirection: 'row',
+        padding: 8,
+    },
+    webView: {
+        backgroundColor: BGWASH,
+        height: 350,
+    },
+    addressBarTextInput: {
+        backgroundColor: BGWASH,
+        borderColor: 'transparent',
+        borderRadius: 3,
+        borderWidth: 1,
+        height: 24,
+        paddingLeft: 10,
+        paddingTop: 3,
+        paddingBottom: 3,
+        flex: 1,
+        fontSize: 14,
+    },
+    navButton: {
+        width: 20,
+        padding: 3,
+        marginRight: 3,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: BGWASH,
+        borderColor: 'transparent',
+        borderRadius: 3,
+    },
+    disabledButton: {
+        width: 20,
+        padding: 3,
+        marginRight: 3,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: DISABLED_WASH,
+        borderColor: 'transparent',
+        borderRadius: 3,
+    },
+    goButton: {
+        height: 24,
+        padding: 3,
+        marginLeft: 8,
+        alignItems: 'center',
+        backgroundColor: BGWASH,
+        borderColor: 'transparent',
+        borderRadius: 3,
+        alignSelf: 'stretch',
+    },
+    statusBar: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingLeft: 5,
+        height: 22,
+    },
+    statusBarText: {
+        color: 'white',
+        fontSize: 13,
+    },
+    spinner: {
+        width: 20,
+        marginRight: 6,
+    },
+    buttons: {
+        flexDirection: 'row',
+        height: 30,
+        backgroundColor: 'black',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    button: {
+        flex: 0.5,
+        width: 0,
+        margin: 5,
+        borderColor: 'gray',
+        borderWidth: 1,
+        backgroundColor: 'gray',
+    },
+});
+
+const HTML = `
+&lt;!DOCTYPE html&gt;\n
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Hello Static World&lt;/title&gt;
+    &lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+    &lt;meta name="viewport" content="width=320, user-scalable=no"&gt;
+    &lt;style type="text/css"&gt;
+      body {
+        margin: 0;
+        padding: 0;
+        font: 62.5% arial, sans-serif;
+        background: #ccc;
+      }
+      h1 {
+        padding: 45px;
+        margin: 0;
+        text-align: center;
+        color: #33f;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello Static World&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+`;
 
 
+
+AppRegistry.registerComponent('WebViewExample', () =&gt; WebViewExample)
+</code></pre>
+
+
+</div>
+</div>
 
               </div>
           </div>

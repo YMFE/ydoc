@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,22 +310,26 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     ProgressBar
     <small></small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=1.4.0</span>
-</h1>
+</h2>
 <div class="api-content"><p>ProgressBar是React Native ProgressBarAndroid样式的web实现，和ProgressView相比，ProgressBar提供了安卓下的圆形进度条和垂直进度条。</p>
 <p>不过，还是<strong>提倡优先使用</strong>ProgressView和Loading和QLoading，ProgressBar更多的是为了更方便的一键转换RN项目提供的接口。</p>
 <p><img src="./images/component/ProgressBar.gif" alt="ProgressBar"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>styleAttr</strong>
      <span>{ oneOf(['Horizontal','Normal','Small','Large','Inverse','SmallInverse','LargeInverse']) }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>进度条类型</p>
 </div>
@@ -331,9 +341,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>indeterminate</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>是否表现为不确定的进度，如果您想自己控制进度条，请设为false</p>
 <p>styleAttr为<code>Horizontal</code>时，该值为false。</p>
@@ -346,9 +358,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>progress</strong>
      <span>{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>进度条进度，取值为0到1.</p>
 </div>
@@ -360,9 +374,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>color</strong>
      <span>{ color }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>进度条颜色</p>
 </div>
@@ -376,7 +392,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>var React = require('qunar-react-native');
 var {
     Component,
@@ -478,6 +494,8 @@ AppRegistry.registerComponent('Demo', () =&gt; ProgressViewExampleItem)
 </code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

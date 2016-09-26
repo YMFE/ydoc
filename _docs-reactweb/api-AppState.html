@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -272,27 +278,55 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     AppState
     <small></small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
-<div class="api-content"></div>
+    
+</h2>
+<div class="api-content"><p>AppState 能告诉你应用当前是运行在前台还是后台，以及在状态变化时通知你。在
+web 端，应用的状态一直保持为 <code>active</code>。你可以使用 <code>AppState.currentState</code> 来获取当前
+的状态。</p>
+<p>注：对于 Android 和 iOS 应用可能有下面几种状态：</p>
+<ul>
+<li>active - 应用正在前台运行</li>
+<li>background - 应用正在后台运行。用户既可能在别的应用中，也可能在桌面。</li>
+<li>inactive - 这是一个过渡状态，不会在正常的React Native应用中出现。</li>
+</ul>
+</div>
+<div class="con-list-item">
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./AppState.js
- @description AppState 能告诉你应用当前是运行在前台还是后台，以及在状态变化时通知你。在
-web 端，应用的状态一直保持为 `active`。你可以使用 `AppState.currentState` 来获取当前
-的状态。
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>constructor(props) {
+  super(props);
+  this.state = {
+    currentAppState: AppState.currentState,
+  };
+}
+componentDidMount() {
+  AppState.addEventListener('change', this._handleAppStateChange);
+}
+componentWillUnmount() {
+  AppState.removeEventListener('change', this._handleAppStateChange);
+}
+_handleAppStateChange(currentAppState) {
+  this.setState({ currentAppState, });
+}
+render() {
+  return (
+    &lt;Text&gt;Current state is: {this.state.currentAppState}&lt;/Text&gt;
+  );
+}
 
-注：对于 Android 和 iOS 应用可能有下面几种状态：
-- active - 应用正在前台运行
-- background - 应用正在后台运行。用户既可能在别的应用中，也可能在桌面。
-- inactive - 这是一个过渡状态，不会在正常的React Native应用中出现。</code></pre>
+// 这个例子会显示：`Current state is：active`，因为在 web 应用的状态一直是 `active`,
+// 就算在 Android 或者 iOS 中，当用户看到这段话的时候，应用自然也是处在 `active` 状态的。
+</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

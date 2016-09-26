@@ -276,21 +276,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Modal
     <small>模态弹层组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger">>=1.3.0</span>
+</h2>
 <div class="api-content"><p>通用的模态弹层组件,支持多种位置/动画效果</p>
 <p><img src="./images/component-Modal.png" alt="Modal"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>visible</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>模态层显示/隐藏属性</p>
 </div>
@@ -302,9 +306,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onShow</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>模态层显示时的时间回调</p>
 </div>
@@ -316,9 +322,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onHide</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>模态层隐藏时的事件回调</p>
 </div>
@@ -330,9 +338,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onMaskPress</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>点击遮罩层时的事件回调</p>
 </div>
@@ -344,9 +354,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>maskOpacity</strong>
-     <span>{ number }</span>
+     <span class="prop-type">{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>遮罩层的透明度[0-1]</p>
 </div>
@@ -358,9 +370,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>offset</strong>
-     <span>{ number }</span>
+     <span class="prop-type">{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>可以通过设置offset来使模态框向上/向下偏移,例如-100就可以让模态层向上偏移100个像素</p>
 </div>
@@ -372,9 +386,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>position</strong>
-     <span>{ string }</span>
+     <span class="prop-type">{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置模态层显示的位置,共支持5种位置:center,top,bottom,left,right,默认为center</p>
 </div>
@@ -386,9 +402,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>showNavBarMask</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>是否让遮罩层遮盖住导航条,只对Ext的导航条生效</p>
 </div>
@@ -402,7 +420,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>import {Modal, View, Text, Component, TouchableOpacity, Dimensions} from 'qunar-react-native';
 
 class ModalExampleList extends Component {
@@ -588,6 +606,8 @@ module.exports = {
 };</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

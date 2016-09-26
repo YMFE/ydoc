@@ -196,12 +196,15 @@ sup, sub {
       font-size: 14px;
       text-align: center;
       color: #a1a1a1; }
+      .ydoc .footer .copyright a {
+        color: #a1a1a1;
+        text-decoration: underline; }
   .ydoc-container-content {
     overflow: hidden;
     background-color: #eee;
     /* Old browsers */
     margin: 20px auto;
-    box-shadow: 0 0  10px #e5e5e5; }
+    box-shadow: 0 0  3px #e5e5e5; }
     .ydoc-container-content .static-code-content {
       width: 100%;
       background: #fff;
@@ -758,7 +761,8 @@ sup, sub {
 
 .markdown-body blockquote.api {
   border-left: none;
-  padding: 0; }
+  padding: 0;
+  color: #ff503f; }
 .markdown-body .docs-section h1, .markdown-body .docs-section h2 {
   border-bottom: none; }
 .markdown-body .docs-section .blockquote.api {
@@ -771,6 +775,15 @@ sup, sub {
 .markdown-body .docs-section .con-list-item {
   border-bottom: 1px solid #ddd;
   padding: .3rem 0; }
+  .markdown-body .docs-section .con-list-item .con-head {
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 .3rem;
+    padding: .1rem 0;
+    width: 100%; }
+  .markdown-body .docs-section .con-list-item .prop-type {
+    font-size: 14px; }
 .markdown-body .docs-section .con-list-item:last-child {
   border: none; }
 .markdown-body .docs-section .hide-params {
@@ -782,3 +795,5 @@ sup, sub {
   margin: -.1rem 0 .15rem;
   display: block;
   cursor: pointer; }
+
+/*# sourceMappingURL=app.css.map */

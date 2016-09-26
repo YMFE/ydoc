@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,19 +310,56 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Navigator
     <small>Navigator 组件</small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=0.20.0</span>
-</h1>
-<div class="api-content"></div>
+</h2>
+<div class="api-content"><p>Navigator 可以让你在应用的不同场景间进行切换。导航器建立了一个路由栈，
+用来弹出，推入或者替换路由状态。这样便实现了不同页面间的切换。为了使用 <code>Navigator</code>，
+需要提供一个或多个叫做 <code>route</code> 的对象来表示每个场景，同时要提供一个 <code>renderScene</code> 函数
+来使用每个 <code>route</code> 对象渲染出场景。</p>
+<p>确保应用能正常响应页面刷新，需要：</p>
+<p>单独使用navigator</p>
+<pre><code>goExampleScene(exampleName) {
+    const { navigator } = this.props
+    if(navigator) {
+        navigator.push({
+            name: exampleName, // 渲染的Component name会写入到url内
+            opts: {
+                 param: {
+                     page: 12
+                 }
+            },
+            component: examplePages[exampleName], // 通过name来获取需要render的Component
+        })
+    }
+}
+</code></pre><p>使用ext</p>
+<pre><code>gotoExample(exampleName) {
+    setTimeout(function(){
+        Ext.open(&#39;ExampleRender&#39;, {
+            title: example.title,
+            param: {
+                yourGetExampleByNameFunc(exampleName),
+                name: exampleName
+            }
+        });
+    });
+}
+</code></pre><p><img src="./images/component/Navigator.gif" alt="Navigator"></p>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>configureScene</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>可选的函数，用来配置场景动画和手势，
 调用时会传入两个参数：<code>route</code>，<code>routeStack</code>。<code>route</code> 是当前场景，
@@ -340,9 +383,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderScene</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>必选的参数，用来使用给定的route对象渲染场景。
 调用时带有 <code>route</code> 和 <code>navigator</code> 对象。</p>
@@ -351,9 +396,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>initialRoute</strong>
      <span>{ object }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>设置导航器的默认 <code>route</code>。<code>route</code> 是导航器用来标示渲染场景的对象。
 如果 <code>initialRoute</code> 和 <code>initialRouteStack</code> 都传给了 <code>Navigator</code>，
@@ -365,9 +412,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>initialRouteStack</strong>
      <span>{ array }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>一组初始阶段需要挂载的 <code>route</code>，对于 <code>Navigator</code> 组件，
 如果 <code>initialRoute</code> 属性没有传入，则必须传入该属性。如果这个属性没有传入，
@@ -377,9 +426,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>navigationBar</strong>
      <span>{ ReactNode }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>页面顶部的导航条，通常是传入一个 <code>&lt;Navigator.NavigationBar /&gt;</code> 组件。</p>
 </div>
@@ -387,9 +438,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>navigator</strong>
      <span>{ object }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>可选参数，提供从父导航器获得的导航器对象。这个对象上调用下列方法：</p>
 <ul>
@@ -412,9 +465,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>sceneStyle</strong>
      <span>{ style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>每个场景的容器的样式</p>
 </div>
@@ -424,52 +479,140 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./Navigator.js
- @description Navigator 可以让你在应用的不同场景间进行切换。导航器建立了一个路由栈，
-用来弹出，推入或者替换路由状态。这样便实现了不同页面间的切换。为了使用 `Navigator`，
-需要提供一个或多个叫做 `route` 的对象来表示每个场景，同时要提供一个 `renderScene` 函数
-来使用每个 `route` 对象渲染出场景。
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>'use strict';
+var React = require('qunar-react-native');
+var {
+    AppRegistry,
+    View,
+    StyleSheet,
+    Text,
+    Navigator
+} = React;
 
-确保应用能正常响应页面刷新，需要：
 
-单独使用navigator
-```
-goExampleScene(exampleName) {
-    const { navigator } = this.props
-    if(navigator) {
-        navigator.push({
-            name: exampleName, // 渲染的Component name会写入到url内
-            opts: {
-                 param: {
-                     page: 12
-                 }
-            },
-            component: examplePages[exampleName], // 通过name来获取需要render的Component
-        })
-    }
-}
-```
-
-使用ext
-
-```
-gotoExample(exampleName) {
-    setTimeout(function(){
-        Ext.open('ExampleRender', {
-            title: example.title,
-            param: {
-                yourGetExampleByNameFunc(exampleName),
-                name: exampleName
-            }
+var Page = React.createClass({
+    _push:function(){
+        this.props.navigator.push({
+            index:this.props.index + 1,
+            component:Page,
+            name: this.props.index + 1
         });
-    });
-}
-```
+    },
+    _pop:function(){
+        this.props.navigator.pop();
+    },
+    _popToTop:function(){
+        this.props.navigator.popToTop();
+    },
+    render:function(){
+        return (
+            &lt;View style={styles.page}&gt;
+                &lt;Text style={styles.btn} onPress={()=&gt; this._push()}&gt;push&lt;/Text&gt;
+                &lt;Text style={styles.btn} onPress={()=&gt; this._pop()}&gt;pop&lt;/Text&gt;
+                &lt;Text style={styles.btn} onPress={()=&gt; this._popToTop()}&gt;popToTop&lt;/Text&gt;
+            &lt;/View&gt;
+        );
+    }
+});
 
-![Navigator](./images/component/Navigator.gif)</code></pre>
+
+var NavigatorExample = React.createClass({
+    NavigationBarRouteMapper:{
+        LeftButton: function (route, navigator, index, navState) {
+            return (
+                &lt;Text
+                    style={{marginLeft:10}}
+                    onPress={()=&gt;{
+                        navigator.jumpBack();
+                    }}
+                &gt;返回&lt;/Text&gt;
+            );
+        },
+        RightButton: function (route, navigator, index, navState) {
+            return (
+                &lt;Text
+                    style={{marginRight:10}}
+                    onPress={()=&gt;{
+                        navigator.jumpForward();
+                    }}
+                &gt;前进&lt;/Text&gt;
+            );
+        },
+        Title: function (route, navigator, index, navState) {
+            return (
+                &lt;Text style={styles.title}&gt;
+                    #{route.index}
+                &lt;/Text&gt;
+            );
+        },
+    },
+    render:function(){
+        return (
+            &lt;Navigator
+                initialRoute={{
+                    index:0,
+                    component:Page
+                }}
+                configureScene={(route,routeStack) =&gt; {
+                    let configs = Object.keys(Navigator.SceneConfigs);
+                    let randomConfig = configs[Math.floor(Math.random() * configs.length)];
+                    console.log(randomConfig);
+                    return Navigator.SceneConfigs[randomConfig];
+                }}
+                renderScene={(route,navigator) =&gt; {
+                    let Component = route.component;
+                    return &lt;Component index={route.index} navigator={navigator} /&gt;;
+                }}
+                navigationBar={
+                    &lt;Navigator.NavigationBar
+                        style={styles.nav}
+                        routeMapper={this.NavigationBarRouteMapper}
+                    /&gt;
+                }
+            /&gt;
+        );
+    }
+});
+
+var styles = StyleSheet.create({
+    nav:{
+        backgroundColor:'#00afc7',
+        color:'#fff',
+        flex:1,
+        paddingLeft:10,
+        paddingRight:10
+    },
+    btn:{
+        width:120,
+        textAlign:'center',
+        paddingTop:5,
+        paddingBottom:5,
+        paddingLeft:10,
+        paddingRight:10,
+        marginBottom:5,
+        marginTop:5,
+        backgroundColor:'#ccc',
+        borderRadius:5
+    },
+    page:{
+        flex:1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#fff',
+    },
+    title:{
+        fontSize:20,
+    }
+});
 
 
+AppRegistry.registerComponent('NavigatorExample', () =&gt; NavigatorExample);
+</code></pre>
+
+
+</div>
+</div>
 
               </div>
           </div>

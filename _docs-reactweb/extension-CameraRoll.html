@@ -31,6 +31,24 @@
                     
                     <li class="">
                         
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
                         <a href="component.html">组件</a>
                         
                     </li>
@@ -44,18 +62,6 @@
                     <li class="active">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -200,21 +206,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     CameraRoll
     <small>CameraRoll 相册库和拍照API</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    
+</h2>
 <div class="api-content"><p><code>CameraRoll</code>模块提供了访问本地相册的功能，是<code>qunar-react-native</code>的<code>CameraRoll</code>的web实现，仅支持部分。</p>
 <p><strong>注意</strong> 由于平台限制，只提供部分功能实现，本模块依赖于<code>ImagePicker</code>,可移步至ImagePicker查看。</p>
 </div>
+<div class="con-list-item">
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>getPhotoGroups</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>获取相册列表的信息，目前web下无法选择相册列表，可以选择具体某一张相片，参考<code>ImagePicker</code>的<code>openSelectDialog</code></p>
 </div>
@@ -268,8 +278,10 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>takePhotoAndSave</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>跳转到拍照界面并拍照,如果拍照成功，则callBack返回已保存到照片信息,否则调用errCallBack</p>
 <p>successCallback参数为<code>{uri:&#39;&#39;,width:num,height:num}</code>,依赖于<code>ImagePicker.openCameraDialog</code></p>
@@ -326,6 +338,8 @@
 
 
 
+</div>
+</div>
 
               </div>
           </div>

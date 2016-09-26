@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,21 +310,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Image
     <small>Image 组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=0.20.0</span>
+</h2>
 <div class="api-content"><p>显示不同类型图片的 React 组件。</p>
 <p><img src="./images/component/Image.gif" alt="Image"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>onLayout</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当元素挂载或者布局改变的时候调用，参数为：<code>{nativeEvent: {layout: {x, y, width, height}}}</code>.</p>
 </div>
@@ -326,9 +336,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onLoad</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>成功加载完成时调用。</p>
 </div>
@@ -336,9 +348,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onLoadEnd</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>加载完成后调用（无论加载成功与否）。</p>
 </div>
@@ -346,9 +360,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onLoadStart</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>开始加载时调用。</p>
 </div>
@@ -356,9 +372,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onError</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>加载错误时调用，参数： {nativeEvent: {error}}</p>
 </div>
@@ -366,9 +384,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>source</strong>
      <span>{ {{url:string}} }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>图片资源的位置 (可以是 URL 也可以是本地资源).</p>
 </div>
@@ -376,9 +396,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>style</strong>
      <span>{ style }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>组件的样式</p>
 </div>
@@ -386,9 +408,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>Image.resizeMode</strong>
      <span>{ object }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>这个属性挂载在 Image 上，是一个静态属性，该对象中包含三个属性，
 描述了三种当图片大小与容器不符时，图片的缩放方式。通常将这个属性中的值赋给组件的 resizeMode 属性</p>
@@ -406,11 +430,82 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./Image.js
- @version &gt;=0.20.0</code></pre>
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>/** -*- mode: web; -*-
+ * @providesModule ImageExample
+ **/
+ 'use strict';
+ var React = require('qunar-react-native');
+
+var {
+    AppRegistry,
+    StyleSheet,
+    View,
+    Image,
+    Dimensions,
+    Text
+} = React;
+
+var ImageExample = React.createClass({
+    getInitialState: function(){
+        return {
+            uri : 'http://facebook.github.io/react/img/logo_og.png'
+        };
+    },
+    render: function(){
+        return (
+            &lt;View&gt;
+                &lt;Image
+                    style={styles.image}
+                    source={{uri: this.state.uri}}
+                    resizeMode={Image.resizeMode.cover}
+                    blurRadius={10}
+                /&gt;
+                &lt;Text style={{textAlign: 'center',marginTop: 10}}&gt;cover&lt;/Text&gt;
+                &lt;Image
+                    style={styles.image}
+                    source={{uri: this.state.uri}}
+                    resizeMode={Image.resizeMode.stretch}
+                    blurRadius={10}
+                /&gt;
+                &lt;Text style={{textAlign: 'center',marginTop: 10}}&gt;stretch&lt;/Text&gt;
+                &lt;Image
+                    style={styles.image}
+                    source={{uri: this.state.uri}}
+                    resizeMode={Image.resizeMode.contain}
+                    blurRadius={10}
+                /&gt;
+                &lt;Text style={{textAlign: 'center',marginTop: 10}}&gt;contain&lt;/Text&gt;
+                &lt;Image
+                    style={styles.image}
+                    source={{uri: this.state.uri}}
+                    resizeMode={Image.resizeMode.repeat}
+                    blurRadius={10}
+                /&gt;
+                &lt;Text style={{textAlign: 'center',marginTop: 10}}&gt;repeat&lt;/Text&gt;
+            &lt;/View&gt;
+        )
+    }
+});
+
+var styles = StyleSheet.create({
+    image:{
+        width: Dimensions.width,
+        height:200,
+        borderWidth: 1,
+        borderColor: '#333',
+        resizeMode: 'contain',
+        paddingLeft: 40,
+        backgroundColor: '#fff'
+    }
+});
+
+AppRegistry.registerComponent('ImageExample', () =&gt; ImageExample)
+</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,21 +310,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     View
     <small>View组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4.0</span>
+</h2>
 <div class="api-content"><p> View是一个支持Flexbox布局、样式、一些触摸处理、和一些无障碍功能的容器，并且它可以放到其它的视图里，也可以有任意多个任意类型的子视图。View是创建UI时最基础的组件，</p>
 <p><img src="./images/component/View.gif" alt="View"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>onLayout</strong>
      <span>{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当组件挂载或者布局变化的时候调用，参数为：{nativeEvent: { layout: {x, y, width, height}}}。</p>
 </div>
@@ -326,9 +336,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>style</strong>
      <span>{ object或array }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>Text组件的样式</p>
 </div>
@@ -345,7 +357,7 @@ fontSize: 14
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 var React = require('qunar-react-native');
 var {
@@ -381,6 +393,8 @@ var Demo = React.createClass({
 AppRegistry.registerComponent('AwesomeProject', () =&gt; Demo);</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

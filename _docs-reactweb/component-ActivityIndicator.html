@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,19 +310,25 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     ActivityIndicator
     <small>ActivityIndicator 组件</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
-<div class="api-content"></div>
+    
+</h2>
+<div class="api-content"><p>显示一个圆形的正在加载的指示器</p>
+<p><img src="./images/component/ActivityIndicator.gif" alt="ActivityIndicator"></p>
+</div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>animating</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>表示是否要显示指示器，默认为true，表示显示。</p>
 </div>
@@ -324,9 +336,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>color</strong>
      <span>{ string }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>滚轮的前景颜色（默认为灰色）。</p>
 </div>
@@ -334,9 +348,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>hidesWhenStopped</strong>
      <span>{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>在没有动画的时候，是否要隐藏指示器（默认为true）。</p>
 </div>
@@ -344,9 +360,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>size</strong>
      <span>{ enum('small', 'large') }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>指示器的大小。small的高度为20，large为36。</p>
 </div>
@@ -356,13 +374,69 @@
 
 
 
-<h2>示例</h2>
-<pre class="ydoc-example"><code>./ActivityIndicator.js
- @description 显示一个圆形的正在加载的指示器
+<div class="con-head">示例</div>
+<pre class="ydoc-example"><code>import React, { Component } from 'react';
+import {
+    ActivityIndicator,
+    StyleSheet,
+    View,
+    AppRegistry
+} from 'react-native';
 
-![ActivityIndicator](./images/component/ActivityIndicator.gif)</code></pre>
+const TimerMixin = require('react-timer-mixin');
+
+const ToggleAnimatingActivityIndicator = React.createClass({
+    mixins: [TimerMixin],
+
+    getInitialState() {
+        return {
+            animating: true,
+        };
+    },
+
+    setToggleTimeout() {
+        this.setTimeout(() =&gt; {
+            // this.setState({animating: !this.state.animating});
+            this.setToggleTimeout();
+        }, 2000);
+    },
+
+    componentDidMount() {
+        this.setToggleTimeout();
+    },
+
+    render() {
+        return (
+            &lt;ActivityIndicator
+                animating={this.state.animating}
+                style={[styles.centering, styles.gray]}
+                color="#333"
+                hidesWhenStopped={true}
+                size="large"
+            /&gt;
+        );
+    }
+});
+
+const styles = StyleSheet.create({
+    centering: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1
+    },
+    horizontal: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        padding: 8,
+    },
+});
+
+AppRegistry.registerComponent('app', () =&gt; ToggleAnimatingActivityIndicator);
+</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

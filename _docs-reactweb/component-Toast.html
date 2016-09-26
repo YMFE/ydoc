@@ -29,6 +29,24 @@
                         
                     </li>
                     
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
                     <li class="active">
                         
                         <a href="component.html">组件</a>
@@ -44,18 +62,6 @@
                     <li class="">
                         
                         <a href="extension.html">扩展</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="develop.html">使用与发布流程</a>
-                        
-                    </li>
-                    
-                    <li class="">
-                        
-                        <a href="hack.html">黑科技</a>
                         
                     </li>
                     
@@ -304,19 +310,26 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     Toast
     <small>Toast组件</small>
     <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4.0</span>
-</h1>
-<div class="api-content"></div>
+</h2>
+<div class="api-content"><p> Toast是一个悬浮提示信息的组件。
+注:因为Toast的隐藏是通过改变zIndex为-1的方式，意味着您的主视图需要一个背景颜色，才能将toast隐藏在主视图下。</p>
+<p><img src="./images/component/Toast.gif" alt="Toast"></p>
+</div>
+<div class="con-list-item">
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>show</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>Toast的显示方法。</p>
 <p>duration也可以使用默认的时间<code>Toast.SHORT</code>(400ms)、<code>Toast.LONG</code>(1000ms)。</p>
@@ -372,7 +385,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>var React = require('react-native');
 var {
     AppRegistry,
@@ -400,6 +413,8 @@ var Demo = React.createClass({
 AppRegistry.registerComponent('AwesomeProject', () =&gt; Demo)</code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>

@@ -276,11 +276,12 @@
               </div>
               <div class="content-left markdown-body">
                 
-                <h1>
+                <div class="docs-section">
+<h2>
     ListView
     <small>高效数据列表</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;"></span>
-</h1>
+    <span class="yo-badge yo-badge-danger">>=v1.0.0</span>
+</h2>
 <div class="api-content"><p>最基本的使用方式就是创建一个ListView.DataSource数据源，然后给它传递一个普通的数据数组，再使用数据源来实例化一个ListView组件，并且定义它的renderRow回调函数，这个函数会接受数组中的每个数据作为参数，返回一个可渲染的组件（作为listview的每一行）。</p>
 <p>注：该版本暂时不支持renderSectionHeader和scrollTo。</p>
 <h4 id="-listview-removeclippedsubviews-">与官方ListView性能对比(官方已开启removeClippedSubviews)</h4>
@@ -339,13 +340,16 @@
 <p><img src="./images/component/ListView/QListView_500_rows_1.png" alt="ListView">
 <img src="./images/component/ListView/ListView_500_rows_1.png" alt="ListView"></p>
 </div>
+<div class="con-list-item">
 
-<h2>属性</h2>
+<div class="con-head">属性</div>
 
 <blockquote class="api">
+    <h3>
     <strong>dataSource</strong>
-     <span>{ ListViewDataSource }</span>
+     <span class="prop-type">{ ListViewDataSource }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>源数据。</p>
 </div>
@@ -353,9 +357,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>initialListSize</strong>
-     <span>{ number }</span>
+     <span class="prop-type">{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>指定在组件刚挂载的时候渲染多少行数据。用这个属性来确保首屏显示合适数量的数据，而不是花费太多帧逐步显示出来。</p>
 </div>
@@ -363,9 +369,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onChangeVisibleRows</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(visibleRows, changedRows) =&gt; void</p>
 <p>当可见的行的集合变化的时候调用此回调函数。visibleRows 以 { sectionID: { rowID: true }}的格式包含了所有可见行，而changedRows 以{ sectionID: { rowID: true | false }}的格式包含了所有刚刚改变了可见性的行，其中如果值为true表示一个行变得可见，而为false表示行刚刚离开可视区域而变得不可见。</p>
@@ -420,9 +428,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onEndReached</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当所有的数据都已经渲染过，并且列表被滚动到距离最底部不足onEndReachedThreshold个像素的距离时调用。原生的滚动事件会被作为参数传递。</p>
 </div>
@@ -430,9 +440,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>onEndReachedThreshold</strong>
-     <span>{ number }</span>
+     <span class="prop-type">{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>调用onEndReached之前的临界值，单位是像素。</p>
 </div>
@@ -440,9 +452,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>pageSize</strong>
-     <span>{ number }</span>
+     <span class="prop-type">{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>每次事件循环（每帧）渲染的行数。</p>
 </div>
@@ -450,9 +464,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderFooter</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>() =&gt; renderable</p>
 <p>页头与页脚会在每次渲染过程中都重新渲染（如果提供了这些属性）。如果它们重绘的性能开销很大，可以考虑使用renderStaticHeader/renderStaticFooter。页脚会永远在列表的最底部，而页头会在最顶部。</p>
@@ -461,9 +477,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderHeader</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>() =&gt; renderable</p>
 <p>同renderFooter，渲染页尾组件。</p>
@@ -472,9 +490,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderStaticFooter</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>() =&gt; renderable</p>
 <p>只渲染一次的头部组件。</p>
@@ -483,9 +503,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderStaticHeader</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>() =&gt; renderable</p>
 <p>只渲染一次的尾部组件。</p>
@@ -494,9 +516,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderRow</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(rowData, sectionID, rowID, highlightRow) =&gt; renderable</p>
 <p>从数据源(Data source)中接受一条数据，以及它和它所在section的ID。返回一个可渲染的组件来为这行数据进行渲染。默认情况下参数中的数据就是放进数据源中的数据本身，不过也可以提供一些转换器。</p>
@@ -573,9 +597,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderScrollComponent</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(props) =&gt; renderable</p>
 <p>指定一个函数，在其中返回一个可以滚动的组件。ListView将会在该组件内部进行渲染。默认情况下会返回一个包含指定属性的ScrollView。</p>
@@ -619,9 +645,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>renderSeparator</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>(sectionID, rowID, adjacentRowHighlighted) =&gt; renderable</p>
 <p>如果提供了此属性，一个可渲染的组件会被渲染在每一行下面，除了小节标题的前面的最后一行。</p>
@@ -687,9 +715,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>scrollRenderAheadDistance</strong>
-     <span>{ number }</span>
+     <span class="prop-type">{ number }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>当一个行接近屏幕范围多少像素之内的时候，就开始渲染这一行。</p>
 </div>
@@ -697,9 +727,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>useOriginScrollView</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>如果提供了此属性， 会使用原生ScrollView，配置了renderScrollComponent时不生效。</p>
 </div>
@@ -707,9 +739,11 @@
 
 
 <blockquote class="api">
+    <h3>
     <strong>scrollEventThrottle</strong>
-     <span>{ bool }</span>
+     <span class="prop-type">{ bool }</span>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>触发onScroll最小间隔毫秒数，默认值为50。</p>
 </div>
@@ -718,51 +752,63 @@
 
 
 
-<h2>方法</h2>
+<div class="con-head">方法</div>
 
 <blockquote class="api">
+    <h3>
     <strong>getScrollResponder</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>获取ScrollView，当使用原生ScrollView时(useOriginScrollView属性为true)返回滚动响应器。</p>
 </div>
 
 
 <blockquote class="api">
+    <h3>
     <strong>startRefreshing</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>同ScrollView，当前组件有refreshControl属性，并且没有正在下拉刷新，则强制触发下拉刷新，变成正在刷新的状态。</p>
 </div>
 
 
 <blockquote class="api">
+    <h3>
     <strong>stopRefreshing</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>同ScrollView，当前组件有refreshControl属性，并且正在下拉刷新，则停止下拉刷新的状态。</p>
 </div>
 
 
 <blockquote class="api">
+    <h3>
     <strong>startLoading</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>同ScrollView，当前组件有loadControl属性，并且没有正在加载，则强制触发加载更多，变成正在加载更多的状态。</p>
 </div>
 
 
 <blockquote class="api">
+    <h3>
     <strong>stopLoading</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>同ScrollView，当前组件有loadControl属性，并且正在加载，则停止加载更多的状态。</p>
 </div>
 
 
 <blockquote class="api">
+    <h3>
     <strong>scrollToTop</strong>
     
+    </h3>
 </blockquote>
 <div class="api-content"><p>返回顶部，可通过{animated: true}开启动画。可以参考这个<a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native/blob/js_base_component/Examples/Playground/js/Examples/ListViewExample/ImageTextList.js">例子</a>。</p>
 </div>
@@ -770,7 +816,7 @@
 
 
 
-<h2>示例</h2>
+<div class="con-head">示例</div>
 <pre class="ydoc-example"><code>
 import React, {
 	Component,
@@ -963,6 +1009,8 @@ const styles = StyleSheet.create({
 </code></pre>
 
 
+</div>
+</div>
 
               </div>
           </div>
