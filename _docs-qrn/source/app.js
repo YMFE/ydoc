@@ -46,6 +46,7 @@ $(document).ready(function() {
     //   if($(this).hasClass('active')){
     //       $(this).removeClass('active');
     //   }else{
+        $(this).parent().siblings('li').removeClass('active');
         $(this).addClass('active').siblings('li').removeClass('active');
     //};
   });

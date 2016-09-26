@@ -249,62 +249,33 @@ sup, sub {
         max-height: 620px;
         overflow-y: auto;
         overflow-x: hidden; }
-        .ydoc-container-content .sidebar .docs-sidenav > li {
-          height: .5rem;
-          width: 100%;
+        .ydoc-container-content .sidebar .docs-sidenav li {
+          line-height: .42rem;
+          height: .42rem;
+          font-size: 14px;
           overflow: hidden; }
-          .ydoc-container-content .sidebar .docs-sidenav > li a {
-            height: .5rem;
-            line-height: .5rem;
-            color: #888;
+          .ydoc-container-content .sidebar .docs-sidenav li a {
+            padding: 0 .16rem 0 .28rem;
+            text-overflow: ellipsis;
+            color: #666;
+            line-height: .42rem;
+            height: .42rem;
             display: inline-block;
             width: 100%;
             position: relative;
-            padding-left: 5px;
-            text-indent: .15rem;
-            margin: 0 3px;
-            font-family: ydocfont; }
-          .ydoc-container-content .sidebar .docs-sidenav > li a:hover {
-            font-weight: bold; }
-        .ydoc-container-content .sidebar .docs-sidenav > li.active a, .ydoc-container-content .sidebar .docs-sidenav > li.active a:hover {
-          border-left: 5px solid #ff503f;
-          color: #ff503f;
-          padding-left: 0; }
-        .ydoc-container-content .sidebar .docs-sidenav > li.active a::after {
-          content: "\f07f";
-          display: block;
-          position: absolute;
-          right: 10px;
-          top: .05rem;
+            overflow: hidden;
+            white-space: nowrap; }
+          .ydoc-container-content .sidebar .docs-sidenav li a:hover {
+            background-color: #eaf8fe; }
+        .ydoc-container-content .sidebar .docs-sidenav li.active a, .ydoc-container-content .sidebar .docs-sidenav li.active a:hover {
+          border-right: 2px solid #ff503f;
           color: #ff503f; }
         .ydoc-container-content .sidebar .docs-sidenav ul {
           width: 100%;
           display: none;
-          margin-left: 20px;
           color: red; }
-          .ydoc-container-content .sidebar .docs-sidenav ul li {
-            height: .5rem; }
-            .ydoc-container-content .sidebar .docs-sidenav ul li a {
-              font-family: ydocfont;
-              height: .5rem;
-              line-height: .5rem;
-              width: 100%;
-              position: relative;
-              display: block;
-              color: #888;
-              text-indent: .1rem; }
-            .ydoc-container-content .sidebar .docs-sidenav ul li a:hover {
-              font-weight: bold; }
-          .ydoc-container-content .sidebar .docs-sidenav ul li.active a, .ydoc-container-content .sidebar .docs-sidenav ul li.active a:hover {
-            color: #ff503f; }
-          .ydoc-container-content .sidebar .docs-sidenav ul li.active a::before {
-            content: "\f083";
-            font-size: .12rem;
-            display: block;
-            position: absolute;
-            left: -0.15rem;
-            top: 0;
-            color: #ff503f; }
+          .ydoc-container-content .sidebar .docs-sidenav ul li a, .ydoc-container-content .sidebar .docs-sidenav ul li a:hover, .ydoc-container-content .sidebar .docs-sidenav ul li.active a, .ydoc-container-content .sidebar .docs-sidenav ul li.active a:hover {
+            padding-left: 48px; }
     .ydoc-container-content .docs-section {
       margin: 10px; }
 
