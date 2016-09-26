@@ -96,7 +96,8 @@
                         </ul>
                         {{/if}}
                         {{else}}
-                        <li {{if article.name == m.name}} class="active" {{/if}} {{if article.parentName == m.name}} class="active" {{/if}}>
+                        <!-- <li {{if article.name == m.name}} class="active" {{/if}} {{if article.parentName == m.name}} class="active" {{/if}}> -->
+                        <li {{if article.name == m.name}} class="active" {{/if}}>
                             {{if m.blank == true}}
                             <a href="javascript:void(0);">{{m.name}}</a>
                             {{else}}

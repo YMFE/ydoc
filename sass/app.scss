@@ -186,10 +186,14 @@ sup,sub{vertical-align:baseline}
   &-container{
 
     &-content{
+
       overflow:hidden;
-      background-color: #eee; /* Old browsers */
+      background-color: #fff; //eee;
       margin:20px auto;
+      padding:24px 0 0;
       box-shadow: 0 0  3px #e5e5e5;
+      position: relative;
+
       .static-code-content{
            width: 100%;
            background: #fff;
@@ -202,7 +206,7 @@ sup,sub{vertical-align:baseline}
          background: #fff;
          padding:15px;
          float: right;
-         min-height: 620px;
+         min-height: 500px;
       }
       .right{
           float: right;
@@ -220,11 +224,12 @@ sup,sub{vertical-align:baseline}
           }
           .fold,.extend{ color:#337ab7; position: absolute; left:15px; bottom:10px; cursor: pointer;}
           .fold:hover,.extend:hover{  text-decoration: underline; }
-      }
+       }
 
       .sidebar{
           width: 100%;
           position: relative;
+          min-height: 500px;
           .fixed{
               position: fixed;
               top:0;
@@ -233,7 +238,7 @@ sup,sub{vertical-align:baseline}
           }
           .docs-sidenav{
               width: 100%;
-              max-height: 620px;
+              max-height: 500px;
               overflow-y: auto;
               overflow-x: hidden;
               li{
@@ -260,7 +265,7 @@ sup,sub{vertical-align:baseline}
                   }
                   a:hover{
                       //font-weight:bold;
-                     background-color: #eaf8fe;
+                     background-color: #fff8ef;
                   }
               }
 
@@ -341,6 +346,16 @@ sup,sub{vertical-align:baseline}
         .docs-section{
             margin:10px;
         }
+    }
+
+    &-content:before{
+        height: 100%;
+        background-color: #eee;
+        width: 1px;
+        position: absolute;
+        left: 200px;
+        display:inline-block;
+        min-height: 500px;
     }
   }
 }
