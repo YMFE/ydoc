@@ -27,10 +27,13 @@ $(document).ready(function() {
     }
     });
 
-  $('.docs-sidenav>li').click(function(){
+  $('.docs-sidenav li').click(function(){
       //$(this).addClass('active').siblings('li').removeClass('active');
-      $(this).addClass('active').siblings('li').removeClass('active');
-      $(this).next('ul').show().siblings('ul').hide();
+      $('.docs-sidenav li').removeClass('active')
+      $(this).addClass('active');
+      if($(this).next('ul')){
+          $(this).next('ul').show().siblings('ul').hide();
+      }
     //   if($(this).hasClass('active')){
     //       $(this).removeClass('active');
     //   }else{
@@ -42,13 +45,14 @@ $(document).ready(function() {
     //       //return false;
     //   }
   });
-  $('.docs-sidenav-extend li').click(function(){
-    //   if($(this).hasClass('active')){
-    //       $(this).removeClass('active');
-    //   }else{
-        $(this).addClass('active').siblings('li').removeClass('active');
-    //};
-  });
+  // $('.docs-sidenav-extend li').click(function(){
+  //   //   if($(this).hasClass('active')){
+  //   //       $(this).removeClass('active');
+  //   //   }else{
+  //       $('.docs-sidenav-extend').siblings('li').removeClass('active');
+  //       $(this).addClass('active').siblings('li').removeClass('active');
+  //   //};
+  // });
 
   // 鼠标在sidebar区域内滚动 不触发浏览器滚动条
   var winHeight = $(window).height() - 40;
@@ -64,11 +68,11 @@ $(document).ready(function() {
     // sidebar fixed
     var  ydocContainerCon= $('.ydoc-container-content');
     docSideNav.width(ydocContainerCon.width()*0.25);
-    docSideNav.css({
-        'left': $(window).width()/2-ydocContainerCon.width()/2
-    });
-    var cancelfixed = $('.footer').offset().top - 620 -20,
-        fixedbottom = $('.footer').height + 20;
+    // docSideNav.css({
+    //     'left': $(window).width()/2-ydocContainerCon.width()/2
+    // });
+    // var cancelfixed = $('.footer').offset().top - 620 -20,
+    //     fixedbottom = $('.footer').height + 20;
 
     // console.log('$(window).scrollTop()',$(window).scrollTop());
     // console.log('footer', $('.footer').offset().top);

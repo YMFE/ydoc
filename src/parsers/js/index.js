@@ -160,8 +160,32 @@ module.exports = {
              lines.push(mats[i]);
              return lines.join("\n");
         }).replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
-            console.log('mat',mat);
-            return mat;
+            //console.log('item',item);
+            /// \@example[\s\S]+?((\*\/)|\@)
+            var afterExample = mat.replace(/\@example[\s\S]+?(\@)|\@example[\s\S]+?(\*\/)/gm,function(item){
+                //console.log('item===',item);
+                 var mats = item.split("\n"),i = 1, line, indent = -1, lines = [mats[0]];
+                 while (i < mats.length - 1) {
+                     line = mats[i];
+                     if (line.trim() != '*' && indent < 0) {
+                         indent = line.trim().match(/[^*\S]+/g).length;
+                     }
+                     if (indent > -1) {
+                         line = line.trim().substring(0, indent) + line.trim().substring(indent).replace(/^[ ]+/g, function(mat) {
+                             //return line;
+
+                             return mat.length + 'space';
+                         })
+                     };
+                     lines.push(line);
+                     i++;
+                 }
+                 lines.push(mats[i]);
+                // console.log('lines.join===',lines.join("\n"));
+                 return lines.join("\n");
+            });
+            //console.log('afterExample===',afterExample);
+            return afterExample;
             // var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
             // while (i < mats.length - 1) {
             //     line = mats[i];
