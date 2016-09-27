@@ -26,12 +26,13 @@ const DEFAULT_ANIMATION = defaultAnimation;
 /**
  * 模态弹层组件
  * @component Modal
- * @example ./Playground/js/Examples/ModalExample.js[1-184]
  * @version >=1.3.0
  * @description 通用的模态弹层组件,支持多种位置/动画效果
- *
+ * @example ./Playground/js/Examples/ModalExample.js[1-184]
  * ![Modal](./images/component-Modal.png)
+ *
  */
+
 class Modal extends Component {
 
     static PropTypes = {

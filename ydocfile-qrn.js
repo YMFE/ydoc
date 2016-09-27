@@ -81,78 +81,78 @@ module.exports = function() {
                     "name": "ScrollView",
                     "sub": true,
                     "content": "./test-qrn/Libraries/qunar-extension/libs/ScrollView/ScrollView.js"
-                }, {
-                    "name": "RefreshControl",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/RefreshControl/RefreshControl.js"
-                }, {
-                    "name": "LoadControl",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/LoadControl/LoadControl.js"
-                }, {
-                    "name": "ListView",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/ListView/QListView.js"
-                }, {
-                    "name": "InfiniteListView",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/ListView/InfiniteListView.js"
-                }, {
-                    "name": "状态"
-                }, {
-                    "name": "Loading",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/Loading/Loading.js"
-                }, {
-                    "name": "ProgressView",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/ProgressView/QProgressView.js"
-                }, {
-                    "name": "QLoading",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/QLoading/QLoading.js"
-                }, {
-                    "name": "QLoadingError",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/QLoadingError/QLoadingError.js"
-                }, {
-                    "name": "元素"
-                }, {
-                    "name": "Button",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/Button/Button.js"
-                }, {
-                    "name": "Checked",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/Checked/Checked.js"
-                }, {
-                    "name": "Radio",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/Radio/Radio.js"
-                }, {
-                    "name": "分段"
-                }, {
-                    "name": "Tab",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/Tab/Tab.js"
-                }, {
-                    "name": "TabBar",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/TabBar/QTabBar.js"
-                }, {
-                    "name": "TabBarItem",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/TabBarItem/QTabBarItem.js"
-                }, {
-                    "name": "其他"
-                }, {
-                    "name": "Slider",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/Slider/QSlider.js"
-                }, {
-                    "name": "TimePicker",
-                    "sub": true,
-                    "content": "./test-qrn/Libraries/qunar-extension/libs/QTimePicker/QTimePicker.js"
+                // }, {
+                //     "name": "RefreshControl",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/RefreshControl/RefreshControl.js"
+                // }, {
+                //     "name": "LoadControl",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/LoadControl/LoadControl.js"
+                // }, {
+                //     "name": "ListView",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/ListView/QListView.js"
+                // }, {
+                //     "name": "InfiniteListView",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/ListView/InfiniteListView.js"
+                // }, {
+                //     "name": "状态"
+                // }, {
+                //     "name": "Loading",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/Loading/Loading.js"
+                // }, {
+                //     "name": "ProgressView",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/ProgressView/QProgressView.js"
+                // }, {
+                //     "name": "QLoading",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/QLoading/QLoading.js"
+                // }, {
+                //     "name": "QLoadingError",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/QLoadingError/QLoadingError.js"
+                // }, {
+                //     "name": "元素"
+                // }, {
+                //     "name": "Button",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/Button/Button.js"
+                // }, {
+                //     "name": "Checked",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/Checked/Checked.js"
+                // }, {
+                //     "name": "Radio",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/Radio/Radio.js"
+                // }, {
+                //     "name": "分段"
+                // }, {
+                //     "name": "Tab",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/Tab/Tab.js"
+                // }, {
+                //     "name": "TabBar",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/TabBar/QTabBar.js"
+                // }, {
+                //     "name": "TabBarItem",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/TabBarItem/QTabBarItem.js"
+                // }, {
+                //     "name": "其他"
+                // }, {
+                //     "name": "Slider",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/Slider/QSlider.js"
+                // }, {
+                //     "name": "TimePicker",
+                //     "sub": true,
+                //     "content": "./test-qrn/Libraries/qunar-extension/libs/QTimePicker/QTimePicker.js"
                 }, {
                     "name": "Modal",
                     "sub": true,

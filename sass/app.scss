@@ -184,9 +184,9 @@ sup,sub{vertical-align:baseline}
   }
 
   &-container{
-
+    clear: both;
+    overflow: hidden;
     &-content{
-
       overflow:hidden;
       background-color: #fff; //eee;
       margin:20px auto;
@@ -228,8 +228,8 @@ sup,sub{vertical-align:baseline}
 
       .sidebar{
           width: 100%;
-          position: relative;
-          min-height: 500px;
+        //   position: relative;
+        //   min-height: 500px;
           .fixed{
               position: fixed;
               top:0;
@@ -238,9 +238,9 @@ sup,sub{vertical-align:baseline}
           }
           .docs-sidenav{
               width: 100%;
-              max-height: 500px;
-              overflow-y: auto;
-              overflow-x: hidden;
+            //   max-height: 500px;
+            //   overflow-y: auto;
+            //   overflow-x: hidden;
               li{
                     line-height: .42rem;
                     height: .42rem;
