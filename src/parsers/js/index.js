@@ -160,10 +160,7 @@ module.exports = {
              lines.push(mats[i]);
              return lines.join("\n");
         }).replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
-            console.log('mat',mat);
-            /// \@example[\s\S]+?((\*\/)|\@)
             var afterExample = mat.replace(/\@example[\s\S]+?(\@)|\@example[\s\S]+?(\!\[)|\@example[\s\S]+?(\*\/)/gm,function(item){
-                console.log('item===',item);
                  var mats = item.split("\n"),i = 1, line, indent = -1, lines = [mats[0]];
                  while (i < mats.length - 1) {
                      line = mats[i];
@@ -179,13 +176,10 @@ module.exports = {
                      i++;
                  }
                  lines.push(mats[i]);
-                 console.log('lines.join===',lines.join("\n"));
                  return lines.join("\n");
             });
-            console.log('afterExample===',afterExample);
             return afterExample;
           }));
-        //var contents = commentParser(content);
             return contents.filter(function(item) {
                 return item.tags.every(function(tag) {
                     return tag.tag != 'skip';
