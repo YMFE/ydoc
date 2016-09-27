@@ -10,13 +10,8 @@
   <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="source/app.css"/>
   <link rel="stylesheet" href="source/highlight.min.css"/>
-  <style type="text/css">
-    body{
-        position: relative;
-    }
-  </style>
 </head>
-<body data-spy="scroll" data-target=".scrollspy">
+<body>
     <div class="ydoc">
 
       <header class="ydoc-header">
@@ -90,8 +85,8 @@
         <div class="ydoc-container-content">
             
             <div class="content-left" role="complementary">
-              <nav class="sidebar scrollspy">
-                <ul class="nav docs-sidenav hidden-xs hidden-sm" data-spy="affix">
+              <nav class="sidebar hidden-print hidden-xs hidden-sm">
+                <ul class="nav docs-sidenav">
                   
                   
                   <li>
@@ -107,7 +102,7 @@
                   
                   
                   
-                  <ul class="nav">
+                  <ul class="nav docs-sidenav-extend">
                   
                       <li>
                           <a href="#Hy说明">Hy说明</a>
@@ -125,7 +120,7 @@
                   
                   
                   
-                  <ul class="nav">
+                  <ul class="nav docs-sidenav-extend">
                   
                       <li>
                           <a href="#WeChat说明">WeChat说明</a>
@@ -137,7 +132,7 @@
               </nav>
             </div>
             
-            <div class="content-right right markdown-body">
+            <div class="content-right right markdown-body"  role="main">
               
               
               

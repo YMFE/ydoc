@@ -199,7 +199,12 @@ sup,sub{vertical-align:baseline}
            background: #fff;
            padding: .15rem;
       }
-      .content-left,.content-right{float:left; }
+      .content-left,.content-right{float:left;
+            position: relative;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
       .content-right{
          box-sizing: border-box;
          width: 75%;

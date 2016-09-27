@@ -10,13 +10,8 @@
   <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="source/app.css"/>
   <link rel="stylesheet" href="source/highlight.min.css"/>
-  <style type="text/css">
-    body{
-        position: relative;
-    }
-  </style>
 </head>
-<body data-spy="scroll" data-target=".scrollspy">
+<body>
     <div class="ydoc">
 
       <header class="ydoc-header">
@@ -88,12 +83,12 @@
           {{if article.sidebars}}
           <div class="ydoc-container-content">
               <div class="content-left" role="complementary">
-                  <nav class="sidebar scrollspy">
-                    <ul id="nav" class="nav docs-sidenav hidden-xs hidden-sm" data-spy="affix">
+                  <nav class="sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
                         {{each article.sidebars as m index}}
                         {{if m.sub}}
                         {{if index > 0 && !article.sidebars[index - 1].sub}}
-                        <ul class="docs-sidenav-extend" {{if article.name == m.name}} style="display:block;" {{/if}} {{if article.parentName &&(article.parentName == m.pName)}}  style="display:block;" {{/if}}>
+                        <ul class="nav docs-sidenav-extend" {{if article.name == m.name}} style="display:block;" {{/if}} {{if article.parentName &&(article.parentName == m.pName)}}  style="display:block;" {{/if}}>
                         {{/if}}
                             <li {{if article.name == m.name}} class="active" {{/if}}>
                                 <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
@@ -115,7 +110,7 @@
                     </ul>
                   </nav>
               </div>
-              <div class="content-right markdown-body">
+              <div class="content-right markdown-body" role="main">
                 {{if intro}}{{intro}}{{/if}}
                 {{article.content}}
               </div>
@@ -132,12 +127,12 @@
         <div class="ydoc-container-content">
             {{if article.sidebars}}
             <div class="content-left" role="complementary">
-              <nav class="sidebar scrollspy">
-                <ul class="nav docs-sidenav hidden-xs hidden-sm" data-spy="affix">
+              <nav class="sidebar hidden-print hidden-xs hidden-sm">
+                <ul class="nav docs-sidenav">
                   {{each article.sidebars as m index}}
                   {{if m.sub}}
                   {{if index > 0 && !article.sidebars[index - 1].sub}}
-                  <ul class="nav">
+                  <ul class="nav docs-sidenav-extend">
                   {{/if}}
                       <li>
                           <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
@@ -155,7 +150,7 @@
               </nav>
             </div>
             {{/if}}
-            <div class="content-right right markdown-body">
+            <div class="content-right right markdown-body"  role="main">
               {{if intro}}
               <div>{{intro}}</div>
               {{/if}}

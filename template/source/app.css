@@ -214,7 +214,11 @@ sup, sub {
         background: #fff;
         padding: .15rem; }
       .ydoc-container-content .content-left, .ydoc-container-content .content-right {
-        float: left; }
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px; }
       .ydoc-container-content .content-right {
         box-sizing: border-box;
         width: 75%;

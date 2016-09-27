@@ -10,13 +10,8 @@
   <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="source/app.css"/>
   <link rel="stylesheet" href="source/highlight.min.css"/>
-  <style type="text/css">
-    body{
-        position: relative;
-    }
-  </style>
 </head>
-<body data-spy="scroll" data-target=".scrollspy">
+<body>
     <div class="ydoc">
 
       <header class="ydoc-header">
@@ -90,8 +85,8 @@
           
           <div class="ydoc-container-content">
               <div class="content-left" role="complementary">
-                  <nav class="sidebar scrollspy">
-                    <ul id="nav" class="nav docs-sidenav hidden-xs hidden-sm" data-spy="affix">
+                  <nav class="sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
                         
                         
                         <!-- <li  > -->
@@ -104,7 +99,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="#QApp-ready">QApp.ready</a>
@@ -141,7 +136,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="#QApp-view-define">QApp.view.define</a>
@@ -218,7 +213,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="#View-container">View.container</a>
@@ -407,7 +402,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="#View-beforeShow">View:beforeShow</a>
@@ -484,7 +479,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="#QApp-router-open">QApp.router.open</a>
@@ -601,7 +596,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="#QApp-util-builder">QApp.util.builder</a>
@@ -774,7 +769,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="#QApp-util-animate">QApp.util.animate</a>
@@ -915,7 +910,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="#QApp-sniff">QApp.sniff</a>
@@ -936,7 +931,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="#QApp-plugin-add">QApp.plugin.add</a>
@@ -997,7 +992,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="#QApp-widget-add">QApp.widget.add</a>
@@ -1032,7 +1027,7 @@
                     </ul>
                   </nav>
               </div>
-              <div class="content-right markdown-body">
+              <div class="content-right markdown-body" role="main">
                 
                 <div class="docs-section">
 
