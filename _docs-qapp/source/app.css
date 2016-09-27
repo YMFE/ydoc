@@ -272,7 +272,6 @@ sup, sub {
             color: #ff503f; }
           .ydoc-container-content .sidebar .docs-sidenav ul {
             width: 100%;
-            display: none;
             color: red; }
             .ydoc-container-content .sidebar .docs-sidenav ul li a, .ydoc-container-content .sidebar .docs-sidenav ul li a:hover, .ydoc-container-content .sidebar .docs-sidenav ul li.active a, .ydoc-container-content .sidebar .docs-sidenav ul li.active a:hover {
               padding-left: 48px; }
