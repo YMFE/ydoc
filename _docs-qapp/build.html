@@ -7,10 +7,16 @@
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
   <title>QApp 构建</title>
+  <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" href="source/app.css"/>
   <link rel="stylesheet" href="source/highlight.min.css"/>
+  <style type="text/css">
+    body{
+        position: relative;
+    }
+  </style>
 </head>
-<body>
+<body data-spy="scroll" data-target=".scrollspy">
     <div class="ydoc">
 
       <header class="ydoc-header">
@@ -146,6 +152,9 @@
     </div>
     <script src="source/jquery.min.js"></script>
     <script src="source/highlight.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.js"></script>
+    <!-- <script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/umd/scrollspy.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/affix.js"></script> -->
     <script src="source/app.js"></script>
 </body>
 </html>

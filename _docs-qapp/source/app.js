@@ -165,6 +165,10 @@ $(document).ready(function() {
       $(this).html("展开更多参数……");
   });
 
-
+  $('#nav').affix({
+      offset: {
+          top: 0
+      }
+  });
 
 })

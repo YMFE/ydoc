@@ -215,7 +215,7 @@ sup, sub {
         padding: .15rem; }
       .ydoc-container-content .content-left, .ydoc-container-content .content-right {
         float: left; }
-      .ydoc-container-content .content-left {
+      .ydoc-container-content .content-right {
         box-sizing: border-box;
         width: 75%;
         background: #fff;
@@ -224,7 +224,7 @@ sup, sub {
         min-height: 500px; }
       .ydoc-container-content .right {
         float: right; }
-      .ydoc-container-content .content-right {
+      .ydoc-container-content .content-left {
         width: 25%; }
       .ydoc-container-content .ydoc-example {
         position: relative;
@@ -241,14 +241,11 @@ sup, sub {
         .ydoc-container-content .ydoc-example .fold:hover, .ydoc-container-content .ydoc-example .extend:hover {
           text-decoration: underline; }
       .ydoc-container-content .sidebar {
-        width: 100%; }
-        .ydoc-container-content .sidebar .fixed {
-          position: fixed;
-          top: 0;
-          z-index: 9999;
-          background: #eee; }
+        min-height: 500px; }
         .ydoc-container-content .sidebar .docs-sidenav {
-          width: 100%; }
+          max-height: 500px;
+          overflow-y: auto;
+          overflow-x: hidden; }
           .ydoc-container-content .sidebar .docs-sidenav li {
             line-height: .42rem;
             height: .42rem;
@@ -296,9 +293,9 @@ sup, sub {
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 768px; } }
 @media screen and (max-width: 767px) {
-  .ydoc-container-content .content-left {
-    width: 100%; }
   .ydoc-container-content .content-right {
+    width: 100%; }
+  .ydoc-container-content .content-left {
     display: none; }
 
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {

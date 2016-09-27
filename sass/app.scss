@@ -200,7 +200,7 @@ sup,sub{vertical-align:baseline}
            padding: .15rem;
       }
       .content-left,.content-right{float:left; }
-      .content-left{
+      .content-right{
          box-sizing: border-box;
          width: 75%;
          background: #fff;
@@ -211,7 +211,7 @@ sup,sub{vertical-align:baseline}
       .right{
           float: right;
       }
-      .content-right{
+      .content-left{
          width: 25%;
         //  background: #f6f6f6;
       }
@@ -227,20 +227,19 @@ sup,sub{vertical-align:baseline}
        }
 
       .sidebar{
-          width: 100%;
         //   position: relative;
-        //   min-height: 500px;
-          .fixed{
-              position: fixed;
-              top:0;
-              z-index: 9999;
-              background: #eee;
-          }
+          min-height: 500px;
+        //   .fixed{
+        //       position: fixed;
+        //       top:0;
+        //       z-index: 9999;
+        //       background: #eee;
+        //   }
           .docs-sidenav{
-              width: 100%;
-            //   max-height: 500px;
-            //   overflow-y: auto;
-            //   overflow-x: hidden;
+
+              max-height: 500px;
+              overflow-y: auto;
+              overflow-x: hidden;
               li{
                     line-height: .42rem;
                     height: .42rem;
@@ -334,8 +333,8 @@ sup,sub{vertical-align:baseline}
 @media screen and (max-width: 767px) {
   // body{ background: yellow;}
   .ydoc-container-content {
-      .content-left{ width: 100%;}
-      .content-right{ display: none;}
+      .content-right{ width: 100%;}
+      .content-left{ display: none;}
   }
   .ydoc-header-area,.ydoc-banner-area,.ydoc-container-content{
     width:100%;
