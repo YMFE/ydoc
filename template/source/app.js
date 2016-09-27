@@ -165,10 +165,59 @@ $(document).ready(function() {
       $(this).html("展开更多参数……");
   });
 
-  $('#nav').affix({
-      offset: {
-          top: 0
-      }
-  });
+});
 
-})
+$(document).ready(function() {
+       $('code').each(function(i, block) {
+           if (block.innerHTML.indexOf('\n') != -1) {
+               var pn = block.parentNode;
+               if (pn.tagName.toUpperCase() == 'PRE') {
+                   try {
+                       hljs.highlightBlock(block);
+                   } catch(e) {}
+               } else {
+                   pn.innerHTML = '<pre><code>' + block.innerHTML + '</code></pre>';
+                   try {
+                       hljs.highlightBlock(pn.childNodes[0].childNodes[0]);
+                   } catch(e) {}
+               }
+           }
+       });
+
+       var winHeight = $(window).height() - 40,
+           sidebar = $('.sidebar');
+
+       if (sidebar.height() > winHeight) {
+
+           sidebar.css('max-height', winHeight + 'px');
+           sidebar.css('overflow', 'scroll');
+
+           var activeMenu,
+               barScroll = false;
+
+           sidebar.on('mouseover', function() {
+               barScroll = true;
+           });
+
+           sidebar.on('mouseout', function() {
+               barScroll = false;
+           });
+
+           $(window).on('scroll', function(e) {
+               if (!barScroll) {
+                   var activeItem = $('.docs-sidebar li.active a');
+                   if (activeItem.length) {
+                       if (!activeMenu || (activeMenu.attr('href') != activeItem.attr('href'))) {
+                           activeMenu = activeItem;
+                           var top = activeMenu.offset().top - sidebar.offset().top;
+                           if (top < 0) {
+                               sidebar.scrollTop(sidebar.scrollTop() + top);
+                           } else if (top > winHeight - 30) {
+                               sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+                           }
+                       }
+                   }
+               }
+           });
+       }
+   });
