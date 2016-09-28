@@ -127,10 +127,5 @@ if (sidebar.height() > winHeight) {
         var docSideNav = $('.docs-sidenav');
         var  ydocContainerCon= $('.ydoc-container-content');
         docSideNav.width(ydocContainerCon.width()*0.25);
-        // console.log('sidebar.width===',sidebar.width());
-        // // docSideNav.width(sidebar.width());
-        // console.log('docSideNav.width===',docSideNav.width());
-        //docSideNav.resize();
-        //console.log('docSideNav22222s.width===',docSideNav.width());
     })
 }
