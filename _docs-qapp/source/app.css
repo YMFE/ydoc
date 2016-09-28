@@ -1,7 +1,5 @@
 @charset "UTF-8";
 html {
-  background-color: #fafafa;
-  color: #212121;
   font-size: 100px; }
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
@@ -216,9 +214,7 @@ sup, sub {
       .ydoc-container-content .content-left, .ydoc-container-content .content-right {
         float: left;
         position: relative;
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px; }
+        min-height: 1px; }
       .ydoc-container-content .content-right {
         box-sizing: border-box;
         width: 75%;
@@ -244,31 +240,43 @@ sup, sub {
           cursor: pointer; }
         .ydoc-container-content .ydoc-example .fold:hover, .ydoc-container-content .ydoc-example .extend:hover {
           text-decoration: underline; }
-      .ydoc-container-content .sidebar .docs-sidenav li {
-        line-height: .42rem;
-        height: .42rem;
-        font-size: 14px;
-        overflow: hidden; }
-        .ydoc-container-content .sidebar .docs-sidenav li a {
-          padding: 0 .16rem 0 .28rem;
-          text-overflow: ellipsis;
-          color: #666;
+      .ydoc-container-content .docs-sidebar {
+        background: #fff;
+        z-index: 9999; }
+        .ydoc-container-content .docs-sidebar .docs-sidenav li {
           line-height: .42rem;
           height: .42rem;
-          display: inline-block;
-          width: 100%;
-          position: relative;
-          overflow: hidden;
-          white-space: nowrap; }
-        .ydoc-container-content .sidebar .docs-sidenav li a:hover {
-          background-color: #fff8ef; }
-      .ydoc-container-content .sidebar .docs-sidenav li.active a, .ydoc-container-content .sidebar .docs-sidenav li.active a:hover {
-        border-right: 2px solid #ff503f;
-        color: #ff503f; }
-      .ydoc-container-content .sidebar .docs-sidenav ul {
-        width: 100%; }
-        .ydoc-container-content .sidebar .docs-sidenav ul li a, .ydoc-container-content .sidebar .docs-sidenav ul li a:hover, .ydoc-container-content .sidebar .docs-sidenav ul li.active a, .ydoc-container-content .sidebar .docs-sidenav ul li.active a:hover {
-          padding-left: 48px; }
+          font-size: 14px;
+          overflow: hidden; }
+          .ydoc-container-content .docs-sidebar .docs-sidenav li a {
+            padding: 0 .16rem 0 .28rem;
+            text-overflow: ellipsis;
+            color: #666;
+            line-height: .42rem;
+            height: .42rem;
+            display: inline-block;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap; }
+          .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
+            background-color: #fff8ef; }
+        .ydoc-container-content .docs-sidebar .docs-sidenav li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav li.active a:hover {
+          border-right: 2px solid #ff503f;
+          color: #ff503f; }
+        .ydoc-container-content .docs-sidebar .docs-sidenav ul {
+          width: 100%; }
+          .ydoc-container-content .docs-sidebar .docs-sidenav ul li a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li a:hover, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a:hover {
+            padding-left: 48px; }
+      .ydoc-container-content .docs-sidebar.affix, .ydoc-container-content .docs-sidebar.affix-bottom {
+        width: 213px; }
+      .ydoc-container-content .docs-sidebar.affix {
+        position: fixed;
+        top: 20px; }
+      .ydoc-container-content .docs-sidebar.affix-bottom {
+        position: absolute; }
+      .ydoc-container-content .docs-sidebar.affix, .ydoc-container-content .docs-sidebar.affix-bottom {
+        width: 263px; }
       .ydoc-container-content .docs-section {
         margin: 10px; }
     .ydoc-container-content:before {
@@ -323,116 +331,6 @@ sup, sub {
       display: block; }
       .ydoc-second-header .ydoc-nav li {
         float: left; } }
-.affix {
-  position: fixed; }
-
-.sidebar.affix {
-  position: static; }
-
-.docs-sidenav {
-  margin-top: 20px;
-  margin-bottom: 20px; }
-
-.sidebar .nav > li > a, .sidebar .nav > li > span {
-  display: block;
-  padding: 4px 20px;
-  font-weight: 500;
-  color: #767676; }
-
-.sidebar .nav > li > a:focus, .sidebar .nav > li > a:hover {
-  padding-left: 19px;
-  color: #0088a4;
-  text-decoration: none;
-  background-color: transparent;
-  border-left: 1px solid #0088a4; }
-
-.sidebar .nav .nav {
-  display: none;
-  padding-bottom: 10px; }
-
-.sidebar .nav .nav > li > a {
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-left: 30px;
-  font-weight: 400; }
-
-.docs-sidenav > li > .nav > li > .nav > li > a, .docs-sidenav > li > .nav > li > .nav > li > a:hover {
-  padding-left: 38px; }
-
-.docs-sidenav > li.active > .nav > li.active > .nav > li.active > a, .docs-sidenav > li.active > .nav > li.active > .nav > li.active > a:hover {
-  padding-left: 36px; }
-
-.sidebar.affix {
-  position: static; }
-
-.docs-sidenav {
-  margin-top: 20px;
-  margin-bottom: 20px; }
-
-.sidebar .nav > li > a, .sidebar .nav > li > span {
-  display: block;
-  padding: 4px 20px;
-  font-weight: 500;
-  color: #767676; }
-
-.sidebar .nav > li > a:focus, .sidebar .nav > li > a:hover {
-  padding-left: 19px;
-  color: #0088a4;
-  text-decoration: none;
-  background-color: transparent;
-  border-left: 1px solid #0088a4; }
-
-.sidebar .nav > .active:focus > a, .sidebar .nav > .active:hover > a, .sidebar .nav > .active > a {
-  padding-left: 18px;
-  font-weight: 700;
-  color: #0088a4;
-  background-color: transparent;
-  border-left: 2px solid #0088a4; }
-
-.sidebar .nav .nav {
-  display: none;
-  padding-bottom: 10px; }
-
-.sidebar .nav > li > a, .sidebar .nav > li > span {
-  font-size: 0.16rem; }
-
-.sidebar .nav .nav > li > a {
-  padding-top: 1px;
-  padding-bottom: 1px;
-  padding-left: 30px;
-  font-size: .14rem;
-  font-weight: 400; }
-
-.sidebar .nav .nav .nav > li > a {
-  font-size: 0.12rem; }
-
-.sidebar .nav .nav > li > a:focus, .sidebar .nav .nav > li > a:hover {
-  padding-left: 29px; }
-
-.sidebar .nav .nav > .active:focus > a, .sidebar .nav .nav > .active:hover > a, .sidebar .nav .nav > .active > a {
-  padding-left: 28px;
-  font-weight: 500; }
-
-.sidebar .nav > .active > ul {
-  display: block; }
-
-.sidebar.affix, .sidebar.affix-bottom {
-  width: 213px; }
-
-.sidebar.affix {
-  position: fixed;
-  top: 20px; }
-
-.sidebar.affix-bottom {
-  position: absolute; }
-
-.sidebar.affix .docs-sidenav, .sidebar.affix-bottom .docs-sidenav {
-  margin-top: 0;
-  margin-bottom: 0; }
-
-.sidebar.affix, .sidebar.affix-bottom {
-  width: 263px; }
-
 /*     markdown begin       */
 .markdown-body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
