@@ -5,11 +5,21 @@
 node_modules
 node_modules/
 .sass-cache/
-test-kami/scripts/
-test-kami/scripts/**/src/.git/
-test-kami/scripts/**/src/.DS_Store/
-test-kami/scripts/**/src/.gitignore
-
+test-kami/
+test-qapp/
+test-qrn/
+test-reactweb/
+test-yo/
+ydocfile-reactweb.config
+ydocfile-kami.js
+ydocfile-qapp.js
+ydocfile-qrn.js
+ydocfile-yo.js
+_docs-kami/
+_docs-qapp/
+_docs-qrn/
+_docs-reactweb/
+_docs-yo/
 
 # maven ignore
 target/
