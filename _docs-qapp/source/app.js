@@ -85,7 +85,7 @@ docSideNav.width(ydocContainerCon.width()*0.25);
 if (sidebar.height() > winHeight) {
 
     sidebar.css('max-height', winHeight + 'px');
-    //sidebar.css({'overflow-y':'scroll','overflow-x':'hidden'});
+    sidebar.css({'overflow-y':'scroll','overflow-x':'hidden'});
 
     var activeMenu,
         barScroll = false;

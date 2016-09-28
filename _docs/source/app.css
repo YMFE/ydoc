@@ -245,9 +245,7 @@ sup, sub {
           text-decoration: underline; }
       .ydoc-container-content .docs-sidebar {
         background: #fff;
-        z-index: 9999;
-        overflow-x: hidden;
-        overflow-y: scroll; }
+        z-index: 9999; }
         .ydoc-container-content .docs-sidebar .docs-sidenav {
           padding-left: 0; }
           .ydoc-container-content .docs-sidebar .docs-sidenav li {

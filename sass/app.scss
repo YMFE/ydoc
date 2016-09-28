@@ -228,8 +228,6 @@ sup,sub{vertical-align:baseline}
       .docs-sidebar{
           background: #fff;
           z-index: 9999;
-          overflow-x: hidden;
-          overflow-y: scroll;
           .docs-sidenav{
               padding-left: 0;
               li{

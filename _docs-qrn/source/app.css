@@ -229,6 +229,7 @@ sup, sub {
       .ydoc-container-content .content-left {
         width: 25%; }
       .ydoc-container-content .ydoc-example {
+        position: relative;
         overflow: hidden; }
         .ydoc-container-content .ydoc-example code {
           overflow-y: hidden;
@@ -236,39 +237,42 @@ sup, sub {
           font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
         .ydoc-container-content .ydoc-example .fold, .ydoc-container-content .ydoc-example .extend {
           color: #337ab7;
-          margin: 10px 0 0;
-          cursor: pointer;
-          display: block; }
+          position: absolute;
+          left: 15px;
+          bottom: 10px;
+          cursor: pointer; }
         .ydoc-container-content .ydoc-example .fold:hover, .ydoc-container-content .ydoc-example .extend:hover {
           text-decoration: underline; }
       .ydoc-container-content .docs-sidebar {
         background: #fff;
         z-index: 9999; }
-        .ydoc-container-content .docs-sidebar .docs-sidenav li {
-          line-height: .42rem;
-          height: .42rem;
-          font-size: 14px;
-          overflow: hidden; }
-          .ydoc-container-content .docs-sidebar .docs-sidenav li a {
-            padding: 0 .16rem 0 .28rem;
-            text-overflow: ellipsis;
-            color: #666;
+        .ydoc-container-content .docs-sidebar .docs-sidenav {
+          padding-left: 0; }
+          .ydoc-container-content .docs-sidebar .docs-sidenav li {
             line-height: .42rem;
             height: .42rem;
-            display: inline-block;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap; }
-          .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
-            background-color: #fff8ef; }
-        .ydoc-container-content .docs-sidebar .docs-sidenav li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav li.active a:hover {
-          border-right: 2px solid #ff503f;
-          color: #ff503f; }
-        .ydoc-container-content .docs-sidebar .docs-sidenav ul {
-          width: 100%; }
-          .ydoc-container-content .docs-sidebar .docs-sidenav ul li a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li a:hover, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a:hover {
-            padding-left: 48px; }
+            font-size: 14px;
+            overflow: hidden; }
+            .ydoc-container-content .docs-sidebar .docs-sidenav li a {
+              padding: 0 .16rem 0 .28rem;
+              text-overflow: ellipsis;
+              color: #666;
+              line-height: .42rem;
+              height: .42rem;
+              display: inline-block;
+              width: 100%;
+              position: relative;
+              overflow: hidden;
+              white-space: nowrap; }
+            .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
+              background-color: #fff8ef; }
+          .ydoc-container-content .docs-sidebar .docs-sidenav li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav li.active a:hover {
+            border-right: 2px solid #ff503f;
+            color: #ff503f; }
+          .ydoc-container-content .docs-sidebar .docs-sidenav ul {
+            width: 100%; }
+            .ydoc-container-content .docs-sidebar .docs-sidenav ul li a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li a:hover, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a:hover {
+              padding-left: 48px; }
       .ydoc-container-content .docs-sidebar.affix {
         position: fixed;
         top: 20px; }
@@ -328,6 +332,9 @@ sup, sub {
       display: block; }
       .ydoc-second-header .ydoc-nav li {
         float: left; } }
+.anchorjs-link {
+  display: none; }
+
 /*     markdown begin       */
 .markdown-body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

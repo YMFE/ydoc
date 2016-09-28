@@ -61,12 +61,13 @@
         
           
           <div class="ydoc-container-content">
-              <div class="content-right">
-                  <nav class="sidebar">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav docs-sidenav">
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="javascript:void(0);">核心组件</a>
                             
@@ -75,7 +76,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="component-Base.html">Base</a>
@@ -94,7 +95,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="javascript:void(0);">滚动和列表</a>
                             
@@ -103,7 +105,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="component-Panel.html">Panel</a>
@@ -162,7 +164,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="javascript:void(0);">弹窗类</a>
                             
@@ -171,7 +174,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="component-Overlay.html">Overlay</a>
@@ -214,7 +217,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="javascript:void(0);">Picker类</a>
                             
@@ -223,7 +227,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="component-Select.html">Select</a>
@@ -258,7 +262,8 @@
                         
                         
                         
-                        <li   class="active" >
+                        <!-- <li   class="active" > -->
+                        <li >
                             
                             <a href="javascript:void(0);">其它</a>
                             
@@ -267,7 +272,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"    style="display:block;" >
+                        <ul class="nav docs-sidenav-extend"    style="display:block;" >
                         
                             <li >
                                 <a href="component-DatePicker.html">DatePicker</a>
@@ -350,13 +355,13 @@
                     </ul>
                   </nav>
               </div>
-              <div class="content-left markdown-body">
+              <div class="content-right markdown-body" role="main">
                 
                 <div class="docs-section">
 <h2>
     Switch
     <small>开关</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">1.0.1</span>
+    <span class="yo-badge yo-badge-danger">1.0.1</span>
 </h2>
 <div class="api-content"><p>继承自：<a href="./component-Widget.html">Widget</a></p>
 <p>查看示例：<a href="http://ued.qunar.com/kami/demo/src/html/switch/index.html">Demo</a> (PC需开启模拟器)</p>
@@ -369,7 +374,7 @@
 <blockquote class="api">
     <h3>
     <strong>extraClass</strong>
-     <span>{ String }</span>
+     <span class="prop-type">{ String }</span>
     
     </h3>
 </blockquote>
@@ -381,7 +386,7 @@
 <blockquote class="api">
     <h3>
     <strong>state</strong>
-     <span>{ Boolean }</span>
+     <span class="prop-type">{ Boolean }</span>
     
     </h3>
 </blockquote>
@@ -393,7 +398,7 @@
 <blockquote class="api">
     <h3>
     <strong>value</strong>
-     <span>{ String }</span>
+     <span class="prop-type">{ String }</span>
     
     </h3>
 </blockquote>
@@ -405,7 +410,7 @@
 <blockquote class="api">
     <h3>
     <strong>form</strong>
-     <span>{ String }</span>
+     <span class="prop-type">{ String }</span>
     
     </h3>
 </blockquote>
@@ -417,7 +422,7 @@
 <blockquote class="api">
     <h3>
     <strong>name</strong>
-     <span>{ String }</span>
+     <span class="prop-type">{ String }</span>
     
     </h3>
 </blockquote>
@@ -429,7 +434,7 @@
 <blockquote class="api">
     <h3>
     <strong>disabled</strong>
-     <span>{ Boolean }</span>
+     <span class="prop-type">{ Boolean }</span>
     
     </h3>
 </blockquote>
@@ -441,7 +446,7 @@
 <blockquote class="api">
     <h3>
     <strong>disableDefaultEvent</strong>
-     <span>{ Boolean }</span>
+     <span class="prop-type">{ Boolean }</span>
     
     </h3>
 </blockquote>
@@ -587,7 +592,12 @@
       </footer>
     </div>
     <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
     <script src="source/highlight.min.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.js"></script> -->
+    <!-- <script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/umd/scrollspy.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/affix.js"></script> -->
     <script src="source/app.js"></script>
 </body>
 </html>
