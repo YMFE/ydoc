@@ -109,12 +109,13 @@
         
           
           <div class="ydoc-container-content">
-              <div class="content-right">
-                  <nav class="sidebar">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav docs-sidenav">
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="#起步">起步</a>
                             
@@ -123,7 +124,7 @@
                         
                         
                         
-                        <ul class="docs-sidenav-extend"  >
+                        <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
                                 <a href="#既有React Native项目转touch">既有React Native项目转touch</a>
@@ -142,7 +143,7 @@
                     </ul>
                   </nav>
               </div>
-              <div class="content-left markdown-body">
+              <div class="content-right markdown-body" role="main">
                 
                 <h2 id="起步">起步</h2><h3 id="既有React Native项目转touch">既有React Native项目转touch</h3><h5 id="1.修改package.json，执行&quot;qnpm install&quot;">1.修改package.json，执行&quot;qnpm install&quot;</h5><ul>
 <li>react-native版本“^internal-v1.4.0”</li>
@@ -267,7 +268,12 @@ remote :
       </footer>
     </div>
     <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
     <script src="source/highlight.min.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.js"></script> -->
+    <!-- <script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/umd/scrollspy.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/affix.js"></script> -->
     <script src="source/app.js"></script>
 </body>
 </html>

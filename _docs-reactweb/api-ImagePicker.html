@@ -109,12 +109,13 @@
         
           
           <div class="ydoc-container-content">
-              <div class="content-right">
-                  <nav class="sidebar">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav docs-sidenav">
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-AppRegistry.html">AppRegistry</a>
                             
@@ -122,7 +123,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-AppState.html">AppState</a>
                             
@@ -130,7 +132,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-Animated.html">Animated</a>
                             
@@ -138,7 +141,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-AsyncStorage.html">AsyncStorage</a>
                             
@@ -146,7 +150,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-Clipboard.html">Clipboard</a>
                             
@@ -154,7 +159,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-Dimensions.html">Dimensions</a>
                             
@@ -162,7 +168,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-Fetch.html">Fetch</a>
                             
@@ -170,7 +177,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-ImageEditor.html">ImageEditor</a>
                             
@@ -178,7 +186,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-ImageStore.html">ImageStore</a>
                             
@@ -186,7 +195,8 @@
                         
                         
                         
-                        <li  class="active"   class="active" >
+                        <!-- <li  class="active"   class="active" > -->
+                        <li  class="active" >
                             
                             <a href="api-ImagePicker.html">ImagePicker</a>
                             
@@ -194,7 +204,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-Geolocation.html">Geolocation</a>
                             
@@ -202,7 +213,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-Linking.html">Linking</a>
                             
@@ -210,7 +222,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-StyleSheet.html">StyleSheet</a>
                             
@@ -218,7 +231,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-NetInfo.html">NetInfo</a>
                             
@@ -226,7 +240,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-NativeModules.html">NativeModules</a>
                             
@@ -234,7 +249,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-NativeModules.UIManager.html">NativeModules.UIManager</a>
                             
@@ -242,7 +258,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-NativeModules.NativeAPI.html">NativeModules.NativeAPI</a>
                             
@@ -250,7 +267,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-PanResponder.html">PanResponder</a>
                             
@@ -258,7 +276,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-PixelRatio.html">PixelRatio</a>
                             
@@ -266,7 +285,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="api-Vibration.html">Vibration</a>
                             
@@ -276,13 +296,13 @@
                     </ul>
                   </nav>
               </div>
-              <div class="content-left markdown-body">
+              <div class="content-right markdown-body" role="main">
                 
                 <div class="docs-section">
 <h2>
     ImagePicker
     <small>ImagePicker 接口</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>= v1.4</span>
+    <span class="yo-badge yo-badge-danger">>= v1.4</span>
 </h2>
 <div class="api-content"><p>ImagePicker 提供React Native <code>ImagePicker</code> API的web实现,用来实现web与相册和摄像头的交互</p>
 <p><strong>注:</strong> Hy模式中，依赖于<code>QunarAPI.chooseImage</code>,H5模式中，依赖于Html接口。</p>
@@ -640,7 +660,12 @@ AppRegistry.registerComponent('Example', () =&gt; Example)</code></pre>
       </footer>
     </div>
     <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
     <script src="source/highlight.min.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.js"></script> -->
+    <!-- <script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/umd/scrollspy.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/affix.js"></script> -->
     <script src="source/app.js"></script>
 </body>
 </html>

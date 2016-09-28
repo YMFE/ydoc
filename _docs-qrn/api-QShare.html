@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native API</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">开始</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extraUI.html">外部组件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extension.html">EXT</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extending.html">扩展</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="demo.html">DEMO</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="faq.html">FAQ</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="releases.html">Releases</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/react-web/" target="_blank">React Web</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>Qunar React Native API</h1>
+                  <p>API</p>
+              </div>
+          </div>
+      
+
+
+
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-DeviceInfo.html">DeviceInfo</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-LoginManager.html">LoginManager</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-CookieManager.html">CookieManager</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-CameraRoll.html">CameraRoll</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-ImageUploader.html">ImageUploader</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-Toast.html">Toast</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-QHotDogNetWork.html">QHotDogNetWork</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-MapUtils.html">MapUtils</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-UELog.html">UELog</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-CVParam.html">CVParam</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-GeoLocation.html">GeoLocation</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-QStatusBar.html">QStatusBar</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-ABTest.html">ABTest</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  class="active"   class="active" > -->
+                        <li  class="active" >
+                            
+                            <a href="api-QShare.html">QShare</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+                
+                <h2 id="QShare  大客户端的分享API">QShare  大客户端的分享API</h2><blockquote>
+<p>API兼容性：<br>QRN:v1.2.0<br>iOS:80011120<br>Android:60001139   </p>
+</blockquote>
+<p><code>QShare</code> 大客户端的分享API，用来呼出分享的dialog，可以设置分享dialog中显示的分享类型</p>
+<h2 id="引入">引入</h2><pre><code class="lang-js">import { QShare } from &#39;qunar-react-native&#39;;
+</code></pre>
+<h2 id="数据结构">数据结构</h2><p>分享的参数<code>QShareParam</code>结构如下：</p>
+<pre><code class="lang-js">QShareParam = {
+    //分享内容设置
+    com: {
+        title: &#39;去哪儿网&#39;,
+        desc: &#39;聪明你的旅行&#39;,
+        link: &#39;http://app.qunar.com/&#39;,
+        imgUrl: &#39;http://source.qunarzz.com/common/hf/logo.png&#39;
+    },
+
+    //单独设置分享内容，可选，下面为单独设置的朋友圈分享内容
+    [QShare.wechatTimeline]: {
+        title: &#39;朋友圈&#39;,
+        link: &#39;http://www.qunar.com/&#39;,
+        imgUrl: &#39;http://img1.qunarzz.com/p/p78/1601/74/93df1e3741e903f7.jpg&#39;
+    },
+
+    //设置需要分享的渠道，可选，没有这个属性的话是默认显示全部可用的分享渠道
+    types: [
+        QShare.email,
+        QShare.wechatTimeline,
+        QShare.sinaWeibo,
+    ]
+}
+</code></pre>
+<p>默认支持的分享类型有：</p>
+<pre><code class="lang-js">  QShare.wechatTimeline,   //朋友圈
+  QShare.wechatFriends:,   //微信好友
+  QShare.sinaWeibo,        //新浪微博
+  QShare.tencentWeibo,     //腾讯微博
+  QShare.sms,              //短信
+  QShare.mail,             //邮件
+  QShare.qunarFriend,      //去哪儿好友
+  QShare.wechatFav,        //微信收藏，仅Android支持
+  QShare.QQZone,           //QQ空间，仅Android支持
+  QShare.QQFriend,         //QQ好友，仅Android支持
+  QShare.QQFav,            //QQ收藏，仅Android支持
+</code></pre>
+<h2 id="API">API</h2><p><blockquote class="api">
+<strong>QShare.doShare</strong>
+<span>( shareParam:QShareParam, callBack: function, errCallBack: function)</span>
+</blockquote>
+根据 QShareParam 呼出分享的dialog，用户分享成功走callBack回调，回调的数据中包含了用户分享的类型，分享失败走errCallBack
+<strong>注意：在有些情况下可能 callBack 和 errCallBack 均不会调用！</strong></p>
+<h2 id="示例">示例</h2><pre><code class="lang-js">import { QShare } from &#39;qunar-react-native&#39;;
+
+&lt;Text
+onPress = {
+        () =&gt; {
+            QShare.doShare({
+                com: {
+                    title: &#39;去哪儿网&#39;,
+                    desc: &#39;聪明你的旅行&#39;,
+                    link: &#39;http://app.qunar.com/&#39;,
+                    imgUrl: &#39;http://source.qunarzz.com/common/hf/logo.png&#39;
+                },
+                //单独设置朋友圈分享内容
+                [QShare.wechatTimeline]: {
+                    title: &#39;朋友圈&#39;,
+                    link: &#39;http://www.qunar.com/&#39;,
+                    imgUrl: &#39;http://img1.qunarzz.com/p/p78/1601/74/93df1e3741e903f7.jpg&#39;
+                },
+            }, (data) =&gt; {
+                //分享成功 data.sharedType 为成功分享的类型
+                data.sharedType 
+            }, (err) =&gt; {
+                //分享失败
+                alert(JSON.stringify(err))
+            })
+        }
+    }&gt;
+点击分享 &lt;/Text&gt;
+</code></pre>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.js"></script> -->
+    <!-- <script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/umd/scrollspy.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/affix.js"></script> -->
+    <script src="source/app.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
  @charset "utf-8";
-html{font-size: 100px;}
+html{ font-size: 100px;}
 body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,figure,form,fieldset,legend,input,textarea,button,p,blockquote,th,td,pre,xmp{margin:0;padding:0}
 body,input,textarea,button,select,pre,xmp,tt,code,kbd,samp{line-height:1.5;font-family:tahoma,arial,"Hiragino Sans GB",simsun,sans-serif}
 h1,h2,h3,h4,h5,h6,small,big,input,textarea,button,select{font-size:100%}
@@ -49,7 +49,8 @@ sup,sub{vertical-align:baseline}
     src:url(./fonts/ydoc.eot?#iefix&#iefix&amp;v=1.0.0) format('embedded-opentype'),url(./fonts/ydoc.woff?v=1.0.0) format('woff'),url(./fonts/ydoc.ttf?v=1.0.0) format('truetype'),url(./source/fonts/ydoc.svg?v=1.0.0#icomoonregular) format('svg')}
 .ydoc{
   font-size: .14rem;
-
+   background: #fafafa;
+   overflow: hidden;
   &-header{
     line-height: .48rem;
     color: #3b3b3b;
@@ -218,6 +219,7 @@ sup,sub{vertical-align:baseline}
           code{
               overflow-y: hidden;
               display: block;
+              font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
           }
           .fold,.extend{ color:#337ab7; position: absolute; left:15px; bottom:10px; cursor: pointer;}
           .fold:hover,.extend:hover{  text-decoration: underline; }
@@ -226,11 +228,9 @@ sup,sub{vertical-align:baseline}
       .docs-sidebar{
           background: #fff;
           z-index: 9999;
+          overflow-x: hidden;
+          overflow-y: scroll;
           .docs-sidenav{
-
-            //   max-height: 500px;
-            //   overflow-y: auto;
-            //   overflow-x: hidden;
               li{
                     line-height: .42rem;
                     height: .42rem;
@@ -247,14 +247,8 @@ sup,sub{vertical-align:baseline}
                       position: relative;
                       overflow: hidden;
                       white-space: nowrap;
-
-                    //   padding-left:5px;
-                    //   text-indent: .15rem;
-                    //   margin:0 3px;
-                    //   font-family: ydocfont;
                   }
                   a:hover{
-                      //font-weight:bold;
                      background-color: #fff8ef;
                   }
               }
@@ -263,20 +257,10 @@ sup,sub{vertical-align:baseline}
                   a,a:hover{
                       border-right:2px solid #ff503f;
                       color:#ff503f;
-                      //padding-left:0;
                   }
-                //   a::after{
-                //      //content:"\f07f";
-                //      display: block;
-                //      position: absolute;
-                //      right:10px;
-                //      top:.05rem;
-                //      color:#ff503f;
-                //  }
               }
               ul{
                  width: 100%;
-                // margin-left:20px;
                  li,li.active{
                      a,a:hover{
                         padding-left: 48px;
@@ -286,18 +270,12 @@ sup,sub{vertical-align:baseline}
                 }
           }
       }
-      .docs-sidebar.affix,.docs-sidebar.affix-bottom {
-          width: 213px;
-      }
       .docs-sidebar.affix {
           position: fixed;
           top: 20px;
       }
       .docs-sidebar.affix-bottom {
           position: absolute;
-      }
-      .docs-sidebar.affix,.docs-sidebar.affix-bottom {
-          width: 263px
       }
         .docs-section{
             margin:10px;
@@ -317,7 +295,6 @@ sup,sub{vertical-align:baseline}
 }
 
 @media screen and (min-width:1200px){
-  // body{ background: red;}
   .ydoc-header-area,.ydoc-banner-area,.ydoc-container-content{
     width:1200px;
   }
@@ -333,7 +310,6 @@ sup,sub{vertical-align:baseline}
   }
 }
 @media screen and (max-width: 767px) {
-  // body{ background: yellow;}
   .ydoc-container-content {
       .content-right{ width: 100%;}
       .content-left{ display: none;}
@@ -365,13 +341,9 @@ sup,sub{vertical-align:baseline}
                   }
               }
           }
-
-      }
-      .ydoc-banner{
-        //   display: none;
       }
   }
-  // .ydoc-header{ display:none; }
+
   .ydoc-second-header{ display: block;
     .ydoc-nav{
         display:block;
@@ -381,7 +353,9 @@ sup,sub{vertical-align:baseline}
     }
   }
 }
-
+.anchorjs-link {
+    display: none;
+}
 
 /*     markdown begin       */
 @import "markdown";

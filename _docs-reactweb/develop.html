@@ -109,14 +109,14 @@
         
           
           <div class="ydoc-container-content">
-              <div class="content-right">
-                  <nav class="sidebar">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav docs-sidenav">
                         
                     </ul>
                   </nav>
               </div>
-              <div class="content-left markdown-body">
+              <div class="content-right markdown-body" role="main">
                 
                 <h2 id="React Web开发秘籍">React Web开发秘籍</h2><p>React Web最大程度公用Native的业务代码，以下是需要注意的技术点：</p>
 <h4 id="- 定制React web专属代码">- 定制React web专属代码</h4><h5 id="+ 通过命名规则">+ 通过命名规则</h5><p>getData.js</p>
@@ -164,7 +164,12 @@ if(os === &#39;web&#39;) {
       </footer>
     </div>
     <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
     <script src="source/highlight.min.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.js"></script> -->
+    <!-- <script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/umd/scrollspy.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/affix.js"></script> -->
     <script src="source/app.js"></script>
 </body>
 </html>

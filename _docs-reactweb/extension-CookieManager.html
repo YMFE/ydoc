@@ -109,12 +109,13 @@
         
           
           <div class="ydoc-container-content">
-              <div class="content-right">
-                  <nav class="sidebar">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav docs-sidenav">
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="extension-ABTest.html">ABTest</a>
                             
@@ -122,7 +123,8 @@
                         
                         
                         
-                        <li  class="active"   class="active" >
+                        <!-- <li  class="active"   class="active" > -->
+                        <li  class="active" >
                             
                             <a href="extension-CookieManager.html">CookieManager</a>
                             
@@ -130,7 +132,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="extension-CameraRoll.html">CameraRoll</a>
                             
@@ -138,7 +141,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="extension-CVParam.html">CVParam</a>
                             
@@ -146,7 +150,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="extension-DeviceInfo.html">DeviceInfo</a>
                             
@@ -154,7 +159,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="extension-MapUtils.html">MapUtils</a>
                             
@@ -162,7 +168,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="extension-QHotDogNetWork.html">QHotDogNetWork</a>
                             
@@ -170,7 +177,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="extension-QShare.html">QShare</a>
                             
@@ -178,7 +186,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="extension-QLoginManager.html">QLoginManager</a>
                             
@@ -186,7 +195,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="extension-ImageUploader.html">ImageUploader</a>
                             
@@ -194,7 +204,8 @@
                         
                         
                         
-                        <li  >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="extension-UElog.html">UElog</a>
                             
@@ -204,13 +215,13 @@
                     </ul>
                   </nav>
               </div>
-              <div class="content-left markdown-body">
+              <div class="content-right markdown-body" role="main">
                 
                 <div class="docs-section">
 <h2>
     CookieManager
     <small>CookieManager</small>
-    <span class="yo-badge yo-badge-danger" style="font-size: 0.16rem;vertical-align: bottom;">>=v1.4</span>
+    <span class="yo-badge yo-badge-danger">>=v1.4</span>
 </h2>
 <div class="api-content"><p>提供了用于操作 Cookie 的API, 简化了 Cookie 的操作。</p>
 <p><img src="./images/api/CookieManager.gif" alt="CookieManager"></p>
@@ -222,7 +233,7 @@
 <blockquote class="api">
     <h3>
     <strong>setCookie</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
     </h3>
 </blockquote>
@@ -285,7 +296,7 @@
 <blockquote class="api">
     <h3>
     <strong>getCookieForKey</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
     </h3>
 </blockquote>
@@ -364,7 +375,7 @@
 <blockquote class="api">
     <h3>
     <strong>getCookiesForURL</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
     </h3>
 </blockquote>
@@ -432,7 +443,7 @@
 <blockquote class="api">
     <h3>
     <strong>removeCookie</strong>
-     <span>{ function }</span>
+     <span class="prop-type">{ function }</span>
     
     </h3>
 </blockquote>
@@ -633,7 +644,12 @@ AppRegistry.registerComponent('Demo', () =&gt; Demo)
       </footer>
     </div>
     <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
     <script src="source/highlight.min.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.js"></script> -->
+    <!-- <script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/umd/scrollspy.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/affix.js"></script> -->
     <script src="source/app.js"></script>
 </body>
 </html>

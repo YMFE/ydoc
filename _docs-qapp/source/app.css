@@ -98,7 +98,9 @@ sup, sub {
   src: url(./fonts/ydoc.eot?v=1.0.0);
   src: url(./fonts/ydoc.eot?#iefix&#iefix&amp;v=1.0.0) format("embedded-opentype"), url(./fonts/ydoc.woff?v=1.0.0) format("woff"), url(./fonts/ydoc.ttf?v=1.0.0) format("truetype"), url(./source/fonts/ydoc.svg?v=1.0.0#icomoonregular) format("svg"); }
 .ydoc {
-  font-size: .14rem; }
+  font-size: .14rem;
+  background: #fafafa;
+  overflow: hidden; }
   .ydoc-header {
     line-height: .48rem;
     color: #3b3b3b;
@@ -227,17 +229,16 @@ sup, sub {
       .ydoc-container-content .content-left {
         width: 25%; }
       .ydoc-container-content .ydoc-example {
-        position: relative;
         overflow: hidden; }
         .ydoc-container-content .ydoc-example code {
           overflow-y: hidden;
-          display: block; }
+          display: block;
+          font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
         .ydoc-container-content .ydoc-example .fold, .ydoc-container-content .ydoc-example .extend {
           color: #337ab7;
-          position: absolute;
-          left: 15px;
-          bottom: 10px;
-          cursor: pointer; }
+          margin: 10px 0 0;
+          cursor: pointer;
+          display: block; }
         .ydoc-container-content .ydoc-example .fold:hover, .ydoc-container-content .ydoc-example .extend:hover {
           text-decoration: underline; }
       .ydoc-container-content .docs-sidebar {
@@ -268,15 +269,11 @@ sup, sub {
           width: 100%; }
           .ydoc-container-content .docs-sidebar .docs-sidenav ul li a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li a:hover, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a:hover {
             padding-left: 48px; }
-      .ydoc-container-content .docs-sidebar.affix, .ydoc-container-content .docs-sidebar.affix-bottom {
-        width: 213px; }
       .ydoc-container-content .docs-sidebar.affix {
         position: fixed;
         top: 20px; }
       .ydoc-container-content .docs-sidebar.affix-bottom {
         position: absolute; }
-      .ydoc-container-content .docs-sidebar.affix, .ydoc-container-content .docs-sidebar.affix-bottom {
-        width: 263px; }
       .ydoc-container-content .docs-section {
         margin: 10px; }
     .ydoc-container-content:before {

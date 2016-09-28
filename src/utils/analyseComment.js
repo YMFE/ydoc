@@ -77,7 +77,6 @@ module.exports = function (comment, path, conf, formatter, content) {
                 if (content.indexOf('./') == 0) {
 
                     var fp = sysPath.join(conf.cwd, conf.examplePath, content.split('[')[0]);
-                    console.log('fp==',fp);
                     if (fs.existsSync(fp)) {
                         var ct = fs.readFileSync(fp, 'UTF-8');
                         var lines = (content.split('[')[1] || '').split(']')[0].split('-').map(function(item) {

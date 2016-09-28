@@ -179,13 +179,16 @@ $('code').each(function(i, block) {
     }
 });
 
-var winHeight = $(window).height() - 40,
+var winHeight = $(window).height() - 44,
     sidebar = $('.docs-sidebar');
-
+var docSideNav = $('.docs-sidenav');
+var  ydocContainerCon= $('.ydoc-container-content');
+//docSideNav.width(ydocContainerCon.width()*0.25);
+docSideNav.width(sidebar.width());
 if (sidebar.height() > winHeight) {
 
     sidebar.css('max-height', winHeight + 'px');
-    sidebar.css({'overflow-y':'scroll','overflow-x':'hidden'});
+    //sidebar.css({'overflow-y':'scroll','overflow-x':'hidden'});
 
     var activeMenu,
         barScroll = false;
@@ -199,6 +202,19 @@ if (sidebar.height() > winHeight) {
     });
 
     $(window).on('scroll', function(e) {
+
+        // console.log('$(this).scrollTop==', $(this).scrollTop());
+        // console.log('.footer.offset().top==', $('.footer').offset().top);
+        // console.log('window =======', $('.footer').offset().top - $(window).height());
+
+        if( $(this).scrollTop() >  ($('.footer').offset().top - $(window).height()) ){
+            winHeight = $(window).height() - $('.footer').outerHeight()-44,
+            sidebar.css('max-height', winHeight + 'px');
+        }else{
+            winHeight = $(window).height() - 44;
+            sidebar.css('max-height', winHeight + 'px');
+        }
+
         if (!barScroll) {
             var activeItem = $('.docs-sidebar li.active a');
             if (activeItem.length) {
