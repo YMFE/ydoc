@@ -1,7 +1,5 @@
 @charset "UTF-8";
 html {
-  background-color: #fafafa;
-  color: #212121;
   font-size: 100px; }
 
 body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
@@ -100,7 +98,9 @@ sup, sub {
   src: url(./fonts/ydoc.eot?v=1.0.0);
   src: url(./fonts/ydoc.eot?#iefix&#iefix&amp;v=1.0.0) format("embedded-opentype"), url(./fonts/ydoc.woff?v=1.0.0) format("woff"), url(./fonts/ydoc.ttf?v=1.0.0) format("truetype"), url(./source/fonts/ydoc.svg?v=1.0.0#icomoonregular) format("svg"); }
 .ydoc {
-  font-size: .14rem; }
+  font-size: .14rem;
+  background: #fafafa;
+  overflow: hidden; }
   .ydoc-header {
     line-height: .48rem;
     color: #3b3b3b;
@@ -196,114 +196,98 @@ sup, sub {
       font-size: 14px;
       text-align: center;
       color: #a1a1a1; }
-  .ydoc-container-content {
-    overflow: hidden;
-    background-color: #eee;
-    /* Old browsers */
-    margin: 20px auto;
-    box-shadow: 0 0  10px #e5e5e5; }
-    .ydoc-container-content .static-code-content {
-      width: 100%;
-      background: #fff;
-      padding: .15rem; }
-    .ydoc-container-content .content-left, .ydoc-container-content .content-right {
-      float: left; }
-    .ydoc-container-content .content-left {
-      box-sizing: border-box;
-      width: 75%;
-      background: #fff;
-      padding: 15px;
-      float: right;
-      min-height: 620px; }
-    .ydoc-container-content .right {
-      float: right; }
-    .ydoc-container-content .content-right {
-      width: 25%; }
-    .ydoc-container-content .ydoc-example {
-      position: relative;
-      overflow: hidden; }
-      .ydoc-container-content .ydoc-example code {
-        overflow-y: hidden;
-        display: block; }
-      .ydoc-container-content .ydoc-example .fold, .ydoc-container-content .ydoc-example .extend {
-        color: #337ab7;
-        position: absolute;
-        left: 15px;
-        bottom: 10px;
-        cursor: pointer; }
-      .ydoc-container-content .ydoc-example .fold:hover, .ydoc-container-content .ydoc-example .extend:hover {
+      .ydoc .footer .copyright a {
+        color: #a1a1a1;
         text-decoration: underline; }
-    .ydoc-container-content .sidebar {
-      width: 100%;
+  .ydoc-container {
+    clear: both;
+    overflow: hidden; }
+    .ydoc-container-content {
+      overflow: hidden;
+      background-color: #fff;
+      margin: 20px auto;
+      padding: 24px 0 0;
+      box-shadow: 0 0  3px #e5e5e5;
       position: relative; }
-      .ydoc-container-content .sidebar .fixed {
-        position: fixed;
-        top: 0;
-        z-index: 9999;
-        background: #eee; }
-      .ydoc-container-content .sidebar .docs-sidenav {
+      .ydoc-container-content .static-code-content {
         width: 100%;
-        max-height: 620px;
-        overflow-y: auto;
-        overflow-x: hidden; }
-        .ydoc-container-content .sidebar .docs-sidenav > li {
-          height: .5rem;
-          width: 100%;
+        background: #fff;
+        padding: .15rem; }
+      .ydoc-container-content .content-left, .ydoc-container-content .content-right {
+        float: left;
+        position: relative;
+        min-height: 1px; }
+      .ydoc-container-content .content-right {
+        box-sizing: border-box;
+        width: 75%;
+        background: #fff;
+        padding: 15px;
+        float: right;
+        min-height: 500px; }
+      .ydoc-container-content .right {
+        float: right; }
+      .ydoc-container-content .content-left {
+        width: 25%; }
+      .ydoc-container-content .ydoc-example {
+        position: relative;
+        overflow: hidden; }
+        .ydoc-container-content .ydoc-example code {
+          overflow-y: hidden;
+          display: block;
+          font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
+        .ydoc-container-content .ydoc-example .fold, .ydoc-container-content .ydoc-example .extend {
+          color: #337ab7;
+          position: absolute;
+          left: 15px;
+          bottom: 10px;
+          cursor: pointer; }
+        .ydoc-container-content .ydoc-example .fold:hover, .ydoc-container-content .ydoc-example .extend:hover {
+          text-decoration: underline; }
+      .ydoc-container-content .docs-sidebar {
+        background: #fff;
+        z-index: 9999;
+        overflow-x: hidden;
+        overflow-y: scroll; }
+        .ydoc-container-content .docs-sidebar .docs-sidenav li {
+          line-height: .42rem;
+          height: .42rem;
+          font-size: 14px;
           overflow: hidden; }
-          .ydoc-container-content .sidebar .docs-sidenav > li a {
-            height: .5rem;
-            line-height: .5rem;
-            color: #888;
+          .ydoc-container-content .docs-sidebar .docs-sidenav li a {
+            padding: 0 .16rem 0 .28rem;
+            text-overflow: ellipsis;
+            color: #666;
+            line-height: .42rem;
+            height: .42rem;
             display: inline-block;
             width: 100%;
             position: relative;
-            padding-left: 5px;
-            text-indent: .15rem;
-            margin: 0 3px;
-            font-family: ydocfont; }
-          .ydoc-container-content .sidebar .docs-sidenav > li a:hover {
-            font-weight: bold; }
-        .ydoc-container-content .sidebar .docs-sidenav > li.active a, .ydoc-container-content .sidebar .docs-sidenav > li.active a:hover {
-          border-left: 5px solid #ff503f;
-          color: #ff503f;
-          padding-left: 0; }
-        .ydoc-container-content .sidebar .docs-sidenav > li.active a::after {
-          content: "\f07f";
-          display: block;
-          position: absolute;
-          right: 10px;
-          top: .05rem;
+            overflow: hidden;
+            white-space: nowrap; }
+          .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
+            background-color: #fff8ef; }
+        .ydoc-container-content .docs-sidebar .docs-sidenav li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav li.active a:hover {
+          border-right: 2px solid #ff503f;
           color: #ff503f; }
-        .ydoc-container-content .sidebar .docs-sidenav ul {
-          width: 100%;
-          display: none;
-          margin-left: 20px;
-          color: red; }
-          .ydoc-container-content .sidebar .docs-sidenav ul li {
-            height: .5rem; }
-            .ydoc-container-content .sidebar .docs-sidenav ul li a {
-              font-family: ydocfont;
-              height: .5rem;
-              line-height: .5rem;
-              width: 100%;
-              position: relative;
-              display: block;
-              color: #888;
-              text-indent: .1rem; }
-            .ydoc-container-content .sidebar .docs-sidenav ul li a:hover {
-              font-weight: bold; }
-          .ydoc-container-content .sidebar .docs-sidenav ul li.active a, .ydoc-container-content .sidebar .docs-sidenav ul li.active a:hover {
-            color: #ff503f; }
-          .ydoc-container-content .sidebar .docs-sidenav ul li.active a::before {
-            content: "\f083";
-            font-size: .12rem;
-            display: block;
-            position: absolute;
-            left: -0.15rem;
-            top: 0;
-            color: #ff503f; }
-    .ydoc-container-content .docs-section {
-      margin: 10px; }
+        .ydoc-container-content .docs-sidebar .docs-sidenav ul {
+          width: 100%; }
+          .ydoc-container-content .docs-sidebar .docs-sidenav ul li a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li a:hover, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a:hover {
+            padding-left: 48px; }
+      .ydoc-container-content .docs-sidebar.affix {
+        position: fixed;
+        top: 20px; }
+      .ydoc-container-content .docs-sidebar.affix-bottom {
+        position: absolute; }
+      .ydoc-container-content .docs-section {
+        margin: 10px; }
+    .ydoc-container-content:before {
+      height: 100%;
+      background-color: #eee;
+      width: 1px;
+      position: absolute;
+      left: 200px;
+      display: inline-block;
+      min-height: 500px; }
 
 @media screen and (min-width: 1200px) {
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
@@ -315,9 +299,9 @@ sup, sub {
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 768px; } }
 @media screen and (max-width: 767px) {
-  .ydoc-container-content .content-left {
-    width: 100%; }
   .ydoc-container-content .content-right {
+    width: 100%; }
+  .ydoc-container-content .content-left {
     display: none; }
 
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
@@ -348,6 +332,9 @@ sup, sub {
       display: block; }
       .ydoc-second-header .ydoc-nav li {
         float: left; } }
+.anchorjs-link {
+  display: none; }
+
 /*     markdown begin       */
 .markdown-body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -772,6 +759,15 @@ sup, sub {
 .markdown-body .docs-section .con-list-item {
   border-bottom: 1px solid #ddd;
   padding: .3rem 0; }
+  .markdown-body .docs-section .con-list-item .con-head {
+    font-size: 22px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    margin: 0 0 .3rem;
+    padding: .1rem 0;
+    width: 100%; }
+  .markdown-body .docs-section .con-list-item .prop-type {
+    font-size: 14px; }
 .markdown-body .docs-section .con-list-item:last-child {
   border: none; }
 .markdown-body .docs-section .hide-params {

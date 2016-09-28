@@ -181,10 +181,10 @@ $('code').each(function(i, block) {
 
 var winHeight = $(window).height() - 44,
     sidebar = $('.docs-sidebar');
-var docSideNav = $('.docs-sidenav');
-var  ydocContainerCon= $('.ydoc-container-content');
-//docSideNav.width(ydocContainerCon.width()*0.25);
-docSideNav.width(sidebar.width());
+// var docSideNav = $('.docs-sidenav');
+// var  ydocContainerCon= $('.ydoc-container-content');
+// //docSideNav.width(ydocContainerCon.width()*0.25);
+// docSideNav.width(sidebar.width());
 if (sidebar.height() > winHeight) {
 
     sidebar.css('max-height', winHeight + 'px');
