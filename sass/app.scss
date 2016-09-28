@@ -231,6 +231,7 @@ sup,sub{vertical-align:baseline}
           overflow-x: hidden;
           overflow-y: scroll;
           .docs-sidenav{
+              padding-left: 0;
               li{
                     line-height: .42rem;
                     height: .42rem;
