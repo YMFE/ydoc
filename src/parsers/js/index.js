@@ -30,7 +30,7 @@ var execFns = {
         contents.forEach(function(commentList, index) {
             var filePath = options.files[index].substring(1);
             commentList.forEach(function(comment) {
-                console.log("comment",comment);
+                // console.log("comment",comment);
                 switch (getCommentType(comment, componentKeywords)) {
                     case 'component':
                         ret = Object.assign(ret, analyseComment(comment, filePath, conf, fm));
@@ -145,8 +145,6 @@ module.exports = {
     parser: function(contents, options, conf) {
         var fn = execFns[options.type || 'component'];
         return fn ? fn(contents.map(function(content) {
-            //console.log('content=======',content);
-        //var contents = commentParser(content);
         var contents = commentParser(content.replace(/(```[\s\S]+?```)/gm, function(mat){
             var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
             while (i < mats.length - 1) {
@@ -155,58 +153,39 @@ module.exports = {
                     indent = line.match(/[^*\S]+/g).length;
                 }
                 if (indent > -1) {
-                    line = line.substring(0, indent) + line.substring(indent).replace(/^[ ]+/g, function(mat) {
-                        //return mat.length + 'space';
-                        return mat;
-                    })
+                    var subLine = line.indexOf("*")+1;
+                    if(subLine >= 1){
+                        line = line.substring(0, subLine) + line.substring(subLine).replace(/^[ ]+/g, function(mat) {
+                            return ' '+ mat.length + 'space';
+                        })
+                    }
                 };
                 lines.push(line);
                 i++;
             }
             lines.push(mats[i]);
-            console.log('afterreplace',lines.join("\n"));
             return lines.join("\n");
-       }));
-        // var contents = commentParser(content.replace(/(```[\s\S]+?```)/gm, function(mat){
-        //      var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
-        //      while (i < mats.length - 1) {
-        //          line = mats[i];
-        //          if (line.trim() != '*' && indent < 0) {
-        //              indent = line.match(/[^*\S]+/g).length;
-        //          }
-        //          if (indent > -1) {
-        //              line = line.substring(0, indent) + line.substring(indent).replace(/^[ ]+/g, function(mat) {
-        //                  return mat.length + 'space';
-        //              })
-        //          };
-        //          lines.push(line);
-        //          i++;
-        //      }
-        //      lines.push(mats[i]);
-        //      return lines.join("\n");
-        // }).replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
-        //     var afterExample = mat.replace(/\@example[\s\S]+?(\@)|\@example[\s\S]+?(\!\[)|\@example[\s\S]+?(\*\/)/gm,function(item){
-        //          var mats = item.split("\n"),i = 1, line, indent = -1, lines = [mats[0]];
-        //          while (i < mats.length - 1) {
-        //              line = mats[i];
-        //              if (line.trim() != '*' && indent < 0) {
-        //                  indent = line.trim().match(/[^*\S]+/g).length;
-        //              }
-        //              if (indent > -1) {
-        //                  line = line.trim().substring(0, indent) + line.trim().substring(indent).replace(/^[ ]+/g, function(mat) {
-        //                      return mat.length + 'space';
-        //                  })
-        //              };
-        //              lines.push(line);
-        //              i++;
-        //          }
-        //          lines.push(mats[i]);
-        //          return lines.join("\n");
-        //     });
-        //     return afterExample;
-        //   }));
-          console.log("contents======");
-          console.log(contents);
+       }).replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
+            var afterExample = mat.replace(/\@example[\s\S]+?(\@)|\@example[\s\S]+?(\!\[)|\@example[\s\S]+?(\*\/)/gm,function(item){
+                 var mats = item.split("\n"),i = 1, line, indent = -1, lines = [mats[0]];
+                 while (i < mats.length - 1) {
+                     line = mats[i];
+                     if (line.trim() != '*' && indent < 0) {
+                         indent = line.trim().match(/[^*\S]+/g).length;
+                     }
+                     if (indent > -1) {
+                         line = line.trim().substring(0, indent) + line.trim().substring(indent).replace(/^[ ]+/g, function(mat) {
+                             return mat.length + 'space';
+                         })
+                     };
+                     lines.push(line);
+                     i++;
+                 }
+                 lines.push(mats[i]);
+                 return lines.join("\n");
+            });
+            return afterExample;
+          }));
             return contents.filter(function(item) {
                 return item.tags.every(function(tag) {
                     return tag.tag != 'skip';

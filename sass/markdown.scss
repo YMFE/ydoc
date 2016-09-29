@@ -146,7 +146,8 @@
 }
 
 .markdown-body ul,.markdown-body ol {
-    padding-left: 2em
+    padding-left: 2em;
+    list-style-type: disc;
 }
 
 .markdown-body ul.no-list,.markdown-body ol.no-list {

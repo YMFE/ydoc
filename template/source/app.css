@@ -70,6 +70,17 @@ a, ins, s, u, del {
 sup, sub {
   vertical-align: baseline; }
 
+.h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, .h4 .small, .h4 small, .h5 .small, .h5 small, .h6 .small, .h6 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small, h4 .small, h4 small, h5 .small, h5 small, h6 .small, h6 small {
+  font-weight: 400;
+  line-height: 1;
+  color: #777; }
+
+.h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small {
+  font-size: 65%; }
+
+.h4 .small, .h4 small, .h5 .small, .h5 small, .h6 .small, .h6 small, h4 .small, h4 small, h5 .small, h5 small, h6 .small, h6 small {
+  font-size: 75%; }
+
 *, ::before, ::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -457,7 +468,8 @@ sup, sub {
   color: #777; }
 
 .markdown-body ul, .markdown-body ol {
-  padding-left: 2em; }
+  padding-left: 2em;
+  list-style-type: disc; }
 
 .markdown-body ul.no-list, .markdown-body ol.no-list {
   padding: 0;

@@ -83,41 +83,41 @@ class Modal extends Component {
     *
     * 除了使用已经实现的动画效果,你也可以自定义动画效果,这个时候应该给animation属性传入一个数组,形式为
     *
-    * ```
-    * [
-    *    show:[
-    *      {
-    *        style:要绑定动画效果的css属性,必需
-    *        toValue:目标值,必需
-    *        duration:动画持续时间,必需
-    *        easing:easing函数,默认为Easing.ease,请参考RN的Easing类
-    *      },
-    *      ...可以继续传入其他动画配置,这些动画会并行的执行(调用Animated.Timing)
-    *    ],
-    *    hide:[...和show的配置相同]
-    * ]
-    * ```
+* ```
+* [
+*    show:[
+*      {
+     *        style:要绑定动画效果的css属性,必需
+*        toValue:目标值,必需
+     *        duration:动画持续时间,必需
+*        easing:easing函数,默认为Easing.ease,请参考RN的Easing类
+*      },
+*      ...可以继续传入其他动画配置,这些动画会并行的执行(调用Animated.Timing)
+*    ],
+*    hide:[...和show的配置相同]
+* ]
+* ```
     *
     * 以下是fade效果的animation属性配置,可以用来参考:
     *
-    * ```
-    * {
-    *    show:[
-    *      {
-    *        style:'opacity',
-    *        toValue:1,
-    *        duration:200
-    *      }
-    *    ],
-    *    hide:[
-    *      {
-    *        style:'opacity',
-    *        toValue:0,
-    *        duration:200
-    *      }
-    *    ]
-    * }
-    * ```
+* ```
+* {
+*    show:[
+*      {
+*        style:'opacity',
+*        toValue:1,
+*        duration:200
+*      }
+*    ],
+*    hide:[
+*      {
+*        style:'opacity',
+*        toValue:0,
+*        duration:200
+*      }
+*    ]
+* }
+* ```
     */
     animation: PropTypes.oneOfType([PropTypes.shape({
       show: PropTypes.arrayOf(animationShape),
