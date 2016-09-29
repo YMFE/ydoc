@@ -653,7 +653,7 @@ sup, sub {
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #f7f7f7;
+  background-color: #333;
   border-radius: 3px; }
 
 .markdown-body pre code, .markdown-body pre tt {
