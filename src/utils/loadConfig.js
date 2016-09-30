@@ -4,7 +4,7 @@ var fs = require('fs'),
 
 module.exports = function(cwd, callback) {
     var confPath = sysPath.join(cwd, 'ydocsss.config'),
-        confJSPath = sysPath.join(cwd, 'ydocfile-hytive.js'),
+        confJSPath = sysPath.join(cwd, 'ydocfile-qunarApi.js'),
         conf;
     if (fs.existsSync(confPath)) {
         try {

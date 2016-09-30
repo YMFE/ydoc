@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>QunarAPI Document 简介</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="active">
+                        
+                        <a href="index.html">简介</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="getting-started.html">快速开始</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="plugindev.html">插件开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="project.html">实战项目</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="resource_update.html">资源包更新</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="history.html">更新日志</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>Hytive简介</h1>
+                  <p>跨平台移动开发Hybrid解决方案</p>
+              </div>
+          </div>
+      
+
+
+
+
+      <div class="ydoc-container">
+        
+        <div class="ydoc-container-content">
+            
+            <div class="content-left" role="complementary">
+              <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                <ul class="nav docs-sidenav">
+                  
+                  
+                  <li>
+                      <a href="#简介">简介</a>
+                  </li>
+                  
+                  
+                  
+                  <li>
+                      <a href="#FAQ">FAQ</a>
+                  </li>
+                  
+                  
+                  
+                  
+                  <ul class="nav docs-sidenav-extend">
+                  
+                      <li>
+                          <a href="#iOS">iOS</a>
+                      </li>
+                  
+                  
+                  
+                  
+                  
+                      <li>
+                          <a href="#Android">Android</a>
+                      </li>
+                  
+                  
+                  
+                  
+                  
+                      <li>
+                          <a href="#FE">FE</a>
+                      </li>
+                  
+                  </ul>
+                  
+                  
+                  
+                  
+                  <li>
+                      <a href="#博客">博客</a>
+                  </li>
+                  
+                  
+                  
+                  <li>
+                      <a href="#wiki">wiki</a>
+                  </li>
+                  
+                  
+                </ul>
+              </nav>
+            </div>
+            
+            <div class="content-right right markdown-body"  role="main">
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h2 id="简介" class="page-header">简介</h1>
+                  
+                  
+                  
+                  <div>
+                      <p>Hytive是一款移动端Web Runtime的跨平台开发方案，支持基于HTML5和Javascript创建类似于移动端原生应用。该方案主要对Web运行环境进行优化，最大限度的挖掘Web性能，以及提供丰富的原生APIs供Javascript调用(或监听)。</p>
+<p>Hytive能让Web的用户界面体验和交互能力跟Native媲美。操作性能是web中体验最薄弱的一环，具体而言，这包括：转场动画不流畅、DOM结构过于复杂导致卡顿，用Javascript实现固定头尾布局性能较差等。</p>
+<p>因而我们用Hybrid技术来达到Javascript达不到的目的，同时我们选择了最易理解的方式：让前端开发人员可以操作多个Webview，让Native和WebView很好的配合使用。</p>
+<ul>
+<li><p>多Webview互相配合。 让一个webapp拆到多个webview中运行，并能通过javascript来调度，解决了页面过大导致卡顿的问题。界面切换由Native实现，解决了界面切换时动画不流畅的问题。</p>
+</li>
+<li><p>超强的扩展能力。通过Plugin，HYView等接口，可以扩展Hytive，实现业务特有的功能。</p>
+</li>
+<li><p>丰富的Hytive基础插件。 Hytive本身已经提供了丰富的插件，针对各种业务场景，都有相应的插件来帮助webapp实现相应的功能，同时我们提供了一套通用的api，即<a href="qunarapi-api.html">QunarApi</a></p>
+</li>
+<li><p>完善的开发工具支持。</p>
+<ul>
+<li>针对前端，在开发阶段可以使用<a href="tools.html#Chrome扩展工具">Chrome 扩展</a>模拟Hytive bridge，可以在Chrome中完成所有开发。</li>
+<li>在Native客户端还有完善的<a href="tools.html#Debug工具">debug 工具</a>，可以配置hosts等。</li>
+</ul>
+</li>
+</ul>
+<p>支持过多个项目，比如<a href="project.html#实战项目-外卖">外卖</a>，<a href="project.html#实战项目-客栈民宿">客栈青旅</a>等等。touch端是基于 <a href="http://ued.qunar.com/mobile/qapp/doc/">QApp</a>、<a href="http://ued.qunar.com/mobile/yo/doc/">Yo</a>、<a href="http://ued.qunar.com/mobile/kami/doc/">Kami</a> 等框架开发完成。</p>
+<p>总之，我们保持了所有web的风格和灵活性。</p>
+
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h2 id="FAQ" class="page-header">FAQ</h1>
+                  
+                  
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h3 id="iOS" class="page-header">iOS</h2>
+                  
+                  
+                  
+                  <div>
+                      <h3 id="* 页面中嵌入iframe会发生什么？">* 页面中嵌入iframe会发生什么？</h3><p>解答：页面中嵌入iframe，在某些情况下会影响桥的注入。
+1、当iframe是非Qunar域的时候，桥正常
+2、当iframe是Qunar域的时候，桥可能不正常。
+所以建议大家不要在页面中使用qunar域的iframe。最好不用iframe。</p>
+<h3 id="* 嵌入大客户端，业务需要做什么？">* 嵌入大客户端，业务需要做什么？</h3><p>解答：业务主要关注三部分：入口，资源，插件</p>
+<blockquote>
+<p>入口：不管是通过scheme 还是 通过点击按钮进入子项目，都需要一个Hytive的入口。这个入口其实是一个ViewController，而且这个ViewController和Hytive暂时没有关系，当添加了HYView之后，才真正和Hytive有了关系。
+HYView用法和UIWebView类似，他是WebView的封装，添加HYView之后，就可以使用大部分插件了，极少部分设计UI的插件，需要按UI规则自定义插件。
+Hytive提供了几个通用的ViewController，分别有HYViewController（自带导航条，参看外卖首页的导航条），HYWebVC（一个类似微信朋友圈的VC）。</p>
+<p>资源： Hytive设定了资源的打包方式，只要用我们提供的工具打包，放到相应的位置，业务是不用太多关注这部分的。</p>
+<p>插件： 这部分是Hytive的重头戏，所有的功能扩展都可以在这里进行，和native的 任何通信都可以在这里完成。HYTive已经提供了很多通用的插件:<a href="http://hy.qunar.com/docs/qunarapi-api.html">http://hy.qunar.com/docs/qunarapi-api.html</a>，如果你能找到符合要求的，就不用再开发了。</p>
+</blockquote>
+<h3 id="* 自己开发的Plugin为啥会崩溃到webCore线程？">* 自己开发的Plugin为啥会崩溃到webCore线程？</h3><p>解答： 程序崩溃的原因很多，除去常见的原因，如果你的plugin涉及到UI，则一定要在主线程中执行。</p>
+<h3 id="* Plugin不生效是神马原因？">* Plugin不生效是神马原因？</h3><p>解答：您可能忘了写HY_LAZY_LOAD_PLUGIN() 或者 HY_AUTO_LOAD_PLUGIN() 了。</p>
+<h3 id="* 针对Pitaya 更新服务器，手动打包，为啥添加之后没有效果？">* 针对Pitaya 更新服务器，手动打包，为啥添加之后没有效果？</h3><p>解答：因为你打包的时候多了一层目录，你应该只打包根目录下面的文件，不信可以通过itools查看。</p>
+
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h3 id="Android" class="page-header">Android</h2>
+                  
+                  
+                  
+                  <div>
+                      <p>有疑问可以通过邮件hybrid@qunar.com联系我们，当然RTX（yidongrexian）也是可以的。典型问题我们会整理出来，让大家少走弯路。</p>
+
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h3 id="FE" class="page-header">FE</h2>
+                  
+                  
+                  
+                  <div>
+                      <p>有疑问可以通过邮件hybrid@qunar.com联系我们，当然RTX（yidongrexian）也是可以的。典型问题我们会整理出来，让大家少走弯路。</p>
+
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h2 id="博客" class="page-header">博客</h1>
+                  
+                  
+                  
+                  <div>
+                      <h3 id="<a href="source/blog/mangle-classname.html">改头换面——通过修改类名防止外部符号冲突</a>"><a href="source/blog/mangle-classname.html">改头换面——通过修改类名防止外部符号冲突</a></h3><p>制作静态库时，经常会引用各种第三方代码。</p>
+<p>对于一些普遍使用的库，当引用了相同的第三方代码时，就会因为符号与静态库中重复而导致冲突。</p>
+<h3 id="<a href="http://gitlab.corp.qunar.com/chao.meng/wagonguide/blob/master/ios/inside-xcode-project.md">初窥XCode Project文件</a>"><a href="http://gitlab.corp.qunar.com/chao.meng/wagonguide/blob/master/ios/inside-xcode-project.md">初窥XCode Project文件</a></h3><p>iOS应用通过XCode工程和xcodebuild工具进行构建，因此要维护自动化的构建服务，必须操作XCode工程，而不像Android一样直接操作build.gradle即可。</p>
+<p>XCode项目内部实际上是一个上古时代的plist格式，比较难以阅读，所以维护起来比较蛋疼= =</p>
+<h3 id="<a href="http://gitlab.corp.qunar.com/chao.meng/wagonguide/blob/master/ios/ios-framework-package.md">iOS项目中静态库Framework的打包</a>"><a href="http://gitlab.corp.qunar.com/chao.meng/wagonguide/blob/master/ios/ios-framework-package.md">iOS项目中静态库Framework的打包</a></h3><p>iOS SDK自身的一些库大多使用Framework的形式提供。Framework的好处都有啥，谁说对了就给他：</p>
+<ul>
+<li>将头文件和库文件绑到一起，只要把Framework拖进项目，基本可以做到开箱即用；</li>
+<li>可以将多个版本的库文件打包到Framework中，而且可以进行切换。
+本文简要介绍了如何手动打包一个Framework的方法。</li>
+</ul>
+<h3 id="<a href="http://gitlab.corp.qunar.com/chao.meng/wagonguide/blob/master/ios/open-source.md">一些或许有用的开源项目</a>"><a href="http://gitlab.corp.qunar.com/chao.meng/wagonguide/blob/master/ios/open-source.md">一些或许有用的开源项目</a></h3><p>针对Wagon，值得参考的开源项目。</p>
+
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h2 id="wiki" class="page-header">wiki</h1>
+                  
+                  
+                  
+                  <div>
+                      <p>Hytive Wiki <a href="http://wiki.corp.qunar.com/display/fe/Hytive">http://wiki.corp.qunar.com/display/fe/Hytive</a></p>
+
+                  </div>
+                  
+              </div>
+              
+              
+            </div>
+        </div>
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            Made By Qunar Hotel FE Mobile Team. © 2014 - 2016<br /> Style Build By <a href='http://bootcss.com'>Bootstrap</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <!-- <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.js"></script> -->
+    <!-- <script src="//cdn.bootcss.com/bootstrap/4.0.0-alpha.2/js/umd/scrollspy.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/affix.js"></script> -->
+    <script src="source/app.js"></script>
+</body>
+</html>
