@@ -40,7 +40,7 @@ module.exports = function() {
                  }, {
                      "name": "FE",
                      sub: true,
-                     "content": "./test-hytive/hytive/FAQ/androidFAQ.md"
+                     "content": "./test-hytive/hytive/FAQ/feFAQ.md"
                  },
                  {
                      "name": "博客",

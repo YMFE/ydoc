@@ -111,14 +111,14 @@
               </div>
               <div class="content-right markdown-body" role="main">
                 {{if intro}}{{intro}}{{/if}}
-                {{article.content}}
+                {{if article.content}}{{article.content}}{{/if}}
               </div>
           </div>
           {{else}}
           <div class="ydoc-container-content" id="readme">
               <article class="markdown-body">
                   {{if intro}}{{intro}}{{/if}}
-                  {{article.content}}
+                  {{if article.content}}{{article.content}}{{/if}}
               </article>
           </div>
           {{/if}}

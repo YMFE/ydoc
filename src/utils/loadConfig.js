@@ -3,8 +3,8 @@ var fs = require('fs'),
     JSON5 = require('json5');
 
 module.exports = function(cwd, callback) {
-    var confPath = sysPath.join(cwd, 'ydocsss.config'),
-        confJSPath = sysPath.join(cwd, 'ydocfile-qunarApi.js'),
+    var confPath = sysPath.join(cwd, 'ydoc.config'),
+        confJSPath = sysPath.join(cwd, 'ydocfile-hysdk.js'),
         conf;
     if (fs.existsSync(confPath)) {
         try {

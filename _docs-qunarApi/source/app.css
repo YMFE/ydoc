@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6, small, big, input, textarea, button, select {
 h1, h2, h3, h4, h5, h6 {
   font-family: tahoma,arial,"Hiragino Sans GB","微软雅黑",simsun,sans-serif; }
 
-h1, h2, h3, h4, h5, h6, b, strong {
+h1, h2, h3, h4, h5, h6 {
   font-weight: normal; }
 
 address, cite, dfn, em, i, optgroup, var {

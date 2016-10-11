@@ -100,9 +100,33 @@
                   
                   
                   
+                  
+                  <ul class="nav docs-sidenav-extend">
+                  
+                      <li>
+                          <a href="#错误码规则">错误码规则</a>
+                      </li>
+                  
+                  </ul>
+                  
+                  
+                  
+                  
                   <li>
                       <a href="#全局返回码">全局返回码</a>
                   </li>
+                  
+                  
+                  
+                  
+                  <ul class="nav docs-sidenav-extend">
+                  
+                      <li>
+                          <a href="#通用返回码">通用返回码</a>
+                      </li>
+                  
+                  </ul>
+                  
                   
                   
                   
@@ -112,9 +136,71 @@
                   
                   
                   
+                  
+                  <ul class="nav docs-sidenav-extend">
+                  
+                      <li>
+                          <a href="#checkJsAPI">checkJsAPI</a>
+                      </li>
+                  
+                  
+                  
+                  
+                  
+                      <li>
+                          <a href="#分享">分享</a>
+                      </li>
+                  
+                  
+                  
+                  
+                  
+                      <li>
+                          <a href="#定位">定位</a>
+                      </li>
+                  
+                  
+                  
+                  
+                  
+                      <li>
+                          <a href="#登录">登录</a>
+                      </li>
+                  
+                  
+                  
+                  
+                  
+                      <li>
+                          <a href="#UI相关">UI相关</a>
+                      </li>
+                  
+                  
+                  
+                  
+                  
+                      <li>
+                          <a href="#图片上传">图片上传</a>
+                      </li>
+                  
+                  </ul>
+                  
+                  
+                  
+                  
                   <li>
                       <a href="#业务错误码">业务错误码</a>
                   </li>
+                  
+                  
+                  
+                  
+                  <ul class="nav docs-sidenav-extend">
+                  
+                      <li>
+                          <a href="#忘记密码">忘记密码</a>
+                      </li>
+                  
                   
                   
                 </ul>
@@ -139,9 +225,103 @@
               <div class="docs-section">
                   
                   
+                  <h3 id="错误码规则" class="page-header">错误码规则</h2>
+                  
+                  
+                  
+                  <div>
+                      <p>每次调用接口时，可能获得正确或者错误的返回码，开发者可以根据返回码信息调试接口，排查错误。</p>
+<p><font color="#ff0000">优先从各插件返回码中找，如果没有符合的，再到通用错误码中找</font></p>
+
+<p>错误码规则说明：</p>
+<p><font color="#ff0000"><b><ins>1</ins></b></font><font color="#000000"><b> </b></font><font color="#ff0000"><b><ins>00</ins></b></font><font color="#000000"><b>  </b></font><font color="#ff0000"><b><ins>01</ins></b></font></p>
+
+<p>错误码由三部分组成：</p>
+<p>第一部分：1、代表通用，2、代表qunarapi，3、代表业务插件
+第二部分：插件编码，由两位组成
+第三部分：错误编码</p>
+
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
                   <h2 id="全局返回码" class="page-header">全局返回码</h1>
                   
                   
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h3 id="通用返回码" class="page-header">通用返回码</h2>
+                  
+                  
+                  
+                  <div>
+                      <table style="text-align:center">
+    <tr>
+        <th> 返回码 </th>
+        <th> 说明 </th>
+    </tr>
+    <tr>
+        <td> 10001</td>
+        <td> api不存在</td>
+    </tr>
+    <tr>
+        <td> 10002</td>
+        <td> 参数类型不合法</td>
+    </tr>
+    <tr>
+        <td> 10003</td>
+        <td> 参数不能为空</td>
+    </tr>
+    <tr>
+        <td> 10004 </td>
+        <td> 参数错误 </td>
+    </tr>
+    <tr>
+        <td> 10005</td>
+        <td> 数据获取失败</td>
+    </tr>
+    <tr>
+        <td> 10006</td>
+        <td> 功能不支持</td>
+    </tr>
+    <tr>
+        <td> 10007</td>
+        <td> 日期格式错误</td>
+    </tr>
+    <tr>
+        <td> 10008 </td>
+        <td> 日期范围错误</td>
+    </tr>
+    <tr>
+        <td> 10009 </td>
+        <td> 远端服务不可用</td>
+    </tr>
+    <tr>
+        <td> 10010  </td>
+        <td> 超时</td>
+    </tr>
+    <tr>
+        <td> 10011 </td>
+        <td> 发生异常 </td>
+    </tr>
+    <tr>
+        <td> 10012 </td>
+        <td> 进行中 </td>
+    </tr>
+
+</table>
+                  </div>
                   
               </div>
               
@@ -161,9 +341,376 @@
               <div class="docs-section">
                   
                   
+                  <h3 id="checkJsAPI" class="page-header">checkJsAPI</h2>
+                  
+                  
+                  
+                  <div>
+                      <table style="text-align:center">
+    <tr>
+        <th>返回码</th>
+        <th>说明</th>
+        <th>平台</th>
+        <th>备注</th>
+    </tr>
+    <tr>
+        <td>10003</td>
+        <td>参数不能为空</td>
+        <td>iOS(80011101)</td>
+        <td>jsApiList数组以及<br/>数组中的每一项都不为空</td>
+    </tr>
+    <tr>
+        <td>10011</td>
+        <td>发生异常</td>
+        <td>Android(Browser:27)</td>
+        <td></td>
+    </tr>
+</table>
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h3 id="分享" class="page-header">分享</h2>
+                  
+                  
+                  
+                  <div>
+                      <table style="text-align:center">
+    <tr>
+        <th>返回码</th>
+        <th>说明</th>
+        <th>平台</th>
+        <th>备注</th>
+    </tr>
+    <tr>
+        <td>20101</td>
+        <td>当前微信的版本不支持</td>
+        <td>iOS(80011101)</td>
+        <td>版本太低</td>
+    </tr>
+    <tr>
+        <td>20102</td>
+        <td>未安装微信</td>
+        <td>iOS(80011101)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>20103</td>
+        <td>分享失败</td>
+        <td>iOS(80011101)，Android(Browser:27)</td>
+        <td></td>
+    </tr>
+</table>
+
+
+
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h3 id="定位" class="page-header">定位</h2>
+                  
+                  
+                  
+                  <div>
+                      <table style="text-align:center">
+    <tr>
+        <th>返回码</th>
+        <th>说明</th>
+        <th>平台</th>
+        <th>备注</th>
+    </tr>
+    <tr>
+        <td>20201</td>
+        <td>定位超时</td>
+        <td>iOS(80011101)，Android(Browser:27)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>20202</td>
+        <td>定位出现错误</td>
+        <td>iOS(80011101)</td>
+        <td>超时，没有权限，定位不可用的错误码都为20202(以后可以扩展开)</td>
+    </tr>
+</table>
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h3 id="登录" class="page-header">登录</h2>
+                  
+                  
+                  
+                  <div>
+                      <table style="text-align:center">
+    <tr>
+        <th>返回码</th>
+        <th>说明</th>
+        <th>平台</th>
+        <th>备注</th>
+    </tr>
+    <tr>
+        <td>20301</td>
+        <td>登录失败</td>
+        <td>iOS(80011101)，Android(Browser:27)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>20302</td>
+        <td>同步登录态失败</td>
+        <td>iOS(80011101)，Android(Browser:27)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>20303</td>
+        <td>网络错误</td>
+        <td>Android(Browser:27)</td>
+        <td></td>
+    </tr>
+        <tr>
+        <td>10005</td>
+        <td>数据获取失败</td>
+        <td>Android(Browser:27)</td>
+        <td></td>
+    </tr>
+</table>
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h3 id="UI相关" class="page-header">UI相关</h2>
+                  
+                  
+                  
+                  <div>
+                      <table style="text-align:center">
+    <tr>
+        <th>返回码</th>
+        <th>说明</th>
+        <th>平台</th>
+        <th>备注</th>
+    </tr>
+    <tr>
+        <td>10003</td>
+        <td>参数不能为空</td>
+        <td>Android(Browser:27)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>10004</td>
+        <td>参数错误</td>
+        <td>iOS(80011101)，Android(Browser:27)</td>
+        <td>1、不合法的URL，比如非字符串<br/>2、URL为空</td>
+    </tr>
+    <tr>
+        <td>10005</td>
+        <td>数据获取失败</td>
+        <td>Android(Browser:27)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>20401</td>
+        <td>页面不存在</td>
+        <td>iOS(80011101)，Android(Browser:27)</td>
+        <td>没有对应name的webview</td>
+    </tr>
+    <tr>
+        <td>20402</td>
+        <td>新开页面异常</td>
+        <td>iOS(80011101)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>20403</td>
+        <td>刷新导航条异常</td>
+        <td>iOS(80011101)，Android(Browser:27)</td>
+        <td></td>
+    </tr>
+</table>
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h3 id="图片上传" class="page-header">图片上传</h2>
+                  
+                  
+                  
+                  <div>
+                      <table style="text-align:center">
+    <tr>
+    <th > 返回码 </th>
+        <th>说明 </th>
+        <th>平台 </th>
+        <th>备注 </th>
+    </tr>
+    <tr>
+        <td>10005</td>
+        <td>数据获取失败</td>
+        <td>iOS(80011101) </td>
+        <td>获取ServerId失败 </td>
+    </tr>
+    <tr>
+        <td>10004 </td>
+        <td>参数错误</td>
+        <td>Android(Browser:27)</td>
+        <td>参数count不合法，count最大值是9，最多选择9张图片  </td>
+    </tr>
+    <tr>
+        <td>20501 </td>
+        <td>用户取消 </td>
+        <td>iOS(80011101)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> 20502 </td>
+        <td> 已达到选择图片数上限 </td>
+        <td> iOS(80011101)，Android(Browser:27) </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> 20503 </td>
+        <td> 相机拍照失败  </td>
+        <td> iOS(80011101)，Android(Browser:27) </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> 20504 </td>
+        <td> 图片上传失败 </td>
+        <td> iOS(80011101)，Android(Browser:27) </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> 20505 </td>
+        <td> 图片服务器不合法 </td>
+        <td> iOS(80011101) </td>
+        <td> 非Qunar域的url都算不合法 </td>
+    </tr>
+    <tr>
+        <td> 20506  </td>
+        <td> 参数错误1  </td>
+        <td> iOS(80011101) </td>
+        <td> localId不在已选图片内  </td>
+    </tr>
+    <tr>
+        <td> 20507  </td>
+        <td> 参数错误2  </td>
+        <td> iOS(80011101) </td>
+        <td> localId参数错误  </td>
+    </tr>
+    <tr>
+        <td> 20508 </td>
+        <td> 保存图片失败  </td>
+        <td> Android(Browser:27), iOS(80011101)  </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> 20509 </td>
+        <td> 预览图片失败  </td>
+        <td> Android(Browser:27)  </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> 20510 </td>
+        <td> 下载图片失败  </td>
+        <td> Android(Browser:27)  </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> 20512 </td>
+        <td> 选择相册图片失败  </td>
+        <td> Android(Browser:27), iOS(80011101)  </td>
+        <td></td>
+    </tr>
+</table>
+                  </div>
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
                   <h2 id="业务错误码" class="page-header">业务错误码</h1>
                   
                   
+                  
+              </div>
+              
+              
+              
+              <div class="docs-section">
+                  
+                  
+                  <h3 id="忘记密码" class="page-header">忘记密码</h2>
+                  
+                  
+                  
+                  <div>
+                      <table style="text-align:center">
+    <tr>
+        <th> 返回码 </th>
+        <th> 说明 </th>
+        <th> 平台 </th>
+        <th> 备注 </th>
+    </tr>
+    <tr>
+        <td> 30601 </td>
+        <td> 用户取消重置密码 </td>
+        <td> iOS(80011101)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> 30602 </td>
+        <td> 选择国别码错误</td>
+        <td> Android(Browser:27) </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> 30603 </td>
+        <td> 绑定银行卡错误</td>
+        <td> Android(Browser:27), iOS(80011101)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> 30604 </td>
+        <td> 重置密码错误</td>
+        <td> Android(Browser:27)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> 10011 </td>
+        <td> 发生异常 </td>
+        <td> Android(Browser:27)</td>
+        <td></td>
+    </tr>
+</table>
+                  </div>
                   
               </div>
               

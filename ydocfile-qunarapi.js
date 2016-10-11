@@ -1,6 +1,6 @@
 var fs = require('fs');
 var path = require('path');
-var qunarapiconfig = [];
+var qunarapiconfig = [],qunarerrorcode = [];
 fs.readdirSync('./test-qunarapi/qunarapi/api').filter(function(fileName) {
     return fs.statSync('./test-qunarapi/qunarapi/api/' + fileName).isDirectory()
 }).map(function(dir) {
@@ -16,6 +16,24 @@ fs.readdirSync('./test-qunarapi/qunarapi/api').filter(function(fileName) {
             });
     for(var i = 0; i< itemArr.length; i++){
         qunarapiconfig.push(itemArr[i]);
+    }
+});
+
+fs.readdirSync('./test-qunarapi/qunarapi/errorCode').filter(function(fileName) {
+    return fs.statSync('./test-qunarapi/qunarapi/errorCode/' + fileName).isDirectory()
+}).map(function(dir) {
+    qunarerrorcode.push({"name": dir.substring(2)});
+    var itemArr = fs.readdirSync('./test-qunarapi/qunarapi/errorCode/' + dir).filter(function(fileName) {
+        return /.+\.md$/.test(fileName);
+    }).map(function(file) {
+        return {
+            "name": file.substring(2, file.length - 3),
+            sub: true,
+            content: './test-qunarapi/qunarapi/errorCode/' + dir + '/' + file
+        };
+    });
+    for(var i = 0; i< itemArr.length; i++){
+        qunarerrorcode.push(itemArr[i]);
     }
 });
 
@@ -69,21 +87,7 @@ module.exports = function() {
             "content": {
                 "type": "blocks",
                 "sidebar": true,
-                "blocks": (fs.readdirSync('./test-qunarapi/qunarapi/errorCode').filter(function(fileName) {
-                    return fs.statSync('./test-qunarapi/qunarapi/errorCode/' + fileName).isDirectory()
-                }).map(function(dir) {
-                    return {
-                        "name": dir.substring(2),
-                        modules: (fs.readdirSync('./test-qunarapi/qunarapi/errorCode/' + dir).filter(function(fileName) {
-                            return /.+\.md$/.test(fileName);
-                        }).map(function(file) {
-                            return {
-                                "name": file.substring(2, file.length - 3),
-                                content: './test-qunarapi/qunarapi/errorCode/' + dir + '/' + file
-                            };
-                        }))
-                    };
-                }))
+                "blocks": qunarerrorcode
             }
         },{
             "name": 'qunarapi-appendix',
