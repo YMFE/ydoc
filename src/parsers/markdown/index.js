@@ -18,10 +18,6 @@ function parser(contents, options) {
                 sub: true
             });
         }
-        // console.log('text===',text);
-        // console.log('markdown=====');
-        // console.log('<h' + level + ' id="' + text + '">' + text + '</h' + level + '>');
-        // link = text.replace(/\.md$/, '.html');
         if(text.match(/<.*>/) && (text.match(/<.*>/).length > 0)){
             return '<h' + level + '>' + text + '</h' + level + '>';
         }else{

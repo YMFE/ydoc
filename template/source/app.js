@@ -7,10 +7,13 @@ $(document).ready(function() {
         $(this).next(".ydoc-nav").toggle();
     });
   $('.docs-sidenav li').click(function(e){
-
-      $('.docs-sidenav li').removeClass('active')
-      $(this).addClass('active');
-      //e.stopPropagation();
+    //   e.preventdefault();
+    //   e.stopPropagation();
+    //   var link = $(this).attr('href'),url = window.location.href;
+        $('.docs-sidenav li').removeClass('active');
+        $(this).addClass('active');
+    //    window.location.href = url + link;
+    //   $(window).scrollTop($(window).scrollTop()+40);
   });
   // 折叠code
   $('.markdown-body pre').map(function(i,item){
@@ -117,8 +120,8 @@ if (sidebar.height() > winHeight) {
                     var top = activeMenu.offset().top - sidebar.offset().top;
                     if (top < 0) {
                         sidebar.scrollTop(sidebar.scrollTop() + top);
-                    } else if (top > winHeight - 30) {
-                        sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 30);
+                    } else if (top > winHeight - 44) {
+                        sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 44);
                     }
                 }
             }

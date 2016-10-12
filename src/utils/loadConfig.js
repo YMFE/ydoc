@@ -3,7 +3,7 @@ var fs = require('fs'),
     JSON5 = require('json5');
 
 module.exports = function(cwd, callback) {
-    var confPath = sysPath.join(cwd, 'ydoc.config'),
+    var confPath = sysPath.join(cwd, 'ydocssss.config'),
         confJSPath = sysPath.join(cwd, 'ydocfile-hytive.js'),
         conf;
     if (fs.existsSync(confPath)) {
