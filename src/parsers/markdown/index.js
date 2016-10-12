@@ -18,7 +18,16 @@ function parser(contents, options) {
                 sub: true
             });
         }
-        return '<h' + level + ' id="' + text + '">' + text + '</h' + level + '>';
+        // console.log('text===',text);
+        // console.log('markdown=====');
+        // console.log('<h' + level + ' id="' + text + '">' + text + '</h' + level + '>');
+        // link = text.replace(/\.md$/, '.html');
+        if(text.match(/<.*>/) && (text.match(/<.*>/).length > 0)){
+            return '<h' + level + '>' + text + '</h' + level + '>';
+        }else{
+            return '<h' + level + ' id="' + text + '">' + text + '</h' + level + '>';
+        }
+
     };
     renderer.link = function(href, title, text) {
         if (this.options.sanitize) {

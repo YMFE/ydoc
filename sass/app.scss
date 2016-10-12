@@ -295,14 +295,17 @@ sup,sub{vertical-align:baseline}
         }
     }
 
-    &-content:before{
+    &-content-hassidebar:before{
         height: 100%;
         background-color: #eee;
         width: 1px;
         position: absolute;
-        left: 200px;
-        display:inline-block;
+        left: 25%;
+        display:block;
         min-height: 500px;
+        z-index: 99;
+        content:" ";
+        box-sizing: border-box;
     }
   }
 }

@@ -6,7 +6,8 @@ $(document).ready(function() {
     $('.navbar-toggle').click(function(){
         $(this).next(".ydoc-nav").toggle();
     });
-  $('.docs-sidenav li').click(function(){
+  $('.docs-sidenav li').click(function(e){
+      //e.preventDefault()
       $('.docs-sidenav li').removeClass('active')
       $(this).addClass('active');
   });

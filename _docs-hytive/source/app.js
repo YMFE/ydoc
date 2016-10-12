@@ -6,9 +6,11 @@ $(document).ready(function() {
     $('.navbar-toggle').click(function(){
         $(this).next(".ydoc-nav").toggle();
     });
-  $('.docs-sidenav li').click(function(){
+  $('.docs-sidenav li').click(function(e){
+
       $('.docs-sidenav li').removeClass('active')
       $(this).addClass('active');
+      //e.stopPropagation();
   });
   // 折叠code
   $('.markdown-body pre').map(function(i,item){

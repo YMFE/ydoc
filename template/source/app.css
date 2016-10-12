@@ -294,14 +294,17 @@ sup, sub {
         position: absolute; }
       .ydoc-container-content .docs-section {
         margin: 10px; }
-    .ydoc-container-content:before {
+    .ydoc-container-content-hassidebar:before {
       height: 100%;
       background-color: #eee;
       width: 1px;
       position: absolute;
-      left: 200px;
-      display: inline-block;
-      min-height: 500px; }
+      left: 25%;
+      display: block;
+      min-height: 500px;
+      z-index: 99;
+      content: " ";
+      box-sizing: border-box; }
 
 @media screen and (min-width: 1200px) {
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
@@ -381,7 +384,7 @@ sup, sub {
 
 .markdown-body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   word-wrap: break-word; }
   .markdown-body a {
@@ -823,6 +826,8 @@ sup, sub {
   border-left-color: #ff503f;
   font-weight: normal;
   padding-bottom: .1rem; }
+  .markdown-body .docs-section h3 a {
+    color: #ff503f; }
 .markdown-body .docs-section .con-list-item {
   border-bottom: 1px solid #ddd;
   padding: .3rem 0; }
