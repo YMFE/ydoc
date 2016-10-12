@@ -146,6 +146,7 @@ module.exports = function(cwd, conf) {
                                 }));
                             }
                             data.article.sidebars = curNavs;
+
                             data.article.name = p.name;
                             curNavs.forEach(function(item){
                                 if(item.name == data.article.name){
@@ -170,6 +171,7 @@ module.exports = function(cwd, conf) {
                         if (block.name) {
                             navs.push({
                                 name: block.name,
+                                tag: "#"+block.name.replace(/[\.\:]/g, '-'),
                                 sub: block.sub || false
                             });
                         }
@@ -180,18 +182,21 @@ module.exports = function(cwd, conf) {
                                     if (!item.sub) {
                                         navs.push({
                                             name: item.name,
+                                            tag: "#"+item.name.replace(/[\.\:]/g, '-'),
                                             sub: true
                                         });
                                     }
                                 });
                             }
                             ret.name = block.name;
+                            ret.tag =  block.name.replace(/[\.\:]/g, '-');
                             ret.sub = block.sub || false;
                             blocks.push(ret);
                         } else {
                             blocks.push({
                                 type: 'html',
                                 name: block.name,
+                                tag: block.name.replace(/[\.\:]/g, '-'),
                                 sub: false,
                                 content: ''
                             });
@@ -203,6 +208,7 @@ module.exports = function(cwd, conf) {
                     if (page.content.sidebar) {
                         data.article.sidebars = navs;
                     }
+
                     data.article.blocks = blocks;
                 }
                 fs.writeFileSync(sysPath.join(conf.dest, page.name + '.html'), render(data));

@@ -249,6 +249,7 @@ sup,sub{vertical-align:baseline}
                     overflow: hidden;
                   a{
                      padding: 0 .16rem 0 .28rem;
+                     border-left:2px solid #fff;
                      text-overflow: ellipsis;
                       color:#666;
                       line-height: .42rem;
@@ -266,13 +267,14 @@ sup,sub{vertical-align:baseline}
 
               li.active{
                   a,a:hover{
-                      border-right:2px solid #ff503f;
+                      border-left:2px solid #ff503f;
                       color:#ff503f;
                   }
               }
               ul{
                  width: 100%;
                  li,li.active{
+                     font-size: .12rem;
                      a,a:hover{
                         padding-left: 48px;
                      }

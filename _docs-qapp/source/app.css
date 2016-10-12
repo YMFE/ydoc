@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6, small, big, input, textarea, button, select {
 h1, h2, h3, h4, h5, h6 {
   font-family: tahoma,arial,"Hiragino Sans GB","微软雅黑",simsun,sans-serif; }
 
-h1, h2, h3, h4, h5, h6, b, strong {
+h1, h2, h3, h4, h5, h6 {
   font-weight: normal; }
 
 address, cite, dfn, em, i, optgroup, var {
@@ -266,6 +266,7 @@ sup, sub {
             overflow: hidden; }
             .ydoc-container-content .docs-sidebar .docs-sidenav li a {
               padding: 0 .16rem 0 .28rem;
+              border-left: 2px solid #fff;
               text-overflow: ellipsis;
               color: #666;
               line-height: .42rem;
@@ -278,12 +279,14 @@ sup, sub {
             .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
               background-color: #fff8ef; }
           .ydoc-container-content .docs-sidebar .docs-sidenav li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav li.active a:hover {
-            border-right: 2px solid #ff503f;
+            border-left: 2px solid #ff503f;
             color: #ff503f; }
           .ydoc-container-content .docs-sidebar .docs-sidenav ul {
             width: 100%; }
-            .ydoc-container-content .docs-sidebar .docs-sidenav ul li a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li a:hover, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a:hover {
-              padding-left: 48px; }
+            .ydoc-container-content .docs-sidebar .docs-sidenav ul li, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active {
+              font-size: .12rem; }
+              .ydoc-container-content .docs-sidebar .docs-sidenav ul li a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li a:hover, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a:hover {
+                padding-left: 48px; }
       .ydoc-container-content .docs-sidebar.affix {
         position: fixed;
         top: 20px; }
@@ -347,6 +350,35 @@ sup, sub {
   display: none; }
 
 /*     markdown begin       */
+.markdown-body code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+  font-family: Menlo,Monaco,Consolas,Courier New,monospace; }
+
+.markdown-body pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333333;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 4px; }
+
+.markdown-body pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  white-space: pre-wrap;
+  background-color: transparent;
+  border-radius: 0; }
+
 .markdown-body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
@@ -610,7 +642,8 @@ sup, sub {
   overflow: hidden;
   text-align: right; }
 
-.markdown-body code, .markdown-body tt {
+.markdown-body code,
+.markdown-body tt {
   padding: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
@@ -619,18 +652,19 @@ sup, sub {
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 3px; }
 
-.markdown-body code::before, .markdown-body code::after, .markdown-body tt::before, .markdown-body tt::after {
+.markdown-body code:before,
+.markdown-body code:after,
+.markdown-body tt:before,
+.markdown-body tt:after {
   letter-spacing: -0.2em;
-  content: " "; }
+  content: "\00a0"; }
 
-.markdown-body code br, .markdown-body tt br {
+.markdown-body code br,
+.markdown-body tt br {
   display: none; }
 
 .markdown-body del code {
   text-decoration: inherit; }
-
-.markdown-body pre {
-  word-wrap: normal; }
 
 .markdown-body pre > code {
   padding: 0;
@@ -644,31 +678,52 @@ sup, sub {
 .markdown-body .highlight {
   margin-bottom: 16px; }
 
-.markdown-body .highlight pre {
-  margin-bottom: 0;
-  word-break: normal; }
-
-.markdown-body .highlight pre, .markdown-body pre {
+.markdown-body .highlight pre,
+.markdown-body pre {
   padding: 16px;
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #333;
+  background-color: #f7f7f7;
   border-radius: 3px; }
 
-.markdown-body pre code, .markdown-body pre tt {
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal; }
+
+.markdown-body pre {
+  word-wrap: normal; }
+
+.markdown-body pre code,
+.markdown-body pre tt {
   display: inline;
-  max-width: auto;
+  max-width: initial;
   padding: 0;
   margin: 0;
-  overflow: visible;
+  overflow: initial;
   line-height: inherit;
   word-wrap: normal;
   background-color: transparent;
   border: 0; }
 
-.markdown-body pre code::before, .markdown-body pre code::after, .markdown-body pre tt::before, .markdown-body pre tt::after {
+.markdown-body pre code:before,
+.markdown-body pre code:after,
+.markdown-body pre tt:before,
+.markdown-body pre tt:after {
   content: normal; }
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb; }
 
 #readme.contributing > div {
   max-height: 250px;

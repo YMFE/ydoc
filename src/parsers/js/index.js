@@ -26,7 +26,7 @@ var execFns = {
             props: [],
             methods: []
         },
-        fm = options.format && formatter
+        fm = options.format && formatter;
         contents.forEach(function(commentList, index) {
             var filePath = options.files[index].substring(1);
             commentList.forEach(function(comment) {
@@ -52,6 +52,7 @@ var execFns = {
         };
     },
     'lib': function(contents, options, conf) {
+
         var ret = {
             type: 'html',
             content: '',
@@ -116,7 +117,6 @@ var execFns = {
                 list: contentMapping[category]
             });
         });
-
         content.forEach(function(cont) {
             ret.sidebars.push({
                 name: cont.name,
