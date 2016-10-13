@@ -1,0 +1,51 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @module speed
+ * @description 定义从右侧快速进入动画
+ * @method speed-in-right
+ */
+@-webkit-keyframes speed-in-right {
+	0% {
+		-webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
+		opacity: 0;
+	}
+	60% {
+		-webkit-transform: skewX(20deg);
+		opacity: 1;
+	}
+	80% {
+		-webkit-transform: skewX(-5deg);
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: none;
+		opacity: 1;
+	}
+}
+@keyframes speed-in-right {
+	0% {
+		transform: translate3d(100%, 0, 0) skewX(-30deg);
+		opacity: 0;
+	}
+	60% {
+		transform: skewX(20deg);
+		opacity: 1;
+	}
+	80% {
+		transform: skewX(-5deg);
+		opacity: 1;
+	}
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}
+
+.ani.speed-in-right {
+	-webkit-animation-timing-function: ease-out;
+	animation-timing-function: ease-out;
+	-webkit-animation-name: speed-in-right;
+	animation-name: speed-in-right;
+}

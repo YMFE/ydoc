@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+// 定义breadcrumb的基础构造
+@mixin _breadcrumb {
+    @include flexbox;
+    height: map-get($breadcrumb, height);
+    line-height: map-get($breadcrumb, height);
+    padding: 0 .1rem;
+    background-color: map-get($breadcrumb, bgcolor);
+    color: map-get($breadcrumb, color);
+    > .item {
+        overflow: hidden;
+        height: 100%;
+        &:not(:last-child) {
+            padding-right: map-get($breadcrumb, item-space);
+            &::after {
+                display: inline-block;
+                overflow: hidden;
+                padding-left: map-get($breadcrumb, item-space);
+                font-family: map-get($ico, font-name);
+                content: map-get($breadcrumb, arrow-content);
+                vertical-align: top;
+                color: map-get($breadcrumb, arrow-color);
+            }
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-breadcrumb
+ * @version 3.0.0
+ * @description 构造面包屑的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-breadcrumb.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $height 面包屑高度 <3.0.0>
+ * @param {Color} $bgcolor 面包屑背景色 <3.0.0>
+ * @param {Color} $color 面包屑文本色 <3.0.0>
+ * @param {Color} $arrow-color 面包屑间隔色 <3.0.0>
+ * @param {Color} $arrow-content 面包屑间隔符号（可以是自定义的iconfont编码） <3.0.0>
+ * @param {Length} $item-space 面包屑子项间隙 <3.0.0>
+ */
+
+@mixin yo-breadcrumb(
+    $name: default,
+    $height: default,
+    $bgcolor: default,
+    $color: default,
+    $arrow-color: default,
+    $arrow-content: default,
+    $item-space: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $height == default {
+        $height: map-get($breadcrumb, height);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($breadcrumb, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($breadcrumb, color);
+    }
+    @if $arrow-color == default {
+        $arrow-color: map-get($breadcrumb, arrow-color);
+    }
+    @if $arrow-content == default {
+        $arrow-content: map-get($breadcrumb, arrow-content);
+    }
+    @if $item-space == default {
+        $item-space: map-get($breadcrumb, item-space);
+    }
+    .yo-breadcrumb#{$name} {
+        // 如果$height不等于config设定，则重绘高度
+        @if $height != map-get($breadcrumb, height) {
+            height: $height;
+            line-height: $height;
+        }
+        // 如果$bgcolor不等于config设定，则重绘背景色
+        @if $bgcolor != map-get($breadcrumb, bgcolor) {
+            background-color: $bgcolor;
+        }
+        // 如果$color不等于config设定，则重绘文本色
+        @if $color != map-get($breadcrumb, color) {
+            color: $color;
+        }
+        > .item {
+            &:not(:last-child) {
+                // 如果$item-space不等于config设定，则重绘间隙
+                @if $item-space != map-get($breadcrumb, item-space) {
+                    padding-right: $item-space;
+                }
+                &::after {
+                    // 如果$item-space不等于config设定，则重绘间隙
+                    @if $item-space != map-get($breadcrumb, item-space) {
+                        padding-left: $item-space;
+                    }
+                    // 如果$arrow-content不等于config设定，则重绘间隔符号
+                    @if $arrow-content != map-get($breadcrumb, arrow-content) {
+                        content: $arrow-content;
+                    }
+                    // 如果$arrow-color不等于config设定，则重绘间隔色
+                    @if $arrow-color != map-get($breadcrumb, arrow-color) {
+                        color: $arrow-color;
+                    }
+                }
+            }
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入breadcrumb基础构造
+.yo-breadcrumb {
+    @include _breadcrumb;
+}

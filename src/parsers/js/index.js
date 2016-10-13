@@ -30,14 +30,14 @@ var execFns = {
         contents.forEach(function(commentList, index) {
             var filePath = options.files[index].substring(1);
             commentList.forEach(function(comment) {
-                // console.log("comment",comment);
+                //console.log("comment",comment);
                 switch (getCommentType(comment, componentKeywords)) {
                     case 'component':
                         ret = Object.assign(ret, analyseComment(comment, filePath, conf, fm));
                         break;
                     case 'property':
                             // console.log("comment===",comment);
-                            // console.log("analyseComment(comment, filePath, conf, fm)====",analyseComment(comment, filePath, conf, fm));
+                        //console.log("analyseComment(comment, filePath, conf, fm)====",analyseComment(comment, filePath, conf, fm));
                         ret.props.push(analyseComment(comment, filePath, conf, fm));
                         break;
                     case 'method':
@@ -145,6 +145,37 @@ module.exports = {
     parser: function(contents, options, conf) {
         var fn = execFns[options.type || 'component'];
         return fn ? fn(contents.map(function(content) {
+        //    console.log('content===',content);
+        var  aa = content.replace(/(```[\s\S]+?```)/gm, function(mat){
+            var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
+            /* 匹配js文件下，code情况
+            * @description text
+            * ```
+            * code
+            * ```
+            */
+            if(mats[mats.length-1].trim().indexOf("*") == 0){
+                lines = ["* "+mats[0]]
+            }
+            while (i < mats.length - 1) {
+                line = mats[i];
+                if (line.trim() != '*' && indent < 0) {
+                    indent = line.match(/[^*\S]+/g).length;
+                }
+                if (indent > -1) {
+                    var subLine = line.indexOf("*")+1;
+                    if(subLine >= 1){
+                        line = line.substring(0, subLine) + line.substring(subLine).replace(/^[ ]+/g, function(mat) {
+                            return ' '+ mat.length + 'space';
+                        })
+                    }
+                };
+                lines.push(line);
+                i++;
+            }
+            lines.push(mats[i]);
+            return lines.join("\n");
+       });
         var contents = commentParser(content.replace(/(```[\s\S]+?```)/gm, function(mat){
             var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
             while (i < mats.length - 1) {
@@ -184,9 +215,15 @@ module.exports = {
                  lines.push(mats[i]);
                  return lines.join("\n");
             });
+            //console.log('afterExample===',afterExample);
             return afterExample;
           }));
+            //var contents = commentParser(content);
+            //console.log('contents=====',contents);
             return contents.filter(function(item) {
+                // console.log('====begin====');
+                // console.log(item);
+                // console.log('====end=====');
                 return item.tags.every(function(tag) {
                     return tag.tag != 'skip';
                 });

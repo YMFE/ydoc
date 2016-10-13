@@ -1,0 +1,8 @@
+@charset "utf-8";
+/**
+ * Yo框架全局Variables
+ * Yo基础变量map，如果不想定义某属性，将其value设置为null；
+ * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
+ * variables中map使用“_”开头，本文件中不使用"_"
+ * variables ⇌ config
+ */

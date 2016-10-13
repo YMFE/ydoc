@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>yo-checked - 单选和多选</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<link rel="stylesheet" href="../../style/usage/export/yo-checked.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-checked</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+        <a href="../../doc/element.html#yo-checked" class="affirm">文档</a>
+    </header>
+    <div class="flex">
+        <section class="yo-list yo-list-group m-demo">
+            <h3 class="label">单选框 - 默认</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked">
+                    <input type="radio" name="project" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked">
+                    <input type="radio" name="project" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">单选框 - 扩展边框</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-a">
+                    <input type="radio" name="project2" checked disabled />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-a">
+                    <input type="radio" name="project2" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">单选框 - 扩展背景</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-b">
+                    <input type="radio" name="project3" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-b">
+                    <input type="radio" name="project3" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">单选框 - 扩展圆角</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-c">
+                    <input type="radio" name="project4" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-c">
+                    <input type="radio" name="project4" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">单选框 - 圆点</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-d">
+                    <input type="radio" name="project5" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-d">
+                    <input type="radio" name="project5" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">单选框 - 扩展边框</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-e">
+                    <input type="radio" name="project6" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-e">
+                    <input type="radio" name="project6" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">单选框 - 扩展背景</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-f">
+                    <input type="radio" name="project7" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-f">
+                    <input type="radio" name="project7" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">单选框 - 扩展圆角</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-g">
+                    <input type="radio" name="project8" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-g">
+                    <input type="radio" name="project8" />
+                    <span class="type"></span>
+                </div>
+            </label>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">使用方法：</h3>
+            <xmp><div class="yo-checked">
+    <input type="radio" name="project" checked />
+    <span class="type"></span>
+</div>
+<div class="yo-checked">
+    <input type="radio" name="project" />
+    <span class="type"></span>
+</div></xmp>
+
+    <h3 class="sub-title">假设你想要多种风格，只需这样扩展：</h3>
+    <xmp>@include yo-checked(
+    $name: test,
+    $border-color: #4a87ee,
+    $radius: 50%
+);</xmp>
+    <h3 class="sub-title">使用方法：</h3>
+    <xmp><div class="yo-checked yo-checked-test">
+    <input type="radio" name="project" />
+    <span class="type"></span>
+</div></xmp>
+        </section>
+
+        <section class="yo-list yo-list-group m-demo">
+            <h3 class="label">复选框 - 默认</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked">
+                    <input type="checkbox" name="project11" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked">
+                    <input type="checkbox" name="project11" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">复选框 - 扩展边框</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-a">
+                    <input type="checkbox" name="project12" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-a">
+                    <input type="checkbox" name="project12" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">复选框 - 扩展背景</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-b">
+                    <input type="checkbox" name="project13" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-b">
+                    <input type="checkbox" name="project13" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">复选框 - 扩展圆角</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-c">
+                    <input type="checkbox" name="project14" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-c">
+                    <input type="checkbox" name="project14" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">复选框 - 圆点</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-d">
+                    <input type="checkbox" name="project15" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-d">
+                    <input type="checkbox" name="project15" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">复选框 - 扩展边框</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-e">
+                    <input type="checkbox" name="project16" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-e">
+                    <input type="checkbox" name="project16" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">复选框 - 扩展背景</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-f">
+                    <input type="checkbox" name="project17" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-f">
+                    <input type="checkbox" name="project17" />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <h3 class="label">复选框 - 扩展圆角</h3>
+            <label class="item item-active">
+                <div class="flex">Yo</div>
+                <div class="yo-checked yo-checked-g">
+                    <input type="checkbox" name="project18" checked />
+                    <span class="type"></span>
+                </div>
+            </label>
+            <label class="item item-active">
+                <div class="flex">Mobile</div>
+                <div class="yo-checked yo-checked-g">
+                    <input type="checkbox" name="project18" />
+                    <span class="type"></span>
+                </div>
+            </label>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">使用方法：</h3>
+            <xmp><div class="yo-checked">
+    <input type="checkbox" name="project" checked />
+    <span class="type"></span>
+</div>
+<div class="yo-checked">
+    <input type="checkbox" name="project" />
+    <span class="type"></span>
+</div></xmp>
+
+            <h3 class="sub-title">假设你想要多种风格，只需这样扩展：</h3>
+
+            <xmp>@include yo-checked(
+    $name: test,
+    $border-color: #4a87ee,
+    $radius: 50%
+);</xmp>
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><div class="yo-checked yo-checked-test">
+    <input type="checkbox" name="project" />
+    <span class="type"></span>
+</div></xmp>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>

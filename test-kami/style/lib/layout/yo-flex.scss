@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+// 定义常见弹性布局
+@mixin _flex {
+    height: 100%;
+    &,
+    .flex-inherit {
+        @include flexbox;
+        @include flex-direction(map-get($flex, direction));
+        overflow: hidden;
+    }
+    > .flex,
+    .flex-inherit,
+    .flex-inherit > .flex {
+        @include flex(1, map-get($flex, direction));
+        position: relative;
+    }
+    > .flex,
+    .flex-inherit > .flex {
+        @include overflow;
+        // 用于解决flex无法将动态高度继承给子元素
+        // 这里单独处理flex的子元素为yo-flex的情况，yo-flex通过绝对定位拉伸来得到高度
+        // 请使用 flex-inherit 的方式来进行嵌套（推荐）
+        > .yo-flex {
+            @include fullscreen;
+        }
+    }
+}
+
+/**
+ * @module layout
+ * @method yo-flex
+ * @version 3.0.0
+ * @description 构造弹性布局使用方法，可以是横向和纵向
+ * @demo http://doyoe.github.io/Yo/demo/layout/yo-flex.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {String} $direction 指定是水平或者垂直布局 <3.0.0>
+ */
+
+@mixin yo-flex(
+    $name: default,
+    $direction: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $direction == default {
+        $direction: map-get($flex, direction);
+    }
+    .yo-flex#{$name} {
+        &,
+        .flex-inherit {
+            // 如果$direction不等于config预设，则重绘方向
+            @if $direction != map-get($flex, direction) {
+                @include flex-direction($direction);
+            }
+        }
+        > .flex,
+        .flex-inherit,
+        .flex-inherit > .flex {
+            // 如果$direction不等于config预设，则重绘方向
+            @if $direction != map-get($flex, direction) {
+                @include flex(1, $direction);
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入弹性布局基础构造
+.yo-flex {
+    @include _flex;
+}

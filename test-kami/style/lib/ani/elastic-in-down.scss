@@ -1,0 +1,53 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @module elastic
+ * @description 定义弹性下落动画
+ * @method elastic-in-down
+ * @demo http://ued.qunar.com/mobile/yo/demo/animate/ani-text.html
+ * @example <div class="ani elastic-in-down">该元素将会被应用elastic-in-down动画</div>
+ */
+@-webkit-keyframes elastic-in-down {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -3000px, 0);
+	}
+	60% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 25px, 0);
+	}
+	75% {
+		-webkit-transform: translate3d(0, -10px, 0);
+	}
+	90% {
+		-webkit-transform: translate3d(0, 5px, 0);
+	}
+	100% {
+		-webkit-transform: translate3d(0, 0, 0);
+	}
+}
+@keyframes elastic-in-down {
+	0% {
+		opacity: 0;
+		transform: translate3d(0, -3000px, 0);
+	}
+	60% {
+		opacity: 1;
+		transform: translate3d(0, 25px, 0);
+	}
+	75% {
+		transform: translate3d(0, -10px, 0);
+	}
+	90% {
+		transform: translate3d(0, 5px, 0);
+	}
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
+.ani.elastic-in-down {
+	-webkit-animation-name: elastic-in-down;
+	animation-name: elastic-in-down;
+}

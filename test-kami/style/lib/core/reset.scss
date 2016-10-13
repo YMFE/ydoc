@@ -1,0 +1,269 @@
+@charset "utf-8";
+@import "function";
+@import "classes";
+/**
+ * Yo框架全局Reset
+ * Yo重置Mobile及高级浏览器上常见的差异
+ */
+
+// 1. 将元素的盒模型统一为: border-box
+// 2. 清除元素tap时出现的焦点框
+*,
+::before,
+::after {
+    @include box-sizing(border-box);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+// 1. 默认禁止body滚动
+@include root-scroll;
+
+// 1. 隐藏页面滚动条
+::-webkit-scrollbar {
+    @if map-get($setting, is-scrollbar) == false {
+        display: none;
+    }
+}
+
+// 1. 防止用户自定义网页背景及文字颜色、大小影响
+html {
+    background-color: map-get($base, doc-bgcolor);
+    color: map-get($base, color);
+    // 定义root字号，作为rem计算基准
+    @if map-get($base, responsive-type) == scaling {
+        // 如果是跟随屏幕大小而变的场景，使用 vw
+        font-size: map-get($base, font-size-root-scaling);
+    } @else {
+        // 如果是常规场景，使用 px
+        font-size: map-get($base, font-size-root);
+    }
+    // 是否允许横竖屏时字号调整
+    @if map-get($setting, is-text-size-adjust) == false {
+        // 如果为flase，则不允许自动调整
+        -webkit-text-size-adjust: 100%;
+    }
+    @include user-select;
+}
+
+// 1. 清除body的默认margin
+// 2. 定义页面的默认字号
+// 3. 定义页面的默认行高
+// 4. 定义页面的默认字体
+body {
+    margin: 0;
+    font-size: map-get($base, font-size);
+    line-height: map-get($base, line-height);
+    font-family: map-get($base, font-family);
+}
+
+// 1. 清除某些元素在不同浏览器下内外补白不同造成的影响
+ul,
+ol,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+p,
+blockquote,
+th,
+td,
+pre,
+xmp {
+    margin: 0;
+    padding: 0;
+}
+
+// 1. 为不继承的元素设定继承父级行高
+// 2. 为不继承的元素设定继承父级字体
+input,
+textarea,
+button,
+select,
+pre,
+xmp,
+tt,
+code,
+kbd,
+samp {
+    line-height: inherit;
+    font-family: inherit;
+}
+
+// 1. 为不继承的元素设定继承父级字号
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small,
+big,
+input,
+textarea,
+button,
+select {
+    font-size: inherit;
+}
+
+// 1. 重置斜体表现为正常文本
+address,
+cite,
+dfn,
+em,
+i,
+optgroup,
+var {
+    font-style: normal;
+}
+
+// 1. 清除单元格边距并让边框合并
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    text-align: left;
+}
+
+// 1. 清除列表默认序号
+ul,
+ol,
+menu {
+    list-style: none;
+}
+
+// 1. 清除默认边框
+// 2. 清除img底部留白问题，并使得默认居中
+fieldset,
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+// 1. 设置HTML5部分新增元素为块元素
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+
+// 1. 设置HTML5新增媒体元素与img, object保持一致
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+// 1. 清除引用元素的默认派生标识
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "\0020";
+}
+
+// 1. 设置文本域和代码块在需要时出现滚动条
+textarea,
+pre,
+xmp {
+    @include overflow;
+}
+
+// 1. 设置文本域滚可拖动改变垂直方向尺寸
+textarea {
+    resize: vertical;
+}
+
+// 1. 清除webkit下表单元素的outline
+input,
+textarea,
+button,
+select
+a {
+    outline: 0 none;
+}
+
+// 1. 让表单元素具有颜色继承
+// 2. iOS上当禁用时会设置opacity: .4
+input,
+textarea,
+button,
+select {
+    color: inherit;
+    &:disabled {
+        opacity: 1;
+    }
+}
+
+// 1. 清除Firefox按钮内部边框和补白
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+// 1. 重置按钮的外观
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="file"]::-webkit-file-upload-button,
+input[type="search"]::-webkit-search-cancel-button {
+    @include appearance;
+}
+
+// 1. 重置mark元素的默认背景色
+mark {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+// 1. 清除文本线条装饰
+a,
+ins,
+s,
+u,
+del {
+    text-decoration: none;
+}
+
+// 1. 禁止长按链接与图片弹出菜单
+// issues: 在iOS8.1下此设置对a仍无效
+a,
+img {
+    -webkit-touch-callout: none;
+}
+
+// 1. 预设默认链接表现
+a {
+    color: map-get($base, link-color);
+}
+
+// 1. fix Android Browser 4.2.* 及以下 input:checked ~ .xxx 失效的问题
+html + input {}
+
+// 1. 预设清除浮动
+.g-clear,
+.g-mod {
+    @include clearfix;
+}
+
+// 1. 使用字体图标
+@include _yofont;

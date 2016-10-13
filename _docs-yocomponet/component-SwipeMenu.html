@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Yo Documentation 组件</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="" class="navbar-brand">Yo</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="active">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>组件</h1>
+                  <p>组件的说明文档</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content ydoc-container-content-hassidebar">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  class="active"   class="active" > -->
+                        <li  class="active" >
+                            
+                            <a href="component-SwipeMenu.html">SwipeMenu</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <div class="docs-section">
+<h2>
+    SwipeMenu
+    <small></small>
+    <span class="yo-badge yo-badge-danger">3.0.0</span>
+</h2>
+<div class="api-content"><p>SwipeMenu组件</p>
+<p>支持向右或向左单向滑动,显示菜单按钮</p>
+<p>默认拖动距离超过菜单按钮的一半时,组件自动打开,否则组件回到关闭状态</p>
+<p>组件拖动条可拖离足够远位置</p>
+<p>组件处于开启状态时,下次拖动不作响应,且组件会自动关闭,可通过轻点方式来关闭组件</p>
+</div>
+<div class="con-list-item">
+
+<div class="con-head">属性</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>action</strong>
+     <span class="prop-type">{ Array }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>滑动菜单按钮内容,类名,回调函数</p>
+<pre><code> PropTypes.arrayOf(
+     PropTypes.shape({
+         text: PropTypes.string.isRequired,
+         className: PropTypes.string,
+         onTap: PropTypes.func.isRequired,
+   })
+ )
+</code></pre><p>@ author  qingguo.</p>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>Image.resizeMode</strong>
+     <span class="prop-type">{ object }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>这个属性挂载在 Image 上，是一个静态属性，该对象中包含三个属性，
+描述了三种当图片大小与容器不符时，图片的缩放方式。通常将这个属性中的值赋给组件的 resizeMode 属性</p>
+<ul>
+<li>cover：按原比例伸缩图片，使图片的宽高中其一恰好等于容器的宽高，另外一个超出容器。</li>
+<li>stretch：拉伸图片使其恰好铺满容器。</li>
+<li>contain：按原比例伸缩图片，使其宽高中其一恰好等于容器的宽高，另外一个小于容器。</li>
+<li>repeat: 重复图片,保持原分辨率,铺满整个区域</li>
+</ul>
+<pre><code> &lt;Image resizeMode={Image.resizeMode.contain} /&gt;
+</code></pre></div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>open</strong>
+     <span class="prop-type">{ PropTypes.bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>组件初始状态,是否打开</p>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>direction</strong>
+     <span class="prop-type">{ PropTypes.oneOf(['left', 'right']) }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>拖动方向</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> left
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>extraClass</strong>
+     <span class="prop-type">{ PropTypes.string }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>额外样式类</p>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>disable</strong>
+     <span class="prop-type">{ PropTypes.bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>组件是否可用</p>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onTouchStart</strong>
+     <span class="prop-type">{ PropTypes.func }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>touchStart时期触发的回调</p>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onTouchMove</strong>
+     <span class="prop-type">{ PropTypes.func }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>touchMove时期触发的回调</p>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onTouchEnd</strong>
+     <span class="prop-type">{ PropTypes.func }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>touchEnd时期触发的回调</p>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onOpen</strong>
+     <span class="prop-type">{ PropTypes.func }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>按钮打开时期触发的回调</p>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onClose</strong>
+     <span class="prop-type">{ PropTypes.func }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>按钮关闭时期触发的回调</p>
+</div>
+
+
+
+
+
+<div class="con-head">方法</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>组件打开,是否无过渡动画
+返回给外部的回调函数, 为swipeMenuList特制,</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"></div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>isClearTransition</td>
+            <td></td>
+            <td>{Boolean} 默认false, 有过渡动画</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>组件关闭,无过渡动画
+返回给外部的回调函数, 为swipeMenuList特制,</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"></div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>isClearTransition</td>
+            <td></td>
+            <td>{Boolean}</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+
+
+</div>
+</div>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            Made By Doyoe.com © 2014 - 2016
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

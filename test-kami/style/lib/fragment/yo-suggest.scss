@@ -1,0 +1,237 @@
+@charset "utf-8";
+@import "../ani/rotate";
+
+// 定义suggest的基础构造
+@mixin _suggest {
+    @include flexbox;
+    @include flex-direction(column);
+    @include fullscreen(map-get($z-index, suggest), fixed);
+    > .operate {
+        @include flexbox;
+        padding: map-get($suggest, padding);
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($suggest, border-color)
+        );
+        background-color: map-get($suggest, bgcolor);
+        font-size: map-get($suggest, font-size);
+        line-height: map-get($suggest, input-height);
+    }
+    .action {
+        @include flexbox;
+        @include flex;
+        position: relative;
+        // placeholder旁边的箭头颜色
+        color: map-get($suggest, placeholder-color);
+        > .input {
+            display: block;
+            @include appearance;
+            @include flex;
+            position: relative;
+            z-index: 1;
+            margin-right: map-get($suggest, cancel-width) - .1rem;
+            padding: 0 .28rem 0 .1rem;
+            border: 0 none;
+            border-radius: map-get($suggest, input-radius);
+            background-color: map-get($suggest, input-bgcolor);
+            color: map-get($suggest, input-color);
+            vertical-align: top;
+            &::-webkit-input-placeholder {
+                color: map-get($suggest, placeholder-color);
+            }
+        }
+        > .yo-ico + .input {
+            padding-left: .28rem;
+        }
+        > .yo-ico {
+            position: absolute;
+            z-index: 2;
+            width: .28rem;
+            text-align: center;
+        }
+        > .yo-ico-delete,
+        > .yo-ico-fresh,
+        > .yo-ico-stop,
+        > .yo-ico-loading {
+            display: none;
+            top: 0;
+            right: 0;
+            color: map-get($suggest, ico-color);
+        }
+        > .yo-ico-loading {
+            @include animation(rotate 1s infinite linear);
+            @include transform-origin(center);
+        }
+    }
+    .cancel {
+        position: absolute;
+        right: 0;
+        width: map-get($suggest, cancel-width);
+        color: map-get($suggest, cancel-color);
+        text-align: center;
+    }
+    > .cont {
+        position: relative;
+        @include flex(1, column);
+        background-color: map-get($suggest, cont-bgcolor);
+        > .recommend,
+        > .result {
+            @include fullscreen;
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-suggest
+ * @version 3.0.0
+ * @description 构造yo-suggest的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-suggest.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $padding 搜索区内补白 <3.0.0>
+ * @param {Color} $border-color 搜索区边框色 <3.0.0>
+ * @param {Color} $bgcolor 搜索区背景色 <3.0.0>
+ * @param {Length} $font-size 搜索区字号 <3.0.0>
+ * @param {Length} $input-height 输入框高度 <3.0.0>
+ * @param {Length} $input-radius 输入框圆角半径 <3.0.0>
+ * @param {Color} $input-bgcolor 输入框背景色 <3.0.0>
+ * @param {Color} $input-color 输入框文本色 <3.0.0>
+ * @param {Color} $placeholder-color 输入框placeholder文本色 <3.0.0>
+ * @param {Color} $ico-color 输入框右侧图标颜色 <3.0.0>
+ * @param {Length} $cancel-width 取消按钮区域宽度 <3.0.0>
+ * @param {Color} $cancel-color 取消按钮颜色 <3.0.0>
+ * @param {Color} $cont-bgcolor 内容区背景色 <3.0.0>
+ */
+
+@mixin yo-suggest(
+    $name: default,
+    $padding: default,
+    $border-color: default,
+    $bgcolor: default,
+    $font-size: default,
+    $input-height: default,
+    $input-radius: default,
+    $input-bgcolor: default,
+    $input-color: default,
+    $placeholder-color: default,
+    $ico-color: default,
+    $cancel-width: default,
+    $cancel-color: default,
+    $cont-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $padding == default {
+        $padding: map-get($suggest, padding);
+    }
+    @if $border-color == default {
+        $border-color: map-get($suggest, border-color);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($suggest, bgcolor);
+    }
+    @if $font-size == default {
+        $font-size: map-get($suggest, font-size);
+    }
+    @if $input-height == default {
+        $input-height: map-get($suggest, input-height);
+    }
+    @if $input-radius == default {
+        $input-radius: map-get($suggest, input-radius);
+    }
+    @if $input-bgcolor == default {
+        $input-bgcolor: map-get($suggest, input-bgcolor);
+    }
+    @if $input-color == default {
+        $input-color: map-get($suggest, input-color);
+    }
+    @if $placeholder-color == default {
+        $placeholder-color: map-get($suggest, placeholder-color);
+    }
+    @if $ico-color == default {
+        $ico-color: map-get($suggest, ico-color);
+    }
+    @if $cancel-width == default {
+        $cancel-width: map-get($suggest, cancel-width);
+    }
+    @if $cancel-color == default {
+        $cancel-color: map-get($suggest, cancel-color);
+    }
+    @if $cont-bgcolor == default {
+        $cont-bgcolor: map-get($suggest, cont-bgcolor);
+    }
+    .yo-suggest#{$name} {
+        > .operate {
+            @if $padding != map-get($suggest, padding) {
+                padding: $padding;
+            }
+            &::after {
+                @if $border-color != map-get($suggest, border-color) {
+                    border-color: $border-color;
+                }
+            }
+            @if $bgcolor != map-get($suggest, bgcolor) {
+                background-color: $bgcolor;
+            }
+            @if $font-size != map-get($suggest, font-size) {
+                font-size: $font-size;
+            }
+            @if $input-height != map-get($suggest, input-height) {
+                line-height: $input-height;
+            }
+        }
+        .action {
+            @if $placeholder-color != map-get($suggest, placeholder-color) {
+                color: $placeholder-color;
+            }
+            > .input {
+                @if $cancel-width != map-get($suggest, cancel-width) {
+                    margin-right: $cancel-width - .1rem;
+                }
+                @if $input-radius != map-get($suggest, input-radius) {
+                    border-radius: $input-radius;
+                }
+                @if $input-bgcolor != map-get($suggest, input-bgcolor) {
+                    background-color: $input-bgcolor;
+                }
+                @if $input-color != map-get($suggest, input-color) {
+                    color: $input-color;
+                }
+                &::-webkit-input-placeholder {
+                    @if $placeholder-color != map-get($suggest, placeholder-color) {
+                        color: $placeholder-color;
+                    }
+                }
+            }
+            > .yo-ico-delete,
+            > .yo-ico-fresh,
+            > .yo-ico-stop,
+            > .yo-ico-loading {
+                @if $ico-color != map-get($suggest, ico-color) {
+                    color: $ico-color;
+                }
+            }
+        }
+        .cancel {
+            @if $cancel-width != map-get($suggest, cancel-width) {
+                width: $cancel-width;
+            }
+            @if $cancel-color != map-get($suggest, cancel-color) {
+                color: $cancel-color;
+            }
+        }
+        > .cont {
+            @if $cont-bgcolor != map-get($suggest, cont-bgcolor) {
+                background-color: $cont-bgcolor;
+            }
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入suggest基础构造
+.yo-suggest {
+    @include _suggest;
+}

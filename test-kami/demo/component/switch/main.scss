@@ -1,0 +1,5 @@
+@import "../../../style/usage/core/reset.scss";
+@import "../../../style/lib/element/yo-switch.scss";
+
+
+@include yo-switch(blue,#43cee6);

@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+.m-demo {
+    position: relative;
+    min-height: .88rem;
+    // 类别标题
+    > .title {
+        padding: .18rem .1rem .03rem;
+        font-weight: normal;
+        @include border(
+            $border-width: 0 0 1px,
+            $border-color: map-get($base, border-color)
+        );
+    }
+
+    // yo-btn示例页面：每行除最后一个按钮外，留0.1rem右边距
+    .item .yo-btn:not(:last-child) {
+        margin-right: .1rem;
+    }
+
+    // yo-list示例页面：图片大小
+    .mark img {
+        @include square(.5rem);
+    }
+
+    // yo-dialog示例页面：显示多个dialog
+    > .yo-dialog {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+    }
+
+    // yo-card示例页面：多列时的图片大小
+    > .yo-card .cols img {
+        @include square(.6rem);
+    }
+}

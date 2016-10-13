@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>yo-range - 区间</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<link rel="stylesheet" href="../../style/usage/export/yo-range.css" />
+</head>
+<body>
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-range</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+        <a href="../../doc/element.html#yo-range" class="affirm">文档</a>
+    </header>
+    <div class="flex">
+        <section class="m-demo">
+            <h3 class="title">单个滑块：</h3>
+        	<ul class="yo-list">
+                <li class="item">
+                    <div class="flex yo-range">
+                        <div class="track">
+                            <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-range">
+    <div class="track">
+        <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+    </div>
+</div></xmp>
+        </section>
+
+        <section class="m-demo">
+            <h3 class="title">两个滑块：</h3>
+            <ul class="yo-list">
+                <li class="item">
+                    <div class="flex yo-range">
+                        <div class="track">
+                            <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+                            <span class="thumb" style="-webkit-transform: translatex(1.5rem);"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-range">
+    <div class="track">
+        <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+        <span class="thumb" style="-webkit-transform: translatex(1.5rem);"></span>
+    </div>
+</div></xmp>
+        </section>
+
+        <section class="m-demo">
+            <h3 class="title">带刻度：</h3>
+            <ul class="yo-list">
+                <li class="item">
+                    <div class="flex yo-range">
+                        <ul class="scale">
+                            <li class="divide">0</li>
+                            <li class="divide" style="left: 25%;">100</li>
+                            <li class="divide" style="left: 50%;">300</li>
+                            <li class="divide" style="left: 75%;">500</li>
+                            <li class="divide">不限</li>
+                        </ul>
+                        <div class="track">
+                            <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+                            <span class="thumb" style="-webkit-transform: translatex(1.5rem);"></span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-range">
+    <ul class="scale">
+        <li class="divide">0</li>
+        <li class="divide" style="left: 25%;">100</li>
+        <li class="divide" style="left: 50%;">300</li>
+        <li class="divide" style="left: 75%;">500</li>
+        <li class="divide">不限</li>
+    </ul>
+    <div class="track">
+        <span class="thumb" style="-webkit-transform: translatex(.5rem);"></span>
+        <span class="thumb" style="-webkit-transform: translatex(1.5rem);"></span>
+    </div>
+</div></xmp>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>

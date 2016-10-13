@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+// 定义浮层actionsheet的基础构造
+@mixin _actionsheet {
+    position: absolute;
+    z-index: map-get($z-index, actionsheet);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // (设置容器可滚动)iOS中active要生效的话，内容必须放置在滚动容器中
+    overflow: auto;
+    margin: map-get($actionsheet, margin);
+    text-align: center;
+    > .menu,
+    > .action {
+        overflow: hidden;
+        // (设置内容溢出容器)iOS中active要生效的话，内容必须放置在滚动容器中
+        width: 100.13%;
+        border-radius: map-get($actionsheet, radius);
+        background-color: map-get($actionsheet, bgcolor);
+    }
+    > .action {
+        margin-top: .08rem;
+    }
+    .title {
+        color: #999;
+        font-weight: normal;
+        font-size: .14rem;
+        line-height: .44rem;
+    }
+    .item {
+        height: map-get($actionsheet, item-height);
+        color: map-get($actionsheet, item-color);
+        font-size: map-get($actionsheet, item-font-size);
+        line-height: map-get($actionsheet, item-height);
+        &:not(:first-child) {
+            @include border(
+                $border-width: 1px 0 0,
+                $border-color: map-get($actionsheet, border-color)
+            );
+        }
+        &:active {
+            background-color: map-get($actionsheet, active-bgcolor);
+        }
+        // 重要操作
+        &-light {
+            color: map-get($actionsheet, item-light-color);
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-actionsheet
+ * @version 3.0.0
+ * @description 构造actionsheet的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-actionsheet.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $margin 外补白 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Color} $border-color 边线色 <3.0.0>
+ * @param {Color} $bgcolor 子项背景色 <3.0.0>
+ * @param {Color} $active-bgcolor 子项点击反馈背景色 <3.0.0>
+ * @param {Length} $item-height 子项高度 <3.0.0>
+ * @param {Length} $item-font-size 子项字号 <3.0.0>
+ * @param {Color} $item-color 子项文本色 <3.0.0>
+ * @param {Color} $item-light-color 重要操作子项文本色 <3.0.0>
+ */
+
+@mixin yo-actionsheet(
+    $name: default,
+    $margin: default,
+    $radius: default,
+    $border-color: default,
+    $bgcolor: default,
+    $active-bgcolor: default,
+    $item-height: default,
+    $item-font-size: default,
+    $item-color: default,
+    $item-light-color: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $margin == default {
+        $margin: map-get($actionsheet, margin);
+    }
+    @if $radius == default {
+        $radius: map-get($actionsheet, radius);
+    }
+    @if $border-color == default {
+        $border-color: map-get($actionsheet, border-color);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($actionsheet, bgcolor);
+    }
+    @if $active-bgcolor == default {
+        $active-bgcolor: map-get($actionsheet, active-bgcolor);
+    }
+    @if $item-height == default {
+        $item-height: map-get($actionsheet, item-height);
+    }
+    @if $item-font-size == default {
+        $item-font-size: map-get($actionsheet, item-font-size);
+    }
+    @if $item-color == default {
+        $item-color: map-get($actionsheet, item-color);
+    }
+    @if $item-light-color == default {
+        $item-light-color: map-get($actionsheet, item-light-color);
+    }
+    .yo-actionsheet#{$name} {
+        @if $margin != map-get($actionsheet, margin) {
+            margin: $margin;
+        }
+        > .menu,
+        > .action {
+            @if $radius != map-get($actionsheet, radius) {
+                border-radius: $radius;
+            }
+            @if $bgcolor != map-get($actionsheet, bgcolor) {
+                background-color: $bgcolor;
+            }
+        }
+        .item {
+            @if $item-height != map-get($actionsheet, item-height) {
+                height: $item-height;
+                line-height: $item-height;
+            }
+            @if $item-color != map-get($actionsheet, item-color) {
+                color: $item-color;
+            }
+            @if $item-font-size != map-get($actionsheet, item-font-size) {
+                font-size: $item-font-size;
+            }
+            &:not(:first-child) {
+                &::after {
+                    @if $border-color != map-get($actionsheet, border-color) {
+                        border-color: $border-color;
+                    }
+                }
+            }
+            &:active {
+                @if $active-bgcolor != map-get($actionsheet, active-bgcolor) {
+                    background-color: $active-bgcolor;
+                }
+            }
+            &-light {
+                @if $item-light-color != map-get($actionsheet, item-light-color) {
+                    color: $item-light-color;
+                }
+            }
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入actionsheet基础构造
+.yo-actionsheet {
+    @include _actionsheet;
+}

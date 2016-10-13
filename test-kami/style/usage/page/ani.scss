@@ -1,0 +1,99 @@
+@charset "utf-8";
+@import "../../lib/ani/fade-in";
+@import "../../lib/ani/fade-in-up";
+@import "../../lib/ani/fade-in-right";
+@import "../../lib/ani/fade-in-down";
+@import "../../lib/ani/fade-in-left";
+@import "../../lib/ani/fade-out";
+@import "../../lib/ani/fade-out-up";
+@import "../../lib/ani/fade-out-right";
+@import "../../lib/ani/fade-out-down";
+@import "../../lib/ani/fade-out-left";
+@import "../../lib/ani/elastic-x";
+@import "../../lib/ani/elastic-y";
+@import "../../lib/ani/elastic-in";
+@import "../../lib/ani/elastic-in-up";
+@import "../../lib/ani/elastic-in-right";
+@import "../../lib/ani/elastic-in-down";
+@import "../../lib/ani/elastic-in-left";
+@import "../../lib/ani/elastic-out";
+@import "../../lib/ani/elastic-out-up";
+@import "../../lib/ani/elastic-out-right";
+@import "../../lib/ani/elastic-out-down";
+@import "../../lib/ani/elastic-out-left";
+@import "../../lib/ani/flip";
+@import "../../lib/ani/flip-in-x";
+@import "../../lib/ani/flip-in-y";
+@import "../../lib/ani/flip-out-x";
+@import "../../lib/ani/flip-out-y";
+@import "../../lib/ani/roll-in-right";
+@import "../../lib/ani/roll-in-left";
+@import "../../lib/ani/roll-out-right";
+@import "../../lib/ani/roll-out-left";
+@import "../../lib/ani/speed-in-right";
+@import "../../lib/ani/speed-in-left";
+@import "../../lib/ani/speed-out-right";
+@import "../../lib/ani/speed-out-left";
+@import "../../lib/ani/rotate";
+@import "../../lib/ani/rotate-in";
+@import "../../lib/ani/rotate-in-up-right";
+@import "../../lib/ani/rotate-in-up-left";
+@import "../../lib/ani/rotate-in-down-right";
+@import "../../lib/ani/rotate-in-down-left";
+@import "../../lib/ani/rotate-out";
+@import "../../lib/ani/rotate-out-up-right";
+@import "../../lib/ani/rotate-out-up-left";
+@import "../../lib/ani/rotate-out-down-right";
+@import "../../lib/ani/rotate-out-down-left";
+@import "../../lib/ani/zoom-in";
+@import "../../lib/ani/zoom-in-up";
+@import "../../lib/ani/zoom-in-right";
+@import "../../lib/ani/zoom-in-down";
+@import "../../lib/ani/zoom-in-left";
+@import "../../lib/ani/zoom-out";
+@import "../../lib/ani/zoom-out-up";
+@import "../../lib/ani/zoom-out-right";
+@import "../../lib/ani/zoom-out-down";
+@import "../../lib/ani/zoom-out-left";
+@import "../../lib/ani/flash";
+@import "../../lib/ani/shake";
+@import "../../lib/ani/pulse";
+@import "../../lib/ani/extrusion";
+@import "../../lib/ani/stretch";
+@import "../../lib/ani/swing";
+@import "../../lib/ani/sling";
+@import "../../lib/ani/wobble";
+@import "../../lib/ani/hinge";
+
+/**
+* ani演示页面
+* Author: joy.du(飘零雾雨)
+* Time: 2014.4.1
+*/
+
+.demo{
+    margin: 20px 30px;
+    text-align: center;
+    .title{
+        border-bottom: 1px solid #aaa;
+        font-size: 48px;
+    }
+
+    .animation{
+        margin: 10px 0;
+        background: #eee;
+    }
+    .content{
+        display: inline-block;
+        margin: 10px 0;
+        font-size: 48px;
+    }
+    .select{
+        opacity:.99;
+        select{
+            // -webkit-appearance: none;
+            padding: .5em;
+            font-size: 16px;
+        }
+    }
+}

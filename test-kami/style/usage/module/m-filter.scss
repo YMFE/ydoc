@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+.m-tabview {
+    // do something...
+    @at-root {
+        @include yo-tab(
+            $name: filter,
+            $height: .4rem,
+            $border-width: 0 0 1px,
+            $item-border-height: .2rem,
+            $item-border-color: map-get($base, border-color)
+        );
+    }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>yo-loadtip - 加载提示</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<link rel="stylesheet" href="../../style/usage/export/yo-loadtip.css" />
+</head>
+<body>
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-loadtip</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+        <a href="../../doc/element.html#yo-loadtip" class="affirm">文档</a>
+    </header>
+    <div class="flex">
+    	<ul class="yo-list yo-list-group m-demo">
+            <li class="label">下拉刷新：</li>
+            <li class="item">
+                <div class="yo-loadtip">
+                    <i class="yo-ico">&#xf07b;</i>
+                    <div class="text">下拉刷新</div>
+                </div>
+            </li>
+            <li class="label">释放更新：</li>
+            <li class="item">
+                <div class="yo-loadtip">
+                    <i class="yo-ico">&#xf079;</i>
+                    <div class="text">释放更新</div>
+                </div>
+            </li>
+            <li class="label">加载中：</li>
+            <li class="item">
+                <div class="yo-loadtip">
+                    <i class="yo-ico yo-ico-loading">&#xf089;</i>
+                    <div class="text">加载中...</div>
+                </div>
+            </li>
+            <li class="label">加载中：</li>
+            <li class="item">
+                <div class="yo-loadtip">
+                    <i class="yo-ico yo-ico-loading">&#xf089;</i>
+                    <div class="text">
+                        加载中...
+                        <time class="time">最后更新：今天 18:27</time>
+                    </div>
+                </div>
+            </li>
+            <li class="label">更新失败：</li>
+            <li class="item">
+                <div class="yo-loadtip">
+                    <i class="yo-ico yo-ico-fail">&#xf077;</i>
+                    <div class="text">更新失败</div>
+                </div>
+            </li>
+            <li class="label">更新成功：</li>
+            <li class="item">
+                <div class="yo-loadtip">
+                    <i class="yo-ico yo-ico-succ">&#xf078;</i>
+                    <div class="text">更新成功</div>
+                </div>
+            </li>
+            <li class="label">单条加载：</li>
+            <li class="item">
+                <div class="cont flex">版本更新</div>
+                <div class="yo-loadtip">
+                    <i class="yo-ico yo-ico-loading">&#xf089;</i>
+                </div>
+            </li>
+            <li class="item item-active">
+                <span class="flex">其他</span>
+                <i class="yo-ico">&#xf07f;</i>
+            </li>
+        </ul>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-loadtip">
+    <i class="yo-ico">&#xf063;</i>
+    <div class="text">下拉刷新</div>
+</div></xmp>
+
+            <h3 class="sub-title">假设你想要多种风格，只需这样扩展：</h3>
+    <xmp>@include yo-loadtip(
+    $name: test,
+    $color: #4a87ee
+);</xmp>
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><div class="yo-loadtip yo-loadtip-test">
+    <i class="yo-ico">&#xf063;</i>
+    <div class="text">下拉刷新</div>
+</div></xmp>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>

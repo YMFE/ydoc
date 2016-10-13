@@ -1,0 +1,191 @@
+@charset "utf-8";
+/**
+ * Yo框架自定义全局函数
+ * 扩充Sass默认函数库，用以增强语法
+ */
+
+/**
+ * @module List扩展函数
+ * @description 返回SassList中的第一项
+ * @function first
+ * @version 2.1.0
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ */
+@function first($list) {
+    $length: length($list);
+    $value: "";
+
+    @if type-of($list) != list {
+        @warn "`$list` of `first($list)` must be a list type.";
+    } @else if $length == 0 {
+        @warn "`$list` of `first($list)` must not be empty.";
+    } @else {
+        $value: nth($list, 1);
+    }
+
+    @return $value;
+}
+
+/**
+ * @module List扩展函数
+ * @description 返回SassList中的最后一项
+ * @function last
+ * @version 2.1.0
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ */
+@function last($list) {
+    $length: length($list);
+    $value: "";
+
+    @if type-of($list) != list {
+        @warn "`$list` of `last($list)` must be a list type.";
+    } @else if $length == 0 {
+        @warn "`$list` of `last($list)` must not be empty.";
+    } @else {
+        $value: nth($list, -1);
+    }
+
+    @return $value;
+}
+
+/**
+ * @module List扩展函数
+ * @description 返回SassList中的倒数第几项
+ * @function nth-last
+ * @version 2.1.0
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ * @param {Integer} $index 指定需要返回的值在list中的倒数位置 <2.1.0>
+ */
+@function nth-last($list, $index) {
+    $length: length($list);
+    $value: "";
+
+    @if type-of($list) != list {
+        @warn "$list of `nth-last($list, $index)` must be a list type.";
+    } @else if type-of($index) != number {
+        @warn "$index of `nth-last($list, $index)` must be a integer.";
+    } @else if $index <= 0 {
+        @warn "$index of `nth-last($list, $index)` must be a greater than zero integer.";
+    } @else if $index > $length {
+        @warn "$index out of bounds for `nth-last($list, $index)`.";
+    } @else {
+        $value: nth($list, -$index);
+    }
+
+    @return $value;
+}
+
+/**
+ * @module List扩展函数
+ * @description 移除SassList中的某个项目并返回新的List
+ * @function remove
+ * @version 2.1.0
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ * @param {String} $value 指定需要被删除的值 <2.1.0>
+ */
+@function remove($list, $value) {
+    $new-list: ();
+    $length: length($list);
+
+    @if type-of($list) != list {
+        @warn "$list of `remove($list, $value)` must be a list type.";
+    } @else {
+        @for $i from 1 through $length {
+            @if type-of(nth($list, $i)) == list {
+                $new-list: append($new-list, remove(nth($list, $i), $value), list-separator($list));
+            } @else if nth($list, $i) != $value {
+                $new-list: append($new-list, nth($list, $i), list-separator($list));
+            }
+        }
+    }
+
+    @return $new-list;
+}
+
+/**
+ * @module List扩展函数
+ * @description 截取SassList中的某个部分并返回新的List
+ * @function slice
+ * @version 2.1.0
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ * @param {Integer} $start 指定需要截取的开始下标 <2.1.0>
+ * @param {Integer} $end 指定需要截取的结束下标（不包括end），当该值缺省时默认为末尾下标 <2.1.0>
+ */
+@function slice($list, $start, $end: length($list) + 1) {
+    $new-list: ();
+    $length: length($list);
+
+    @if type-of($list) != list {
+        @warn "$list of `slice($list, $start, $end)` must be a list type.";
+    } @else if type-of($start) != number or type-of($end) != number {
+        @warn "$strat and $end of `slice($list, $start, $end)` must be a integer.";
+    } @else if $start == 0 or $end == 0 {
+        @warn "$start and $end of `slice($list, $start, $end)` must be a non-zero integer.";
+    } @else {
+        $start: if($start < 0, $length + $start + 1, $start);
+        $end: if($end < 0, $length + $end + 1, $end);
+        @for $i from $start through $end - 1 {
+            $new-list: append($new-list, nth($list, $i), list-separator($list));
+        }
+    }
+
+    @return $new-list;
+}
+
+/**
+ * @module List扩展函数
+ * @description 从SassList中添加/删除项目，然后返回新的List。
+ * @function splice
+ * @version 2.1.0
+ * @param {String} $list 指定一个Sass List <2.1.0>
+ * @param {Integer} $index 指定需要移除的开始下标 <2.1.0>
+ * @param {Integer} $count 指定需要移除的数量，不可以为负值，0表示不移除 <2.1.0>
+ * @param {String} $values 指定需要添加的新值（可以是多个），如果该值缺省，则表示只移除不添加新值 <2.1.0>
+ */
+@function splice($list, $index, $count, $values...) {
+    $new-list: ();
+    $length: length($list);
+
+    @if type-of($list) != list {
+        @warn "$list of `splice($list, $index, $count, $values...)` must be a list type.";
+    } @else if type-of($index) != number or $index == 0 {
+        @warn "$index of `splice($list, $index, $count, $values...)` must be a non-zero integer.";
+    } @else if type-of($count) != number or $count < 0 {
+        @warn "$count of `splice($list, $index, $count, $values...)` must be a positive integer.";
+    } @else {
+        $index: if($index < 0, $length + $index + 1, $index);
+        @if $count == 0 {
+            @if $index < $length {
+                @for $i from 1 through $length {
+                    @if $i != $index {
+                        $new-list: append($new-list, nth($list, $i), list-separator($list));
+                    } @else {
+                        // 在$index位置插入新值，并且将原来位置上的值往后移一位
+                        $new-list: join($new-list, $values, list-separator($list));
+                        $new-list: append($new-list, nth($list, $i), list-separator($list));
+                    }
+                }
+            } @else {
+                @for $i from 1 through $index {
+                    @if $i < $index {
+                        $new-list: append($new-list, nth($list, $i), list-separator($list));
+                    } @else {
+                        $new-list: join($new-list, $values, list-separator($list));
+                    }
+                }
+            }
+        } @else {
+            @for $i from 1 through $length {
+                @if $i < $index {
+                    $new-list: append($new-list, nth($list, $i), list-separator($list));
+                } @else if $i == $index {
+                    $new-list: join($new-list, $values, list-separator($list));
+                } @else if $i >= ($index + $count) {
+                    $new-list: append($new-list, nth($list, $i), list-separator($list));
+                }
+            }
+        }
+    }
+
+    @return $new-list;
+}
