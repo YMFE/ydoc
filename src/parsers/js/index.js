@@ -166,8 +166,7 @@ module.exports = {
                       i++;
                   }
                   lines.push(mats[i]);
-                  console.log('lines.join=====');
-                  console.log(lines.join("\n"));
+
                   return lines.join("\n");
              });
              //console.log('afterExample===',afterExample);
@@ -207,9 +206,6 @@ module.exports = {
        }).replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
             var afterExample = mat.replace(/\@example[\s\S]+?(\@)|\@example[\s\S]+?(\!\[)|\@example[\s\S]+?(\*\/)/gm,function(item){
                  var mats = item.split("\n"),i = 1, line, indent = -1, lines = [mats[0]];
-                //  if(mats[mats.length-1].trim().indexOf("*") == 0){
-                //      lines = ["* "+mats[0]]
-                //  }
                  while (i < mats.length - 1) {
                      line = mats[i];
                      if (line.trim() != '*' && indent < 0) {
@@ -224,8 +220,6 @@ module.exports = {
                      i++;
                  }
                  lines.push(mats[i]);
-                // console.log('lines.join=====');
-                // console.log(lines.join("\n"));
                  return lines.join("\n");
             });
             //console.log('afterExample===',afterExample);
@@ -234,9 +228,6 @@ module.exports = {
             //var contents = commentParser(content);
             //console.log('contents=====',contents);
             return contents.filter(function(item) {
-                console.log('====begin====');
-                console.log(item);
-                console.log('====end=====');
                 return item.tags.every(function(tag) {
                     return tag.tag != 'skip';
                 });
