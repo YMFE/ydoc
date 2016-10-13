@@ -124,9 +124,9 @@ if (sidebar.height() > winHeight) {
                     if (top < 0) {
                         //sidebar.scrollTop(sidebar.scrollTop() + top);
                         $('.docs-sidenav').scrollTop($('.docs-sidenav').scrollTop() + top);
-                    } else if (top > winHeight - 44) {
+                    } else if (top > winHeight - 88) {
                         //sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 44);
-                        $('.docs-sidenav').scrollTop($('.docs-sidenav').scrollTop() + top - winHeight + 44);
+                        $('.docs-sidenav').scrollTop($('.docs-sidenav').scrollTop() + top - winHeight + 88);
                     }
                 }
             }
