@@ -40,7 +40,7 @@ const propTypes = {
      * @type Array
      * @description 滑动菜单按钮内容,类名,回调函数
      *
-     * ```
+     * @example
      * PropTypes.arrayOf(
      *     PropTypes.shape({
      *         text: PropTypes.string.isRequired,
@@ -48,25 +48,11 @@ const propTypes = {
      *         onTap: PropTypes.func.isRequired,
      *   })
      * )
-     * ```
-     * @ author  qingguo.
+     * 
+     * @author  qingguo.
      */
 
-     /**
-      * @property Image.resizeMode
-      * @type object
-      * @description 这个属性挂载在 Image 上，是一个静态属性，该对象中包含三个属性，
-      * 描述了三种当图片大小与容器不符时，图片的缩放方式。通常将这个属性中的值赋给组件的 resizeMode 属性
-      * - cover：按原比例伸缩图片，使图片的宽高中其一恰好等于容器的宽高，另外一个超出容器。
-      * - stretch：拉伸图片使其恰好铺满容器。
-      * - contain：按原比例伸缩图片，使其宽高中其一恰好等于容器的宽高，另外一个小于容器。
-      * - repeat: 重复图片,保持原分辨率,铺满整个区域
-      *
-      * ```
-      * <Image resizeMode={Image.resizeMode.contain} />
-      * ```
-      *
-      */
+
 
     action: PropTypes.arrayOf(
         PropTypes.shape({

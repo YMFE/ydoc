@@ -18,7 +18,12 @@
     {{/if}}
     </h3>
 </blockquote>
-<div class="api-content">{{prop.description | markdown}}</div>
+<div class="api-content">
+    <div>{{prop.description | markdown}}</div>
+    {{if prop.example}}
+    <pre class="ydoc-example"><code>{{prop.example}}</code></pre>
+    {{/if}}
+</div>
 {{if prop.default}}
 <p class="api-content">
     <small class="text-muted">默认值:</small> {{prop.default}}
