@@ -150,8 +150,8 @@
                         
                         
                         
-                        <!-- <li  > -->
-                        <li >
+                        <!-- <li  class="active"   class="active" > -->
+                        <li  class="active" >
                             
                             <a href="component-Rating.html">Rating</a>
                             
@@ -168,8 +168,8 @@
                         
                         
                         
-                        <!-- <li  class="active"   class="active" > -->
-                        <li  class="active" >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="component-SwipeMenu.html">SwipeMenu</a>
                             
@@ -265,84 +265,15 @@
                 
                 <div class="docs-section">
 <h2>
-    SwipeMenu
-    <small></small>
+    Rating
+    <small>评分组件</small>
     <span class="yo-badge yo-badge-danger">3.0.0</span>
 </h2>
-<div class="api-content"><p>SwipeMenu组件</p>
-<p>支持向右或向左单向滑动,显示菜单按钮</p>
-<p>默认拖动距离超过菜单按钮的一半时,组件自动打开,否则组件回到关闭状态</p>
-<p>组件拖动条可拖离足够远位置</p>
-<p>组件处于开启状态时,下次拖动不作响应,且组件会自动关闭,可通过轻点方式来关闭组件</p>
+<div class="api-content"><p>评分组件，既可以用来评分，也可以用来展示评分。这是一个受控的组件，当用户点击评分之后，需要通过回调设置当前的分数，否则分数不会变化。</p>
 </div>
 <div class="con-list-item">
 
 <div class="con-head">属性</div>
-
-<blockquote class="api">
-    <h3>
-    <strong>action</strong>
-     <span class="prop-type">{ Array }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>滑动菜单按钮内容,类名,回调函数</p>
-</div>
-    
-    <pre class="ydoc-example"><code> PropTypes.arrayOf(
-     PropTypes.shape({
-         text: PropTypes.string.isRequired,
-         className: PropTypes.string,
-         onTap: PropTypes.func.isRequired,
-   })
- )</code></pre>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>open</strong>
-     <span class="prop-type">{ PropTypes.bool }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>组件初始状态,是否打开</p>
-</div>
-    
-    <pre class="ydoc-example"><code> PropTypes.arrayOf(
-     PropTypes.shape({
-         text: PropTypes.string.isRequired,
-         className: PropTypes.string,
-         onTap: PropTypes.func.isRequired,
-   })
- )</code></pre>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>direction</strong>
-     <span class="prop-type">{ PropTypes.oneOf(['left', 'right']) }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>拖动方向</p>
-</div>
-    
-</div>
-
-<p class="api-content">
-    <small class="text-muted">默认值:</small> left
-</p>
-
-
 
 <blockquote class="api">
     <h3>
@@ -352,7 +283,7 @@
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>额外样式类</p>
+    <div><p>为组件根节点提供额外的class。</p>
 </div>
     
 </div>
@@ -361,106 +292,75 @@
 
 <blockquote class="api">
     <h3>
-    <strong>disable</strong>
+    <strong>total</strong>
+     <span class="prop-type">{ PropTypes.number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>总的评分数，即图标的总数量。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 5
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>value</strong>
+     <span class="prop-type">{ PropTypes.number }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>当前的分数，即点亮的图标数。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 0
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>readonly</strong>
      <span class="prop-type">{ PropTypes.bool }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>组件是否可用</p>
+    <div><p>是否只读。当为 <code>true</code> 的时候，只能展示评分，不能点击；当为 <code>false</code> 的时候，可以点击评分</p>
 </div>
     
 </div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> false
+</p>
 
 
 
 <blockquote class="api">
     <h3>
-    <strong>onTouchStart</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
+    <strong>onValueChange</strong>
+     <span class="prop-type">{ Function }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>touchStart时期触发的回调</p>
+    <div><p>(value) =&gt; void</p>
+<p>点击评分的回调。由于 <code>Number</code> 是一个受控的组件，需要在该回调中设置 value 参数。</p>
 </div>
     
 </div>
 
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onTouchMove</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>touchMove时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onTouchEnd</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>touchEnd时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onOpen</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>按钮打开时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onClose</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>按钮关闭时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-
-
-<div class="con-head">方法</div>
-
-<blockquote class="api">
-    <h3>
-    <strong>组件打开,是否无过渡动画
-返回给外部的回调函数, 为swipeMenuList特制,</strong>
-    
-    </h3>
-</blockquote>
-<div class="api-content"></div>
 
 <p class="api-content">
     <small class="text-muted">方法参数:</small>
@@ -484,55 +384,9 @@
         </thead>
         
         <tr>
-            <td>isClearTransition</td>
-            <td></td>
-            <td>{Boolean} 默认false, 有过渡动画</td>
-            <td>
-                
-                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
-            </td>
-            <td></td>
-        </tr>
-        
-    </table>
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>组件关闭,无过渡动画
-返回给外部的回调函数, 为swipeMenuList特制,</strong>
-    
-    </h3>
-</blockquote>
-<div class="api-content"></div>
-
-<p class="api-content">
-    <small class="text-muted">方法参数:</small>
-</p>
-<div class="docs-table api-content">
-    <table class="yo-table yo-table-border">
-        <colgroup>
-            <col class="c1">
-            <col class="c2">
-            <col class="c3">
-            <col class="c4">
-        </colgroup>
-        <thead>
-            <tr class="active">
-                <th>参数名</th>
-                <th>类型</th>
-                <th>描述</th>
-                <th>必选</th>
-                <th>版本</th>
-            </tr>
-        </thead>
-        
-        <tr>
-            <td>isClearTransition</td>
-            <td></td>
-            <td>{Boolean}</td>
+            <td>value</td>
+            <td>number</td>
+            <td>当前点击的分数</td>
             <td>
                 
                 <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 

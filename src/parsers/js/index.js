@@ -145,34 +145,7 @@ module.exports = {
     parser: function(contents, options, conf) {
         var fn = execFns[options.type || 'component'];
         return fn ? fn(contents.map(function(content) {
-        //    console.log('content===',content);
-        var aa = content.replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
-             var afterExample = mat.replace(/\@example[\s\S]+?(\@)|\@example[\s\S]+?(\!\[)|\@example[\s\S]+?(\*\/)/gm,function(item){
-                  var mats = item.split("\n"),i = 1, line, indent = -1, lines = [mats[0]];
-                  if(mats[mats.length-1].trim().indexOf("*") == 0){
-                      lines = ["* "+mats[0]]
-                  }
-                  while (i < mats.length - 1) {
-                      line = mats[i];
-                      if (line.trim() != '*' && indent < 0) {
-                          indent = line.trim().match(/[^*\S]+/g).length;
-                      }
-                      if (indent > -1) {
-                          line = line.trim().substring(0, indent) + " " +line.trim().substring(indent).replace(/^[ ]+/g, function(mat) {
-                              return mat.length + 'space';
-                          })
-                      };
-                      lines.push(line);
-                      i++;
-                  }
-                  lines.push(mats[i]);
-
-                  return lines.join("\n");
-             });
-             //console.log('afterExample===',afterExample);
-             return afterExample;
-         });
-         console.log('aa===',aa);
+        
         var contents = commentParser(content.replace(/(```[\s\S]+?```)/gm, function(mat){
             var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
             /* 匹配js文件下，code情况

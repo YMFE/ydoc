@@ -90,7 +90,8 @@ docSideNav.width(ydocContainerCon.width()*0.25);
 if (sidebar.height() > winHeight) {
 
     sidebar.css('max-height', winHeight + 'px');
-    sidebar.css({'overflow-y':'scroll','overflow-x':'hidden'});
+    $('.docs-sidenav').css('max-height', winHeight + 'px');
+    $('.docs-sidenav').css({'overflow-y':'scroll','overflow-x':'hidden'});
 
     var activeMenu,
         barScroll = false;
@@ -107,9 +108,11 @@ if (sidebar.height() > winHeight) {
         if( $(this).scrollTop() >  ($('.footer').offset().top - $(window).height()) ){
             winHeight = $(window).height() - $('.footer').outerHeight()-44,
             sidebar.css('max-height', winHeight + 'px');
+            $('.docs-sidenav').css('max-height', winHeight + 'px');
         }else{
             winHeight = $(window).height() - 44;
             sidebar.css('max-height', winHeight + 'px');
+            $('.docs-sidenav').css('max-height', winHeight + 'px');
         }
 
         if (!barScroll) {
@@ -119,9 +122,11 @@ if (sidebar.height() > winHeight) {
                     activeMenu = activeItem;
                     var top = activeMenu.offset().top - sidebar.offset().top;
                     if (top < 0) {
-                        sidebar.scrollTop(sidebar.scrollTop() + top);
+                        //sidebar.scrollTop(sidebar.scrollTop() + top);
+                        $('.docs-sidenav').scrollTop($('.docs-sidenav').scrollTop() + top);
                     } else if (top > winHeight - 44) {
-                        sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 44);
+                        //sidebar.scrollTop(sidebar.scrollTop() + top - winHeight + 44);
+                        $('.docs-sidenav').scrollTop($('.docs-sidenav').scrollTop() + top - winHeight + 44);
                     }
                 }
             }

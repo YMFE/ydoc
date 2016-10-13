@@ -168,8 +168,8 @@
                         
                         
                         
-                        <!-- <li  class="active"   class="active" > -->
-                        <li  class="active" >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="component-SwipeMenu.html">SwipeMenu</a>
                             
@@ -240,8 +240,8 @@
                         
                         
                         
-                        <!-- <li  > -->
-                        <li >
+                        <!-- <li  class="active"   class="active" > -->
+                        <li  class="active" >
                             
                             <a href="component-Tab.html">Tab</a>
                             
@@ -265,81 +265,228 @@
                 
                 <div class="docs-section">
 <h2>
-    SwipeMenu
+    Tab, TabLink
     <small></small>
-    <span class="yo-badge yo-badge-danger">3.0.0</span>
+    
 </h2>
-<div class="api-content"><p>SwipeMenu组件</p>
-<p>支持向右或向左单向滑动,显示菜单按钮</p>
-<p>默认拖动距离超过菜单按钮的一半时,组件自动打开,否则组件回到关闭状态</p>
-<p>组件拖动条可拖离足够远位置</p>
-<p>组件处于开启状态时,下次拖动不作响应,且组件会自动关闭,可通过轻点方式来关闭组件</p>
-</div>
+<div class="api-content"></div>
 <div class="con-list-item">
 
 <div class="con-head">属性</div>
 
 <blockquote class="api">
     <h3>
-    <strong>action</strong>
-     <span class="prop-type">{ Array }</span>
+    <strong>index</strong>
+     <span class="prop-type">{ PropTypes.oneOf(['now', '']) }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>滑动菜单按钮内容,类名,回调函数</p>
-</div>
-    
-    <pre class="ydoc-example"><code> PropTypes.arrayOf(
-     PropTypes.shape({
-         text: PropTypes.string.isRequired,
-         className: PropTypes.string,
-         onTap: PropTypes.func.isRequired,
-   })
- )</code></pre>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>open</strong>
-     <span class="prop-type">{ PropTypes.bool }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>组件初始状态,是否打开</p>
-</div>
-    
-    <pre class="ydoc-example"><code> PropTypes.arrayOf(
-     PropTypes.shape({
-         text: PropTypes.string.isRequired,
-         className: PropTypes.string,
-         onTap: PropTypes.func.isRequired,
-   })
- )</code></pre>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>direction</strong>
-     <span class="prop-type">{ PropTypes.oneOf(['left', 'right']) }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>拖动方向</p>
+    <div><p>TabLink属性：在需要选中的项中添加属性 index = &#39;now&#39;</p>
 </div>
     
 </div>
 
 <p class="api-content">
-    <small class="text-muted">默认值:</small> left
+    <small class="text-muted">默认值:</small> ''
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>icon</strong>
+     <span class="prop-type">{ PropTypes.string }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>TabLink属性：图片地址src或iconFont编码，iconFont编码直接传unicode字符即可，如&#39;\uF000&#39;</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> ''
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>text</strong>
+     <span class="prop-type">{ PropTypes.string }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>TabLink属性：与图标搭配的文字</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> ''
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>disabled</strong>
+     <span class="prop-type">{ PropTypes.bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>TabLink属性：锁定，禁用点击切换及其事件响应</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> false
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onTouchTap</strong>
+     <span class="prop-type">{ function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>TabLink属性：tap事件结束时时行回调的事件</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> null
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>data</td>
+            <td>PropTypes.object</td>
+            <td>该Tab存储的数据</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>event</td>
+            <td>PropTypes.object</td>
+            <td>点击该Tab的事件</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+<blockquote class="api">
+    <h3>
+    <strong>dataAttrs</strong>
+     <span class="prop-type">{ PropTypes.object }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>TabLink属性：可以将数据存在该对象里面，然后在事件中通过第二个参数(dataAttrs)获取存储的数据</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> {}
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>theme</strong>
+     <span class="prop-type">{ PropTypes.oneOf(['iconSingle', 'iconCol', 'iconRow', 'iconNone']) }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>Tab属性：有四类风格，依次为“只有图标”、“图标文字纵向排列”、“图标文字横向排列”、“只有文字，无图标”</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 'iconNone'
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>part</strong>
+     <span class="prop-type">{ PropTypes.bool }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>Tab属性：默认为全屏展示，设置为false为局部居中展示</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> false
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>iconExtraClass</strong>
+     <span class="prop-type">{ PropTypes.string }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>Tab属性：可通过传入额外的类来支持iconfont等等</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> ''
 </p>
 
 
@@ -352,196 +499,15 @@
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>额外样式类</p>
+    <div><p>Tab属性：可通过传入额外的类来调整样式</p>
 </div>
     
 </div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>disable</strong>
-     <span class="prop-type">{ PropTypes.bool }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>组件是否可用</p>
-</div>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onTouchStart</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>touchStart时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onTouchMove</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>touchMove时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onTouchEnd</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>touchEnd时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onOpen</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>按钮打开时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onClose</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>按钮关闭时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-
-
-<div class="con-head">方法</div>
-
-<blockquote class="api">
-    <h3>
-    <strong>组件打开,是否无过渡动画
-返回给外部的回调函数, 为swipeMenuList特制,</strong>
-    
-    </h3>
-</blockquote>
-<div class="api-content"></div>
 
 <p class="api-content">
-    <small class="text-muted">方法参数:</small>
+    <small class="text-muted">默认值:</small> ''
 </p>
-<div class="docs-table api-content">
-    <table class="yo-table yo-table-border">
-        <colgroup>
-            <col class="c1">
-            <col class="c2">
-            <col class="c3">
-            <col class="c4">
-        </colgroup>
-        <thead>
-            <tr class="active">
-                <th>参数名</th>
-                <th>类型</th>
-                <th>描述</th>
-                <th>必选</th>
-                <th>版本</th>
-            </tr>
-        </thead>
-        
-        <tr>
-            <td>isClearTransition</td>
-            <td></td>
-            <td>{Boolean} 默认false, 有过渡动画</td>
-            <td>
-                
-                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
-            </td>
-            <td></td>
-        </tr>
-        
-    </table>
-</div>
 
-
-
-<blockquote class="api">
-    <h3>
-    <strong>组件关闭,无过渡动画
-返回给外部的回调函数, 为swipeMenuList特制,</strong>
-    
-    </h3>
-</blockquote>
-<div class="api-content"></div>
-
-<p class="api-content">
-    <small class="text-muted">方法参数:</small>
-</p>
-<div class="docs-table api-content">
-    <table class="yo-table yo-table-border">
-        <colgroup>
-            <col class="c1">
-            <col class="c2">
-            <col class="c3">
-            <col class="c4">
-        </colgroup>
-        <thead>
-            <tr class="active">
-                <th>参数名</th>
-                <th>类型</th>
-                <th>描述</th>
-                <th>必选</th>
-                <th>版本</th>
-            </tr>
-        </thead>
-        
-        <tr>
-            <td>isClearTransition</td>
-            <td></td>
-            <td>{Boolean}</td>
-            <td>
-                
-                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
-            </td>
-            <td></td>
-        </tr>
-        
-    </table>
-</div>
 
 
 

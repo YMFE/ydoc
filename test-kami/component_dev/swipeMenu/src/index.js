@@ -48,7 +48,7 @@ const propTypes = {
      *         onTap: PropTypes.func.isRequired,
      *   })
      * )
-     * 
+     *
      * @author  qingguo.
      */
 
@@ -65,6 +65,14 @@ const propTypes = {
      * @property open
      * @description 组件初始状态,是否打开
      * @type PropTypes.bool
+     * @example
+     * PropTypes.arrayOf(
+     *     PropTypes.shape({
+     *         text: PropTypes.string.isRequired,
+     *         className: PropTypes.string,
+     *         onTap: PropTypes.func.isRequired,
+     *   })
+     * )
      */
     open: PropTypes.bool,
     /**

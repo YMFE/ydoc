@@ -168,8 +168,8 @@
                         
                         
                         
-                        <!-- <li  class="active"   class="active" > -->
-                        <li  class="active" >
+                        <!-- <li  > -->
+                        <li >
                             
                             <a href="component-SwipeMenu.html">SwipeMenu</a>
                             
@@ -204,8 +204,8 @@
                         
                         
                         
-                        <!-- <li  > -->
-                        <li >
+                        <!-- <li  class="active"   class="active" > -->
+                        <li  class="active" >
                             
                             <a href="component-Number.html">Number</a>
                             
@@ -265,15 +265,16 @@
                 
                 <div class="docs-section">
 <h2>
-    SwipeMenu
+    Number
     <small></small>
     <span class="yo-badge yo-badge-danger">3.0.0</span>
 </h2>
-<div class="api-content"><p>SwipeMenu组件</p>
-<p>支持向右或向左单向滑动,显示菜单按钮</p>
-<p>默认拖动距离超过菜单按钮的一半时,组件自动打开,否则组件回到关闭状态</p>
-<p>组件拖动条可拖离足够远位置</p>
-<p>组件处于开启状态时,下次拖动不作响应,且组件会自动关闭,可通过轻点方式来关闭组件</p>
+<div class="api-content"><p>可设置组件显示的最大值、最小值,每次增加或减少的步长</p>
+<p>每次点击加减按钮,数字加减一次步长,超过设置范围,按钮不可点击</p>
+<p>同时,可手动输入任意字符,若输入的不是数字,会自动回退到之前的数字,</p>
+<p>超过边界值,会自动设定为边界值。</p>
+<p>如果输入&#39;-&#39;或&#39;0&#39;,会自动格式化符合格式的0。</p>
+<p>支持小数、负数形式</p>
 </div>
 <div class="con-list-item">
 
@@ -281,65 +282,95 @@
 
 <blockquote class="api">
     <h3>
-    <strong>action</strong>
-     <span class="prop-type">{ Array }</span>
+    <strong>value</strong>
+     <span class="prop-type">{ {number} }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>滑动菜单按钮内容,类名,回调函数</p>
-</div>
-    
-    <pre class="ydoc-example"><code> PropTypes.arrayOf(
-     PropTypes.shape({
-         text: PropTypes.string.isRequired,
-         className: PropTypes.string,
-         onTap: PropTypes.func.isRequired,
-   })
- )</code></pre>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>open</strong>
-     <span class="prop-type">{ PropTypes.bool }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>组件初始状态,是否打开</p>
-</div>
-    
-    <pre class="ydoc-example"><code> PropTypes.arrayOf(
-     PropTypes.shape({
-         text: PropTypes.string.isRequired,
-         className: PropTypes.string,
-         onTap: PropTypes.func.isRequired,
-   })
- )</code></pre>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>direction</strong>
-     <span class="prop-type">{ PropTypes.oneOf(['left', 'right']) }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>拖动方向</p>
+    <div><p>number显示的值</p>
 </div>
     
 </div>
 
 <p class="api-content">
-    <small class="text-muted">默认值:</small> left
+    <small class="text-muted">默认值:</small> 0
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>step</strong>
+     <span class="prop-type">{ {Number} }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>单次加减的步长</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 1
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>min</strong>
+     <span class="prop-type">{ {Number} }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>最小值</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> -10000
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>max</strong>
+     <span class="prop-type">{ {Number} }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>最大值</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 10000
+</p>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>dotNum</strong>
+     <span class="prop-type">{ {Number} }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>显示的小数位数</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> 0, 不显示小数
 </p>
 
 
@@ -347,12 +378,12 @@
 <blockquote class="api">
     <h3>
     <strong>extraClass</strong>
-     <span class="prop-type">{ PropTypes.string }</span>
+     <span class="prop-type">{ {String} }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>额外样式类</p>
+    <div><p>额外样式类名</p>
 </div>
     
 </div>
@@ -362,186 +393,54 @@
 <blockquote class="api">
     <h3>
     <strong>disable</strong>
-     <span class="prop-type">{ PropTypes.bool }</span>
+     <span class="prop-type">{ {Boolean} }</span>
     
     </h3>
 </blockquote>
 <div class="api-content">
-    <div><p>组件是否可用</p>
+    <div><p>组件可不可用</p>
 </div>
     
 </div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onTouchStart</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>touchStart时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onTouchMove</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>touchMove时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onTouchEnd</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>touchEnd时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onOpen</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>按钮打开时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-<blockquote class="api">
-    <h3>
-    <strong>onClose</strong>
-     <span class="prop-type">{ PropTypes.func }</span>
-    
-    </h3>
-</blockquote>
-<div class="api-content">
-    <div><p>按钮关闭时期触发的回调</p>
-</div>
-    
-</div>
-
-
-
-
-
-<div class="con-head">方法</div>
-
-<blockquote class="api">
-    <h3>
-    <strong>组件打开,是否无过渡动画
-返回给外部的回调函数, 为swipeMenuList特制,</strong>
-    
-    </h3>
-</blockquote>
-<div class="api-content"></div>
 
 <p class="api-content">
-    <small class="text-muted">方法参数:</small>
+    <small class="text-muted">默认值:</small> false
 </p>
-<div class="docs-table api-content">
-    <table class="yo-table yo-table-border">
-        <colgroup>
-            <col class="c1">
-            <col class="c2">
-            <col class="c3">
-            <col class="c4">
-        </colgroup>
-        <thead>
-            <tr class="active">
-                <th>参数名</th>
-                <th>类型</th>
-                <th>描述</th>
-                <th>必选</th>
-                <th>版本</th>
-            </tr>
-        </thead>
-        
-        <tr>
-            <td>isClearTransition</td>
-            <td></td>
-            <td>{Boolean} 默认false, 有过渡动画</td>
-            <td>
-                
-                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
-            </td>
-            <td></td>
-        </tr>
-        
-    </table>
-</div>
 
 
 
 <blockquote class="api">
     <h3>
-    <strong>组件关闭,无过渡动画
-返回给外部的回调函数, 为swipeMenuList特制,</strong>
+    <strong>inputDisable</strong>
+     <span class="prop-type">{ {Boolean} }</span>
     
     </h3>
 </blockquote>
-<div class="api-content"></div>
+<div class="api-content">
+    <div><p>是否可以手动输入修改数字</p>
+</div>
+    
+</div>
 
 <p class="api-content">
-    <small class="text-muted">方法参数:</small>
+    <small class="text-muted">默认值:</small> false
 </p>
-<div class="docs-table api-content">
-    <table class="yo-table yo-table-border">
-        <colgroup>
-            <col class="c1">
-            <col class="c2">
-            <col class="c3">
-            <col class="c4">
-        </colgroup>
-        <thead>
-            <tr class="active">
-                <th>参数名</th>
-                <th>类型</th>
-                <th>描述</th>
-                <th>必选</th>
-                <th>版本</th>
-            </tr>
-        </thead>
-        
-        <tr>
-            <td>isClearTransition</td>
-            <td></td>
-            <td>{Boolean}</td>
-            <td>
-                
-                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
-            </td>
-            <td></td>
-        </tr>
-        
-    </table>
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>onChange</strong>
+     <span class="prop-type">{ {Function} }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>修改数字时触发的回调函数</p>
 </div>
+    
+</div>
+
 
 
 
