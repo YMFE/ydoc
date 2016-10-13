@@ -1,0 +1,9 @@
+@import "../../picker/src/style";
+.yo-datepicker,
+.yo-timepicker {
+    @include flexbox();
+    @include flex-wrap(nowrap);
+    .yo-picker {
+        @include flex(1);
+    }
+}

@@ -1,0 +1,108 @@
+@import "../../../style/usage/core/reset";
+@import "../../list/src/style";
+@import "../../../style/lib/ani/fade-in-right";
+
+.multiList-container {
+  -webkit-box-flex:1;
+  -webkit-flex:1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.multiList-listContainer {
+  $line-clolr: #ccc;
+  position: relative;
+  // width: 24%;
+  min-width: 90px;
+  max-width: 90px;
+  @include flex(1);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  background-color: #fff;
+  overflow: hidden;
+  .yo-list > .item {
+    text-indent: 0.08rem;
+    padding: 0;
+
+    p {
+      padding: 11px 10px 12px;
+      width: 100%;
+    }
+
+    .effect {
+      position: relative;
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 7%;
+        @include transform(translateY(-50%));
+        background-color: #0faad6;
+        height: 6px;
+        width: 6px;
+        border-radius: 50%;
+        content: ' ';
+      }
+    }
+
+    &:after {
+      left: 0.18rem;
+    }
+
+    .spread-item {
+      text-indent: 0.02rem;
+      background-color: #fafafa;
+      @include border( $border-width: 1px 1px 0 0 );
+    }
+
+  }
+
+  &:first-child {
+    background-color: #fafafa;
+
+    .yo-list > .item {
+      text-indent: 0.02rem;
+      background-color: #fafafa;
+
+      p {
+        padding-left: 15px;
+      }
+
+      &::after {
+        left: 0;
+      }
+
+      .spread {
+        background-color: #fff;
+
+        &:after {
+          content: '';
+        }
+      }
+    }
+  }
+
+  &:last-child {
+    @include flex(2);
+    width: auto;
+    max-width: none;
+    .yo-list > .item {
+      text-indent: 0.25rem;
+      .checked {
+        color: #0faad6;
+        &:before {
+          content: '√';
+          position: absolute;
+          top: 0;
+          left: 0;
+          line-height: 44px;
+        }
+      }
+      &::after {
+        left: 0.35rem;
+      }
+    }
+  }
+}

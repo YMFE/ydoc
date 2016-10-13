@@ -1,0 +1,23 @@
+@charset "utf-8";
+@import "../../../style/usage/core/reset";
+@import "../../../style/usage/element/yo-switch";
+
+@include yo-switch() {
+    .track.moving {
+        &::after {
+            @include transform(scale3d(0, 0, 0));
+        }
+        > .handle {
+            width: 0.34rem;
+        }
+    }
+    > input:checked + .track > .handle {
+        @include transition(all .1s ease-in-out);
+        @include transform-origin(right);
+    }
+    > .track {
+        > .handle {
+            border-radius: .14rem;
+        }
+    }
+}

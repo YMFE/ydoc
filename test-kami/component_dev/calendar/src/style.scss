@@ -1,0 +1,19 @@
+@import "../../grouplist/src/style";
+@import "../../../style/usage/core/reset";
+@import '../../../style/usage/fragment/yo-calendar';
+
+.calendar-init {
+    margin-top: .22rem;
+
+    .yo-list {
+        .item {
+            display: initial;
+            padding: 0;
+        }
+
+        .group-title {
+            display: block;
+            background-color: #f9f9f9;
+        }
+    }
+}

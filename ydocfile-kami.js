@@ -11,9 +11,9 @@ module.exports = function() {
         },
         "common": {
             "title": "Kami",
-            "footer": "© 2015 - 2016 Qunar 平台前端架构组. Powered by <a href=\"http://gitlab.corp.qunar.com/mfe/qdoc\">qdoc</a>",
-            "home": "HY",
-            "homeUrl": "http://ued.qunar.com/hy/",
+            "footer": "© 2016 <a href=\"http://gitlab.corp.qunar.com/mfe/qdoc\">YMFE</a> Team. Build by <a href=\"https://github.com/YMFE/ydoc\">ydoc</a>.",
+            "home": "Qunar MFE",
+            "homeUrl": "http://ued.qunar.com/ymfe/",
             "navbars": []
         },
         "pages": [{
