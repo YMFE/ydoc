@@ -26,7 +26,7 @@ var execFns = {
             props: [],
             methods: []
         },
-        fm = options.format && formatter
+        fm = options.format && formatter;
         contents.forEach(function(commentList, index) {
             var filePath = options.files[index].substring(1);
             commentList.forEach(function(comment) {
@@ -49,6 +49,7 @@ var execFns = {
         };
     },
     'lib': function(contents, options, conf) {
+
         var ret = {
             type: 'html',
             content: '',
@@ -113,7 +114,6 @@ var execFns = {
                 list: contentMapping[category]
             });
         });
-
         content.forEach(function(cont) {
             ret.sidebars.push({
                 name: cont.name,
@@ -143,23 +143,35 @@ module.exports = {
         var fn = execFns[options.type || 'component'];
         return fn ? fn(contents.map(function(content) {
         var contents = commentParser(content.replace(/(```[\s\S]+?```)/gm, function(mat){
-             var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
-             while (i < mats.length - 1) {
-                 line = mats[i];
-                 if (line.trim() != '*' && indent < 0) {
-                     indent = line.match(/[^*\S]+/g).length;
-                 }
-                 if (indent > -1) {
-                     line = line.substring(0, indent) + line.substring(indent).replace(/^[ ]+/g, function(mat) {
-                         return mat.length + 'space';
-                     })
-                 };
-                 lines.push(line);
-                 i++;
-             }
-             lines.push(mats[i]);
-             return lines.join("\n");
-        }).replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
+            var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
+            /* 匹配js文件下，code情况
+            * @description text
+            * ```
+            * code
+            * ```
+            */
+            if(mats[mats.length-1].trim().indexOf("*") == 0){
+                lines = ["* "+mats[0]]
+            }
+            while (i < mats.length - 1) {
+                line = mats[i];
+                if (line.trim() != '*' && indent < 0) {
+                    indent = line.match(/[^*\S]+/g).length;
+                }
+                if (indent > -1) {
+                    var subLine = line.indexOf("*")+1;
+                    if(subLine >= 1){
+                        line = line.substring(0, subLine) + line.substring(subLine).replace(/^[ ]+/g, function(mat) {
+                            return ' '+ mat.length + 'space';
+                        })
+                    }
+                };
+                lines.push(line);
+                i++;
+            }
+            lines.push(mats[i]);
+            return lines.join("\n");
+       }).replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
             var afterExample = mat.replace(/\@example[\s\S]+?(\@)|\@example[\s\S]+?(\!\[)|\@example[\s\S]+?(\*\/)/gm,function(item){
                  var mats = item.split("\n"),i = 1, line, indent = -1, lines = [mats[0]];
                  while (i < mats.length - 1) {
@@ -168,8 +180,8 @@ module.exports = {
                          indent = line.trim().match(/[^*\S]+/g).length;
                      }
                      if (indent > -1) {
-                         line = line.trim().substring(0, indent) + line.trim().substring(indent).replace(/^[ ]+/g, function(mat) {
-                             return mat.length + 'space';
+                         line = line.trim().substring(0, indent) +line.trim().substring(indent).replace(/^[ ]+/g, function(mat) {
+                             return ' ' + mat.length + 'space';
                          })
                      };
                      lines.push(line);

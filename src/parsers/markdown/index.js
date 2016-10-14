@@ -18,7 +18,12 @@ function parser(contents, options) {
                 sub: true
             });
         }
-        return '<h' + level + ' id="' + text + '">' + text + '</h' + level + '>';
+        if(text.match(/<.*>/) && (text.match(/<.*>/).length > 0)){
+            return '<h' + level + '>' + text + '</h' + level + '>';
+        }else{
+            return '<h' + level + ' id="' + text + '">' + text + '</h' + level + '>';
+        }
+
     };
     renderer.link = function(href, title, text) {
         if (this.options.sanitize) {

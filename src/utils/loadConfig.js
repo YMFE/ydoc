@@ -4,7 +4,7 @@ var fs = require('fs'),
 
 module.exports = function(cwd, callback) {
     var confPath = sysPath.join(cwd, 'ydoc.config'),
-        confJSPath = sysPath.join(cwd, 'ydocfile-yo.js'),
+        confJSPath = sysPath.join(cwd, 'ydocfile.js'),
         conf;
     if (fs.existsSync(confPath)) {
         try {

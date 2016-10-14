@@ -75,8 +75,11 @@ module.exports = function (comment, path, conf, formatter, content) {
             case 'example':
                 // jsx
                 if (content.indexOf('./') == 0) {
-
-                    var fp = sysPath.join(conf.cwd, conf.examplePath, content.split('[')[0]);
+                    if(conf.examplePath){
+                        var fp = sysPath.join(conf.cwd, conf.examplePath, content.split('[')[0]);
+                    }else{
+                        var fp = sysPath.join(conf.cwd, content.split('[')[0]);
+                    }
                     if (fs.existsSync(fp)) {
                         var ct = fs.readFileSync(fp, 'UTF-8');
                         var lines = (content.split('[')[1] || '').split(']')[0].split('-').map(function(item) {

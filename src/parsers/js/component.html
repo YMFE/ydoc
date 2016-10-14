@@ -18,7 +18,12 @@
     {{/if}}
     </h3>
 </blockquote>
-<div class="api-content">{{prop.description | markdown}}</div>
+<div class="api-content">
+    <div>{{prop.description | markdown}}</div>
+    {{if prop.example}}
+    <pre class="ydoc-example"><code>{{prop.example}}</code></pre>
+    {{/if}}
+</div>
 {{if prop.default}}
 <p class="api-content">
     <small class="text-muted">默认值:</small> {{prop.default}}
@@ -59,6 +64,13 @@
         {{/each}}
     </table>
 </div>
+{{/if}}
+{{if prop.returns}}
+<p class="api-content">
+    <small class="text-muted">返回值:</small>
+    <mark>{{prop.returns.type}}</mark>
+    {{prop.returns.name}}
+</p>
 {{/if}}
 {{/each}}
 {{/if}}
@@ -109,6 +121,7 @@
         {{/each}}
     </table>
 </div>
+{{/if}}
 {{if method.returns}}
 <p class="api-content">
     <small class="text-muted">返回值:</small>
@@ -116,6 +129,8 @@
     {{method.returns.name}}
 </p>
 {{/if}}
+{{if method.example}}
+<pre class="ydoc-example"><code>{{method.example}}</code></pre>
 {{/if}}
 {{/each}}
 {{/if}}

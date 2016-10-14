@@ -5,6 +5,7 @@
 node_modules
 node_modules/
 .sass-cache/
+<<<<<<< HEAD
 test-kami/
 test-qapp/
 test-qrn/
@@ -20,6 +21,10 @@ _docs-qapp/
 _docs-qrn/
 _docs-reactweb/
 _docs-yo/
+=======
+
+
+>>>>>>> dev-for-test
 
 # maven ignore
 target/
