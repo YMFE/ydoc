@@ -7,13 +7,8 @@ $(document).ready(function() {
         $(this).next(".ydoc-nav").toggle();
     });
   $('.docs-sidenav li').click(function(e){
-    //   e.preventdefault();
-    //   e.stopPropagation();
-    //   var link = $(this).attr('href'),url = window.location.href;
         $('.docs-sidenav li').removeClass('active');
         $(this).addClass('active');
-    //    window.location.href = url + link;
-    //   $(window).scrollTop($(window).scrollTop()+40);
   });
   // 折叠code
   $('.markdown-body pre').map(function(i,item){
@@ -88,11 +83,9 @@ var  ydocContainerCon= $('.ydoc-container-content');
 docSideNav.width(ydocContainerCon.width()*0.25);
 
 if (sidebar.height() > winHeight) {
-
     sidebar.css('max-height', winHeight + 'px');
     $('.docs-sidenav').css('max-height', winHeight + 'px');
     $('.docs-sidenav').css({'overflow-y':'scroll','overflow-x':'hidden'});
-
     var activeMenu,
         barScroll = false;
 
@@ -133,9 +126,39 @@ if (sidebar.height() > winHeight) {
         }
     });
     $(window).on('resize', function(e){
-        var docSideNav = $('.docs-sidenav');
-        var  ydocContainerCon= $('.ydoc-container-content');
-        docSideNav.width(ydocContainerCon.width()*0.25);
-
+        resizeSidebar();
     })
+}
+
+function resizeSidebar(){
+    var winHeight = $(window).height() - 44,
+        sidebar = $('.docs-sidebar');
+    var docSideNav = $('.docs-sidenav');
+    var  ydocContainerCon= $('.ydoc-container-content');
+    docSideNav.width(ydocContainerCon.width()*0.25);
+    if (sidebar.height() > winHeight) {
+        sidebar.css('max-height', winHeight + 'px');
+        $('.docs-sidenav').css('max-height', winHeight + 'px');
+        $('.docs-sidenav').css({'overflow-y':'scroll','overflow-x':'hidden'});
+        var activeMenu,
+            barScroll = false;
+
+        sidebar.on('mouseover', function() {
+            barScroll = true;
+        });
+
+        sidebar.on('mouseout', function() {
+            barScroll = false;
+        });
+        // scroll
+        if( $(window).scrollTop() >  ($('.footer').offset().top - $(window).height()) ){
+            winHeight = $(window).height() - $('.footer').outerHeight()-44,
+            sidebar.css('max-height', winHeight + 'px');
+            $('.docs-sidenav').css('max-height', winHeight + 'px');
+        }else{
+            winHeight = $(window).height() - 44;
+            sidebar.css('max-height', winHeight + 'px');
+            $('.docs-sidenav').css('max-height', winHeight + 'px');
+        }
+    }
 }

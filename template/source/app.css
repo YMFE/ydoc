@@ -293,15 +293,13 @@ sup, sub {
       .ydoc-container-content .docs-sidebar.affix-bottom {
         position: absolute; }
       .ydoc-container-content .docs-section {
-        margin: 0 10px;
-        overflow: hidden;
-        clear: both; }
-    .ydoc-container-content-hassidebar:before {
+        margin: 10px; }
+    .ydoc-container .docs-sidebar:before {
       height: 100%;
       background-color: #eee;
       width: 1px;
       position: absolute;
-      left: 25%;
+      right: 0;
       display: block;
       min-height: 500px;
       z-index: 99;
