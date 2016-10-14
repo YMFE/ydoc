@@ -5,32 +5,7 @@
 node_modules
 node_modules/
 .sass-cache/
-test-hysdk/
-test-hytive/
-test-kami/
-test-qapp/
-test-qrn/
-test-reactweb/
-test-yo/
-test-yocomponent/
-ydocfile-hysdk.js
-ydocfile-hytive.js
-ydocfile-kami.js
-ydocfile-qapp.js
-ydocfile-qrn.js
-ydocfile-qunarapi.js
-ydocfile-reactweb.js
-ydocfile-yo.js
-ydocfile-yocomponent.js
-_docs-hysdk/
-_docs-hytive/
-_docs-kami/
-_docs-qapp/
-_docs-qrn/
-_docs-qunarApi/
-_docs-reactweb/
-_docs-yo/
-_docs-yocomponent/
+
 
 
 # maven ignore

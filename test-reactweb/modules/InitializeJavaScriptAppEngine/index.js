@@ -1,4 +1,0 @@
-/* 
- * @providesModule InitializeJavaScriptAppEngine
- */
-module.exports = {}
