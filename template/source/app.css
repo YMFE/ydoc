@@ -64,6 +64,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 mark {
   background-color: transparent; }
 
+mark,
+.mark {
+  background-color: #fcf8e3;
+  padding: .2em; }
+
 a, ins, s, u, del {
   text-decoration: none; }
 

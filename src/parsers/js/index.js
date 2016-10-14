@@ -30,14 +30,11 @@ var execFns = {
         contents.forEach(function(commentList, index) {
             var filePath = options.files[index].substring(1);
             commentList.forEach(function(comment) {
-                //console.log("comment",comment);
                 switch (getCommentType(comment, componentKeywords)) {
                     case 'component':
                         ret = Object.assign(ret, analyseComment(comment, filePath, conf, fm));
                         break;
                     case 'property':
-                            // console.log("comment===",comment);
-                        //console.log("analyseComment(comment, filePath, conf, fm)====",analyseComment(comment, filePath, conf, fm));
                         ret.props.push(analyseComment(comment, filePath, conf, fm));
                         break;
                     case 'method':
@@ -145,7 +142,7 @@ module.exports = {
     parser: function(contents, options, conf) {
         var fn = execFns[options.type || 'component'];
         return fn ? fn(contents.map(function(content) {
-        
+
         var contents = commentParser(content.replace(/(```[\s\S]+?```)/gm, function(mat){
             var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
             /* 匹配js文件下，code情况
@@ -174,7 +171,6 @@ module.exports = {
                 i++;
             }
             lines.push(mats[i]);
-            //console.log('lines.join=====',lines.join("\n"));
             return lines.join("\n");
        }).replace(/\/\*\*[\s\S]+?\*\//gm, function(mat){
             var afterExample = mat.replace(/\@example[\s\S]+?(\@)|\@example[\s\S]+?(\!\[)|\@example[\s\S]+?(\*\/)/gm,function(item){
@@ -195,11 +191,8 @@ module.exports = {
                  lines.push(mats[i]);
                  return lines.join("\n");
             });
-            //console.log('afterExample===',afterExample);
             return afterExample;
           }));
-            //var contents = commentParser(content);
-            //console.log('contents=====',contents);
             return contents.filter(function(item) {
                 return item.tags.every(function(tag) {
                     return tag.tag != 'skip';

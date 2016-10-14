@@ -12,7 +12,6 @@
 </head>
 <body>
     <div class="ydoc">
-
       <header class="ydoc-header">
         <div class="ydoc-header-area">
             
@@ -99,7 +98,7 @@
       <div class="ydoc-container">
         
           
-          <div class="ydoc-container-content ydoc-container-content-hassidebar">
+          <div class="ydoc-container-content">
               <div class="content-left" role="complementary">
                   <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav docs-sidenav">
@@ -281,6 +280,79 @@
 
 <blockquote class="api">
     <h3>
+    <strong>scaleFormat</strong>
+     <span class="prop-type">{ function }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>类型提示：支持数组传值；也支持用函数格式化字符串：函数有两个参数(scale, index)；
+受控属性：滑块滑到某一刻度时所展示的刻度文本信息。如果不需要标签，请将该属性设置为 [] 空列表来覆盖默认转换函数。</p>
+</div>
+    
+</div>
+
+<p class="api-content">
+    <small class="text-muted">默认值:</small> scale => scale
+</p>
+
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>scale</td>
+            <td>Number</td>
+            <td>单个标签对应的value值</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>index</td>
+            <td>Number</td>
+            <td>当前标签对应的下标</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+<p class="api-content">
+    <small class="text-muted">返回值:</small>
+    <mark>Boolean</mark>
+    是否成功
+</p>
+
+
+<blockquote class="api">
+    <h3>
     <strong>action</strong>
      <span class="prop-type">{ Array }</span>
     
@@ -299,6 +371,7 @@
  )</code></pre>
     
 </div>
+
 
 
 
@@ -325,6 +398,7 @@
 
 
 
+
 <blockquote class="api">
     <h3>
     <strong>direction</strong>
@@ -344,6 +418,7 @@
 
 
 
+
 <blockquote class="api">
     <h3>
     <strong>extraClass</strong>
@@ -356,6 +431,7 @@
 </div>
     
 </div>
+
 
 
 
@@ -374,6 +450,7 @@
 
 
 
+
 <blockquote class="api">
     <h3>
     <strong>onTouchStart</strong>
@@ -386,6 +463,7 @@
 </div>
     
 </div>
+
 
 
 
@@ -404,6 +482,7 @@
 
 
 
+
 <blockquote class="api">
     <h3>
     <strong>onTouchEnd</strong>
@@ -416,6 +495,7 @@
 </div>
     
 </div>
+
 
 
 
@@ -434,6 +514,7 @@
 
 
 
+
 <blockquote class="api">
     <h3>
     <strong>onClose</strong>
@@ -446,6 +527,7 @@
 </div>
     
 </div>
+
 
 
 

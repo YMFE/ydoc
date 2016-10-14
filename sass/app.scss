@@ -18,6 +18,12 @@ textarea{overflow:auto;resize:vertical}
 input,textarea,button,select,a{outline:0 none}
 button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}
 mark{background-color:transparent}
+mark,
+.mark {
+  background-color: #fcf8e3;
+  padding: .2em;
+}
+
 a,ins,s,u,del{text-decoration:none}
 sup,sub{vertical-align:baseline}
 .h1 .small,.h1 small,.h2 .small,.h2 small,.h3 .small,.h3 small,.h4 .small,.h4 small,.h5 .small,.h5 small,.h6 .small,.h6 small,h1 .small,h1 small,h2 .small,h2 small,h3 .small,h3 small,h4 .small,h4 small,h5 .small,h5 small,h6 .small,h6 small {
