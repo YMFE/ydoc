@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <title>Yo : ./test-yocomponent/style/lib/fragment/yo-proportion.scss</title>
+    <link type="text/css" rel="stylesheet" href="../../../../../source/shCoreDefault.css"/>
+    <link rel="stylesheet" href="../../../../../source/app.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../../../../source/shCore.js"></script>
+    <script type="text/javascript" src="../../../../../source/shBrush-css.js"></script>
+    <style>
+        .syntaxhighlighter .number1 .spaces,.syntaxhighlighter .toolbar{ display: none;}
+        .syntaxhighlighter table td.gutter .line.highlight { background-color: #6ce26c !important; color: white; }
+    </style>
+</head>
+<body>
+<div class="ydoc">
+    <div class="ydoc-banner-bg">
+        <div class="ydoc-banner" id="content" tabindex="-1">
+            <div class="ydoc-banner-area">
+                <h1>Yo : ./test-yocomponent/style/lib/fragment/yo-proportion.scss</h1>
+                <p>源代码</p>
+            </div>
+        </div>
+        <div class="ydoc-container">
+            <div class="ydoc-container-content">
+                <div class="static-code-content" role="main">
+                <pre class="brush: css;">
+                @charset "utf-8";
+
+// 定义proportion的基础构造
+@mixin _proportion {
+    margin: map-get($proportion, margin);
+    background-color: map-get($proportion, bgcolor);
+    line-height: map-get($proportion, height);
+    color: map-get($proportion, color);
+    font-size: map-get($proportion, font-size);
+    > .inner {
+        @include flexbox;
+        min-height: map-get($proportion, min-height);
+        padding: 0 .1rem;
+        background-color: map-get($proportion, inner-bgcolor);
+        > .date,
+        > .amount {
+            display: block;
+        }
+        > .date {
+            @include flex;
+        }
+        &::after {
+            display: block;
+            content: attr(data-attr);
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-proportion
+ * @version 3.0.0
+ * @description 构造比例条的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-proportion.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $margin 外边距 <3.0.0>
+ * @param {Color} $bgcolor 底色 <3.0.0>
+ * @param {Length} $height 高度 <3.0.0>
+ * @param {Length} $min-height 最小高度 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ * @param {Color} $font-size 文本字号 <3.0.0>
+ * @param {Color} $inner-bgcolor 当前状态色 <3.0.0>
+ */
+
+@mixin yo-proportion(
+    $name: default,
+    $margin: default,
+    $bgcolor: default,
+    $height: default,
+    $min-height: default,
+    $color: default,
+    $font-size: default,
+    $inner-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $margin == default {
+        $margin: map-get($proportion, margin);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($proportion, bgcolor);
+    }
+    @if $height == default {
+        $height: map-get($proportion, height);
+    }
+    @if $min-height == default {
+        $min-height: map-get($proportion, min-height);
+    }
+    @if $color == default {
+        $color: map-get($proportion, color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($proportion, font-size);
+    }
+    @if $inner-bgcolor == default {
+        $inner-bgcolor: map-get($proportion, inner-bgcolor);
+    }
+    .yo-proportion#{$name} {
+        @if $margin != map-get($proportion, margin) {
+            margin: $margin;
+        }
+        @if $bgcolor != map-get($proportion, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $height != map-get($proportion, height) {
+            line-height: $height;
+        }
+        @if $color != map-get($proportion, color) {
+            color: $color;
+        }
+        @if $margin != map-get($proportion, font-size) {
+            font-size: $font-size;
+        }
+        > .inner {
+            @if $min-height != map-get($proportion, min-height) {
+                min-height: $min-height;
+            }
+            @if $inner-bgcolor != map-get($proportion, inner-bgcolor) {
+                background-color: $inner-bgcolor;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入proportion基础构造
+.yo-proportion {
+    @include _proportion;
+}
+                </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="docs-header" id="content" tabindex="-1">
+        <div class="container">
+            <h1>Yo : ./test-yocomponent/style/lib/fragment/yo-proportion.scss</h1>
+            <p>源代码</p>
+        </div>
+    </div> -->
+
+    <footer class="docs-footer" role="contentinfo">
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+
+    function getTop(node){
+        return node.offsetTop + (node.offsetParent ? getTop(node.offsetParent) : 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            try {
+                var lineNum = (parseInt(location.hash.replace(/#/g, '')) - 1) || 0,
+                    node = document.querySelectorAll('div.line')[lineNum];
+                document.body.scrollTop = getTop(node);
+                node.className += ' highlight';
+            } catch(e) {}
+        }, 500);
+    }, false);
+</script>
+</body>
+</html>

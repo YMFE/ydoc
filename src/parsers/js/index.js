@@ -142,7 +142,6 @@ module.exports = {
     parser: function(contents, options, conf) {
         var fn = execFns[options.type || 'component'];
         return fn ? fn(contents.map(function(content) {
-
         var contents = commentParser(content.replace(/(```[\s\S]+?```)/gm, function(mat){
             var mats = mat.split("\n"), i = 1, line, indent = -1, lines = [mats[0]];
             /* 匹配js文件下，code情况
@@ -181,8 +180,8 @@ module.exports = {
                          indent = line.trim().match(/[^*\S]+/g).length;
                      }
                      if (indent > -1) {
-                         line = line.trim().substring(0, indent) + " " +line.trim().substring(indent).replace(/^[ ]+/g, function(mat) {
-                             return mat.length + 'space';
+                         line = line.trim().substring(0, indent) +line.trim().substring(indent).replace(/^[ ]+/g, function(mat) {
+                             return ' ' + mat.length + 'space';
                          })
                      };
                      lines.push(line);

@@ -121,6 +121,7 @@
         {{/each}}
     </table>
 </div>
+{{/if}}
 {{if method.returns}}
 <p class="api-content">
     <small class="text-muted">返回值:</small>
@@ -128,6 +129,8 @@
     {{method.returns.name}}
 </p>
 {{/if}}
+{{if method.example}}
+<pre class="ydoc-example"><code>{{method.example}}</code></pre>
 {{/if}}
 {{/each}}
 {{/if}}
