@@ -66,8 +66,7 @@ var execFns = {
 
         contents.forEach(function(commentList, index) {
             commentList.forEach(function(comment) {
-                var description = comment.description,
-                    tags = comment.tags;
+                var tags = comment.tags;
                 if (tags.length) {
                     var typeItem = tags.filter(function(tag) {
                         return ~['method', 'property', 'class', 'prototype', 'event'].indexOf(tag.tag);
