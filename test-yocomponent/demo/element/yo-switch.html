@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>yo-switch - 开关</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<link rel="stylesheet" href="../../style/usage/export/yo-switch.css" />
+</head>
+<body>
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-switch</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+        <a href="../../doc/element.html#yo-switch" class="affirm">文档</a>
+    </header>
+    <div class="flex">
+        <section class="m-demo">
+        	<ul class="yo-list yo-list-group">
+                <li class="label">常规：</li>
+                <li class="item">
+                    <div class="mark flex">list item</div>
+                    <div class="cont">
+                        <label class="yo-switch">
+                            <input type="checkbox" />
+                            <div class="track">
+                                <span class="handle"></span>
+                            </div>
+                        </label>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="mark flex">list item</div>
+                    <div class="cont">
+                        <label class="yo-switch">
+                            <input type="checkbox" checked />
+                            <div class="track">
+                                <span class="handle"></span>
+                            </div>
+                        </label>
+                    </div>
+                </li>
+                <li class="label">禁用：</li>
+                <li class="item">
+                    <div class="mark flex">list item</div>
+                    <div class="cont">
+                        <label class="yo-switch">
+                            <input type="checkbox" disabled />
+                            <div class="track">
+                                <span class="handle"></span>
+                            </div>
+                        </label>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="mark flex">list item</div>
+                    <div class="cont">
+                        <label class="yo-switch">
+                            <input type="checkbox" checked disabled />
+                            <div class="track">
+                                <span class="handle"></span>
+                            </div>
+                        </label>
+                    </div>
+                </li>
+                <li class="label">扩展：</li>
+                <li class="item">
+                	<div class="mark flex">list item</div>
+                    <div class="cont">
+                    	<label class="yo-switch yo-switch-a">
+                            <input type="checkbox" checked />
+                            <div class="track">
+                                <span class="handle"></span>
+                            </div>
+                        </label>
+                    </div>
+                </li>
+                <li class="item">
+                	<div class="mark flex">list item</div>
+                    <div class="cont">
+                    	<label class="yo-switch yo-switch-b">
+                            <input type="checkbox" checked />
+                            <div class="track">
+                                <span class="handle"></span>
+                            </div>
+                        </label>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="mark flex">list item</div>
+                    <div class="cont">
+                        <label class="yo-switch yo-switch-c">
+                            <input type="checkbox" checked />
+                            <div class="track">
+                                <span class="handle"></span>
+                            </div>
+                        </label>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="mark flex">list item</div>
+                    <div class="cont">
+                        <label class="yo-switch yo-switch-d">
+                            <input type="checkbox" checked />
+                            <div class="track">
+                                <span class="handle"></span>
+                            </div>
+                        </label>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="mark flex">list item</div>
+                    <div class="cont">
+                        <label class="yo-switch yo-switch-e">
+                            <input type="checkbox" checked />
+                            <div class="track">
+                                <span class="handle"></span>
+                            </div>
+                        </label>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="mark flex">list item</div>
+                    <div class="cont">
+                        <label class="yo-switch yo-switch-f">
+                            <input type="checkbox" checked />
+                            <div class="track">
+                                <span class="handle"></span>
+                            </div>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><label class="yo-switch">
+    <input type="checkbox" />
+    <div class="track">
+        <span class="handle"></span>
+    </div>
+</label></xmp>
+            <h3 class="sub-title">假设你想要其他颜色，那么你可以这样扩展：</h3>
+            <xmp>@include yo-switch(
+    $name: test,
+    $checked-bgcolor: #4a87ee
+);</xmp>
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><label class="yo-switch yo-switch-test">
+    <input type="checkbox" />
+    <div class="track">
+        <span class="handle"></span>
+    </div>
+</label></xmp>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>

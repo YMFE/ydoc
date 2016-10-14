@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>yo-rating - 评分组件</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<link rel="stylesheet" href="../../style/usage/export/yo-rating.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-rating</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+        <a href="../../doc/element.html#yo-rating" class="affirm">文档</a>
+    </header>
+    <div class="flex">
+        <section class="m-demo">
+            <ul class="yo-list">
+                <li class="item">
+                    <div class="flex">打分：</div>
+                    <ul class="yo-rating">
+                        <li class="item"><span>1分</span></li>
+                        <li class="item"><span>2分</span></li>
+                        <li class="item"><span>3分</span></li>
+                        <li class="item"><span>4分</span></li>
+                        <li class="item"><span>5分</span></li>
+                    </ul>
+                </li>
+                <li class="item">
+                    <div class="flex">打分：</div>
+                    <ul class="yo-rating">
+                        <li class="item"><span style="width: 100%;">1分</span></li>
+                        <li class="item"><span style="width: 100%;">2分</span></li>
+                        <li class="item"><span style="width: 30%;">3分</span></li>
+                        <li class="item"><span>4分</span></li>
+                        <li class="item"><span>5分</span></li>
+                    </ul>
+                </li>
+                <li class="item">
+                    <div class="flex">只读状态：</div>
+                    <ul class="yo-rating yo-rating-readonly">
+                        <li class="item"><span style="width: 100%;">1分</span></li>
+                        <li class="item"><span style="width: 100%;">2分</span></li>
+                        <li class="item"><span style="width: 50%;">3分</span></li>
+                        <li class="item"><span>4分</span></li>
+                        <li class="item"><span>5分</span></li>
+                    </ul>
+                </li>
+                <li class="item">
+                    <div class="flex">扩展：</div>
+                    <ul class="yo-rating yo-rating-test">
+                        <li class="item"><span style="width: 100%;">1分</span></li>
+                        <li class="item"><span style="width: 100%;">2分</span></li>
+                        <li class="item"><span style="width: 100%;">3分</span></li>
+                        <li class="item"><span>4分</span></li>
+                        <li class="item"><span>5分</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><ul class="yo-rating">
+    <li class="item"><span>1分</span></li>
+    <li class="item"><span>2分</span></li>
+    <li class="item"><span>3分</span></li>
+    <li class="item"><span>4分</span></li>
+    <li class="item"><span>5分</span></li>
+</ul></xmp>
+            <h3 class="title">假设你自定义打分效果，只需这样扩展：</h3>
+            <xmp>@include yo-rating(
+    // 自定义扩展的名字
+    $name: test,
+    // 单个子项的宽度
+    $item-width: .2rem,
+    // 单个子项的高度
+    $item-height: .2rem,
+    // 子项间间隙
+    $item-psace: .1rem,
+    // 打分图像
+    $url: "new-star.png"
+);</xmp>
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><ul class="yo-rating yo-rating-test">...</ul></xmp>
+            <h3 class="sub-title">如果只是纯展示，你需要这样：</h3>
+            <xmp><ul class="yo-rating">...</ul>
+                ↓↓↓
+<ul class="yo-rating yo-rating-readonly">...</ul></xmp>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>

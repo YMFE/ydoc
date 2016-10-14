@@ -1,0 +1,52 @@
+@import "../../../../style/usage/core/reset";
+@import "../../../../style/lib/fragment/yo-list";
+
+.title{
+    padding: .1rem;
+    font-size: .14rem;
+}
+
+.yo-list{
+    .item{
+        span{
+            display: block;
+            color: #ffffff;
+            width: .3rem;
+            height: .3rem;
+            line-height: .3rem;
+            margin: 0 .2rem 0 0;
+            text-align: center;
+            font-size: .2rem;
+        }
+    }
+}
+
+.horizontal_list {
+    width: 10rem;
+    height: 100%;
+
+    .item {
+        float: left;
+        width: .5rem;
+        height: 100%;
+        border-right: 1px solid #efefef;
+        background-color: #ffffff;
+
+        .index {
+            color: #ffffff;
+            width: .3rem;
+            height: .3rem;
+            line-height: .3rem;
+            margin: .1rem;
+            text-align: center;
+            vertical-align: middle;
+            font-size: .2rem;
+        }
+
+        .content {
+            writing-mode: vertical-rl;
+            height: .5rem;
+            line-height: .5rem;
+        }
+    }
+}

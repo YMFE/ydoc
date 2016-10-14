@@ -4,7 +4,7 @@ module.exports = function() {
     return {
       "name": "Yo",
       "dest": "./_docs-yocomponet",
-      "examplePath": "./test-kami/demo/component",
+      "examplePath": "./test-yocomponent/demo/component",
       "common": {
         "title": "Yo Documentation",
         "footer": "Made By Doyoe.com © 2014 - 2016",
@@ -22,7 +22,7 @@ module.exports = function() {
             "download": "下载 Yo",
             "version": "v2.1.3"
           },
-          "content": "./test-kami/case.md"
+          "content": "./test-yocomponent/case.md"
         },
         {
           "name": "getting-started",
@@ -31,7 +31,7 @@ module.exports = function() {
             "title": "起步",
             "description": "本文详细描述 Yo 的使用方式，花上几分钟，下述的介绍将会帮助你快速的上手，并让自己沉浸在使用 Yo 的开发之中，感受到乐趣"
           },
-          "content": "./test-kami/README.md"
+          "content": "./test-yocomponent/README.md"
         },
         {
           "name": "core",
@@ -40,7 +40,7 @@ module.exports = function() {
             "title": "核心",
             "description": "详细介绍 Yo 的内置扩展函数和扩展方法"
           },
-          "content": "./test-kami/style/lib/core/*.scss",
+          "content": "./test-yocomponent/style/lib/core/*.scss",
           "compile": "css",
           "options": {
             "source": true
@@ -53,7 +53,7 @@ module.exports = function() {
             "title": "元件",
             "description": "详细介绍 Yo 的元件"
           },
-          "content": "./test-kami/style/lib/+(element|fragment|layout|widget)/*.scss",
+          "content": "./test-yocomponent/style/lib/+(element|fragment|layout|widget)/*.scss",
           "compile": "css",
           "options": {
             "source": true
@@ -70,59 +70,59 @@ module.exports = function() {
             "type": "blocks",
             "sidebar": true,
             "multi": true,
-            "index": "./test-kami/case.md",
+            "index": "./test-yocomponent/case.md",
             "pages": [
               {
                 "name": "List",
-                "content": "./test-kami/component_dev/list/src/index.js"
+                "content": "./test-yocomponent/component_dev/list/src/index.js"
               }, {
                 "name": "Range",
-                "content": "./test-kami/component_dev/range/src/index.js"
+                "content": "./test-yocomponent/component_dev/range/src/index.js"
               }, {
                 "name": "SwipeMenuList",
-                "content": "./test-kami/component_dev/swipeMenuList/src/index.js"
+                "content": "./test-yocomponent/component_dev/swipeMenuList/src/index.js"
               }, {
                 "name": "Scroller",
-                "content": "./test-kami/component_dev/scroller/src/index.js"
+                "content": "./test-yocomponent/component_dev/scroller/src/index.js"
               }, {
                 "name": "Grouplist",
-                "content": "./test-kami/component_dev/grouplist/src/index.js"
+                "content": "./test-yocomponent/component_dev/grouplist/src/index.js"
               }, {
                 "name": "Rating",
-                "content": "./test-kami/component_dev/rating/src/index.js"
+                "content": "./test-yocomponent/component_dev/rating/src/index.js"
               }, {
                 "name": "Calendar",
-                "content": "./test-kami/component_dev/calendar/src/index.js"
+                "content": "./test-yocomponent/component_dev/calendar/src/index.js"
               }, {
                 "name": "SwipeMenu",
-                "content": "./test-kami/component_dev/swipeMenu/src/index.js"
+                "content": "./test-yocomponent/component_dev/swipeMenu/src/index.js"
               }, {
                 "name": "Alert",
-                "content": "./test-kami/component_dev/alert/src/index.js"
+                "content": "./test-yocomponent/component_dev/alert/src/index.js"
               }, {
                 "name": "Confirm",
-                "content": "./test-kami/component_dev/confirm/src/index.js"
+                "content": "./test-yocomponent/component_dev/confirm/src/index.js"
               }, {
                 "name": "Dialog",
-                "content": "./test-kami/component_dev/dialog/src/index.js"
+                "content": "./test-yocomponent/component_dev/dialog/src/index.js"
               }, {
                 "name": "Number",
-                "content": "./test-kami/component_dev/number/src/index.js"
+                "content": "./test-yocomponent/component_dev/number/src/index.js"
               }, {
                 "name": "Popup",
-                "content": "./test-kami/component_dev/popup/src/index.js"
+                "content": "./test-yocomponent/component_dev/popup/src/index.js"
               }, {
                 "name": "Tooltip",
-                "content": "./test-kami/component_dev/tooltip/src/index.js"
+                "content": "./test-yocomponent/component_dev/tooltip/src/index.js"
               }, {
                 "name": "DateTimePicker",
-                "content": "./test-kami/component_dev/datetimepicker/src/index.js"
+                "content": "./test-yocomponent/component_dev/datetimepicker/src/index.js"
               }, {
                 "name": "Tab",
-                "content": "./test-kami/component_dev/tab/src/index.js"
+                "content": "./test-yocomponent/component_dev/tab/src/index.js"
               }, {
                 "name": "Loading",
-                "content": "./test-kami/component_dev/loading/src/index.js"
+                "content": "./test-yocomponent/component_dev/loading/src/index.js"
               }
             ]
           }
@@ -134,7 +134,7 @@ module.exports = function() {
             "title": "动画",
             "description": "详细介绍 Yo 的动画"
           },
-          "content": "./test-kami/style/lib/ani/*.scss",
+          "content": "./test-yocomponent/style/lib/ani/*.scss",
           "compile": "css",
           "options": {
             "source": true
@@ -147,7 +147,7 @@ module.exports = function() {
             "title": "版本",
             "description": "Yo 的历史版本发布时间及变更记录，帮助你追溯到每个版本的演进过程，同时也有每个版本所对应的下载地址"
           },
-          "content": "./test-kami/changelog.md"
+          "content": "./test-yocomponent/changelog.md"
         },
         {
           "name": "demo",

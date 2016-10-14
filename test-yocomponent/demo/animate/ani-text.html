@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>Yo Text Animation Demo - 文本切换效果</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<link rel="stylesheet" href="../../style/usage/export/ani-text.css" />
+<link rel="stylesheet" href="../../style/usage/export/ani.css" />
+</head>
+<body>
+
+<div class="m-animate">
+    <h1>Yo</h1>
+    <h2>Animate</h2>
+    <p class="text">TextAnimate</p>
+    <select id="select">
+        <optgroup label="fade in">
+            <option value="fade-in">fade-in</option>
+            <option value="fade-in-up">fade-in-up</option>
+            <option value="fade-in-right">fade-in-right</option>
+            <option value="fade-in-down">fade-in-down</option>
+            <option value="fade-in-left">fade-in-left</option>
+        </optgroup>
+        <optgroup label="fade out">
+            <option value="fade-out">fade-out</option>
+            <option value="fade-out-up">fade-out-up</option>
+            <option value="fade-out-right">fade-out-right</option>
+            <option value="fade-out-down">fade-out-down</option>
+            <option value="fade-out-left">fade-out-left</option>
+        </optgroup>
+        <optgroup label="elastic">
+            <option value="elastic-x">elastic-x</option>
+            <option value="elastic-y">elastic-y</option>
+        </optgroup>
+        <optgroup label="elastic in">
+            <option value="elastic-in">elastic-in</option>
+            <option value="elastic-in-up">elastic-in-up</option>
+            <option value="elastic-in-right">elastic-in-right</option>
+            <option value="elastic-in-down">elastic-in-down</option>
+            <option value="elastic-in-left">elastic-in-left</option>
+        </optgroup>
+        <optgroup label="elastic out">
+            <option value="elastic-out">elastic-out</option>
+            <option value="elastic-out-up">elastic-out-up</option>
+            <option value="elastic-out-right">elastic-out-right</option>
+            <option value="elastic-out-down">elastic-out-down</option>
+            <option value="elastic-out-left">elastic-out-left</option>
+        </optgroup>
+        <optgroup label="flip">
+            <option value="flip">flip</option>
+            <option value="flip-in-x">flip-in-x</option>
+            <option value="flip-in-y">flip-in-y</option>
+            <option value="flip-out-x">flip-out-x</option>
+            <option value="flip-out-y">flip-out-y</option>
+        </optgroup>
+        <optgroup label="roll">
+            <option value="roll-in-right">roll-in-right</option>
+            <option value="roll-in-left">roll-in-left</option>
+            <option value="roll-out-right">roll-out-right</option>
+            <option value="roll-out-left">roll-out-left</option>
+        </optgroup>
+        <optgroup label="speed">
+            <option value="speed-in-right">speed-in-right</option>
+            <option value="speed-in-left">speed-in-left</option>
+            <option value="speed-out-right">speed-out-right</option>
+            <option value="speed-out-left">speed-out-left</option>
+        </optgroup>
+        <optgroup label="rotate">
+            <option value="rotate">rotate</option>
+        </optgroup>
+        <optgroup label="rotate in">
+            <option value="rotate-in">rotate-in</option>
+            <option value="rotate-in-up-right">rotate-in-up-right</option>
+            <option value="rotate-in-up-left">rotate-in-up-left</option>
+            <option value="rotate-in-down-right">rotate-in-down-right</option>
+            <option value="rotate-in-down-left">rotate-in-down-left</option>
+        </optgroup>
+        <optgroup label="rotate out">
+            <option value="rotate-out">rotate-out</option>
+            <option value="rotate-out-up-right">rotate-out-up-right</option>
+            <option value="rotate-out-up-left">rotate-out-up-left</option>
+            <option value="rotate-out-down-right">rotate-out-down-right</option>
+            <option value="rotate-out-down-left">rotate-out-down-left</option>
+        </optgroup>
+        <optgroup label="zoom in">
+            <option value="zoom-in">zoom-in</option>
+            <option value="zoom-in-up">zoom-in-up</option>
+            <option value="zoom-in-right">zoom-in-right</option>
+            <option value="zoom-in-down">zoom-in-down</option>
+            <option value="zoom-in-left">zoom-in-left</option>
+        </optgroup>
+        <optgroup label="zoom out">
+            <option value="zoom-out">zoom-out</option>
+            <option value="zoom-out-up">zoom-out-up</option>
+            <option value="zoom-out-right">zoom-out-right</option>
+            <option value="zoom-out-down">zoom-out-down</option>
+            <option value="zoom-out-left">zoom-out-left</option>
+        </optgroup>
+        <optgroup label="single">
+            <option value="flash">flash</option>
+            <option value="shake">shake</option>
+            <option value="pulse">pulse</option>
+            <option value="stretch">stretch</option>
+            <option value="extrusion">extrusion</option>
+            <option value="swing">swing</option>
+            <option value="sling">sling</option>
+            <option value="wobble">wobble</option>
+            <option value="hinge">hinge</option>
+        </optgroup>
+    </select>
+</div>
+
+<script>
+var select = document.querySelector("#select");
+var text = document.querySelector(".text");
+select.onchange = function(){
+    text.className = "text ani " + this.value;
+}
+</script>
+</body>
+</html>

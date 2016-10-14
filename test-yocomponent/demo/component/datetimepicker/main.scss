@@ -1,0 +1,126 @@
+@charset "utf-8";
+@import "../../../style/lib/core/merge-extra";
+@import "../../../style/lib/core/merge-config";
+@import "../../../style/lib/core/reset";
+@import "../../../style/lib/fragment/yo-list";
+@import "../../../style/lib/element/yo-btn";
+
+.yo-flex > .flex {
+    @include flexbox();
+    @include flex-direction(column);
+}
+
+.datetimepicker {
+    @include flexbox();
+    @include flex(1, column);
+    @include flex-direction(column);
+    .form {
+        .input, .button {
+            text-align: center;
+        }
+        .button {
+            background-color: #1ba9ba;
+        }
+    }
+}
+
+.yo-datepicker,.yo-timepicker  {
+    margin-top: 5px;
+}
+
+.control-panel {
+    @include flex(1, column);
+}
+
+#content {
+    $main-color: #1ba9ba;
+    height: 100%;
+    width: 100%;
+    .h3 {
+      position:relative;
+      .tip {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 8px 8px 0 0 ;
+        font-size: 14px;
+        color: cadetblue;
+      }
+      h4 {
+        font-size: 14px;
+        padding: 5px;
+        height: auto;
+      }
+    }
+    h3 {
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        color: #333;
+        padding-left: 10px;
+        margin-top: 5px;
+        position: relative;
+        @include gradient(linear, left, #1ba9ba, #1ba9ba 3px, #fff 4px, #fff);
+        text-align: center;
+    }
+    h4 {
+        height: 25px;
+        line-height: 25px;
+        font-size: 12px;
+        color: #4b4b4b;
+        padding-left: 10px;
+        margin-top: 5px;
+        background-color: #fff;
+        @include gradient(linear, left, #1ba9ba, #1ba9ba 3px, #fff 4px, #fff);
+        text-align: left;
+    }
+
+    .yo-list {
+        &:after {
+            border: none;
+        }
+        > .item {
+            @include flexbox();
+            @include flex-wrap(nowrap);
+            .equiptent {
+              @include flex(1);
+            }
+        }
+    }
+    .pickerdemo .yo-list{
+      .item {
+        background-color: #ebebeb;
+        padding: 5px 0 6px;
+        > .equiptent {
+          color: cadetblue;
+          &:nth-child(2) {
+            color: #777;
+            text-align: center;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+    @include yo-btn(
+            $name: pri,
+            $bgcolor: #00afc7,
+            $border-color: #00afc7,
+            $active-bgcolor: $main-color,
+            $active-border-color: $main-color
+    ) {
+        height: 30px;
+        margin: -5px auto;
+        line-height: 30px;
+    }
+
+    .set-multi {
+        position: absolute;
+        right: 3px;
+        top: 12px;
+    }
+
+    .pickerModal {
+      width: 100%;
+      height: 100%;
+    }
+}

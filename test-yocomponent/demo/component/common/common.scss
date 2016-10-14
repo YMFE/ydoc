@@ -1,0 +1,50 @@
+@import "../../../style/lib/core/merge-extra";
+@import "../../../style/lib/core/merge-config";
+@import "../../../style/lib/core/reset";
+@import "../../../style/lib/layout/yo-flex";
+@import "../../../style/lib/fragment/yo-header";
+@import "../../../style/lib/fragment/yo-list";
+
+@include yo-header(
+        $name: common //$border-color: #ddd,
+    //$bgcolor: #eee,
+    //$color: map-get($base, color),
+    //$item-color: map-get($base, color),
+    //$item-ico-color: map-get($base, color)
+);
+
+#content {
+    height: 100%;
+    .item a {
+        @include flex(1);
+    }
+
+    .yo-btn.yo-btn-m.yo-btn-stacked {
+        width: 95%;
+        margin: .05rem auto;
+    }
+
+    label.prop-name {
+        @include flex(1);
+    }
+}
+
+.block {
+    display: block !important;
+}
+
+.yo-header > .affirm {
+    font-size: 0.14rem;
+}
+
+.yo-flex > .flex {
+    overflow: hidden;
+}
+
+.scroller {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
