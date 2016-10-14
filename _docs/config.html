@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>YDoc 配置</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ymfe.tech/" class="navbar-brand">YMFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">开始</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="usage.html">命令</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="config.html">配置</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="comment.html">注释规则</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="release.html">版本</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>YDoc</h1>
+                  <p>配置</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="#配置文件">配置文件</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="#静态文件形式">静态文件形式</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#动态脚本形式">动态脚本形式</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="#配置内容">配置内容</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="#整体配置说明">整体配置说明</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#解析器配置">解析器配置</a>
+                            </li>
+                        
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <h2 id="配置文件">配置文件</h2><p>配置文件可以以 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
+<h3 id="静态文件形式">静态文件形式</h3><p><code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
+<p>示例：</p>
+<pre><code class="lang-json">{
+    &quot;name&quot;: &quot;YDoc&quot;,
+    ...
+}
+</code></pre>
+<h3 id="动态脚本形式">动态脚本形式</h3><p><code>ydocfile.js</code> 可以 <code>exports</code> 一个 <code>Object</code> 配置，也可以 <code>exports</code> 一个 <code>Function</code> 用于执行获取配置。</p>
+<p>示例1：</p>
+<pre><code class="lang-js">module.exports = {
+    &quot;name&quot;: &quot;YDoc&quot;,
+    ...
+};
+</code></pre>
+<p>示例2：</p>
+<pre><code class="lang-js">module.exports = function() {
+    return {
+        &quot;name&quot;: &quot;YDoc&quot;,
+        ...
+    };
+};
+</code></pre>
+<p>示例3：(支持异步返回)</p>
+<pre><code class="lang-js">module.exports = function(callback) {
+    // do someing
+    callback({
+        &quot;name&quot;: &quot;YDoc&quot;,
+        ...
+    });
+};
+</code></pre>
+<h2 id="配置内容">配置内容</h2><h3 id="整体配置说明">整体配置说明</h3><p>示例:</p>
+<pre><code class="lang-json">{
+    &quot;name&quot;: &quot;YDoc&quot;,
+    &quot;dest&quot;: &quot;path/to/destination&quot;, // 默认为  &quot;_docs&quot;
+    &quot;examplePath&quot;: &quot;./examples&quot;, // 示例代码路径 默认 &quot;./&quot;
+    &quot;template&quot;: &quot;path/to/templte&quot;, // 默认使用 YDoc 内置的模板
+    &quot;options&quot;: { // 通用编译器配置
+        &quot;markdwon&quot;: { // 对于 markdown 编译器进行统一配置
+            &quot;memuLevel&quot;: 2
+        }
+    },
+    &quot;common&quot;: { // 通用配置，包括主页配置等
+        &quot;title&quot;: &quot;YDoc&quot;,
+        &quot;footer&quot;: &quot;Made By YMFE Team. © 2014 - 2016&quot;,
+        &quot;home&quot;: &quot;YMFE&quot;,
+        &quot;homeUrl&quot;: &quot;http://ymfe.org/&quot;,
+        &quot;navbars&quot;: [{ // 导航栏配置
+            &quot;name&quot;: &quot;YDoc&quot;,
+            &quot;url&quot;: &quot;http://ymfe.org/ydoc/&quot;
+        }]
+    },
+    &quot;pages&quot;: [{
+        &quot;name&quot;: &quot;index&quot;, // Page Name 会根据他生成 html 文件，例  index.html
+        &quot;title&quot;: &quot;开始&quot;, // Page Title
+        &quot;banner&quot;: { // Banner 配置
+            &quot;title&quot;: &quot;YDoc&quot;,
+            &quot;description&quot;: &quot;开始&quot;
+        },
+        &quot;content&quot;: &quot;./README.md&quot;,  // 内容
+        &quot;compile&quot;: &quot;markdown&quot;, // 解析器，如果内容有固定的扩展名，此项可忽略
+        &quot;options&quot;: { // 此 Page 用的编译器的配置
+            &quot;menuLevel&quot;: 2
+        }
+    }, {
+        &quot;name&quot;: &quot;hybird&quot;,
+        &quot;title&quot;: &quot;混合开发&quot;,
+        &quot;intro&quot;: &quot;document/README.md&quot;, // 介绍
+        &quot;content&quot;: { // 单页多模块配置
+            &quot;sidebar&quot;: true, // 是否显示侧边目录
+            &quot;blocks&quot;: [{
+                &quot;name&quot;: &quot;简介&quot;, // 标题
+                &quot;content&quot;: &quot;document/hybrid/README.md&quot; // 内容
+            }, {
+                &quot;name&quot;: &quot;Hybrid&quot; // 只有标题，做目录和分割用
+            }, {
+                &quot;name&quot;: &quot;说明&quot;,
+                &quot;sub&quot;: true, // 标题在目录里已子目录形式显示
+                &quot;content&quot;: &quot;modules/hybrid/framework/README.md&quot;
+            }]
+        }
+    }, {
+        &quot;name&quot;: &quot;component&quot;,
+        &quot;title&quot;: &quot;组件&quot;,
+        &quot;banner&quot;: {
+            &quot;title&quot;: &quot;移动端组件&quot;,
+            &quot;description&quot;: &quot;组件&quot;
+        },
+        &quot;content&quot;: { // 多页配置，multi 为 true
+            &quot;sidebar&quot;: true,
+            &quot;multi&quot;: true, // 多页配置
+            &quot;index&quot;: &quot;./Libraries/extension/INTRO.md&quot;, // 首页配置
+            &quot;pages&quot;: [{ // 每页配置
+                &quot;name&quot;: &quot;ListView&quot;,
+                &quot;content&quot;: &quot;./Libraries/extension/libs/ListView/QListView.js&quot;
+            }, {
+                &quot;name&quot;: &quot;ScrollView&quot;,
+                &quot;content&quot;: &quot;./Libraries/extension/libs/ScrollView/ScrollView.js&quot;
+            }]
+        }
+    }]
+}
+</code></pre>
+<h3 id="解析器配置">解析器配置</h3><h4 id="js">js</h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code></p>
+<pre><code class="lang-json">{
+    &quot;type&quot;: &quot;component&quot;, // 类型，可选 component 和 lib，默认 component
+    &quot;source&quot;: false // 是否生成源文件预览，默认 false
+}
+</code></pre>
+<h4 id="css">css</h4><p>支持文件类型：<code>.css</code>，<code>.sass</code>，<code>.scss</code></p>
+<pre><code class="lang-json">{
+    &quot;source&quot;: false // 是否生成源文件预览，默认 false
+}
+</code></pre>
+<h4 id="markdown">markdown</h4><p>支持文件类型：<code>.md</code>，<code>.markdown</code></p>
+<pre><code class="lang-json">{
+    &quot;menuLevel&quot;: 2, // 选取第几级 head 作为目录，默认 -1 没有目录
+    &quot;subMeneLevel&quot;: 3 // 选取第几级 head 作为子目录，默认 menuLevel + 1
+}
+</code></pre>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            Made By YMFE. © 2014 - 2016
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

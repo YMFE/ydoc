@@ -246,6 +246,7 @@ sup,sub{vertical-align:baseline}
      .docs-sidebar{
          background: #fff;
          z-index: 9999;
+         overflow: hidden;
          .docs-sidenav{
              padding-left: 0;
              li{

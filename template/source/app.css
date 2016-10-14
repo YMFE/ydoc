@@ -261,7 +261,8 @@ sup, sub {
           text-decoration: underline; }
       .ydoc-container-content .docs-sidebar {
         background: #fff;
-        z-index: 9999; }
+        z-index: 9999;
+        overflow: hidden; }
         .ydoc-container-content .docs-sidebar .docs-sidenav {
           padding-left: 0; }
           .ydoc-container-content .docs-sidebar .docs-sidenav li {
@@ -855,5 +856,3 @@ sup, sub {
   margin: -.1rem 0 .15rem;
   display: block;
   cursor: pointer; }
-
-/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native for Web 简介</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="active">
+                        
+                        <a href="index.html">简介</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extension.html">扩展</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="demo.html">DEMO</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="releases.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/qrn/" target="_blank">QRN</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>Qunar React Native for Web</h1>
+                  <p>简介</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="#优势">优势</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="#技术支持">技术支持</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="#开发进展">开发进展</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <h1 id="Qunar React Web">Qunar React Web</h1><p>React Web是Qunar React Native的Web端实现，通过实现所有能在Web上实现的Native接口，实现一份业务代码，既可以在Native上，也能在touch上运行。</p>
+<p>React Web适用于开发Touch或者Hybrid Webview的项目。</p>
+<h2 id="优势">优势</h2><ul>
+<li>内置于Qunar React Native，提供一致的开发、构建体验。</li>
+<li>基本实现了所有Qunar React Native的接口与组件。</li>
+<li>在框架内部解决浏览器兼容问题。</li>
+</ul>
+<h2 id="技术支持">技术支持</h2><ul>
+<li>QTalk: qincheng.zhong, qianjun.yang, wangxiaoyu.wang, zhenying.liu</li>
+<li>Issues: <a href="http://gitlab.corp.qunar.com/react_native/qunar_react_native/issues">http://gitlab.corp.qunar.com/react_native/qunar_react_native/issues</a></li>
+</ul>
+<h2 id="开发进展">开发进展</h2><p>这里汇总了当前 React Native for Web 与 React Native 官方和 Qunar React Native 组件之间的差距，每次 Qunar React Native 更新后都在这里更新状态，作为参考。</p>
+<p>对于 Qunar React Native 中进行过扩展的 React Native 组件或 API，以 Qunar React Native 中的状态为准。</p>
+<p><strong>状态说明：</strong></p>
+<ul>
+<li><code>(X)</code>：表示尚未实现</li>
+<li><code>(M)</code>：表示不完全实现，或正在正在进行中（middle）</li>
+<li><code>(D)</code>：表示该接口或者 API 已经过期（deprecated）</li>
+<li><code>(QRN)</code>：表示 Qunar React Native 进行了扩展，以 Qunar React Native 中状态为准</li>
+<li><del>不支持</del>：使用删除线表示不支持</li>
+<li>无任何标记，表示已经完成</li>
+</ul>
+<h4 id="React Native 的基础组件和 API(RN 0.32)">React Native 的基础组件和 API(RN 0.32)</h4><p><strong> 组件 </strong></p>
+<ul>
+<li>ActivityIndicator</li>
+<li>ActivityIndicatorIOS</li>
+<li>DatePickerIOS</li>
+<li><del>DrawerLayoutAndroid</del></li>
+<li>Image</li>
+<li>ListView(QRN)</li>
+<li>ListView.DataSource(QRN)</li>
+<li>MapView (X)</li>
+<li>Modal（QRN)</li>
+<li>Navigator</li>
+<li>NavigatorIOS</li>
+<li>Picker</li>
+<li>PickerIOS</li>
+<li>ProgressBarAndroid (M)</li>
+<li>ProgressViewIOS (alias ProgressView)</li>
+<li>RefreshControl (QRN)</li>
+<li>ScrollView（QRN）</li>
+<li>SegmentedControlIOS</li>
+<li>Slider (QRN)</li>
+<li>SliderIOS</li>
+<li><del>StatusBar</del> （控制状态栏, web 端目前无法实现）</li>
+<li><del>SnapshotViewIOS</del></li>
+<li>Switch</li>
+<li>TabBarIOS(X)</li>
+<li>TabBarIOS.Item(X)</li>
+<li>Text</li>
+<li>TextInput</li>
+<li><del>ToolbarAndroid</del></li>
+<li>TouchableHighlight</li>
+<li>TouchableNativeFeedback (X)</li>
+<li>TouchableOpacity</li>
+<li>TouchableWithoutFeedback</li>
+<li>View</li>
+<li>ViewPagerAndroid</li>
+<li>WebView</li>
+</ul>
+<p><strong> API </strong></p>
+<ul>
+<li>ActionSheetIOS</li>
+<li><del>AdSupportIOS</del></li>
+<li>Alert</li>
+<li>AlertIOS</li>
+<li>Animated</li>
+<li>AppRegistry</li>
+<li>AppState</li>
+<li>AsyncStorage</li>
+<li>BackAndroid (X)</li>
+<li>CameraRoll (QRN)</li>
+<li>Clipboard</li>
+<li>DatePickerAndroid (X)</li>
+<li>Dimensions</li>
+<li>Easing</li>
+<li>Geolocation</li>
+<li>ImageEditor</li>
+<li>ImagePickerIOS(alias ImagePicker)</li>
+<li>ImageStore</li>
+<li>IntentAndroid (X)</li>
+<li>InteractionManager (X)</li>
+<li>LayoutAnimation (M)</li>
+<li>Linking</li>
+<li>NativeMethodsMixin</li>
+<li>NetInfo</li>
+<li>PanResponder</li>
+<li>PixelRatio</li>
+<li>PushNotificationIOS (X)</li>
+<li>Setting(X)</li>
+<li>StatusBarIOS (X)</li>
+<li>StyleSheet</li>
+<li>Systrace(X)</li>
+<li>TimePickerAndroid (X)</li>
+<li>ToastAndroid</li>
+<li>Vibration</li>
+<li>VibrationIOS</li>
+</ul>
+<h4 id="QRN 中扩展的组件 和 API">QRN 中扩展的组件 和 API</h4><p><strong> 组件 </strong></p>
+<ul>
+<li>ScrollView</li>
+<li>RefreshControl</li>
+<li>LoadControl</li>
+<li>ListView</li>
+<li>InfiniteListView</li>
+<li>Loading</li>
+<li>ProgressView</li>
+<li>QLoading</li>
+<li>QLoadingError</li>
+<li>Button</li>
+<li>Checked</li>
+<li>Radio</li>
+<li>Tab</li>
+<li>TabBar</li>
+<li>TabBarItem</li>
+<li>Slider</li>
+<li>TimePicker</li>
+<li>Modal</li>
+</ul>
+<p><strong> API </strong></p>
+<ul>
+<li>DeviceInfo</li>
+<li>LoginManager</li>
+<li>CookieManager</li>
+<li>CameraRoll</li>
+<li>ImageUploader</li>
+<li>Toast</li>
+<li>QHotDogNetWork</li>
+<li>MapUtils</li>
+<li>UELog</li>
+<li>CVParam</li>
+<li>GeoLocation</li>
+<li>QStatusBar</li>
+<li>ABTest</li>
+<li>QShare</li>
+</ul>
+<p><strong> 注意 </strong> 由于平台的差异性，API中有些功能无法完全实现，详情请参考具体文档。</p>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

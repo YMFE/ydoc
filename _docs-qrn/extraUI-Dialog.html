@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native 外部组件</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">开始</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="extraUI.html">外部组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extension.html">EXT</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extending.html">扩展</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="demo.html">DEMO</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="faq.html">FAQ</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="releases.html">Releases</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/react-web/" target="_blank">React Web</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>Qunar React Native UI组件</h1>
+                  <p>Qunar React Native 外部UI组件</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="extraUI-Accordion.html">Accordion</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="extraUI-Calendar.html">Calendar</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="extraUI-Carousel.html">Carousel</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  class="active"   class="active" > -->
+                        <li  class="active" >
+                            
+                            <a href="extraUI-Dialog.html">Dialog</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="extraUI-Dropdown.html">Dropdown</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="extraUI-Numbers.html">Numbers</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="extraUI-Popover.html">Popover</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="extraUI-RangeSlider.html">RangeSlider</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="extraUI-Rating.html">Rating</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="extraUI-SliderMenu.html">SliderMenu</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="extraUI-Suggest.html">Suggest</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="extraUI-Tooltip.html">Tooltip</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="extraUI-SwipeListView.html">SwipeListView</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <h1 id="Dialog">Dialog</h1><p>弹窗组件
+<strong>Author: qianjun.yang</strong></p>
+<p><img src="http://7xkm02.com1.z0.glb.clouddn.com/Dialog.png" alt=""></p>
+<h2 id="Install">Install</h2><p>qnpm install @qnpm/react-native-ui-dialog</p>
+<h2 id="Props">Props</h2><table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>&#39;confirm&#39;</td>
+<td>No</td>
+<td>弹窗类型，可选alert、confirm</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>&#39;&#39;</td>
+<td>No</td>
+<td>弹窗title</td>
+</tr>
+<tr>
+<td>content</td>
+<td>union(string或element)</td>
+<td>&#39;&#39;</td>
+<td>No</td>
+<td>弹窗主体内容，也可传递比较复杂的contentJSX结构的时候，使用该配置</td>
+</tr>
+<tr>
+<td>onConfirm</td>
+<td>func</td>
+<td></td>
+<td>No</td>
+<td>确认时触发的回调函数</td>
+</tr>
+<tr>
+<td>onCancel</td>
+<td>func</td>
+<td></td>
+<td>No</td>
+<td>取消时触发的回调函数</td>
+</tr>
+<tr>
+<td>onClose</td>
+<td>func</td>
+<td></td>
+<td>No</td>
+<td>关闭时触发的回调函数</td>
+</tr>
+<tr>
+<td>onInit</td>
+<td>func</td>
+<td></td>
+<td>No</td>
+<td>初始化后触发的回调函数</td>
+</tr>
+<tr>
+<td>showHeader</td>
+<td>bool</td>
+<td>true</td>
+<td>No</td>
+<td>是否显示header</td>
+</tr>
+<tr>
+<td>header</td>
+<td>object</td>
+<td>{}</td>
+<td>No</td>
+<td>配置title的左边和右边显示的附加按钮，例如{cancle: {text: &quot;X&quot;, hidden: false}, confirm: false}，cancel、confirm、close最多配置两个，配置成false或者hidden:true表示不展示，但是会占位置</td>
+</tr>
+<tr>
+<td>footer</td>
+<td>object</td>
+<td>{confirm: {text: &#39;确定&#39;},cancel: {text: &#39;取消&#39;},}</td>
+<td>No</td>
+<td>配置底部的按钮</td>
+</tr>
+<tr>
+<td>buttons</td>
+<td>array</td>
+<td>[]</td>
+<td>No</td>
+<td>配置底部的按钮，如果长度不为0，则会覆盖footer的配置</td>
+</tr>
+<tr>
+<td>visible</td>
+<td>bool</td>
+<td></td>
+<td>No</td>
+<td>是否显示dialog</td>
+</tr>
+<tr>
+<td>modal</td>
+<td>bool</td>
+<td>true</td>
+<td>No</td>
+<td>是否显示遮罩，注意，如果设置为false，dialog在竖直方向上就没法居中了，需要自己通过style的top【默认会被设置成视图高度的/2】, marginTop来调整dialog的位置</td>
+</tr>
+<tr>
+<td>modelStyle</td>
+<td>array</td>
+<td></td>
+<td>No</td>
+<td>遮罩样式</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Example:">Example:</h2><pre><code class="lang-javascript">
+import React, {Component, StyleSheet, View, Text, TouchableHighlight, TouchableOpacity, ScrollView} from &#39;react-native&#39;
+
+import Dialog, {Alert, Confirm} from &#39;@qnpm/react-native-ui-dialog&#39;
+import commonStyle from &#39;./layout/style.js&#39;
+
+var counter = 0
+
+class DialogExample extends Component {
+
+    constructor (props) {
+        super(props)
+
+        this.state = {
+            _showDialog1: false,
+            _showDialog2: false,
+            _showDialog3: false,
+            _showDialog4: false,
+            _showAlert: false,
+            _showConfirm: false,
+        }
+    }
+
+    render() {
+        const {navigator} = this.props
+
+        const keys = [&quot;_showDialog1&quot;, &quot;_showDialog2&quot;, &quot;_showDialog3&quot;, &quot;_showDialog4&quot;]
+
+        const state = this.state
+
+        const ex = this
+
+        const content = (
+            &lt;View style={[{backgroundColor: &quot;#09c&quot;, padding: 10, alignItems: &#39;center&#39;}]}&gt;
+                &lt;Text style={[{color: &quot;#fff&quot;}]}&gt;
+                    里面可嵌入复杂结构
+                &lt;/Text&gt;
+            &lt;/View&gt;
+        )
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+        return (
+            &lt;View style={{backgroundColor: &quot;#fff&quot;, flex: 1}}&gt;
+                &lt;ScrollView
+                    style={{backgroundColor: &quot;#fff&quot;, flex: 1}}
+                    onScroll={(event) =&gt; console.log(event)}
+                &gt;
+                    &lt;View style={styles.intro}&gt;
+                        &lt;Text style={styles.introText}&gt;
+                            由于React-Native是完全按照先后顺序渲染元素的，因此为了使该组件正常显示，应该把Dialog放在靠后的位置上。
+                        &lt;/Text&gt;
+                    &lt;/View&gt;
+                    {
+                        keys.map(function (item, index) {
+                            return (
+                                &lt;View
+                                    style={styles.section}
+                                    key={item + index}
+                                &gt;
+                                    &lt;View&gt;
+                                        &lt;TouchableOpacity
+                                            onPress={(event) =&gt; ex.showDialog(item)}
+                                            style={styles.button}
+                                        &gt;
+                                            &lt;Text&gt;{&quot;show dialog - &quot; + (index + 1)}&lt;/Text&gt;
+                                        &lt;/TouchableOpacity&gt;
+                                    &lt;/View&gt;
+                                &lt;/View&gt;
+                            )
+                        })
+                    }
+                    &lt;View style={styles.section}&gt;
+                        &lt;View&gt;
+                            &lt;TouchableOpacity
+                                onPress={(event) =&gt; ex.showDialog(&quot;_showAlert&quot;)}
+                                style={styles.button}
+                            &gt;
+                                &lt;Text&gt;{&quot;show alert&quot;}&lt;/Text&gt;
+                            &lt;/TouchableOpacity&gt;
+                        &lt;/View&gt;
+                    &lt;/View&gt;
+                    &lt;View style={styles.section}&gt;
+                        &lt;View&gt;
+                            &lt;TouchableOpacity
+                                onPress={(event) =&gt; ex.showDialog(&quot;_showConfirm&quot;)}
+                                style={styles.button}
+                            &gt;
+                                &lt;Text&gt;{&quot;show confirm&quot;}&lt;/Text&gt;
+                            &lt;/TouchableOpacity&gt;
+                        &lt;/View&gt;
+                    &lt;/View&gt;
+                &lt;/ScrollView&gt;
+                {
+                    keys.map(function (item, index) {
+                        if (index &lt; 2) return (
+                            &lt;Dialog
+                                key={item}
+                                modalStyle={styles.modalStyle}
+                                style={{marginTop: -160}}
+                                title=&quot;一般配置&quot;
+                                content={counter + &quot;. 严格说这一规定并不是完全合理，国际通行的标准是6岁以下儿童禁止观看成人音乐会，不过在音乐厅检票时审查年龄显然是一件很困难的事情。&quot;}
+                                onClose={() =&gt; ex.onClose(item)}
+                                onCancel={() =&gt; console.log(&quot;取消&quot; + item)}
+                                onConfirm={() =&gt; console.log(&quot;确认&quot; + item)}
+                                visible={state[item]}
+                                modal={false}
+                                onShow={() =&gt; ex.onShow(item)}
+                                type={index ? &quot;alert&quot; : &quot;confirm&quot;}
+                                footer={index ? {confirm: {text: &quot;确定&quot;}, cancel: {text: &quot;取消&quot;}} : {confirm: {text: &quot;愉快的接受&quot;}, cancel: {text: &quot;残忍的拒绝&quot;}}}
+                            /&gt;
+                        )
+                        if (index &gt; 2) return (
+                            &lt;Dialog
+                                key={item}
+                                style={styles.dialogStyle}
+                                title=&quot;contentJSX配置复杂结构&quot;
+                                content={content}
+                                onClose={() =&gt; ex.onClose(item)}
+                                onCancel={() =&gt; console.log(&quot;取消&quot; + item)}
+                                onConfirm={() =&gt; console.log(&quot;确认&quot; + item)}
+                                visible={state[item]}
+                                onShow={() =&gt; ex.onShow(item)}
+                                type={index ? &quot;alert&quot; : &quot;confirm&quot;}
+                                footer={index ? {confirm: {text: &quot;确定&quot;}, cancel: {text: &quot;取消&quot;}} : {confirm: {text: &quot;愉快的接受&quot;}, cancel: {text: &quot;残忍的拒绝&quot;}}}
+                            /&gt;
+                        )
+                        return (
+                            &lt;Dialog
+                                key={item}
+                                modalStyle={styles.modalStyle}
+                                style={styles.dialogStyle}
+                                content={counter + &quot;. 不展示header，还随时变换类型&quot;}
+                                onClose={() =&gt; ex.onClose(item)}
+                                onCancel={() =&gt; console.log(&quot;取消&quot; + item)}
+                                onConfirm={() =&gt; console.log(&quot;确认&quot; + item)}
+                                visible={state[item]}
+                                showHeader={false}
+                                onShow={() =&gt; ex.onShow(item)}
+                                type={counter % 2 ? &quot;alert&quot; : &quot;confirm&quot;}
+                                footer={index ? {confirm: {text: &quot;确定&quot;}, cancel: {text: &quot;取消&quot;}} : {confirm: {text: &quot;愉快的接受&quot;}, cancel: {text: &quot;残忍的拒绝&quot;}}}
+                            /&gt;
+                        )
+                    })
+                }
+                &lt;Alert
+                    visible={state._showAlert}
+                    modalStyle={styles.modalStyle}
+                    onClose={() =&gt; ex.onClose(&quot;_showAlert&quot;)}
+                    onShow={() =&gt; ex.onShow(&quot;_showAlert&quot;)}
+                    content=&quot;这是消息主体&quot;
+                    title=&quot;这是个Alert&quot;
+                /&gt;
+                &lt;Confirm
+                    visible={state._showConfirm}
+                    onClose={() =&gt; ex.onClose(&quot;_showConfirm&quot;)}
+                    onShow={() =&gt; ex.onShow(&quot;_showConfirm&quot;)}
+                    content=&quot;这是消息主体&quot;
+                    title=&quot;这是个Confirm&quot;
+                /&gt;
+            &lt;/View&gt;
+        )
+    }
+
+    showDialog (id) {
+        counter++
+        if (counter &gt; 100000) counter = 0
+        let state = {}
+        state[id] = true
+        this.setState(state)
+    }
+
+    onClose (id) {
+        console.log(&quot;关闭&quot; + id)
+        let state = {}
+        state[id] = false
+        this.setState(state)
+    }
+
+    onShow (id) {
+        console.log(&quot;显示&quot; + id)
+        let state = {}
+        state[id] = true
+        this.setState(state)
+    }
+
+}
+
+const styles = StyleSheet.create({
+    ...commonStyle,
+    modalStyle: {
+        backgroundColor: &quot;rgba(0, 0, 0, 0.5)&quot;,
+    },
+    dialogStyle: {
+        top: -20,
+    },
+})
+</code></pre>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

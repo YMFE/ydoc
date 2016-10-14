@@ -10,6 +10,7 @@
  * - 实现了列表内图片的懒加载(需要用LazyImage组件替换<img/>)
  *
  * 使用列表组件实现的组件:Grouplist,Calendar,SwipeMenuList,所有使用List实现的组件,全部支持无穷模式(定高/不定高)
+ 
  */
  module.exports = {
     checkJsApi: {

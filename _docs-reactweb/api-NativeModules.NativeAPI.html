@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native for Web API</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ued.qunar.com/mobile/" class="navbar-brand">Qunar</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="">
+                        
+                        <a href="index.html">简介</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="start.html">起步</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="develop.html">开发</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="publish.html">发布</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="active">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extension.html">扩展</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="demo.html">DEMO</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="releases.html">版本</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/qrn/" target="_blank">QRN</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>Qunar React Native for Web API</h1>
+                  <p>API</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-AppRegistry.html">AppRegistry</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-AppState.html">AppState</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-Animated.html">Animated</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-AsyncStorage.html">AsyncStorage</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-Clipboard.html">Clipboard</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-Dimensions.html">Dimensions</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-Fetch.html">Fetch</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-ImageEditor.html">ImageEditor</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-ImageStore.html">ImageStore</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-ImagePicker.html">ImagePicker</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-Geolocation.html">Geolocation</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-Linking.html">Linking</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-StyleSheet.html">StyleSheet</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-NetInfo.html">NetInfo</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-NativeModules.html">NativeModules</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-NativeModules.UIManager.html">NativeModules.UIManager</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  class="active"   class="active" > -->
+                        <li  class="active" >
+                            
+                            <a href="api-NativeModules.NativeAPI.html">NativeModules.NativeAPI</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-PanResponder.html">PanResponder</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-PixelRatio.html">PixelRatio</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="api-Vibration.html">Vibration</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <div class="docs-section">
+<h2>
+    NativeModules
+    <small>NativeModules</small>
+    <span class="yo-badge yo-badge-danger">>=v1.4.0</span>
+</h2>
+<div class="api-content"><p>和Native通信的一些接口，一般不直接调用</p>
+</div>
+<div class="con-list-item">
+
+<div class="con-head">属性</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>UrlMapping</strong>
+     <span class="prop-type">{ object }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>仅在react-web h5情形下供sendScheme内部调用，业务需要在UrlMapping注册自己的规则，根据参数转换成对应url地址，实现在h5上的正常跳转，例如：</p>
+<ul>
+<li><pre><code>var {UrlMapping} = require(&#39;qunar-react-native&#39;).NativeModules
+UrlMapping[hybridId] = {
+    $moduleName: function(obj) {
+        var {url, touchUrl, m, data} = obj // url是scheme，touchUrl是hy页面的url
+        if (obj.m === &#39;openNewVC&#39;) return {url: &#39;http://xxx.com&#39;, openNew: true}
+        if (obj.m !== &#39;openNewVC&#39;) return {url: &#39;http://xxx.com&#39;, openNew: false}
+        // 返回的url是跳转或者打开页面的地址，如果是跳转，请在改url对应的页面内完成回跳逻辑，如果return false则不会跳转或者新开页面，业务方可以自己执行任何逻辑操作。
+    }
+}
+</code></pre></li>
+</ul>
+</div>
+    
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>QRCTBroadCastManager</strong>
+     <span class="prop-type">{ object }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>挂靠在NativeModules上的QRCTBroadCastManager。</p>
+</div>
+    
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>QRCTVCManager</strong>
+     <span class="prop-type">{ object }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>挂靠在NativeModules上的QRCTVCManager。</p>
+</div>
+    
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>QRCTNativeCallbackManager</strong>
+     <span class="prop-type">{ object }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>挂靠在NativeModules上的QRCTNativeCallbackManager。</p>
+</div>
+    
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>QRCTJumpHandleManager</strong>
+     <span class="prop-type">{ object }</span>
+    
+    </h3>
+</blockquote>
+<div class="api-content">
+    <div><p>挂靠在NativeModules上的QRCTJumpHandleManager。</p>
+</div>
+    
+</div>
+
+
+
+
+
+
+<div class="con-head">方法</div>
+
+<blockquote class="api">
+    <h3>
+    <strong>NativeModules.QRCTBroadCastManager.sendBroadcast</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>然而在hy和h5上都没有实现，如有调用，会打印警告</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>name</td>
+            <td>string</td>
+            <td>name</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>data</td>
+            <td>object</td>
+            <td>data</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>hybridId</td>
+            <td>string</td>
+            <td>hybridId</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>NativeModules.QRCTVCManager.backToReactVC</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>然而在hy和h5上都没有实现，如有调用，会打印警告【也许可以通过react/biz来发送消息】</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>hybridId</td>
+            <td>string</td>
+            <td>hybridId</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>index</td>
+            <td>number</td>
+            <td>ReactViewIndex</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>adrToken</td>
+            <td>string</td>
+            <td>adrToken</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>opts</td>
+            <td>object</td>
+            <td>选项</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>NativeModules.QRCTVCManager.closeCurrentVC</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>为了不混淆hy和RN，h5和hy都不实现，如有调用，打印警告</p>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>NativeModules.QRCTVCManager.closeActivity</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>然而在hy和h5上都没有实现，如有调用，会打印警告</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>adrToken</td>
+            <td>string</td>
+            <td>adrToken</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>NativeModules.QRCTVCManager.setSwipeBackEnabled</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>然而在hy和h5上都没有实现，如有调用，会打印警告</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>isEnabled</td>
+            <td>bool</td>
+            <td>isEnabled</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>vcIndex</td>
+            <td>number</td>
+            <td>ReactViewIndex</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>cb</td>
+            <td>function</td>
+            <td>回调</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>NativeModules.QRCTNativeCallbackManager.sendNativeEvents</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>然而在hy和h5上都没有实现，如有调用，会打印警告</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>id</td>
+            <td>string</td>
+            <td>id</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>data</td>
+            <td>object</td>
+            <td>data</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>NativeModules.QRCTJumpHandleManager.sendScheme</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>h5会不做任何处理，直接赋值给loaction.href跳转，业务需要自己决定传递的url类型来决定是唤起nativ应用还是touch页面之间跳转【在UrlMapping上配置】；hy则会通过QunarAPI.hy.schemeForResult处理</p>
+</div>
+
+<p class="api-content">
+    <small class="text-muted">方法参数:</small>
+</p>
+<div class="docs-table api-content">
+    <table class="yo-table yo-table-border">
+        <colgroup>
+            <col class="c1">
+            <col class="c2">
+            <col class="c3">
+            <col class="c4">
+        </colgroup>
+        <thead>
+            <tr class="active">
+                <th>参数名</th>
+                <th>类型</th>
+                <th>描述</th>
+                <th>必选</th>
+                <th>版本</th>
+            </tr>
+        </thead>
+        
+        <tr>
+            <td>url</td>
+            <td>string</td>
+            <td>url</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>data</td>
+            <td>object</td>
+            <td>data</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>adrToken</td>
+            <td>string</td>
+            <td>adrToken</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+        <tr>
+            <td>cb</td>
+            <td>function</td>
+            <td>回调</td>
+            <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td>
+            <td></td>
+        </tr>
+        
+    </table>
+</div>
+
+
+
+
+<blockquote class="api">
+    <h3>
+    <strong>NativeModules.QRCTJumpHandleManager.sendSchema</strong>
+    
+    </h3>
+</blockquote>
+<div class="api-content"><p>已过时，请使用NativeModules.QRCTJumpHandleManager.sendScheme</p>
+</div>
+
+
+
+
+
+
+
+</div>
+</div>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>Qunar React Native 开始</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="active">
+                        
+                        <a href="index.html">开始</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="component.html">组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extraUI.html">外部组件</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="api.html">API</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extension.html">EXT</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="extending.html">扩展</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="demo.html">DEMO</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="faq.html">FAQ</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="releases.html">Releases</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="http://ued.qunar.com/react-web/" target="_blank">React Web</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>Qunar React Native</h1>
+                  <p>去哪儿定制版 React Native，更快、更好、更统一。</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="index-项目创建.html">项目创建</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="index-项目开发.html">项目开发</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  class="active"   class="active" > -->
+                        <li  class="active" >
+                            
+                            <a href="index-开发工具.html">开发工具</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="index-使用iconfont.html">使用iconfont</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="index-使用ImageSet.html">使用ImageSet</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="index-Native集成（iOS）.html">Native集成（iOS）</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="index-Native集成 （Android）.html">Native集成 （Android）</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="index-使用Chrome调试.html">使用Chrome调试</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="index-使用Atom调试（实验性）.html">使用Atom调试（实验性）</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="index-调试日志查看.html">调试日志查看</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="index-测试部署.html">测试部署</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <h2 id="QRN 开发工具">QRN 开发工具</h2><p>在 <code>QRN</code> 的开发和测试环节中，都会涉及使用开发工具来配置 <code>QRN</code> 的环境。本节主要介绍客户端中的QRN开发工具。为了方便开发，我们除了提供大客户端的环境，还提供了独立的壳程序，里面是一个纯净的 <code>QRN</code> 运行环境。</p>
+<h3 id="客户端地址">客户端地址</h3><h4 id="独立壳程序">独立壳程序</h4><ul>
+<li>Android：<a href="http://gitlab.corp.qunar.com/wangtao.wang/rndemo/blob/release/RnApp/file/QRN_1.2.0.apk">apk</a></li>
+<li>iOS：<a href="http://gitlab.corp.qunar.com/react_native/app_template_ios_mclient/tree/ext">gitlab</a>*(安装方法见README，该壳程序可以在模拟器和手机中使用，注意，我们使用的是master分支，请 <code>git checkout master</code>，如果后续更新<code>git pull</code>出现冲突的时候建议直接删除然后重新<code>git clone</code>)</li>
+</ul>
+<p>[*] iOS的独立壳程序需要使用XCode 7或以上版本进行构建。XCode可以在Mac App Store中免费获得。</p>
+<h4 id="大客户端">大客户端</h4><ul>
+<li>Android：<a href="http://gitlab.corp.qunar.com/wangtao.wang/rndemo/blob/release/RnApp/file/atom_gourd_1.2.0.apk">链接</a></li>
+<li>iOS：<a href="http://cmyum.corp.qunar.com/mobile_app/ios/m_qunar_iphone_5.0/tags/4.9.2-beta.6390/QunariPhone_Cook_CM_Qunar_4.9.2_beta_160517_175730.ipa.html">链接</a></li>
+</ul>
+<h3 id="配置开发/测试环境">配置开发/测试环境</h3><h4 id="第一步：唤起开发工具">第一步：唤起开发工具</h4><ul>
+<li>独立APP-iOS：进入APP之后，摇晃手机，出现开发工具界面</li>
+<li>独立APP-Android：进入之后即是开发工具界面</li>
+<li>大客户端：点击QBUG图标之后，长按第三个按钮，出现开发工具界面</li>
+</ul>
+<h4 id="第二步：配置环境">第二步：配置环境</h4><ul>
+<li><p>Android 环境</p>
+<ol>
+<li><p>第一步：完成如下配置，保存并重启。</p>
+<p> <img src="images/devtool-adr-evn.png" alt="devtool-adr-evn"></p>
+<p> 参数说明：</p>
+<ul>
+<li><code>LocalServer</code>：本地服务环境
+  <code>Host</code>：本机的ip地址（确保手机和电脑在同一个局域网，若选中此环境，此项为<code>必填</code>）
+  <code>Port</code>：端口号（默认值：8081，一般不需要修改）
+  <code>Debug In The Chrome</code>：在Chrome中调试Js代码：详细见:<a href="./index-使用Chrome调试.html">如何使用Chrome调试</a>
+  <code>Debug Mode</code>：Js端的debug模式
+  <code>暴走选项，慎点，后果自负</code>：不要选中</li>
+<li><code>Beta</code>：beta环境
+  <code>分支</code>：项目所在的分支名（若选中此环境，此项为<code>必填</code>）</li>
+<li><code>release</code>：线上环境</li>
+</ul>
+</li>
+<li><p>第二步：回到入口页面，完成如下入口参数的配置，然后点击『打开RN页面』进入项目。</p>
+<p> <img src="images/devtool-adr-entry.png" alt="devtool-adr-entry"></p>
+</li>
+</ol>
+</li>
+<li><p>iOS 环境</p>
+<ol>
+<li><p>第一步：完成如下配置，保存并重启。</p>
+<p> <img src="images/devtool-ios-evn.png" alt="devtool-ios-evn"></p>
+</li>
+<li><p>第二步：点击『点击重新加载获取RCTVC』</p>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="第三步：在RN页面中唤起开发工具">第三步：在RN页面中唤起开发工具</h4><p>在已经进入RN页面之后，可以通过摇晃的方法，唤起开发工具。</p>
+<p><img src="images/devtool-page.png" alt="devtool-page"></p>
+<p>参数说明：</p>
+<ul>
+<li><code>Reload Js</code>：重新加载业务的js代码，若前端js发生更改，可通过此功能刷新，查看更改后的效果。</li>
+<li><code>JsBundle加载方式</code>：进入开发工具界面。</li>
+<li><code>Log日志查看</code>：详细见:<a href="./index-调试日志查看.html">调试日志查看</a>。</li>
+<li><code>检查元素</code>：查看View布局的相关信息。</li>
+<li><code>显示帧率</code>：显示FPS覆盖层，帮助你调试性能问题。</li>
+</ul>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            © 2015 - 2016 Qunar 平台前端架构组. Powered by <a href="http://gitlab.corp.qunar.com/mfe/qdoc">qdoc</a>
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>

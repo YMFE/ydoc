@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+  <meta name="description" content="description of your site">
+  <meta name="author" content="author of the site">
+  <title>YDoc 开始</title>
+  <link rel="stylesheet" href="source/app.css"/>
+  <link rel="stylesheet" href="source/highlight.min.css"/>
+</head>
+<body>
+    <div class="ydoc">
+      <header class="ydoc-header">
+        <div class="ydoc-header-area">
+            
+            <a href="http://ymfe.tech/" class="navbar-brand">YMFE</a>
+            
+            <button class="ydocIcon navbar-toggle">&#xf020;</button>
+            <nav class="ydoc-nav">
+              <ul class="navbar-left">
+                
+                    
+                    <li class="active">
+                        
+                        <a href="index.html">开始</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="usage.html">命令</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="config.html">配置</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="comment.html">注释规则</a>
+                        
+                    </li>
+                    
+                    <li class="">
+                        
+                        <a href="release.html">版本</a>
+                        
+                    </li>
+                    
+                
+              </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- <header style="height:20px"></header> -->
+    
+      <!-- Docs page layout -->
+      
+      <div class="ydoc-banner-bg">
+          <div class="ydoc-banner">
+              <div class="ydoc-banner-area">
+                  <h1>YDoc</h1>
+                  <p>开始</p>
+              </div>
+          </div>
+      
+
+      <div class="ydoc-container">
+        
+          
+          <div class="ydoc-container-content">
+              <div class="content-left" role="complementary">
+                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                    <ul class="nav docs-sidenav">
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="#简介">简介</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="#安装">安装</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="#使用方式">使用方式</a>
+                            
+                        </li>
+                        
+                        
+                        
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="#命令">命令</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#脚本">脚本</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#Gulp">Gulp</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#Grunt">Grunt</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="#开发者">开发者</a>
+                            
+                        </li>
+                        
+                        
+                    </ul>
+                  </nav>
+              </div>
+              <div class="content-right markdown-body" role="main">
+
+                
+                <h1 id="YDoc">YDoc</h1><h2 id="简介">简介</h2><p>前端工程文档生成工具</p>
+<p><a href="http://badge.fury.io/js/ydoc"><img src="https://badge.fury.io/js/ydoc.svg" alt="npm version"></a></p>
+<p><img src="https://nodei.co/npm/ydoc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt=""></p>
+<h2 id="安装">安装</h2><pre><code>npm install ydoc [-g]
+</code></pre><h2 id="使用方式">使用方式</h2><h3 id="命令">命令</h3><pre><code>cd /path/to/project/
+ydoc build
+</code></pre><p>详细请查看<a href="./usage.html">命令使用说明</a>。</p>
+<h3 id="脚本">脚本</h3><pre><code class="lang-javascript">var ydoc = require(&quot;ydoc&quot;);
+
+ydoc.build(&#39;/path/to/project&#39;, options);
+</code></pre>
+<h3 id="Gulp">Gulp</h3><pre><code class="lang-javascript">var ydoc = require(&quot;ydoc&quot;);
+
+gulp.task(&#39;ydoc&#39;, function() {
+    return gulp.src(&#39;./&#39;)
+        .pipe(ydoc({
+            // 配置
+        }));
+});
+</code></pre>
+<h3 id="Grunt">Grunt</h3><pre><code class="lang-javascript">grunt.initConfig({
+    ydoc: {
+        // 配置
+    }
+});
+
+grunt.loadNpmTasks(&#39;ydoc&#39;);
+</code></pre>
+<p>配置及配置文件请查看 <a href="./config.html">配置说明</a>;</p>
+<h2 id="开发者">开发者</h2><ul>
+<li>林洋 <a href="&#109;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#97;&#x64;&#x77;&#x6f;&#110;&#46;&#x6c;&#105;&#110;&#x40;&#113;&#x75;&#x6e;&#97;&#x72;&#46;&#99;&#x6f;&#109;">&#97;&#x64;&#x77;&#x6f;&#110;&#46;&#x6c;&#105;&#110;&#x40;&#113;&#x75;&#x6e;&#97;&#x72;&#46;&#99;&#x6f;&#109;</a> | <a href="&#109;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#x65;&#x64;&#x77;&#x6f;&#x6e;&#x2e;&#x6c;&#105;&#109;&#x40;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#x65;&#x64;&#x77;&#x6f;&#x6e;&#x2e;&#x6c;&#105;&#109;&#x40;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a></li>
+<li>王丽丽 <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#108;&#101;&#x69;&#108;&#x61;&#46;&#x77;&#x61;&#x6e;&#103;&#x40;&#x71;&#117;&#x6e;&#97;&#x72;&#x2e;&#x63;&#111;&#x6d;">&#108;&#101;&#x69;&#108;&#x61;&#46;&#x77;&#x61;&#x6e;&#103;&#x40;&#x71;&#117;&#x6e;&#97;&#x72;&#x2e;&#x63;&#111;&#x6d;</a></li>
+</ul>
+
+              </div>
+          </div>
+          
+        
+      </div>
+     
+     </div>
+     
+      <footer class="footer">
+        <div class="copyright">
+            Made By YMFE. © 2014 - 2016
+        </div>
+      </footer>
+    </div>
+    <script src="source/jquery.min.js"></script>
+    <script src="source/bootstrap.min.js"></script>
+    <script src="source/docs.min.js"></script>
+    <script src="source/highlight.min.js"></script>
+    <script src="source/app.js"></script>
+</body>
+</html>
