@@ -79,6 +79,12 @@
     </h3>
 </blockquote>
 <div class="api-content">{{method.description | markdown}}</div>
+{{if method.resource}}
+<p>
+    <small class="text-muted">来源:</small>
+    {{method.resource}}
+</p>
+{{/if}}
 {{if method.params.length}}
 <p class="api-content">
     <small class="text-muted">方法参数:</small>
@@ -119,6 +125,13 @@
     <small class="text-muted">返回值:</small>
     <mark>{{method.returns.type}}</mark>
     {{method.returns.name}}
+</p>
+{{/if}}
+{{if method.return}}
+<p class="api-content">
+    <small class="text-muted">返回值:</small>
+    <mark>{{method.return.type}}</mark>
+    {{method.return.name}}
 </p>
 {{/if}}
 {{/if}}
