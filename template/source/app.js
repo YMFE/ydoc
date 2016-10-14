@@ -99,7 +99,7 @@ if (sidebar.height() > winHeight) {
 
     $(window).on('scroll', function(e) {
         if( $(this).scrollTop() >  ($('.footer').offset().top - $(window).height()) ){
-            winHeight = $(window).height() - $('.footer').outerHeight()-44,
+            winHeight = $(window).height() - $('.footer').outerHeight()-44;
             sidebar.css('max-height', winHeight + 'px');
             $('.docs-sidenav').css('max-height', winHeight + 'px');
         }else{
@@ -140,8 +140,7 @@ function resizeSidebar(){
         sidebar.css('max-height', winHeight + 'px');
         $('.docs-sidenav').css('max-height', winHeight + 'px');
         $('.docs-sidenav').css({'overflow-y':'scroll','overflow-x':'hidden'});
-        var activeMenu,
-            barScroll = false;
+        var barScroll = false;
 
         sidebar.on('mouseover', function() {
             barScroll = true;
@@ -152,7 +151,7 @@ function resizeSidebar(){
         });
         // scroll
         if( $(window).scrollTop() >  ($('.footer').offset().top - $(window).height()) ){
-            winHeight = $(window).height() - $('.footer').outerHeight()-44,
+            winHeight = $(window).height() - $('.footer').outerHeight()-44;
             sidebar.css('max-height', winHeight + 'px');
             $('.docs-sidenav').css('max-height', winHeight + 'px');
         }else{
