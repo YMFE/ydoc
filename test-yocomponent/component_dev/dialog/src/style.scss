@@ -1,0 +1,20 @@
+@import '../../modal/src/style';
+@import "../../../style/usage/core/reset";
+@import "../../../style/usage/fragment/yo-dialog";
+@import "../../../style/lib/ani/zoom-in";
+@import "../../../style/lib/ani/zoom-out";
+
+.yo-dialog-component .yo-modal-content {
+    max-width: 90%;
+    @include border-radius(0.1rem);
+}
+
+.yo-dialog-component .yo-dialog {
+    position: static;
+    max-width: none;
+}
+
+@include yo-dialog (
+        $name: 'demo',
+        $border-color: red
+);

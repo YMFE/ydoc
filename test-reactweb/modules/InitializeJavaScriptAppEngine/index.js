@@ -1,0 +1,4 @@
+/* 
+ * @providesModule InitializeJavaScriptAppEngine
+ */
+module.exports = {}

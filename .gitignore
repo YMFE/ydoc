@@ -5,6 +5,7 @@
 node_modules
 node_modules/
 .sass-cache/
+test-kami/
 
 
 

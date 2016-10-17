@@ -1,0 +1,55 @@
+@charset "utf-8";
+/**
+ * Yo框架全局base定义
+ * 本文件与variables不同地方在于，这里所定义的map可以使用在variables和任何地方
+ * 本文件中map使用"_"开头，extra中不使用"_"
+ * base ⇌ extra
+ */
+
+// base
+$_base: (
+    // root字号类型：normal | scaling
+    // normal表示root字号使用 `font-size-root`
+    // scaling表示root字号使用 `font-size-root-scaling`
+    responsive-type:        normal,
+    // html root使用100px，方便rem单位的换算
+    font-size-root:         100px,
+    // 适配：用于做元素随屏幕大小而变化的情况
+    font-size-root-scaling: 31.25vw,
+    // body的默认字号（文档基准字号）
+    // chrome37-45/opera24-33在body上使用rem时有个bug（其他版本未测），后续版本已被修复:
+    // 只要引用了外部样式，不论里面的内容是什么，body上的rem就会失效
+    // 这时在开发者工具里，关闭又开启一次该条属性，则生效，刷新又挂
+    // 由于body是html的子元素，所以对于body来讲，此时rem与em的效果是相同的
+    font-size:            .14em,
+    // font-family
+    font-family:          #{"Helvetica Neue", Helvetica, STHeiTi, sans-serif},
+    // lin-height
+    line-height:          1.5,
+    // 默认文档背景色
+    doc-bgcolor:          #ebebeb,
+    // 默认边框色
+    border-color:         #ccc,
+    // 默认次级边框色
+    sub-border-color:     #ddd,
+    // 默认背景颜色
+    bgcolor:              #fafafa,
+    // 默认文本颜色
+    color:                #212121,
+    // 默认次级文本颜色
+    sub-color:            #666,
+    // 默认边框色
+    disabled-border-color:#ccc,
+    // 默认文档颜色
+    disabled-bgcolor:     #e0e0e0,
+    // 默认禁用文本颜色
+    disabled-color:       #bbb,
+    // 高亮色
+    light-color:          #FE0053,
+    // 价格颜色
+    price-color:          #f60,
+    // 默认链接色
+    link-color:           #00afc7,
+    // 链接经过色
+    link-hover-color:     #f60
+);

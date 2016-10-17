@@ -1,0 +1,750 @@
+@charset "utf-8";
+/**
+ * Yo框架全局Variables
+ * Yo基础变量map，如果不想定义某属性，将其value设置为null
+ * Yo仅使用2种长度单位：px用于边框，rem用于除边框之外的所有地方
+ * 本文件中map使用"_"开头，config中不使用"_"
+ * variables ⇌ config
+ */
+
+// 基本设置
+$_setting: (
+    // {String} 版本号
+    version:             "2.1.3",
+    // {Boolean} 是否开启厂商前缀
+    is-vendor-prefix:    true,
+    // {String} 厂商前缀
+    vendor-prefix:       -webkit-,
+    // {String} 背景图片服务器
+    bgimg-domain:        "//s.qunarzz.com/yo/bgimg/",
+    // {Boolean} 是否允许横竖屏时文本字号自动调整
+    is-text-size-adjust: true,
+    // {Boolean} 是否显示页面滚动条
+    is-scrollbar:        false
+);
+
+// responsive media types
+$_media-types: (
+    // {String} 横屏
+    landscape: "(orientation: landscape)",
+    // {String} 竖屏
+    portrait:  "(orientation: portrait)",
+    // 视网膜屏定义，这里不做非常细节的界定，比如完全一致的整数倍
+    // retina1x：< 1.5dppx；
+    // retina2x：1.5dppx ~ 2.49dppx
+    // retina3x：>= 2.5dppx
+    // {String} 非视网膜屏
+    retina1x:  "(max--moz-device-pixel-ratio: 1.49),
+                (-webkit-max-device-pixel-ratio: 1.49),
+                (max-device-pixel-ratio: 1.49),
+                (max-resolution: 143dpi),
+                (max-resolution: 1.49dppx)",
+    // {String} 视网膜屏2x
+    retina2x:  "(min--moz-device-pixel-ratio: 1.5) and (max--moz-device-pixel-ratio: 2.49),
+                (-webkit-min-device-pixel-ratio: 1.5) and (-webkit-max-device-pixel-ratio: 2.49),
+                (min-device-pixel-ratio: 1.5) and (max-device-pixel-ratio: 2.49),
+                (min-resolution: 144dpi) and (max-resolution: 239dpi),
+                (min-resolution: 1.5dppx) and (max-resolution: 2.49dppx)",
+    // {String} 视网膜屏3x
+    retina3x:  "(min--moz-device-pixel-ratio: 2.5),
+                (-webkit-min-device-pixel-ratio: 2.5),
+                (min-device-pixel-ratio: 2.5),
+                (min-resolution: 240dpi),
+                (min-resolution: 2.5dppx)",
+    // 待添加stop-points
+    // 用于常规手机横竖屏
+    xs:        "(max-width: 767px)",
+    // 用于常规pad横竖屏
+    s:         "(min-width: 768px) and (max-width: 1024px)",
+    // 用于常规笔记本
+    m:         "(min-width: 1025px) and (max-width: 1280px)",
+    // 用于常规台式机
+    l:         "(min-width: 1281px) and (max-width: 1440px)",
+    // 用于超大台式机
+    xl:        "(min-width: 1441px)"
+);
+
+// ico font
+$_ico: (
+    // {Boolean} 是否使用图标字体
+    is-use:     true,
+    // {String} 图标字体文件名
+    font-name:  yofont,
+    // {Url} 图标字体路径
+    font-path:  "//ss.qunarzz.com/yo/font/1.0.3/"
+);
+
+// z-index
+$_z-index: (
+    // {Number} 下拉菜单层级范围50-100
+    dropdown:    50,
+    // {Number} 遮罩层级
+    mask:        1000,
+    // {Number} 弹窗层级范围1001-1500
+    dialog:      1001,
+    // {Number} 浮层层级范围1501-2000
+    popup:       1501,
+    // {Number} 搜索层级范围2001-2500
+    suggest:     2001,
+    // {Number} 搜索层级范围2501-3000
+    actionsheet: 2501,
+    // {Number} 浮层层级范围3001-3500
+    tooltip:     3001,
+    // {Number} loading层级
+    loading:     9999
+);
+
+// Layout align
+$_align: (
+    // {String} 定义弹性水平对齐方式
+    justify-content: center,
+    // {String} 定义弹性垂直对齐方式
+    align-items:     center
+);
+
+// Layout column(1)
+$_column: (
+    // {Length} 容器高度，取值：[auto|cover]
+    size:     auto
+);
+
+// Layout flex
+$_flex: (
+    // {String} 定义是水平布局还是垂直布局: row | column
+    direction: column
+);
+
+// Layout Stacked
+$_stacked: (
+    // {Length} 区块外边距
+    margin: .2rem .1rem
+);
+
+// Element UI badge(7)
+$_badge: (
+    // {Length} 内补白
+    padding:      0 .03rem,
+    // {Length} 边框厚度
+    border-width: 1px,
+    // {Color} 边框色
+    border-color: #f00,
+    // {Color} 背景色
+    bgcolor:      #f00,
+    // {Color} 文本色
+    color:        #fff,
+    // {Length} 圆角
+    radius:       .1rem,
+    // {Length} 字号
+    font-size:    .12rem
+);
+
+// Element Button(18)
+$_btn: (
+    // {Color} Length
+    border-width:   1px,
+    // {Color} 边框色
+    border-color:   #d36105,
+    // {Color} 背景色
+    bgcolor:        #ff801a,
+    // {Color} 文本色
+    color:          #fff,
+    // {Color} 激活时边框色
+    active-border-color: null,
+    // {Color} 激活时背景色
+    active-bgcolor:      null,
+    // {Color} 激活时文本色
+    active-color:        null,
+    // {Length} 内补白(使用em让根据字号动态调整)
+    padding:        0 1.2em,
+    // {Length} 圆角半径
+    radius:         .05rem,
+    // {Length} 字号
+    font-size:      null,
+    // {Length} 宽度
+    width:          null,
+    // {Length} 高度
+    height:         null,
+    // {Length} 默认预设3种尺寸按钮：
+    // small
+    s-height:       .28rem,
+    s-font-size:    .12rem,
+    // medium
+    m-height:       .36rem,
+    m-font-size:    .14rem,
+    // large
+    l-height:       .44rem,
+    l-font-size:    .16rem
+);
+
+// Element checked(11)
+$_checked: (
+    // {String} 选中标记的内容，可以是自定义的iconfont编码
+    content:        "\f078",
+    // {Length} 元件大小
+    size:           .2rem,
+    // {Length} 标签大小
+    font-size:      .12rem,
+    // {Length} 边框厚度
+    border-width:   null,
+    // {Color} 未选中时的边框色
+    border-color:   null,
+    // {Color} 未选中时的背景色
+    bgcolor:        null,
+    // {Color} 未选中时的标记颜色
+    color:          transparent,
+    // {Color} 激活边框色
+    on-border-color:null,
+    // {Color} 激活背景色
+    on-bgcolor:     null,
+    // {Color} 激活标记颜色
+    on-color:       #2b94ff,
+    // {Length} 圆角
+    radius:         .05rem
+);
+
+// Element loading(7)
+$_loading: (
+    // {Length} 菊花大小
+    ico-size:     .5rem,
+    // {Color} 菊花颜色
+    ico-color:    #212121,
+    // {Color} 背景颜色
+    bgcolor:      null,
+    // {Length} 字号
+    font-size:    null,
+    // {Color} 文本颜色
+    color:        map-get($base, color),
+    // {String} loading符号，可以是自定义的iconfont编码
+    content:      "\f089"
+);
+
+// Element loadtip(3)
+$_loadtip: (
+    // {Color} 文本色
+    color:     #666,
+    // {Length} 字号
+    font-size: null,
+    // {Color} ico色
+    ico-color: map-get($base, link-color)
+);
+
+// Element range(5)
+$_range: (
+    // {Length} 滑轴高度
+    track-height:   .02rem,
+    // {Color} 滑轴色
+    track-color:    #ccc,
+    // {Color} 选中滑轴色
+    on-track-color: #1ba9ba,
+    // {Length} 滑球高度
+    thumb-height:   .28rem,
+    // {Color} 滑块色
+    thumb-color:    #fff
+);
+
+// Element switch(4)
+$_switch: (
+    // {Color} 背景色
+    bgcolor:         map-get($base, border-color),
+    // {Color} 激活背景色
+    on-bgcolor:      #4bd763,
+    // {Color} 跟随背景色
+    follow-bgcolor:  map-get($base, bgcolor),
+    // {Color} 滑块色
+    thumb-color:     #fff
+);
+
+// Fragment actionsheet(9)
+$_actionsheet: (
+    // {Length} 外边距
+    margin:           .1rem,
+    // {Length} 圆角半径
+    radius:           .1rem,
+    // {Color} 边线色
+    border-color:     map-get($base, border-color),
+    // {Color} 子项背景色
+    bgcolor:          rgba(#fff, .95),
+    // {Color} 子项点击反馈背景色
+    active-bgcolor:   rgba(#eee, .95),
+    // {Length} 子项高度
+    item-height:      .55rem,
+    // {Length} 子项字号
+    item-font-size:   .18rem,
+    // {Color} 子项文本色
+    item-color:       map-get($base, link-color),
+    // {Color} 重要操作子项文本色
+    item-light-color: #f00
+);
+
+// Fragment breadcrumb(6)
+$_breadcrumb: (
+    // {Length} 面包屑高度
+    height:         .44rem,
+    // {Color} 面包屑背景色
+    bgcolor:        #f0f0f0,
+    // {Color} 面包屑文本色
+    color:          map-get($base, color),
+    // {Color} 面包屑间隔色
+    arrow-color:    #ccc,
+    // {String} 面包屑间隔符号，可以是自定义的iconfont编码
+    arrow-content:  "\f07f",
+    // {Length} 面包屑子项间隙
+    item-space:     .05rem
+);
+
+// Fragment calendar(26)
+$_calendar: (
+    // {Length} 星期bar高度
+    week-bar-height:      .22rem,
+    // {Color} 星期bar背景色
+    week-bar-bgcolor:     #1ba9ba,
+    // {Color} 星期bar文本色
+    week-bar-color:       #fff,
+    // {Length} 星期bar字号
+    week-bar-font-size:   .12rem,
+
+    // {Length} 月份bar高度
+    month-bar-height:     .25rem,
+    // {Color} 月份bar边线色
+    month-bar-border-color:#ddd,
+    // {Color} 月份bar背景色
+    month-bar-bgcolor:     #f9f9f9,
+    // {Color} 月份bar文本色
+    month-bar-color:       #000,
+    // {Length} 月份bar字号
+    month-bar-font-size:   null,
+
+    // {Length} 每行高度
+    week-height:           .54rem,
+    // {Color} 每行边线色
+    week-border-color:      #ddd,
+    // {Color} 每行文本色
+    week-color:             #000,
+
+    // {Length} 每日高度
+    day-height:            .24rem,
+    // {Length} 每日间距
+    day-margin:            .05rem 0 .02rem,
+    // {Length} 每日圆角
+    day-radius:            50%,
+    // {Length} 每日字号
+    day-font-size:         null,
+
+    // {color} 特殊日文本色
+    special-color:         #f50,
+    // {color} 周末文本色
+    weekend-color:         #f00,
+    // {color} 禁用日子文本色
+    disabled-color:        map-get($base, disabled-color),
+
+    // {color} 选中日期背景色
+    on-bgcolor:            #1ba9ba,
+    // {color} 选中日期文本色
+    on-color:              #fff,
+    // {color} 选中日期提示语文本色
+    on-tip-color:          #1ba9ba,
+    // {Length} 选中日期提示语字号
+    on-tip-font-size:      null,
+
+    // {String} 开始日期提示语
+    start-content:         "入店",
+    // {String} 结束日期提示语
+    end-content:           "离店",
+
+    // {color} 选中日期段背景色
+    range-bgcolor:         #eee
+);
+
+// Fragment card(11)
+$_card: (
+    // {Length} 外边距
+    margin:       .1rem,
+    // {Length} 圆角半径长度
+    radius:       null,
+    // {Length} 外边框厚度
+    border-width: 1px,
+    // {Color} 外边框色
+    border-color: #ccc,
+    // {Color} 背景色
+    bgcolor:      #fff,
+    // {Color} 文本色
+    color:        null,
+    // {Length} 字号大小
+    font-size:    null,
+    // {Length} 头部边框厚度
+    hd-border-width: 0 0 1px,
+    // {Color} 头部边框色
+    hd-border-color: #ddd,
+    // {Length} 底部边框厚度
+    ft-border-width: 1px 0 0,
+    // {Color} 底部边框色
+    ft-border-color: #ddd
+);
+
+// Fragment carousel(8)
+$_carousel: (
+    // {Length} 按钮大小
+    btn-size:           .44rem,
+    // {Color} 按钮背景色
+    btn-bgcolor:        rgba(#09a5c4, .8),
+    // {Color} 按钮文本色
+    btn-color:          #fff,
+    // {Color} 按钮按下时背景色
+    btn-active-bgcolor: rgba(#09a5c4, .5),
+    // {Color} 按钮按下时文本色
+    btn-active-color:   null,
+    // {Length} 索引大小
+    index-size:         .1rem,
+    // {Color} 索引背景色
+    index-bgcolor:      #85c8d1,
+    // {Color} 索引的当前项背景色
+    on-index-bgcolor:   #09a5c4
+);
+
+// Fragment dialog(8)
+$_dialog: (
+    // {Length} 宽度
+    width:           null,
+    // {Length} 高度
+    height:          null,
+    // {Length} 圆角
+    radius:          .1rem,
+    // {Color} 边框色
+    border-color:    map-get($base, border-color),
+    // {Color} 标题颜色
+    title-color:     map-get($base, color),
+    // {Length} 标题文字大小
+    title-font-size: .16rem,
+    // {Length} 主体区域间隙
+    bd-padding:      .03rem .1rem .15rem,
+    // {Length} 主体区域文字大小
+    bd-font-size:    .16rem
+);
+
+// Fragment group(3)
+$_group: (
+    // {Length} 索引宽度
+    index-width:     .3rem,
+    // {Color} 索引文本色
+    index-color:     #555,
+    // {Length} 索引字号
+    index-font-size: .12rem
+);
+
+// Fragment header(12)
+$_header: (
+    // {Length} 高度
+    height:         .44rem,
+    // {Length} 两侧的子项宽度
+    item-width:     .6rem,
+    // {Length} 两侧的子项离边界的间隙
+    item-space:     .15rem,
+    // {Length} 边框厚度
+    border-width:   0 0 1px,
+    // {Color} 边框色
+    border-color:   #1ba9ba,
+    // {Color} 背景色
+    bgcolor:        #1ba9ba,
+    // {Color} 文本色
+    color:          #fff,
+    // {Length} 文本大小
+    font-size:      .18rem,
+    // {Color} 文本色
+    item-color:     #fff,
+    // {Color} 两侧的子项ico颜色
+    item-ico-color: #7ff,
+    // {Length} 两侧的子项文本大小
+    item-font-size: null,
+    // {Length} 两侧的子项ico大小
+    item-ico-size:  .2rem
+);
+
+// Fragment list(17)
+$_list: (
+    // {Length} 列表外边距
+    margin:            null,
+    // {Length} 列表圆角
+    radius:            null,
+    // {Length} 列表边框厚度
+    border-width:      0 0 1px,
+    // {Color} 列表边框色
+    border-color:      map-get($base, border-color),
+    // {Length} 列表项内补白，列表项有最小高度.44rem
+    item-padding:      .11rem .1rem .12rem,
+    // {Length} 列表组头内补白
+    label-padding:     .03rem .1rem,
+    // {Color} 列表组头背景色
+    label-bgcolor:     map-get($base, doc-bgcolor),
+    // {Color} 点击反馈背景色
+    active-bgcolor:    #f8f8f8,
+    // {Color} 选中背景色
+    on-bgcolor:        null,
+    // {Color} 选中文本色
+    on-color:          null,
+    // {Color} 列表项边框色
+    item-border-color: map-get($base, sub-border-color),
+    // {Color} 列表项组名边框色
+    label-border-color:#eee,
+    // {Length} 列表项字号
+    item-font-size:    null,
+    // {Length} 列表组头字号
+    label-font-size:   .13rem,
+    // {Length} 列表项下边线距离左侧的间隙
+    item-border-space: .1rem,
+    // {Length} 更多区域字号
+    more-font-size:    .12rem,
+    // {Color} 更多区域文本色
+    more-color:        #aaa
+);
+
+// Fragment mask(1)
+$_mask: (
+    // {Color} 背景色
+    bgcolor: rgba(#000, .2)
+);
+
+// Fragment number(11)
+$_number: (
+    // {Length} 宽度
+    width:             1.2rem,
+    // {Length} 高度
+    height:            .36rem,
+    // {Length} 外边框圆角半径
+    radius:            .03rem,
+    // {Length} 边框厚度
+    border-width:      1px,
+    // {Color} 外边框色
+    border-color:      map-get($base, border-color),
+    // {color} 输入框文本色
+    color:             map-get($base, color),
+    // {Length} 加减号区域圆角半径
+    sign-radius:       null,
+    // {Length} 加减号区域边框厚度
+    sign-border-width: 1px,
+    // {Color} 加减号区域背景色
+    sign-bgcolor:      map-get($base, bgcolor),
+    // {Color} 加减号区域文本色
+    sign-color:        #999,
+    // {Length} 字号
+    font-size:         .16rem
+);
+
+// Fragment picker(3)
+$_picker: (
+    // {Integer} 默认显示几个列表项
+    item:        5,
+    // {Length} 每个列表项的高度
+    item-height: .3rem,
+    // {Color} 边框色
+    border-color: map-get($base, border-color),
+);
+
+// Fragment proportion(7)
+$_proportion: (
+    // {Length} 外边距
+    margin:        .1rem,
+    // {Color} 底色
+    bgcolor:       #eee,
+    // {Length} 高度
+    height:        .35rem,
+    // {Length} 最小高度
+    min-height:    .05rem,
+    // {Color} 文本色
+    color:         #fff,
+    // {Length} 字号
+    font-size:     null,
+    // {Color} 当前状态底色
+    inner-bgcolor: red
+);
+
+// Fragment rating(4)
+$_rating: (
+    // {Length} 单项宽度
+    item-width:  .18rem,
+    // {Length} 单项高度
+    item-height: .18rem,
+    // {Length} 子项间间隙
+    item-space:  .1rem,
+    // {String} 图片URL
+    url:         "star3.png"
+);
+
+// Fragment search(12)
+$_search: (
+    // {Length} 搜索框区域内边距
+    padding:       .07rem .1rem,
+    // {Color} 搜索框区域底色
+    bgcolor:       #eee,
+    // {Length} 搜索区字号
+    font-size:     null,
+    // {Length} 搜索框高度
+    input-height:  .3rem,
+    // {Length} 搜索框及搜索按钮圆角
+    input-radius:  .05rem,
+    // {Color} 搜索框底色
+    input-bgcolor: #fff,
+    // {Color} 输入框文本色
+    input-color:   map-get($base, color),
+    // {Color} 输入框placeholder文本色
+    placeholder-color:#bbb,
+    // {Color} 搜索按钮底色
+    btn-bgcolor:   #1ba9ba,
+    // {Color} 搜索按钮文本色
+    btn-color:     #fff,
+    // {Length} 取消按钮区域宽度
+    cancel-width:  .6rem,
+    // {Color} 取消按钮颜色
+    cancel-color:  map-get($base, link-color)
+);
+
+// Fragment swipemenu(2)
+$_swipemenu: (
+    // {Length} action 宽度
+    action-width:   1rem,
+    // {Color} action 背景色
+    action-bgcolor: #ccc
+);
+
+// Fragment suggest(13)
+$_suggest: (
+    // {Length} 搜索区内补白
+    padding:          .07rem .1rem,
+    // {Color} 搜索区边框色
+    border-color:     map-get($base, border-color),
+    // {Color} 搜索区背景色
+    bgcolor:          #fff,
+    // {Length} 搜索区字号
+    font-size:        null,
+    // {Length} 输入框高度
+    input-height:     .3rem,
+    // {Length} 输入框圆角
+    input-radius:     .05rem,
+    // {Color} 输入框背景色
+    input-bgcolor:    map-get($base, border-color),
+    // {Color} 输入框文本色
+    input-color:      map-get($base, color),
+    // {Color} 输入框placeholder文本色
+    placeholder-color:#fff,
+    // {Color} 输入框右侧图标颜色
+    ico-color:        #999,
+    // {Length} 取消按钮区域宽度
+    cancel-width:     .6rem,
+    // {Color} 取消按钮颜色
+    cancel-color:     map-get($base, link-color),
+    // {Color} 内容区背景色
+    cont-bgcolor:     rgba(#fff, .9)
+);
+
+// Fragment tab(15)
+$_tab: (
+    // {Length} 组件宽度
+    width:              null,
+    // {Length} 组件高度
+    height:             .44rem,
+    // {Length} 圆角半径
+    radius:             null,
+    // {Length} 边框厚度
+    border-width:       1px 0 0 0,
+    // {Color} 边框色
+    border-color:       map-get($base, border-color),
+    // {Color} tab背景色
+    bgcolor:            #fafafa,
+    // {Color} tab文本色
+    color:              map-get($base, sub-color),
+    // {Color} tab激活背景色
+    on-bgcolor:         null,
+    // {Color} tab激活文本色
+    on-color:           #1ba9ba,
+    // {Length} 文本大小
+    font-size:          null,
+    // {Length} 水平ico大小
+    x-ico-size:         .12rem,
+    // {Length} 垂直ico大小
+    y-ico-size:         .2rem,
+    // {Length} only ico大小
+    only-ico-size:      .28rem,
+    // {Length} item间隔线高度
+    item-border-height: 100%,
+    // {Color} item间隔线颜色
+    item-border-color:  transparent
+);
+
+// Fragment table(10)
+$_table: (
+    // {Length} 表头部内补白
+    width:               100%,
+    // {Boolean} 是否需要纵向边框
+    has-vertical-border: false,
+    // {Length} 表头部内补白
+    thead-padding:       .05rem .1rem,
+    // {Length} 表主体内补白
+    tbody-padding:       .1rem,
+    // {Color} 边框色
+    border-color:        map-get($base, border-color),
+    // {Color} 表头部背景色
+    thead-bgcolor:       #eee,
+    // {Color} 表主体奇数行背景色
+    odd-bgcolor:         null,
+    // {Color} 表主体偶数行背景色
+    even-bgcolor:        null,
+    // {Color} 表主体激活行背景色
+    active-bgcolor:      null,
+    // {Color} 表主体选中行背景色
+    on-bgcolor:          null
+);
+
+// Fragment toolbar(11)
+$_toolbar: (
+    // {Length} 宽度
+    width:          null,
+    // {Length} 高度
+    height:         .44rem,
+    // {Length} 边框厚度
+    border-width:   1px,
+    // {Color} 边框色
+    border-color:   #d36105,
+    // {Color} 背景色
+    bgcolor:        #ff801a,
+    // {Color} 文本色
+    color:          #fff,
+    // {Color} 选中时背景色
+    on-bgcolor:     #f06d05,
+    // {Color} 选中时文本色
+    on-color:       null,
+    // {Length} 内补白
+    item-padding:    0 .15rem,
+    // {Length} 圆角半径
+    radius:         .1rem,
+    // {Length} 字号
+    font-size:      null
+);
+
+// Fragment tooltip(5)
+$_tooltip: (
+    // {Length} 内补白
+    padding:    .06rem .15rem,
+    // {Length} 圆角
+    radius:     .05rem,
+    // {Color} 背景色
+    bgcolor:    rgba(#000, .5),
+    // {Color} 文本色
+    color:      #fff,
+    // {Length} 箭头大小
+    arrow-size: .08rem
+);
+
+// Fragment vcode(6)
+$_vcode: (
+    // {Length} 输入框高度
+    height:       .44rem,
+    // {Color} 输入框背景色
+    bgcolor:      #fff,
+    // {Length} 输入框圆角半径
+    radius:       .05rem,
+    // {Length} 输入框字号
+    font-size:    .16rem,
+    // {Length} 输入框边框厚度
+    border-width: 1px,
+    // {Color} 输入框边框色
+    border-color:  #000
+);

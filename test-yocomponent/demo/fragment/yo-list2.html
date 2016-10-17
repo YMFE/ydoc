@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>yo-list - 表单应用</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<link rel="stylesheet" href="../../style/usage/export/yo-list2.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-list</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+        <a href="../../doc/element.html#yo-list" class="affirm">文档</a>
+    </header>
+    <div class="flex">
+        <section class="m-demo">
+            <h3 class="title">Inline Form：</h3>
+            <div class="yo-list">
+                <label class="item item-input">
+                    <span class="mark">账号</span>
+                    <input type="text" class="input flex" placeholder="必须为中文" />
+                </label>
+                <label class="item item-input">
+                    <span class="mark">密码</span>
+                    <input type="text" class="input flex" placeholder="必须为中文" />
+                </label>
+            </div>
+        </section>
+
+        <section class="m-demo">
+            <h3 class="title">Placeholder Form：</h3>
+            <div class="yo-list">
+                <label class="item item-input">
+                    <input type="text" class="input" placeholder="用户名" />
+                </label>
+                <label class="item item-input">
+                    <input type="text" class="input" placeholder="密码" />
+                </label>
+                <label class="item item-input">
+                    <textarea class="input" placeholder="留言"></textarea>
+                </label>
+            </div>
+        </section>
+
+        <section class="m-demo">
+            <h3 class="title">Stacked Form：</h3>
+            <div class="yo-list">
+                <label class="item item-input item-stacked">
+                    <span class="mark">账号</span>
+                    <input type="text" class="input" placeholder="不能是中文" />
+                </label>
+                <label class="item item-input item-stacked">
+                    <span class="mark">密码</span>
+                    <input type="text" class="input" placeholder="10个以上字符" />
+                </label>
+                <label class="item item-input item-stacked">
+                    <span class="mark">内容</span>
+                    <textarea class="input" placeholder="100字以内"></textarea>
+                </label>
+            </div>
+        </section>
+
+        <section class="m-demo">
+            <h3 class="title">Inset Form：</h3>
+            <div class="yo-list">
+                <label class="item item-input">
+                    <input type="text" class="input" placeholder="用户名" />
+                </label>
+                <label class="item item-input">
+                    <input type="text" class="input" placeholder="密码" />
+                </label>
+                <label class="item item-input">
+                    <textarea class="input" placeholder="留言"></textarea>
+                </label>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>

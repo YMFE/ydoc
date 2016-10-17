@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>yo-header - 头部</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<link rel="stylesheet" href="../../style/usage/export/yo-header.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-header</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+        <a href="../../doc/element.html#yo-header" class="affirm">文档</a>
+    </header>
+    <div class="flex">
+        <h2 class="yo-header">普通头部</h2>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><h2 class="yo-header">普通头部</h2></xmp>
+        </section>
+
+        <div class="yo-header">
+            <h2 class="title">带左右操作栏的头部</h2>
+            <span class="regret">取消</span>
+            <span class="affirm">确定</span>
+        </div>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-header">
+    <h2 class="title">带左右操作栏的头部</h2>
+    <span class="regret">取消</span>
+    <span class="affirm">确定</span>
+</div></xmp>
+        </section>
+
+        <div class="yo-header">
+            <h2 class="title">带返回按钮的头部</h2>
+            <span class="regret yo-ico">&#xf07d;</span>
+            <span class="affirm">设置</span>
+        </div>
+        <section class="m-desc">
+            <h3 class="title">示例描述：</h3>
+            <xmp><div class="yo-header">
+    <h2 class="title">带返回按钮的头部</h2>
+    <span class="regret yo-ico">&#xf07d;</span>
+    <span class="affirm">设置</span>
+</div></xmp>
+        </section>
+
+        <div class="yo-header yo-header-normal">
+            <h2 class="title">自定义的头部</h2>
+            <span class="regret">
+                <i class="yo-ico">&#xf07d;</i>
+                返回
+            </span>
+            <span class="affirm">设置</span>
+        </div>
+        <section class="m-desc">
+            <h3 class="title">假设你想要多种风格，只需这样扩展：</h3>
+            <xmp>// 自定义一个 `yo-header-normal` 头部
+@include yo-header(
+    $name: normal,
+    $border-color: #ddd,
+    $bgcolor: #eee,
+    $color: map-get($base, color),
+    $item-ico-color: map-get($base, color)
+);</xmp>
+            <h3 class="sub-title">使用方法</h3>
+            <xmp><div class="yo-header yo-header-normal">
+    <h2 class="title">自定义的头部</h2>
+    <span class="regret">
+        <i class="yo-ico">&#xf07d;</i>
+        返回
+    </span>
+    <span class="affirm">设置</span>
+</div></xmp>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>

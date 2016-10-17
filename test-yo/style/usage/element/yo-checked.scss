@@ -1,0 +1,66 @@
+@charset "utf-8";
+@import "../../lib/element/yo-checked";
+
+/**
+ * yo-checked扩展
+ */
+
+@include yo-checked(
+    $name: a,
+    $border-width: 1px,
+    $border-color: map-get($base, border-color),
+    $on-border-color: map-get($checked, on-color)
+);
+
+@include yo-checked(
+    $name: b,
+    $border-width: 1px,
+    $border-color: map-get($base, border-color),
+    $on-border-color: map-get($checked, on-color),
+    $on-bgcolor: map-get($checked, on-color),
+    $on-color: white
+);
+
+@include yo-checked(
+    $name: c,
+    $border-width: 1px,
+    $border-color: map-get($base, border-color),
+    $on-border-color: map-get($checked, on-color),
+    $on-bgcolor: map-get($checked, on-color),
+    $on-color: white,
+    $radius: 50%
+);
+
+@include yo-checked(
+    $name: d,
+    $content: "\f083"
+);
+
+@include yo-checked(
+    $name: e,
+    $content: "\f083",
+    $border-width: 1px,
+    $border-color: map-get($base, border-color),
+    $on-border-color: map-get($checked, on-color)
+);
+
+@include yo-checked(
+    $name: f,
+    $content: "\f083",
+    $border-width: 1px,
+    $border-color: map-get($base, border-color),
+    $on-border-color: map-get($checked, on-color),
+    $on-bgcolor: map-get($checked, on-color),
+    $on-color: white
+);
+
+@include yo-checked(
+    $name: g,
+    $content: "\f083",
+    $border-width: 1px,
+    $border-color: map-get($base, border-color),
+    $on-border-color: map-get($checked, on-color),
+    $on-bgcolor: map-get($checked, on-color),
+    $on-color: white,
+    $radius: 50%
+);

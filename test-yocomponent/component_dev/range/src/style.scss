@@ -1,0 +1,21 @@
+@charset "utf-8";
+@import "../../../style/usage/core/reset";
+@import "../../../style/usage/element/yo-range";
+
+.transform-animation {
+  -webkit-transition-property:-webkit-transform;
+  -webkit-transition-duration:0.2s;
+  -webkit-transition-timing-function:ease-in;
+  transition-property:transform;
+  transition-duration:0.2s;
+  transition-timing-function:ease-in;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.active-color {
+  color: green;
+}
+

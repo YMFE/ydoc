@@ -1,0 +1,133 @@
+@charset "utf-8";
+
+// 定义vcode的基础构造
+@mixin _vcode {
+    @include flexbox;
+    height: map-get($vcode, height);
+    line-height: map-get($vcode, height);
+    background-color: map-get($vcode, bgcolor);
+    text-align: center;
+    font-size: map-get($vcode, font-size);
+    font-weight: bold;
+    @include border(
+        $border-width: map-get($vcode, border-width),
+        $border-color: map-get($vcode, border-color),
+        $radius: map-get($vcode, radius)
+    );
+    > .value {
+        display: block;
+        @include flex;
+        &:not(:last-child) {
+            @include border(
+                $border-width: 0 map-get($vcode, border-width) 0 0,
+                $border-color: map-get($vcode, border-color)
+            );
+        }
+    }
+    > .input {
+        position: absolute;
+        left: -100%;
+        opacity: 0;
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-vcode
+ * @version 3.0.0
+ * @description 构造验证码/密码输入框的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-vcode.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $height 高度 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Length} $font-size 字号大小 <3.0.0>
+ * @param {Length} $border-width 边框厚度 <3.0.0>
+ * @param {Color} $border-color 边框色 <3.0.0>
+ */
+
+@mixin yo-vcode(
+    $name: default,
+    $height: default,
+    $bgcolor: default,
+    $radius: default,
+    $font-size: default,
+    $border-width: default,
+    $border-color: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $height == default {
+        $height: map-get($vcode, height);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($vcode, bgcolor);
+    }
+    @if $radius == default {
+        $radius: map-get($vcode, radius);
+    }
+    @if $font-size == default {
+        $font-size: map-get($vcode, font-size);
+    }
+    @if $border-width == default {
+        $border-width: map-get($vcode, border-width);
+    }
+    @if $border-color == default {
+        $border-color: map-get($vcode, border-color);
+    }
+
+    .yo-vcode#{$name} {
+        @if $height != map-get($vcode, height) {
+            height: $height;
+            line-height: $height;
+        }
+        @if $bgcolor != map-get($vcode, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $font-size != map-get($vcode, font-size) {
+            font-size: $font-size;
+        }
+        @if $radius != map-get($vcode, radius) {
+            border-radius: $radius;
+        }
+        &::after {
+            // 如果$border-width不等于config设定，则重绘边框相关
+            @if $border-width != map-get($vcode, border-width) {
+                border-width: $border-width;
+            }
+            // 如果$border-color不等于config设定，则重绘边框色
+            @if $border-color != map-get($vcode, border-color) {
+                border-color: $border-color;
+            }
+            // 如果$radius不等于config设定，则重绘边框圆角
+            @if $radius != map-get($vcode, radius) {
+                @include responsive(retina1x) {
+                    border-radius: $radius;
+                }
+                @include responsive(retina2x) {
+                    border-radius: $radius * 2;
+                }
+                @include responsive(retina3x) {
+                    border-radius: $radius * 3;
+                }
+            }
+        }
+        > .value:not(:last-child)::after {
+            // 如果$border-width不等于config设定，则重绘边框相关
+            @if $border-width != map-get($vcode, border-width) {
+                border-right-width: $border-width;
+            }
+            // 如果$border-color不等于config设定，则重绘边框色
+            @if $border-color != map-get($vcode, border-color) {
+                border-color: $border-color;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入vcode基础构造
+.yo-vcode {
+    @include _vcode;
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.mqunar.react.test">
+
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+  <application
+    android:name="com.mqunar.react.ReactApplication"
+    android:allowBackup="true"
+    android:icon="@drawable/app_logo"
+    android:label="@string/app_name"
+    android:theme="@style/AppTheme">
+    <activity android:name=".DemoActivity" />
+    <activity android:name=".TextActivity" />
+    <activity android:name="com.mqunar.react.debug.RnDebugActivity">
+    </activity>
+    <activity android:name=".androiddemo.QRootViewHelperActivity" />
+    <activity
+      android:name=".androiddemo.QRootViewActivity"
+      android:configChanges="orientation|keyboardHidden|screenSize"
+      android:screenOrientation="portrait" />
+    <activity android:name=".androiddemo.MainAdActivity" />
+    <activity android:name=".DemoListActivity">
+
+    </activity>
+    <activity android:name=".MainRnActivity"
+      android:configChanges="orientation|keyboardHidden|screenSize"
+      android:screenOrientation="portrait"
+      android:theme="@android:style/Theme.Translucent">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+  </application>
+
+</manifest>

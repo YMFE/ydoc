@@ -1,0 +1,251 @@
+@charset "utf-8";
+
+// 定义checked的基础构造
+@mixin _checked {
+    display: inline-block;
+    position: relative;
+    @include square(map-get($checked, size));
+    font-size: map-get($checked, font-size);
+    font-family: map-get($ico, font-name);
+    vertical-align: middle;
+    > input,
+    > .type {
+        @include square(100%);
+    }
+    > input {
+        position: absolute;
+        opacity: 0;
+    }
+    > .type {
+        @include align;
+        background-color: map-get($checked, bgcolor);
+        @include border(
+            $border-width: map-get($checked, border-width),
+            $border-color: map-get($checked, border-color),
+            $radius: map-get($checked, radius)
+        );
+        &::before {
+            content: map-get($checked, content);
+            color: map-get($checked, color);
+        }
+    }
+    > input:checked + .type {
+        &::after {
+            border-color: map-get($checked, on-border-color);
+        }
+        background-color: map-get($checked, on-bgcolor);
+        &::before {
+            color: map-get($checked, on-color);
+        }
+    }
+    > input:disabled + .type {
+        // lighten()第一个参数必须为color，所以只有值不为null时，才编译
+        @if map-get($checked, border-color) != null {
+            &::after {
+                border-color: lighten(map-get($checked, border-color), 12%);
+            }
+        }
+        @if map-get($checked, bgcolor) != null {
+            background-color: lighten(map-get($checked, bgcolor), 15%);
+        }
+        @if map-get($checked, color) != null {
+            &::before {
+                color: lighten(map-get($checked, color), 30%);
+            }
+        }
+    }
+    > input:checked:disabled + .type {
+        // lighten()第一个参数必须为color，所以只有值不为null时，才编译
+        @if map-get($checked, on-border-color) != null {
+            &::after {
+                border-color: lighten(map-get($checked, on-border-color), 12%);
+            }
+        }
+        @if map-get($checked, on-bgcolor) != null {
+            background-color: lighten(map-get($checked, on-bgcolor), 15%);
+        }
+        @if map-get($checked, on-color) != null {
+            &::before {
+                color: lighten(map-get($checked, on-color), 30%);
+            }
+        }
+    }
+}
+
+/**
+ * @module element
+ * @method yo-checked
+ * @version 3.0.0
+ * @description 构造单选多选的自定义使用方法，可同时作用于 checkbox 与 radio
+ * @demo http://doyoe.github.io/Yo/demo/element/yo-checked.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {String} $content 标记符号（使用iconfont编码，可以是对勾，圆点或任意字符） <3.0.0>
+ * @param {Length} $size 元件大小 <3.0.0>
+ * @param {Length} $font-size 标记符号大小 <3.0.0>
+ * @param {Length} $border-width 元件边框厚度 <3.0.0>
+ * @param {Color} $border-color 元件边框色 <3.0.0>
+ * @param {Color} $bgcolor 元件背景色 <3.0.0>
+ * @param {Color} $color 标记符号颜色 <3.0.0>
+ * @param {Color} $on-border-color 选中时的元件边框色 <3.0.0>
+ * @param {Color} $on-bgcolor 选中时的元件背景色 <3.0.0>
+ * @param {Color} $on-color 选中时的标记符号颜色 <3.0.0>
+ * @param {Length} $radius 元件外框圆角半径 <3.0.0>
+ */
+
+@mixin yo-checked(
+    $name: default,
+    $content: default,
+    $size: default,
+    $font-size: default,
+    $border-width: default,
+    $border-color: default,
+    $bgcolor: default,
+    $color: default,
+    $on-border-color: default,
+    $on-bgcolor: default,
+    $on-color: default,
+    $radius: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $content == default {
+        $content: map-get($checked, content);
+    }
+    @if $size == default {
+        $size: map-get($checked, size);
+    }
+    @if $font-size == default {
+        $font-size: map-get($checked, font-size);
+    }
+    @if $border-width == default {
+        $border-width: map-get($checked, border-width);
+    }
+    @if $border-color == default {
+        $border-color: map-get($checked, border-color);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($checked, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($checked, color);
+    }
+    @if $on-border-color == default {
+        $on-border-color: map-get($checked, on-border-color);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($checked, on-bgcolor);
+    }
+    @if $on-color == default {
+        $on-color: map-get($checked, on-color);
+    }
+    @if $radius == default {
+        $radius: map-get($checked, radius);
+    }
+    .yo-checked#{$name} {
+        // 如果$size不等于config设定，则重绘容器大小
+        @if $size != map-get($checked, size) {
+            @include square($size);
+        }
+        // 如果$font-size不等于config设定，则重绘标识符大小
+        @if $font-size != map-get($checked, font-size) {
+            font-size: $font-size;
+        }
+        > .type {
+            // 如果$radius不等于config设定，则重绘容器圆角
+            @if $radius != map-get($checked, radius) {
+                border-radius: $radius;
+            }
+            &::after {
+                // 如果$border-width不等于config设定，则重绘边框厚度
+                @if $border-width != map-get($checked, border-width) {
+                    border-width: $border-width;
+                }
+                // 如果$border-color不等于config设定，则重绘边框颜色
+                @if $border-color != map-get($checked, border-color) {
+                    border-color: $border-color;
+                }
+                // 如果$radius不等于config设定，则重绘边框圆角
+                @if $radius != map-get($checked, radius) {
+                    @include responsive(retina1x) {
+                        border-radius: $radius;
+                    }
+                    @include responsive(retina2x) {
+                        border-radius: $radius * 2;
+                    }
+                    @include responsive(retina3x) {
+                        border-radius: $radius * 3;
+                    }
+                }
+            }
+            // 如果$bgcolor不等于config设定，则重绘背景色
+            @if $bgcolor != map-get($checked, bgcolor) {
+                background-color: $bgcolor;
+            }
+            &::before {
+                // 如果$content不等于config设定，则重绘标识符
+                @if $content != map-get($checked, content) {
+                    content: $content;
+                }
+                // 如果$color不等于config设定，则重绘标识符颜色
+                @if $color != map-get($checked, color) {
+                    color: $color;
+                }
+            }
+        }
+        > input:checked + .type {
+            // 如果$on-border-color不等于config设定，则重绘选中时边框颜色
+            @if $on-border-color != map-get($checked, on-border-color) {
+                &::after {
+                    border-color: $on-border-color;
+                }
+            }
+            // 如果$on-bgcolor不等于config设定，则重绘选中时背景色
+            @if $on-bgcolor != map-get($checked, on-bgcolor) {
+                background-color: $on-bgcolor;
+            }
+            // 如果$on-color不等于config设定，则重绘选中时标识符颜色
+            @if $on-color != map-get($checked, on-color) {
+                &::before {
+                    color: $on-color;
+                }
+            }
+        }
+        > input:disabled + .type {
+            @if $border-color != map-get($checked, border-color) {
+                &::after {
+                    border-color: lighten($border-color, 12%);
+                }
+            }
+            @if $bgcolor != map-get($checked, bgcolor) {
+                background-color: lighten($bgcolor, 15%);
+            }
+            @if $color != map-get($checked, color) {
+                &::before {
+                    color: lighten($color, 30%);
+                }
+            }
+        }
+        > input:checked:disabled + .type {
+            @if $on-border-color != map-get($checked, on-border-color) {
+                &::after {
+                    border-color: lighten($on-border-color, 12%);
+                }
+            }
+            @if $on-bgcolor != map-get($checked, on-bgcolor) {
+                background-color: lighten($on-bgcolor, 15%);
+            }
+            @if $on-color != map-get($checked, on-color) {
+                &::before {
+                    color: lighten($on-color, 30%);
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入checked基础构造
+.yo-checked {
+    @include _checked;
+}

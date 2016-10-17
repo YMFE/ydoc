@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>yo-list - 列表</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<link rel="stylesheet" href="../../style/usage/export/yo-list.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-list</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+        <a href="../../doc/element.html#yo-list" class="affirm">文档</a>
+    </header>
+    <div class="flex">
+        <section class="m-demo">
+            <h3 class="title">普通列表1：</h3>
+            <div class="yo-list">
+                <div class="item">list item</div>
+                <div class="item">list item</div>
+                <div class="item">list item</div>
+                <div class="item">list item</div>
+            </div>
+        </section>
+
+        <section class="m-demo">
+            <h3 class="title">普通列表2：</h3>
+            <ul class="yo-list">
+                <li class="item">
+                    <span class="mark">标题</span>
+                    <div class="flex">具体描述</div>
+                </li>
+                <li class="item">
+                    <span class="mark">标题</span>
+                    <div class="flex">具体描述</div>
+                </li>
+                <li class="item">
+                    <span class="mark">标题</span>
+                    <div class="flex">具体描述</div>
+                </li>
+                <li class="item">
+                    <span class="mark">标题</span>
+                    <div class="flex">具体描述</div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="m-demo">
+            <h3 class="title">普通列表3：</h3>
+            <ul class="yo-list">
+                <li class="item">
+                    <i class="yo-ico">&#xf04a;</i>
+                    <div class="flex">飞行模式</div>
+                    <label class="yo-switch">
+                        <input type="checkbox" />
+                        <div class="track">
+                            <span class="handle"></span>
+                        </div>
+                    </label>
+                </li>
+                <li class="item item-active">
+                    <i class="yo-ico">&#xf04b;</i>
+                    <div class="flex">WI-FI</div>
+                    <div class="info">lalala</div>
+                    <i class="yo-ico">&#xf07f;</i>
+                </li>
+                <li class="item item-active">
+                    <i class="yo-ico">&#xf04a;</i>
+                    <div class="flex">定位服务</div>
+                    <div class="info">打开</div>
+                    <i class="yo-ico">&#xf07f;</i>
+                </li>
+                <li class="item item-active">
+                    <i class="yo-ico">&#xf063;</i>
+                    <div class="flex">运营商</div>
+                    <div class="info">中国联通</div>
+                    <i class="yo-ico">&#xf07f;</i>
+                </li>
+            </ul>
+        </section>
+
+        <section class="m-demo">
+            <h3 class="title">分组列表：</h3>
+            <div class="yo-list">
+                <h3 class="label">组标题</h3>
+                <a href="#" class="item">list item</a>
+                <a href="#" class="item">list item</a>
+                <h3 class="label">组标题</h3>
+                <a href="#" class="item">list item</a>
+                <a href="#" class="item">list item</a>
+                <h3 class="label">组标题</h3>
+                <a href="#" class="item">list item</a>
+                <a href="#" class="item">list item</a>
+            </div>
+        </section>
+
+        <section class="m-demo">
+            <h3 class="title">图文列表：</h3>
+            <div class="yo-list">
+                <a href="#" class="item item-active">
+                    <img src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
+                    <div class="flex">
+                        <h3 class="title">标题栏</h3>
+                        <p class="detail">这是一张很漂亮的图片</p>
+                    </div>
+                    <div class="info">
+                        19:30
+                    </div>
+                </a>
+                <a href="#" class="item item-active">
+                    <img src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
+                    <div class="flex">
+                        <h3 class="title">标题栏</h3>
+                        <p class="detail">这是一张很漂亮的图片</p>
+                    </div>
+                </a>
+                <a href="#" class="item item-active">
+                    <img src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
+                    <div class="flex">
+                        <h3 class="title">标题栏</h3>
+                        <p class="detail">这是一张很漂亮的图片</p>
+                    </div>
+                </a>
+                <a href="#" class="item item-active">
+                    <img src="http://pic5.duowan.com/psp/1005/138297782616/138298560095.jpg" alt="美女" />
+                    <div class="flex">
+                        <h3 class="title">标题栏</h3>
+                        <p class="detail">这是一张很漂亮的图片</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="m-demo">
+            <h3 class="title">类表格列表：</h3>
+            <ul class="yo-list yo-list-table">
+                <li class="label tr">
+                    <div class="col c1">第1列</div>
+                    <div class="col c2 flex">第2列</div>
+                    <div class="col c3">第3列</div>
+                    <div class="col c4">第4列</div>
+                </li>
+                <li class="item tr">
+                    <div class="col c1">name</div>
+                    <div class="col c2 flex">name</div>
+                    <div class="col c3">name</div>
+                    <div class="col c4">name</div>
+                </li>
+                <li class="item tr">
+                    <div class="col c1">name</div>
+                    <div class="col c2 flex">name</div>
+                    <div class="col c3">name</div>
+                    <div class="col c4">name</div>
+                </li>
+                <li class="item tr">
+                    <div class="col c1">name</div>
+                    <div class="col c2 flex">name</div>
+                    <div class="col c3">name</div>
+                    <div class="col c4">name</div>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>
+</body>
+</html>

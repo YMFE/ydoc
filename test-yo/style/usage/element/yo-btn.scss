@@ -1,0 +1,21 @@
+@charset "utf-8";
+@import "../../lib/element/yo-btn";
+
+/**
+ * yo-btn扩展
+ */
+
+// 扩展轻柔按钮
+@include yo-btn(
+    $name: light,
+    $border-color: #ccc,
+    $bgcolor: #fff,
+    $color: map-get($base, color)
+);
+
+// 扩展信息按钮
+@include yo-btn(
+    $name: info,
+    $border-color: #0456e2,
+    $bgcolor: #4a87ee
+);

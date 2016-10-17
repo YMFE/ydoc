@@ -1,0 +1,50 @@
+.conmment-title {
+    height: .27rem;
+    line-height: .27rem;
+    font-size: .18rem;
+    overflow: hidden;
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.author {
+    display: none;
+}
+
+.comment-wrap {
+    padding: .35rem .14rem 0;
+    border: 1px solid #e7e7e7;
+    box-shadow: 0 1px 0 #efefef;
+}
+
+.comment-detail {
+    height: .2rem;
+    line-height: .2rem;
+    margin-bottom: .04rem;
+    font-size: .13rem;
+    font-weight: 500;
+}
+
+.img-wrap {
+    display: block;
+}
+
+.tags {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: .16rem;
+    padding: 0 .02rem;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #c0c0c0;
+    color: #999;
+    font-size: .12rem;
+}
+
+.no-padding {
+    padding: 0 !important;
+}

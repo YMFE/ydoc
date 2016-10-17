@@ -1,0 +1,37 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @module rotate
+ * @description 定义旋转从左向下进入动画
+ * @method rotate-in-down-left
+ */
+@-webkit-keyframes rotate-in-down-left {
+	0% {
+		-webkit-transform-origin: left bottom;
+		-webkit-transform: rotate3d(0, 0, 1, -45deg);
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform-origin: left bottom;
+		-webkit-transform: none;
+		opacity: 1;
+	}
+}
+@keyframes rotate-in-down-left {
+	0% {
+		transform-origin: left bottom;
+		transform: rotate3d(0, 0, 1, -45deg);
+		opacity: 0;
+	}
+	100% {
+		transform-origin: left bottom;
+		transform: none;
+		opacity: 1;
+	}
+}
+
+.ani.rotate-in-down-left {
+	-webkit-animation-name: rotate-in-down-left;
+	animation-name: rotate-in-down-left;
+}

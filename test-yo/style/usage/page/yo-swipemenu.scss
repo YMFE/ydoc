@@ -1,0 +1,25 @@
+@charset "utf-8";
+@import "../core/reset";
+@import "../layout/yo-flex";
+@import "../../lib/fragment/yo-header";
+@import "../fragment/yo-swipemenu";
+@import "../fragment/yo-list";
+
+// 页面所需模块
+@import "../module/m-header";
+@import "../module/m-demo";
+@import "../module/m-desc";
+
+.m-demo {
+    .yo-list img {
+        width: 1rem;
+    }
+    .yo-swipemenu {
+        .action {
+            color: #fff;
+            > .item:first-child {
+                background-color: red;
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+@import "../../../../style/usage/core/reset";
+@import "../../../../style/lib/fragment/yo-list";
+@import "../../../../style/lib/element/yo-btn";
+@import "../../../../style/lib/fragment/yo-tooltip";
+
+// 扩展轻柔按钮
+@include yo-btn(
+    $name: light,
+    $border-color: #ccc,
+    $bgcolor: #fff,
+    $color: map-get($base, color)
+);
+
+@include yo-tooltip(
+    $name: notice
+){
+    bottom: .1rem;
+    right: .1rem;
+}
+
+.yo-list{
+    &.operator{
+        margin: .1rem 0;
+    }
+    .item{
+        span{
+            color: #ffffff;
+            width: .3rem;
+            height: .3rem;
+            line-height: .3rem;
+            margin: 0 .2rem 0 0;
+            text-align: center;
+            font-size: .2rem;
+        }
+    }
+}
+
+.yo-icon-red {
+    color: #f55;
+    font-weight: 900;
+    font-size: .14rem;
+    padding: 0 0 0 .05rem;
+}
+
+.modal-container {
+    padding: .1rem;
+}

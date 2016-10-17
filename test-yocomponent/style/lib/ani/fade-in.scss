@@ -1,0 +1,29 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @module fade
+ * @description 定义淡入动画
+ * @method fade-in
+ */
+@-webkit-keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.ani.fade-in {
+	-webkit-animation-name: fade-in;
+	animation-name: fade-in;
+}

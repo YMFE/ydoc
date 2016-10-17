@@ -1,0 +1,88 @@
+@charset "utf-8";
+@import "../core/reset";
+@import "../../lib/element/yo-btn";
+
+html,
+body {
+    background-color: #0ac2d2;
+}
+.m-animate {
+    height: 100%;
+}
+
+//背景颜色
+$bgcolor:#0ac2d2 #7bb7fa #60d7a9 #fdc162 #fd6a62 #f68dbb;
+
+.pages {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    .page {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        visibility: hidden;
+        &.current {
+            visibility: visible;
+            z-index: 1;
+        }
+    }
+    @for $i from 1 through length($bgcolor) {
+        .page-#{$i} {
+            background: nth($bgcolor,$i);
+        }
+    }
+    .con {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: 50%;
+        width: 3rem;
+        margin: -1.9rem 0 0 -1.5rem;
+        > h1 {
+            color: rgba(255, 255, 255, .6);
+            font-size: .64rem;
+        }
+        > h2 {
+            margin-top: -.2rem;
+            color: rgba(0, 0, 0, .2);
+            font-size: .25rem;
+        }
+        > p {
+            color: rgba(255, 255, 255, .9);
+            font-size: .36rem;
+        }
+        > .yo-btn,
+        > select {
+            width: 100%;
+            height: .44rem;
+            margin: .1rem 0;
+            padding: 0 .15rem;
+            border: 0;
+            border-radius: .02rem;
+            line-height: .44rem;
+            box-shadow: 0 .03rem 0 rgba(0, 0, 0, .1);
+            background: #fff;
+            color: #aaa;
+            cursor: pointer;
+            font-size: .16rem;
+        }
+        @include yo-btn(
+            $border-width: 0
+        ){
+            font-weight: bold;
+        }
+        > select {
+            @include appearance;
+            text-transform: capitalize;
+            background-size: .1rem .1rem;
+            background-repeat: no-repeat;
+            background-position: right .1rem center;
+            background-image: radial-gradient(circle, #0ac2d2, #0ac2d2 50%, transparent, transparent);
+        }
+    }
+}

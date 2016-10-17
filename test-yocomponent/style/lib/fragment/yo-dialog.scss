@@ -1,0 +1,202 @@
+@charset "utf-8";
+@import "../element/yo-btn";
+
+// 定义dialog的基础构造
+@mixin _dialog {
+    @include flexbox;
+    @include flex-direction(column);
+    position: fixed;
+    overflow: hidden;
+    z-index: map-get($z-index, dialog);
+    padding-top: .15rem;
+    min-width: 2.8rem;
+    max-width: 90%;
+    width: map-get($dialog, width);
+    height: map-get($dialog, height);
+    border-radius: map-get($dialog, radius);
+    background-color: #fff;
+    text-align: center;
+    > .hd {
+        position: relative;
+        overflow: hidden;
+        .title {
+            overflow: hidden;
+            height: 100%;
+            margin: 0 .6rem;
+            color: map-get($dialog, title-color);
+            font-size: map-get($dialog, title-font-size);
+        }
+        .regret,
+        .affirm {
+            position: absolute;
+            top: 0;
+        }
+        .regret {
+            left: .1rem;
+        }
+        .affirm {
+            right: .1rem;
+        }
+    }
+    > .bd {
+        @include flex(1, column);
+        @include overflow;
+        min-height: .4rem;
+        padding: map-get($dialog, bd-padding);
+        font-size: map-get($dialog, bd-font-size);
+    }
+    > .ft {
+        @include flexbox;
+        text-align: center;
+        @include yo-btn(
+            $name: dialog,
+            $border-width: 1px 1px 0 0,
+            $border-color: map-get($dialog, border-color),
+            $bgcolor: #fff,
+            $color: map-get($base, link-color),
+            $radius: 0,
+            $active-bgcolor: #f9f9f9
+        ){
+            display: block;
+            @include flex;
+            &:last-child {
+                font-weight: bold;
+                &::after {
+                    border-right-width: 0;
+                }
+                border-bottom-right-radius: map-get($dialog, radius);
+            }
+            &:first-child {
+                border-bottom-left-radius: map-get($dialog, radius);
+            }
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-dialog
+ * @version 3.0.0
+ * @description 构造yo-dialog的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-dialog.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $width 宽度 <3.0.0>
+ * @param {Length} $height 高度 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Color} $border-color 边框色 <3.0.0>
+ * @param {Color} $title-color 标题文本色 <3.0.0>
+ * @param {Length} $title-font-size 标题字号 <3.0.0>
+ * @param {Length} $bd-padding 主体内补白 <3.0.0>
+ * @param {Length} $bd-font-size 主体字号 <3.0.0>
+ */
+
+@mixin yo-dialog(
+    $name: default,
+    $width: default,
+    $height: default,
+    $radius: default,
+    $border-color: default,
+    $title-color: default,
+    $title-font-size: default,
+    $bd-padding: default,
+    $bd-font-size: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $width == default {
+        $width: map-get($dialog, width);
+    }
+    @if $height == default {
+        $height: map-get($dialog, height);
+    }
+    @if $radius == default {
+        $radius: map-get($dialog, radius);
+    }
+    @if $border-color == default {
+        $border-color: map-get($dialog, border-color);
+    }
+    @if $title-color == default {
+        $title-color: map-get($dialog, title-color);
+    }
+    @if $title-font-size == default {
+        $title-font-size: map-get($dialog, title-font-size);
+    }
+    @if $bd-padding == default {
+        $bd-padding: map-get($dialog, bd-padding);
+    }
+    @if $bd-font-size == default {
+        $bd-font-size: map-get($dialog, bd-font-size);
+    }
+    .yo-dialog#{$name} {
+        @if $radius != map-get($dialog, radius) {
+            border-radius: $radius;
+        }
+        &::after {
+            // 如果$border-color不等于config设定，则重绘边框颜色
+            @if $border-color != map-get($dialog, border-color) {
+                border-color: $border-color;
+            }
+            // 如果$radius不等于config设定，则重绘边框圆角
+            @if $radius != map-get($dialog, radius) {
+                @include responsive(retina1x) {
+                    border-radius: $radius;
+                }
+                @include responsive(retina2x) {
+                    border-radius: $radius * 2;
+                }
+                @include responsive(retina3x) {
+                    border-radius: $radius * 3;
+                }
+            }
+        }
+        @if $width != map-get($dialog, width) {
+            width: $width;
+        }
+        @if $height != map-get($dialog, height) {
+            height: $height;
+        }
+        > .hd {
+            .title {
+                @if $title-color != map-get($dialog, title-color) {
+                    color: $title-color;
+                }
+                @if $title-font-size != map-get($dialog, title-font-size) {
+                    font-size: $title-font-size;
+                }
+            }
+        }
+        > .bd {
+            @if $bd-padding != map-get($dialog, bd-padding) {
+                padding: $bd-padding;
+            }
+            @if $bd-font-size != map-get($dialog, bd-font-size) {
+                font-size: $bd-font-size;
+            }
+        }
+        > .ft {
+            .yo-btn-dialog {
+                @if $radius != map-get($dialog, radius) {
+                    &:last-child {
+                        border-bottom-right-radius: $radius;
+                    }
+                    &:first-child {
+                        border-bottom-left-radius: $radius;
+                    }
+                }
+                &::after {
+                    // 如果$border-color不等于config设定，则重绘边框颜色
+                    @if $border-color != map-get($dialog, border-color) {
+                        border-color: $border-color;
+                    }
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入dialog基础构造
+.yo-dialog {
+    @include _dialog;
+}

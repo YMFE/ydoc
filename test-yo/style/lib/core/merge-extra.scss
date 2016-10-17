@@ -1,0 +1,16 @@
+@charset "utf-8";
+@import "base";
+/**
+ * 合并base和extra中的同类base map
+ * 用以解决业务方升级Yo时需比base和extra的一致性
+ * 当extra为空时，base map将以base文件里的定义作为默认值
+ * 当extra不为空时，base map使用extra文件里的定义
+ */
+
+// 合并base和extra中的base map
+// 因为base map会在variables中引用，所以无法将merge动作放到会引用该map的其它map之后
+@if global-variable-exists(base) {
+    $base: map-merge($_base, $base) !global;
+} @else {
+    $base: $_base !global;
+}

@@ -1,0 +1,113 @@
+@charset "utf-8";
+@import "../ani/rotate";
+
+// 定义loading的基础构造
+@mixin _loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: map-get($z-index, loading);
+    @include transform(translate(-50%, -50%));
+    padding: .1rem .2rem;
+    border-radius: .05rem;
+    background-color: map-get($loading, bgcolor);
+    color: map-get($loading, color);
+    font-size: map-get($loading, font-size);
+    line-height: 1;
+    text-align: center;
+    // 增加 .yo-ico 这一级用以fix某些浏览器不支持伪元素动画
+    > .yo-ico {
+        display: block;
+        @include animation(rotate 1s infinite linear);
+        @include transform-origin(center);
+        &::before {
+            content: map-get($loading, content);
+            color: map-get($loading, ico-color);
+            font-size: map-get($loading, ico-size);
+        }
+        // 当loading界面还有文字提示的时候，增加间隙
+        &:not(:only-child) {
+            margin-bottom: .08rem;
+        }
+    }
+}
+
+/**
+ * @module element
+ * @method yo-loading
+ * @version 3.0.0
+ * @description 构造加载中的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/element/yo-loading.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $ico-size loading的尺寸 <3.0.0>
+ * @param {Color} $ico-color loading的颜色 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $color 文本颜色 <3.0.0>
+ * @param {Length} $font-size 文本字号 <3.0.0>
+ * @param {String} $content loading的iconfont编码 <3.0.0>
+ */
+
+@mixin yo-loading(
+    $name: default,
+    $ico-size: default,
+    $ico-color: default,
+    $bgcolor: default,
+    $font-size: default,
+    $color: default,
+    $content: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $ico-size == default {
+        $ico-size: map-get($loading, ico-size);
+    }
+    @if $ico-color == default {
+        $ico-color: map-get($loading, ico-color);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($loading, bgcolor);
+    }
+    @if $font-size == default {
+        $font-size: map-get($loading, font-size);
+    }
+    @if $color == default {
+        $color: map-get($loading, color);
+    }
+    @if $content == default {
+        $content: map-get($loading, content);
+    }
+    .yo-loading#{$name} {
+        padding: .1rem .2rem;
+        border-radius: .05rem;
+        @if $bgcolor != map-get($loading, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $color != map-get($loading, color) {
+            color: $color;
+        }
+        @if $font-size != map-get($loading, font-size) {
+            font-size: $font-size;
+        }
+        > .yo-ico {
+            &::before {
+                @if $content != map-get($loading, content) {
+                    content: $content;
+                }
+                @if $ico-color != map-get($loading, ico-color) {
+                    color: $ico-color;
+                }
+                @if $ico-size != map-get($loading, ico-size) {
+                    font-size: $ico-size;
+                }
+            }
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入loading基础构造
+.yo-loading {
+    @include _loading;
+}

@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+// 定义常见水平垂直居中布局
+@mixin _align {
+    @include align;
+    @include fullscreen;
+}
+
+/**
+ * @module layout
+ * @method yo-align
+ * @version 3.0.0
+ * @description 构造弹性布局内容对齐使用方法，可以是横向和纵向
+ * @demo http://doyoe.github.io/Yo/demo/layout/yo-align.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {String} $justify-content 指定主轴对齐方式 <3.0.0>
+ * @param {String} $align-items 指定侧轴对齐方式 <3.0.0>
+ */
+
+@mixin yo-align(
+    $name: default,
+    $justify-content: default,
+    $align-items: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $justify-content == default {
+        $justify-content: map-get($align, justify-content);
+    }
+    @if $align-items == default {
+        $align-items: map-get($align, align-items);
+    }
+    .yo-align#{$name} {
+        // 如果$justify-content:不等于config预设，则重绘弹性盒水平对齐方式
+        @if $justify-content != map-get($align, justify-content) {
+            @include justify-content($justify-content);
+        }
+        // 如果$align-items不等于config预设，则重绘弹性盒垂直对齐方式
+        @if $align-items != map-get($align, align-items) {
+            @include align-items($align-items);
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入弹性布局基础构造
+.yo-align {
+    @include _align;
+}

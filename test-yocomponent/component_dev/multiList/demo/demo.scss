@@ -1,0 +1,72 @@
+@import "../../../style/usage/core/reset";
+#container{
+    height: 100%;
+}
+.demo-content{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.scroller{
+    flex: 1
+}
+.product-container{
+    padding: 10px 0;
+    flex: 1;
+    display: flex;
+}
+.product-tit{
+    width: 100%;
+    color: #333;
+    font-weight: normal;
+    margin-left: 10px;
+    text-indent: 15px;
+    background-image: linear-gradient( to right, #0faad6, #0faad6 3px, #fff 3px, #fff );
+}
+.product-list{
+    margin-top: 10px;
+    padding: 0 5px 0 10px;
+}
+.product-item{
+    display: inline-block;
+    width: 50%;
+    height: 100px;
+    padding-right: 5px;
+    margin-bottom: 5px;
+    background-clip: content-box;
+    background-image: url('https://imgs.qunarzz.com/vc/59/ce/26/b32709e446f25d3c2f517d70bd.jpg');
+    color: #fff;
+    line-height: 100px;
+    text-align: center;
+}
+
+.spread-item{
+  $line-clolr:#ccc;
+  position: relative;
+  overflow: visible !important;
+  // border-right: 1px solid $line-clolr;
+  &:before{
+      border-bottom: 1px solid $line-clolr;
+      border-left: 1px solid $line-clolr;
+      width: 10px;
+      height: 10px;
+      @include transform(rotate(45deg) translateY(-50%));
+      content: ' ';
+      position: absolute;
+      right: 0;
+      margin-right: -3px;
+      top: 50%;
+      background-color: $line-clolr;
+  }
+}
+
+.subList{
+  background-color: #fff;
+  @include border(
+    $border-width: 0 1px 0 0
+  );
+}
+
+.multiList-container-tip{
+  margin: 45% auto;
+}

@@ -81,7 +81,7 @@ var winHeight = $(window).height() - 44,
 var docSideNav = $('.docs-sidenav');
 var  ydocContainerCon= $('.ydoc-container-content');
 docSideNav.width(ydocContainerCon.width()*0.25);
-
+console.log('current===',docSideNav.width());
 if (sidebar.height() > winHeight) {
     sidebar.css('max-height', winHeight + 'px');
     $('.docs-sidenav').css('max-height', winHeight + 'px');
@@ -127,7 +127,46 @@ if (sidebar.height() > winHeight) {
     });
     $(window).on('resize', function(e){
         resizeSidebar();
-    })
+    });
+    $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFullscreenChange', function(){
+        console.log('fullscreenchange===');
+        resizeSidebar();
+    });
+    // $('body').on('fullScreenChange', function() {
+    //     resizeSidebar();
+    // });
+
+}
+
+// // 检测全屏
+// var docElm = document.documentElement;
+// if (docElm.requestFullscreen) {
+//    docElm.requestFullscreen();
+// }
+// else if (docElm.msRequestFullscreen) {
+//    docElm.msRequestFullscreen();
+// }
+// else if (docElm.mozRequestFullScreen) {
+//    docElm.mozRequestFullScreen();
+// }
+// else if (docElm.webkitRequestFullScreen) {
+//    docElm.webkitRequestFullScreen();
+// }
+
+document.addEventListener("fullscreenchange", function( event ) {
+  if (document.fullscreenElement) {
+    console.log('进入全屏');
+  } else {
+    console.log('退出全屏');
+  }
+});
+
+
+if (typeof document.cancelFullScreen != 'undefined' && document.fullScreenEnabled === true) {
+    /* do fullscreen stuff */
+
+
+
 }
 
 function resizeSidebar(){
@@ -136,6 +175,7 @@ function resizeSidebar(){
     var docSideNav = $('.docs-sidenav');
     var  ydocContainerCon= $('.ydoc-container-content');
     docSideNav.width(ydocContainerCon.width()*0.25);
+    console.log('resize===',docSideNav.width());
     if (sidebar.height() > winHeight) {
         sidebar.css('max-height', winHeight + 'px');
         $('.docs-sidenav').css('max-height', winHeight + 'px');

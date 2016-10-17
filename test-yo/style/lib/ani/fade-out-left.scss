@@ -1,0 +1,33 @@
+@charset "utf-8";
+@import "classes";
+
+/**
+ * @module fade
+ * @description 定义从左侧淡出动画
+ * @method fade-out-left
+ */
+@-webkit-keyframes fade-out-left {
+	0% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 0, 0);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: translate3d(-100%, 0, 0)
+	}
+}
+@keyframes fade-out-left {
+	0% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		opacity: 0;
+		transform: translate3d(-100%, 0, 0)
+	}
+}
+
+.ani.fade-out-left {
+	-webkit-animation-name: fade-out-left;
+	animation-name: fade-out-left;
+}

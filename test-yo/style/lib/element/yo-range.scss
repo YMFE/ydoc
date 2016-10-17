@@ -1,0 +1,154 @@
+@charset "utf-8";
+
+// 定义range的基础构造
+@mixin _range {
+    > .scale {
+        position: relative;
+        margin: 0 map-get($range, thumb-height) / 2;
+        font-size: .12rem;
+        > .divide {
+            display: inline-block;
+            @include transform(translatex(-50%));
+            white-space: nowrap;
+            // 由于第1个刻度并不要指定偏移值，所以不需要绝对定位
+            // 所以将第1个刻度保留为流内元素，这样将能实现撑开父容器的效果
+            &:not(:first-child) {
+                position: absolute;
+            }
+            &:last-child {
+                left: 100%;
+            }
+        }
+    }
+    > .track {
+        overflow: hidden;
+        position: relative;
+        height: map-get($range, thumb-height) + .02rem;
+        @include gradient(linear, top, map-get($range, track-color), map-get($range, track-color));
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% map-get($range, track-height);
+        > .thumb {
+            position: absolute;
+            &::before,
+            &::after {
+                display: block;
+                content: "\0020";
+            }
+            // 进度色轴
+            &::before {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                left: -9999px;
+                height: map-get($range, track-height);
+                @include transform(translatey(-50%));
+                background-color: map-get($range, on-track-color);
+                content: "\0020";
+            }
+            &:not(:only-child):first-child {
+                z-index: 1;
+                &::before {
+                    background-color: map-get($range, track-color);
+                }
+            }
+            // 进度滑球
+            &::after {
+                position: relative;
+                margin-top: .01rem;
+                @include square(map-get($range, thumb-height));
+                border-radius: 50%;
+                box-shadow: 0 0 .01rem rgba(0, 0, 0, 0.25), 0 .01rem .02rem rgba(0, 0, 0, 0.15);
+                background-color: map-get($range, thumb-color);
+            }
+        }
+    }
+}
+
+/**
+ * @module element
+ * @method yo-range
+ * @version 3.0.0
+ * @description 构造区间选择的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/element/yo-range.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $track-height 滑轴高度 <3.0.0>
+ * @param {Color} $track-color 滑轴色 <3.0.0>
+ * @param {Color} $on-track-color 选中滑轴色 <3.0.0>
+ * @param {Length} $thumb-height 滑球高度 <3.0.0>
+ * @param {Color} $thumb-color 滑球色 <3.0.0>
+ */
+
+@mixin yo-range(
+    $name: default,
+    $track-height: default,
+    $track-color: default,
+    $on-track-color: default,
+    $thumb-height: default,
+    $thumb-color: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $track-height == default {
+        $track-height: map-get($range, track-height);
+    }
+    @if $track-color == default {
+        $track-color: map-get($range, track-color);
+    }
+    @if $on-track-color == default {
+        $on-track-color: map-get($range, on-track-color);
+    }
+    @if $thumb-height == default {
+        $thumb-height: map-get($range, thumb-height);
+    }
+    @if $thumb-color == default {
+        $thumb-color: map-get($range, thumb-color);
+    }
+    .yo-range#{$name} {
+        > .track {
+            @if $thumb-height != map-get($range, thumb-height) {
+                height: $thumb-height + .02rem;
+            }
+            @if $track-color != map-get($range, track-color) {
+                @include gradient(linear, top, $track-color, $track-color);
+            }
+            @if $track-height != map-get($range, track-height) {
+                background-size: 100% $track-height;
+            }
+            > .thumb {
+                &::before {
+                    @if $track-height != map-get($range, track-height) {
+                        height: $track-height;
+                    }
+                    @if $on-track-color != map-get($range, on-track-color) {
+                        background-color: $on-track-color;
+                    }
+                }
+                &:not(:only-child):first-child {
+                    &::before {
+                        @if $track-color != map-get($range, track-color) {
+                            background-color: $track-color;
+                        }
+                    }
+                }
+                // 进度滑球
+                &::after {
+                    @if $thumb-height != map-get($range, thumb-height) {
+                        @include square($thumb-height);
+                    }
+                    @if $thumb-color != map-get($range, thumb-color) {
+                        background-color: $thumb-color;
+                    }
+                }
+            }
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入按钮基础构造
+.yo-range {
+    @include _range;
+}

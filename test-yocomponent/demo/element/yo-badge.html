@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>yo-badge - 消息提示气泡</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<link rel="stylesheet" href="../../style/usage/export/yo-badge.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-badge</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+        <a href="../../doc/element.html#yo-badge" class="affirm">文档</a>
+    </header>
+    <div class="flex">
+        <section class="m-demo">
+            <h3 class="title">常规：</h3>
+            <ul class="yo-list">
+                <li class="item">
+                    <div class="mark flex">消息气泡</div>
+                    <div class="other">
+                        <span class="yo-badge">9</span>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="mark flex">消息气泡</div>
+                    <div class="other">
+                        <span class="yo-badge">999</span>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="mark flex">消息气泡</div>
+                    <div class="other">
+                        消息<sup class="yo-badge"></sup>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">代码演示：</h3>
+            <xmp><span class="yo-badge">9</span>
+<span class="yo-badge">999</span></xmp>
+        </section>
+
+        <section class="m-demo">
+            <h3 class="title">扩展形态：</h3>
+            <ul class="yo-list">
+                <li class="item">
+                    <div class="mark flex">扩展为灰色消息气泡</div>
+                    <div class="other">
+                        <span class="yo-badge yo-badge-normal">9</span>
+                        <span class="yo-badge yo-badge-normal">999</span>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="mark flex">扩展为白色消息气泡</div>
+                    <div class="other">
+                        <span class="yo-badge yo-badge-hollow">9</span>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="mark flex">扩展为ico</div>
+                    <div class="other">
+                        <span class="yo-badge yo-badge-minus">减</span>
+                        <span class="yo-badge yo-badge-new">新</span>
+                    </div>
+                </li>
+                <li class="item">
+                    <div class="mark flex">扩展为tag</div>
+                    <div class="other">
+                        <span class="yo-badge yo-badge-tag">便宜</span>
+                        <span class="yo-badge yo-badge-tag">实惠</span>
+                        <span class="yo-badge yo-badge-tag">好用</span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">扩展代码演示：</h3>
+            <xmp>@include yo-badge(
+    $name: normal,
+    $border-color: gray
+);</xmp>
+            <h3 class="sub-title">使用方法：</h3>
+            <xmp><span class="yo-badge yo-badge-normal">9</span></xmp>
+        </section>
+
+    </div>
+</div>
+</body>
+</html>

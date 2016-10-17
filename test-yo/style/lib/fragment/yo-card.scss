@@ -1,0 +1,237 @@
+@charset "utf-8";
+
+// 定义card的基础构造
+@mixin _card {
+    @include border(
+        $border-width: map-get($card, border-width),
+        $border-color: map-get($card, border-color),
+        $radius: map-get($card, radius)
+    );
+    overflow: hidden;
+    margin: map-get($card, margin);
+    background-color: map-get($card, bgcolor);
+    color: map-get($card, color);
+    font-size: map-get($card, font-size);
+    > .bd {
+        padding: .1rem;
+        > .title {
+            font-size: .16rem;
+        }
+    }
+    > .extra {
+        position: relative;
+        text-align: center;
+        .img-cover {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .img-desc {
+            @include align;
+            @include flex-direction(column);
+            @include fullscreen;
+            color: #fff;
+            text-shadow: -1px 1px 0 #666;
+        }
+    }
+    // 如果 .hd或.extra 是第一个子元素时，fix圆角问题
+    > .hd,
+    > .extra:first-child .cover-img {
+        border-top-left-radius: map-get($card, radius);
+        border-top-right-radius: map-get($card, radius);
+    }
+    // 如果 .ft或.extra 是最后一个子元素时，fix圆角问题
+    > .ft,
+    > .extra:first-child .cover-img {
+        border-bottom-left-radius: map-get($card, radius);
+        border-bottom-right-radius: map-get($card, radius);
+    }
+    > .hd {
+        @include border(
+            $border-width: map-get($card, hd-border-width),
+            $border-color: map-get($card, hd-border-color)
+        );
+    }
+    > .ft {
+        @include border(
+            $border-width: map-get($card, ft-border-width),
+            $border-color: map-get($card, ft-border-color)
+        );
+        .link {
+            color: map-get($base, link-color);
+        }
+    }
+    > .hd,
+    > .ft {
+        min-height: .44rem;
+        padding: 0 .1rem;
+        @include align(
+            $type: other,
+            $justify-content: space-between
+        );
+        &::after {
+            left: .1rem;
+        }
+    }
+    .desc {
+        display: block;
+        font-size: .12rem;
+        vertical-align: top;
+    }
+    .cols {
+        @include flexbox;
+        @include align-items;
+        > .flex {
+            @include flex;
+            margin: 0 .1rem;
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-card
+ * @version 3.0.0
+ * @description 构造卡片的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-card.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $margin 外边距 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Length} $border-width 边框厚度 <3.0.0>
+ * @param {Color} $border-color 边框颜色 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ * @param {Length} $font-size 文本字号 <3.0.0>
+ * @param {Length} $hd-border-width 头部边框厚度 <3.0.0>
+ * @param {Color} $hd-border-color 头部边框色 <3.0.0>
+ * @param {Length} $ft-border-width 底部边框厚度 <3.0.0>
+ * @param {Color} $ft-border-color 底部边框色 <3.0.0>
+ */
+
+@mixin yo-card(
+    $name: default,
+    $margin: default,
+    $radius: default,
+    $border-width: default,
+    $border-color: default,
+    $bgcolor: default,
+    $color: default,
+    $font-size: default,
+    $hd-border-width: default,
+    $hd-border-color: default,
+    $ft-border-width: default,
+    $ft-border-color: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $margin == default {
+        $margin: map-get($card, margin);
+    }
+    @if $radius == default {
+        $radius: map-get($card, radius);
+    }
+    @if $border-width == default {
+        $border-width: map-get($card, border-width);
+    }
+    @if $border-color == default {
+        $border-color: map-get($card, border-color);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($card, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($card, color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($card, font-size);
+    }
+    @if $hd-border-width == default {
+        $hd-border-width: map-get($card, hd-border-width);
+    }
+    @if $hd-border-color == default {
+        $hd-border-color: map-get($card, hd-border-color);
+    }
+    @if $ft-border-width == default {
+        $ft-border-width: map-get($card, ft-border-width);
+    }
+    @if $ft-border-color == default {
+        $ft-border-color: map-get($card, ft-border-color);
+    }
+    .yo-card#{$name} {
+        @if $radius != map-get($card, radius) {
+            border-radius: $radius;
+        }
+        &::after {
+            @if $border-width != map-get($card, border-width) {
+                border-width: $border-width;
+            }
+            @if $border-color != map-get($card, border-color) {
+                border-color: $border-color;
+            }
+            // 如果$radius不等于config设定，则重绘边框圆角
+            @if $radius != map-get($card, radius) {
+                @include responsive(retina1x) {
+                    border-radius: $radius;
+                }
+                @include responsive(retina2x) {
+                    border-radius: $radius * 2;
+                }
+                @include responsive(retina3x) {
+                    border-radius: $radius * 3;
+                }
+            }
+        }
+        @if $margin != map-get($card, margin) {
+            margin: $margin;
+        }
+        @if $bgcolor != map-get($card, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $color != map-get($card, color) {
+            color: $color;
+        }
+        @if $font-size != map-get($card, font-size) {
+            font-size: $font-size;
+        }
+        @if $radius != map-get($card, radius) {
+            > .hd,
+            > .extra:first-child .cover-img {
+                border-top-left-radius: $radius;
+                border-top-right-radius: $radius;
+            }
+            > .ft,
+            > .extra:first-child .cover-img {
+                border-bottom-left-radius: $radius;
+                border-bottom-right-radius: $radius;
+            }
+        }
+        > .hd::after {
+            @if $hd-border-width != map-get($card, hd-border-width) {
+                border-width: $hd-border-width;
+            }
+            @if $hd-border-color != map-get($card, hd-border-color) {
+                border-color: $hd-border-color;
+            }
+        }
+        > .ft::after {
+            @if $ft-border-width != map-get($card, ft-border-width) {
+                border-width: $ft-border-width;
+            }
+            @if $ft-border-color != map-get($card, ft-border-color) {
+                border-color: $ft-border-color;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入card基础构造
+.yo-card {
+    @include _card;
+}

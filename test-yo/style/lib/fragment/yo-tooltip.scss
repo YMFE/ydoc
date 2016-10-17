@@ -1,0 +1,136 @@
+@charset "utf-8";
+
+// 定义浮层tooltip的基础构造
+@mixin _tooltip {
+    position: fixed;
+    min-width: 1rem;
+    max-width: 90%;
+    z-index: map-get($z-index, tooltip);
+    padding: map-get($tooltip, padding);
+    border-radius: map-get($tooltip, radius);
+    background-color: map-get($tooltip, bgcolor);
+    color: map-get($tooltip, color);
+    text-align: center;
+    > .arrow {
+        position: absolute;
+        content: "\0020";
+        border-width: map-get($tooltip, arrow-size);
+        border-style: solid;
+        border-color: transparent;
+        &-top {
+            top: -#{map-get($tooltip, arrow-size) * 2};
+            border-bottom-color: map-get($tooltip, bgcolor);
+        }
+        &-right {
+            right: -#{map-get($tooltip, arrow-size) * 2};
+            border-left-color: map-get($tooltip, bgcolor);
+        }
+        &-bottom {
+            bottom: -#{map-get($tooltip, arrow-size) * 2};
+            border-top-color: map-get($tooltip, bgcolor);
+        }
+        &-left {
+            left: -#{map-get($tooltip, arrow-size) * 2};
+            border-right-color: map-get($tooltip, bgcolor);
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-tooltip
+ * @version 3.0.0
+ * @description 构造列表的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-tooltip.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $padding 内补白 <3.0.0>
+ * @param {Length} $radius 圆角半径长度 <3.0.0>
+ * @param {Color} $bgcolor 背景色 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ * @param {Length} $arrow-size 箭头大小 <3.0.0>
+ */
+
+@mixin yo-tooltip(
+    $name: default,
+    $padding: default,
+    $radius: default,
+    $bgcolor: default,
+    $color: default,
+    $arrow-size: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $padding == default {
+        $padding: map-get($tooltip, padding);
+    }
+    @if $radius == default {
+        $radius: map-get($tooltip, radius);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($tooltip, bgcolor);
+    }
+    @if $color == default {
+        $color: map-get($tooltip, color);
+    }
+    @if $arrow-size == default {
+        $arrow-size: map-get($tooltip, arrow-size);
+    }
+    .yo-tooltip#{$name} {
+        @if $padding != map-get($tooltip, padding) {
+            padding: $padding;
+        }
+        @if $radius != map-get($tooltip, radius) {
+            border-radius: $radius;
+        }
+        @if $bgcolor != map-get($tooltip, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $color != map-get($tooltip, color) {
+            color: $color;
+        }
+        > .arrow {
+            @if $arrow-size != map-get($tooltip, arrow-size) {
+                border-width: $arrow-size;
+            }
+            &-top {
+                @if $arrow-size != map-get($tooltip, arrow-size) {
+                    top: -#{$arrow-size * 2};
+                }
+                @if $bgcolor != map-get($tooltip, bgcolor) {
+                    border-bottom-color: $bgcolor;
+                }
+            }
+            &-right {
+                @if $arrow-size != map-get($tooltip, arrow-size) {
+                    right: -#{$arrow-size * 2};
+                }
+                @if $bgcolor != map-get($tooltip, bgcolor) {
+                    border-left-color: $bgcolor;
+                }
+            }
+            &-bottom {
+                @if $arrow-size != map-get($tooltip, arrow-size) {
+                    bottom: -#{$arrow-size * 2};
+                }
+                @if $bgcolor != map-get($tooltip, bgcolor) {
+                    border-top-color: $bgcolor;
+                }
+            }
+            &-left {
+                @if $arrow-size != map-get($tooltip, arrow-size) {
+                    left: -#{$arrow-size * 2};
+                }
+                @if $bgcolor != map-get($tooltip, bgcolor) {
+                    border-right-color: $bgcolor;
+                }
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入tooltip基础构造
+.yo-tooltip {
+    @include _tooltip;
+}

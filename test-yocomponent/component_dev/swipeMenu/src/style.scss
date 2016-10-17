@@ -1,0 +1,15 @@
+@charset "utf-8";
+@import '../../../style/usage/core/reset';
+@import "../../../style/usage/fragment/yo-swipemenu";
+
+.yo-list .item.swipemenu-list-item {
+    padding: 0;
+}
+
+.yo-list .item.swipemenu-list-item::after {
+    left: 0;
+}
+
+.swipemenu-list-menu {
+    width: 100%;
+}

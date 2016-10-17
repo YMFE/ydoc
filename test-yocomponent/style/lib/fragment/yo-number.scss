@@ -1,0 +1,226 @@
+@charset "utf-8";
+
+// 定义number的基础构造
+@mixin _number {
+    @include flexbox(inline-flex);
+    overflow: hidden;
+    width: map-get($number, width);
+    height: map-get($number, height);
+    line-height: map-get($number, height);
+    @include transform(translate(0));
+    @include border(
+        $border-width: map-get($number, border-width),
+        $border-color: map-get($number, border-color),
+        $radius: map-get($number, radius)
+    );
+    background-color: #fff;
+    text-align: center;
+    > .minus,
+    > .plus {
+        display: block;
+        @include square(map-get($number, height));
+        @include border(
+            $border-width: map-get($number, sign-border-width),
+            $border-color: map-get($number, border-color),
+            $radius: map-get($number, sign-radius)
+        );
+        background-color: map-get($number, sign-bgcolor);
+        color: map-get($number, sign-color);
+        font-size: map-get($number, height) - .05rem;
+        font-family: arial;
+        cursor: pointer;
+        &.disabled {
+            cursor: not-allowed;
+            &::after {
+                border-color: lighten(map-get($number, border-color), 12%);
+            }
+            background-color: lighten(map-get($number, sign-bgcolor), 15%);
+            color: lighten(map-get($number, sign-color), 30%);
+        }
+    }
+    > .input {
+        display: block;
+        @include flex;
+        border: 0 none;
+        color: map-get($number, color);
+        font-size: map-get($number, font-size);
+        text-align: inherit;
+        &,
+        &::-webkit-inner-spin-button {
+            @include appearance;
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-number
+ * @version 3.0.0
+ * @description 构造列表的自定义使用方法
+ * @demp http://doyoe.github.io/Yo/demo/fragment/yo-number.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $width 宽度 <3.0.0>
+ * @param {Length} $height 高度 <3.0.0>
+ * @param {Length} $radius 外边框圆角半径 <3.0.0>
+ * @param {Length} $border-width 外边框厚度 <3.0.0>
+ * @param {Color} $border-color 外边框色 <3.0.0>
+ * @param {Color} $color 输入框文本色 <3.0.0>
+ * @param {Length} $sign-radius 加减号区域边框圆角半径 <3.0.0>
+ * @param {Length} $sign-border-width 加减号区域边框厚度 <3.0.0>
+ * @param {Color} $sign-bgcolor 加减号区域背景色 <3.0.0>
+ * @param {Color} $sign-color 加减号区域文本色 <3.0.0>
+ * @param {Length} $font-size 输入框字号 <3.0.0>
+ */
+
+@mixin yo-number(
+    $name: default,
+    $width: default,
+    $height: default,
+    $radius: default,
+    $border-width: default,
+    $border-color: default,
+    $color: default,
+    $sign-radius: default,
+    $sign-border-width: default,
+    $sign-bgcolor: default,
+    $sign-color: default,
+    $font-size: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $width == default {
+        $width: map-get($number, width);
+    }
+    @if $height == default {
+        $height: map-get($number, height);
+    }
+    @if $radius == default {
+        $radius: map-get($number, radius);
+    }
+    @if $border-width == default {
+        $border-width: map-get($number, border-width);
+    }
+    @if $sign-radius == default {
+        $sign-radius: map-get($number, sign-radius);
+    }
+    @if $sign-border-width == default {
+        $sign-border-width: map-get($number, sign-border-width);
+    }
+    @if $border-color == default {
+        $border-color: map-get($number, border-color);
+    }
+    @if $color == default {
+        $color: map-get($number,color);
+    }
+    @if $sign-bgcolor == default {
+        $sign-bgcolor: map-get($number, sign-bgcolor);
+    }
+    @if $sign-color == default {
+        $sign-color: map-get($number, sign-color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($number, font-size);
+    }
+    .yo-number#{$name} {
+        @if $width != map-get($number, width) {
+            width: $width;
+        }
+        @if $height != map-get($number, height) {
+            height: $height;
+            line-height: $height;
+        }
+        // 如果$radius不等于config设定，则重绘外边框圆角
+        @if $radius != map-get($number, radius) {
+            border-radius: $radius;
+        }
+        &::after {
+            // 如果$border-width不等于config设定，则重绘外边框相关
+            @if $border-width != map-get($number, border-width) {
+                border-width: $border-width;
+            }
+            // 如果$border-color不等于config设定，则重绘边框颜色
+            @if $border-color != map-get($number, border-color) {
+                border-color: $border-color;
+            }
+            // 如果$radius不等于config设定，则重绘外边框圆角
+            @if $radius != map-get($number, radius) {
+                @include responsive(retina1x) {
+                    border-radius: $radius;
+                }
+                @include responsive(retina2x) {
+                    border-radius: $radius * 2;
+                }
+                @include responsive(retina3x) {
+                    border-radius: $radius * 3;
+                }
+            }
+        }
+        > .minus,
+        > .plus {
+            @if $height != map-get($number, height) {
+                @include square($height);
+                font-size: $height - .05rem;
+            }
+            // 如果$sign-radius不等于config设定，则重绘内边框圆角
+            @if $sign-radius != map-get($number, sign-radius) {
+                border-radius: $sign-radius;
+            }
+            &::after {
+                // 如果$sign-border-width不等于config设定，则重绘内边框相关
+                @if $sign-border-width != map-get($number, sign-border-width) {
+                    border-width: $sign-border-width;
+                }
+                // 如果$border-color不等于config设定，则重绘边框颜色
+                @if $border-color != map-get($number, border-color) {
+                    border-color: $border-color;
+                }
+                // 如果$sign-radius不等于config设定，则重绘内边框圆角
+                @if $sign-radius != map-get($number, sign-radius) {
+                    @include responsive(retina1x) {
+                        border-radius: $sign-radius;
+                    }
+                    @include responsive(retina2x) {
+                        border-radius: $sign-radius * 2;
+                    }
+                    @include responsive(retina3x) {
+                        border-radius: $sign-radius * 3;
+                    }
+                }
+            }
+            @if $sign-bgcolor != map-get($number, sign-bgcolor) {
+                background-color: $sign-bgcolor;
+            }
+            @if $sign-color != map-get($number, sign-color) {
+                color: $sign-color;
+            }
+            &.disabled{
+                &::after {
+                    @if $border-color != map-get($number, border-color) {
+                        border-color: lighten($border-color, 12%);
+                    }
+                }
+                @if $sign-bgcolor != map-get($number, sign-bgcolor) {
+                    background-color: lighten($sign-bgcolor, 15%);
+                }
+                @if $sign-color != map-get($number, sign-color) {
+                    color: lighten($sign-color, 30%);
+                }
+            }
+        }
+        > .input {
+            @if $color != map-get($number, color) {
+                color: $color;
+            }
+            @if $font-size != map-get($number, font-size) {
+                font-size: $font-size;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入number基础构造
+.yo-number {
+    @include _number;
+}

@@ -1,0 +1,161 @@
+@charset "utf-8";
+
+// 定义carousel的基础构造
+@mixin _carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    > .cont {
+        position: relative;
+        white-space: nowrap;
+        @include killspace;
+        > .item {
+            width: 100%;
+            background-color: #eee;
+        }
+        .img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+        }
+    }
+    > .index {
+        position: absolute;
+        bottom: .05rem;
+        left: 50%;
+        @include transform(translate(-50%, 0));
+        > li {
+            float: left;
+            margin: 0 .05rem;
+            @include square(map-get($carousel, index-size));
+            border-radius: 50%;
+            background-color: map-get($carousel, index-bgcolor);
+            &.on {
+                background-color: map-get($carousel, on-index-bgcolor);
+            }
+        }
+    }
+    > .yo-ico {
+        position: absolute;
+        top: 50%;
+        @include transform(translate(0, -50%));
+        @include square(map-get($carousel, btn-size));
+        border-radius: 50%;
+        background-color: map-get($carousel, btn-bgcolor);
+        color: map-get($carousel, btn-color);
+        line-height: map-get($carousel, btn-size);
+        cursor: pointer;
+        &:active {
+            background-color: map-get($carousel, btn-active-bgcolor);
+            color: map-get($carousel, btn-active-color);
+        }
+    }
+    > .yo-ico-prev {
+        left: 0;
+    }
+    > .yo-ico-next {
+        right: 0;
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-carousel
+ * @version 3.0.0
+ * @description 构造yo-carousel的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-carousel.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $btn-size 按钮大小 <3.0.0>
+ * @param {Color} $btn-bgcolor 按钮背景色 <3.0.0>
+ * @param {Color} $btn-color 按钮文本色 <3.0.0>
+ * @param {Color} $btn-active-bgcolor 按钮按下背景色 <3.0.0>
+ * @param {Color} $btn-active-color 按钮按下文本色 <3.0.0>
+ * @param {Length} $index-size 索引大小 <3.0.0>
+ * @param {Color} $index-bgcolor 索引背景色 <3.0.0>
+ * @param {Color} $on-index-bgcolor 索引当前项背景色 <3.0.0>
+ */
+
+@mixin yo-carousel(
+    $name: default,
+    $btn-size: default,
+    $btn-bgcolor: default,
+    $btn-color: default,
+    $btn-active-bgcolor: default,
+    $btn-active-color: default,
+    $index-size: default,
+    $index-bgcolor: default,
+    $on-index-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $btn-size == default {
+        $btn-size: map-get($carousel, btn-size);
+    }
+    @if $btn-bgcolor == default {
+        $btn-bgcolor: map-get($carousel, btn-bgcolor);
+    }
+    @if $btn-color == default {
+        $btn-color: map-get($carousel, btn-color);
+    }
+    @if $btn-active-bgcolor == default {
+        $btn-active-bgcolor: map-get($carousel, btn-active-bgcolor);
+    }
+    @if $btn-active-color == default {
+        $btn-active-color: map-get($carousel, btn-active-color);
+    }
+    @if $index-size == default {
+        $index-size: map-get($carousel, index-size);
+    }
+    @if $index-bgcolor == default {
+        $index-bgcolor: map-get($carousel, index-bgcolor);
+    }
+    @if $on-index-bgcolor == default {
+        $on-index-bgcolor: map-get($carousel, on-index-bgcolor);
+    }
+    .yo-carousel#{$name} {
+        > .index {
+            > li {
+                @if $index-size != map-get($carousel, index-size) {
+                    @include square($index-size);
+                }
+                @if $index-bgcolor != map-get($carousel, index-bgcolor) {
+                    background-color: $index-bgcolor;
+                }
+                &.on {
+                    @if $on-index-bgcolor != map-get($carousel, on-index-bgcolor) {
+                        background-color: $on-index-bgcolor;
+                    }
+                }
+            }
+        }
+        > .yo-ico {
+            @if $btn-size != map-get($carousel, btn-size) {
+                @include square($btn-size);
+                line-height: $btn-size;
+            }
+            @if $btn-bgcolor != map-get($carousel, btn-bgcolor) {
+                background-color: $btn-bgcolor;
+            }
+            @if $btn-color != map-get($carousel, btn-color) {
+                color: $btn-color;
+            }
+            &:active {
+                @if $btn-active-bgcolor != map-get($carousel, btn-active-bgcolor) {
+                    background-color: $btn-active-bgcolor;
+                }
+                @if $btn-active-color != map-get($carousel, btn-active-color) {
+                    color: $btn-active-color;
+                }
+            }
+        }
+
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入carouselable基础构造
+.yo-carousel {
+    @include _carousel;
+}

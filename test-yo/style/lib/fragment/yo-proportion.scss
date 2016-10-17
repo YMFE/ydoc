@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+// 定义proportion的基础构造
+@mixin _proportion {
+    margin: map-get($proportion, margin);
+    background-color: map-get($proportion, bgcolor);
+    line-height: map-get($proportion, height);
+    color: map-get($proportion, color);
+    font-size: map-get($proportion, font-size);
+    > .inner {
+        @include flexbox;
+        min-height: map-get($proportion, min-height);
+        padding: 0 .1rem;
+        background-color: map-get($proportion, inner-bgcolor);
+        > .date,
+        > .amount {
+            display: block;
+        }
+        > .date {
+            @include flex;
+        }
+        &::after {
+            display: block;
+            content: attr(data-attr);
+        }
+    }
+}
+
+/**
+ * @module fragment
+ * @method yo-proportion
+ * @version 3.0.0
+ * @description 构造比例条的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-proportion.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Length} $margin 外边距 <3.0.0>
+ * @param {Color} $bgcolor 底色 <3.0.0>
+ * @param {Length} $height 高度 <3.0.0>
+ * @param {Length} $min-height 最小高度 <3.0.0>
+ * @param {Color} $color 文本色 <3.0.0>
+ * @param {Color} $font-size 文本字号 <3.0.0>
+ * @param {Color} $inner-bgcolor 当前状态色 <3.0.0>
+ */
+
+@mixin yo-proportion(
+    $name: default,
+    $margin: default,
+    $bgcolor: default,
+    $height: default,
+    $min-height: default,
+    $color: default,
+    $font-size: default,
+    $inner-bgcolor: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $margin == default {
+        $margin: map-get($proportion, margin);
+    }
+    @if $bgcolor == default {
+        $bgcolor: map-get($proportion, bgcolor);
+    }
+    @if $height == default {
+        $height: map-get($proportion, height);
+    }
+    @if $min-height == default {
+        $min-height: map-get($proportion, min-height);
+    }
+    @if $color == default {
+        $color: map-get($proportion, color);
+    }
+    @if $font-size == default {
+        $font-size: map-get($proportion, font-size);
+    }
+    @if $inner-bgcolor == default {
+        $inner-bgcolor: map-get($proportion, inner-bgcolor);
+    }
+    .yo-proportion#{$name} {
+        @if $margin != map-get($proportion, margin) {
+            margin: $margin;
+        }
+        @if $bgcolor != map-get($proportion, bgcolor) {
+            background-color: $bgcolor;
+        }
+        @if $height != map-get($proportion, height) {
+            line-height: $height;
+        }
+        @if $color != map-get($proportion, color) {
+            color: $color;
+        }
+        @if $margin != map-get($proportion, font-size) {
+            font-size: $font-size;
+        }
+        > .inner {
+            @if $min-height != map-get($proportion, min-height) {
+                min-height: $min-height;
+            }
+            @if $inner-bgcolor != map-get($proportion, inner-bgcolor) {
+                background-color: $inner-bgcolor;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入proportion基础构造
+.yo-proportion {
+    @include _proportion;
+}

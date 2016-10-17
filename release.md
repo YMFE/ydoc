@@ -26,3 +26,10 @@
 ### v1.0.0
 
 * 正式版
+
+### v2.0.0
+* 改版
+* 支持@example格式化
+* 默认code超出5行折叠，@param超过5个折叠
+* @component @property 支持 example
+* 一些细节优化

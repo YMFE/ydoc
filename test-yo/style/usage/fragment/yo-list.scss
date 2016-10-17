@@ -1,0 +1,25 @@
+@charset "utf-8";
+@import "../../lib/fragment/yo-list";
+
+/**
+ * yo-list扩展
+ */
+
+@include yo-list(
+    $name: inset,
+    $margin: .2rem .1rem 0 .1rem,
+    $border-width: 1px,
+    $radius: .2rem
+);
+
+@include yo-list(
+    $name: group,
+    $label-padding: .2rem .1rem .05rem,
+    $label-border-color: map-get($base, border-color)
+);
+
+@include yo-list(
+    $name: table,
+    $label-bgcolor: #f9f9f9,
+    $label-border-color: #aaa
+);

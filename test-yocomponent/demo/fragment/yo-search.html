@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+<title>yo-search - 搜索框</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no,email=no" />
+<link rel="apple-touch-icon" href="../../yo.png" />
+<link rel="shortcut icon" href="../../shortcut.png" />
+<link rel="stylesheet" href="../../style/usage/export/yo-search.css" />
+</head>
+<body>
+
+<div class="yo-flex">
+    <header class="yo-header m-header">
+        <h2 class="title">yo-search</h2>
+        <a href="../index.html" class="regret yo-ico">&#xf07d;</a>
+        <a href="../../doc/element.html#yo-search" class="affirm">文档</a>
+    </header>
+    <div class="flex">
+        <section class="m-demo">
+            <h2 class="title">例一效果（input聚焦时收缩）：</h2>
+            <form class="yo-search">
+                <label class="action">
+                    <span class="yo-ico">&#xf067;</span>
+                    <input type="text" class="input input-shrink" placeholder="输入搜索关键字..." />
+                </label>
+                <span class="cancel">取消</span>
+            </form>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">例一代码演示：</h3>
+            <xmp><form class="yo-search">
+    <label class="action">
+        <span class="yo-ico">&#xf067;</span>
+        <input type="text" class="input input-shrink" placeholder="输入搜索关键字..." />
+    </label>
+    <span class="cancel">取消</span>
+</form></xmp>
+        </section>
+
+        <section class="m-demo">
+            <h2 class="title">例二效果（input聚焦时不收缩）：</h2>
+            <form class="yo-search">
+                <label class="action">
+                    <span class="yo-ico">&#xf067;</span>
+                    <input type="text" class="input" placeholder="输入搜索关键字..." />
+                </label>
+            </form>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">例二代码演示：</h3>
+            <xmp><form class="yo-search">
+    <label class="action">
+        <span class="yo-ico">&#xf067;</span>
+        <input type="text" class="input" placeholder="输入搜索关键字..." />
+    </label>
+</form></xmp>
+
+            <h3 class="sub-title">只需移除[input-shrink]类名</h3>
+            <xmp><input class="input input-shrink" ... />
+            ↓↓↓
+<input class="input" ... /></xmp>
+        </section>
+
+        <section class="m-demo">
+            <h2 class="title">例三效果（带搜索按钮的搜索）：</h2>
+            <form class="yo-search">
+                <label class="action">
+                    <span class="yo-ico">&#xf067;</span>
+                    <input type="text" class="input" placeholder="输入搜索关键字..." />
+                </label>
+                <span class="yo-btn">搜索</span>
+            </form>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">例三代码演示：</h3>
+            <xmp><form class="yo-search">
+    <label class="action">
+        <span class="yo-ico">&#xf067;</span>
+        <input type="text" class="input" placeholder="输入搜索关键字..." />
+    </label>
+    <span class="yo-btn">搜索</span> <!-- 增加这行即可 -->
+</form></xmp>
+        </section>
+
+        <section class="m-demo">
+            <h2 class="title">例四效果（搜索框无ico）：</h2>
+            <form class="yo-search">
+                <label class="action">
+                    <input type="text" class="input" placeholder="输入搜索关键字..." />
+                </label>
+                <span class="yo-btn yo-ico">&#xf067;</span>
+            </form>
+        </section>
+
+        <section class="m-desc">
+            <h3 class="title">例四代码演示：</h3>
+            <xmp><form class="yo-search">
+    <label class="action">
+        <input type="text" class="input" placeholder="输入搜索关键字..." />
+    </label>
+    <span class="yo-btn yo-ico">&#xf067;</span>
+</form></xmp>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>

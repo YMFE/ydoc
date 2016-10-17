@@ -1,0 +1,5 @@
+/*
+ * @providesModule QFontSet
+ */
+module.exports = {
+};

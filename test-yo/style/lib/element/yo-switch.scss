@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+// 定义switch的基础构造
+@mixin _switch {
+    display: inline-block;
+    margin: -.05rem 0;
+    > input {
+        display: none;
+    }
+    > .track {
+        display: inline-block;
+        position: relative;
+        width: .50rem;
+        height: .3rem;
+        padding: .01rem;
+        border-radius: .16rem;
+        background-color: map-get($switch, bgcolor);
+        vertical-align: middle;
+        > .handle {
+            position: absolute;
+            z-index: 1000;
+            top: 1px;
+            left: 1px;
+            @include square(.28rem);
+            border-radius: .14rem;
+            background-color: map-get($switch, thumb-color);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+            @include transition(transform .1s ease-out);
+        }
+        &::after {
+            position: absolute;
+            left: .15rem;
+            content: "\0020";
+            width: .34rem;
+            height: .28rem;
+            background-color: map-get($switch, follow-bgcolor);
+            border-radius: 0 .15rem .15rem 0;
+            @include transition(transform .13s ease-out);
+        }
+    }
+    > input:checked + .track {
+        background-color: map-get($switch, on-bgcolor);
+        > .handle {
+            @include transform(translate3d(.2rem, 0, 0));
+        }
+        &::after {
+            @include transform(scale3d(0, 0, 0));
+        }
+    }
+    > input:disabled + .track {
+        opacity: .4;
+    }
+}
+
+/**
+ * @module element
+ * @method yo-switch
+ * @version 3.0.0
+ * @description 构造yo-switch的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/element/yo-switch.html
+ * @param {String} $name 定义扩展名称 <3.0.0>
+ * @param {Color} $on-bgcolor 定义switch激活背景色 <3.0.0>
+ * @param {Color} $bgcolor 定义switch背景色 <3.0.0>
+ * @param {Color} $follow-bgcolor 定义switch跟随背景色 <3.0.0>
+ * @param {Color} $thumb-color 定义switch滑块色 <3.0.0>
+ */
+
+@mixin yo-switch(
+    $name: default,
+    $on-bgcolor: default,
+    $bgcolor: default,
+    $follow-bgcolor: default,
+    $thumb-color: default) {
+    // 区别是否新增实例还是修改本身
+    $name: if($name == default, "", "-#{$name}");
+    // 如果值为default，则取config的定义
+    @if $bgcolor == default {
+        $bgcolor: map-get($switch, bgcolor);
+    }
+    @if $on-bgcolor == default {
+        $on-bgcolor: map-get($switch, on-bgcolor);
+    }
+    @if $follow-bgcolor == default {
+        $follow-bgcolor: map-get($switch, follow-bgcolor);
+    }
+    @if $thumb-color == default {
+        $thumb-color: map-get($switch, thumb-color);
+    }
+    .yo-switch#{$name} {
+        > .track {
+            @if $bgcolor != map-get($switch, bgcolor) {
+                background-color: $bgcolor;
+            }
+            > .handle {
+                @if $thumb-color != map-get($switch, thumb-color) {
+                    background-color: $thumb-color;
+                }
+            }
+            &::after {
+                @if $follow-bgcolor != map-get($switch, follow-bgcolor) {
+                    background-color: $follow-bgcolor;
+                }
+            }
+        }
+        > input:checked + .track {
+            @if $on-bgcolor != map-get($switch, on-bgcolor) {
+                background-color: $on-bgcolor;
+            }
+        }
+        // 增量扩展
+        @content;
+    }
+}
+
+// 调用本文件时载入switch基础构造
+.yo-switch {
+    @include _switch;
+}
