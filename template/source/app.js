@@ -128,46 +128,17 @@ if (sidebar.height() > winHeight) {
     $(window).on('resize', function(e){
         resizeSidebar();
     });
-    $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange MSFullscreenChange', function(){
-        console.log('fullscreenchange===');
-        resizeSidebar();
-    });
+
     // $('body').on('fullScreenChange', function() {
     //     resizeSidebar();
     // });
 
 }
 
-// // 检测全屏
-// var docElm = document.documentElement;
-// if (docElm.requestFullscreen) {
-//    docElm.requestFullscreen();
-// }
-// else if (docElm.msRequestFullscreen) {
-//    docElm.msRequestFullscreen();
-// }
-// else if (docElm.mozRequestFullScreen) {
-//    docElm.mozRequestFullScreen();
-// }
-// else if (docElm.webkitRequestFullScreen) {
-//    docElm.webkitRequestFullScreen();
-// }
-
-document.addEventListener("fullscreenchange", function( event ) {
-  if (document.fullscreenElement) {
-    console.log('进入全屏');
-  } else {
-    console.log('退出全屏');
-  }
+$(document).on("webkitfullscreenchange mozfullscreenchange fullscreenchange",function(){
+        console.log("bang!");
 });
 
-
-if (typeof document.cancelFullScreen != 'undefined' && document.fullScreenEnabled === true) {
-    /* do fullscreen stuff */
-
-
-
-}
 
 function resizeSidebar(){
     var winHeight = $(window).height() - 44,
