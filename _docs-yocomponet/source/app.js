@@ -125,6 +125,7 @@ if (sidebar.height() > winHeight) {
             }
         }
     });
+    // 退出全屏浏览器窗口大小改变，不触发resize
     $(window).on('resize', function(e){
         resizeSidebar();
     });
@@ -132,10 +133,9 @@ if (sidebar.height() > winHeight) {
     // $('body').on('fullScreenChange', function() {
     //     resizeSidebar();
     // });
-
 }
 
-$(document).on("webkitfullscreenchange mozfullscreenchange fullscreenchange",function(){
+$(window).on("webkitfullscreenchange mozfullscreenchange fullscreenchange",function(){
         console.log("bang!");
 });
 
