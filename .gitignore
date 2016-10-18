@@ -1,11 +1,9 @@
-<<<<<<< HEAD
-﻿# kdiff3 ignore
+# kdiff3 ignore
 *.orig
 
 node_modules
 node_modules/
 .sass-cache/
-test-kami/
 
 
 
@@ -41,6 +39,3 @@ Thumbs.db
 # *.zip
 # *.tar
 # *.tar.gz
-=======
-node_modules/
->>>>>>> origin/new
