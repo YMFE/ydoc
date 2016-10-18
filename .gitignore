@@ -1,9 +1,10 @@
-﻿# kdiff3 ignore
-*.orig
 
+# kdiff3 ignore
+*.orig
 node_modules
 node_modules/
 .sass-cache/
+
 # maven ignore
 target/
 
