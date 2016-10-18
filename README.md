@@ -1,8 +1,4 @@
-# YDoc
-
 ## 简介
-
-前端工程文档生成工具
 
 [![npm version](https://badge.fury.io/js/ydoc.svg)](http://badge.fury.io/js/ydoc)
 
@@ -16,16 +12,16 @@ npm install ydoc [-g]
 
 ## 使用方式
 
-### 命令
+### 使用命令的方式
 
 ```
 cd /path/to/project/
 ydoc build
 ```
 
-详细请查看[命令使用说明](./usage.md)。
+详细请查看[命令使用方式说明](./usage.md)。
 
-### 脚本
+### 使用脚本的方式
 
 ```javascript
 var ydoc = require("ydoc");
@@ -33,7 +29,7 @@ var ydoc = require("ydoc");
 ydoc.build('/path/to/project', options);
 ```
 
-### Gulp
+### 使用Gulp的方式
 
 ```javascript
 var ydoc = require("ydoc");
@@ -46,7 +42,7 @@ gulp.task('ydoc', function() {
 });
 ```
 
-### Grunt
+### 使用Grunt的方式
 
 ```javascript
 grunt.initConfig({

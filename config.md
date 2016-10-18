@@ -65,18 +65,25 @@ module.exports = function(callback) {
     "template": "path/to/templte", // 默认使用 YDoc 内置的模板
     "options": { // 通用编译器配置
         "markdwon": { // 对于 markdown 编译器进行统一配置
-            "memuLevel": 2
-        }
+            "memuLevel": 2 //选取第几级 head 作为目录，默认 -1 没有目录
+        },
+        "foldcode": true, // 是否折叠示例code
+        "foldparam": true // 是否折叠param
     },
     "common": { // 通用配置，包括主页配置等
         "title": "YDoc",
-        "footer": "Made By YMFE Team. © 2014 - 2016",
+        "footer": "&copy; 2016 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.",
         "home": "YMFE",
         "homeUrl": "http://ymfe.org/",
         "navbars": [{ // 导航栏配置
             "name": "YDoc",
             "url": "http://ymfe.org/ydoc/"
         }]
+        "title": "YDoc", //page title
+        "footer": "&copy; 2016 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
+        "home": "YMFE", // logo
+        "homeUrl": "http://ued.qunar.com/ymfe/", // logourl
+        "navbars": []
     },
     "pages": [{
         "name": "index", // Page Name 会根据他生成 html 文件，例  index.html
@@ -93,7 +100,7 @@ module.exports = function(callback) {
     }, {
         "name": "hybird",
         "title": "混合开发",
-        "intro": "document/README.md", // 介绍
+        "intro": "document/README.md", // 介绍 introduction
         "content": { // 单页多模块配置
             "sidebar": true, // 是否显示侧边目录
             "blocks": [{
@@ -115,7 +122,7 @@ module.exports = function(callback) {
             "description": "组件"
         },
         "content": { // 多页配置，multi 为 true
-            "sidebar": true,
+            "sidebar": true, //是否显示侧边目录
             "multi": true, // 多页配置
             "index": "./Libraries/extension/INTRO.md", // 首页配置
             "pages": [{ // 每页配置

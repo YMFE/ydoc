@@ -56,6 +56,9 @@ function doParser(cwd, filePath, ignore, compile, options, conf, codeRender) {
                 if (options.source) {
                     var dp = sysPath.join(conf.dest, 'static', sysPath.dirname(fp));
                     mkdirp.sync(dp);
+
+                    //console.log('content========',content);
+
                     fs.writeFileSync(sysPath.join(dp, sysPath.basename(fp) + '.html'), codeRender({
                         title: conf.name + ' : ' + fp,
                         footer: conf.footer,
@@ -82,6 +85,7 @@ function doParser(cwd, filePath, ignore, compile, options, conf, codeRender) {
 module.exports = function(cwd, conf) {
     conf.cwd = cwd;
     conf.options = conf.options || {};
+
     var render = artTemplate.compile(conf.templateContent);
     var codeRender = artTemplate.compile(conf.codeTemplateContent);
     var resources = conf.resources || {};
@@ -89,6 +93,10 @@ module.exports = function(cwd, conf) {
         conf.pages.forEach(function(page) {
             var data = {},
                 common = conf.common || {};
+            if(conf.options){
+                conf.options.foldcode && (data.foldcode = conf.options.foldcode);
+                conf.options.foldparam && (data.foldparam = conf.options.foldparam);
+            }
             data.name = conf.name;
             data.title = common.title + ' ' + page.title;
             data.footer = common.footer;
@@ -211,6 +219,7 @@ module.exports = function(cwd, conf) {
 
                     data.article.blocks = blocks;
                 }
+
                 fs.writeFileSync(sysPath.join(conf.dest, page.name + '.html'), render(data));
                 console.log(('√ 生成文件: ' + sysPath.join(conf.dest, page.name + '.html')).yellow);
             }

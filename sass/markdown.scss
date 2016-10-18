@@ -599,23 +599,3 @@
     }
 
 }
-
-
-
-/* Fullscreen */
-html:-moz-full-screen {
-    background: red;
-}
-
-html:-webkit-full-screen {
-    background: red;
-}
-
-html:-ms-fullscreen {
-    background: red;
-    width: 100%; /* needed to center contents in IE */
-}
-
-html:fullscreen {
-    background: red;
-}

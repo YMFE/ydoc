@@ -29,7 +29,7 @@
 
 ### v2.0.0
 * 改版
-* 支持@example格式化
-* 默认code超出5行折叠，@param超过5个折叠
-* @component @property 支持 example
+* 支持code格式化
+* 支持折叠代码块支持折叠参数
+* @property 支持 example
 * 一些细节优化

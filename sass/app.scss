@@ -149,6 +149,7 @@ sup,sub{vertical-align:baseline}
      border:none;
      cursor: pointer;
      color:#fff;
+     line-height: .48rem;
  }
  .ydoc-banner-bg{
      background: url(./images/grid-18px-masked.png) repeat-x 0 top;
@@ -358,6 +359,7 @@ sup,sub{vertical-align:baseline}
  .ydoc{
      .navbar-toggle{
         display: inline-block;;
+
      }
      .ydoc-nav{
          display: none;

@@ -179,7 +179,8 @@ sup, sub {
     background: none;
     border: none;
     cursor: pointer;
-    color: #fff; }
+    color: #fff;
+    line-height: .48rem; }
   .ydoc .ydoc-banner-bg {
     background: url(./images/grid-18px-masked.png) repeat-x 0 top; }
   .ydoc-banner {
@@ -858,20 +859,3 @@ sup, sub {
   margin: -.1rem 0 .15rem;
   display: block;
   cursor: pointer; }
-
-/* Fullscreen */
-html:-moz-full-screen {
-  background: red; }
-
-html:-webkit-full-screen {
-  background: red; }
-
-html:-ms-fullscreen {
-  background: red;
-  width: 100%;
-  /* needed to center contents in IE */ }
-
-html:fullscreen {
-  background: red; }
-
-/*# sourceMappingURL=app.css.map */
