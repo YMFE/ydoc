@@ -64,26 +64,17 @@ module.exports = function(callback) {
     "examplePath": "./examples", // 示例代码路径 默认 "./"
     "template": "path/to/templte", // 默认使用 YDoc 内置的模板
     "options": { // 通用编译器配置
-        "markdwon": { // 对于 markdown 编译器进行统一配置
-            "memuLevel": 2 //选取第几级 head 作为目录，默认 -1 没有目录
+        "markdown": { // 对于 markdown 编译器进行统一配置
+            "menuLevel": 2 //选取第几级 head 作为目录，默认 -1 没有目录
         },
         "foldcode": true, // 是否折叠示例code
         "foldparam": true // 是否折叠param
     },
     "common": { // 通用配置，包括主页配置等
-        "title": "YDoc",
-        "footer": "&copy; 2016 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.",
-        "home": "YMFE",
-        "homeUrl": "http://ymfe.org/",
-        "navbars": [{ // 导航栏配置
-            "name": "YDoc",
-            "url": "http://ymfe.org/ydoc/"
-        }]
         "title": "YDoc", //page title
         "footer": "&copy; 2016 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
         "home": "YMFE", // logo
-        "homeUrl": "http://ued.qunar.com/ymfe/", // logourl
-        "navbars": []
+        "homeUrl": "http://ued.qunar.com/ymfe/" // logourl
     },
     "pages": [{
         "name": "index", // Page Name 会根据他生成 html 文件，例  index.html

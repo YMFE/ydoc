@@ -180,26 +180,17 @@
     &quot;examplePath&quot;: &quot;./examples&quot;, // 示例代码路径 默认 &quot;./&quot;
     &quot;template&quot;: &quot;path/to/templte&quot;, // 默认使用 YDoc 内置的模板
     &quot;options&quot;: { // 通用编译器配置
-        &quot;markdwon&quot;: { // 对于 markdown 编译器进行统一配置
-            &quot;memuLevel&quot;: 2 //选取第几级 head 作为目录，默认 -1 没有目录
+        &quot;markdown&quot;: { // 对于 markdown 编译器进行统一配置
+            &quot;menuLevel&quot;: 2 //选取第几级 head 作为目录，默认 -1 没有目录
         },
         &quot;foldcode&quot;: true, // 是否折叠示例code
         &quot;foldparam&quot;: true // 是否折叠param
     },
     &quot;common&quot;: { // 通用配置，包括主页配置等
-        &quot;title&quot;: &quot;YDoc&quot;,
-        &quot;footer&quot;: &quot;&amp;copy; 2016 &lt;a href=\&quot;http://ued.qunar.com/ymfe/\&quot;&gt;YMFE&lt;/a&gt; Team. Build by &lt;a href=\&quot;http://ued.qunar.com/ydoc/\&quot;&gt;ydoc&lt;/a&gt;.&quot;,
-        &quot;home&quot;: &quot;YMFE&quot;,
-        &quot;homeUrl&quot;: &quot;http://ymfe.org/&quot;,
-        &quot;navbars&quot;: [{ // 导航栏配置
-            &quot;name&quot;: &quot;YDoc&quot;,
-            &quot;url&quot;: &quot;http://ymfe.org/ydoc/&quot;
-        }]
         &quot;title&quot;: &quot;YDoc&quot;, //page title
         &quot;footer&quot;: &quot;&amp;copy; 2016 &lt;a href=\&quot;http://ued.qunar.com/ymfe/\&quot;&gt;YMFE&lt;/a&gt; Team. Build by &lt;a href=\&quot;http://ued.qunar.com/ydoc/\&quot;&gt;ydoc&lt;/a&gt;.&quot;, // 通用尾
         &quot;home&quot;: &quot;YMFE&quot;, // logo
-        &quot;homeUrl&quot;: &quot;http://ued.qunar.com/ymfe/&quot;, // logourl
-        &quot;navbars&quot;: []
+        &quot;homeUrl&quot;: &quot;http://ued.qunar.com/ymfe/&quot; // logourl
     },
     &quot;pages&quot;: [{
         &quot;name&quot;: &quot;index&quot;, // Page Name 会根据他生成 html 文件，例  index.html

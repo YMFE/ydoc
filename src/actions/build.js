@@ -57,8 +57,6 @@ function doParser(cwd, filePath, ignore, compile, options, conf, codeRender) {
                     var dp = sysPath.join(conf.dest, 'static', sysPath.dirname(fp));
                     mkdirp.sync(dp);
 
-                    //console.log('content========',content);
-
                     fs.writeFileSync(sysPath.join(dp, sysPath.basename(fp) + '.html'), codeRender({
                         title: conf.name + ' : ' + fp,
                         footer: conf.footer,
@@ -102,14 +100,16 @@ module.exports = function(cwd, conf) {
             data.footer = common.footer;
             data.home = common.home;
             data.homeUrl = common.homeUrl;
-            data.navbars = common.navbars.map(function(item) {
-                return {
-                    name: item.name,
-                    url: item.url,
-                    target: item.target || 'self',
-                    active: item.name == conf.name
-                };
-            });
+            if(common.navbars){
+                data.navbars = common.navbars.map(function(item) {
+                    return {
+                        name: item.name,
+                        url: item.url,
+                        target: item.target || 'self',
+                        active: item.name == conf.name
+                    };
+                });
+            }
             data.tabs = conf.pages.map(function(item) {
                 return {
                     name: item.name,
