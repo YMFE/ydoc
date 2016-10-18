@@ -559,7 +559,11 @@
             border-bottom: none;
         }
         // h2{ border-bottom: 1px solid #ff503f;}
-
+        li{
+            .ydoc-example{
+                left:-2em;
+            }
+        }
         .blockquote.api{
             padding:0 0 .15rem;
         }

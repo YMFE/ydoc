@@ -179,7 +179,8 @@ sup, sub {
     background: none;
     border: none;
     cursor: pointer;
-    color: #fff; }
+    color: #fff;
+    line-height: .48rem; }
   .ydoc .ydoc-banner-bg {
     background: url(./images/grid-18px-masked.png) repeat-x 0 top; }
   .ydoc-banner {
@@ -825,6 +826,8 @@ sup, sub {
   color: #ff503f; }
 .markdown-body .docs-section h1, .markdown-body .docs-section h2 {
   border-bottom: none; }
+.markdown-body .docs-section li .ydoc-example {
+  left: -2em; }
 .markdown-body .docs-section .blockquote.api {
   padding: 0 0 .15rem; }
 .markdown-body .docs-section h3 {

@@ -1,31 +1,9 @@
-<<<<<<< HEAD
 ﻿# kdiff3 ignore
 *.orig
 
 node_modules
 node_modules/
 .sass-cache/
-<<<<<<< HEAD
-test-kami/
-test-qapp/
-test-qrn/
-test-reactweb/
-test-yo/
-ydocfile-reactweb.config
-ydocfile-kami.js
-ydocfile-qapp.js
-ydocfile-qrn.js
-ydocfile-yo.js
-_docs-kami/
-_docs-qapp/
-_docs-qrn/
-_docs-reactweb/
-_docs-yo/
-=======
-
-
->>>>>>> dev-for-test
-
 # maven ignore
 target/
 
@@ -58,6 +36,3 @@ Thumbs.db
 # *.zip
 # *.tar
 # *.tar.gz
-=======
-node_modules/
->>>>>>> origin/new

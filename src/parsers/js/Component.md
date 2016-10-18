@@ -21,19 +21,43 @@
 /**
  * 内容位移
  *
- * @property contentInset
- * @type EdgeInsetsPropType
- * @default {top: 0, left: 0, bottom: 0, right: 0}
- * @description 内容范围相对滚动视图边缘的坐标。
+ * 滑块刻度标签
+ * @property scaleFormat
+ * @type function
+ * @param {Number} scale 单个标签对应的value值
+ * @param {Number} index 当前标签对应的下标
+ * @description 类型提示：支持数组传值；也支持用函数格式化字符串：函数有两个参数(scale, index)；
+ * 受控属性：滑块滑到某一刻度时所展示的刻度文本信息。如果不需要标签，请将该属性设置为 [] 空列表来覆盖默认转换函数。
+ * @returns {Boolean} 是否成功
+ * @default scale => scale
+ * @example
+ * PropTypes.arrayOf(
+ *     PropTypes.shape({
+ *         text: PropTypes.string.isRequired,
+ *         className: PropTypes.string,
+ *         onTap: PropTypes.func.isRequired,
+ *   })
+ * )
+ *
  */
 
 // 方法
 
-/**
- * 滚动到
- *
- * @method scrollTo
- * @param {PointPropType{x:x,y:y}} offset 滚动到的位置
- * @description 滚动到某一位置，如果只在某一方向滚动，可以只传{x: x}或{y: y}。
- */
+ /**
+  * @method 组件关闭,无过渡动画
+  * 返回给外部的回调函数, 为swipeMenuList特制,
+  * @param isClearTransition {Boolean}
+  * @description 类型提示：支持数组传值；也支持用函数格式化字符串：函数有两个参数(scale, index)；
+  * 受控属性：滑块滑到某一刻度时所展示的刻度文本信息。如果不需要标签，请将该属性设置为 [] 空列表来覆盖默认转换函数。
+  * @returns {Boolean} 是否成功
+  * @example
+  * PropTypes.arrayOf(
+  *     PropTypes.shape({
+  *         text: PropTypes.string.isRequired,
+  *         className: PropTypes.string,
+  *         onTap: PropTypes.func.isRequired,
+  *   })
+  * )
+  */
+
 ```
