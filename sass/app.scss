@@ -232,6 +232,10 @@ sup,sub{vertical-align:baseline}
         width: 25%;
        //  background: #f6f6f6;
      }
+     .docs-table del{
+         text-decoration: line-through;
+         color:#999;
+     }
      .ydoc-example{
          position: relative;
          overflow: hidden;

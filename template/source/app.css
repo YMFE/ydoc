@@ -245,6 +245,9 @@ sup, sub {
         float: right; }
       .ydoc-container-content .content-left {
         width: 25%; }
+      .ydoc-container-content .docs-table del {
+        text-decoration: line-through;
+        color: #999; }
       .ydoc-container-content .ydoc-example {
         position: relative;
         overflow: hidden; }
@@ -859,3 +862,5 @@ sup, sub {
   margin: -.1rem 0 .15rem;
   display: block;
   cursor: pointer; }
+
+/*# sourceMappingURL=app.css.map */

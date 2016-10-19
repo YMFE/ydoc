@@ -175,6 +175,10 @@ module.exports = {
                  var mats = item.split("\n"),i = 1, line, indent = -1, lines = [mats[0]];
                  while (i < mats.length - 1) {
                      line = mats[i];
+
+                     console.log('line===',line);
+                     console.log('indent===',indent);
+
                      if (line.trim() != '*' && indent < 0) {
                          indent = line.trim().match(/[^*\S]+/g).length;
                      }
@@ -187,11 +191,14 @@ module.exports = {
                      i++;
                  }
                  lines.push(mats[i]);
+                 console.log('lines.join=====',lines.join("\n"));
                  return lines.join("\n");
             });
             return afterExample;
           }));
             return contents.filter(function(item) {
+                // console.log('item begin=======');
+                // console.log(item);
                 return item.tags.every(function(tag) {
                     return tag.tag != 'skip';
                 });
