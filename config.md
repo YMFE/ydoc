@@ -59,7 +59,7 @@ module.exports = function(callback) {
 
 ```json
 {
-    "name": "YDoc",
+    "name": "YDoc", // 标示 配置文件
     "dest": "path/to/destination", // 默认为  "_docs"
     "examplePath": "./examples", // 示例代码路径 默认 "./"
     "template": "path/to/templte", // 默认使用 YDoc 内置的模板
@@ -69,6 +69,10 @@ module.exports = function(callback) {
         },
         "foldcode": true, // 是否折叠示例code
         "foldparam": true // 是否折叠param
+    },
+    "resources": { //将配置文件夹拷贝至生成文档的source文件夹下  
+            "images": './test-reactweb/docs/images/',   
+            "demo":'./test-reactweb/docs/demo/'
     },
     "common": { // 通用配置，包括主页配置等
         "title": "YDoc", //page title
