@@ -181,7 +181,7 @@
 </code></pre>
 <h2 id="配置内容">配置内容</h2><h3 id="整体配置说明">整体配置说明</h3><p>示例:</p>
 <pre><code class="lang-json">{
-    &quot;name&quot;: &quot;YDoc&quot;,
+    &quot;name&quot;: &quot;YDoc&quot;, // 标示 配置文件
     &quot;dest&quot;: &quot;path/to/destination&quot;, // 默认为  &quot;_docs&quot;
     &quot;examplePath&quot;: &quot;./examples&quot;, // 示例代码路径 默认 &quot;./&quot;
     &quot;template&quot;: &quot;path/to/templte&quot;, // 默认使用 YDoc 内置的模板
@@ -191,6 +191,10 @@
         },
         &quot;foldcode&quot;: true, // 是否折叠示例code
         &quot;foldparam&quot;: true // 是否折叠param
+    },
+    &quot;resources&quot;: { //将配置文件夹拷贝至生成文档的source文件夹下  
+            &quot;images&quot;: &#39;./test-reactweb/docs/images/&#39;,   
+            &quot;demo&quot;:&#39;./test-reactweb/docs/demo/&#39;
     },
     &quot;common&quot;: { // 通用配置，包括主页配置等
         &quot;title&quot;: &quot;YDoc&quot;, //page title
