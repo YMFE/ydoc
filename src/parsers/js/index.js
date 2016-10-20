@@ -154,7 +154,7 @@ module.exports = {
             }
             while (i < mats.length - 1) {
                 line = mats[i];
-                if (line.trim() != '*' && indent < 0) {
+                if (line.trim() != '*') {
                     indent = line.match(/[^*\S]+/g).length;
                 }
                 if (indent > -1) {
@@ -175,30 +175,23 @@ module.exports = {
                  var mats = item.split("\n"),i = 1, line, indent = -1, lines = [mats[0]];
                  while (i < mats.length - 1) {
                      line = mats[i];
-
-                     console.log('line===',line);
-                     console.log('indent===',indent);
-
-                     if (line.trim() != '*' && indent < 0) {
+                     if (line.trim() != '*') {
                          indent = line.trim().match(/[^*\S]+/g).length;
                      }
                      if (indent > -1) {
                          line = line.trim().substring(0, indent) +line.trim().substring(indent).replace(/^[ ]+/g, function(mat) {
                              return ' ' + mat.length + 'space';
-                         })
+                         });
                      };
                      lines.push(line);
                      i++;
                  }
                  lines.push(mats[i]);
-                 console.log('lines.join=====',lines.join("\n"));
                  return lines.join("\n");
             });
             return afterExample;
           }));
             return contents.filter(function(item) {
-                // console.log('item begin=======');
-                // console.log(item);
                 return item.tags.every(function(tag) {
                     return tag.tag != 'skip';
                 });
