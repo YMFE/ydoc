@@ -1,11 +1,12 @@
 var ydoc = require('./ydoc.js');
-
 var colors = require('colors');
 var fs = require('fs');
 var sysPath = require('path');
 var JSON5 = require('json5');
 var optimist = require('optimist');
 var loadConfig = require('./utils/loadConfig.js');
+var commonConfig = require('../common.json');
+
 var packageJSON = require('../package.json');
 
 function helpTitle() {
@@ -32,6 +33,7 @@ var cli = module.exports = {
     run: function(cmd) {
         var cwd = process.cwd(),
             argv = optimist.argv;
+
         if (ydoc[cmd]) {
             if (argv.h || argv.help) {
                 helpTitle();
@@ -46,7 +48,8 @@ var cli = module.exports = {
             } else if (cmd == 'build') {
                 loadConfig(cwd, function(conf) {
                     if (conf) {
-                        ydoc.build(cwd, conf, {
+                        var afterconf = Object.assign(commonConfig,conf);
+                        ydoc.build(cwd, afterconf, {
                             watch: argv.w || argv.watch,
                             template: argv.t || argv.template,
                             dest: argv.o || argv.output,
