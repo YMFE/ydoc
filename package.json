@@ -1,38 +1,47 @@
 {
-    "name": "ydoc",
-    "version": "2.0.0",
-    "description": "Yummy Doc 文档生成工具",
-    "keywords": ["doc", "document"],
-    "homepage": "http://ymfe.tech/ydoc",
-    "main": "src/ydoc.js",
-    "bin": {
-        "ydoc": "bin/ydoc"
-    },
-    "author": {
-        "name": "edwon.lin",
-        "email": "edwon.lim@gmail.com",
-        "url": "http://ymfe.tech"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:YMFE/ydoc.git"
-    },
-    "engines": {
-        "node": ">=4"
-    },
-    "license": "MIT",
-    "dependencies": {
-        "art-template": "^3.0.3",
-        "atropa-jsformatter": "^0.1.2",
-        "colors": "^1.1.2",
-        "comment-parser": "^0.4.0",
-        "cpr": "^1.1.1",
-        "glob": "^7.0.3",
-        "json5": "^0.5.0",
-        "marked": "^0.3.5",
-        "mkdirp": "^0.5.1",
-        "optimist": "^0.6.1",
-        "through2": "^2.0.1",
-        "watch": "^0.17.1"
-    }
+  "name": "ydoc",
+  "version": "2.0.0",
+  "description": "Yummy Doc 文档生成工具",
+  "keywords": [
+    "doc",
+    "document"
+  ],
+  "homepage": "http://ymfe.tech/ydoc",
+  "main": "src/ydoc.js",
+  "bin": {
+    "ydoc": "bin/ydoc"
+  },
+  "author": {
+    "name": "edwon.lin",
+    "email": "edwon.lim@gmail.com",
+    "url": "http://ymfe.tech"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:YMFE/ydoc.git"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "art-template": "^3.0.3",
+    "atropa-jsformatter": "^0.1.2",
+    "colors": "^1.1.2",
+    "comment-parser": "^0.4.0",
+    "cpr": "^1.1.1",
+    "glob": "^7.0.3",
+    "json5": "^0.5.0",
+    "marked": "^0.3.5",
+    "mkdirp": "^0.5.1",
+    "optimist": "^0.6.1",
+    "through2": "^2.0.1",
+    "watch": "^0.17.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^2.0.0"
+  }
 }
