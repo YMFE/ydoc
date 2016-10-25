@@ -22,8 +22,8 @@ gulp.task('concat', function() {
         .pipe(uglify())
         .pipe(gulp.dest('template/source'));
 
-    gulp.src(['template/js/shCore.js','template/js/shBrush-*.js'])
-        .pipe(concat('code.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('template/source'));
+    // gulp.src(['template/js/shCore.js','template/js/shBrush-*.js'])
+    //     .pipe(concat('code.js'))
+    //     .pipe(uglify())
+    //     .pipe(gulp.dest('template/source'));
 });
