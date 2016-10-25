@@ -8,8 +8,9 @@ function getContent(tag) {
 
 function readTag(tag) {
     var minVersion = '',
-        maxVersion = '';
-
+        maxVersion = '',
+        instructionsMd ='',
+        instructionsUrl='';
     var ret = {
         name: tag.name,
         type: tag.type,
@@ -24,7 +25,23 @@ function readTag(tag) {
             minVersion = b;
             maxVersion = d != '*' && d;
             return '';
+        }).replace(/\{instruInfo\:([\s\S]+?)\}/g, function(a,b) {
+            var mdurl = b.trim();
+            console.log('mdurl', mdurl);
+            console.log('fs.existsSync(mdurl)',fs.existsSync(mdurl));
+            if(fs.existsSync(mdurl)){
+                instructionsMd = fs.readFileSync(mdurl, 'UTF-8');
+            }
+            console.log('instructionsMd',instructionsMd);
+            // instructionsMd = b.trim();
+
+            return '';
+        }).replace(/\{instruUrl\:([\s\S]+?)\}/g, function(a,b) {
+            instructionsUrl = b.trim();
+            return '';
         }),
+        instructionsUrl: instructionsUrl,
+        instructionsMd: instructionsMd,
         version: minVersion + ((maxVersion && (' <del>' + maxVersion + '</del>')) || '')
     };
 
@@ -33,7 +50,6 @@ function readTag(tag) {
         ret.type = '<del>' + ret.type + '</del>';
         ret.description = '<del>' + ret.description + '</del>';
     }
-
     return ret;
 };
 
@@ -44,6 +60,7 @@ module.exports = function (comment, path, conf, formatter, content) {
         _path: path,
         params: [],
         prototypes: [],
+        instruction: [],
         //property: [],
         description: ''
     };
@@ -61,6 +78,10 @@ module.exports = function (comment, path, conf, formatter, content) {
                 break;
             case 'prototype':
                 ret.prototypes.push(readTag(tag));
+                break;
+            case 'instructions':
+                ret.instruction.push(readTag(tag));
+                break;
             // case 'property': // kami
             //     ret.property.push(readTag(tag));
             case 'return':

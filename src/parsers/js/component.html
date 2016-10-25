@@ -5,6 +5,36 @@
     {{if version}}<span class="yo-badge yo-badge-danger">{{version}}</span>{{/if}}
 </h2>
 <div class="api-content">{{description | markdown}}</div>
+<!-- 使用说明begin -->
+{{if instruction.length}}
+instruction.length {{instruction.length}}
+<div class="con-list-item">
+    <div class="con-head">使用说明</div>
+  {{each instruction as instructions}}
+    <div class="instructions">
+        <div class="instructions-con">
+            <div class="instructions-con-info">
+            instructions.instructionsMd    {{instructions.instructionsMd}}
+            </div>
+            <div class="instructions-runner">
+                <iframe class="instructions-iframe" src="{{instructions.instructionsUrl}}"></iframe>
+            </div>
+        </div>
+    </div>
+ {{/each}}
+    <div class="instructions">
+        <div class="instructions-con">
+            <div class="instructions-con-info">
+                此处为markdown内容2
+            </div>
+            <div class="instructions-runner">
+                <iframe class="instructions-iframe" src="http://ued.qunar.com/ydoc/"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+{{/if}}
+<!-- 使用说明end -->
 <div class="con-list-item">
 {{if props.length}}
 <div class="con-head">属性</div>

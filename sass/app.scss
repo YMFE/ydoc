@@ -403,3 +403,34 @@ sup,sub{vertical-align:baseline}
 
 /*     markdown begin       */
 @import "markdown";
+
+
+//组件 instructions 使用说明
+.instructions{
+    margin-bottom: 20px;
+    border:1px solid #eee;
+    &-con{
+        display: flex;
+        flex-direction: row;
+        &-info{
+            width: 500px;
+        }
+    }
+    &-runner{
+        flex: 1;
+        padding-left: 20px;
+        background:url(http://simg1.qunarzz.com/ugc/topic/sleeper_app_promotion_page/png24/feed.png) no-repeat;
+        background-size:100% 95%;
+        position:relative;
+        height:654px;
+        .instructions-iframe{
+            background: #fff;
+            width:320px;
+            height:480px;
+            position: absolute;
+            top: 73px;
+            border:none
+        }
+    }
+
+}

@@ -30,6 +30,7 @@ var execFns = {
         contents.forEach(function(commentList, index) {
             var filePath = options.files[index].substring(1);
             commentList.forEach(function(comment) {
+                console.log('getCommentType(comment, componentKeywords)',getCommentType(comment, componentKeywords));
                 switch (getCommentType(comment, componentKeywords)) {
                     case 'component':
                         ret = Object.assign(ret, analyseComment(comment, filePath, conf, fm));
@@ -191,7 +192,9 @@ module.exports = {
             });
             return afterExample;
           }));
+
             return contents.filter(function(item) {
+                console.log('item===',item);
                 return item.tags.every(function(tag) {
                     return tag.tag != 'skip';
                 });
