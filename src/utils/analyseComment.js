@@ -76,8 +76,8 @@ module.exports = function (comment, path, conf, formatter, content) {
             case 'instructions':
                 var instructions= readTag(tag);
                 if(instructions.instructionsMd){
-                    if(conf.instructionsPath){
-                        var fp = sysPath.join(conf.cwd,conf.instructionsPath,instructions.instructionsMd);
+                    if(conf.instructionsInfoPath){
+                        var fp = sysPath.join(conf.cwd,conf.instructionsInfoPath,instructions.instructionsMd);
                     }else{
                         var fp = sysPath.join(conf.cwd,instructions.instructionsMd);
                     }
@@ -87,8 +87,8 @@ module.exports = function (comment, path, conf, formatter, content) {
                     }
                 }
                 if(instructions.instructionsUrl){
-                    if(conf.instructionsPath){
-                        var fp = sysPath.join(conf.cwd,conf.instructionsPath,instructions.instructionsUrl);
+                    if(conf.instructionsUrlPath){
+                        var fp = sysPath.join(conf.cwd,conf.instructionsUrlPath,instructions.instructionsUrl);
                     }else{
                         var fp = sysPath.join(conf.cwd,instructions.instructionsUrl);
                     }

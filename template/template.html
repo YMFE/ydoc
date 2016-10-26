@@ -9,6 +9,9 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="source/main.css"/>
   <link rel="stylesheet" href="source/app.css"/>
+  {{if userCss}}
+    <link rel="stylesheet" href="{{userCss}}"/>
+  {{/if}}
 </head>
 <body>
     <div class="ydoc">
@@ -243,5 +246,10 @@
     });
     </script>
     {{/if}}
+
+    {{if userJs}}
+      <script type="text/javascript" src="{{userJs}}"></script>
+    {{/if}}
+
 </body>
 </html>
