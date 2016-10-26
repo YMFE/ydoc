@@ -330,6 +330,8 @@ sup, sub {
     width: 100%; }
   .ydoc-container-content .content-left {
     display: none; }
+  .ydoc-container-content .instructions-con-runner {
+    display: none; }
 
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 100%; }
@@ -864,14 +866,16 @@ sup, sub {
   cursor: pointer; }
 
 .instructions {
-  margin-bottom: .4rem;
-  border-bottom: 1px dashed #ddd; }
+  padding: .2rem 0;
+  margin-bottom: .2rem;
+  overflow: hidden; }
   .instructions-con {
     display: flex;
     flex-direction: row; }
     .instructions-con-info {
       flex: 1;
-      overflow: hidden; }
+      overflow: hidden;
+      padding-right: 10px; }
     .instructions-con-runner {
       width: 3.2rem;
       height: 6.5rem;
@@ -886,6 +890,6 @@ sup, sub {
         position: absolute;
         top: .66rem;
         left: .18rem;
-        border: none; }
+        border: 0; }
 
 /*# sourceMappingURL=app.css.map */
