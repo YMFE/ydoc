@@ -77,9 +77,9 @@ module.exports = function (comment, path, conf, formatter, content) {
                 var instructions= readTag(tag);
                 if(instructions.instructionsMd){
                     if(conf.instructionsInfoPath){
-                        var fp = sysPath.join(conf.cwd,conf.instructionsInfoPath,instructions.instructionsMd);
+                        var fp = sysPath.join(conf.instructionsInfoPath,instructions.instructionsMd);
                     }else{
-                        var fp = sysPath.join(conf.cwd,instructions.instructionsMd);
+                        var fp = instructions.instructionsMd;
                     }
                     if (fs.existsSync(fp)) {
                         var ct =marked(fs.readFileSync(fp, 'UTF-8'));
@@ -88,9 +88,9 @@ module.exports = function (comment, path, conf, formatter, content) {
                 }
                 if(instructions.instructionsUrl){
                     if(conf.instructionsUrlPath){
-                        var fp = sysPath.join(conf.cwd,conf.instructionsUrlPath,instructions.instructionsUrl);
+                        var fp = sysPath.join(conf.instructionsUrlPath,instructions.instructionsUrl);
                     }else{
-                        var fp = sysPath.join(conf.cwd,instructions.instructionsUrl);
+                        var fp = instructions.instructionsUrl;
                     }
                     instructions.instructionsUrl = fp;
                 }

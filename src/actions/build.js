@@ -94,8 +94,8 @@ module.exports = function(cwd, conf) {
             if(conf.options){
                 conf.options.foldcode && (data.foldcode = conf.options.foldcode);
                 conf.options.foldparam && (data.foldparam = conf.options.foldparam);
-                conf.options.userCss && (data.userCss = sysPath.join(conf.cwd,conf.options.userCss));
-                conf.options.userJs && (data.userJs = sysPath.join(conf.cwd,conf.options.userJs));
+                conf.options.userCss && (data.userCss =conf.options.userCss);
+                conf.options.userJs && (data.userJs = conf.options.userJs);
             }
 
             // console.log('data====',data);
