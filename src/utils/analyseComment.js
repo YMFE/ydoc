@@ -88,7 +88,12 @@ module.exports = function (comment, path, conf, formatter, content) {
                 }
                 if(instructions.instructionsUrl){
                     if(conf.instructionsUrlPath){
-                        var fp = sysPath.join(conf.instructionsUrlPath,instructions.instructionsUrl);
+                        if (conf.instructionsUrlPath.indexOf('./') == 0) {
+                            var fp = sysPath.join(conf.instructionsUrlPath,instructions.instructionsUrl);
+                        }else{
+                            var fp = conf.instructionsUrlPath+sysPath.join(instructions.instructionsUrl);
+                        }
+                        console.log('fp=====',fp);
                     }else{
                         var fp = instructions.instructionsUrl;
                     }
