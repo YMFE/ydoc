@@ -63,12 +63,16 @@ module.exports = function(callback) {
     "dest": "path/to/destination", // 默认为  "_docs"
     "examplePath": "./examples", // 示例代码路径 默认 "./"
     "template": "path/to/templte", // 默认使用 YDoc 内置的模板
+    "instructionsInfoPath": "./demo/component", //使用说明 内容路径
+    "instructionsUrlPath": "./demo/component", //使用说明demo路径
     "options": { // 通用编译器配置
         "markdown": { // 对于 markdown 编译器进行统一配置
             "menuLevel": 2 //选取第几级 head 作为目录，默认 -1 没有目录
         },
         "foldcode": true, // 是否折叠示例code
-        "foldparam": true // 是否折叠param
+        "foldparam": true, // 是否折叠param
+        "userCss": "./style/a.css", // 配置css路径 可覆盖默认样式
+        "userJs":"./scripts/a.js" // 配置js路径
     },
     "resources": { //将配置文件夹拷贝至生成文档的source文件夹下  
             "images": './test-reactweb/docs/images/',   
