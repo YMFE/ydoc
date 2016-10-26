@@ -330,6 +330,8 @@ sup, sub {
     width: 100%; }
   .ydoc-container-content .content-left {
     display: none; }
+  .ydoc-container-content .instructions-con-runner {
+    display: none; }
 
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 100%; }
@@ -864,26 +866,30 @@ sup, sub {
   cursor: pointer; }
 
 .instructions {
-  margin-bottom: 20px;
-  border: 1px solid #eee; }
+  padding: .2rem 0;
+  margin-bottom: .2rem;
+  overflow: hidden; }
   .instructions-con {
     display: flex;
     flex-direction: row; }
     .instructions-con-info {
-      width: 500px; }
-  .instructions-runner {
-    flex: 1;
-    padding-left: 20px;
-    background: url(http://simg1.qunarzz.com/ugc/topic/sleeper_app_promotion_page/png24/feed.png) no-repeat;
-    background-size: 100% 95%;
-    position: relative;
-    height: 654px; }
-    .instructions-runner .instructions-iframe {
-      background: #fff;
-      width: 320px;
-      height: 480px;
-      position: absolute;
-      top: 73px;
-      border: none; }
+      flex: 1;
+      overflow: hidden;
+      padding-right: 10px; }
+    .instructions-con-runner {
+      width: 3.2rem;
+      height: 6.5rem;
+      padding: 0 .16rem;
+      background: url(http://simg1.qunarzz.com/ugc/topic/sleeper_app_promotion_page/png24/feed.png) no-repeat;
+      background-size: 100%;
+      position: relative; }
+      .instructions-con-runner .instructions-iframe {
+        background: #fff;
+        width: 2.9rem;
+        height: 5.1rem;
+        position: absolute;
+        top: .66rem;
+        left: .18rem;
+        border: 0; }
 
 /*# sourceMappingURL=app.css.map */

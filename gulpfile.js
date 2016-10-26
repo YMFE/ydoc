@@ -6,7 +6,7 @@ uglify = require('gulp-uglify');
 gulp.task('concat', function() {
 
     // 将所有css文件连接为一个文件并压缩，存到public/css
-    gulp.src(['template/css/app.css','template/css/highlight.min.css'])
+    gulp.src(['template/css/highlight.min.css'])
         .pipe(concat('main.css'))
         .pipe(minifyCss())
         .pipe(gulp.dest('template/source'));

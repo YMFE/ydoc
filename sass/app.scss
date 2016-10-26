@@ -356,6 +356,8 @@ sup,sub{vertical-align:baseline}
  .ydoc-container-content {
      .content-right{ width: 100%;}
      .content-left{ display: none;}
+     .instructions-con-runner{ display: none;}
+
  }
  .ydoc-header-area,.ydoc-banner-area,.ydoc-container-content{
    width:100%;
@@ -407,30 +409,36 @@ sup,sub{vertical-align:baseline}
 
 //组件 instructions 使用说明
 .instructions{
-    margin-bottom: 20px;
-    border:1px solid #eee;
+    padding: .2rem 0;
+    margin-bottom: .2rem;
+    // border-bottom: 1px dashed #ddd;
+    overflow: hidden;
     &-con{
         display: flex;
         flex-direction: row;
         &-info{
-            width: 500px;
+            flex: 1;
+            overflow: hidden;
+            padding-right:10px;
+        }
+        &-runner{
+            width:3.2rem;
+            height: 6.5rem;
+            padding:0 .16rem;
+            background:url(http://simg1.qunarzz.com/ugc/topic/sleeper_app_promotion_page/png24/feed.png) no-repeat;
+            background-size:100%;
+            position:relative;
+            .instructions-iframe{
+                background: #fff;
+                width:2.9rem;
+                height:5.1rem;
+                position: absolute;
+                top:.66rem;
+                left: .18rem;
+                border:0;
+            }
         }
     }
-    &-runner{
-        flex: 1;
-        padding-left: 20px;
-        background:url(http://simg1.qunarzz.com/ugc/topic/sleeper_app_promotion_page/png24/feed.png) no-repeat;
-        background-size:100% 95%;
-        position:relative;
-        height:654px;
-        .instructions-iframe{
-            background: #fff;
-            width:320px;
-            height:480px;
-            position: absolute;
-            top: 73px;
-            border:none
-        }
-    }
+
 
 }

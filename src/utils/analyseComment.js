@@ -1,5 +1,6 @@
 var fs = require('fs'),
-    sysPath = require('path');
+    sysPath = require('path'),
+     marked = require('marked');
 
 function getContent(tag) {
     //console.log('======tag==',tag);
@@ -11,6 +12,13 @@ function readTag(tag) {
         maxVersion = '',
         instructionsMd ='',
         instructionsUrl='';
+    (tag.source || '').replace(/\{instruInfo\:([\s\S]+?)\}/g, function(a,b) {
+        instructionsMd = b.trim();
+        return '';
+    }).replace(/\{instruUrl\:([\s\S]+?)\}/g, function(a,b) {
+        instructionsUrl = b.trim();
+        return '';
+    });
     var ret = {
         name: tag.name,
         type: tag.type,
@@ -24,20 +32,6 @@ function readTag(tag) {
         }).replace(/\<\s*(\d+\.\d+\.\d+)\s*(\,\s*(\d+\.\d+\.\d+|\*)\s*)?\>/g, function(a, b, c, d) {
             minVersion = b;
             maxVersion = d != '*' && d;
-            return '';
-        }).replace(/\{instruInfo\:([\s\S]+?)\}/g, function(a,b) {
-            var mdurl = b.trim();
-            console.log('mdurl', mdurl);
-            console.log('fs.existsSync(mdurl)',fs.existsSync(mdurl));
-            if(fs.existsSync(mdurl)){
-                instructionsMd = fs.readFileSync(mdurl, 'UTF-8');
-            }
-            console.log('instructionsMd',instructionsMd);
-            // instructionsMd = b.trim();
-
-            return '';
-        }).replace(/\{instruUrl\:([\s\S]+?)\}/g, function(a,b) {
-            instructionsUrl = b.trim();
             return '';
         }),
         instructionsUrl: instructionsUrl,
@@ -80,7 +74,27 @@ module.exports = function (comment, path, conf, formatter, content) {
                 ret.prototypes.push(readTag(tag));
                 break;
             case 'instructions':
-                ret.instruction.push(readTag(tag));
+                var instructions= readTag(tag);
+                if(instructions.instructionsMd){
+                    if(conf.instructionsPath){
+                        var fp = sysPath.join(conf.cwd,conf.instructionsPath,instructions.instructionsMd);
+                    }else{
+                        var fp = sysPath.join(conf.cwd,instructions.instructionsMd);
+                    }
+                    if (fs.existsSync(fp)) {
+                        var ct =marked(fs.readFileSync(fp, 'UTF-8'));
+                        instructions.instructionsMd = ct;
+                    }
+                }
+                if(instructions.instructionsUrl){
+                    if(conf.instructionsPath){
+                        var fp = sysPath.join(conf.cwd,conf.instructionsPath,instructions.instructionsUrl);
+                    }else{
+                        var fp = sysPath.join(conf.cwd,instructions.instructionsUrl);
+                    }
+                    instructions.instructionsUrl = fp;
+                }
+                ret.instruction.push(instructions);
                 break;
             // case 'property': // kami
             //     ret.property.push(readTag(tag));

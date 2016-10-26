@@ -7,31 +7,24 @@
 <div class="api-content">{{description | markdown}}</div>
 <!-- 使用说明begin -->
 {{if instruction.length}}
-instruction.length {{instruction.length}}
 <div class="con-list-item">
     <div class="con-head">使用说明</div>
   {{each instruction as instructions}}
     <div class="instructions">
         <div class="instructions-con">
+            {{if instructions.instructionsMd}}
             <div class="instructions-con-info">
-            instructions.instructionsMd    {{instructions.instructionsMd}}
+            {{instructions.instructionsMd}}
             </div>
-            <div class="instructions-runner">
+            {{/if}}
+            {{if instructions.instructionsUrl}}
+            <div class="instructions-con-runner">
                 <iframe class="instructions-iframe" src="{{instructions.instructionsUrl}}"></iframe>
             </div>
+            {{/if}}
         </div>
     </div>
  {{/each}}
-    <div class="instructions">
-        <div class="instructions-con">
-            <div class="instructions-con-info">
-                此处为markdown内容2
-            </div>
-            <div class="instructions-runner">
-                <iframe class="instructions-iframe" src="http://ued.qunar.com/ydoc/"></iframe>
-            </div>
-        </div>
-    </div>
 </div>
 {{/if}}
 <!-- 使用说明end -->
