@@ -1,12 +1,22 @@
 var gulp = require('gulp'),
 concat = require('gulp-concat'),
 minifyCss = require('gulp-minify-css'),
-uglify = require('gulp-uglify');
+uglify = require('gulp-uglify'),
+sass = require('gulp-sass');
 
-gulp.task('concat', function() {
+gulp.task('sass',function(){
+    console.log('sass编译。。。');
+    return gulp.src('sass/app.scss').pipe(sass()).pipe(gulp.dest('template/css/'));
+});
 
+//替换高亮样式
+
+
+// 合并css 文件
+gulp.task('concatCss', function() {
+    console.log('concatcss');
     // 将所有css文件连接为一个文件并压缩，存到public/css
-    gulp.src(['template/css/highlight.min.css'])
+    gulp.src(['template/css/highlight.min.css','template/css/app.css'])
         .pipe(concat('main.css'))
         .pipe(minifyCss())
         .pipe(gulp.dest('template/source'));
@@ -15,7 +25,9 @@ gulp.task('concat', function() {
             .pipe(concat('code.css'))
             .pipe(minifyCss())
             .pipe(gulp.dest('template/source'));
-
+});
+// 合并js文件
+gulp.task('concatJs', function() {
     // 将所有js文件连接为一个文件并压缩，存到public/js
     gulp.src(['template/js/jquery.min.js','template/js/bootstrap.min.js','template/js/docs.min.js','template/js/highlight.min.js'])
         .pipe(concat('main.js'))
@@ -27,3 +39,9 @@ gulp.task('concat', function() {
     //     .pipe(uglify())
     //     .pipe(gulp.dest('template/source'));
 });
+
+
+gulp.task('watch',function(){
+});
+
+gulp.watch('sass/*.scss',['sass','concatCss']);

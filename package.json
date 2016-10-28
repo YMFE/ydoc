@@ -42,6 +42,7 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0"
   }
 }

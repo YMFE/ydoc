@@ -113,6 +113,7 @@ sup, sub {
   font-weight: normal;
   src: url(./fonts/ydoc.eot?v=1.0.0);
   src: url(./fonts/ydoc.eot?#iefix&#iefix&amp;v=1.0.0) format("embedded-opentype"), url(./fonts/ydoc.woff?v=1.0.0) format("woff"), url(./fonts/ydoc.ttf?v=1.0.0) format("truetype"), url(./source/fonts/ydoc.svg?v=1.0.0#icomoonregular) format("svg"); }
+
 .ydoc {
   font-size: .14rem;
   background: #fafafa;
@@ -319,21 +320,24 @@ sup, sub {
 @media screen and (min-width: 1200px) {
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 1200px; } }
+
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 992px; } }
+
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 768px; } }
+
 @media screen and (max-width: 767px) {
   .ydoc-container-content .content-right {
     width: 100%; }
   .ydoc-container-content .content-left {
     display: none; }
-
+  .ydoc-container-content .instructions-con-runner {
+    display: none; }
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 100%; }
-
   .ydoc .navbar-toggle {
     display: inline-block; }
   .ydoc .ydoc-nav {
@@ -352,13 +356,13 @@ sup, sub {
           display: inline-block; }
         .ydoc .ydoc-nav .navbar-left li a:hover, .ydoc .ydoc-nav .navbar-right li a:hover {
           color: #ff503f; }
-
   .ydoc-second-header {
     display: block; }
     .ydoc-second-header .ydoc-nav {
       display: block; }
       .ydoc-second-header .ydoc-nav li {
         float: left; } }
+
 .anchorjs-link {
   display: none; }
 
@@ -810,7 +814,7 @@ sup, sub {
   -moz-osx-font-smoothing: grayscale; }
 
 .glyphicon-ok:before {
-  content: ""; }
+  content: "\f078"; }
 
 .text-success {
   color: #3c763d; }
@@ -827,18 +831,23 @@ sup, sub {
   border-left: none;
   padding: 0;
   color: #ff503f; }
+
 .markdown-body .docs-section h1, .markdown-body .docs-section h2 {
   border-bottom: none; }
+
 .markdown-body .docs-section li .ydoc-example {
   left: -2em; }
+
 .markdown-body .docs-section .blockquote.api {
   padding: 0 0 .15rem; }
+
 .markdown-body .docs-section h3 {
   color: #ff503f;
   border-left-color: #ff503f;
   font-weight: normal; }
   .markdown-body .docs-section h3 a {
     color: #ff503f; }
+
 .markdown-body .docs-section .con-list-item {
   border-bottom: 1px solid #ddd;
   padding: .3rem 0; }
@@ -851,38 +860,45 @@ sup, sub {
     width: 100%; }
   .markdown-body .docs-section .con-list-item .prop-type {
     font-size: 14px; }
+
 .markdown-body .docs-section .con-list-item:last-child {
   border: none; }
+
 .markdown-body .docs-section .hide-params {
   display: none; }
+
 .markdown-body .docs-section .show-params {
   display: table-row; }
+
 .markdown-body .docs-section .extend-params, .markdown-body .docs-section .fold-params {
   color: #337ab7;
   margin: -.1rem 0 .15rem;
   display: block;
   cursor: pointer; }
 
-.demo-content {
-  display: flex;
-  flex-direction: row; }
-
-.flex {
-  width: 600px; }
-
-.demo-runner {
-  flex: 1;
-  padding-left: 20px;
-  background: url(http://simg1.qunarzz.com/ugc/topic/sleeper_app_promotion_page/png24/feed.png) no-repeat;
-  background-size: 100% 100%;
-  position: relative;
-  height: 672px; }
-
-iframe {
-  border: none;
-  width: 310px;
-  height: 520px;
-  position: absolute;
-  top: 73px; }
-
-/*# sourceMappingURL=app.css.map */
+.instructions {
+  padding: .2rem 0;
+  margin-bottom: .2rem;
+  overflow: hidden; }
+  .instructions-con {
+    display: flex;
+    flex-direction: row; }
+    .instructions-con-info {
+      flex: 1;
+      overflow: hidden;
+      padding-right: 10px; }
+    .instructions-con-runner {
+      width: 3.2rem;
+      height: 6.5rem;
+      padding: 0 .16rem;
+      background: url(./images/feed.png) no-repeat;
+      background-size: 100%;
+      position: relative; }
+      .instructions-con-runner .instructions-iframe {
+        background: #fff;
+        width: 2.9rem;
+        height: 5.1rem;
+        position: absolute;
+        top: .66rem;
+        left: .18rem;
+        border: 0; }
