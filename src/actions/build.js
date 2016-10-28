@@ -95,14 +95,29 @@ module.exports = function(cwd, conf) {
                 conf.options.foldcode && (data.foldcode = conf.options.foldcode);
                 conf.options.foldparam && (data.foldparam = conf.options.foldparam);
                 if(conf.options.userCss){
-                    data.userCss = sysPath.join(conf.cwd,conf.options.userCss);
+                    if(fs.existsSync(sysPath.join(cwd, conf.options.userCss))){
+                        try {
+                            childProcess.execSync('cp -r ' + sysPath.join(cwd, conf.options.userCss) + ' ' + sysPath.join(conf.dest,'source', sysPath.basename(conf.options.userCss)));
+                        } catch(e) {
+                            console.log(('X 资源 ' + conf.options.userCss + ' 复制失败').red);
+                            console.log(e.toString().red);
+                        }
+                        data.userCss = sysPath.join('source', sysPath.basename(conf.options.userCss))
+                    }
+
                 }
                 if(conf.options.userJs){
-                    data.userJs =  sysPath.join(conf.cwd,conf.options.userJs);
+                    if(fs.existsSync(sysPath.join(cwd, conf.options.userJs))){
+                        try {
+                            childProcess.execSync('cp -r ' + sysPath.join(cwd, conf.options.userJs) + ' ' + sysPath.join(conf.dest,'source', sysPath.basename(conf.options.userJs)));
+                        } catch(e) {
+                            console.log(('X 资源 ' + conf.options.userJs + ' 复制失败').red);
+                            console.log(e.toString().red);
+                        }
+                        data.userJs =  sysPath.join(conf.dest,'source', sysPath.basename(conf.options.userJs));
+                    }
                 }
             }
-
-            // console.log('data====',data);
             data.name = conf.name;
             data.title = common.title + ' ' + page.title;
             data.footer = common.footer;
