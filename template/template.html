@@ -8,8 +8,10 @@
   <meta name="author" content="author of the site">
   <title>{{title}}</title>
   <link rel="stylesheet" href="source/main.css"/>
-  {{if userCss}}
-    <link rel="stylesheet" href="{{userCss}}"/>
+  {{if insertCSS && insertCSS.length}}
+    {{each insertCSS as item}}
+    <link rel="stylesheet" href="{{item}}"/>
+    {{/each}}
   {{/if}}
 </head>
 <body>
@@ -246,8 +248,10 @@
     </script>
     {{/if}}
 
-    {{if userJs}}
-      <script type="text/javascript" src="{{userJs}}"></script>
+    {{if insertJS && insertJS.length}}
+      {{each insertJS as item}}
+      <script type="text/javascript" src="{{item}}"></script>
+      {{/each}}
     {{/if}}
 
 </body>

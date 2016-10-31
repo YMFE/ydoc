@@ -8,7 +8,7 @@
   <meta name="author" content="author of the site">
   <title>YDoc 配置</title>
   <link rel="stylesheet" href="source/main.css"/>
-  <link rel="stylesheet" href="source/app.css"/>
+  
 </head>
 <body>
     <div class="ydoc">
@@ -185,12 +185,16 @@
     &quot;dest&quot;: &quot;path/to/destination&quot;, // 默认为  &quot;_docs&quot;
     &quot;examplePath&quot;: &quot;./examples&quot;, // 示例代码路径 默认 &quot;./&quot;
     &quot;template&quot;: &quot;path/to/templte&quot;, // 默认使用 YDoc 内置的模板
+    &quot;instructionsInfoPath&quot;: &quot;./demo/component&quot;, //使用说明 内容路径
+    &quot;instructionsUrlPath&quot;: &quot;./demo/component&quot;, //使用说明demo路径
     &quot;options&quot;: { // 通用编译器配置
         &quot;markdown&quot;: { // 对于 markdown 编译器进行统一配置
             &quot;menuLevel&quot;: 2 //选取第几级 head 作为目录，默认 -1 没有目录
         },
         &quot;foldcode&quot;: true, // 是否折叠示例code
-        &quot;foldparam&quot;: true // 是否折叠param
+        &quot;foldparam&quot;: true, // 是否折叠param
+        &quot;userCss&quot;: &quot;./style/a.css&quot;, // 配置css路径 可覆盖默认样式
+        &quot;userJs&quot;:&quot;./scripts/a.js&quot; // 配置js路径
     },
     &quot;resources&quot;: { //将配置文件夹拷贝至生成文档的source文件夹下  
             &quot;images&quot;: &#39;./test-reactweb/docs/images/&#39;,   
@@ -289,5 +293,8 @@
     <script src="source/app.js"></script>
     
     
+
+    
+
 </body>
 </html>
