@@ -1,3 +1,13 @@
+### v2.1.0
+* 添加可配置CSS、JS功能
+* 添加component支持多个iframe查看demo功能
+
+### v2.0.1
+* 压缩js css代码
+* Component如果是function 去掉@param是否必选
+* 添加common默认配置 title footer home homeUrl
+* 修复而example是一段html时，行内样式过多，导致显示格式不对
+* 修复删除版本号不能正确显示
 
 ### v2.0.0
 * 改版

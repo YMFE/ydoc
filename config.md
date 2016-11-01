@@ -71,7 +71,7 @@ module.exports = function(callback) {
         },
         "foldcode": true, // 是否折叠示例code
         "foldparam": true, // 是否折叠param
-        "insertCSS": ["./style/a.css","./style/b.css"],  // 配置css路径 可覆盖默认样式
+        "insertCSS": ["./style/a.css","./style/b.css"],  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
         "insertJS": ["./scripts/a.js"]  // 配置js路径
     },
     "resources": { //将配置文件夹拷贝至生成文档的source文件夹下  
