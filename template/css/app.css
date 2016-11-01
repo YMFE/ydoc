@@ -255,7 +255,7 @@ sup, sub {
         .ydoc-container-content .ydoc-example code {
           overflow-y: hidden;
           display: block;
-          font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
+          font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace; }
         .ydoc-container-content .ydoc-example .fold, .ydoc-container-content .ydoc-example .extend {
           color: #337ab7;
           position: absolute;
@@ -384,7 +384,7 @@ sup, sub {
   word-break: break-all;
   word-wrap: break-word;
   color: #333333;
-  background-color: #f5f5f5;
+  background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 4px; }
 
@@ -507,7 +507,7 @@ sup, sub {
   font-size: 1.25em; }
 
 .markdown-body h4 {
-  font-size: 1em; }
+  font-size: 1.15em; }
 
 .markdown-body h5 {
   font-size: 0.875em; }
@@ -701,7 +701,6 @@ sup, sub {
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: #f7f7f7;
   border-radius: 3px; }
 
 .markdown-body .highlight pre {
@@ -848,18 +847,16 @@ sup, sub {
   .markdown-body .docs-section h3 a {
     color: #ff503f; }
 
-.markdown-body .docs-section .con-list-item {
+.markdown-body .docs-section .con-list-item .con-head {
+  font-size: 22px;
+  font-weight: bold;
   border-bottom: 1px solid #ddd;
-  padding: .3rem 0; }
-  .markdown-body .docs-section .con-list-item .con-head {
-    font-size: 22px;
-    font-weight: bold;
-    border-bottom: 1px solid #ddd;
-    margin: 0 0 .3rem;
-    padding: .1rem 0;
-    width: 100%; }
-  .markdown-body .docs-section .con-list-item .prop-type {
-    font-size: 14px; }
+  margin: 0 0 .2rem;
+  padding: .1rem 0;
+  width: 100%; }
+
+.markdown-body .docs-section .con-list-item .prop-type {
+  font-size: 14px; }
 
 .markdown-body .docs-section .con-list-item:last-child {
   border: none; }
@@ -877,7 +874,6 @@ sup, sub {
   cursor: pointer; }
 
 .instructions {
-  padding: .2rem 0;
   margin-bottom: .2rem;
   overflow: hidden; }
   .instructions-con {

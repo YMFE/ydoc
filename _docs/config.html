@@ -193,14 +193,15 @@
         },
         &quot;foldcode&quot;: true, // 是否折叠示例code
         &quot;foldparam&quot;: true, // 是否折叠param
-        &quot;userCss&quot;: &quot;./style/a.css&quot;, // 配置css路径 可覆盖默认样式
-        &quot;userJs&quot;:&quot;./scripts/a.js&quot; // 配置js路径
+        &quot;insertCSS&quot;: [&quot;./style/a.css&quot;,&quot;./style/b.css&quot;],  // 配置css路径 可覆盖默认样式
+        &quot;insertJS&quot;: [&quot;./scripts/a.js&quot;]  // 配置js路径
     },
     &quot;resources&quot;: { //将配置文件夹拷贝至生成文档的source文件夹下  
-            &quot;images&quot;: &#39;./test-reactweb/docs/images/&#39;,   
-            &quot;demo&quot;:&#39;./test-reactweb/docs/demo/&#39;
+            &quot;images&quot;: &quot;./test-reactweb/docs/images/&quot;,   
+            &quot;demo&quot;:&quot;./test-reactweb/docs/demo/&quot;,
+            &quot;style&quot;: &quot;./style/&quot;,  // 指定insertCss后，配置css的目录
     },
-    &quot;common&quot;: { // 通用配置，包括主页配置等
+    &quot;common&quot;: { // 通用默认配置，包括主页配置等
         &quot;title&quot;: &quot;YDoc&quot;, //page title
         &quot;footer&quot;: &quot;&amp;copy; 2016 &lt;a href=\&quot;http://ued.qunar.com/ymfe/\&quot;&gt;YMFE&lt;/a&gt; Team. Build by &lt;a href=\&quot;http://ued.qunar.com/ydoc/\&quot;&gt;ydoc&lt;/a&gt;.&quot;, // 通用尾
         &quot;home&quot;: &quot;YMFE&quot;, // logo

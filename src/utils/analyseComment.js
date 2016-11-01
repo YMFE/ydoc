@@ -93,7 +93,6 @@ module.exports = function (comment, path, conf, formatter, content) {
                         }else{
                             var fp = conf.instructionsUrlPath+sysPath.join(instructions.instructionsUrl);
                         }
-                        console.log('fp=====',fp);
                     }else{
                         var fp = instructions.instructionsUrl;
                     }

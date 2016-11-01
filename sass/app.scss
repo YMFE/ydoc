@@ -242,7 +242,8 @@ sup,sub{vertical-align:baseline}
          code{
              overflow-y: hidden;
              display: block;
-             font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            //  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+            font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
          }
          .fold,.extend{ color:#337ab7; position: absolute; left:15px; bottom:10px; cursor: pointer;}
          .fold:hover,.extend:hover{  text-decoration: underline; }
@@ -409,9 +410,7 @@ sup,sub{vertical-align:baseline}
 
 //组件 instructions 使用说明
 .instructions{
-    padding: .2rem 0;
     margin-bottom: .2rem;
-    // border-bottom: 1px dashed #ddd;
     overflow: hidden;
     &-con{
         display: flex;
