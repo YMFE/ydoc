@@ -71,14 +71,15 @@ module.exports = function(callback) {
         },
         "foldcode": true, // 是否折叠示例code
         "foldparam": true, // 是否折叠param
-        "userCss": "./style/a.css", // 配置css路径 可覆盖默认样式
-        "userJs":"./scripts/a.js" // 配置js路径
+        "insertCSS": ["./style/a.css","./style/b.css"],  // 配置css路径 可覆盖默认样式
+        "insertJS": ["./scripts/a.js"]  // 配置js路径
     },
     "resources": { //将配置文件夹拷贝至生成文档的source文件夹下  
-            "images": './test-reactweb/docs/images/',   
-            "demo":'./test-reactweb/docs/demo/'
+            "images": "./test-reactweb/docs/images/",   
+            "demo":"./test-reactweb/docs/demo/",
+            "style": "./style/",  // 指定insertCss后，配置css的目录
     },
-    "common": { // 通用配置，包括主页配置等
+    "common": { // 通用默认配置，包括主页配置等
         "title": "YDoc", //page title
         "footer": "&copy; 2016 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
         "home": "YMFE", // logo
