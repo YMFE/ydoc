@@ -72,7 +72,8 @@ module.exports = function(callback) {
         "foldcode": true, // 是否折叠示例code
         "foldparam": true, // 是否折叠param
         "insertCSS": ["./style/a.css","./style/b.css"],  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
-        "insertJS": ["./scripts/a.js"]  // 配置js路径
+        "insertJS": ["./scripts/a.js"],  // 配置js路径
+        "hasPageName": true //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符)
     },
     "resources": { //将配置文件夹拷贝至生成文档的source文件夹下  
             "images": "./test-reactweb/docs/images/",   

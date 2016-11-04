@@ -14,7 +14,7 @@
     {{/each}}
   {{/if}}
 </head>
-<body>
+<body{{if hasPageName && pagename}} class={{pagename}} {{/if}}>
     <div class="ydoc">
       <header class="ydoc-header">
         <div class="ydoc-header-area">

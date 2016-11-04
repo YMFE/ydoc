@@ -64,6 +64,7 @@ function doParser(cwd, filePath, ignore, compile, options, conf, codeRender) {
                         type: parser.highlight || parser.type,
                         content: content
                     }), 'UTF-8');
+
                     console.log(('√ 生成文件: ' + sysPath.join(dp, sysPath.basename(fp) + '.html')).yellow);
 
                 }
@@ -95,31 +96,14 @@ module.exports = function(cwd, conf) {
                 conf.options.foldcode && (data.foldcode = conf.options.foldcode);
                 conf.options.foldparam && (data.foldparam = conf.options.foldparam);
                 if(conf.options.insertCSS){
-                    // if(fs.existsSync(sysPath.join(cwd, conf.options.userCss))){
-                    //     try {
-                    //         childProcess.execSync('cp -r ' + sysPath.join(cwd, conf.options.userCss) + ' ' + sysPath.join(conf.dest,'source', sysPath.basename(conf.options.userCss)));
-                    //     } catch(e) {
-                    //         console.log(('X 资源 ' + conf.options.userCss + ' 复制失败').red);
-                    //         console.log(e.toString().red);
-                    //     }
-                    //     data.userCss = sysPath.join('source', sysPath.basename(conf.options.userCss))
-                    // }
                     data.insertCSS = conf.options.insertCSS;
                 }
                 if(conf.options.insertJS){
                     data.insertJS = conf.options.insertJS;
                 }
-                // if(conf.options.userJs){
-                //     if(fs.existsSync(sysPath.join(cwd, conf.options.userJs))){
-                //         try {
-                //             childProcess.execSync('cp -r ' + sysPath.join(cwd, conf.options.userJs) + ' ' + sysPath.join(conf.dest,'source', sysPath.basename(conf.options.userJs)));
-                //         } catch(e) {
-                //             console.log(('X 资源 ' + conf.options.userJs + ' 复制失败').red);
-                //             console.log(e.toString().red);
-                //         }
-                //         data.userJs =  sysPath.join(conf.dest,'source', sysPath.basename(conf.options.userJs));
-                //     }
-                // }
+                if(conf.options.hasPageName){
+                    data.hasPageName = conf.options.hasPageName;
+                }
             }
             data.name = conf.name;
             data.title = common.title + ' ' + page.title;
@@ -187,6 +171,7 @@ module.exports = function(cwd, conf) {
                                     data.article.parentName  = item.pName;
                                 }
                             });
+                            data.pagename = page.name + '-' + p.name;
                             fs.writeFileSync(sysPath.join(conf.dest, page.name + '-' + p.name + '.html'), render(data));
                             console.log(('√ 生成文件: ' + sysPath.join(conf.dest, page.name + '-' + p.name + '.html')).yellow);
                         }
@@ -245,7 +230,7 @@ module.exports = function(cwd, conf) {
 
                     data.article.blocks = blocks;
                 }
-
+                data.pagename = page.name;
                 fs.writeFileSync(sysPath.join(conf.dest, page.name + '.html'), render(data));
                 console.log(('√ 生成文件: ' + sysPath.join(conf.dest, page.name + '.html')).yellow);
             }

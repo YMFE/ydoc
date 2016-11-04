@@ -1,3 +1,6 @@
+### v2.1.1
+* 添加hasPageName开关 默认关闭
+
 ### v2.1.0
 * 添加可配置CSS、JS功能
 * 添加component支持多个iframe查看demo功能
