@@ -62,7 +62,7 @@
         <p>
             <small class="text-muted">示例:</small>
         </p>
-        <pre class="ydoc-example">
+        <pre class="ydoc-example" {{if el.foldNumber}}data-foldNumber={{el.foldNumber}}{{/if}}>
             <code>{{el.example}}</code>
         </pre>
         {{/if}}

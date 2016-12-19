@@ -189,30 +189,42 @@
     <script src="source/app.js"></script>
     {{if foldcode}}
     <script>
-        var EXAMPLE_MAX_HEIGHT = 98;
-        $(document).ready(function() {
+        var lineHeight = 17.4;
+        var EXAMPLE_MAX_HEIGHT;
+        function fold(){
             // 折叠code
+            $('.markdown-body pre').css({"line-height": lineHeight+"px"});
             $('.markdown-body pre').map(function(i,item){
-                if($(item).height() >EXAMPLE_MAX_HEIGHT){
-                    $(item).css({ "padding-bottom":30 });
-                    $(item).find('code').height(EXAMPLE_MAX_HEIGHT);
-                    $(item).append('<span class="extend">展开更多……</span>');
+                var $item = $(item);
+                if($item.data('foldnumber')){
+                    EXAMPLE_MAX_HEIGHT = lineHeight * $item.data('foldnumber');
+                }else {
+                    EXAMPLE_MAX_HEIGHT = lineHeight * 6;
+                }
+                if($item.height() >EXAMPLE_MAX_HEIGHT){
+                    $item.css({ "padding-bottom":30 });
+                    $item.find('code').height(EXAMPLE_MAX_HEIGHT);
+                    $item.append('<span class="extend">展开更多……</span>');
                 };
             });
 
            $('.ydoc-example').delegate('.extend','click',function(){
-                $(this).removeClass('extend').addClass('fold');
-                $(this).html('折叠代码');
-                $(this).prev().height('auto');
-                $(this).prev().parent().height('auto');
+                var $this = $(this);
+                $this.removeClass('extend').addClass('fold');
+                $this.html('折叠代码');
+                $this.prev().height('auto');
+                $this.prev().parent().height('auto');
             });
             $('.ydoc-example').delegate('.fold','click',function(){
-                $(this).removeClass('fold').addClass('extend');
-                $(this).parent().height(EXAMPLE_MAX_HEIGHT);
-                $(this).prev().height(EXAMPLE_MAX_HEIGHT);
-                $(this).html("展开更多……");
+                var $this = $(this);
+                $this.removeClass('fold').addClass('extend');
+                $this.parent().height(EXAMPLE_MAX_HEIGHT);
+                $this.prev().height(EXAMPLE_MAX_HEIGHT);
+                $this.html("展开更多……");
             });
-        });
+        }
+        $(document).ready(fold);
+        $(window).resize(fold);
     </script>
     {{/if}}
     {{if foldparam}}
