@@ -196,8 +196,9 @@
             $('.markdown-body pre').css({"line-height": lineHeight+"px"});
             $('.markdown-body pre').map(function(i,item){
                 var $item = $(item);
-                if($item.data('foldnumber')){
-                    EXAMPLE_MAX_HEIGHT = lineHeight * $item.data('foldnumber');
+                var foldNumber = $item.data('foldnumber');
+                if(foldNumber){
+                    EXAMPLE_MAX_HEIGHT = lineHeight * foldNumber;
                 }else {
                     EXAMPLE_MAX_HEIGHT = lineHeight * 6;
                 }
@@ -207,7 +208,6 @@
                     $item.append('<span class="extend">展开更多……</span>');
                 };
             });
-
            $('.ydoc-example').delegate('.extend','click',function(){
                 var $this = $(this);
                 $this.removeClass('extend').addClass('fold');
@@ -217,9 +217,15 @@
             });
             $('.ydoc-example').delegate('.fold','click',function(){
                 var $this = $(this);
+                var foldNumber = $this.parent().data('foldnumber');
+                if(foldNumber){
+                    EXAMPLE_MAX_HEIGHT = lineHeight * foldNumber;
+                }else {
+                    EXAMPLE_MAX_HEIGHT = lineHeight * 6;
+                }
                 $this.removeClass('fold').addClass('extend');
-                $this.parent().height(EXAMPLE_MAX_HEIGHT);
-                $this.prev().height(EXAMPLE_MAX_HEIGHT);
+                $this.parent().height(EXAMPLE_MAX_HEIGHT);  // pre
+                $this.prev().height(EXAMPLE_MAX_HEIGHT);    // code
                 $this.html("展开更多……");
             });
         }
