@@ -1,7 +1,7 @@
 @charset "utf-8";
-html{ font-size: 100px;}
+html{ font-size: 100px; height: 100%;}
 body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,figure,form,fieldset,legend,input,textarea,button,p,blockquote,th,td,pre,xmp{margin:0;padding:0}
-body,input,textarea,button,select,pre,xmp,tt,code,kbd,samp{line-height:1.5;font-family:tahoma,arial,"Hiragino Sans GB",simsun,sans-serif}
+body,input,textarea,button,select,pre,xmp,tt,code,kbd,samp{height: 100%;line-height:1.5;font-family:tahoma,arial,"Hiragino Sans GB",simsun,sans-serif}
 h1,h2,h3,h4,h5,h6,small,big,input,textarea,button,select{font-size:100%}
 h1,h2,h3,h4,h5,h6{font-family:tahoma,arial,"Hiragino Sans GB","微软雅黑",simsun,sans-serif}
 h1,h2,h3,h4,h5,h6{font-weight:normal}
@@ -69,6 +69,9 @@ sup,sub{vertical-align:baseline}
  font-size: .14rem;
   background: #fafafa;
   overflow: hidden;
+  height: auto;
+  min-height: 100%;
+  position: relative;
  &-header{
    line-height: .48rem;
    color: #3b3b3b;
@@ -153,6 +156,7 @@ sup,sub{vertical-align:baseline}
  }
  .ydoc-banner-bg{
      background: url(./images/grid-18px-masked.png) repeat-x 0 top;
+     padding-bottom: 121px;
  }
  &-banner{
    color:#fff;
@@ -177,7 +181,9 @@ sup,sub{vertical-align:baseline}
  .footer{
      margin: 50px 0;
      text-align: center;
-     position: relative;
+     position: absolute;
+     left: 0;
+     bottom: 0;
      overflow: hidden;
      margin: 0 auto;
      padding: 40px 0 60px;
