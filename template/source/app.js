@@ -32,7 +32,7 @@ $(document).ready(function() {
         }
     });
 
-    var winHeight = $(window).height() - 44,
+    var winHeight = $(window).height() - $('.footer').outerHeight() - 44,
         sidebar = $('.docs-sidebar');
     var docSideNav = $('.docs-sidenav');
     var  ydocContainerCon= $('.ydoc-container-content');
@@ -58,7 +58,7 @@ $(document).ready(function() {
             sidebar.css('max-height', winHeight + 'px');
             $('.docs-sidenav').css('max-height', winHeight + 'px');
         }else{
-            winHeight = $(window).height() - 44;
+            winHeight = $(window).height() - $('.footer').outerHeight() - 44;
             sidebar.css('max-height', winHeight + 'px');
             $('.docs-sidenav').css('max-height', winHeight + 'px');
         }
@@ -89,7 +89,7 @@ $(document).ready(function() {
 
 
 function resizeSidebar(){
-    var winHeight = $(window).height() - 44,
+    var winHeight = $(window).height() - $('.footer').outerHeight() - 44,
         sidebar = $('.docs-sidebar');
     var docSideNav = $('.docs-sidenav');
     var  ydocContainerCon= $('.ydoc-container-content');
