@@ -344,6 +344,17 @@ sup,sub{vertical-align:baseline}
  }
 }
 
+.open-panel{
+    display: none;
+    background-color: #888;
+    position: fixed;
+    right: 5%;
+    bottom: 10px;
+    opacity: .5;
+    width: 50px;
+    height: 50px;
+}
+
 @media screen and (min-width:1200px){
  .ydoc-header-area,.ydoc-banner-area,.ydoc-container-content{
    width:1200px;
@@ -362,10 +373,36 @@ sup,sub{vertical-align:baseline}
 @media screen and (max-width: 767px) {
  .ydoc-container-content {
      .content-right{ width: 100%;}
-     .content-left{ display: none;}
+     .content-left{ display: block;
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 75%;
+        background-color: #222;
+        z-index: 1;
+    }
+    .content-left:before{
+        content: '目录：';
+        display: block;
+        padding: .28rem;
+        color: #ccc;
+    }
+    .docs-sidebar{
+        background-color: #222;
+        .docs-sidenav li a{
+            border-color: #222;
+        }
+        .docs-sidenav li a:hover{
+            background-color: #222;
+        }
+    }
+    .docs-sidebar.affix{
+        position: static;
+    }
      .instructions-con-runner{ display: none;}
-
  }
+ .open-panel{ display: block;}
  .ydoc-header-area,.ydoc-banner-area,.ydoc-container-content{
    width:100%;
  }

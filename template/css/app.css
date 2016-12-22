@@ -325,6 +325,16 @@ sup, sub {
       content: " ";
       box-sizing: border-box; }
 
+.open-panel {
+  display: none;
+  background-color: #888;
+  position: fixed;
+  right: 5%;
+  bottom: 10px;
+  opacity: .5;
+  width: 50px;
+  height: 50px; }
+
 @media screen and (min-width: 1200px) {
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 1200px; } }
@@ -341,9 +351,31 @@ sup, sub {
   .ydoc-container-content .content-right {
     width: 100%; }
   .ydoc-container-content .content-left {
-    display: none; }
+    display: block;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 75%;
+    background-color: #222;
+    z-index: 1; }
+  .ydoc-container-content .content-left:before {
+    content: '目录：';
+    display: block;
+    padding: .28rem;
+    color: #ccc; }
+  .ydoc-container-content .docs-sidebar {
+    background-color: #222; }
+    .ydoc-container-content .docs-sidebar .docs-sidenav li a {
+      border-color: #222; }
+    .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
+      background-color: #222; }
+  .ydoc-container-content .docs-sidebar.affix {
+    position: static; }
   .ydoc-container-content .instructions-con-runner {
     display: none; }
+  .open-panel {
+    display: block; }
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 100%; }
   .ydoc .navbar-toggle {
