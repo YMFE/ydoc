@@ -289,7 +289,7 @@
                             activeInit = activeChange;
                             $navExtend.hide();
                             if(activeChange.parent()[0].tagName === 'UL'){
-                                if(activeChange.parent()[0].className === 'nav docs-sidenav' && activeChange.next()[0].tagName === 'UL'){
+                                if(activeChange.next()[0] && activeChange.parent()[0].className === 'nav docs-sidenav' && activeChange.next()[0].tagName === 'UL'){
                                     activeChange.next().show();
                                 }else if (activeChange.parent()[0].className === 'nav docs-sidenav-extend') {
                                     activeChange.parent().show();

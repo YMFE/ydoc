@@ -371,6 +371,7 @@ sup, sub {
   .ydoc-container-content .docs-sidebar {
     background-color: #222; }
     .ydoc-container-content .docs-sidebar .docs-sidenav li a {
+      color: #999;
       border-color: #222; }
     .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
       background-color: #222; }
