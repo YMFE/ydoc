@@ -277,7 +277,8 @@ sup, sub {
         z-index: 9999;
         overflow: hidden; }
         .ydoc-container-content .docs-sidebar .docs-sidenav {
-          padding-left: 0; }
+          padding-left: 0;
+          overflow-x: hidden; }
           .ydoc-container-content .docs-sidebar .docs-sidenav li {
             line-height: .42rem;
             height: .42rem;
