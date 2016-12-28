@@ -96,10 +96,8 @@ module.exports = function(cwd, conf) {
                 conf.options.foldcode && (data.foldcode = conf.options.foldcode);
                 conf.options.foldparam && (data.foldparam = conf.options.foldparam);
                 conf.options.foldsidenav && (data.foldsidenav = conf.options.foldsidenav);
-                if(page.options){
-                    if(page.options.foldsidenav){
-                        data.foldsidenav = page.options.foldsidenav;
-                    }
+                if(page.options && page.options.foldsidenav){
+                    data.foldsidenav = page.options.foldsidenav;
                 }
                 if(conf.options.insertCSS){
                     data.insertCSS = conf.options.insertCSS;
@@ -153,7 +151,7 @@ module.exports = function(cwd, conf) {
                             pName: pName,
                             sub: !!p.sub,
                             blank: !p.content,
-                            url: page.name + '-' + p.name + '.html'
+                            url: (p.index||(page.name + '-' + p.name)) + '.html'
                         };
                     });
 
@@ -178,8 +176,8 @@ module.exports = function(cwd, conf) {
                                 }
                             });
                             data.pagename = page.name + '-' + p.name;
-                            fs.writeFileSync(sysPath.join(conf.dest, page.name + '-' + p.name + '.html'), render(data));
-                            console.log(('√ 生成文件: ' + sysPath.join(conf.dest, page.name + '-' + p.name + '.html')).yellow);
+                            fs.writeFileSync(sysPath.join(conf.dest, (p.index||(page.name + '-' + p.name)) + '.html'), render(data));
+                            console.log(('√ 生成文件: ' + sysPath.join(conf.dest, (p.index||(page.name + '-' + p.name)) + '.html')).yellow);
                         }
                     });
                     data.article = doParser(cwd, page.content.index, page.indexIngore, page.indexCompile, page.content.indexOptions, conf, codeRender);
@@ -196,6 +194,7 @@ module.exports = function(cwd, conf) {
                         if (block.name) {
                             navs.push({
                                 name: block.name,
+                                index: block.index,
                                 tag: "#"+block.name.replace(/[\.\:\s\@\/]/g, '-'),
                                 sub: block.sub || false
                             });
@@ -221,6 +220,7 @@ module.exports = function(cwd, conf) {
                             blocks.push({
                                 type: 'html',
                                 name: block.name,
+                                index: block.index,
                                 tag: block.name.replace(/[\.\:\s\@\/]/g, '-'),
                                 sub: false,
                                 content: ''
@@ -238,7 +238,7 @@ module.exports = function(cwd, conf) {
                 }
                 data.pagename = page.name;
                 fs.writeFileSync(sysPath.join(conf.dest, page.name + '.html'), render(data));
-                console.log(('√ 生成文件: ' + sysPath.join(conf.dest, (page.index || page.name) + '.html')).yellow);
+                console.log(('√ 生成文件: ' + sysPath.join(conf.dest, page.name + '.html')).yellow);
             }
         });
     }

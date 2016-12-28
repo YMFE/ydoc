@@ -5,6 +5,7 @@
  * @module fragment
  * @method yo-list
  * @version 1.0.0
+ * @foldnumber 8 代码块折叠行数
  * @description 构造列表的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-list.html
  * @example ./examples/fragment/yo-list.sccs[5-48]
