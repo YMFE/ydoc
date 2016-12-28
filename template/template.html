@@ -267,6 +267,42 @@
     </script>
     {{/if}}
 
+    {{if foldsidenav}}
+    <script>
+        $(document).ready(function(){
+            var winWidth = $(window).width(),
+                $navExtend = $('.docs-sidenav-extend'),
+                $contentLeft = $('.content-left');
+
+            changeHide();
+            $(window).on('resize',function(){
+                winWidth = $(window).width();
+                changeHide();
+            })
+            function changeHide(){
+                if(winWidth>767){
+                    var activeInit = $contentLeft.find('.active');
+                    $navExtend.hide();
+                    $(window).on('scroll',function(){
+                        var activeChange = $contentLeft.find('.active');
+                        if(activeChange[0] && activeInit !== activeChange){
+                            activeInit = activeChange;
+                            $navExtend.hide();
+                            if(activeChange.parent()[0].tagName === 'UL'){
+                                if(activeChange.parent()[0].className === 'nav docs-sidenav' && activeChange.next()[0].tagName === 'UL'){
+                                    activeChange.next().show();
+                                }else if (activeChange.parent()[0].className === 'nav docs-sidenav-extend') {
+                                    activeChange.parent().show();
+                                }
+                            }
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+    {{/if}}
+
     {{if insertJS && insertJS.length}}
       {{each insertJS as item}}
       <script type="text/javascript" src="{{item}}"></script>

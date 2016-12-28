@@ -95,6 +95,12 @@ module.exports = function(cwd, conf) {
             if(conf.options){
                 conf.options.foldcode && (data.foldcode = conf.options.foldcode);
                 conf.options.foldparam && (data.foldparam = conf.options.foldparam);
+                conf.options.foldsidenav && (data.foldsidenav = conf.options.foldsidenav);
+                if(page.options){
+                    if(page.options.foldsidenav){
+                        data.foldsidenav = page.options.foldsidenav;
+                    }
+                }
                 if(conf.options.insertCSS){
                     data.insertCSS = conf.options.insertCSS;
                 }
