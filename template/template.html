@@ -197,9 +197,9 @@
             $('.markdown-body pre').css({"line-height": lineHeight+"px"});
             $('.markdown-body pre').map(function(i,item){
                 var $item = $(item);
-                var foldNumber = $item.data('foldnumber');
-                if(foldNumber){
-                    EXAMPLE_MAX_HEIGHT = lineHeight * foldNumber;
+                var foldnumber = $item.data('foldnumber');
+                if(foldnumber){
+                    EXAMPLE_MAX_HEIGHT = lineHeight * foldnumber;
                 }else {
                     EXAMPLE_MAX_HEIGHT = lineHeight * 6;
                 }
@@ -218,9 +218,9 @@
             });
             $('.ydoc-example').delegate('.fold','click',function(){
                 var $this = $(this);
-                var foldNumber = $this.parent().data('foldnumber');
-                if(foldNumber){
-                    EXAMPLE_MAX_HEIGHT = lineHeight * foldNumber;
+                var foldnumber = $this.parent().data('foldnumber');
+                if(foldnumber){
+                    EXAMPLE_MAX_HEIGHT = lineHeight * foldnumber;
                 }else {
                     EXAMPLE_MAX_HEIGHT = lineHeight * 6;
                 }
