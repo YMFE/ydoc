@@ -7,6 +7,7 @@
  * @component ScrollView
  * @example ./Playground/js/Examples/ScrollViewExample/vertical&horizontal.js[1-77]
  * @version >=0.20.0
+ * @foldnumber 8 代码块折叠行数
  * @description 一个包装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。
  *
  * * 记住ScrollView必须有一个确定的高度才能正常工作，因为它实际上所做的就是将一系列不确定高度的子组件装进一个确定高度的容器（通过滚动操作）。

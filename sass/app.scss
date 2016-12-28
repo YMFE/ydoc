@@ -1,7 +1,7 @@
 @charset "utf-8";
-html{ font-size: 100px;}
+html{ font-size: 100px; height: 100%;}
 body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,figure,form,fieldset,legend,input,textarea,button,p,blockquote,th,td,pre,xmp{margin:0;padding:0}
-body,input,textarea,button,select,pre,xmp,tt,code,kbd,samp{line-height:1.5;font-family:tahoma,arial,"Hiragino Sans GB",simsun,sans-serif}
+body,input,textarea,button,select,pre,xmp,tt,code,kbd,samp{height: 100%;line-height:1.5;font-family:tahoma,arial,"Hiragino Sans GB",simsun,sans-serif}
 h1,h2,h3,h4,h5,h6,small,big,input,textarea,button,select{font-size:100%}
 h1,h2,h3,h4,h5,h6{font-family:tahoma,arial,"Hiragino Sans GB","微软雅黑",simsun,sans-serif}
 h1,h2,h3,h4,h5,h6{font-weight:normal}
@@ -69,6 +69,9 @@ sup,sub{vertical-align:baseline}
  font-size: .14rem;
   background: #fafafa;
   overflow: hidden;
+  height: auto;
+  min-height: 100%;
+  position: relative;
  &-header{
    line-height: .48rem;
    color: #3b3b3b;
@@ -153,6 +156,7 @@ sup,sub{vertical-align:baseline}
  }
  .ydoc-banner-bg{
      background: url(./images/grid-18px-masked.png) repeat-x 0 top;
+     padding-bottom: 121px;
  }
  &-banner{
    color:#fff;
@@ -177,7 +181,9 @@ sup,sub{vertical-align:baseline}
  .footer{
      margin: 50px 0;
      text-align: center;
-     position: relative;
+     position: absolute;
+     left: 0;
+     bottom: 0;
      overflow: hidden;
      margin: 0 auto;
      padding: 40px 0 60px;
@@ -255,6 +261,7 @@ sup,sub{vertical-align:baseline}
          overflow: hidden;
          .docs-sidenav{
              padding-left: 0;
+             overflow-x: hidden;
              li{
                    line-height: .42rem;
                    height: .42rem;
@@ -338,6 +345,19 @@ sup,sub{vertical-align:baseline}
  }
 }
 
+.open-panel{
+    display: none;
+    background-color: #888;
+    overflow: hidden;
+    position: fixed;
+    right: 5%;
+    bottom: 50px;
+    opacity: .5;
+    width: 50px;
+    height: 50px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEMzJFMTVDOENCMTQxMUU2OERGOEZGOEM1MkU1MUJENCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEMzJFMTVDOUNCMTQxMUU2OERGOEZGOEM1MkU1MUJENCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkQzMkUxNUM2Q0IxNDExRTY4REY4RkY4QzUyRTUxQkQ0IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQzMkUxNUM3Q0IxNDExRTY4REY4RkY4QzUyRTUxQkQ0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+O9999QAAAtlJREFUeNrUWutRwzAMTnT+zwpsQDegKzBBO0JHKRuUDTICTEBH6ApMUOQj5hxX1sN5ObrL0YuJrMenh5W0TU+n0+nJ/8HriNdzE9H9fm/atm1y5Nc9Sf/DrVsIed2Q1xnpPdxreyVe8M8Fr10BU5UCUyoS0RWvPSr0A70nRCWC1a1kFd64j5f50/+AHk47ioGGqVbQ4BWOb6HXduiMA+DDx3QjSsjcBv4ZTjAKYlN5L6Kjw4efOUZjsB2ei3lYeGmTiI8TsEAntXBYl4RL1zkvWuIkNhBID8f3tVDL8QsKBOVze8bey6Ek9TJIlrfCilMwFWwMZGPYDjxSEnTa7KMtqCXweoBWibBar6TWk4KZUlxSDLgNcmlZG+SW7CMhImeMgSIljCnlqazGKSDVFSmlx+SofC9Yzvc2X82MhJX6NbQeWuPCHN3pnJTzurP2PLjme5viLlhT4PweVFdA1bKw7izFrl87x8ypAje2peFkoRTz98DqTm4jLr5KlMtlyzS5DCp7Sb2YmwRkDNadhN8tJID/rLUVYbl2BrQQWhNiGoQ4KgNR2acmr1HJx1ETjpoqOxW/lHygOSStaXktElzuQWpwsHRlt8DZ5QYDzO9zSZrWCJUbUOTOJ/E92ELq5c4npvPIJgpiLfXBmgQeDlbaAFy7XkgdMZTgc60Y4dDjthTklEIhTbsCOFVV2cM6SAen2pNBkNVZ42DpMztlVIqPswRaj8fFK7tmDgbWs3KtGQwoBTSTxdoyGnCLY14vLF0wQTp51Zy1YpiBtcusYdCgDvZa4oJ705zCHqhukntfolV6qoGfdt4GXHfJ5XWpG7AO/EqMlypyK4kDaZw5VYOo9GjnFbnMHSdjra0oiF34Oui7KfgyyDIckAovNShU7tthN/4WYmSP13XKL4CkF/0clNJsxXxY0DV/35c1bXIOOPQL+1JL56zKvXLW8Etjwl/oiY9w41eAAQCmGVh/WWh+tQAAAABJRU5ErkJggg==) no-repeat;
+}
+
 @media screen and (min-width:1200px){
  .ydoc-header-area,.ydoc-banner-area,.ydoc-container-content{
    width:1200px;
@@ -356,14 +376,50 @@ sup,sub{vertical-align:baseline}
 @media screen and (max-width: 767px) {
  .ydoc-container-content {
      .content-right{ width: 100%;}
-     .content-left{ display: none;}
+     .content-left{
+        display: block;
+        position: fixed;
+        right: -75%;
+        top: 0;
+        height: 100%;
+        width: 75%;
+        background-color: #222;
+        z-index: 1;
+    }
+    .content-left:before{
+        content: '目录：';
+        display: block;
+        padding: .28rem;
+        color: #999;
+        background-color: #2c2c2c;
+        font-weight: bold;
+    }
+    .docs-sidebar{
+        background-color: #222;
+        .docs-sidenav li a{
+            color: #999;
+            border-color: #222;
+        }
+        .docs-sidenav li a:hover{
+            background-color: #222;
+        }
+    }
+    .docs-sidebar.affix{
+        position: static;
+    }
      .instructions-con-runner{ display: none;}
-
+ }
+ .open-panel{
+     display: block;
+     cursor: default;
  }
  .ydoc-header-area,.ydoc-banner-area,.ydoc-container-content{
    width:100%;
  }
  .ydoc{
+     overflow: scroll;
+     -webkit-overflow-scrolling : touch;
+     height: 100%;
      .navbar-toggle{
         display: inline-block;;
 
@@ -389,6 +445,15 @@ sup,sub{vertical-align:baseline}
              }
          }
      }
+     .ydoc-banner-bg{
+         padding-bottom: 0;
+     }
+     .footer{
+         position: static;
+     }
+ }
+ .hidden{
+     overflow: hidden;
  }
 
  .ydoc-second-header{ display: block;

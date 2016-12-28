@@ -44,7 +44,7 @@
 <div class="api-content">
     <div>{{prop.description | markdown}}</div>
     {{if prop.example}}
-    <pre class="ydoc-example"><code>{{prop.example}}</code></pre>
+    <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{prop.example}}</code></pre>
     {{/if}}
 </div>
 {{if prop.default}}
@@ -153,13 +153,13 @@
 </p>
 {{/if}}
 {{if method.example}}
-<pre class="ydoc-example"><code>{{method.example}}</code></pre>
+<pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{method.example}}</code></pre>
 {{/if}}
 {{/each}}
 {{/if}}
 {{if example}}
 <div class="con-head">示例</div>
-<pre class="ydoc-example"><code>{{example}}</code></pre>
+<pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{example}}</code></pre>
 {{/if}}
 {{if demo}}
 <p>
