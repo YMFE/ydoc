@@ -411,6 +411,8 @@ sup, sub {
       padding-bottom: 0; }
     .ydoc .footer {
       position: static; }
+  .off-webkit-scroll {
+    -webkit-overflow-scrolling: auto; }
   .hidden {
     overflow: hidden; }
   .ydoc-second-header {
