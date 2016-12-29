@@ -198,11 +198,7 @@
             $('.markdown-body pre').map(function(i,item){
                 var $item = $(item);
                 var foldnumber = $item.data('foldnumber');
-                if(foldnumber){
-                    EXAMPLE_MAX_HEIGHT = lineHeight * foldnumber;
-                }else {
-                    EXAMPLE_MAX_HEIGHT = lineHeight * 6;
-                }
+                EXAMPLE_MAX_HEIGHT = lineHeight * (foldnumber || 6);
                 if($item.height() >EXAMPLE_MAX_HEIGHT){
                     $item.css({ "padding-bottom":30 });
                     $item.find('code').height(EXAMPLE_MAX_HEIGHT);
@@ -219,11 +215,7 @@
             $('.ydoc-example').delegate('.fold','click',function(){
                 var $this = $(this);
                 var foldnumber = $this.parent().data('foldnumber');
-                if(foldnumber){
-                    EXAMPLE_MAX_HEIGHT = lineHeight * foldnumber;
-                }else {
-                    EXAMPLE_MAX_HEIGHT = lineHeight * 6;
-                }
+                EXAMPLE_MAX_HEIGHT = lineHeight * (foldnumber || 6);
                 $this.removeClass('fold').addClass('extend');
                 $this.parent().height(EXAMPLE_MAX_HEIGHT);  // pre
                 $this.prev().height(EXAMPLE_MAX_HEIGHT);    // code
@@ -231,7 +223,6 @@
             });
         }
         $(document).ready(fold);
-        $(window).resize(fold);
     </script>
     {{/if}}
     {{if foldparam}}
