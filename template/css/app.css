@@ -259,7 +259,8 @@ sup, sub {
         color: #999; }
       .ydoc-container-content .ydoc-example {
         position: relative;
-        overflow: hidden; }
+        overflow: hidden;
+        height: auto; }
         .ydoc-container-content .ydoc-example code {
           overflow-y: hidden;
           display: block;

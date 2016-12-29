@@ -245,6 +245,7 @@ sup,sub{vertical-align:baseline}
      .ydoc-example{
          position: relative;
          overflow: hidden;
+         height: auto;
          code{
              overflow-y: hidden;
              display: block;
