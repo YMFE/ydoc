@@ -16,7 +16,6 @@ $(document).ready(function() {
     var titles = [];
     var menus = [];
     if(isWechat()){
-        console.log('e');
         $ydoc.addClass('off-webkit-scroll');
     }
     for(var i=0; i<a.length; i++){
@@ -148,7 +147,7 @@ $(document).ready(function() {
     if (sidebar.height() > winHeight) {
         sidebar.css('max-height', winHeight + 'px');
         $('.docs-sidenav').css('max-height', winHeight + 'px');
-        $('.docs-sidenav').css({'overflow-y':'scroll','overflow-x':'hidden'});
+        $('.docs-sidenav').css({'overflow-x':'hidden'});
         var activeMenu,
             barScroll = false;
 
