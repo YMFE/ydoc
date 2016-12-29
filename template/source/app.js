@@ -15,6 +15,10 @@ $(document).ready(function() {
     var lis = $contentLeft.find('li');
     var titles = [];
     var menus = [];
+    if(isWechat()){
+        console.log('e');
+        $ydoc.addClass('off-webkit-scroll');
+    }
     for(var i=0; i<a.length; i++){
         menus.push({
             name: $(a[i]).attr('href').split('#')[1],
@@ -235,6 +239,14 @@ $(document).ready(function() {
             }else {
                 return 0;
             }
+        }
+    }
+    function isWechat(){
+        var ua = navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i)=="micromessenger") {
+            return true;
+         } else {
+            return false;
         }
     }
 });

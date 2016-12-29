@@ -418,7 +418,7 @@ sup,sub{vertical-align:baseline}
  }
  .ydoc{
      overflow: scroll;
-     -webkit-overflow-scrolling : touch;
+     -webkit-overflow-scrolling: touch;
      height: 100%;
      .navbar-toggle{
         display: inline-block;;
@@ -451,6 +451,9 @@ sup,sub{vertical-align:baseline}
      .footer{
          position: static;
      }
+ }
+ .off-webkit-scroll{
+     -webkit-overflow-scrolling: auto;
  }
  .hidden{
      overflow: hidden;
