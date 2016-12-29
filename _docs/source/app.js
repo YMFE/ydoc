@@ -51,7 +51,7 @@ $(document).ready(function() {
                 right: '80%'
             }, 400);
             $contentLeft.animate({
-                right: '0'
+                right: '-1px'
             }, 400);
         }else {     // 点击隐藏panel
         isPanelHide = true;
