@@ -28,6 +28,9 @@
   background-color: transparent;
   border-radius: 0; }
 
+.markdown-body em {
+  font-style: italic; }
+
 .markdown-body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
