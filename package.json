@@ -1,6 +1,6 @@
 {
   "name": "ydoc",
-  "version": "2.2.0-rc3",
+  "version": "2.2.0",
   "description": "Yummy Doc 文档生成工具",
   "keywords": [
     "doc",
