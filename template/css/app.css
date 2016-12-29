@@ -298,7 +298,8 @@ sup, sub {
               overflow: hidden;
               white-space: nowrap; }
             .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
-              background-color: #fff8ef; }
+              background-color: #fff8ef;
+              border-left-color: #fff8ef; }
           .ydoc-container-content .docs-sidebar .docs-sidenav li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav li.active a:hover {
             border-left: 2px solid #ff503f;
             color: #ff503f; }
