@@ -15,7 +15,8 @@ $(document).ready(function() {
     var lis = $contentLeft.find('li');
     var titles = [];
     var menus = [];
-    if(isWechat()){
+    $ydoc.addClass('hidden');
+    if(isWechat()&&$contentLeft[0]){
         $ydoc.addClass('off-webkit-scroll');
     }
     for(var i=0; i<a.length; i++){
@@ -44,7 +45,6 @@ $(document).ready(function() {
     $openPanel.on('click',function(event){
         if(isPanelHide){    // 点击弹出panel
             isPanelHide = false;
-            // $ydoc.css('overflow','hidden');
             $ydoc.addClass('hidden');
             $openPanel.animate({
                 right: '80%'
@@ -53,8 +53,7 @@ $(document).ready(function() {
                 right: '-1px'
             }, 400);
         }else {     // 点击隐藏panel
-        isPanelHide = true;
-            // $ydoc.css('overflow','scroll');
+            isPanelHide = true;
             $ydoc.removeClass('hidden');
             $openPanel.animate({
                 right: '5%'
@@ -81,6 +80,7 @@ $(document).ready(function() {
         }
     });
 
+    $ydoc.removeClass('hidden');
     $ydoc.on('scroll', function(){
         sessionStorage.setItem('offsetTop',$ydoc.scrollTop());
     })
@@ -192,7 +192,6 @@ $(document).ready(function() {
     $(window).on('resize', function(e){
         resizeSidebar();
     });
-
     function resizeSidebar(){
         var winHeight = $(window).height() - 44,
             sidebar = $('.docs-sidebar');
