@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
@@ -114,6 +115,7 @@
                 {{if intro}}{{intro}}{{/if}}
                 {{if article.content}}{{article.content}}{{/if}}
               </div>
+              <div class="open-panel"></div>
           </div>
           {{else}}
           <div class="ydoc-container-content" id="readme">
@@ -173,6 +175,7 @@
               {{/if}}
               {{/each}}
             </div>
+            <div class="open-panel"></div>
         </div>
         {{/if}}
       </div>
@@ -185,34 +188,44 @@
         </div>
       </footer>
     </div>
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     {{if foldcode}}
     <script>
-        var EXAMPLE_MAX_HEIGHT = 98;
-        $(document).ready(function() {
+        var lineHeight = 17.4;
+        var EXAMPLE_MAX_HEIGHT;
+        function fold(){
             // 折叠code
+            $('.markdown-body pre').css({"line-height": lineHeight+"px"});
             $('.markdown-body pre').map(function(i,item){
-                if($(item).height() >EXAMPLE_MAX_HEIGHT){
-                    $(item).css({ "padding-bottom":30 });
-                    $(item).find('code').height(EXAMPLE_MAX_HEIGHT);
-                    $(item).append('<span class="extend">展开更多……</span>');
+                var $item = $(item);
+                var foldnumber = $item.data('foldnumber');
+                EXAMPLE_MAX_HEIGHT = lineHeight * (foldnumber || 6);
+                if($item.height() >EXAMPLE_MAX_HEIGHT){
+                    $item.css({ "padding-bottom":30 });
+                    $item.find('code').height(EXAMPLE_MAX_HEIGHT);
+                    $item.append('<span class="extend">展开更多……</span>');
                 };
             });
-
            $('.ydoc-example').delegate('.extend','click',function(){
-                $(this).removeClass('extend').addClass('fold');
-                $(this).html('折叠代码');
-                $(this).prev().height('auto');
-                $(this).prev().parent().height('auto');
+                var $this = $(this);
+                $this.removeClass('extend').addClass('fold');
+                $this.html('折叠代码');
+                $this.prev().height('auto');
+                $this.prev().parent().height('auto');
             });
             $('.ydoc-example').delegate('.fold','click',function(){
-                $(this).removeClass('fold').addClass('extend');
-                $(this).parent().height(EXAMPLE_MAX_HEIGHT);
-                $(this).prev().height(EXAMPLE_MAX_HEIGHT);
-                $(this).html("展开更多……");
+                var $this = $(this);
+                var foldnumber = $this.parent().data('foldnumber');
+                EXAMPLE_MAX_HEIGHT = lineHeight * (foldnumber || 6);
+                $this.removeClass('fold').addClass('extend');
+                $this.parent().height(EXAMPLE_MAX_HEIGHT);  // pre
+                $this.prev().height(EXAMPLE_MAX_HEIGHT);    // code
+                $this.html("展开更多……");
             });
-        });
+        }
+        $(document).ready(fold);
     </script>
     {{/if}}
     {{if foldparam}}
@@ -245,6 +258,42 @@
             $(this).html("展开更多参数……");
         });
     });
+    </script>
+    {{/if}}
+
+    {{if foldsidenav}}
+    <script>
+        $(document).ready(function(){
+            var winWidth = $(window).width(),
+                $navExtend = $('.docs-sidenav-extend'),
+                $contentLeft = $('.content-left');
+
+            changeHide();
+            $(window).on('resize',function(){
+                winWidth = $(window).width();
+                changeHide();
+            })
+            function changeHide(){
+                if(winWidth>767){
+                    var activeInit = $contentLeft.find('.active');
+                    $navExtend.hide();
+                    $(window).on('scroll',function(){
+                        var activeChange = $contentLeft.find('.active');
+                        if(activeChange[0] && activeInit !== activeChange){
+                            activeInit = activeChange;
+                            $navExtend.hide();
+                            if(activeChange.parent()[0].tagName === 'UL'){
+                                if(activeChange.next()[0] && activeChange.parent()[0].className === 'nav docs-sidenav' && activeChange.next()[0].tagName === 'UL'){
+                                    activeChange.next().show();
+                                }else if (activeChange.parent()[0].className === 'nav docs-sidenav-extend') {
+                                    activeChange.parent().show();
+                                }
+                            }
+                        }
+                    })
+                }
+            }
+        })
     </script>
     {{/if}}
 

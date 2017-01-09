@@ -116,13 +116,13 @@ var execFns = {
         content.forEach(function(cont) {
             ret.sidebars.push({
                 name: cont.name,
-                tag: '#' + cont.name.replace(/[\.\:]/g, '-')
+                tag: '#' + cont.name.replace(/[\.\:\s\@\/]/g, '-')
             });
             cont.list.forEach(function(item) {
                 ret.sidebars.push({
                     sub: true,
                     name: item.id,
-                    tag: item.url || ('#' + item.id.replace(/[\.\:]/g, '-'))
+                    tag: item.url || ('#' + item.id.replace(/[\.\:\s\@\/]/g, '-'))
                 });
             })
         });

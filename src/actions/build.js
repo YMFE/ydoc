@@ -22,7 +22,7 @@ artTemplate.helper('markdown', function(content) {
 });
 
 artTemplate.helper('anchor', function(name) {
-    return name ? name.replace(/[\.\:]/g, '-') : '';
+    return name ? name.replace(/[\.\:\s\@\/]/g, '-') : '';
 });
 
 artTemplate.helper('txt', function(html) {
@@ -101,6 +101,10 @@ module.exports = function(cwd, conf) {
             if(conf.options){
                 conf.options.foldcode && (data.foldcode = conf.options.foldcode);
                 conf.options.foldparam && (data.foldparam = conf.options.foldparam);
+                conf.options.foldsidenav && (data.foldsidenav = conf.options.foldsidenav);
+                if(page.options && page.options.foldsidenav){
+                    data.foldsidenav = page.options.foldsidenav;
+                }
                 if(conf.options.insertCSS){
                     data.insertCSS = conf.options.insertCSS;
                 }
@@ -153,7 +157,7 @@ module.exports = function(cwd, conf) {
                             pName: pName,
                             sub: !!p.sub,
                             blank: !p.content,
-                            url: page.name + '-' + p.name + '.html'
+                            url: (p.index||(page.name + '-' + p.name)) + '.html'
                         };
                     });
 
@@ -178,8 +182,8 @@ module.exports = function(cwd, conf) {
                                 }
                             });
                             data.pagename = page.name + '-' + p.name;
-                            fs.writeFileSync(sysPath.join(conf.dest, page.name + '-' + p.name + '.html'), render(data));
-                            console.log(('√ 生成文件: ' + sysPath.join(conf.dest, page.name + '-' + p.name + '.html')).yellow);
+                            fs.writeFileSync(sysPath.join(conf.dest, (p.index||(page.name + '-' + p.name)) + '.html'), render(data));
+                            console.log(('√ 生成文件: ' + sysPath.join(conf.dest, (p.index||(page.name + '-' + p.name)) + '.html')).yellow);
                         }
                     });
                     data.article = doParser(cwd, page.content.index, page.indexIngore, page.indexCompile, page.content.indexOptions, conf, codeRender);
@@ -196,7 +200,8 @@ module.exports = function(cwd, conf) {
                         if (block.name) {
                             navs.push({
                                 name: block.name,
-                                tag: "#"+block.name.replace(/[\.\:]/g, '-'),
+                                index: block.index,
+                                tag: "#"+block.name.replace(/[\.\:\s\@\/]/g, '-'),
                                 sub: block.sub || false
                             });
                         }
@@ -207,21 +212,22 @@ module.exports = function(cwd, conf) {
                                     if (!item.sub) {
                                         navs.push({
                                             name: item.name,
-                                            tag: "#"+item.name.replace(/[\.\:]/g, '-'),
+                                            tag: "#"+item.name.replace(/[\.\:\s\@\/]/g, '-'),
                                             sub: true
                                         });
                                     }
                                 });
                             }
                             ret.name = block.name;
-                            ret.tag =  block.name.replace(/[\.\:]/g, '-');
+                            ret.tag =  block.name.replace(/[\.\:\s\@\/]/g, '-');
                             ret.sub = block.sub || false;
                             blocks.push(ret);
                         } else {
                             blocks.push({
                                 type: 'html',
                                 name: block.name,
-                                tag: block.name.replace(/[\.\:]/g, '-'),
+                                index: block.index,
+                                tag: block.name.replace(/[\.\:\s\@\/]/g, '-'),
                                 sub: false,
                                 content: ''
                             });

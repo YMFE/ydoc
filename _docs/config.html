@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="format-detection" content="telephone=no,email=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
@@ -193,6 +194,7 @@
         },
         &quot;foldcode&quot;: true, // 是否折叠示例code
         &quot;foldparam&quot;: true, // 是否折叠param
+        &quot;foldsidenav&quot;: true, // 是否折叠侧边目录
         &quot;insertCSS&quot;: [&quot;./style/a.css&quot;,&quot;./style/b.css&quot;],  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
         &quot;insertJS&quot;: [&quot;./scripts/a.js&quot;],  // 配置js路径
         &quot;hasPageName&quot;: true //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符)
@@ -218,7 +220,8 @@
         &quot;content&quot;: &quot;./README.md&quot;,  // 内容
         &quot;compile&quot;: &quot;markdown&quot;, // 解析器，如果内容有固定的扩展名，此项可忽略
         &quot;options&quot;: { // 此 Page 用的编译器的配置
-            &quot;menuLevel&quot;: 2
+            &quot;menuLevel&quot;: 2,
+            &quot;foldsidenav&quot;: true // 是否折叠侧边目录(优先级高于通用编译器配置)
         }
     }, {
         &quot;name&quot;: &quot;hybird&quot;,
@@ -250,6 +253,7 @@
             &quot;index&quot;: &quot;./Libraries/extension/INTRO.md&quot;, // 首页配置
             &quot;pages&quot;: [{ // 每页配置
                 &quot;name&quot;: &quot;ListView&quot;,
+                &quot;index&quot;: &quot;list&quot;, // 修改默认路径名
                 &quot;content&quot;: &quot;./Libraries/extension/libs/ListView/QListView.js&quot;
             }, {
                 &quot;name&quot;: &quot;ScrollView&quot;,
@@ -278,6 +282,7 @@
 </code></pre>
 
               </div>
+              <div class="open-panel"></div>
           </div>
           
         
@@ -291,9 +296,12 @@
         </div>
       </footer>
     </div>
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     
+    
+
     
 
     

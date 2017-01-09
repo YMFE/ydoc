@@ -1,7 +1,7 @@
 @charset "utf-8";
-html{ font-size: 100px;}
+html{ font-size: 100px; height: 100%;}
 body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,figure,form,fieldset,legend,input,textarea,button,p,blockquote,th,td,pre,xmp{margin:0;padding:0}
-body,input,textarea,button,select,pre,xmp,tt,code,kbd,samp{line-height:1.5;font-family:tahoma,arial,"Hiragino Sans GB",simsun,sans-serif}
+body,input,textarea,button,select,pre,xmp,tt,code,kbd,samp{height: 100%;line-height:1.5;font-family:tahoma,arial,"Hiragino Sans GB",simsun,sans-serif}
 h1,h2,h3,h4,h5,h6,small,big,input,textarea,button,select{font-size:100%}
 h1,h2,h3,h4,h5,h6{font-family:tahoma,arial,"Hiragino Sans GB","微软雅黑",simsun,sans-serif}
 h1,h2,h3,h4,h5,h6{font-weight:normal}
@@ -69,6 +69,9 @@ sup,sub{vertical-align:baseline}
  font-size: .14rem;
   background: #fafafa;
   overflow: hidden;
+  height: auto;
+  min-height: 100%;
+  position: relative;
  &-header{
    line-height: .48rem;
    color: #3b3b3b;
@@ -153,6 +156,7 @@ sup,sub{vertical-align:baseline}
  }
  .ydoc-banner-bg{
      background: url(./images/grid-18px-masked.png) repeat-x 0 top;
+     padding-bottom: 121px;
  }
  &-banner{
    color:#fff;
@@ -177,7 +181,9 @@ sup,sub{vertical-align:baseline}
  .footer{
      margin: 50px 0;
      text-align: center;
-     position: relative;
+     position: absolute;
+     left: 0;
+     bottom: 0;
      overflow: hidden;
      margin: 0 auto;
      padding: 40px 0 60px;
@@ -239,6 +245,7 @@ sup,sub{vertical-align:baseline}
      .ydoc-example{
          position: relative;
          overflow: hidden;
+         height: auto;
          code{
              overflow-y: hidden;
              display: block;
@@ -255,6 +262,7 @@ sup,sub{vertical-align:baseline}
          overflow: hidden;
          .docs-sidenav{
              padding-left: 0;
+             overflow-x: hidden;
              li{
                    line-height: .42rem;
                    height: .42rem;
@@ -275,6 +283,7 @@ sup,sub{vertical-align:baseline}
                  }
                  a:hover{
                     background-color: #fff8ef;
+                    border-left-color: #fff8ef;
                  }
              }
 
@@ -338,6 +347,19 @@ sup,sub{vertical-align:baseline}
  }
 }
 
+.open-panel{
+    display: none;
+    background-color: #888;
+    overflow: hidden;
+    position: fixed;
+    right: 5%;
+    bottom: 50px;
+    opacity: .5;
+    width: 40px;
+    height: 40px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2lpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpEMzJFMTVDOUNCMTQxMUU2OERGOEZGOEM1MkU1MUJENCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQThGQTIzRENEQTUxMUU2QTczMUM3QjRDM0UxNjQxMiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQThGQTIzQ0NEQTUxMUU2QTczMUM3QjRDM0UxNjQxMiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6ODZjMjliOTEtNjI0Zi1iZDQ3LWEzZWQtMDIwYzQwNDQxMjlkIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQzMkUxNUM5Q0IxNDExRTY4REY4RkY4QzUyRTUxQkQ0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+g3TxwAAAANRJREFUeNrsmT0KwkAQhWfXNGLhQewUW08i2FlZ7LZeQMRiC0EQwcvYixcRrbRc35DYaJNGdpD34EsRUnzs/AQSF0IQpAN2YAq6wEmZZPAABxD1RtVwAQMpHz2YHtBTm4Cxx2VrRO4zQ7BSwZnYzdw3PWc1fS+246wLCgX/XrBq81BK6SdvlhhjZolNlLhNKTjFFOQe5B7kHuQUU5B7kHuQe5BTTEEKUvArWQWfhgVvKng0LLhXwQU4G5Q7geW7B0dgA+5S/woo1nPgCtZSf+WXlwADAGEgKNreXHUxAAAAAElFTkSuQmCC) no-repeat;
+}
+
 @media screen and (min-width:1200px){
  .ydoc-header-area,.ydoc-banner-area,.ydoc-container-content{
    width:1200px;
@@ -356,14 +378,50 @@ sup,sub{vertical-align:baseline}
 @media screen and (max-width: 767px) {
  .ydoc-container-content {
      .content-right{ width: 100%;}
-     .content-left{ display: none;}
+     .content-left{
+        display: block;
+        position: fixed;
+        right: -75%;
+        top: 0;
+        height: 100%;
+        width: 75%;
+        background-color: #222;
+        z-index: 1;
+    }
+    .content-left:before{
+        content: '目录：';
+        display: block;
+        padding: .28rem;
+        color: #999;
+        background-color: #2c2c2c;
+        font-weight: bold;
+    }
+    .docs-sidebar{
+        background-color: #222;
+        .docs-sidenav li a{
+            color: #999;
+            border-color: #222;
+        }
+        .docs-sidenav li a:hover{
+            background-color: #222;
+        }
+    }
+    .docs-sidebar.affix{
+        position: static;
+    }
      .instructions-con-runner{ display: none;}
-
+ }
+ .open-panel{
+     display: block;
+     cursor: default;
  }
  .ydoc-header-area,.ydoc-banner-area,.ydoc-container-content{
    width:100%;
  }
  .ydoc{
+     overflow: scroll;
+     -webkit-overflow-scrolling: touch;
+     height: 100%;
      .navbar-toggle{
         display: inline-block;;
 
@@ -389,6 +447,18 @@ sup,sub{vertical-align:baseline}
              }
          }
      }
+     .ydoc-banner-bg{
+         padding-bottom: 0;
+     }
+     .footer{
+         position: static;
+     }
+ }
+ .off-webkit-scroll{
+     -webkit-overflow-scrolling: auto;
+ }
+ .hidden{
+     overflow: hidden;
  }
 
  .ydoc-second-header{ display: block;
