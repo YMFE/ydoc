@@ -9,6 +9,12 @@ var glob = require('glob');
 
 var parsers = require('../parsers');
 
+marked.setOptions({
+    highlight: function (code) {
+        return require('highlight.js').highlightAuto(code).value;
+    }
+});
+
 artTemplate.config('escape', false);
 
 artTemplate.helper('markdown', function(content) {
