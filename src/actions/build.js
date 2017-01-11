@@ -6,14 +6,57 @@ var artTemplate = require('art-template');
 var childProcess = require('child_process');
 var marked = require('marked');
 var glob = require('glob');
+var Prism = require('prismjs');
+var hljs = require('highlight.js');
 
 var parsers = require('../parsers');
-
-marked.setOptions({
-    highlight: function (code) {
-        return require('highlight.js').highlightAuto(code).value;
+var reJS = /javascript|js|jsx/i;
+var parseAliases = function(lang) {
+    if (reJS.test(lang)) {
+        return 'jsx';
     }
-});
+    if (lang === 'html') {
+        return 'markup';
+    }
+    return lang;
+}
+
+var hasSetOptions = false;
+
+function setMarkedOptions(grammer) {
+    if (hasSetOptions) return;
+    hasSetOptions = true;
+
+    grammer = parseAliases(grammer);
+
+    if (typeof grammer === 'string') {
+        try {
+            require.resolve('prismjs/components/prism-' + grammer + '.js');
+        } catch (e) {
+            console.warn('! 无法解析默认语法 ' + grammer + '，未检测到语法的将不进行高亮'.blue);
+        }
+    }
+
+    marked.setOptions({
+        highlight: function (code, lang, callback) {
+            var defaultGrammer = grammer || hljs.highlightAuto(code).language
+            lang = parseAliases(lang) || lang || defaultGrammer;
+            lang = lang.toLowerCase();
+            try {
+                require('prismjs/components/prism-' + lang + '.js');
+                if (Prism.languages[lang]) {
+                    const result = Prism.highlight(code, Prism.languages[lang])
+                    return result;
+                } else {
+                    return code;
+                }
+            } catch (e) {
+                // 找不到 prismjs 支持的语言就原样返回
+                return code;
+            }
+        }
+    });
+}
 
 artTemplate.config('escape', false);
 
@@ -90,6 +133,8 @@ function doParser(cwd, filePath, ignore, compile, options, conf, codeRender) {
 module.exports = function(cwd, conf) {
     conf.cwd = cwd;
     conf.options = conf.options || {};
+
+    setMarkedOptions(conf.defaultGrammer);
 
     var render = artTemplate.compile(conf.templateContent);
     var codeRender = artTemplate.compile(conf.codeTemplateContent);
