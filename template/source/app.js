@@ -5,6 +5,7 @@ $(document).ready(function() {
     // 移动端导航
     var $openPanel = $('.open-panel');
     var $contentLeft = $('.content-left');
+    var $contentLeftWidth = $contentLeft.width() - 1;
     var $body = $('body');
     var $ydoc = $('.ydoc');
     var isPanelHide = true;
@@ -46,21 +47,21 @@ $(document).ready(function() {
         if(isPanelHide){    // 点击弹出panel
             isPanelHide = false;
             $ydoc.addClass('hidden');
-            $openPanel.animate({
-                right: '80%'
-            }, 400);
-            $contentLeft.animate({
-                right: '-1px'
-            }, 400);
+            $openPanel.css({
+                 'transform':'translateX(-'+$contentLeftWidth+'px)'
+            })
+            $contentLeft.css({
+                 'transform':'translateX(-'+$contentLeftWidth+'px)'
+            })
         }else {     // 点击隐藏panel
             isPanelHide = true;
             $ydoc.removeClass('hidden');
-            $openPanel.animate({
-                right: '5%'
-            }, 400);
-            $contentLeft.animate({
-                right: '-75%'
-            }, 400);
+            $openPanel.css({
+                 'transform':'translateX(0px)'
+            })
+            $contentLeft.css({
+                 'transform':'translateX(0px)'
+            })
         }
         var scrollTop = $ydoc.scrollTop();
         // 遍历主页面的标题，找到当前窗口顶部的标题
