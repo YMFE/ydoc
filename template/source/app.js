@@ -43,7 +43,7 @@ $(document).ready(function() {
     }
     titles.sort(sortAsOffset('offsetTop'));
 
-    $openPanel.on('click',function(event){
+    $openPanel.on('tap',function(){
         if(isPanelHide){    // 点击弹出panel
             isPanelHide = false;
             $ydoc.addClass('hidden');
@@ -80,6 +80,9 @@ $(document).ready(function() {
             }
         }
     });
+    $openPanel.on('touchstart',function(event){
+        $openPanel.trigger('tap');
+    })
 
     $ydoc.removeClass('hidden');
     $ydoc.on('scroll', function(){
@@ -90,9 +93,9 @@ $(document).ready(function() {
         $ydoc.scrollTop(sessionStorage.offsetTop);
     }
     // $openPanel.trigger('click');
-    $('.content-right').on('click',function(){
+    $('.content-right').on('touchstart',function(){
         if(!isPanelHide){
-            $openPanel.trigger('click');
+            $openPanel.trigger('tap');
         }
     });
 
@@ -192,6 +195,7 @@ $(document).ready(function() {
     // 退出全屏浏览器窗口大小改变，不触发resize
     $(window).on('resize', function(e){
         resizeSidebar();
+        $contentLeftWidth = $contentLeft.width() - 1;
     });
     function resizeSidebar(){
         var winHeight = $(window).height() - 44,
