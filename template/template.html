@@ -115,7 +115,6 @@
                 {{if intro}}{{intro}}{{/if}}
                 {{if article.content}}{{article.content}}{{/if}}
               </div>
-              <div class="open-panel"></div>
           </div>
           {{else}}
           <div class="ydoc-container-content" id="readme">
@@ -175,7 +174,6 @@
               {{/if}}
               {{/each}}
             </div>
-            <div class="open-panel"></div>
         </div>
         {{/if}}
       </div>
@@ -189,6 +187,13 @@
       </footer>
     </div>
 
+    {{if article.type == 'html' && article.sidebars}}
+       <div class="open-panel"></div>
+    {{/if}}
+    {{if article.type == 'block'}}
+    <div class="open-panel"></div>
+    {{/if}}
+    
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     {{if foldcode}}
