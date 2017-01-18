@@ -81,6 +81,7 @@ $(document).ready(function() {
         }
     });
     $openPanel.on('touchstart',function(event){
+        event.preventDefault();
         $openPanel.trigger('tap');
     })
 
