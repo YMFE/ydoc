@@ -9,9 +9,14 @@
   <meta name="author" content="author of the site">
   <title>{{title}}</title>
   <link rel="stylesheet" href="source/main.css"/>
+  {{if themeCSS && themeCSS.length}}
+    {{each themeCSS as item}}
+        <link rel="stylesheet" href="{{'theme/'+item}}"/>
+    {{/each}}
+  {{/if}}
   {{if insertCSS && insertCSS.length}}
     {{each insertCSS as item}}
-<link rel="stylesheet" href="{{item}}"/>
+        <link rel="stylesheet" href="{{item}}"/>
     {{/each}}
   {{/if}}
 </head>
@@ -193,7 +198,7 @@
     {{if article.type == 'block'}}
     <div class="open-panel"></div>
     {{/if}}
-    
+
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
     {{if foldcode}}
@@ -302,6 +307,11 @@
     </script>
     {{/if}}
 
+    {{if themeJS && themeJS.length}}
+      {{each themeJS as item}}
+      <script type="text/javascript" src="{{'theme/'+item}}"></script>
+      {{/each}}
+    {{/if}}
     {{if insertJS && insertJS.length}}
       {{each insertJS as item}}
       <script type="text/javascript" src="{{item}}"></script>
