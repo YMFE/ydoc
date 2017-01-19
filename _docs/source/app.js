@@ -6,7 +6,6 @@ $(document).ready(function() {
     var $openPanel = $('.open-panel');
     var $contentLeft = $('.content-left');
     var $contentLeftWidth = $contentLeft.width() - 1;
-    var $body = $('body');
     var $ydoc = $('.ydoc');
     var isPanelHide = true;
     var winWidth = $(window).width();
