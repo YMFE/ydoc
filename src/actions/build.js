@@ -90,8 +90,8 @@ module.exports = function(cwd, conf) {
     var codeRender = artTemplate.compile(conf.codeTemplateContent);
     var resources = conf.resources || {};
     if(conf.theme){
-        var theme = conf.theme || "./theme/default";
-        var themePath = sysPath.join(cwd, theme, 'theme.config');
+        var theme = conf.theme || "default";
+        var themePath = sysPath.join(cwd, 'node_modules/ydoc-theme-'+theme+'/theme.config');
         try {
             var themeConf = JSON5.parse(fs.readFileSync(themePath, 'utf-8'));
         } catch (e) {
@@ -281,7 +281,7 @@ module.exports = function(cwd, conf) {
     // 复制theme文件夹下的文件到_docs/theme
     if(conf.theme){
         try {
-            childProcess.execSync('cp -r ' + sysPath.join(cwd,theme) + ' ' + sysPath.join(conf.dest, 'theme'));
+            childProcess.execSync('cp -r ' + sysPath.join(cwd, 'node_modules/ydoc-theme-'+theme) + ' ' + sysPath.join(conf.dest, 'theme'));
         } catch(e) {
             console.log(('X 资源 ' + sysPath.join(cwd,theme) + ' 复制失败').red);
             console.log(e.toString().red);
