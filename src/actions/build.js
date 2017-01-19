@@ -89,14 +89,14 @@ module.exports = function(cwd, conf) {
     var render = artTemplate.compile(conf.templateContent);
     var codeRender = artTemplate.compile(conf.codeTemplateContent);
     var resources = conf.resources || {};
-    // var theme = conf.theme || "./theme/default";
-    var theme = conf.theme;
-    var themePath = sysPath.join(cwd, theme, 'theme.config');
-    try {
-        console.log('[log] themePath: ', themePath);
-        var themeConf = JSON5.parse(fs.readFileSync(themePath, 'utf-8'));
-    } catch (e) {
-        console.log(e);
+    if(conf.theme){
+        var theme = conf.theme || "./theme/default";
+        var themePath = sysPath.join(cwd, theme, 'theme.config');
+        try {
+            var themeConf = JSON5.parse(fs.readFileSync(themePath, 'utf-8'));
+        } catch (e) {
+            console.log(e);
+        }
     }
     if (conf.pages) {
         conf.pages.forEach(function(page) {
@@ -124,18 +124,22 @@ module.exports = function(cwd, conf) {
             data.footer = common.footer;
             data.home = common.home;
             data.homeUrl = common.homeUrl;
-            var themeConfJS =  themeConf.js;
-            var themeConfCSS =  themeConf.css;
-            for(var i=0; i<themeConfJS.length; i++){
-                themeConfJS[i] = sysPath.join(themeConfJS[i]);
+            if(conf.theme){
+                var themeConfJS =  themeConf.js;
+                var themeConfCSS =  themeConf.css;
+                if(themeConfJS && themeConfJS.length){
+                    for(var i=0; i<themeConfJS.length; i++){
+                        themeConfJS[i] = sysPath.join(themeConfJS[i]);
+                        data.themeJS = themeConfJS;
+                    }
+                }
+                if(themeConfCSS && themeConfCSS.length){
+                    for(var i=0; i<themeConfCSS.length; i++){
+                        themeConfCSS[i] = sysPath.join(themeConfCSS[i]);
+                    }
+                    data.themeCSS = themeConfCSS;
+                }
             }
-            for(var i=0; i<themeConfCSS.length; i++){
-                themeConfCSS[i] = sysPath.join(themeConfCSS[i]);
-            }
-            data.themeJS = themeConfJS;
-            data.themeCSS = themeConfCSS;
-            console.log(1,data.themeJS);
-            console.log(2,data.themeCSS);
             if(common.navbars){
                 data.navbars = common.navbars.map(function(item) {
                     return {
@@ -275,11 +279,13 @@ module.exports = function(cwd, conf) {
     }
 
     // 复制theme文件夹下的文件到_docs/theme
-    try {
-        childProcess.execSync('cp -r ' + sysPath.join(cwd,theme) + ' ' + sysPath.join(conf.dest, 'theme'));
-    } catch(e) {
-        console.log(('X 资源 ' + sysPath.join(cwd,theme) + ' 复制失败').red);
-        console.log(e.toString().red);
+    if(conf.theme){
+        try {
+            childProcess.execSync('cp -r ' + sysPath.join(cwd,theme) + ' ' + sysPath.join(conf.dest, 'theme'));
+        } catch(e) {
+            console.log(('X 资源 ' + sysPath.join(cwd,theme) + ' 复制失败').red);
+            console.log(e.toString().red);
+        }
     }
 };
 
