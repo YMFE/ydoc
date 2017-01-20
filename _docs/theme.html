@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
   <meta name="author" content="author of the site">
-  <title>YDoc 命令</title>
+  <title>YDoc 主题</title>
   <link rel="stylesheet" href="source/main.css"/>
   
   
@@ -30,7 +30,7 @@
                         
                     </li>
                     
-                    <li class="active">
+                    <li class="">
                         
                         <a href="usage.html">命令</a>
                         
@@ -54,7 +54,7 @@
                         
                     </li>
                     
-                    <li class="">
+                    <li class="active">
                         
                         <a href="theme.html">主题</a>
                         
@@ -80,7 +80,7 @@
           <div class="ydoc-banner">
               <div class="ydoc-banner-area">
                   <h1>YDoc</h1>
-                  <p>使用</p>
+                  <p>主题</p>
               </div>
           </div>
       
@@ -103,21 +103,42 @@
                         
                         
                         
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="#下载">下载</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#配置">配置</a>
+                            </li>
+                        
+                        </ul>
+                        
+                        
+                        
+                        
                         <!-- <li  > -->
                         <li >
                             
-                            <a href="#构建命令">构建命令</a>
+                            <a href="#主题介绍">主题介绍</a>
                             
                         </li>
                         
                         
                         
-                        <!-- <li  > -->
-                        <li >
-                            
-                            <a href="#初始化命令">初始化命令</a>
-                            
-                        </li>
+                        
+                        <ul class="nav docs-sidenav-extend"  >
+                        
+                            <li >
+                                <a href="#ocean">ocean</a>
+                            </li>
+                        
                         
                         
                     </ul>
@@ -126,29 +147,17 @@
               <div class="content-right markdown-body" role="main">
 
                 
-                <h2 id="安装">安装</h2><p>从 NPM 中安装</p>
+                <h2 id="安装">安装</h2><h3 id="下载">下载</h3><p>从 NPM 中安装</p>
 <blockquote>
-<p>npm install ydoc -g</p>
+<p>npm install ydoc-theme-[name] -g</p>
 </blockquote>
-<p><a href="http://badge.fury.io/js/ydoc"><img src="https://badge.fury.io/js/ydoc.svg" alt="npm version"></a></p>
-<p><img src="https://nodei.co/npm/ydoc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt=""></p>
-<h2 id="构建命令">构建命令</h2><blockquote>
-<p>ydoc build [-t templatePath] [-p page] [-w] [-o dest]</p>
-</blockquote>
-<p>读取配置，构建文档</p>
-<ul>
-<li><code>-w|--watch</code>: 监听变化自动构建</li>
-<li><code>-t|--template</code>: 参数为自定义模板路径</li>
-<li><code>-o|--output</code>: 输出目录</li>
-<li><code>-p|--page</code>: 指定编译某页，默认编译所有。（多个页面名可以逗号分开，例 -p index,demo）</li>
-</ul>
-<h2 id="初始化命令">初始化命令</h2><blockquote>
-<p>ydoc init [-t templatePath]</p>
-</blockquote>
-<p>初始项目，创建配置文件或自定义模板(-t)</p>
-<ul>
-<li><code>-t|--template</code>: 参数为自定义模板路径</li>
-</ul>
+<h3 id="配置">配置</h3><p>在config文件里添加配置</p>
+<pre><code class="lang-json">{
+    &quot;theme&quot;: &quot;ocean&quot;,
+    ...
+}
+</code></pre>
+<h2 id="主题介绍">主题介绍</h2><h3 id="ocean">ocean</h3><p><img src="http://ojk406wln.bkt.clouddn.com/ydoc-theme-ocean.png" alt=""></p>
 
               </div>
           </div>
