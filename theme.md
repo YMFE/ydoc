@@ -16,3 +16,6 @@
 ## 主题介绍
 ### ocean
 ![](http://ojk406wln.bkt.clouddn.com/ydoc-theme-ocean.png)
+
+### travel
+![](http://ojk406wln.bkt.clouddn.com/ydoc-theme-travel.png)
