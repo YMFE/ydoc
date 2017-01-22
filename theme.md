@@ -5,7 +5,7 @@
 ### 下载
 从 NPM 中安装
 
-> npm install ydoc-theme-[name] -g
+> npm install ydoc-theme-[name] --save
 
 ### 配置
 在config文件里添加配置
