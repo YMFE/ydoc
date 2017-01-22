@@ -1,0 +1,43 @@
+{
+  "name": "ydoc-theme-ocean",
+  "version": "0.0.1",
+  "description": "a theme of ydoc",
+  "main": "theme.config",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "dwb"
+  },
+  "license": "ISC",
+  "_id": "ydoc-theme-ocean@0.0.1",
+  "_shasum": "bd7b3de6e88c94f5185f43b1562ef9a99a87f13d",
+  "_from": "ydoc-theme-ocean@*",
+  "_npmVersion": "3.8.9",
+  "_nodeVersion": "6.2.0",
+  "_npmUser": {
+    "name": "wenbo.dong",
+    "email": "wenbo.dong@qunar.com"
+  },
+  "dist": {
+    "shasum": "bd7b3de6e88c94f5185f43b1562ef9a99a87f13d",
+    "size": 96266,
+    "noattachment": false,
+    "key": "/ydoc-theme-ocean/-/ydoc-theme-ocean-0.0.1.tgz",
+    "tarball": "http://registry.npm.corp.qunar.com/ydoc-theme-ocean/download/ydoc-theme-ocean-0.0.1.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "wenbo.dong",
+      "email": "wenbo.dong@qunar.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/ydoc-theme-ocean-0.0.1.tgz_1484903153085_0.18253014632500708"
+  },
+  "directories": {},
+  "publish_time": 1484903153318,
+  "_cnpm_publish_time": 1484903153318,
+  "_resolved": "http://registry.npm.corp.qunar.com/ydoc-theme-ocean/download/ydoc-theme-ocean-0.0.1.tgz"
+}

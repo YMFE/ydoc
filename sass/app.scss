@@ -387,6 +387,8 @@ sup,sub{vertical-align:baseline}
         width: 75%;
         background-color: #222;
         z-index: 1;
+        transition: all .4s;
+        -webkit-transition: all .4s;
     }
     .content-left:before{
         content: '目录：';
@@ -414,6 +416,8 @@ sup,sub{vertical-align:baseline}
  .open-panel{
      display: block;
      cursor: default;
+     transition: all .4s;
+     -webkit-transition: all .4s;
  }
  .ydoc-header-area,.ydoc-banner-area,.ydoc-container-content{
    width:100%;

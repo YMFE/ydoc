@@ -363,7 +363,9 @@ sup, sub {
     height: 100%;
     width: 75%;
     background-color: #222;
-    z-index: 1; }
+    z-index: 1;
+    transition: all .4s;
+    -webkit-transition: all .4s; }
   .ydoc-container-content .content-left:before {
     content: '目录：';
     display: block;
@@ -384,7 +386,9 @@ sup, sub {
     display: none; }
   .open-panel {
     display: block;
-    cursor: default; }
+    cursor: default;
+    transition: all .4s;
+    -webkit-transition: all .4s; }
   .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
     width: 100%; }
   .ydoc {

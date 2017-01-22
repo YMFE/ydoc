@@ -9,9 +9,14 @@
   <meta name="author" content="author of the site">
   <title>{{title}}</title>
   <link rel="stylesheet" href="source/main.css"/>
+  {{if themeCSS && themeCSS.length}}
+    {{each themeCSS as item}}
+        <link rel="stylesheet" href="{{'theme/'+item}}"/>
+    {{/each}}
+  {{/if}}
   {{if insertCSS && insertCSS.length}}
     {{each insertCSS as item}}
-<link rel="stylesheet" href="{{item}}"/>
+        <link rel="stylesheet" href="{{item}}"/>
     {{/each}}
   {{/if}}
 </head>
@@ -115,7 +120,6 @@
                 {{if intro}}{{intro}}{{/if}}
                 {{if article.content}}{{article.content}}{{/if}}
               </div>
-              <div class="open-panel"></div>
           </div>
           {{else}}
           <div class="ydoc-container-content" id="readme">
@@ -175,7 +179,6 @@
               {{/if}}
               {{/each}}
             </div>
-            <div class="open-panel"></div>
         </div>
         {{/if}}
       </div>
@@ -188,6 +191,13 @@
         </div>
       </footer>
     </div>
+
+    {{if article.type == 'html' && article.sidebars}}
+       <div class="open-panel"></div>
+    {{/if}}
+    {{if article.type == 'block'}}
+    <div class="open-panel"></div>
+    {{/if}}
 
     <script src="source/main.js"></script>
     <script src="source/app.js"></script>
@@ -297,6 +307,11 @@
     </script>
     {{/if}}
 
+    {{if themeJS && themeJS.length}}
+      {{each themeJS as item}}
+      <script type="text/javascript" src="{{'theme/'+item}}"></script>
+      {{/each}}
+    {{/if}}
     {{if insertJS && insertJS.length}}
       {{each insertJS as item}}
       <script type="text/javascript" src="{{item}}"></script>

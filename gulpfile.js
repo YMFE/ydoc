@@ -37,8 +37,7 @@ gulp.task('concatJs', function() {
     //     .pipe(gulp.dest('template/source'));
 });
 
-
 gulp.task('watch',function(){
+    gulp.watch('sass/*.scss',['sass']);
+    gulp.watch('template/css/*.css',['concatCss']);
 });
-
-gulp.watch('sass/*.scss',['sass','concatCss']);
