@@ -9,7 +9,7 @@ var glob = require('glob');
 var Prism = require('prismjs');
 
 var parsers = require('../parsers');
-var reJS = /javascript|js/i;
+var reJS = /^javascript|js$/i;
 var parseAliases = function(lang) {
     if (reJS.test(lang)) {
         return 'javascript';
@@ -20,12 +20,7 @@ var parseAliases = function(lang) {
     return lang;
 }
 
-var hasSetOptions = false;
-
 function setMarkedOptions(grammer) {
-    if (hasSetOptions) return;
-    hasSetOptions = true;
-
     grammer = parseAliases(grammer);
 
     if (typeof grammer === 'string') {
@@ -39,7 +34,7 @@ function setMarkedOptions(grammer) {
     marked.setOptions({
         highlight: function (code, lang, callback) {
             lang = parseAliases(lang) || lang || grammer;
-            if (lang == null) return code;
+            if (!lang) return code;
             try {
                 lang = lang.toLowerCase();
                 require('prismjs/components/prism-' + lang + '.js');
