@@ -39,6 +39,7 @@ function setMarkedOptions(grammer) {
     marked.setOptions({
         highlight: function (code, lang, callback) {
             lang = parseAliases(lang) || lang || grammer;
+            if (lang == null) return code;
             try {
                 lang = lang.toLowerCase();
                 require('prismjs/components/prism-' + lang + '.js');
