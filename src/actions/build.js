@@ -9,7 +9,7 @@ var glob = require('glob');
 var Prism = require('prismjs');
 
 var parsers = require('../parsers');
-var reJS = /javascript|js|jsx/i;
+var reJS = /javascript|js/i;
 var parseAliases = function(lang) {
     if (reJS.test(lang)) {
         return 'javascript';
