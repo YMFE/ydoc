@@ -7,8 +7,57 @@ var childProcess = require('child_process');
 var marked = require('marked');
 var glob = require('glob');
 var JSON5 = require('json5');
+var Prism = require('prismjs');
 
 var parsers = require('../parsers');
+var reJS = /javascript|js/i;
+var parseAliases = function(lang) {
+    if (reJS.test(lang)) {
+        return 'javascript';
+    }
+    if (lang === 'html') {
+        return 'markup';
+    }
+    return lang;
+}
+
+var hasSetOptions = false;
+
+function setMarkedOptions(grammer) {
+    if (hasSetOptions)
+        return;
+    hasSetOptions = true;
+
+    grammer = parseAliases(grammer);
+
+    if (typeof grammer === 'string') {
+        try {
+            require.resolve('prismjs/components/prism-' + grammer + '.js');
+        } catch (e) {
+            console.warn('! 无法解析默认语法 ' + grammer + '，未检测到语法的将不进行高亮'.blue);
+        }
+    }
+
+    marked.setOptions({
+        highlight: function(code, lang, callback) {
+            lang = parseAliases(lang) || lang || grammer;
+            if (!lang)
+                return code;
+            try {
+                lang = lang.toLowerCase();
+                require('prismjs/components/prism-' + lang + '.js');
+                if (Prism.languages[lang]) {
+                    return Prism.highlight(code, Prism.languages[lang])
+                } else {
+                    return code;
+                }
+            } catch (e) {
+                // 找不到 prismjs 支持的语言就原样返回
+                return code;
+            }
+        }
+    });
+}
 
 artTemplate.config('escape', false);
 
@@ -17,11 +66,15 @@ artTemplate.helper('markdown', function(content) {
 });
 
 artTemplate.helper('anchor', function(name) {
-    return name ? name.replace(/[\.\:\s\@\/]/g, '-') : '';
+    return name
+        ? name.replace(/[\.\:\s\@\/]/g, '-')
+        : '';
 });
 
 artTemplate.helper('txt', function(html) {
-    return html ? html.replace(/\<\/?[^\>]*\>/g, '') : '';
+    return html
+        ? html.replace(/\<\/?[^\>]*\>/g, '')
+        : '';
 });
 
 function doParser(cwd, filePath, ignore, compile, options, conf, codeRender) {
@@ -86,14 +139,16 @@ module.exports = function(cwd, conf) {
     conf.cwd = cwd;
     conf.options = conf.options || {};
 
+    setMarkedOptions(conf.defaultGrammer);
+
     var render = artTemplate.compile(conf.templateContent);
     var codeRender = artTemplate.compile(conf.codeTemplateContent);
     var resources = conf.resources || {};
-    if(conf.theme){
-        var theme = conf.theme || "default";
-        var themePath = sysPath.join(cwd, 'node_modules/ydoc-theme-'+theme+'/theme.config');
+    if (conf.theme) {
+        var theme = conf.theme,
+            themeConfPath = sysPath.join(cwd, /^\w/.test(theme) ? 'node_modules/ydoc-theme-' + theme : theme, 'theme.config');
         try {
-            var themeConf = JSON5.parse(fs.readFileSync(themePath, 'utf-8'));
+            var themeConf = JSON5.parse(fs.readFileSync(themeConfPath, 'utf-8'));
         } catch (e) {
             console.log(e);
         }
@@ -102,20 +157,20 @@ module.exports = function(cwd, conf) {
         conf.pages.forEach(function(page) {
             var data = {},
                 common = conf.common || {};
-            if(conf.options){
+            if (conf.options) {
                 conf.options.foldcode && (data.foldcode = conf.options.foldcode);
                 conf.options.foldparam && (data.foldparam = conf.options.foldparam);
                 conf.options.foldsidenav && (data.foldsidenav = conf.options.foldsidenav);
-                if(page.options && page.options.foldsidenav){
+                if (page.options && page.options.foldsidenav) {
                     data.foldsidenav = page.options.foldsidenav;
                 }
-                if(conf.options.insertCSS){
+                if (conf.options.insertCSS) {
                     data.insertCSS = conf.options.insertCSS;
                 }
-                if(conf.options.insertJS){
+                if (conf.options.insertJS) {
                     data.insertJS = conf.options.insertJS;
                 }
-                if(conf.options.hasPageName){
+                if (conf.options.hasPageName) {
                     data.hasPageName = conf.options.hasPageName;
                 }
             }
@@ -124,23 +179,23 @@ module.exports = function(cwd, conf) {
             data.footer = common.footer;
             data.home = common.home;
             data.homeUrl = common.homeUrl;
-            if(conf.theme){
-                var themeConfJS =  themeConf.js;
-                var themeConfCSS =  themeConf.css;
-                if(themeConfJS && themeConfJS.length){
-                    for(var i=0; i<themeConfJS.length; i++){
+            if (conf.theme) {
+                var themeConfJS = themeConf.js;
+                var themeConfCSS = themeConf.css;
+                if (themeConfJS && themeConfJS.length) {
+                    for (var i = 0; i < themeConfJS.length; i++) {
                         themeConfJS[i] = sysPath.join(themeConfJS[i]);
                         data.themeJS = themeConfJS;
                     }
                 }
-                if(themeConfCSS && themeConfCSS.length){
-                    for(var i=0; i<themeConfCSS.length; i++){
+                if (themeConfCSS && themeConfCSS.length) {
+                    for (var i = 0; i < themeConfCSS.length; i++) {
                         themeConfCSS[i] = sysPath.join(themeConfCSS[i]);
                     }
                     data.themeCSS = themeConfCSS;
                 }
             }
-            if(common.navbars){
+            if (common.navbars) {
                 data.navbars = common.navbars.map(function(item) {
                     return {
                         name: item.name,
@@ -169,7 +224,7 @@ module.exports = function(cwd, conf) {
                 if (page.content.multi) {
                     var pName;
                     var navs = page.content.pages.map(function(p) {
-                        if(!(p.sub)){
+                        if (!(p.sub)) {
                             pName = p.name;
                         }
                         return {
@@ -177,7 +232,7 @@ module.exports = function(cwd, conf) {
                             pName: pName,
                             sub: !!p.sub,
                             blank: !p.content,
-                            url: (p.index||(page.name + '-' + p.name)) + '.html'
+                            url: (p.index || (page.name + '-' + p.name)) + '.html'
                         };
                     });
 
@@ -186,7 +241,10 @@ module.exports = function(cwd, conf) {
                             var curNavs = navs.slice(0);
                             data.article = doParser(cwd, p.content, p.ignore, p.compile, p.options, conf, codeRender);
                             if (data.article.menus) {
-                                curNavs.splice.apply(curNavs, [index + 1, 0].concat(data.article.menus.filter(function(item) {
+                                curNavs.splice.apply(curNavs, [
+                                    index + 1,
+                                    0
+                                ].concat(data.article.menus.filter(function(item) {
                                     return !item.sub;
                                 })).map(function(item) {
                                     item.sub = true;
@@ -196,14 +254,14 @@ module.exports = function(cwd, conf) {
                             data.article.sidebars = curNavs;
 
                             data.article.name = p.name;
-                            curNavs.forEach(function(item){
-                                if(item.name == data.article.name){
-                                    data.article.parentName  = item.pName;
+                            curNavs.forEach(function(item) {
+                                if (item.name == data.article.name) {
+                                    data.article.parentName = item.pName;
                                 }
                             });
                             data.pagename = page.name + '-' + p.name;
-                            fs.writeFileSync(sysPath.join(conf.dest, (p.index||(page.name + '-' + p.name)) + '.html'), render(data));
-                            console.log(('√ 生成文件: ' + sysPath.join(conf.dest, (p.index||(page.name + '-' + p.name)) + '.html')).yellow);
+                            fs.writeFileSync(sysPath.join(conf.dest, (p.index || (page.name + '-' + p.name)) + '.html'), render(data));
+                            console.log(('√ 生成文件: ' + sysPath.join(conf.dest, (p.index || (page.name + '-' + p.name)) + '.html')).yellow);
                         }
                     });
                     data.article = doParser(cwd, page.content.index, page.indexIngore, page.indexCompile, page.content.indexOptions, conf, codeRender);
@@ -221,7 +279,7 @@ module.exports = function(cwd, conf) {
                             navs.push({
                                 name: block.name,
                                 index: block.index,
-                                tag: "#"+block.name.replace(/[\.\:\s\@\/]/g, '-'),
+                                tag: "#" + block.name.replace(/[\.\:\s\@\/]/g, '-'),
                                 sub: block.sub || false
                             });
                         }
@@ -232,14 +290,14 @@ module.exports = function(cwd, conf) {
                                     if (!item.sub) {
                                         navs.push({
                                             name: item.name,
-                                            tag: "#"+item.name.replace(/[\.\:\s\@\/]/g, '-'),
+                                            tag: "#" + item.name.replace(/[\.\:\s\@\/]/g, '-'),
                                             sub: true
                                         });
                                     }
                                 });
                             }
                             ret.name = block.name;
-                            ret.tag =  block.name.replace(/[\.\:\s\@\/]/g, '-');
+                            ret.tag = block.name.replace(/[\.\:\s\@\/]/g, '-');
                             ret.sub = block.sub || false;
                             blocks.push(ret);
                         } else {
@@ -272,18 +330,18 @@ module.exports = function(cwd, conf) {
     for (var key in resources) {
         try {
             childProcess.execSync('cp -r ' + sysPath.join(cwd, resources[key]) + ' ' + sysPath.join(conf.dest, key));
-        } catch(e) {
+        } catch (e) {
             console.log(('X 资源 ' + key + ' 复制失败').red);
             console.log(e.toString().red);
         }
     }
 
     // 复制theme文件夹下的文件到_docs/theme
-    if(conf.theme){
+    if (conf.theme) {
         try {
-            childProcess.execSync('cp -r ' + sysPath.join(cwd, 'node_modules/ydoc-theme-'+theme) + ' ' + sysPath.join(conf.dest, 'theme'));
-        } catch(e) {
-            console.log(('X 资源 ' + sysPath.join(cwd,theme) + ' 复制失败').red);
+            childProcess.execSync('cp -r ' + sysPath.join(cwd, 'node_modules/ydoc-theme-' + theme) + ' ' + sysPath.join(conf.dest, 'theme'));
+        } catch (e) {
+            console.log(('X 资源 ' + sysPath.join(cwd, theme) + ' 复制失败').red);
             console.log(e.toString().red);
         }
     }

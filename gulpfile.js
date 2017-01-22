@@ -13,7 +13,7 @@ gulp.task('sass',function(){
 gulp.task('concatCss', function() {
     console.log('concatcss');
     // 将所有css文件连接为一个文件并压缩，存到public/css
-    gulp.src(['template/css/highlight.min.css','template/css/app.css'])
+    gulp.src(['template/css/prism.css','template/css/app.css'])
         .pipe(concat('main.css'))
         .pipe(minifyCss())
         .pipe(gulp.dest('template/source'));
@@ -26,7 +26,7 @@ gulp.task('concatCss', function() {
 // 合并js文件
 gulp.task('concatJs', function() {
     // 将所有js文件连接为一个文件并压缩，存到public/js
-    gulp.src(['template/js/jquery.min.js','template/js/bootstrap.min.js','template/js/docs.min.js','template/js/highlight.min.js'])
+    gulp.src(['template/js/jquery.min.js','template/js/bootstrap.min.js','template/js/docs.min.js'])
         .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(gulp.dest('template/source'));

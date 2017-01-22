@@ -6,7 +6,7 @@
 
 ## 安装
 
-```
+```bash
 npm install ydoc [-g]
 ```
 
@@ -14,10 +14,10 @@ npm install ydoc [-g]
 
 ### 使用命令的方式
 
-```javascript
-cd /path/to/project/  //进入项目目录
-ydoc init  // 初始化配置文件 编写配置文件ydoc.config或者ydocfile.js
-ydoc build //构建文档
+```bash
+cd /path/to/project/  # 进入项目目录
+ydoc init  # 初始化配置文件 编写配置文件ydoc.config或者ydocfile.js
+ydoc build # 构建文档
 ```
 详细请查看[命令使用方式说明](./usage.md), 配置及配置文件请查看 [配置说明](./config.md);
 
@@ -53,8 +53,6 @@ grunt.initConfig({
 
 grunt.loadNpmTasks('ydoc');
 ```
-
-
 
 ## 开发者
 

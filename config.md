@@ -65,7 +65,8 @@ module.exports = function(callback) {
     "template": "path/to/templte", // 默认使用 YDoc 内置的模板
     "instructionsInfoPath": "./demo/component", //使用说明 内容路径
     "instructionsUrlPath": "./demo/component", //使用说明demo路径
-    "theme": "ocean", // 配置主题
+    "theme": "ocean", // 配置主题，默认没有主题
+    "defaultGrammer": "javascript", // 默认高亮语法
     "options": { // 通用编译器配置
         "markdown": { // 对于 markdown 编译器进行统一配置
             "menuLevel": 2 //选取第几级 head 作为目录，默认 -1 没有目录
