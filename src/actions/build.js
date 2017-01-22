@@ -10,7 +10,7 @@ var JSON5 = require('json5');
 var Prism = require('prismjs');
 
 var parsers = require('../parsers');
-var reJS = /javascript|js/i;
+var reJS = /^javascript|js$/i;
 var parseAliases = function(lang) {
     if (reJS.test(lang)) {
         return 'javascript';
@@ -21,26 +21,20 @@ var parseAliases = function(lang) {
     return lang;
 }
 
-var hasSetOptions = false;
+function setMarkedOptions(grammar) {
+    grammar = parseAliases(grammar);
 
-function setMarkedOptions(grammer) {
-    if (hasSetOptions)
-        return;
-    hasSetOptions = true;
-
-    grammer = parseAliases(grammer);
-
-    if (typeof grammer === 'string') {
+    if (typeof grammar === 'string') {
         try {
-            require.resolve('prismjs/components/prism-' + grammer + '.js');
+            require.resolve('prismjs/components/prism-' + grammar + '.js');
         } catch (e) {
-            console.warn('! 无法解析默认语法 ' + grammer + '，未检测到语法的将不进行高亮'.blue);
+            console.warn('! 无法解析默认语法 ' + grammar + '，未检测到语法的将不进行高亮'.blue);
         }
     }
 
     marked.setOptions({
         highlight: function(code, lang, callback) {
-            lang = parseAliases(lang) || lang || grammer;
+            lang = parseAliases(lang) || lang || grammar;
             if (!lang)
                 return code;
             try {
@@ -139,7 +133,7 @@ module.exports = function(cwd, conf) {
     conf.cwd = cwd;
     conf.options = conf.options || {};
 
-    setMarkedOptions(conf.defaultGrammer);
+    setMarkedOptions(conf.defaultGrammar);
 
     var render = artTemplate.compile(conf.templateContent);
     var codeRender = artTemplate.compile(conf.codeTemplateContent);
