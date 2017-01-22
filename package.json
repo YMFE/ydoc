@@ -37,7 +37,8 @@
     "optimist": "^0.6.1",
     "prismjs": "^1.6.0",
     "through2": "^2.0.1",
-    "watch": "^0.17.1"
+    "watch": "^0.17.1",
+    "ydoc-theme-ocean": "0.0.1"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

@@ -1,0 +1,75 @@
+/* global style */
+*{
+    color: #333;
+}
+.ydoc {
+    background: #fff;
+}
+::selection{
+    color: #fff;
+    background-color: #66b5e6;
+}
+
+.ydoc-header {
+    background-image: none;
+    box-shadow: none;
+    background-color: #1c629e;
+}
+.ydoc-header a, .ydoc-nav{
+    color: #fff;
+}
+.ydoc-nav .active, .ydoc-nav .active a, .ydoc-nav li a:hover{
+    color: #96c3ea;
+}
+.ydoc .ydoc-banner-bg{
+    background: url(images/ocean-bg.jpg) 0 top repeat-x;
+}
+.ydoc-banner-area h1, .ydoc-banner-area p{
+    color: #1c629e;
+    font-weight: bold;
+    text-shadow:#fff 1px 0 0,#fff 0 1px 0,#fff -1px 0 0,#fff 0 -1px 0;
+    -webkit-text-shadow:#fff 1px 0 0,#fff 0 1px 0,#fff -1px 0 0,#fff 0 -1px 0;
+    -moz-text-shadow:#fff 1px 0 0,#fff 0 1px 0,#fff -1px 0 0,#fff 0 -1px 0;
+    *filter: Glow(color=#fff, strength=1);
+}
+
+
+/* content */
+.ydoc-container-content{
+    box-shadow: 0 0 10px #96c3ea;
+}
+/* content-left */
+.ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
+    background-color: #dff0ff;
+    border-left-color: #dff0ff;
+}
+.ydoc-container-content .docs-sidebar .docs-sidenav li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav li.active a:hover {
+    border-left: 2px solid #96c3ea;
+    color: #96c3ea;
+}
+.ydoc-container .docs-sidebar:before{
+    background-color: #dff0ff;
+}
+/* content-right */
+.markdown-body h1, .markdown-body h2{
+    border-bottom: 1px solid #dff0ff;
+}
+.markdown-body pre {
+    background-color: #f2f9ff;
+    border: 1px solid #dff0ff;
+}
+
+/* footer */
+.ydoc .footer {
+    background: #dff0ff;
+}
+
+/* mobile style */
+@media screen and (max-width: 767px){
+    .ydoc .ydoc-nav .navbar-left li a:hover, .ydoc .ydoc-nav .navbar-right li a:hover{
+        color: #96c3ea;
+    }
+    .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
+        background-color: #222;
+    }
+}
