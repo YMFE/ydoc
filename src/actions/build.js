@@ -7,13 +7,12 @@ var childProcess = require('child_process');
 var marked = require('marked');
 var glob = require('glob');
 var Prism = require('prismjs');
-var hljs = require('highlight.js');
 
 var parsers = require('../parsers');
 var reJS = /javascript|js|jsx/i;
 var parseAliases = function(lang) {
     if (reJS.test(lang)) {
-        return 'jsx';
+        return 'javascript';
     }
     if (lang === 'html') {
         return 'markup';
@@ -39,14 +38,12 @@ function setMarkedOptions(grammer) {
 
     marked.setOptions({
         highlight: function (code, lang, callback) {
-            var defaultGrammer = grammer || hljs.highlightAuto(code).language
-            lang = parseAliases(lang) || lang || defaultGrammer;
-            lang = lang.toLowerCase();
+            lang = parseAliases(lang) || lang || grammer;
             try {
+                lang = lang.toLowerCase();
                 require('prismjs/components/prism-' + lang + '.js');
                 if (Prism.languages[lang]) {
-                    const result = Prism.highlight(code, Prism.languages[lang])
-                    return result;
+                    return Prism.highlight(code, Prism.languages[lang])
                 } else {
                     return code;
                 }
