@@ -98,7 +98,10 @@
                             <li {{if article.name == m.name}} class="active" {{/if}}>
                                 <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
                             </li>
-                        {{if index < article.sidebars.length - 1 && !article.sidebars[index + 1].sub}}
+                        {{if index < article.sidebars.length-1 && !article.sidebars[index + 1].sub}}
+                        </ul>
+                        {{/if}}
+                        {{if index===article.sidebars.length-1}}
                         </ul>
                         {{/if}}
                         {{else}}
