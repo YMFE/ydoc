@@ -147,6 +147,17 @@
                                 <a href="#travel">travel</a>
                             </li>
                         
+                        </ul>
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="#开发主题">开发主题</a>
+                            
+                        </li>
                         
                         
                     </ul>
@@ -159,7 +170,7 @@
 <blockquote>
 <p>npm install ydoc-theme-[name] -g</p>
 </blockquote>
-<h3 id="配置">配置</h3><p>在config文件里添加配置</p>
+<h3 id="配置">配置</h3><p>在config文件里添加配置，如果不配置此项，则为默认主题。</p>
 <pre><code class="lang-json">{
     &quot;theme&quot;: &quot;ocean&quot;,
     ...
@@ -171,6 +182,20 @@
 <h3 id="travel">travel</h3><p>背上行囊，忘记烦恼，</p>
 <p>在清晨的阳光中，踏上一次探索的旅行。</p>
 <p><img src="http://ojk406wln.bkt.clouddn.com/ydoc-theme-travel.png" alt=""></p>
+<h2 id="开发主题">开发主题</h2><p>每一个插件都是一个 npm 模块，命名规则为 <code>ydoc-theme-&lt;name&gt;</code>，比如 <code>ydoc-theme-ocean</code>。
+最简单的方法是 fork 一份 <code>ydoc-theme-default</code>，根据自己的设计在文件中修改或添加内容。</p>
+<p><h3 style="font-weight: normal"> 配置 </h3>
+修改或新建 <code>ydoc-theme-&lt;name&gt;</code> 目录中的 <code>theme.config</code> 文件。</p>
+<pre><code class="lang-json">{
+    &quot;css&quot;: [&quot;./default.css&quot;],
+    &quot;js&quot;: [&quot;./default.js&quot;]
+}
+</code></pre>
+<p><h3 style="font-weight: normal"> 自定义主题 </h3>
+在目录下新建或修改default.css、default.js即可开发主题。
+主题中的文件会被引入到页面中，配置的优先级关系是 <code>插件(insertCSS/insertJS)配置 &gt; 主题配置 &gt; ydoc基础配置</code></p>
+<p><h3 style="font-weight: normal"> 发布 </h3>
+编辑 package.json 中的模块名称、版本号等信息，执行 npm publish 即可。</p>
 
               </div>
           </div>

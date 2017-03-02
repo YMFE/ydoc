@@ -3,5 +3,7 @@ usage.md
 release.md
 ydoc.config
 _docs
+./_docs
+/_docs
 .gitignore
 .sass-cache/
