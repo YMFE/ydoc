@@ -231,6 +231,12 @@ sup,sub{vertical-align:baseline}
         float: right;
         min-height: 500px;
      }
+     .hashlink{
+         display: none;
+     }
+     .subject:hover .hashlink{
+         display: inline;
+     }
      .right{
          float: right;
      }

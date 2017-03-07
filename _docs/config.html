@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
   <meta name="format-detection" content="telephone=no,email=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
   <meta name="description" content="description of your site">
@@ -89,7 +89,7 @@
         
           
           <div class="ydoc-container-content">
-              <div class="content-left sticky" role="complementary">
+              <div class="content-left" role="complementary">
                   <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav docs-sidenav">
                         
@@ -161,15 +161,15 @@
               <div class="content-right markdown-body" role="main">
 
                 
-                <h2 id="配置文件">配置文件</h2><p>配置文件可以以 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
-<h3 id="静态文件形式">静态文件形式</h3><p><code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
+                <h2 class="subject" id="配置文件">配置文件 <a class="hashlink" href="#配置文件">#</a></h2><p>配置文件可以以 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
+<h3 class="subject" id="静态文件形式">静态文件形式 <a class="hashlink" href="#静态文件形式">#</a></h3><p><code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
 <p>示例：</p>
 <pre><code class="lang-json">{
     &quot;name&quot;: &quot;YDoc&quot;,
     ...
 }
 </code></pre>
-<h3 id="动态脚本形式">动态脚本形式</h3><p><code>ydocfile.js</code> 可以 <code>exports</code> 一个 <code>Object</code> 配置，也可以 <code>exports</code> 一个 <code>Function</code> 用于执行获取配置。</p>
+<h3 class="subject" id="动态脚本形式">动态脚本形式 <a class="hashlink" href="#动态脚本形式">#</a></h3><p><code>ydocfile.js</code> 可以 <code>exports</code> 一个 <code>Object</code> 配置，也可以 <code>exports</code> 一个 <code>Function</code> 用于执行获取配置。</p>
 <p>示例1：</p>
 <pre><code class="lang-js">module.exports = {
     &quot;name&quot;: &quot;YDoc&quot;,
@@ -193,7 +193,7 @@
     });
 };
 </code></pre>
-<h2 id="配置内容">配置内容</h2><h3 id="整体配置说明">整体配置说明</h3><p>示例:</p>
+<h2 class="subject" id="配置内容">配置内容 <a class="hashlink" href="#配置内容">#</a></h2><h3 class="subject" id="整体配置说明">整体配置说明 <a class="hashlink" href="#整体配置说明">#</a></h3><p>示例:</p>
 <pre><code class="lang-json">{
     &quot;name&quot;: &quot;YDoc&quot;, // 标示 配置文件
     &quot;dest&quot;: &quot;path/to/destination&quot;, // 默认为  &quot;_docs&quot;
@@ -277,18 +277,18 @@
     }]
 }
 </code></pre>
-<h3 id="解析器配置">解析器配置</h3><h4 id="js">js</h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code></p>
+<h3 class="subject" id="解析器配置">解析器配置 <a class="hashlink" href="#解析器配置">#</a></h3><h4 class="subject" id="js">js <a class="hashlink" href="#js">#</a></h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code></p>
 <pre><code class="lang-json">{
     &quot;type&quot;: &quot;component&quot;, // 类型，可选 component 和 lib，默认 component
     &quot;source&quot;: false // 是否生成源文件预览，默认 false
 }
 </code></pre>
-<h4 id="css">css</h4><p>支持文件类型：<code>.css</code>，<code>.sass</code>，<code>.scss</code></p>
+<h4 class="subject" id="css">css <a class="hashlink" href="#css">#</a></h4><p>支持文件类型：<code>.css</code>，<code>.sass</code>，<code>.scss</code></p>
 <pre><code class="lang-json">{
     &quot;source&quot;: false // 是否生成源文件预览，默认 false
 }
 </code></pre>
-<h4 id="markdown">markdown</h4><p>支持文件类型：<code>.md</code>，<code>.markdown</code></p>
+<h4 class="subject" id="markdown">markdown <a class="hashlink" href="#markdown">#</a></h4><p>支持文件类型：<code>.md</code>，<code>.markdown</code></p>
 <pre><code class="lang-json">{
     &quot;menuLevel&quot;: 2, // 选取第几级 head 作为目录，默认 -1 没有目录
     &quot;subMeneLevel&quot;: 3 // 选取第几级 head 作为子目录，默认 menuLevel + 1
