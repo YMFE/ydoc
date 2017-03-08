@@ -21,7 +21,7 @@ function parser(contents, options) {
         if(text.match(/<.*>/) && (text.match(/<.*>/).length > 0)){
             return '<h' + level + '>' + text + '</h' + level + '>';
         }else{
-            return '<h' + level + ' id="' + text + '">' + text + '</h' + level + '>';
+            return '<h' + level + ' class="subject" id="' + text + '">' + text + ' <a class="hashlink" href="#' + text + '">#</a></h' + level + '>';
         }
 
     };

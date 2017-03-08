@@ -250,6 +250,10 @@ sup, sub {
         padding: 15px;
         float: right;
         min-height: 500px; }
+      .ydoc-container-content .hashlink {
+        display: none; }
+      .ydoc-container-content .subject:hover .hashlink {
+        display: inline; }
       .ydoc-container-content .right {
         float: right; }
       .ydoc-container-content .content-left {

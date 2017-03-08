@@ -42,7 +42,7 @@ $(document).ready(function() {
     }
     titles.sort(sortAsOffset('offsetTop'));
 
-    $openPanel.on('tap',function(){
+    $openPanel.on('click',function(){
         if(isPanelHide){    // 点击弹出panel
             isPanelHide = false;
             $ydoc.addClass('hidden');
@@ -79,10 +79,6 @@ $(document).ready(function() {
             }
         }
     });
-    $openPanel.on('touchstart',function(event){
-        event.preventDefault();
-        $openPanel.trigger('tap');
-    })
 
     $ydoc.removeClass('hidden');
     $ydoc.on('scroll', function(){
@@ -95,7 +91,7 @@ $(document).ready(function() {
     // $openPanel.trigger('click');
     $('.content-right').on('touchstart',function(){
         if(!isPanelHide){
-            $openPanel.trigger('tap');
+            $openPanel.click();
         }
     });
 

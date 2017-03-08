@@ -10,10 +10,6 @@
   <title>YDoc 配置</title>
   <link rel="stylesheet" href="source/main.css"/>
   
-    
-        <link rel="stylesheet" href="theme/ocean.css"/>
-    
-  
   
 </head>
 <body>
@@ -118,11 +114,13 @@
                         
                         
                         
+                        
                             <li >
                                 <a href="#动态脚本形式">动态脚本形式</a>
                             </li>
                         
                         </ul>
+                        
                         
                         
                         
@@ -147,9 +145,13 @@
                         
                         
                         
+                        
                             <li >
                                 <a href="#解析器配置">解析器配置</a>
                             </li>
+                        
+                        
+                        </ul>
                         
                         
                         
@@ -159,15 +161,15 @@
               <div class="content-right markdown-body" role="main">
 
                 
-                <h2 id="配置文件">配置文件</h2><p>配置文件可以以 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
-<h3 id="静态文件形式">静态文件形式</h3><p><code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
+                <h2 class="subject" id="配置文件">配置文件 <a class="hashlink" href="#配置文件">#</a></h2><p>配置文件可以以 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
+<h3 class="subject" id="静态文件形式">静态文件形式 <a class="hashlink" href="#静态文件形式">#</a></h3><p><code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
 <p>示例：</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
     <span class="token operator">...</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="动态脚本形式">动态脚本形式</h3><p><code>ydocfile.js</code> 可以 <code>exports</code> 一个 <code>Object</code> 配置，也可以 <code>exports</code> 一个 <code>Function</code> 用于执行获取配置。</p>
+<h3 class="subject" id="动态脚本形式">动态脚本形式 <a class="hashlink" href="#动态脚本形式">#</a></h3><p><code>ydocfile.js</code> 可以 <code>exports</code> 一个 <code>Object</code> 配置，也可以 <code>exports</code> 一个 <code>Function</code> 用于执行获取配置。</p>
 <p>示例1：</p>
 <pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
@@ -191,7 +193,7 @@
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="配置内容">配置内容</h2><h3 id="整体配置说明">整体配置说明</h3><p>示例:</p>
+<h2 class="subject" id="配置内容">配置内容 <a class="hashlink" href="#配置内容">#</a></h2><h3 class="subject" id="整体配置说明">整体配置说明 <a class="hashlink" href="#整体配置说明">#</a></h3><p>示例:</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 标示 配置文件</span>
     <span class="token string">"dest"</span><span class="token punctuation">:</span> <span class="token string">"path/to/destination"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 默认为  "_docs"</span>
@@ -276,18 +278,18 @@
     <span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="解析器配置">解析器配置</h3><h4 id="js">js</h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code></p>
+<h3 class="subject" id="解析器配置">解析器配置 <a class="hashlink" href="#解析器配置">#</a></h3><h4 class="subject" id="js">js <a class="hashlink" href="#js">#</a></h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code></p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"component"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 类型，可选 component 和 lib，默认 component</span>
     <span class="token string">"source"</span><span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// 是否生成源文件预览，默认 false</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h4 id="css">css</h4><p>支持文件类型：<code>.css</code>，<code>.sass</code>，<code>.scss</code></p>
+<h4 class="subject" id="css">css <a class="hashlink" href="#css">#</a></h4><p>支持文件类型：<code>.css</code>，<code>.sass</code>，<code>.scss</code></p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token string">"source"</span><span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// 是否生成源文件预览，默认 false</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h4 id="markdown">markdown</h4><p>支持文件类型：<code>.md</code>，<code>.markdown</code></p>
+<h4 class="subject" id="markdown">markdown <a class="hashlink" href="#markdown">#</a></h4><p>支持文件类型：<code>.md</code>，<code>.markdown</code></p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token string">"menuLevel"</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 选取第几级 head 作为目录，默认 -1 没有目录</span>
     <span class="token string">"subMeneLevel"</span><span class="token punctuation">:</span> <span class="token number">3</span> <span class="token comment" spellcheck="true">// 选取第几级 head 作为子目录，默认 menuLevel + 1</span>
