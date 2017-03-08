@@ -1,10 +1,10 @@
 <div class="docs-section">
 {{each list as cont}}
-<h2 id="{{cont.name | anchor}}" class="page-header">{{cont.name}} API</h2>
+<h2 id="{{cont.name | anchor}}" class="page-header subject">{{cont.name}} API <a class="hashlink" href="#{{cont.name | anchor}}">#</a></h2>
 {{each cont.list as el index}}
 <div class="con-list-item">
     <blockquote class="api">
-        <h3 id="{{el.id | anchor}}" class="page-header">
+        <h3 id="{{el.id | anchor}}" class="page-header subject">
             {{el.title}}
             {{if el.class == 'method'}}
             <span class="yo-badge yo-badge-primary">Method</span>
@@ -20,6 +20,7 @@
             {{if el.private}}
             <span class="yo-badge yo-badge-danger">Private</span>
             {{/if}}
+            <a class="hashlink" href="#{{el.id | anchor}}">#</a>
         </h3>
     </blockquote>
     <p>

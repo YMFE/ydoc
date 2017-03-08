@@ -168,9 +168,9 @@
               <div class="docs-section">
                   {{if c.name}}
                   {{if c.sub}}
-                  <h3 class="subject" id="{{c.tag || c.name}}" class="page-header">{{c.name}}<a class="hashlink" href="#{{c.name}}">#</a></h3>
+                  <h3 id="{{c.tag || c.name}}" class="page-header subject">{{c.name}}<a class="hashlink" href="#{{c.name}}">#</a></h3>
                   {{else}}
-                  <h2 class="subject" id="{{c.tag || c.name}}" class="page-header">{{c.name}}<a class="hashlink" href="#{{c.name}}">#</a></h2>
+                  <h2 id="{{c.tag || c.name}}" class="page-header subject">{{c.name}}<a class="hashlink" href="#{{c.name}}">#</a></h2>
                   {{/if}}
                   {{/if}}
                   {{if c.content}}
