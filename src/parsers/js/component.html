@@ -103,12 +103,12 @@
 <div class="con-head">方法</div>
 {{each methods as method}}
 <blockquote class="api">
-    <h3 id="{{prop.property}}">
+    <h3 id="{{method.method}}">
     <strong>{{method.method}}</strong>
     {{if method.version}}
     <span class="yo-badge yo-badge-danger">{{method.version}}</span>
     {{/if}}
-    <a href="#{{prop.property}}">#</a>
+    <a href="#{{method.method}}">#</a>
     </h3>
 </blockquote>
 <div class="api-content">{{method.description | markdown}}</div>
