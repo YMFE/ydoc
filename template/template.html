@@ -87,7 +87,7 @@
         {{if article.type == 'html'}}
           {{if article.sidebars}}
           <div class="ydoc-container-content">
-              <div class="content-left" role="complementary">
+              <div class="content-left staticsidenav" role="complementary">
                   <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav docs-sidenav">
                         {{each article.sidebars as m index}}
@@ -135,7 +135,7 @@
         {{else if article.type == 'block'}}
         <div class="ydoc-container-content">
             {{if article.sidebars}}
-            <div class="content-left" role="complementary">
+            <div class="content-left staticsidenav" role="complementary">
               <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                 <ul class="nav docs-sidenav">
                   {{each article.sidebars as m index}}

@@ -161,8 +161,12 @@ module.exports = function(cwd, conf) {
                 conf.options.foldcode && (data.foldcode = conf.options.foldcode);
                 conf.options.foldparam && (data.foldparam = conf.options.foldparam);
                 conf.options.foldsidenav && (data.foldsidenav = conf.options.foldsidenav);
+                conf.options.staticsidenav && (data.staticsidenav = conf.options.staticsidenav);
                 if (page.options && page.options.foldsidenav) {
                     data.foldsidenav = page.options.foldsidenav;
+                }
+                if (page.options && page.options.staticsidenav) {
+                    data.staticsidenav = page.options.staticsidenav;
                 }
                 if (conf.options.insertCSS) {
                     data.insertCSS = conf.options.insertCSS;

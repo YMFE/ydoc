@@ -435,6 +435,15 @@ sup, sub {
 .anchorjs-link {
   display: none; }
 
+/* staticsidenav */
+@media screen and (min-width: 768px) {
+  .ydoc-container-content .docs-sidebar.affix {
+    position: static; }
+  .ydoc-container-content .docs-sidebar .docs-sidenav {
+    overflow: inherit; }
+  .staticsidenav .docs-sidebar {
+    overflow: initial; } }
+
 /*     markdown begin       */
 .markdown-body code {
   padding: 2px 4px;

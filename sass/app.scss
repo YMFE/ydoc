@@ -484,6 +484,21 @@ sup,sub{vertical-align:baseline}
    display: none;
 }
 
+/* staticsidenav */
+@media screen and (min-width: 768px){
+    .ydoc-container-content .docs-sidebar.affix{
+        position: static;
+    }
+    .ydoc-container-content .docs-sidebar .docs-sidenav{
+        overflow: inherit;
+    }
+    .staticsidenav{
+        .docs-sidebar{
+            overflow: initial;
+        }
+    }
+}
+
 /*     markdown begin       */
 @import "markdown";
 

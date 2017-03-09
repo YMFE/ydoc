@@ -147,7 +147,9 @@ $(document).ready(function() {
     if (sidebar.height() > winHeight) {
         sidebar.css('max-height', winHeight + 'px');
         $('.docs-sidenav').css('max-height', winHeight + 'px');
-        $('.docs-sidenav').css({'overflow-x':'hidden'});
+        if(winWidth<768){
+            $('.docs-sidenav').css({'overflow-x':'hidden'});
+        }
         var activeMenu,
             barScroll = false;
 
