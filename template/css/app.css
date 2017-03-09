@@ -437,9 +437,9 @@ sup, sub {
 
 /* staticsidenav */
 @media screen and (min-width: 768px) {
-  .ydoc-container-content .docs-sidebar.affix {
+  .ydoc-container-content .staticsidenav .docs-sidebar.affix {
     position: static; }
-  .ydoc-container-content .docs-sidebar .docs-sidenav {
+  .ydoc-container-content .staticsidenav .docs-sidebar .docs-sidenav {
     overflow: inherit; }
   .staticsidenav .docs-sidebar {
     overflow: initial; } }

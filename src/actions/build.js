@@ -162,11 +162,16 @@ module.exports = function(cwd, conf) {
                 conf.options.foldparam && (data.foldparam = conf.options.foldparam);
                 conf.options.foldsidenav && (data.foldsidenav = conf.options.foldsidenav);
                 conf.options.staticsidenav && (data.staticsidenav = conf.options.staticsidenav);
+                // 子页面 options
                 if (page.options && page.options.foldsidenav) {
                     data.foldsidenav = page.options.foldsidenav;
                 }
                 if (page.options && page.options.staticsidenav) {
                     data.staticsidenav = page.options.staticsidenav;
+                }
+                // staticsidenav & foldsidenav 同时存在时禁用 foldsidenav
+                if (data.staticsidenav && data.foldsidenav) {
+                    data.foldsidenav = false;
                 }
                 if (conf.options.insertCSS) {
                     data.insertCSS = conf.options.insertCSS;
