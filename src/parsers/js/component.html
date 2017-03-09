@@ -53,7 +53,7 @@
     <small class="text-muted">默认值:</small> {{prop.default}}
 </p>
 {{/if}}
-{{if prop.type.toLowerCase() == 'function' && prop.params.length}}
+{{if /function|string/i.test(prop.type) && prop.params.length}}
 <p class="api-content">
     <small class="text-muted">方法参数:</small>
 </p>
