@@ -3,7 +3,6 @@
     {{component}}
     <small>{{_desc}}</small>
     {{if version}}<span class="yo-badge yo-badge-danger">{{version}}</span>{{/if}}
-    <a href="#{{component}}">#</a>
 </h2>
 <div class="api-content">{{description | markdown}}</div>
 <!-- 使用说明begin -->
@@ -34,13 +33,13 @@
 <div class="con-head">属性</div>
 {{each props as prop}}
 <blockquote class="api">
-    <h3 id="{{prop.property}}">
+    <h3 id="{{prop.property}}" class="subject">
     <strong>{{prop.property}}</strong>
      <span class="prop-type">{ {{prop.type}} }</span>
     {{if prop.version}}
     <span class="yo-badge yo-badge-danger">{{prop.version}}</span>
     {{/if}}
-    <a href="#{{prop.property}}">#</a>
+    <a class="hashlink" href="#{{prop.property}}">#</a>
     </h3>
 </blockquote>
 <div class="api-content">
@@ -103,12 +102,12 @@
 <div class="con-head">方法</div>
 {{each methods as method}}
 <blockquote class="api">
-    <h3 id="{{method.method}}">
+    <h3 id="{{method.method}}" class="subject">
     <strong>{{method.method}}</strong>
     {{if method.version}}
     <span class="yo-badge yo-badge-danger">{{method.version}}</span>
     {{/if}}
-    <a href="#{{method.method}}">#</a>
+    <a class="hashlink" href="#{{method.method}}">#</a>
     </h3>
 </blockquote>
 <div class="api-content">{{method.description | markdown}}</div>
