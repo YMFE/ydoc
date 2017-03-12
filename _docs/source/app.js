@@ -6,7 +6,6 @@ $(document).ready(function() {
     var $openPanel = $('.open-panel');
     var $contentLeft = $('.content-left');
     var $contentLeftWidth = $contentLeft.width() - 1;
-    console.log($contentLeftWidth);
     var $ydoc = $('.ydoc');
     var $mask = $('.mask');
     var isPanelHide = true;
@@ -105,14 +104,6 @@ $(document).ready(function() {
         }
     });
 
-    // 移动端侧栏展开时禁止主页面滚动
-    $('.content-right').on('touchmove',function(e){
-        if(!isPanelHide){
-            e.preventDefault();
-        }
-    });
-
-
     // PC端导航
     $('.navbar-toggle').click(function(){
         $(this).next(".ydoc-nav").toggle();
@@ -152,7 +143,7 @@ $(document).ready(function() {
     var docSideNav = $('.docs-sidenav');
     var  ydocContainerCon= $('.ydoc-container-content');
     if(winWidth>767){
-        docSideNav.width(ydocContainerCon.width()*0.25);
+        docSideNav.width($contentLeftWidth);
     }
     if (sidebar.height() > winHeight) {
         sidebar.css('max-height', winHeight + 'px');
@@ -211,7 +202,7 @@ $(document).ready(function() {
         var docSideNav = $('.docs-sidenav');
         var ydocContainerCon= $('.ydoc-container-content');
         if(winWidth>767){
-            docSideNav.width(ydocContainerCon.width()*0.25);
+            docSideNav.width($contentLeftWidth);
         }
         if (sidebar.height() > winHeight) {
             sidebar.css('max-height', winHeight + 'px');

@@ -370,14 +370,14 @@ sup, sub {
   .show {
     background-color: rgba(0, 0, 0, 0.35); }
   .ydoc-container-content .content-right {
-    width: 100%; }
+    width: 100% !important; }
   .ydoc-container-content .content-left {
     display: block;
     position: fixed;
     right: -75%;
     top: 0;
     height: 100%;
-    width: 75%;
+    width: 75% !important;
     background-color: #222;
     z-index: 1;
     transition: all .4s;
