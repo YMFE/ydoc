@@ -6,7 +6,9 @@ $(document).ready(function() {
     var $openPanel = $('.open-panel');
     var $contentLeft = $('.content-left');
     var $contentLeftWidth = $contentLeft.width() - 1;
+    console.log($contentLeftWidth);
     var $ydoc = $('.ydoc');
+    var $mask = $('.mask');
     var isPanelHide = true;
     var winWidth = $(window).width();
     var h2 = $('.content-right').find('h2');
@@ -46,6 +48,10 @@ $(document).ready(function() {
         if(isPanelHide){    // 点击弹出panel
             isPanelHide = false;
             $ydoc.addClass('hidden');
+            $mask.show();
+            setTimeout(function(){
+                $mask.addClass('show');
+            },50)
             $openPanel.css({
                  'transform':'translateX(-'+$contentLeftWidth+'px)'
             })
@@ -55,6 +61,10 @@ $(document).ready(function() {
         }else {     // 点击隐藏panel
             isPanelHide = true;
             $ydoc.removeClass('hidden');
+            $mask.removeClass('show');
+            setTimeout(function(){
+                $mask.hide();
+            },400)
             $openPanel.css({
                  'transform':'translateX(0px)'
             })
@@ -89,7 +99,7 @@ $(document).ready(function() {
         $ydoc.scrollTop(sessionStorage.offsetTop);
     }
     // $openPanel.trigger('click');
-    $('.content-right').on('click',function(){
+    $mask.on('click',function(){
         if(!isPanelHide){
             $openPanel.click();
         }
