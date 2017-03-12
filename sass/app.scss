@@ -157,6 +157,9 @@ sup,sub{vertical-align:baseline}
  .ydoc-banner-bg{
      background: url(./images/grid-18px-masked.png) repeat-x 0 top;
      padding-bottom: 121px;
+     .desc{
+         font-family: "微软雅黑";
+     }
  }
  &-banner{
    color:#fff;
