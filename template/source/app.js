@@ -89,7 +89,7 @@ $(document).ready(function() {
         $ydoc.scrollTop(sessionStorage.offsetTop);
     }
     // $openPanel.trigger('click');
-    $('.content-right').on('touchstart',function(){
+    $('.content-right').on('click',function(){
         if(!isPanelHide){
             $openPanel.click();
         }
