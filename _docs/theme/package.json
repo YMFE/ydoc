@@ -1,0 +1,13 @@
+{
+  "name": "ydoc-theme-library",
+  "version": "0.0.1",
+  "description": "a theme for ydoc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dwb",
+  "license": "ISC",
+  "_from": "ydoc-theme-library@0.0.1",
+  "_resolved": "http://registry.npm.taobao.org/ydoc-theme-library/download/ydoc-theme-library-0.0.1.tgz"
+}
