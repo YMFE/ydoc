@@ -82,7 +82,7 @@ var execFns = {
                             contentMapping[info.category] = [];
                         }
                         contentMapping[info.category].push(info);
-                        if (info.class == 'method' || (info.type || '').toLowerCase() == 'function') {
+                        if (info.class == 'method' || /function|string/i.test(info.type || '') == 'function') {
                             info.title = info.id + '( ' + info.params.filter(function(param) {
                                 return !~param.name.indexOf('.');
                             }).reduce(function(str, item, index) {

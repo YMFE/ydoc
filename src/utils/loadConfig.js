@@ -3,9 +3,17 @@ var fs = require('fs'),
     JSON5 = require('json5');
 
 module.exports = function(cwd, callback) {
-    var confPath = sysPath.join(cwd, 'ydoc.config'),
-        confJSPath = sysPath.join(cwd, 'ydocfile.js'),
-        conf;
+    var confJSPath = sysPath.join(cwd, 'ydocfile.js'),
+        jsonPath = fs.existsSync(sysPath.join(cwd, 'ydoc.json')),
+        configPath = fs.existsSync(sysPath.join(cwd, 'ydoc.config')),
+        conf, confPath;;
+    if(jsonPath && configPath){
+        confPath = sysPath.join(cwd, 'ydoc.json');
+    }else if (jsonPath) {
+        confPath = sysPath.join(cwd, 'ydoc.json');
+    }else if (configPath) {
+        confPath = sysPath.join(cwd, 'ydoc.config');
+    }
     if (fs.existsSync(confPath)) {
         try {
             conf = JSON5.parse(fs.readFileSync(confPath, 'utf-8'));

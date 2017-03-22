@@ -10,10 +10,6 @@
   <title>YDoc 主题</title>
   <link rel="stylesheet" href="source/main.css"/>
   
-    
-        <link rel="stylesheet" href="theme/ocean.css"/>
-    
-  
   
 </head>
 <body>
@@ -84,7 +80,7 @@
           <div class="ydoc-banner">
               <div class="ydoc-banner-area">
                   <h1>YDoc</h1>
-                  <p>主题</p>
+                  <p class="desc">主题</p>
               </div>
           </div>
       
@@ -93,7 +89,7 @@
         
           
           <div class="ydoc-container-content">
-              <div class="content-left" role="complementary">
+              <div class="content-left staticsidenav" role="complementary">
                   <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav docs-sidenav">
                         
@@ -118,11 +114,13 @@
                         
                         
                         
+                        
                             <li >
                                 <a href="#配置">配置</a>
                             </li>
                         
                         </ul>
+                        
                         
                         
                         
@@ -140,8 +138,27 @@
                         <ul class="nav docs-sidenav-extend"  >
                         
                             <li >
+                                <a href="#默认主题">默认主题</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                        
+                            <li >
+                                <a href="#library">library</a>
+                            </li>
+                        
+                        
+                        
+                        
+                        
+                        
+                            <li >
                                 <a href="#ocean">ocean</a>
                             </li>
+                        
                         
                         
                         
@@ -151,6 +168,18 @@
                                 <a href="#travel">travel</a>
                             </li>
                         
+                        </ul>
+                        
+                        
+                        
+                        
+                        
+                        <!-- <li  > -->
+                        <li >
+                            
+                            <a href="#开发主题">开发主题</a>
+                            
+                        </li>
                         
                         
                     </ul>
@@ -159,23 +188,43 @@
               <div class="content-right markdown-body" role="main">
 
                 
-                <h2 id="安装">安装</h2><p>从 <code>3.0.0</code> 版本开始支持，包括 <code>prerelease</code> 版本。</p>
-<h3 id="下载">下载</h3><p>从 NPM 中安装</p>
+                <h2 class="subject" id="安装">安装 <a class="hashlink" href="#安装">#</a></h2><p>从 <code>3.0.0</code> 版本开始支持，包括 <code>prerelease</code> 版本。</p>
+<h3 class="subject" id="下载">下载 <a class="hashlink" href="#下载">#</a></h3><p>从 NPM 中安装</p>
 <blockquote>
 <p>npm install ydoc-theme-[name] --save</p>
 </blockquote>
-<h3 id="配置">配置</h3><p>在config文件里添加配置</p>
+<h3 class="subject" id="配置">配置 <a class="hashlink" href="#配置">#</a></h3><p>在config文件里添加配置，如果不配置此项，则为默认主题。</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
-    <span class="token property">"theme"</span><span class="token operator">:</span> <span class="token string">"ocean"</span><span class="token punctuation">,</span>
+    <span class="token property">"theme"</span><span class="token operator">:</span> <span class="token string">"library"</span><span class="token punctuation">,</span>
     ...
 <span class="token punctuation">}</span>
 </code></pre>
-<h2 id="主题介绍">主题介绍</h2><h3 id="ocean">ocean</h3><p>海洋——浩瀚无边，求索——永无止境。</p>
+<h2 class="subject" id="主题介绍">主题介绍 <a class="hashlink" href="#主题介绍">#</a></h2><h3 class="subject" id="默认主题">默认主题 <a class="hashlink" href="#默认主题">#</a></h3><p>简洁高效，匠心独运。</p>
+<p>去除冗余的设计元素，直达目标，极致简约。</p>
+<p><img src="http://ojk406wln.bkt.clouddn.com/ydoc-default.png" alt=""></p>
+<h3 class="subject" id="library">library <a class="hashlink" href="#library">#</a></h3><p>————你见过凌晨四点图书馆的灯光吗？</p>
+<p>————我见过，那时我正在debug。。</p>
+<p><img src="http://ojk406wln.bkt.clouddn.com/ydoc-library.png" alt=""></p>
+<h3 class="subject" id="ocean">ocean <a class="hashlink" href="#ocean">#</a></h3><p>海洋——浩瀚无边，求索——永无止境。</p>
 <p>沉默之中亦有波澜，这是每个程序员内心深处的情愫。</p>
-<p><img src="http://ojk406wln.bkt.clouddn.com/ydoc-theme-ocean.png" alt=""></p>
-<h3 id="travel">travel</h3><p>背上行囊，忘记烦恼，</p>
+<p><img src="http://ojk406wln.bkt.clouddn.com/ydoc-ocean.png" alt=""></p>
+<h3 class="subject" id="travel">travel <a class="hashlink" href="#travel">#</a></h3><p>背上行囊，忘记烦恼，</p>
 <p>在清晨的阳光中，踏上一次探索的旅行。</p>
-<p><img src="http://ojk406wln.bkt.clouddn.com/ydoc-theme-travel.png" alt=""></p>
+<p><img src="http://ojk406wln.bkt.clouddn.com/ydoc-travel.png" alt=""></p>
+<h2 class="subject" id="开发主题">开发主题 <a class="hashlink" href="#开发主题">#</a></h2><p>每一个插件都是一个 npm 模块，命名规则为 <code>ydoc-theme-&lt;name&gt;</code>，比如 <code>ydoc-theme-ocean</code>。
+最简单的方法是 fork 一份 <code>ydoc-theme-default</code>，根据自己的设计在文件中修改或添加内容。</p>
+<p><h3 style="font-weight: normal"> 配置 </h3>
+修改或新建 <code>ydoc-theme-&lt;name&gt;</code> 目录中的 <code>theme.config</code> 文件。</p>
+<pre><code class="lang-json"><span class="token punctuation">{</span>
+    <span class="token property">"css"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./default.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"js"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./default.js"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><h3 style="font-weight: normal"> 自定义主题 </h3>
+在目录下新建或修改default.css、default.js即可开发主题。
+主题中的文件会被引入到页面中，配置的优先级关系是 <code>插件(insertCSS/insertJS)配置 &gt; 主题配置 &gt; ydoc基础配置</code></p>
+<p><h3 style="font-weight: normal"> 发布 </h3>
+编辑 package.json 中的模块名称、版本号等信息，执行 npm publish 即可。</p>
 
               </div>
           </div>
@@ -194,6 +243,7 @@
 
     
        <div class="open-panel"></div>
+       <div class="mask"></div>
     
     
 

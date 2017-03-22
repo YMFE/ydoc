@@ -7,6 +7,7 @@ $(document).ready(function() {
     var $contentLeft = $('.content-left');
     var $contentLeftWidth = $contentLeft.width() - 1;
     var $ydoc = $('.ydoc');
+    var $mask = $('.mask');
     var isPanelHide = true;
     var winWidth = $(window).width();
     var h2 = $('.content-right').find('h2');
@@ -42,10 +43,14 @@ $(document).ready(function() {
     }
     titles.sort(sortAsOffset('offsetTop'));
 
-    $openPanel.on('tap',function(){
+    $openPanel.on('click',function(){
         if(isPanelHide){    // 点击弹出panel
             isPanelHide = false;
             $ydoc.addClass('hidden');
+            $mask.show();
+            setTimeout(function(){
+                $mask.addClass('show');
+            },50)
             $openPanel.css({
                  'transform':'translateX(-'+$contentLeftWidth+'px)'
             })
@@ -55,6 +60,10 @@ $(document).ready(function() {
         }else {     // 点击隐藏panel
             isPanelHide = true;
             $ydoc.removeClass('hidden');
+            $mask.removeClass('show');
+            setTimeout(function(){
+                $mask.hide();
+            },400)
             $openPanel.css({
                  'transform':'translateX(0px)'
             })
@@ -79,10 +88,6 @@ $(document).ready(function() {
             }
         }
     });
-    $openPanel.on('touchstart',function(event){
-        event.preventDefault();
-        $openPanel.trigger('tap');
-    })
 
     $ydoc.removeClass('hidden');
     $ydoc.on('scroll', function(){
@@ -93,19 +98,11 @@ $(document).ready(function() {
         $ydoc.scrollTop(sessionStorage.offsetTop);
     }
     // $openPanel.trigger('click');
-    $('.content-right').on('touchstart',function(){
+    $mask.on('click',function(){
         if(!isPanelHide){
-            $openPanel.trigger('tap');
+            $openPanel.click();
         }
     });
-
-    // 移动端侧栏展开时禁止主页面滚动
-    $('.content-right').on('touchmove',function(e){
-        if(!isPanelHide){
-            e.preventDefault();
-        }
-    });
-
 
     // PC端导航
     $('.navbar-toggle').click(function(){
@@ -146,12 +143,14 @@ $(document).ready(function() {
     var docSideNav = $('.docs-sidenav');
     var  ydocContainerCon= $('.ydoc-container-content');
     if(winWidth>767){
-        docSideNav.width(ydocContainerCon.width()*0.25);
+        docSideNav.width($contentLeftWidth);
     }
     if (sidebar.height() > winHeight) {
         sidebar.css('max-height', winHeight + 'px');
         $('.docs-sidenav').css('max-height', winHeight + 'px');
-        $('.docs-sidenav').css({'overflow-x':'hidden'});
+        if(winWidth<768){
+            $('.docs-sidenav').css({'overflow-x':'hidden'});
+        }
         var activeMenu,
             barScroll = false;
 
@@ -203,7 +202,7 @@ $(document).ready(function() {
         var docSideNav = $('.docs-sidenav');
         var ydocContainerCon= $('.ydoc-container-content');
         if(winWidth>767){
-            docSideNav.width(ydocContainerCon.width()*0.25);
+            docSideNav.width($contentLeftWidth);
         }
         if (sidebar.height() > winHeight) {
             sidebar.css('max-height', winHeight + 'px');

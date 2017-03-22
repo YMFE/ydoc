@@ -10,10 +10,6 @@
   <title>YDoc 版本</title>
   <link rel="stylesheet" href="source/main.css"/>
   
-    
-        <link rel="stylesheet" href="theme/ocean.css"/>
-    
-  
   
 </head>
 <body>
@@ -84,7 +80,7 @@
           <div class="ydoc-banner">
               <div class="ydoc-banner-area">
                   <h1>YDoc</h1>
-                  <p>版本</p>
+                  <p class="desc">版本</p>
               </div>
           </div>
       
@@ -93,7 +89,7 @@
         
           
           <div class="ydoc-container-content">
-              <div class="content-left" role="complementary">
+              <div class="content-left staticsidenav" role="complementary">
                   <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav docs-sidenav">
                         
@@ -107,9 +103,11 @@
                         
                         
                         
+                        
                             <li >
                                 <a href="#v2.2.1">v2.2.1</a>
                             </li>
+                        
                         
                         
                         
@@ -123,9 +121,11 @@
                         
                         
                         
+                        
                             <li >
                                 <a href="#v2.1.1">v2.1.1</a>
                             </li>
+                        
                         
                         
                         
@@ -139,9 +139,11 @@
                         
                         
                         
+                        
                             <li >
                                 <a href="#v2.0.1">v2.0.1</a>
                             </li>
+                        
                         
                         
                         
@@ -155,9 +157,11 @@
                         
                         
                         
+                        
                             <li >
                                 <a href="#v1.1.0">v1.1.0</a>
                             </li>
+                        
                         
                         
                         
@@ -171,9 +175,11 @@
                         
                         
                         
+                        
                             <li >
                                 <a href="#v1.0.3">v1.0.3</a>
                             </li>
+                        
                         
                         
                         
@@ -187,9 +193,11 @@
                         
                         
                         
+                        
                             <li >
                                 <a href="#v1.0.1">v1.0.1</a>
                             </li>
+                        
                         
                         
                         
@@ -200,6 +208,9 @@
                             </li>
                         
                         
+                        </ul>
+                        
+                        
                         
                     </ul>
                   </nav>
@@ -207,67 +218,32 @@
               <div class="content-right markdown-body" role="main">
 
                 
-                <h3 id="v3.0.0">v3.0.0</h3><ul>
-<li>添加配置皮肤功能</li>
-<li>代码高亮优化</li>
-<li>侧栏动画优化</li>
-<li>一些其他优化</li>
-</ul>
-<h3 id="v2.2.1">v2.2.1</h3><ul>
-<li>无侧栏时收起侧栏按钮</li>
-<li>修复部分板块无法滚动的bug</li>
-</ul>
-<h3 id="v2.2.0">v2.2.0</h3><ul>
-<li>添加移动端侧边目录</li>
-<li>添加foldsidenav侧边目录的展开/收起功能</li>
-<li>@foldnumber 配置代码折叠的行号</li>
-<li>添加index配置子page路径名</li>
-<li>特殊字符处理</li>
-<li>布局优化</li>
-</ul>
-<h3 id="v2.1.1">v2.1.1</h3><ul>
-<li>添加hasPageName开关 默认关闭</li>
-</ul>
-<h3 id="v2.1.0">v2.1.0</h3><ul>
-<li>添加可配置CSS、JS功能</li>
-<li>添加component支持多个iframe查看demo功能</li>
-</ul>
-<h3 id="v2.0.1">v2.0.1</h3><ul>
-<li>压缩js css代码</li>
-<li>Component如果是function 去掉@param是否必选</li>
-<li>添加common默认配置 title footer home homeUrl</li>
-<li>修复而example是一段html时，行内样式过多，导致显示格式不对</li>
-<li>修复删除版本号不能正确显示</li>
-</ul>
-<h3 id="v2.0.0">v2.0.0</h3><ul>
-<li>改版</li>
-<li>支持code格式化</li>
-<li>支持折叠代码块支持折叠参数</li>
-<li>@property 支持 example</li>
-<li>一些细节优化</li>
-</ul>
-<h3 id="v1.1.0">v1.1.0</h3><ul>
-<li>支持 注释中 示例代码 的格式</li>
-</ul>
-<h3 id="v1.0.4">v1.0.4</h3><ul>
-<li>支持 resources 配置，复制相应资源</li>
-</ul>
-<h3 id="v1.0.3">v1.0.3</h3><ul>
-<li>add @version 版本信息</li>
-<li>add 全面支持 @skip 忽略注释块</li>
-<li>fixed 侧边栏滚动样式问题</li>
-<li>fixed watch 时，更新 ydoc 配置不生效的问题</li>
-<li>如果用户构建项目全部文档，则先删除旧文件</li>
-</ul>
-<h3 id="v1.0.2">v1.0.2</h3><ul>
-<li>更新 package.json 配置</li>
-</ul>
-<h3 id="v1.0.1">v1.0.1</h3><ul>
-<li>修复分页 Markdown 情况下，目录配置的样式</li>
-</ul>
-<h3 id="v1.0.0">v1.0.0</h3><ul>
-<li>正式版</li>
-</ul>
+                <h3 class="subject" id="v3.0.0">v3.0.0 <a class="hashlink" href="#v3.0.0">#</a></h3><ul>
+<li>添加自定义主题、配置主题功能</li><li>添加staticsidenav配置侧边目录不滚动</li><li>为页面中的标题添加hashlink</li><li>JSComponent注释参数类型支持string</li><li>markdown支持task list</li><li>代码高亮优化</li><li>侧栏动画优化</li><li>一些其他优化</li></ul>
+<h3 class="subject" id="v2.2.1">v2.2.1 <a class="hashlink" href="#v2.2.1">#</a></h3><ul>
+<li>无侧栏时收起侧栏按钮</li><li>修复部分板块无法滚动的bug</li></ul>
+<h3 class="subject" id="v2.2.0">v2.2.0 <a class="hashlink" href="#v2.2.0">#</a></h3><ul>
+<li>添加移动端侧边目录</li><li>添加foldsidenav侧边目录的展开/收起功能</li><li>@foldnumber 配置代码折叠的行号</li><li>添加index配置子page路径名</li><li>特殊字符处理</li><li>布局优化</li></ul>
+<h3 class="subject" id="v2.1.1">v2.1.1 <a class="hashlink" href="#v2.1.1">#</a></h3><ul>
+<li>添加hasPageName开关 默认关闭</li></ul>
+<h3 class="subject" id="v2.1.0">v2.1.0 <a class="hashlink" href="#v2.1.0">#</a></h3><ul>
+<li>添加可配置CSS、JS功能</li><li>添加component支持多个iframe查看demo功能</li></ul>
+<h3 class="subject" id="v2.0.1">v2.0.1 <a class="hashlink" href="#v2.0.1">#</a></h3><ul>
+<li>压缩js css代码</li><li>Component如果是function 去掉@param是否必选</li><li>添加common默认配置 title footer home homeUrl</li><li>修复而example是一段html时，行内样式过多，导致显示格式不对</li><li>修复删除版本号不能正确显示</li></ul>
+<h3 class="subject" id="v2.0.0">v2.0.0 <a class="hashlink" href="#v2.0.0">#</a></h3><ul>
+<li>改版</li><li>支持code格式化</li><li>支持折叠代码块支持折叠参数</li><li>@property 支持 example</li><li>一些细节优化</li></ul>
+<h3 class="subject" id="v1.1.0">v1.1.0 <a class="hashlink" href="#v1.1.0">#</a></h3><ul>
+<li>支持 注释中 示例代码 的格式</li></ul>
+<h3 class="subject" id="v1.0.4">v1.0.4 <a class="hashlink" href="#v1.0.4">#</a></h3><ul>
+<li>支持 resources 配置，复制相应资源</li></ul>
+<h3 class="subject" id="v1.0.3">v1.0.3 <a class="hashlink" href="#v1.0.3">#</a></h3><ul>
+<li>add @version 版本信息</li><li>add 全面支持 @skip 忽略注释块</li><li>fixed 侧边栏滚动样式问题</li><li>fixed watch 时，更新 ydoc 配置不生效的问题</li><li>如果用户构建项目全部文档，则先删除旧文件</li></ul>
+<h3 class="subject" id="v1.0.2">v1.0.2 <a class="hashlink" href="#v1.0.2">#</a></h3><ul>
+<li>更新 package.json 配置</li></ul>
+<h3 class="subject" id="v1.0.1">v1.0.1 <a class="hashlink" href="#v1.0.1">#</a></h3><ul>
+<li>修复分页 Markdown 情况下，目录配置的样式</li></ul>
+<h3 class="subject" id="v1.0.0">v1.0.0 <a class="hashlink" href="#v1.0.0">#</a></h3><ul>
+<li>正式版</li></ul>
 
               </div>
           </div>
@@ -286,6 +262,7 @@
 
     
        <div class="open-panel"></div>
+       <div class="mask"></div>
     
     
 

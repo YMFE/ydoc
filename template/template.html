@@ -78,7 +78,7 @@
           <div class="ydoc-banner">
               <div class="ydoc-banner-area">
                   <h1>{{banner.title}}</h1>
-                  <p>{{banner.description}}</p>
+                  <p class="desc">{{banner.description}}</p>
               </div>
           </div>
       {{/if}}
@@ -87,7 +87,7 @@
         {{if article.type == 'html'}}
           {{if article.sidebars}}
           <div class="ydoc-container-content">
-              <div class="content-left" role="complementary">
+              <div class="content-left {{if staticsidenav}}staticsidenav{{/if}}" role="complementary">
                   <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                     <ul class="nav docs-sidenav">
                         {{each article.sidebars as m index}}
@@ -98,7 +98,10 @@
                             <li {{if article.name == m.name}} class="active" {{/if}}>
                                 <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
                             </li>
-                        {{if index < article.sidebars.length - 1 && !article.sidebars[index + 1].sub}}
+                        {{if index < article.sidebars.length-1 && !article.sidebars[index + 1].sub}}
+                        </ul>
+                        {{/if}}
+                        {{if index===article.sidebars.length-1}}
                         </ul>
                         {{/if}}
                         {{else}}
@@ -132,7 +135,7 @@
         {{else if article.type == 'block'}}
         <div class="ydoc-container-content">
             {{if article.sidebars}}
-            <div class="content-left" role="complementary">
+            <div class="content-left {{if staticsidenav}}staticsidenav{{/if}}" role="complementary">
               <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                 <ul class="nav docs-sidenav">
                   {{each article.sidebars as m index}}
@@ -165,9 +168,9 @@
               <div class="docs-section">
                   {{if c.name}}
                   {{if c.sub}}
-                  <h3 id="{{c.tag || c.name}}" class="page-header">{{c.name}}</h3>
+                  <h3 id="{{c.tag || c.name}}" class="page-header subject">{{c.name}}<a class="hashlink" href="#{{c.name}}">#</a></h3>
                   {{else}}
-                  <h2 id="{{c.tag || c.name}}" class="page-header">{{c.name}}</h2>
+                  <h2 id="{{c.tag || c.name}}" class="page-header subject">{{c.name}}<a class="hashlink" href="#{{c.name}}">#</a></h2>
                   {{/if}}
                   {{/if}}
                   {{if c.content}}
@@ -194,9 +197,11 @@
 
     {{if article.type == 'html' && article.sidebars}}
        <div class="open-panel"></div>
+       <div class="mask"></div>
     {{/if}}
     {{if article.type == 'block'}}
-    <div class="open-panel"></div>
+        <div class="open-panel"></div>
+        <div class="mask"></div>
     {{/if}}
 
     <script src="source/main.js"></script>

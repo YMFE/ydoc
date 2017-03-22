@@ -10,10 +10,6 @@
   <title>YDoc 注释规则</title>
   <link rel="stylesheet" href="source/main.css"/>
   
-    
-        <link rel="stylesheet" href="theme/ocean.css"/>
-    
-  
   
 </head>
 <body>
@@ -84,7 +80,7 @@
           <div class="ydoc-banner">
               <div class="ydoc-banner-area">
                   <h1>YDoc</h1>
-                  <p>注释规则</p>
+                  <p class="desc">注释规则</p>
               </div>
           </div>
       
@@ -93,7 +89,7 @@
         
         <div class="ydoc-container-content">
             
-            <div class="content-left" role="complementary">
+            <div class="content-left staticsidenav" role="complementary">
               <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                 <ul class="nav docs-sidenav">
                   
@@ -141,7 +137,7 @@
               <div class="docs-section">
                   
                   
-                  <h2 id="JS-Library" class="page-header">JS-Library</h2>
+                  <h2 id="JS-Library" class="page-header subject">JS-Library<a class="hashlink" href="#JS-Library">#</a></h2>
                   
                   
                   
@@ -189,7 +185,7 @@
               <div class="docs-section">
                   
                   
-                  <h2 id="JS-Component" class="page-header">JS-Component</h2>
+                  <h2 id="JS-Component" class="page-header subject">JS-Component<a class="hashlink" href="#JS-Component">#</a></h2>
                   
                   
                   
@@ -220,7 +216,7 @@
  *
  * 滑块刻度标签
  * @property scaleFormat
- * @type function
+ * @type function/string
  * @param {Number} scale 单个标签对应的value值
  * @param {Number} index 当前标签对应的下标
  * @description 类型提示：支持数组传值；也支持用函数格式化字符串：函数有两个参数(scale, index)；
@@ -267,7 +263,7 @@
               <div class="docs-section">
                   
                   
-                  <h2 id="CSS-Library" class="page-header">CSS-Library</h2>
+                  <h2 id="CSS-Library" class="page-header subject">CSS-Library<a class="hashlink" href="#CSS-Library">#</a></h2>
                   
                   
                   
@@ -288,15 +284,8 @@
  * @skip
  */</span>
 </code></pre>
-<h4 id="标签说明">标签说明</h4><ul>
-<li><code>module</code>: 模块名（分类）</li>
-<li><code>method</code>: 方法名</li>
-<li><code>version</code>: 版本</li>
-<li><code>demo</code>: demo 地址</li>
-<li><code>example</code>: example 代码，文件路径[起始位置-结束位置] 或者直接写 源代码</li>
-<li><code>param</code>: 参数，格式为：{类型} 名称 描述</li>
-<li><code>skip</code>: 跳过此注释块</li>
-</ul>
+<h4 class="subject" id="标签说明">标签说明 <a class="hashlink" href="#标签说明">#</a></h4><ul>
+<li><code>module</code>: 模块名（分类）</li><li><code>method</code>: 方法名</li><li><code>version</code>: 版本</li><li><code>demo</code>: demo 地址</li><li><code>example</code>: example 代码，文件路径[起始位置-结束位置] 或者直接写 源代码</li><li><code>param</code>: 参数，格式为：{类型} 名称 描述</li><li><code>skip</code>: 跳过此注释块</li></ul>
 
                   </div>
                   
@@ -319,7 +308,8 @@
 
     
     
-    <div class="open-panel"></div>
+        <div class="open-panel"></div>
+        <div class="mask"></div>
     
 
     <script src="source/main.js"></script>

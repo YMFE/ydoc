@@ -1,10 +1,10 @@
 ## 配置文件
 
-配置文件可以以 `ydoc.config` 或者 `ydocfile.js` 的形式出现。
+配置文件可以以 `ydoc.json` 、 `ydoc.config` 或者 `ydocfile.js` 的形式出现。
 
 ### 静态文件形式
 
-`ydoc.config` 的内容是 `JSON`，支持注释。
+`ydoc.json` 与 `ydoc.config` 的内容是 `JSON`，支持注释。
 
 示例：
 
@@ -74,6 +74,7 @@ module.exports = function(callback) {
         "foldcode": true, // 是否折叠示例code
         "foldparam": true, // 是否折叠param
         "foldsidenav": true, // 是否折叠侧边目录
+        "staticsidenav": true, // 侧边目录不折叠且不跟随页面滚动
         "insertCSS": ["./style/a.css","./style/b.css"],  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
         "insertJS": ["./scripts/a.js"],  // 配置js路径
         "hasPageName": true //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符)

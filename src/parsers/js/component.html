@@ -1,5 +1,5 @@
 <div class="docs-section">
-<h2>
+<h2 id="{{component}}">
     {{component}}
     <small>{{_desc}}</small>
     {{if version}}<span class="yo-badge yo-badge-danger">{{version}}</span>{{/if}}
@@ -33,12 +33,13 @@
 <div class="con-head">属性</div>
 {{each props as prop}}
 <blockquote class="api">
-    <h3>
+    <h3 id="{{prop.property}}" class="subject">
     <strong>{{prop.property}}</strong>
      <span class="prop-type">{ {{prop.type}} }</span>
     {{if prop.version}}
     <span class="yo-badge yo-badge-danger">{{prop.version}}</span>
     {{/if}}
+    <a class="hashlink" href="#{{prop.property}}">#</a>
     </h3>
 </blockquote>
 <div class="api-content">
@@ -52,7 +53,7 @@
     <small class="text-muted">默认值:</small> {{prop.default}}
 </p>
 {{/if}}
-{{if prop.type.toLowerCase() == 'function' && prop.params.length}}
+{{if /function|string/i.test(prop.type) && prop.params.length}}
 <p class="api-content">
     <small class="text-muted">方法参数:</small>
 </p>
@@ -101,11 +102,12 @@
 <div class="con-head">方法</div>
 {{each methods as method}}
 <blockquote class="api">
-    <h3>
+    <h3 id="{{method.method}}" class="subject">
     <strong>{{method.method}}</strong>
     {{if method.version}}
     <span class="yo-badge yo-badge-danger">{{method.version}}</span>
     {{/if}}
+    <a class="hashlink" href="#{{method.method}}">#</a>
     </h3>
 </blockquote>
 <div class="api-content">{{method.description | markdown}}</div>

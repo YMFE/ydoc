@@ -178,6 +178,12 @@ sup, sub {
       float: right; }
   .ydoc .ydocIcon {
     font-family: ydocfont; }
+  .ydoc .task-list {
+    font-family: ydocfont;
+    list-style: none; }
+    .ydoc .task-list .checkbox {
+      vertical-align: baseline;
+      user-select: none; }
   .ydoc .navbar-toggle {
     float: right;
     font-size: .22rem;
@@ -190,6 +196,8 @@ sup, sub {
   .ydoc .ydoc-banner-bg {
     background: url(./images/grid-18px-masked.png) repeat-x 0 top;
     padding-bottom: 121px; }
+    .ydoc .ydoc-banner-bg .desc {
+      font-family: "微软雅黑"; }
   .ydoc-banner {
     color: #fff;
     font-size: .18rem;
@@ -250,6 +258,10 @@ sup, sub {
         padding: 15px;
         float: right;
         min-height: 500px; }
+      .ydoc-container-content .hashlink {
+        display: none; }
+      .ydoc-container-content .subject:hover .hashlink {
+        display: inline; }
       .ydoc-container-content .right {
         float: right; }
       .ydoc-container-content .content-left {
@@ -353,15 +365,27 @@ sup, sub {
     width: 768px; } }
 
 @media screen and (max-width: 767px) {
+  .mask {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: all .4s; }
+  .show {
+    background-color: rgba(0, 0, 0, 0.35); }
   .ydoc-container-content .content-right {
-    width: 100%; }
+    width: 100% !important; }
   .ydoc-container-content .content-left {
     display: block;
     position: fixed;
     right: -75%;
     top: 0;
     height: 100%;
-    width: 75%;
+    width: 75% !important;
     background-color: #222;
     z-index: 1;
     transition: all .4s;
@@ -430,6 +454,15 @@ sup, sub {
 
 .anchorjs-link {
   display: none; }
+
+/* staticsidenav */
+@media screen and (min-width: 768px) {
+  .ydoc-container-content .staticsidenav .docs-sidebar.affix {
+    position: static; }
+  .ydoc-container-content .staticsidenav .docs-sidebar .docs-sidenav {
+    overflow: inherit; }
+  .staticsidenav .docs-sidebar {
+    overflow: initial; } }
 
 /*     markdown begin       */
 .markdown-body code {
