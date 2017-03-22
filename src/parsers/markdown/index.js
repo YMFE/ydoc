@@ -25,6 +25,16 @@ function parser(contents, options) {
         }
 
     };
+    renderer.listitem = function(text) {
+        if (/^\s*\[[x ]\]\s*/.test(text)) {
+            text = text
+            .replace(/^\s*\[ \]\s*/, '<i class="empty checkbox">&#xf35f;</i> ')
+            .replace(/^\s*\[x\]\s*/, '<i class="checked checkbox">&#xf35e;</i> ');
+            return '<li class="task-list">' + text + '</li>';
+        } else {
+            return '<li>' + text + '</li>';
+        }
+    };
     renderer.link = function(href, title, text) {
         if (this.options.sanitize) {
             try {

@@ -178,6 +178,12 @@ sup, sub {
       float: right; }
   .ydoc .ydocIcon {
     font-family: ydocfont; }
+  .ydoc .task-list {
+    font-family: ydocfont;
+    list-style: none; }
+    .ydoc .task-list .checkbox {
+      vertical-align: baseline;
+      user-select: none; }
   .ydoc .navbar-toggle {
     float: right;
     font-size: .22rem;

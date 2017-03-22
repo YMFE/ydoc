@@ -1,10 +1,10 @@
 ## 配置文件
 
-配置文件可以以 `ydoc.config` 或者 `ydocfile.js` 的形式出现。
+配置文件可以以 `ydoc.json` 、 `ydoc.config` 或者 `ydocfile.js` 的形式出现。
 
 ### 静态文件形式
 
-`ydoc.config` 的内容是 `JSON`，支持注释。
+`ydoc.json` 与 `ydoc.config` 的内容是 `JSON`，支持注释。
 
 示例：
 

@@ -12,7 +12,7 @@
 
 ```json
 {
-    "theme": "ocean",
+    "theme": "library",
     ...
 }
 ```
@@ -23,7 +23,7 @@
 
 简洁高效，匠心独运。
 
-降低冗余的设计元素，直达目标，极致简约。
+去除冗余的设计元素，直达目标，极致简约。
 
 ![](http://ojk406wln.bkt.clouddn.com/ydoc-default.png)
 

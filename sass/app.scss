@@ -144,6 +144,14 @@ sup,sub{vertical-align:baseline}
  .ydocIcon{
      font-family: ydocfont;
  }
+ .task-list{
+     font-family: ydocfont;
+     list-style: none;
+     .checkbox{
+         vertical-align: baseline;
+         user-select: none;
+     }
+ }
  .navbar-toggle{
      float: right;
      font-size: .22rem;

@@ -3,6 +3,7 @@
 * 添加staticsidenav配置侧边目录不滚动
 * 为页面中的标题添加hashlink
 * JSComponent注释参数类型支持string
+* markdown支持task list
 * 代码高亮优化
 * 侧栏动画优化
 * 一些其他优化
