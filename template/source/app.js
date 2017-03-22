@@ -141,7 +141,6 @@ $(document).ready(function() {
     var winHeight = $(window).height() - 44,
         sidebar = $('.docs-sidebar');
     var docSideNav = $('.docs-sidenav');
-    var  ydocContainerCon= $('.ydoc-container-content');
     if(winWidth>767){
         docSideNav.width($contentLeftWidth);
     }
@@ -200,7 +199,6 @@ $(document).ready(function() {
         var winHeight = $(window).height() - 44,
             sidebar = $('.docs-sidebar');
         var docSideNav = $('.docs-sidenav');
-        var ydocContainerCon= $('.ydoc-container-content');
         if(winWidth>767){
             docSideNav.width($contentLeftWidth);
         }
