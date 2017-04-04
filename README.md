@@ -4,6 +4,10 @@
 
 ![](https://nodei.co/npm/ydoc.png?downloads=true&downloadRank=true&stars=true)
 
+ydoc是基于项目代码注释与markdown快速构建文档的工具，目前支持诸如：React Native, JavaScript, CSS, SCSS 等类别。
+
+既提高代码可读性，降低维护成本，又节约了开发文档的时间，何乐而不为！
+
 ## 安装
 
 ```bash
@@ -12,16 +16,17 @@ npm install ydoc [-g]
 
 ## 使用方式
 
-### 使用命令的方式
+### 使用命令快速起步
 
-```bash
-cd /path/to/project/  # 进入项目目录
-ydoc init  # 初始化配置文件 编写配置文件ydoc.config或者ydocfile.js
-ydoc build # 构建文档
-```
-详细请查看[命令使用方式说明](./usage.md), 配置及配置文件请查看 [配置说明](./config.md);
+- ```cd /path/to/project/ ```  进入项目目录
+- ```ydoc init ```  初始化ydoc配置文件，编写配置文件ydoc.config或者ydocfile.js (配置及配置文件请查看 [配置说明](./config.md))
+- ```cd ydoc build ```  构建文档
 
-### 使用脚本的方式
+详细请查看[命令使用方式说明](./usage.md)。
+
+### 使用其他方式
+
+#### 使用脚本的方式
 
 ```javascript
 var ydoc = require("ydoc");
@@ -29,7 +34,7 @@ var ydoc = require("ydoc");
 ydoc.build('/path/to/project', options);
 ```
 
-### 使用Gulp的方式
+#### 使用Gulp的方式
 
 ```javascript
 var ydoc = require("ydoc");
@@ -42,7 +47,7 @@ gulp.task('ydoc', function() {
 });
 ```
 
-### 使用Grunt的方式
+#### 使用Grunt的方式
 
 ```javascript
 grunt.initConfig({

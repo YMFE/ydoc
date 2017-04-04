@@ -53,7 +53,33 @@ module.exports = function(callback) {
 
 ## 配置内容
 
-### 整体配置说明
+### 简单配置
+
+示例(使用README.md文件生成一个html页面):
+
+```json
+{
+    "name": "index",
+    "common": { // 通用默认配置，包括主页配置等
+        "title": "index", //page title
+        "footer": "&copy; 2016 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
+        "home": "YMFE", // logo
+        "homeUrl": "http://ued.qunar.com/ymfe/" // logourl
+    },
+    "pages": [{
+        "name": "index", // Page Name 会根据他生成 html 文件，例: index.html
+        "title": "首页", // Page Title
+        "banner": { // Banner 配置
+            "title": "index",
+            "description": "首页说明文字"
+        },
+        "content": "./README.md" // 内容(这里以markdown文件举例)
+    }]
+}
+
+```
+
+### 完整配置说明
 
 示例:
 
@@ -91,7 +117,7 @@ module.exports = function(callback) {
         "homeUrl": "http://ued.qunar.com/ymfe/" // logourl
     },
     "pages": [{
-        "name": "index", // Page Name 会根据他生成 html 文件，例  index.html
+        "name": "index", // Page Name 会根据他生成 html 文件，例: index.html
         "title": "开始", // Page Title
         "banner": { // Banner 配置
             "title": "YDoc",
