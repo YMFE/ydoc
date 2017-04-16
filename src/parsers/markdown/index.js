@@ -1,5 +1,15 @@
 var marked = require('marked'),
-    sysPath = require('path');
+    sysPath = require('path'),
+    arr = [],
+    sum = 1;
+function addNumberWhileSameName(id) {
+    if(arr.indexOf(id) !== -1){
+        id += sum;
+        sum++;
+    }
+    arr.push(id);
+    return id;
+}
 
 function parser(contents, options) {
     var renderer = new marked.Renderer(),
@@ -7,35 +17,43 @@ function parser(contents, options) {
         subMenuLevel = options.subMenuLevel || (options.menuLevel && (options.menuLevel + 1)) || -1,
         menus = [];
     renderer.heading = function(text, level) {
+        var realText = text;
+        var text = addNumberWhileSameName(text);
         if (level == menuLevel) {
             menus.push({
-                name: text
+                name: realText,
+                href: text
             });
         }
         if (level == subMenuLevel) {
             menus.push({
-                name: text,
+                name: realText,
+                href: text,
                 sub: true
             });
         }
         if(text.match(/<.*>/) && (text.match(/<.*>/).length > 0)){
-            return '<h' + level + '>' + text + '</h' + level + '>';
+            return '<h' + level + '>' + realText + '</h' + level + '>';
         }else{
-            return '<h' + level + ' class="subject" id="' + text + '">' + text + ' <a class="hashlink" href="#' + text + '">#</a></h' + level + '>';
+            return '<h' + level + ' class="subject" id="' + text + '">' + realText + ' <a class="hashlink" href="#' + text + '">#</a></h' + level + '>';
         }
 
     };
     renderer.listitem = function(text) {
+        var realText = text;
+        var text = addNumberWhileSameName(text);
         if (/^\s*\[[x ]\]\s*/.test(text)) {
             text = text
             .replace(/^\s*\[ \]\s*/, '<i class="empty checkbox">&#xf35f;</i> ')
             .replace(/^\s*\[x\]\s*/, '<i class="checked checkbox">&#xf35e;</i> ');
-            return '<li class="task-list">' + text + '</li>';
+            return '<li class="task-list">' + realText + '</li>';
         } else {
-            return '<li>' + text + '</li>';
+            return '<li>' + realText + '</li>';
         }
     };
     renderer.link = function(href, title, text) {
+        var realText = text;
+        var text = addNumberWhileSameName(text);
         if (this.options.sanitize) {
             try {
                 var prot = decodeURIComponent(unescape(href))
@@ -57,7 +75,7 @@ function parser(contents, options) {
         if (title) {
             out += ' title="' + title + '"';
         }
-        out += '>' + text + '</a>';
+        out += '>' + realText + '</a>';
         return out;
     }
     return {
