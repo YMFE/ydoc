@@ -49,10 +49,15 @@ ydoc.actions = actions;
 ydoc.init = actions.init;
 
 ydoc.build = function(cwd, conf, opt) {
+    // 多版本时生成文件到对应version的路径
+    var version = '';
+    if(conf.options.mutiversion){
+        version = conf.version;
+    }
     opt = opt || {};
     var template = opt.template || conf.template,
         rDest = opt.dest || conf.dest || '_docs',
-        destPath = sysPath.join(cwd, rDest),
+        destPath = sysPath.join(cwd, rDest, version),
         tplPath = template ? sysPath.join(cwd, template) : templatePath,
         buildPages = opt.page;
 

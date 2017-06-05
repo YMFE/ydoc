@@ -21,6 +21,7 @@ var parseAliases = function(lang) {
     return lang;
 }
 
+// 设置markdown选项
 function setMarkedOptions(grammar) {
     grammar = parseAliases(grammar);
 
@@ -72,6 +73,7 @@ artTemplate.helper('txt', function(html) {
 });
 
 function doParser(cwd, filePath, ignore, compile, options, conf, codeRender) {
+
     var extName = sysPath.extname(filePath),
         parser;
     if (compile) {
@@ -133,11 +135,14 @@ module.exports = function(cwd, conf) {
     conf.cwd = cwd;
     conf.options = conf.options || {};
 
+    // 设置默认高亮语法
     setMarkedOptions(conf.defaultGrammar);
 
     var render = artTemplate.compile(conf.templateContent);
     var codeRender = artTemplate.compile(conf.codeTemplateContent);
     var resources = conf.resources || {};
+
+    // 主题
     if (conf.theme) {
         var theme = conf.theme,
             themeConfPath = sysPath.join(cwd, /^\w/.test(theme) ? 'node_modules/ydoc-theme-' + theme : theme, 'theme.config');
@@ -147,10 +152,13 @@ module.exports = function(cwd, conf) {
             console.log(e);
         }
     }
+
+    // 页面
     if (conf.pages) {
         conf.pages.forEach(function(page) {
             var data = {},
                 common = conf.common || {};
+            // 此 Page 用的编译器的配置
             if (conf.options) {
                 conf.options.foldcode && (data.foldcode = conf.options.foldcode);
                 conf.options.foldparam && (data.foldparam = conf.options.foldparam);
@@ -330,6 +338,7 @@ module.exports = function(cwd, conf) {
         });
     }
 
+    // 将配置文件夹拷贝至生成文档的source文件夹下
     for (var key in resources) {
         try {
             childProcess.execSync('cp -r ' + sysPath.join(cwd, resources[key]) + ' ' + sysPath.join(conf.dest, key));

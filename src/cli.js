@@ -33,9 +33,8 @@ var cli = module.exports = {
     run: function(cmd) {
         var cwd = process.cwd(),
             argv = optimist.argv;
-
         if (ydoc[cmd]) {
-            if (argv.h || argv.help) {
+            if (argv.h || argv.help) { // 获取帮助
                 helpTitle();
                 console.info('');
                 console.info('命令：', cmd);
@@ -45,10 +44,12 @@ var cli = module.exports = {
                     ydoc.actions[cmd].setOptions(optimist);
                 }
                 optimist.showHelp();
-            } else if (cmd == 'build') {
+            } else if (cmd == 'build') { // 构建文档
+                // 加载自定义配置
                 loadConfig(cwd, function(conf) {
                     if (conf) {
                         var afterconf = Object.assign(commonConfig,conf);
+                        // 开始构建
                         ydoc.build(cwd, afterconf, {
                             watch: argv.w || argv.watch,
                             template: argv.t || argv.template,
