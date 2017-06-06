@@ -4,6 +4,7 @@ var sysPath = require('path');
 var colors = require('colors');
 var watch = require('watch');
 var through = require('through2');
+var globby = require('globby');
 
 var actions = require('./actions');
 var loadConfig = require('./utils/loadConfig.js');
@@ -50,9 +51,13 @@ ydoc.init = actions.init;
 
 ydoc.build = function(cwd, conf, opt) {
     // 多版本时生成文件到对应version的路径
-    var version = '';
+    var version = '',
+        versionTip = false;
     if(conf.options.mutiversion){
         version = conf.version;
+        if(typeof(version) === 'undefined'){
+            console.log('Waring: 使用版本切换功能请配置 version 字段!'.red);
+        }
     }
     opt = opt || {};
     var template = opt.template || conf.template,
@@ -61,6 +66,19 @@ ydoc.build = function(cwd, conf, opt) {
         tplPath = template ? sysPath.join(cwd, template) : templatePath,
         buildPages = opt.page;
 
+    // 多版本时，若新增版本则提示更新其他版本的文档
+    if(conf.options.mutiversion){
+        var dirArr = globby.sync([rDest+'/*']);
+        var versionArr = dirArr.map((item, index) => {
+            var length = item.split('/').length;
+            return item.split('/')[length - 1];
+        });
+        if(versionArr.indexOf(version) === -1){
+            versionTip = true;
+        }else {
+            versionTip = false;
+        }
+    }
     if (!buildPages || buildPages == true) {
         buildPages = [];
         try {
@@ -72,12 +90,18 @@ ydoc.build = function(cwd, conf, opt) {
         });
     }
 
+    conf.rDest = rDest;
+    conf.version = version;
     conf.buildPages = buildPages;
 
     function build(content) {
         console.log('-> Building .......'.gray);
         actions.build(cwd, conf, content);
         console.log('√ Complete!'.green);
+        // 新增版本时提示更新其他版本的文档
+        if(versionTip){
+            console.log('Warning: ydoc检测到您新增了文档版本，请及时更新其他版本文档!'.red);
+        }
         console.log('');
     }
 

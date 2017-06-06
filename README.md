@@ -6,8 +6,6 @@
 
 ydoc是基于项目代码注释与markdown快速构建文档的工具，目前支持诸如：React Native, JavaScript, CSS, SCSS 等类别。
 
-既提高代码可读性，降低维护成本，又节约了开发文档的时间，何乐而不为！
-
 ## 安装
 
 ```bash

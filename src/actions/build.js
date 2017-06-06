@@ -8,6 +8,7 @@ var marked = require('marked');
 var glob = require('glob');
 var JSON5 = require('json5');
 var Prism = require('prismjs');
+var globby = require('globby');
 
 var parsers = require('../parsers');
 var reJS = /^javascript|js$/i;
@@ -190,15 +191,31 @@ module.exports = function(cwd, conf) {
             data.footer = common.footer;
             data.home = common.home;
             data.homeUrl = common.homeUrl;
+
+            // 多版本切换
+            if(conf.options.mutiversion){
+                var dirArr = globby.sync([conf.rDest+'/*']);
+                var versionArr = dirArr.map((item, index) => {
+                    var length = item.split('/').length;
+                    return item.split('/')[length - 1];
+                });
+                data.version = conf.version;
+                data.versionArr = versionArr;
+                data.pageName = page.name;
+            }
+
+            // 主题配置
             if (conf.theme) {
                 var themeConfJS = themeConf.js;
                 var themeConfCSS = themeConf.css;
+                // 主题 JS 文件
                 if (themeConfJS && themeConfJS.length) {
                     for (var i = 0; i < themeConfJS.length; i++) {
                         themeConfJS[i] = sysPath.join(themeConfJS[i]);
                         data.themeJS = themeConfJS;
                     }
                 }
+                // 主题 CSS 文件
                 if (themeConfCSS && themeConfCSS.length) {
                     for (var i = 0; i < themeConfCSS.length; i++) {
                         themeConfCSS[i] = sysPath.join(themeConfCSS[i]);
@@ -206,6 +223,8 @@ module.exports = function(cwd, conf) {
                     data.themeCSS = themeConfCSS;
                 }
             }
+
+            // 导航配置
             if (common.navbars) {
                 data.navbars = common.navbars.map(function(item) {
                     return {

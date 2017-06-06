@@ -8,6 +8,8 @@ $(document).ready(function() {
     var $contentLeftWidth = $contentLeft.width() - 1;
     var $ydoc = $('.ydoc');
     var $mask = $('.mask');
+    var $versionSelector = $('.version-selector');
+    var $versionMask = $('.m-version-mask');
     var isPanelHide = true;
     var winWidth = $(window).width();
     var h2 = $('.content-right').find('h2');
@@ -115,6 +117,15 @@ $(document).ready(function() {
         if(!isPanelHide){
             $openPanel.trigger('click');
         }
+    });
+    $ydoc.click(function(e){
+        if($(e.target).data('target') !== 'version'){
+            $versionMask.hide();
+        }
+    })
+    $versionSelector.click(function(e){
+        $versionMask.show();
+        console.log('e');
     });
 
     $('.markdown-body pre').map(function(i,item){

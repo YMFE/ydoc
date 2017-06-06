@@ -86,6 +86,7 @@ module.exports = function(callback) {
 ```json
 {
     "name": "YDoc", // 标示 配置文件
+    "version": "3.0", // 使用版本切换功能时配置的版本号
     "dest": "path/to/destination", // 默认为  "_docs"
     "examplePath": "./examples", // 示例代码路径 默认 "./"
     "template": "path/to/templte", // 默认使用 YDoc 内置的模板
@@ -103,7 +104,8 @@ module.exports = function(callback) {
         "staticsidenav": true, // 侧边目录不折叠且不跟随页面滚动
         "insertCSS": ["./style/a.css","./style/b.css"],  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
         "insertJS": ["./scripts/a.js"],  // 配置js路径
-        "hasPageName": true //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符)
+        "hasPageName": true, //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符)
+        "mutiversion": true // 是否启用版本切换； 如启用需要配置version字段
     },
     "resources": { //将配置文件夹拷贝至生成文档的source文件夹下  
             "images": "./test-reactweb/docs/images/",   

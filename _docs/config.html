@@ -19,8 +19,10 @@
             
             <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
             
+            
             <button class="ydocIcon navbar-toggle">&#xf020;</button>
             <nav class="ydoc-nav">
+
               <ul class="navbar-left">
                 
                     
@@ -225,6 +227,7 @@
 <h3 class="subject" id="完整配置说明">完整配置说明 <a class="hashlink" href="#完整配置说明">#</a></h3><p>示例:</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span> // 标示 配置文件
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"3.0"</span><span class="token punctuation">,</span> // 使用版本切换功能时配置的版本号
     <span class="token property">"dest"</span><span class="token operator">:</span> <span class="token string">"path/to/destination"</span><span class="token punctuation">,</span> // 默认为  <span class="token string">"_docs"</span>
     <span class="token property">"examplePath"</span><span class="token operator">:</span> <span class="token string">"./examples"</span><span class="token punctuation">,</span> // 示例代码路径 默认 <span class="token string">"./"</span>
     <span class="token property">"template"</span><span class="token operator">:</span> <span class="token string">"path/to/templte"</span><span class="token punctuation">,</span> // 默认使用 YDoc 内置的模板
@@ -242,7 +245,8 @@
         <span class="token property">"staticsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 侧边目录不折叠且不跟随页面滚动
         <span class="token property">"insertCSS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./style/a.css"</span><span class="token punctuation">,</span><span class="token string">"./style/b.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
         <span class="token property">"insertJS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./scripts/a.js"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置js路径
-        <span class="token property">"hasPageName"</span><span class="token operator">:</span> <span class="token boolean">true</span> //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符<span class="token punctuation">)</span>
+        <span class="token property">"hasPageName"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符<span class="token punctuation">)</span>
+        <span class="token property">"mutiversion"</span><span class="token operator">:</span> <span class="token boolean">true</span> // 是否启用版本切换； 如启用需要配置version字段
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token property">"resources"</span><span class="token operator">:</span> <span class="token punctuation">{</span> //将配置文件夹拷贝至生成文档的source文件夹下  
             <span class="token property">"images"</span><span class="token operator">:</span> <span class="token string">"./test-reactweb/docs/images/"</span><span class="token punctuation">,</span>   

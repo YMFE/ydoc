@@ -78,7 +78,6 @@ sup,sub{vertical-align:baseline}
    font-size: .14rem;
    text-align: right;
    padding: 0 .2rem;
-   overflow: hidden;
    &-area{
        margin:0 auto;
    }
@@ -150,6 +149,47 @@ sup,sub{vertical-align:baseline}
      .checkbox{
          vertical-align: baseline;
          user-select: none;
+     }
+ }
+ .ydoc-header:after{
+     content: '';
+     display: block;
+     clear: both;
+ }
+ .version-selector{
+     color: #ff503f;
+     .icon{
+         vertical-align: bottom;
+     }
+ }
+ .m-version{
+     float: left;
+     color: #fff;
+     cursor: pointer;
+     position: relative;
+ }
+ .m-version-mask{
+     display: none;
+     position: absolute;
+     left: 0;
+     top: .4rem;
+     z-index: 1;
+     background-color: #fff;
+     border: 1px solid rgba(0,0,0,.15);
+     border-radius: 4px;
+     box-shadow: 0 6px 12px rgba(0,0,0,.175);
+ }
+ .m-version-item{
+     line-height: normal;
+     text-align: center;
+ }
+ .link{
+     display: inline-block;
+     color: #000;
+     padding: .08rem .3rem;
+     width: 100%;
+     &:hover{
+         background-color: #eee;
      }
  }
  .navbar-toggle{
