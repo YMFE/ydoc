@@ -1,220 +1,179 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-  <meta name="format-detection" content="telephone=no,email=no" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-  <meta name="description" content="description of your site">
-  <meta name="author" content="author of the site">
-  <title>{{title}}</title>
-  <link rel="stylesheet" href="source/main.css"/>
-  {{if themeCSS && themeCSS.length}}
-    {{each themeCSS as item}}
-        <link rel="stylesheet" href="{{'theme/'+item}}"/>
-    {{/each}}
-  {{/if}}
-  {{if insertCSS && insertCSS.length}}
-    {{each insertCSS as item}}
-        <link rel="stylesheet" href="{{item}}"/>
-    {{/each}}
-  {{/if}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta name="description" content="description of your site">
+    <meta name="author" content="author of the site">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="source/main.css" /> {{if themeCSS && themeCSS.length}} {{each themeCSS as item}}
+    <link rel="stylesheet" href="{{'theme/'+item}}" /> {{/each}} {{/if}} {{if insertCSS && insertCSS.length}} {{each insertCSS as item}}
+    <link rel="stylesheet" href="{{item}}" /> {{/each}} {{/if}}
 </head>
 <body{{if hasPageName && pagename}} class={{pagename}} {{/if}}>
     <div class="ydoc">
-      <header class="ydoc-header">
-        <div class="ydoc-header-area">
-            {{if home}}
-            <a href="{{homeUrl}}" class="navbar-brand">{{home}}</a>
-            {{/if}}
-            {{if versionArr && versionArr.length}}
-            <div class="m-version">
-                <p class="version-selector" data-target="version">{{version}}<span data-target="version" class="ydocIcon icon">&#xf3ff;</span></p>
-                <ul class="m-version-mask">
-                    {{each versionArr as item}}
+        <header class="ydoc-header">
+            <div class="ydoc-header-area">
+                {{if home}}
+                <a href="{{homeUrl}}" class="navbar-brand">{{home}}</a> {{/if}} {{if versionArr && versionArr.length}}
+                <div class="m-version">
+                    <p class="version-selector" data-target="version">{{version}}<span data-target="version" class="ydocIcon icon">&#xf3ff;</span></p>
+                    <ul class="m-version-mask">
+                        {{each versionArr as item}}
                         <li class="m-version-item">
-                            <a class="link" href={{'../' + item + '/' + pageName + '.html'}}>{{item}}</a>
+                            <a class="link" href={{ '../' + item + '/' + pageName + '.html'}}>{{item}}</a>
                         </li>
-                    {{/each}}
-                </ul>
-            </div>
-            {{/if}}
-            <button class="ydocIcon navbar-toggle">&#xf020;</button>
-            <nav class="ydoc-nav">
-
-              <ul class="{{if navbars && navbars.length}}navbar-right{{else}}navbar-left{{/if}}">
-                {{if navbars && navbars.length}}
-                {{each navbars as navbar}}
-                <li class="{{if navbar.active}}active{{/if}}">
-                    <a href="{{navbar.url}}" target="">{{navbar.name}}</a>
-                </li>
-                {{/each}}
-                {{else}}
-                    {{each tabs as tab}}
-                    <li class="{{if tab.active}}active{{/if}}">
-                        {{if tab.url}}
-                        <a href="{{tab.url}}" target="_blank">{{tab.title}}</a>
-                        {{else}}
-                        <a href="{{tab.name}}.html">{{tab.title}}</a>
-                        {{/if}}
-                    </li>
-                    {{/each}}
-                {{/if}}
-              </ul>
-            </nav>
-        </div>
-    </header>
-    {{if navbars && navbars.length}}
-    <header class="ydoc-header ydoc-second-header">
-        <div class="ydoc-header-area">
-            <nav class="ydoc-nav">
-                <ul>
-                    {{each tabs as tab}}
-                    <li class="{{if tab.active}}active{{/if}}">
-                        {{if tab.url}}
-                        <a href="{{tab.url}}" target="_blank">{{tab.title}}</a>
-                        {{else}}
-                        <a href="{{tab.name}}.html">{{tab.title}}</a>
-                        {{/if}}
-                    </li>
-                    {{/each}}
-                </ul>
-            </nav>
-        </div>
-    </header>
-    {{else}}
-    <!-- <header style="height:20px"></header> -->
-    {{/if}}
-      <!-- Docs page layout -->
-      {{if banner}}
-      <div class="ydoc-banner-bg">
-          <div class="ydoc-banner">
-              <div class="ydoc-banner-area">
-                  <h1>{{banner.title}}</h1>
-                  <p class="desc">{{banner.description}}</p>
-              </div>
-          </div>
-      {{/if}}
-
-      <div class="ydoc-container">
-        {{if article.type == 'html'}}
-          {{if article.sidebars}}
-          <div class="ydoc-container-content">
-              <div class="content-left {{if staticsidenav}}staticsidenav{{/if}}" role="complementary">
-                  <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
-                    <ul class="nav docs-sidenav">
-                        {{each article.sidebars as m index}}
-                        {{if m.sub}}
-                        {{if index > 0 && !article.sidebars[index - 1].sub}}
-                        <ul class="nav docs-sidenav-extend" {{if article.name == m.name}} style="display:block;" {{/if}} {{if article.parentName &&(article.parentName == m.pName)}}  style="display:block;" {{/if}}>
-                        {{/if}}
-                            <li {{if article.name == m.name}} class="active" {{/if}}>
-                                <a href="{{ m.tag || m.url || ('#' + m.href)}}">{{m.name}}</a>
-                            </li>
-                        {{if index < article.sidebars.length-1 && !article.sidebars[index + 1].sub}}
-                        </ul>
-                        {{/if}}
-                        {{if index===article.sidebars.length-1}}
-                        </ul>
-                        {{/if}}
-                        {{else}}
-                        <!-- <li {{if article.name == m.name}} class="active" {{/if}} {{if article.parentName == m.name}} class="active" {{/if}}> -->
-                        <li {{if article.name == m.name}} class="active" {{/if}}>
-                            {{if m.blank == true}}
-                            <a href="javascript:void(0);">{{m.name}}</a>
-                            {{else}}
-                            <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
-                            {{/if}}
-                        </li>
-                        {{/if}}
                         {{/each}}
                     </ul>
-                  </nav>
-              </div>
-              <div class="content-right markdown-body" role="main">
+                </div>
+                {{/if}}
+                <button class="ydocIcon navbar-toggle">&#xf020;</button>
+                <nav class="ydoc-nav">
 
-                {{if intro}}{{intro}}{{/if}}
-                {{if article.content}}{{article.content}}{{/if}}
-              </div>
-          </div>
-          {{else}}
-          <div class="ydoc-container-content" id="readme">
-              <article class="markdown-body">
-                  {{if intro}}{{intro}}{{/if}}
-                  {{if article.content}}{{article.content}}{{/if}}
-              </article>
-          </div>
-          {{/if}}
-        {{else if article.type == 'block'}}
-        <div class="ydoc-container-content">
-            {{if article.sidebars}}
-            <div class="content-left {{if staticsidenav}}staticsidenav{{/if}}" role="complementary">
-              <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
-                <ul class="nav docs-sidenav">
-                  {{each article.sidebars as m index}}
-                  {{if m.sub}}
-                  {{if index > 0 && !article.sidebars[index - 1].sub}}
-                  <ul class="nav docs-sidenav-extend">
-                  {{/if}}
-                      <li>
-                          <a href="{{ m.tag || m.url || ('#' + m.href)}}">{{m.name}}</a>
-                      </li>
-                  {{if index < article.sidebars.length - 1 && !article.sidebars[index + 1].sub}}
-                  </ul>
-                  {{/if}}
-                  {{else}}
-                  <li>
-                      <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
-                  </li>
-                  {{/if}}
-                  {{/each}}
-                </ul>
-              </nav>
+                    <ul class="{{if navbars && navbars.length}}navbar-right{{else}}navbar-left{{/if}}">
+                        {{if navbars && navbars.length}} {{each navbars as navbar}}
+                        <li class="{{if navbar.active}}active{{/if}}">
+                            <a href="{{navbar.url}}" target="">{{navbar.name}}</a>
+                        </li>
+                        {{/each}} {{else}} {{each tabs as tab}}
+                        <li class="{{if tab.active}}active{{/if}}">
+                            {{if tab.url}}
+                            <a href="{{tab.url}}" target="_blank">{{tab.title}}</a> {{else}}
+                            <a href="{{tab.name}}.html">{{tab.title}}</a> {{/if}}
+                        </li>
+                        {{/each}} {{/if}}
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        {{if navbars && navbars.length}}
+        <header class="ydoc-header ydoc-second-header">
+            <div class="ydoc-header-area">
+                <nav class="ydoc-nav">
+                    <ul>
+                        {{each tabs as tab}}
+                        <li class="{{if tab.active}}active{{/if}}">
+                            {{if tab.url}}
+                            <a href="{{tab.url}}" target="_blank">{{tab.title}}</a> {{else}}
+                            <a href="{{tab.name}}.html">{{tab.title}}</a> {{/if}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        {{else}}
+        <!-- <header style="height:20px"></header> -->
+        {{/if}}
+        <!-- Docs page layout -->
+        {{if banner}}
+        <div class="ydoc-banner-bg">
+            <div class="ydoc-banner">
+                <div class="ydoc-banner-area">
+                    <h1>{{banner.title}}</h1>
+                    <p class="desc">{{banner.description}}</p>
+                </div>
             </div>
             {{/if}}
-            <div class="content-right right markdown-body"  role="main">
-              {{if intro}}
-              <div>{{intro}}</div>
-              {{/if}}
-              {{each article.blocks as c index}}
-              {{if c.type == 'html'}}
-              <div class="docs-section">
-                  {{if c.name}}
-                  {{if c.sub}}
-                  <h3 id="{{c.tag || c.name}}" class="page-header subject">{{c.name}}<a class="hashlink" href="#{{c.name}}">#</a></h3>
-                  {{else}}
-                  <h2 id="{{c.tag || c.name}}" class="page-header subject">{{c.name}}<a class="hashlink" href="#{{c.name}}">#</a></h2>
-                  {{/if}}
-                  {{/if}}
-                  {{if c.content}}
-                  <div>
-                      {{c.content}}
-                  </div>
-                  {{/if}}
-              </div>
-              {{/if}}
-              {{/each}}
+
+            <div class="ydoc-container">
+                {{if article.type == 'html'}} {{if article.sidebars}}
+                <div class="ydoc-container-content">
+                    <div class="content-left {{if staticsidenav}}staticsidenav{{/if}}" role="complementary">
+                        <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                            <ul class="nav docs-sidenav">
+                                {{each article.sidebars as m index}} {{if m.sub}} {{if index > 0 && !article.sidebars[index - 1].sub}}
+                                <ul class="nav docs-sidenav-extend" {{if article.name==m .name}} style="display:block;" {{/if}} {{if article.parentName &&(article.parentName==m .pName)}} style="display:block;" {{/if}}>
+                                    {{/if}}
+                                    <li {{if article.name==m .name}} class="active" {{/if}}>
+                                        <a href="{{ m.tag || m.url || ('#' + m.href)}}">{{m.name}}</a>
+                                    </li>
+                                    {{if index
+                                    < article.sidebars.length-1 && !article.sidebars[index + 1].sub}} </ul>
+                                        {{/if}} {{if index===article.sidebars.length-1}}
+                                </ul>
+                                {{/if}} {{else}}
+                                <!-- <li {{if article.name == m.name}} class="active" {{/if}} {{if article.parentName == m.name}} class="active" {{/if}}> -->
+                                <li {{if article.name==m .name}} class="active" {{/if}}>
+                                    {{if m.blank == true}}
+                                    <a href="javascript:void(0);">{{m.name}}</a> {{else}}
+                                    <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a> {{/if}}
+                                </li>
+                                {{/if}} {{/each}}
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="content-right markdown-body" role="main">
+
+                        {{if intro}}{{intro}}{{/if}} {{if article.content}}{{article.content}}{{/if}}
+                    </div>
+                </div>
+                {{else}}
+                <div class="ydoc-container-content" id="readme">
+                    <article class="markdown-body">
+                        {{if intro}}{{intro}}{{/if}} {{if article.content}}{{article.content}}{{/if}}
+                    </article>
+                </div>
+                {{/if}} {{else if article.type == 'block'}}
+                <div class="ydoc-container-content">
+                    {{if article.sidebars}}
+                    <div class="content-left {{if staticsidenav}}staticsidenav{{/if}}" role="complementary">
+                        <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                            <ul class="nav docs-sidenav">
+                                {{each article.sidebars as m index}} {{if m.sub}} {{if index > 0 && !article.sidebars[index - 1].sub}}
+                                <ul class="nav docs-sidenav-extend">
+                                    {{/if}}
+                                    <li>
+                                        <a href="{{ m.tag || m.url || ('#' + m.href)}}">{{m.name}}</a>
+                                    </li>
+                                    {{if index
+                                    < article.sidebars.length - 1 && !article.sidebars[index + 1].sub}} </ul>
+                                        {{/if}} {{else}}
+                                        <li>
+                                            <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
+                                        </li>
+                                        {{/if}} {{/each}}
+                                </ul>
+                        </nav>
+                    </div>
+                    {{/if}}
+                    <div class="content-right right markdown-body" role="main">
+                        {{if intro}}
+                        <div>{{intro}}</div>
+                        {{/if}} {{each article.blocks as c index}} {{if c.type == 'html'}}
+                        <div class="docs-section">
+                            {{if c.name}} {{if c.sub}}
+                            <h3 id="{{c.tag || c.name}}" class="page-header subject">{{c.name}}<a class="hashlink" href="#{{c.name}}">#</a></h3> {{else}}
+                            <h2 id="{{c.tag || c.name}}" class="page-header subject">{{c.name}}<a class="hashlink" href="#{{c.name}}">#</a></h2> {{/if}} {{/if}} {{if c.content}}
+                            <div>
+                                {{c.content}}
+                            </div>
+                            {{/if}}
+                        </div>
+                        {{/if}} {{/each}}
+                    </div>
+                </div>
+                {{/if}}
             </div>
+            {{if banner}}
         </div>
         {{/if}}
-      </div>
-     {{if banner}}
-     </div>
-     {{/if}}
-      <footer class="footer">
-        <div class="copyright">
-            {{footer}}
-        </div>
-      </footer>
+        <footer class="footer">
+            <div class="copyright">
+                {{footer}}
+            </div>
+        </footer>
     </div>
 
     {{if article.type == 'html' && article.sidebars}}
-       <div class="open-panel"></div>
-       <div class="mask"></div>
-    {{/if}}
-    {{if article.type == 'block'}}
-        <div class="open-panel"></div>
-        <div class="mask"></div>
+    <div class="open-panel"></div>
+    <div class="mask"></div>
+    {{/if}} {{if article.type == 'block'}}
+    <div class="open-panel"></div>
+    <div class="mask"></div>
     {{/if}}
 
     <script src="source/main.js"></script>
@@ -223,97 +182,100 @@
     <script>
         var lineHeight = 17.4;
         var EXAMPLE_MAX_HEIGHT;
-        function fold(){
+
+        function fold() {
             // 折叠code
-            $('.markdown-body pre').css({"line-height": lineHeight+"px"});
-            $('.markdown-body pre').map(function(i,item){
+            $('.markdown-body pre').css({
+                "line-height": lineHeight + "px"
+            });
+            $('.markdown-body pre').map(function(i, item) {
                 var $item = $(item);
                 var foldnumber = $item.data('foldnumber');
                 EXAMPLE_MAX_HEIGHT = lineHeight * (foldnumber || 6);
-                if($item.height() >EXAMPLE_MAX_HEIGHT){
-                    $item.css({ "padding-bottom":30 });
+                if ($item.height() > EXAMPLE_MAX_HEIGHT) {
+                    $item.css({
+                        "padding-bottom": 30
+                    });
                     $item.find('code').height(EXAMPLE_MAX_HEIGHT);
                     $item.append('<span class="extend">展开更多……</span>');
                 };
             });
-           $('.ydoc-example').delegate('.extend','click',function(){
+            $('.ydoc-example').delegate('.extend', 'click', function() {
                 var $this = $(this);
                 $this.removeClass('extend').addClass('fold');
                 $this.html('折叠代码');
                 $this.prev().height('auto');
                 $this.prev().parent().height('auto');
             });
-            $('.ydoc-example').delegate('.fold','click',function(){
+            $('.ydoc-example').delegate('.fold', 'click', function() {
                 var $this = $(this);
                 var foldnumber = $this.parent().data('foldnumber');
                 EXAMPLE_MAX_HEIGHT = lineHeight * (foldnumber || 6);
                 $this.removeClass('fold').addClass('extend');
-                $this.parent().height(EXAMPLE_MAX_HEIGHT);  // pre
-                $this.prev().height(EXAMPLE_MAX_HEIGHT);    // code
+                $this.parent().height(EXAMPLE_MAX_HEIGHT); // pre
+                $this.prev().height(EXAMPLE_MAX_HEIGHT); // code
                 $this.html("展开更多……");
             });
         }
         $(document).ready(fold);
     </script>
-    {{/if}}
-    {{if foldparam}}
+    {{/if}} {{if foldparam}}
     <script>
-    var DEFAULT_SHOW_PARAMS = 5;
-    $(document).ready(function() {
-        // 参数默认显示 5个
-        $(".docs-table tbody").each(function(){
-           var paramsLength = $(this).find('tr').length,
-               paramsArray = $(this).find('tr'),
-               curTbody = $(this).parents('.docs-table');
+        var DEFAULT_SHOW_PARAMS = 5;
+        $(document).ready(function() {
+            // 参数默认显示 5个
+            $(".docs-table tbody").each(function() {
+                var paramsLength = $(this).find('tr').length,
+                    paramsArray = $(this).find('tr'),
+                    curTbody = $(this).parents('.docs-table');
 
-           if(paramsLength > DEFAULT_SHOW_PARAMS){
-               curTbody.append('<span class="extend-params">展开更多参数……</span>');
-               paramsArray.each(function(index,item){
-                   if(index >= DEFAULT_SHOW_PARAMS ){
-                       $(this).removeClass('hide-params').addClass('hide-params');
-                   }
-               });
-           }
+                if (paramsLength > DEFAULT_SHOW_PARAMS) {
+                    curTbody.append('<span class="extend-params">展开更多参数……</span>');
+                    paramsArray.each(function(index, item) {
+                        if (index >= DEFAULT_SHOW_PARAMS) {
+                            $(this).removeClass('hide-params').addClass('hide-params');
+                        }
+                    });
+                }
+            });
+            $(".docs-table").delegate('.extend-params', 'click', function() {
+                $(this).parents('.docs-table').find('.hide-params').addClass('show-params');
+                $(this).removeClass('extend-params').addClass('fold-params');
+                $(this).html('折叠参数');
+            });
+            $('.docs-table').delegate('.fold-params', 'click', function() {
+                $(this).removeClass('fold-params').addClass('extend-params');
+                $(this).parents('.docs-table').find('.show-params').removeClass('show-params');
+                $(this).html("展开更多参数……");
+            });
         });
-        $(".docs-table").delegate('.extend-params', 'click',function(){
-            $(this).parents('.docs-table').find('.hide-params').addClass('show-params');
-            $(this).removeClass('extend-params').addClass('fold-params');
-            $(this).html('折叠参数');
-        });
-        $('.docs-table').delegate('.fold-params','click',function(){
-            $(this).removeClass('fold-params').addClass('extend-params');
-             $(this).parents('.docs-table').find('.show-params').removeClass('show-params');
-            $(this).html("展开更多参数……");
-        });
-    });
     </script>
-    {{/if}}
-
-    {{if foldsidenav}}
+    {{/if}} {{if foldsidenav}}
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             var winWidth = $(window).width(),
                 $navExtend = $('.docs-sidenav-extend'),
                 $contentLeft = $('.content-left');
 
             changeHide();
-            $(window).on('resize',function(){
+            $(window).on('resize', function() {
                 winWidth = $(window).width();
                 changeHide();
             })
-            function changeHide(){
-                if(winWidth>767){
+
+            function changeHide() {
+                if (winWidth > 767) {
                     var activeInit = $contentLeft.find('.active');
                     $navExtend.hide();
-                    $(window).on('scroll',function(){
+                    $(window).on('scroll', function() {
                         var activeChange = $contentLeft.find('.active');
-                        if(activeChange[0] && activeInit !== activeChange){
+                        if (activeChange[0] && activeInit !== activeChange) {
                             activeInit = activeChange;
                             $navExtend.hide();
-                            if(activeChange.parent()[0].tagName === 'UL'){
-                                if(activeChange.next()[0] && activeChange.parent()[0].className === 'nav docs-sidenav' && activeChange.next()[0].tagName === 'UL'){
+                            if (activeChange.parent()[0].tagName === 'UL') {
+                                if (activeChange.next()[0] && activeChange.parent()[0].className === 'nav docs-sidenav' && activeChange.next()[0].tagName === 'UL') {
                                     activeChange.next().show();
-                                }else if (activeChange.parent()[0].className === 'nav docs-sidenav-extend') {
+                                } else if (activeChange.parent()[0].className === 'nav docs-sidenav-extend') {
                                     activeChange.parent().show();
                                 }
                             }
@@ -323,18 +285,12 @@
             }
         })
     </script>
-    {{/if}}
+    {{/if}} {{if themeJS && themeJS.length}} {{each themeJS as item}}
+    <script type="text/javascript" src="{{'theme/'+item}}"></script>
+    {{/each}} {{/if}} {{if insertJS && insertJS.length}} {{each insertJS as item}}
+    <script type="text/javascript" src="{{item}}"></script>
+    {{/each}} {{/if}}
 
-    {{if themeJS && themeJS.length}}
-      {{each themeJS as item}}
-      <script type="text/javascript" src="{{'theme/'+item}}"></script>
-      {{/each}}
-    {{/if}}
-    {{if insertJS && insertJS.length}}
-      {{each insertJS as item}}
-      <script type="text/javascript" src="{{item}}"></script>
-      {{/each}}
-    {{/if}}
+    </body>
 
-</body>
 </html>

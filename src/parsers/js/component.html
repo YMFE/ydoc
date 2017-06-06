@@ -1,39 +1,38 @@
 <div class="docs-section">
-<h2 id="{{component}}">
+    <h2 id="{{component}}">
     {{component}}
     <small>{{_desc}}</small>
     {{if version}}<span class="yo-badge yo-badge-danger">{{version}}</span>{{/if}}
 </h2>
-<div class="api-content">{{description | markdown}}</div>
-<!-- 使用说明begin -->
-{{if instruction.length}}
-<div class="con-list-item">
-    <div class="con-head">使用说明</div>
-  {{each instruction as instructions}}
-    <div class="instructions">
-        <div class="instructions-con">
-            {{if instructions.instructionsMd}}
-            <div class="instructions-con-info">
-            {{instructions.instructionsMd}}
+    <div class="api-content">{{description | markdown}}</div>
+    <!-- 使用说明begin -->
+    {{if instruction.length}}
+    <div class="con-list-item">
+        <div class="con-head">使用说明</div>
+        {{each instruction as instructions}}
+        <div class="instructions">
+            <div class="instructions-con">
+                {{if instructions.instructionsMd}}
+                <div class="instructions-con-info">
+                    {{instructions.instructionsMd}}
+                </div>
+                {{/if}} {{if instructions.instructionsUrl}}
+                <div class="instructions-con-runner">
+                    <iframe class="instructions-iframe" src="{{instructions.instructionsUrl}}"></iframe>
+                </div>
+                {{/if}}
             </div>
-            {{/if}}
-            {{if instructions.instructionsUrl}}
-            <div class="instructions-con-runner">
-                <iframe class="instructions-iframe" src="{{instructions.instructionsUrl}}"></iframe>
-            </div>
-            {{/if}}
         </div>
+        {{/each}}
     </div>
- {{/each}}
-</div>
-{{/if}}
-<!-- 使用说明end -->
-<div class="con-list-item">
-{{if props.length}}
-<div class="con-head">属性</div>
-{{each props as prop}}
-<blockquote class="api">
-    <h3 id="{{prop.property}}" class="subject">
+    {{/if}}
+    <!-- 使用说明end -->
+    <div class="con-list-item">
+        {{if props.length}}
+        <div class="con-head">属性</div>
+        {{each props as prop}}
+        <blockquote class="api">
+            <h3 id="{{prop.property}}" class="subject">
     <strong>{{prop.property}}</strong>
      <span class="prop-type">{ {{prop.type}} }</span>
     {{if prop.version}}
@@ -41,133 +40,117 @@
     {{/if}}
     <a class="hashlink" href="#{{prop.property}}">#</a>
     </h3>
-</blockquote>
-<div class="api-content">
-    <div>{{prop.description | markdown}}</div>
-    {{if prop.example}}
-    <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{prop.example}}</code></pre>
-    {{/if}}
-</div>
-{{if prop.default}}
-<p class="api-content">
-    <small class="text-muted">默认值:</small> {{prop.default}}
-</p>
-{{/if}}
-{{if /function|string/i.test(prop.type) && prop.params.length}}
-<p class="api-content">
-    <small class="text-muted">方法参数:</small>
-</p>
-<div class="docs-table api-content">
-    <table class="yo-table yo-table-border">
-        <colgroup>
-            <col class="c1">
-            <col class="c2">
-            <col class="c3">
-            <!-- <col class="c4"> -->
-        </colgroup>
-        <thead>
-            <tr class="active">
-                <th>参数名</th>
-                <th>类型</th>
-                <th>描述</th>
-                <!-- <th>必选</th> -->
-                <th>版本</th>
-            </tr>
-        </thead>
-        {{each prop.params as param index}}
-        <tr>
-            <td>{{param.name}}</td>
-            <td>{{param.type}}</td>
-            <td>{{param.description}}</td>
-            <!-- <td>
+        </blockquote>
+        <div class="api-content">
+            <div>{{prop.description | markdown}}</div>
+            {{if prop.example}}
+            <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{prop.example}}</code></pre> {{/if}}
+        </div>
+        {{if prop.default}}
+        <p class="api-content">
+            <small class="text-muted">默认值:</small> {{prop.default}}
+        </p>
+        {{/if}} {{if /function|string/i.test(prop.type) && prop.params.length}}
+        <p class="api-content">
+            <small class="text-muted">方法参数:</small>
+        </p>
+        <div class="docs-table api-content">
+            <table class="yo-table yo-table-border">
+                <colgroup>
+                    <col class="c1">
+                    <col class="c2">
+                    <col class="c3">
+                    <!-- <col class="c4"> -->
+                </colgroup>
+                <thead>
+                    <tr class="active">
+                        <th>参数名</th>
+                        <th>类型</th>
+                        <th>描述</th>
+                        <!-- <th>必选</th> -->
+                        <th>版本</th>
+                    </tr>
+                </thead>
+                {{each prop.params as param index}}
+                <tr>
+                    <td>{{param.name}}</td>
+                    <td>{{param.type}}</td>
+                    <td>{{param.description}}</td>
+                    <!-- <td>
                 {{if !param.optional}}
                 <i class="yo-ico glyphicon glyphicon-ok text-success"></i> {{/if}}
             </td> -->
-            <td>{{param.version}}</td>
-        </tr>
-        {{/each}}
-    </table>
-</div>
-{{/if}}
-{{if prop.returns}}
-<p class="api-content">
-    <small class="text-muted">返回值:</small>
-    <mark>{{prop.returns.type}}</mark>
-    {{prop.returns.name}}
-</p>
-{{/if}}
-{{/each}}
-{{/if}}
-{{if methods.length}}
-<div class="con-head">方法</div>
-{{each methods as method}}
-<blockquote class="api">
-    <h3 id="{{method.method}}" class="subject">
+                    <td>{{param.version}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+        {{/if}} {{if prop.returns}}
+        <p class="api-content">
+            <small class="text-muted">返回值:</small>
+            <mark>{{prop.returns.type}}</mark> {{prop.returns.name}}
+        </p>
+        {{/if}} {{/each}} {{/if}} {{if methods.length}}
+        <div class="con-head">方法</div>
+        {{each methods as method}}
+        <blockquote class="api">
+            <h3 id="{{method.method}}" class="subject">
     <strong>{{method.method}}</strong>
     {{if method.version}}
     <span class="yo-badge yo-badge-danger">{{method.version}}</span>
     {{/if}}
     <a class="hashlink" href="#{{method.method}}">#</a>
     </h3>
-</blockquote>
-<div class="api-content">{{method.description | markdown}}</div>
-{{if method.params.length}}
-<p class="api-content">
-    <small class="text-muted">方法参数:</small>
-</p>
-<div class="docs-table api-content">
-    <table class="yo-table yo-table-border">
-        <colgroup>
-            <col class="c1">
-            <col class="c2">
-            <col class="c3">
-            <col class="c4">
-        </colgroup>
-        <thead>
-            <tr class="active">
-                <th>参数名</th>
-                <th>类型</th>
-                <th>描述</th>
-                <th>必选</th>
-                <th>版本</th>
-            </tr>
-        </thead>
-        {{each method.params as param index}}
-        <tr>
-            <td>{{param.name}}</td>
-            <td>{{param.type}}</td>
-            <td>{{param.description}}</td>
-            <td>
-                {{if !param.optional}}
-                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> {{/if}}
-            </td>
-            <td>{{param.version}}</td>
-        </tr>
-        {{/each}}
-    </table>
-</div>
-{{/if}}
-{{if method.returns}}
-<p class="api-content">
-    <small class="text-muted">返回值:</small>
-    <mark>{{method.returns.type}}</mark>
-    {{method.returns.name}}
-</p>
-{{/if}}
-{{if method.example}}
-<pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{method.example}}</code></pre>
-{{/if}}
-{{/each}}
-{{/if}}
-{{if example}}
-<div class="con-head">示例</div>
-<pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{example}}</code></pre>
-{{/if}}
-{{if demo}}
-<p>
-    <small class="text-muted">Demo地址:</small>
-    <a href="{{demo}}" target="_blank">点击访问</a>
-</p>
-{{/if}}
-</div>
+        </blockquote>
+        <div class="api-content">{{method.description | markdown}}</div>
+        {{if method.params.length}}
+        <p class="api-content">
+            <small class="text-muted">方法参数:</small>
+        </p>
+        <div class="docs-table api-content">
+            <table class="yo-table yo-table-border">
+                <colgroup>
+                    <col class="c1">
+                    <col class="c2">
+                    <col class="c3">
+                    <col class="c4">
+                </colgroup>
+                <thead>
+                    <tr class="active">
+                        <th>参数名</th>
+                        <th>类型</th>
+                        <th>描述</th>
+                        <th>必选</th>
+                        <th>版本</th>
+                    </tr>
+                </thead>
+                {{each method.params as param index}}
+                <tr>
+                    <td>{{param.name}}</td>
+                    <td>{{param.type}}</td>
+                    <td>{{param.description}}</td>
+                    <td>
+                        {{if !param.optional}}
+                        <i class="yo-ico glyphicon glyphicon-ok text-success"></i> {{/if}}
+                    </td>
+                    <td>{{param.version}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+        {{/if}} {{if method.returns}}
+        <p class="api-content">
+            <small class="text-muted">返回值:</small>
+            <mark>{{method.returns.type}}</mark> {{method.returns.name}}
+        </p>
+        {{/if}} {{if method.example}}
+        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{method.example}}</code></pre> {{/if}} {{/each}} {{/if}} {{if example}}
+        <div class="con-head">示例</div>
+        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{example}}</code></pre> {{/if}} {{if demo}}
+        <p>
+            <small class="text-muted">Demo地址:</small>
+            <a href="{{demo}}" target="_blank">点击访问</a>
+        </p>
+        {{/if}}
+    </div>
 </div>
