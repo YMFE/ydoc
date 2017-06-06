@@ -6,6 +6,7 @@
         <blockquote class="api">
             <h3 id="{{el.name | anchor}}" class="subject">
                 {{el.name}}( )
+                {{if el.version}}<span class="yo-badge yo-badge-danger">{{el.version}}</span>{{/if}}
                 <a class="hashlink" href="#{{el.name | anchor}}">#</a>
             </h3>
         </blockquote>
@@ -13,12 +14,6 @@
             <small class="text-muted">描述:</small>
             {{el.description}}
         </p>
-        {{if el.version}}
-        <p>
-            <small class="text-muted">版本:</small>
-            {{el.version}}
-        </p>
-        {{/if}}
         {{if linkSource}}
         <p>
             <small class="text-muted">源码位置:</small>

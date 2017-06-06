@@ -20,6 +20,9 @@
             {{if el.private}}
             <span class="yo-badge yo-badge-danger">Private</span>
             {{/if}}
+            {{if el.version}}
+            <span class="yo-badge yo-badge-danger">{{el.version}}</span>
+            {{/if}}
             <a class="hashlink" href="#{{el.id | anchor}}">#</a>
         </h3>
     </blockquote>
@@ -31,12 +34,6 @@
     <p>
         <small class="text-muted">缩略:</small>
         {{el.alias}}
-    </p>
-    {{/if}}
-    {{if el.version}}
-    <p class="api-content">
-        <small class="text-muted">版本支持:</small>
-        {{el.version}}
     </p>
     {{/if}}
     {{if el.class == 'property'}}

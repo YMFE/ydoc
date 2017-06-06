@@ -1031,3 +1031,7 @@ sup, sub {
         top: .66rem;
         left: .18rem;
         border: 0; }
+
+.yo-badge-danger {
+  color: #ff503f;
+  border: 1px solid #ff503f; }
