@@ -59,8 +59,14 @@ ydoc.actions = actions;
 ydoc.init = actions.init;
 
 ydoc.build = function(cwd, conf, opt) {
+    opt = opt || {};
     // 多版本时生成文件到对应version的路径
     var version = null;
+    var template = opt.template || conf.template,
+        rDest = opt.dest || conf.dest || '_docs',
+        destPath = sysPath.join(cwd, rDest), // add=>version?
+        tplPath = template ? sysPath.join(cwd, template) : templatePath,
+        buildPages = opt.page;
     // 多版本切换
     if(conf.mutiversion){
         var docBranch = conf.mutiversion.docbranch;
@@ -75,12 +81,6 @@ ydoc.build = function(cwd, conf, opt) {
         }
     }else {
         // 未使用多版本切换
-        opt = opt || {};
-        var template = opt.template || conf.template,
-            rDest = opt.dest || conf.dest || '_docs',
-            destPath = sysPath.join(cwd, rDest), // add=>version?
-            tplPath = template ? sysPath.join(cwd, template) : templatePath,
-            buildPages = opt.page;
 
         if (!buildPages || buildPages == true) {
             buildPages = [];
