@@ -69,10 +69,12 @@ ydoc.build = function(cwd, conf, opt) {
         buildPages = opt.page;
     // 多版本切换
     if(conf.mutiversion){
-        var docBranch = conf.mutiversion.docbranch;
+        var docBranch = conf.mutiversion.docbranch,
+            docDir = '../ydocCache';
+
         if(docBranch){
             //
-            shell.mkdir('../ydocCache');
+            shell.mkdir(docDir);
             conf.mutiversion.versions.forEach(function(item, index){
                 console.log(item, index);
                 console.log(rDest);
@@ -83,6 +85,7 @@ ydoc.build = function(cwd, conf, opt) {
                     if (conf) {
                         // 获取该分支文档目录
                         var rDest = opt.dest || conf.dest || '_docs';
+                        shell.cp('-rf', rDest, docDir);
                         console.log(rDest);
                     } else {
                         console.log(item.branch + '分支的配置文件读取失败！'.red);
