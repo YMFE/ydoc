@@ -83,8 +83,8 @@ ydoc.build = function(cwd, conf, opt) {
                 loadConfig(cwd, function(conf) {
                     if (conf) {
                         // 获取该分支文档目录
-                        var rDest = opt.dest || conf.dest || '_docs';
-                        shell.cp('-rf', rDest + '/', docDir + '/' + item.name);
+                        var branchDest = opt.dest || conf.dest || '_docs';
+                        shell.cp('-rf', branchDest + '/', docDir + '/' + item.name);
                         console.log(('√ 复制 ' + item.name + ' 分支文档: ' + docDir + '/' + item.name).yellow);
                     } else {
                         console.log(item.branch + '分支的配置文件读取失败！'.red);
@@ -93,6 +93,8 @@ ydoc.build = function(cwd, conf, opt) {
             });
             // 切换回生成文档的分支
             shell.exec('git checkout ' + docBranch);
+            shell.rm('-rf', rDest);
+            shell.cp('-rf', docDir + '/', rDest);
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);
         }
