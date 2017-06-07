@@ -89,10 +89,10 @@ ydoc.build = function(cwd, conf, opt) {
                     } else {
                         console.log(item.branch + '分支的配置文件读取失败！'.red);
                     }
-                })
-                // 切换回生成文档的分支
-                shell.exec('git checkout ' + docBranch);
+                });
             });
+            // 切换回生成文档的分支
+            shell.exec('git checkout ' + docBranch);
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);
         }
