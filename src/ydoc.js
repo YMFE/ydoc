@@ -74,7 +74,18 @@ ydoc.build = function(cwd, conf, opt) {
             conf.mutiversion.versions.forEach(function(item, index){
                 console.log(item, index);
                 console.log(rDest);
+                // 切换到各版本分支
                 shell.exec('git checkout ' + item.branch);
+                // 加载配置文件
+                loadConfig(cwd, function(conf) {
+                    if (conf) {
+                        var afterconf = Object.assign(commonConfig,conf);
+                        console.log(afterconf);
+                    } else {
+                        console.log('配置文件读取失败！'.red);
+                    }
+                })
+                // 切换回生成文档的分支
                 shell.exec('git checkout ' + docBranch);
             });
         }else {
