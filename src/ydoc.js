@@ -80,7 +80,9 @@ ydoc.build = function(cwd, conf, opt) {
                 loadConfig(cwd, function(conf) {
                     if (conf) {
                         // var afterconf = Object.assign(commonConfig,conf);
+                        console.log('---------------------------------');
                         console.log(conf);
+                        console.log('---------------------------------');
                     } else {
                         console.log('配置文件读取失败！'.red);
                     }
