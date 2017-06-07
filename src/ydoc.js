@@ -65,7 +65,9 @@ ydoc.build = function(cwd, conf, opt) {
     if(conf.mutiversion){
         docBranch = conf.mutiversion.docbranch;
         if(docBranch){
-            console.log(conf.mutiversion.versions);
+            conf.mutiversion.versions.forEach(function(item, index){
+                console.log(item, index);
+            });
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);
         }
