@@ -63,10 +63,12 @@ ydoc.build = function(cwd, conf, opt) {
     var version = null;
     // 多版本切换
     if(conf.mutiversion){
-        docBranch = conf.mutiversion.docbranch;
+        var docBranch = conf.mutiversion.docbranch;
         if(docBranch){
             conf.mutiversion.versions.forEach(function(item, index){
                 console.log(item, index);
+                shell.exec('git checkout ' + item.branch);
+                shell.exec('git checkout ' + docBranch);
             });
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);
