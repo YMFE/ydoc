@@ -74,6 +74,7 @@ ydoc.build = function(cwd, conf, opt) {
 
         if(docBranch){
             //
+            shell.rm('-rf', docDir);
             shell.mkdir(docDir);
             conf.mutiversion.versions.forEach(function(item, index){
                 console.log(item, index);
