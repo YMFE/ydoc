@@ -5,11 +5,20 @@ var colors = require('colors');
 var watch = require('watch');
 var through = require('through2');
 var globby = require('globby');
+var childProcess = require('child_process');
+var shell = require('shelljs');
 
 var actions = require('./actions');
 var loadConfig = require('./utils/loadConfig.js');
 
 var templatePath = sysPath.join(__dirname, '../template');
+
+// 判断是否有git命令
+if (!shell.which('git')) {
+    shell.echo('Sorry, this script requires git');
+    shell.exit(1);
+}
+var test = shell.exec('git commit -am "d"');
 
 function execTemplate(destPath, tplPath, callback) {
     if (!fs.existsSync(destPath)) {
@@ -51,85 +60,72 @@ ydoc.init = actions.init;
 
 ydoc.build = function(cwd, conf, opt) {
     // 多版本时生成文件到对应version的路径
-    var version = '',
-        versionTip = false;
-    if(conf.options.mutiversion){
-        version = conf.version;
-        if(typeof(version) === 'undefined'){
-            console.log('Waring: 使用版本切换功能请配置 version 字段!'.red);
-        }
-    }
-    opt = opt || {};
-    var template = opt.template || conf.template,
-        rDest = opt.dest || conf.dest || '_docs',
-        destPath = sysPath.join(cwd, rDest, version),
-        tplPath = template ? sysPath.join(cwd, template) : templatePath,
-        buildPages = opt.page;
-
-    // 多版本时，若新增版本则提示更新其他版本的文档
-    if(conf.options.mutiversion){
-        var dirArr = globby.sync([rDest+'/*']);
-        var versionArr = dirArr.map((item, index) => {
-            var length = item.split('/').length;
-            return item.split('/')[length - 1];
-        });
-        if(versionArr.indexOf(version) === -1){
-            versionTip = true;
+    var version = null;
+    // 多版本切换
+    if(conf.mutiversion){
+        docBranch = conf.mutiversion.docbranch;
+        if(docBranch){
+            console.log('切换版本时的操作');
         }else {
-            versionTip = false;
+            console.log('Warning: 请配置文档分支名称!'.red);
         }
-    }
-    if (!buildPages || buildPages == true) {
-        buildPages = [];
-        try {
-            require('child_process').execSync('rm -rf ' + destPath);
-        } catch(e) {}
-    } else {
-        buildPages = buildPages.split(',').map(function(page) {
-            return page.trim();
-        });
-    }
+    }else {
+        // 未使用多版本切换
+        opt = opt || {};
+        var template = opt.template || conf.template,
+            rDest = opt.dest || conf.dest || '_docs',
+            destPath = sysPath.join(cwd, rDest), // add=>version?
+            tplPath = template ? sysPath.join(cwd, template) : templatePath,
+            buildPages = opt.page;
 
-    conf.rDest = rDest;
-    conf.version = version;
-    conf.buildPages = buildPages;
-
-    function build(content) {
-        console.log('-> Building .......'.gray);
-        actions.build(cwd, conf, content);
-        console.log('√ Complete!'.green);
-        // 新增版本时提示更新其他版本的文档
-        if(versionTip){
-            console.log('Warning: ydoc检测到您新增了文档版本，请及时更新其他版本文档!'.red);
-        }
-        console.log('');
-    }
-
-    execTemplate(destPath, tplPath, function(content, codeContent) {
-        conf.dest = destPath;
-        conf.templateContent = content;
-        conf.codeTemplateContent = codeContent;
-        build(content);
-        if (opt.watch) {
-            console.log('√ Start Watching .......'.green);
-            watch.watchTree(cwd, {
-                ignoreDirectoryPattern: new RegExp(rDest)
-            }, function(path) {
-                var fileName = sysPath.basename(path);
-                if (fileName == 'ydocfile.js' || fileName == 'ydoc.config') {
-                    console.log('--> Reload Config ......'.gray);
-                    loadConfig(cwd, function(cf) {
-                        cf.buildPages = buildPages;
-                        cf.dest = destPath;
-                        cf.templateContent = content;
-                        cf.codeTemplateContent = codeContent;
-                        conf = cf;
-                        build(content);
-                    });
-                } else {
-                    build(content);
-                }
+        if (!buildPages || buildPages == true) {
+            buildPages = [];
+            try {
+                childProcess.execSync('rm -rf ' + destPath);
+            } catch(e) {}
+        } else {
+            buildPages = buildPages.split(',').map(function(page) {
+                return page.trim();
             });
         }
-    });
+
+        conf.rDest = rDest;
+        conf.version = version;
+        conf.buildPages = buildPages;
+
+        function build(content) {
+            console.log('-> Building .......'.gray);
+            actions.build(cwd, conf, content);
+            console.log('√ Complete!'.green);
+        }
+
+        execTemplate(destPath, tplPath, function(content, codeContent) {
+            conf.dest = destPath;
+            conf.templateContent = content;
+            conf.codeTemplateContent = codeContent;
+            build(content);
+            if (opt.watch) {
+                console.log('√ Start Watching .......'.green);
+                watch.watchTree(cwd, {
+                    ignoreDirectoryPattern: new RegExp(rDest)
+                }, function(path) {
+                    var fileName = sysPath.basename(path);
+                    if (fileName == 'ydocfile.js' || fileName == 'ydoc.config') {
+                        console.log('--> Reload Config ......'.gray);
+                        loadConfig(cwd, function(cf) {
+                            cf.buildPages = buildPages;
+                            cf.dest = destPath;
+                            cf.templateContent = content;
+                            cf.codeTemplateContent = codeContent;
+                            conf = cf;
+                            build(content);
+                        });
+                    } else {
+                        build(content);
+                    }
+                });
+            }
+        });
+    }
+
 };
