@@ -73,6 +73,7 @@ ydoc.build = function(cwd, conf, opt) {
         if(docBranch){
             conf.mutiversion.versions.forEach(function(item, index){
                 console.log(item, index);
+                console.log(rDest);
                 shell.exec('git checkout ' + item.branch);
                 shell.exec('git checkout ' + docBranch);
             });
