@@ -71,6 +71,8 @@ ydoc.build = function(cwd, conf, opt) {
     if(conf.mutiversion){
         var docBranch = conf.mutiversion.docbranch;
         if(docBranch){
+            //
+            shell.mkdir('../ydocCache');
             conf.mutiversion.versions.forEach(function(item, index){
                 console.log(item, index);
                 console.log(rDest);
@@ -79,11 +81,9 @@ ydoc.build = function(cwd, conf, opt) {
                 // 加载配置文件
                 loadConfig(cwd, function(conf) {
                     if (conf) {
-                        // var afterconf = Object.assign(commonConfig,conf);
-                        console.log('---------------------------------');
+                        // 获取该分支文档目录
                         var rDest = opt.dest || conf.dest || '_docs';
                         console.log(rDest);
-                        console.log('---------------------------------');
                     } else {
                         console.log(item.branch + '分支的配置文件读取失败！'.red);
                     }
