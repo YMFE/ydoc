@@ -21,6 +21,7 @@ if (!shell.which('git')) {
 
 function execTemplate(destPath, tplPath, callback) {
     if (!fs.existsSync(destPath)) {
+        console.log(destPath);
         fs.mkdirSync(destPath);
     }
     cpr(sysPath.join(tplPath, 'source'), sysPath.join(destPath, 'source'), {
