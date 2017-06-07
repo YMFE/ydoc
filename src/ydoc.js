@@ -18,7 +18,6 @@ if (!shell.which('git')) {
     shell.echo('Sorry, this script requires git');
     shell.exit(1);
 }
-var test = shell.exec('git commit -am "d"');
 
 function execTemplate(destPath, tplPath, callback) {
     if (!fs.existsSync(destPath)) {
@@ -69,6 +68,7 @@ ydoc.build = function(cwd, conf, opt) {
         buildPages = opt.page;
     // 多版本切换
     if(conf.mutiversion){
+        shell.exec('git add -A && git commit -m "stash doc"');
         var docBranch = conf.mutiversion.docbranch,
             docDir = '../ydocCache';
 
