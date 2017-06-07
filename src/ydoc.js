@@ -77,8 +77,6 @@ ydoc.build = function(cwd, conf, opt) {
             shell.rm('-rf', docDir);
             shell.mkdir(docDir);
             conf.mutiversion.versions.forEach(function(item, index){
-                console.log(item, index);
-                console.log(rDest);
                 // 切换到各版本分支
                 shell.exec('git checkout ' + item.branch);
                 // 加载配置文件
