@@ -95,6 +95,7 @@ ydoc.build = function(cwd, conf, opt) {
             shell.exec('git checkout ' + docBranch);
             shell.rm('-rf', rDest);
             shell.cp('-rf', docDir + '/', rDest);
+            shell.rm('-rf', docDir);
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);
         }
