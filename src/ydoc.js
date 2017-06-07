@@ -81,7 +81,7 @@ ydoc.build = function(cwd, conf, opt) {
                     if (conf) {
                         // var afterconf = Object.assign(commonConfig,conf);
                         console.log('---------------------------------');
-                        console.log(conf);
+                        console.log(conf.dest);
                         console.log('---------------------------------');
                     } else {
                         console.log(item.branch + '分支的配置文件读取失败！'.red);
