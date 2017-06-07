@@ -84,7 +84,7 @@ ydoc.build = function(cwd, conf, opt) {
                         console.log(conf);
                         console.log('---------------------------------');
                     } else {
-                        console.log('配置文件读取失败！'.red);
+                        console.log(item.branch + '分支的配置文件读取失败！'.red);
                     }
                 })
                 // 切换回生成文档的分支
