@@ -65,7 +65,7 @@ ydoc.build = function(cwd, conf, opt) {
     if(conf.mutiversion){
         docBranch = conf.mutiversion.docbranch;
         if(docBranch){
-            console.log('切换版本时的操作');
+            console.log(conf.mutiversion.versions);
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);
         }
