@@ -113,7 +113,7 @@ ydoc.build = function(cwd, conf, opt) {
                 console.log(('√ 添加版本切换标签: ' + file).yellow);
             });
             // shell.cp('-rf', sysPath.join(cwd, 'node_modules/ydoc/' + theme), rDest);
-            console.log(pwd);
+            console.log(cwd);
             console.log('√ Complete!\n'.green);
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);
