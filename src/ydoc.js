@@ -79,7 +79,7 @@ ydoc.build = function(cwd, conf, opt) {
             shell.mkdir(docDir);
             conf.mutiversion.versions.forEach(function(item, index){
                 console.log(item);
-                li += '<li class="m-version-item"><a class="link" href={{ ../' + item.name + '/index.html}}>'+item.name+'</a></li>\n';
+                li += '<li class="m-version-item"><a class="link" href="../' + item.name + '/index.html">'+item.name+'</a></li>\n';
                 // 切换到各版本分支
                 shell.exec('git checkout ' + item.branch);
                 // 加载配置文件
