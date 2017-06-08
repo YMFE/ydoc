@@ -61,8 +61,8 @@ ydoc.init = actions.init;
 ydoc.build = function(cwd, conf, opt) {
     opt = opt || {};
     // 多版本时生成文件到对应version的路径
-    var li = '';
-    var template = opt.template || conf.template,
+    var li = '',
+        template = opt.template || conf.template,
         rDest = opt.dest || conf.dest || '_docs',
         destPath = sysPath.join(cwd, rDest), // add=>version?
         tplPath = template ? sysPath.join(cwd, template) : templatePath,
