@@ -72,7 +72,6 @@ ydoc.build = function(cwd, conf, opt) {
         shell.exec('git add -A && git commit -m "commit *doc"');
         var docBranch = conf.mutiversion.docbranch,
             docDir = '../ydocCache';
-
         if(docBranch){
             // 新建目录 ydocCache 缓存各分支文档
             shell.rm('-rf', docDir);
