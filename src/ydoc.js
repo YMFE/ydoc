@@ -99,7 +99,7 @@ ydoc.build = function(cwd, conf, opt) {
             shell.cp('-rf', docDir + '/', rDest);
             shell.rm('-rf', docDir);
             shell.ls(rDest + '/*/*.html').forEach(function (file) {
-                shell.sed('-i', 'navbar-brand', '是', file);
+                shell.sed('-i', /(navbar-brand)/, '$1 and', file);
                 console.log('e');
             });
         }else {
