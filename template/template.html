@@ -18,7 +18,9 @@
         <header class="ydoc-header">
             <div class="ydoc-header-area">
                 {{if home}}
-                <a href="{{homeUrl}}" class="navbar-brand">{{home}}</a> {{/if}} {{if versionArr && versionArr.length}}
+                <a href="{{homeUrl}}" class="navbar-brand">{{home}}</a>
+                {{/if}}
+                {{if versionArr && versionArr.length}}
                 <div class="m-version">
                     <p class="version-selector" data-target="version">{{version}}<span data-target="version" class="ydocIcon icon">&#xf3ff;</span></p>
                     <ul class="m-version-mask">

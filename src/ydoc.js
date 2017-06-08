@@ -94,12 +94,12 @@ ydoc.build = function(cwd, conf, opt) {
             });
             // 切换回生成文档的分支
             shell.exec('git checkout ' + docBranch);
+            // 删除主分支文档，将其他分支拷贝出来的文档剪切进来
             shell.rm('-rf', rDest);
             shell.cp('-rf', docDir + '/', rDest);
             shell.rm('-rf', docDir);
-            console.log(rDest,docDir);
             shell.ls(rDest + '/*/*.html').forEach(function (file) {
-                shell.sed('-i', '\<html', '\< html', file);
+                shell.sed('-i', 'navbar-brand', '是', file);
                 console.log('e');
             });
         }else {
