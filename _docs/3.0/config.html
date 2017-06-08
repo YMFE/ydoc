@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta name="description" content="description of your site">
+    <meta name="author" content="author of the site">
+    <title>YDoc 配置</title>
+    <link rel="stylesheet" href="source/main.css" />  
+</head>
+<body>
+    <div class="ydoc">
+        <header class="ydoc-header">
+            <div class="ydoc-header-area">
+                
+                <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a><div class="m-version"><p class="version-selector" data-target="version">3.0<span data-target="version" class="ydocIcon icon">&#xf3ff;</span></p><ul class="m-version-mask"><li class="m-version-item"><a class="link" href="../3.0/index.html">3.0</a></li>
+<li class="m-version-item"><a class="link" href="../4.0/index.html">4.0</a></li>
+<li class="m-version-item"><a class="link" href="../v3.0/index.html">v3.0</a></li>
+</ul></div>  
+                <button class="ydocIcon navbar-toggle">&#xf020;</button>
+                <nav class="ydoc-nav">
+
+                    <ul class="navbar-left">
+                         
+                        <li class="">
+                            
+                            <a href="index.html">开始</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="usage.html">命令</a> 
+                        </li>
+                        
+                        <li class="active">
+                            
+                            <a href="config.html">配置</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="comment.html">注释规则</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="release.html">版本</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="theme.html">主题</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="http://ymfe.corp.qunar.com/c/ydoc" target="_blank">FAQ</a> 
+                        </li>
+                         
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <!-- <header style="height:20px"></header> -->
+        
+        <!-- Docs page layout -->
+        
+        <div class="ydoc-banner-bg">
+            <div class="ydoc-banner">
+                <div class="ydoc-banner-area">
+                    <h1>YDoc</h1>
+                    <p class="desc">配置</p>
+                </div>
+            </div>
+            
+
+            <div class="ydoc-container">
+                 
+                <div class="ydoc-container-content">
+                    <div class="content-left staticsidenav" role="complementary">
+                        <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                            <ul class="nav docs-sidenav">
+                                 
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#配置文件">配置文件</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                    
+                                    <li >
+                                        <a href="#静态文件形式">静态文件形式</a>
+                                    </li>
+                                         
+                                    <li >
+                                        <a href="#动态脚本形式">动态脚本形式</a>
+                                    </li>
+                                     </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#配置内容">配置内容</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                    
+                                    <li >
+                                        <a href="#简单配置">简单配置</a>
+                                    </li>
+                                         
+                                    <li >
+                                        <a href="#完整配置说明">完整配置说明</a>
+                                    </li>
+                                         
+                                    <li >
+                                        <a href="#解析器配置">解析器配置</a>
+                                    </li>
+                                     
+                                </ul>
+                                  
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="content-right markdown-body" role="main">
+
+                         <h2 class="subject" id="配置文件">配置文件 <a class="hashlink" href="#配置文件">#</a></h2><p>配置文件可以以 <code>ydoc.json</code> 、 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
+<h3 class="subject" id="静态文件形式">静态文件形式 <a class="hashlink" href="#静态文件形式">#</a></h3><p><code>ydoc.json</code> 与 <code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
+<p>示例：</p>
+<pre><code class="lang-json"><span class="token punctuation">{</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
+    ...
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 class="subject" id="动态脚本形式">动态脚本形式 <a class="hashlink" href="#动态脚本形式">#</a></h3><p><code>ydocfile.js</code> 可以 <code>exports</code> 一个 <code>Object</code> 配置，也可以 <code>exports</code> 一个 <code>Function</code> 用于执行获取配置。</p>
+<p>示例1：</p>
+<pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>示例2：</p>
+<pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>示例3：(支持异步返回)</p>
+<pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>callback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// do someing</span>
+    <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
+        <span class="token operator">...</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 class="subject" id="配置内容">配置内容 <a class="hashlink" href="#配置内容">#</a></h2><h3 class="subject" id="简单配置">简单配置 <a class="hashlink" href="#简单配置">#</a></h3><p>示例(使用README.md文件生成一个html页面):</p>
+<pre><code class="lang-json"><span class="token punctuation">{</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span>
+    <span class="token property">"common"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 通用默认配置，包括主页配置等
+        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span> //page title
+        <span class="token property">"footer"</span><span class="token operator">:</span> <span class="token string">"&amp;copy; 2016 &lt;a href=\"http://ued.qunar.com/ymfe/\">YMFE&lt;/a> Team. Build by &lt;a href=\"http://ued.qunar.com/ydoc/\">ydoc&lt;/a>."</span><span class="token punctuation">,</span> // 通用尾
+        <span class="token property">"home"</span><span class="token operator">:</span> <span class="token string">"YMFE"</span><span class="token punctuation">,</span> // logo
+        <span class="token property">"homeUrl"</span><span class="token operator">:</span> <span class="token string">"http://ued.qunar.com/ymfe/"</span> // logourl
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"pages"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span> // Page Name 会根据他生成 html 文件，例<span class="token operator">:</span> index.html
+        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"首页"</span><span class="token punctuation">,</span> // Page Title
+        <span class="token property">"banner"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // Banner 配置
+            <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span>
+            <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"首页说明文字"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"./README.md"</span> // 内容(这里以markdown文件举例<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 class="subject" id="完整配置说明">完整配置说明 <a class="hashlink" href="#完整配置说明">#</a></h3><p>示例:</p>
+<pre><code class="lang-json"><span class="token punctuation">{</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span> // 标示 配置文件
+    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"3.0"</span><span class="token punctuation">,</span> // 使用版本切换功能时配置的版本号
+    <span class="token property">"dest"</span><span class="token operator">:</span> <span class="token string">"path/to/destination"</span><span class="token punctuation">,</span> // 默认为  <span class="token string">"_docs"</span>
+    <span class="token property">"examplePath"</span><span class="token operator">:</span> <span class="token string">"./examples"</span><span class="token punctuation">,</span> // 示例代码路径 默认 <span class="token string">"./"</span>
+    <span class="token property">"template"</span><span class="token operator">:</span> <span class="token string">"path/to/templte"</span><span class="token punctuation">,</span> // 默认使用 YDoc 内置的模板
+    <span class="token property">"instructionsInfoPath"</span><span class="token operator">:</span> <span class="token string">"./demo/component"</span><span class="token punctuation">,</span> //使用说明 内容路径
+    <span class="token property">"instructionsUrlPath"</span><span class="token operator">:</span> <span class="token string">"./demo/component"</span><span class="token punctuation">,</span> //使用说明demo路径
+    <span class="token property">"theme"</span><span class="token operator">:</span> <span class="token string">"ocean"</span><span class="token punctuation">,</span> // 配置主题，默认没有主题
+    <span class="token property">"defaultGrammer"</span><span class="token operator">:</span> <span class="token string">"javascript"</span><span class="token punctuation">,</span> // 默认高亮语法
+    <span class="token property">"options"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 通用编译器配置
+        <span class="token property">"markdown"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 对于 markdown 编译器进行统一配置
+            <span class="token property">"menuLevel"</span><span class="token operator">:</span> <span class="token number">2</span> //选取第几级 head 作为目录，默认 -<span class="token number">1</span> 没有目录
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"foldcode"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠示例code
+        <span class="token property">"foldparam"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠param
+        <span class="token property">"foldsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠侧边目录
+        <span class="token property">"staticsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 侧边目录不折叠且不跟随页面滚动
+        <span class="token property">"insertCSS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./style/a.css"</span><span class="token punctuation">,</span><span class="token string">"./style/b.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
+        <span class="token property">"insertJS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./scripts/a.js"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置js路径
+        <span class="token property">"hasPageName"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符<span class="token punctuation">)</span>
+        <span class="token property">"mutiversion"</span><span class="token operator">:</span> <span class="token boolean">true</span> // 是否启用版本切换； 如启用需要配置version字段
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"resources"</span><span class="token operator">:</span> <span class="token punctuation">{</span> //将配置文件夹拷贝至生成文档的source文件夹下  
+            <span class="token property">"images"</span><span class="token operator">:</span> <span class="token string">"./test-reactweb/docs/images/"</span><span class="token punctuation">,</span>   
+            <span class="token property">"demo"</span><span class="token operator">:</span><span class="token string">"./test-reactweb/docs/demo/"</span><span class="token punctuation">,</span>
+            <span class="token property">"style"</span><span class="token operator">:</span> <span class="token string">"./style/"</span><span class="token punctuation">,</span>  // 指定insertCss后，配置css的目录
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"common"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 通用默认配置，包括主页配置等
+        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span> //page title
+        <span class="token property">"footer"</span><span class="token operator">:</span> <span class="token string">"&amp;copy; 2016 &lt;a href=\"http://ued.qunar.com/ymfe/\">YMFE&lt;/a> Team. Build by &lt;a href=\"http://ued.qunar.com/ydoc/\">ydoc&lt;/a>."</span><span class="token punctuation">,</span> // 通用尾
+        <span class="token property">"home"</span><span class="token operator">:</span> <span class="token string">"YMFE"</span><span class="token punctuation">,</span> // logo
+        <span class="token property">"homeUrl"</span><span class="token operator">:</span> <span class="token string">"http://ued.qunar.com/ymfe/"</span> // logourl
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"pages"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span> // Page Name 会根据他生成 html 文件，例<span class="token operator">:</span> index.html
+        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"开始"</span><span class="token punctuation">,</span> // Page Title
+        <span class="token property">"banner"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // Banner 配置
+            <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
+            <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"开始"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"./README.md"</span><span class="token punctuation">,</span>  // 内容
+        <span class="token property">"compile"</span><span class="token operator">:</span> <span class="token string">"markdown"</span><span class="token punctuation">,</span> // 解析器，如果内容有固定的扩展名，此项可忽略
+        <span class="token property">"options"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 此 Page 用的编译器的配置
+            <span class="token property">"menuLevel"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token property">"foldsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span> // 是否折叠侧边目录(优先级高于通用编译器配置<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"hybird"</span><span class="token punctuation">,</span>
+        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"混合开发"</span><span class="token punctuation">,</span>
+        <span class="token property">"intro"</span><span class="token operator">:</span> <span class="token string">"document/README.md"</span><span class="token punctuation">,</span> // 介绍 introduction
+        <span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 单页多模块配置
+            <span class="token property">"sidebar"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否显示侧边目录
+            <span class="token property">"blocks"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"简介"</span><span class="token punctuation">,</span> // 标题
+                <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"document/hybrid/README.md"</span> // 内容
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Hybrid"</span> // 只有标题，做目录和分割用
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"说明"</span><span class="token punctuation">,</span>
+                <span class="token property">"sub"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 标题在目录里已子目录形式显示
+                <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"modules/hybrid/framework/README.md"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"component"</span><span class="token punctuation">,</span>
+        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"组件"</span><span class="token punctuation">,</span>
+        <span class="token property">"banner"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"移动端组件"</span><span class="token punctuation">,</span>
+            <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"组件"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 多页配置，multi 为 <span class="token boolean">true</span>
+            <span class="token property">"sidebar"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> //是否显示侧边目录
+            <span class="token property">"multi"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 多页配置
+            <span class="token property">"index"</span><span class="token operator">:</span> <span class="token string">"./Libraries/extension/INTRO.md"</span><span class="token punctuation">,</span> // 首页配置
+            <span class="token property">"pages"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> // 每页配置
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"ListView"</span><span class="token punctuation">,</span>
+                <span class="token property">"index"</span><span class="token operator">:</span> <span class="token string">"list"</span><span class="token punctuation">,</span> // 修改默认路径名
+                <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"./Libraries/extension/libs/ListView/QListView.js"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"ScrollView"</span><span class="token punctuation">,</span>
+                <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"./Libraries/extension/libs/ScrollView/ScrollView.js"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 class="subject" id="解析器配置">解析器配置 <a class="hashlink" href="#解析器配置">#</a></h3><h4 class="subject" id="js">js <a class="hashlink" href="#js">#</a></h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code></p>
+<pre><code class="lang-json"><span class="token punctuation">{</span>
+    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"component"</span><span class="token punctuation">,</span> // 类型，可选 component 和 lib，默认 component
+    <span class="token property">"source"</span><span class="token operator">:</span> <span class="token boolean">false</span> // 是否生成源文件预览，默认 <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 class="subject" id="css">css <a class="hashlink" href="#css">#</a></h4><p>支持文件类型：<code>.css</code>，<code>.sass</code>，<code>.scss</code></p>
+<pre><code class="lang-json"><span class="token punctuation">{</span>
+    <span class="token property">"source"</span><span class="token operator">:</span> <span class="token boolean">false</span> // 是否生成源文件预览，默认 <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 class="subject" id="markdown">markdown <a class="hashlink" href="#markdown">#</a></h4><p>支持文件类型：<code>.md</code>，<code>.markdown</code></p>
+<pre><code class="lang-json"><span class="token punctuation">{</span>
+    <span class="token property">"menuLevel"</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span> // 选取第几级 head 作为目录，默认 -<span class="token number">1</span> 没有目录
+    <span class="token property">"subMeneLevel"</span><span class="token operator">:</span> <span class="token number">3</span> // 选取第几级 head 作为子目录，默认 menuLevel + <span class="token number">1</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+                    </div>
+                </div>
+                 
+            </div>
+            
+        </div>
+        
+        <footer class="footer">
+            <div class="copyright">
+                &copy; 2016 <a href="http://ued.qunar.com/ymfe/">YMFE</a> Team. Build by <a href="http://ued.qunar.com/ydoc/">ydoc</a>.
+            </div>
+        </footer>
+    </div>
+
+    
+    <div class="open-panel"></div>
+    <div class="mask"></div>
+     
+
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+        
+
+    </body>
+
+</html>
