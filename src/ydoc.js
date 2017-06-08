@@ -96,7 +96,7 @@ ydoc.build = function(cwd, conf, opt) {
                 shell.exec('git add -A && git stash');
             });
             // 获取多版本标签切换的 html
-            function getVersionHTML(versionName) {
+            var getVersionHTML = function(versionName) {
                 var title = '<p class="version-selector" data-target="version">' + versionName + '<span data-target="version" class="ydocIcon icon">&#xf3ff;</span></p>';
                 var ul = '<ul class="m-version-mask">' + li + '</ul>';
                 return '<div class="m-version">' + title + ul + '</div>';
@@ -135,7 +135,7 @@ ydoc.build = function(cwd, conf, opt) {
         conf.rDest = rDest;
         conf.buildPages = buildPages;
 
-        function build(content) {
+        var build = function(content) {
             console.log('-> Building .......'.gray);
             actions.build(cwd, conf, content);
             console.log('√ Complete!'.green);
