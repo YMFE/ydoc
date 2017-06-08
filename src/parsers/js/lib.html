@@ -7,24 +7,24 @@
         <h3 id="{{el.id | anchor}}" class="page-header subject">
             {{el.title}}
             {{if el.class == 'method'}}
-            <span class="yo-badge yo-badge-primary">Method</span>
+            <span class="ui-badge">Method</span>
             {{else if el.class == 'property'}}
-            <span class="yo-badge yo-badge-success">Property</span>
+            <span class="ui-badge">Property</span>
             {{else if el.class == 'prototype'}}
-            <span class="yo-badge yo-badge-info">Prototype</span>
+            <span class="ui-badge">Prototype</span>
             {{else if el.class == 'event'}}
-            <span class="yo-badge yo-badge-danger">Event</span>
+            <span class="ui-badge">Event</span>
             {{else}}
-            <span class="yo-badge yo-badge-warning">Class</span>
+            <span class="ui-badge">Class</span>
             {{/if}}
             {{if el.private}}
-            <span class="yo-badge yo-badge-danger">Private</span>
+            <span class="ui-badge">Private</span>
             {{/if}}
             {{if el.version}}
-            <span class="yo-badge yo-badge-danger">{{el.version}}</span>
+            <span class="ui-badge">{{el.version}}</span>
             {{/if}}
             {{if el.static}}
-            <span class="yo-badge yo-badge-danger">static</span>
+            <span class="ui-badge">static</span>
             {{/if}}
             <a class="hashlink" href="#{{el.id | anchor}}">#</a>
         </h3>

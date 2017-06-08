@@ -2,7 +2,7 @@
     <h2 id="{{component}}">
     {{component}}
     <small>{{_desc}}</small>
-    {{if version}}<span class="yo-badge yo-badge-danger">{{version}}</span>{{/if}}
+    {{if version}}<span class="ui-badge">{{version}}</span>{{/if}}
 </h2>
     <div class="api-content">{{description | markdown}}</div>
     <!-- 使用说明begin -->
@@ -36,9 +36,9 @@
     <strong>{{prop.property}}</strong>
      <span class="prop-type">{ {{prop.type}} }</span>
     {{if prop.version}}
-    <span class="yo-badge yo-badge-danger">{{prop.version}}</span>
+    <span class="ui-badge">{{prop.version}}</span>
     {{/if}}
-    {{if prop.static}}<span class="yo-badge yo-badge-danger">static</span>{{/if}}
+    {{if prop.static}}<span class="ui-badge">static</span>{{/if}}
     <a class="hashlink" href="#{{prop.property}}">#</a>
     </h3>
         </blockquote>
@@ -98,9 +98,9 @@
             <h3 id="{{method.method}}" class="subject">
     <strong>{{method.method}}</strong>
     {{if method.version}}
-    <span class="yo-badge yo-badge-danger">{{method.version}}</span>
+    <span class="ui-badge">{{method.version}}</span>
     {{/if}}
-    {{if method.static}}<span class="yo-badge yo-badge-danger">static</span>{{/if}}
+    {{if method.static}}<span class="ui-badge">static</span>{{/if}}
     <a class="hashlink" href="#{{method.method}}">#</a>
     </h3>
         </blockquote>

@@ -601,8 +601,10 @@ sup,sub{vertical-align:baseline}
         }
     }
 }
-
-.yo-badge-danger{
-    color: #ff503f;
-    border: 1px solid #ff503f;
+.ui-badge{
+    color: #fff;
+    background-color: #ff503f;
+    font-size: .12rem;
+    padding: .03rem .08rem;
+    border-radius: .03rem;
 }
