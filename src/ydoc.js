@@ -98,6 +98,7 @@ ydoc.build = function(cwd, conf, opt) {
             shell.rm('-rf', rDest);
             shell.cp('-rf', docDir + '/', rDest);
             shell.rm('-rf', docDir);
+            console.log(conf.mutiversion);
             shell.ls(rDest + '/*/*.html').forEach(function (file) {
                 shell.sed('-i', /(navbar-brand.+\<\/a\>)/gi, '$1<span>span</span>', file);
                 console.log('e');
