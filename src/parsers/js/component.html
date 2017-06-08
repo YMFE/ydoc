@@ -38,6 +38,7 @@
     {{if prop.version}}
     <span class="yo-badge yo-badge-danger">{{prop.version}}</span>
     {{/if}}
+    {{if prop.static}}<span class="yo-badge yo-badge-danger">static</span>{{/if}}
     <a class="hashlink" href="#{{prop.property}}">#</a>
     </h3>
         </blockquote>
@@ -99,6 +100,7 @@
     {{if method.version}}
     <span class="yo-badge yo-badge-danger">{{method.version}}</span>
     {{/if}}
+    {{if method.static}}<span class="yo-badge yo-badge-danger">static</span>{{/if}}
     <a class="hashlink" href="#{{method.method}}">#</a>
     </h3>
         </blockquote>
