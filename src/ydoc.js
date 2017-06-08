@@ -106,7 +106,7 @@ ydoc.build = function(cwd, conf, opt) {
                     // </li>
                 var title = '<p class="version-selector" data-target="version">' + versionName + '<span data-target="version" class="ydocIcon icon">&#xf3ff;</span></p>';
 
-                var ul = '<ul class="m-version-mask">' + item + '</ul>';
+                var ul = '<ul class="m-version-mask">' + 'item' + '</ul>';
                 var res = '<div class="m-version">' + title + ul + '</div>'
                 return '<span>'+versionName+'</span>';
             }
