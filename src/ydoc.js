@@ -105,11 +105,12 @@ ydoc.build = function(cwd, conf, opt) {
             shell.rm('-rf', rDest);
             shell.cp('-rf', docDir + '/', rDest);
             shell.rm('-rf', docDir);
+            console.log('-> 添加版本切换标签.......'.gray);
             shell.ls(rDest + '/*/*.html').forEach(function (file) {
                 var reg = new RegExp(rDest + "\/(.+)\/","gi");
                 var versionName = reg.exec(file)[1];
                 shell.sed('-i', /(navbar-brand.+\<\/a\>)/gi, '$1' + getVersionHTML(versionName), file);
-                console.log(('√ ' + file+ ' 添加版本切换标签').yellow);
+                console.log(('√ 添加版本切换标签: ' + file).yellow);
             });
             console.log('√ Complete!\n'.green);
         }else {
