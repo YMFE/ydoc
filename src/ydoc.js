@@ -100,9 +100,10 @@ ydoc.build = function(cwd, conf, opt) {
             shell.rm('-rf', docDir);
             console.log(conf.mutiversion);
             shell.ls(rDest + '/*/*.html').forEach(function (file) {
-                console.log(file);
+                var str = '_docs/v3.0/theme.html';
+                var reg = new RegExp(rDest + "\/(.+)\/","gi");
+                console.log(reg.exec(file)[1]);
                 shell.sed('-i', /(navbar-brand.+\<\/a\>)/gi, '$1<span>span</span>', file);
-                console.log('e');
             });
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);
