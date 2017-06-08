@@ -80,6 +80,8 @@ ydoc.build = function(cwd, conf, opt) {
                 li += '<li class="m-version-item"><a class="link" href="../' + item.name + '/index.html">'+item.name+'</a></li>\n';
                 // 切换到各版本分支
                 shell.exec('git checkout ' + item.branch);
+                shell.exec('ydoc build');
+                shell.exec('git add -A && git commit -m "commit *'+ item.branch + '"');
                 // 加载配置文件
                 loadConfig(cwd, function(conf) {
                     if (conf) {
@@ -112,8 +114,6 @@ ydoc.build = function(cwd, conf, opt) {
                 shell.sed('-i', /(navbar-brand.+\<\/a\>)/gi, '$1' + getVersionHTML(versionName), file);
                 console.log(('√ 添加版本切换标签: ' + file).yellow);
             });
-            // shell.cp('-rf', sysPath.join(cwd, 'node_modules/ydoc/' + theme), rDest);
-            console.log(cwd);
             console.log('√ Complete!\n'.green);
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);
