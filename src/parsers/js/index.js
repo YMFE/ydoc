@@ -6,7 +6,7 @@ var formatter = require('atropa-jsformatter');
 
 var analyseComment = require('../../utils/analyseComment.js');
 
-var componentKeywords = ['component', 'property', 'method'];
+var componentKeywords = ['component', 'property', 'event', 'method'];
 var componentTPL = fs.readFileSync(sysPath.join(__dirname, './component.html'), 'UTF-8');
 var libTPL = fs.readFileSync(sysPath.join(__dirname, './lib.html'), 'UTF-8');
 
@@ -24,6 +24,7 @@ var execFns = {
     'component': function(contents, options, conf) {
         var ret = {
             props: [],
+            events: [],
             methods: []
         },
         fm = options.format && formatter;
@@ -37,7 +38,12 @@ var execFns = {
                     case 'property':
                         ret.props.push(analyseComment(comment, filePath, conf, fm));
                         break;
+                    case 'event':
+                        console.log(analyseComment(comment, filePath, conf, fm));
+                        ret.events.push(analyseComment(comment, filePath, conf, fm));
+                        break;
                     case 'method':
+                        // console.log(analyseComment(comment, filePath, conf, fm));
                         ret.methods.push(analyseComment(comment, filePath, conf, fm));
                         break;
                 };
