@@ -80,7 +80,7 @@ ydoc.build = function(cwd, conf, opt) {
                 li += '<li class="m-version-item"><a class="link" href="../' + item.name + '/index.html">'+item.name+'</a></li>\n';
                 // 切换到各版本分支
                 shell.exec('git checkout ' + item.branch);
-                shell.exec('ydoc build');
+                shell.exec('bin/ydoc build');
                 shell.exec('git add -A && git commit -m "commit *'+ item.branch + '"');
                 // 加载配置文件
                 loadConfig(cwd, function(conf) {
