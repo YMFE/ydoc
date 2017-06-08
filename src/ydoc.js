@@ -87,7 +87,7 @@ ydoc.build = function(cwd, conf, opt) {
                         // 获取该分支文档目录
                         var branchDest = opt.dest || conf.dest || '_docs';
                         shell.cp('-rf', branchDest + '/', docDir + '/' + item.name);
-                        console.log(('√ 复制 ' + item.name + ' 分支文档: ' + docDir + '/' + item.name).yellow);
+                        console.log(('√ 复制 ' + item.name + ' 分支文档: ' + branchDest + ' 至:' + docDir + '/' + item.name).yellow);
                     } else {
                         console.log(item.branch + '分支的配置文件读取失败！'.red);
                     }
