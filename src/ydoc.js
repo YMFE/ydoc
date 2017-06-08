@@ -113,6 +113,7 @@ ydoc.build = function(cwd, conf, opt) {
                 shell.sed('-i', /(navbar-brand.+\<\/a\>)/gi, '$1' + getVersionHTML(versionName), file);
                 console.log(('√ ' + file+ ' 添加版本切换标签').yellow);
             });
+            console.log('√ Complete!'.green);
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);
         }
