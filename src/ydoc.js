@@ -99,7 +99,7 @@ ydoc.build = function(cwd, conf, opt) {
             shell.rm('-rf', docDir);
             console.log(rDest,docDir);
             shell.ls(rDest + '/*/*.html').forEach(function (file) {
-                shell.sed('-i', '\<html', 'v0.1.2', file);
+                shell.sed('-i', '\<html', '\< html', file);
                 console.log('e');
             });
         }else {
