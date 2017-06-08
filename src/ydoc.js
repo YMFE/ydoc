@@ -61,7 +61,7 @@ ydoc.init = actions.init;
 ydoc.build = function(cwd, conf, opt) {
     opt = opt || {};
     // 多版本时生成文件到对应version的路径
-    var version = null;
+    var li = '';
     var template = opt.template || conf.template,
         rDest = opt.dest || conf.dest || '_docs',
         destPath = sysPath.join(cwd, rDest), // add=>version?
@@ -79,6 +79,7 @@ ydoc.build = function(cwd, conf, opt) {
             shell.mkdir(docDir);
             conf.mutiversion.versions.forEach(function(item, index){
                 console.log(item);
+                li += '<li class="m-version-item"><a class="link" href={{ ../' + item.name + '/index.html}}>'+item.name+'</a></li>\n';
                 // 切换到各版本分支
                 shell.exec('git checkout ' + item.branch);
                 // 加载配置文件
@@ -101,14 +102,9 @@ ydoc.build = function(cwd, conf, opt) {
             shell.rm('-rf', docDir);
             console.log(conf.mutiversion);
             function getVersionHTML(versionName) {
-                    // <li class="m-version-item">
-                    //     <a class="link" href={{ '../' + item + '/' + pageName + '.html'}}>{{item}}</a>
-                    // </li>
                 var title = '<p class="version-selector" data-target="version">' + versionName + '<span data-target="version" class="ydocIcon icon">&#xf3ff;</span></p>';
-
-                var ul = '<ul class="m-version-mask">' + 'item' + '</ul>';
-                var res = '<div class="m-version">' + title + ul + '</div>'
-                return '<span>'+versionName+'</span>';
+                var ul = '<ul class="m-version-mask">' + li + '</ul>';
+                return '<div class="m-version">' + title + ul + '</div>';
             }
             shell.ls(rDest + '/*/*.html').forEach(function (file) {
                 var reg = new RegExp(rDest + "\/(.+)\/","gi");
@@ -133,7 +129,6 @@ ydoc.build = function(cwd, conf, opt) {
         }
 
         conf.rDest = rDest;
-        conf.version = version;
         conf.buildPages = buildPages;
 
         function build(content) {
