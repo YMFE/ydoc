@@ -79,7 +79,6 @@ ydoc.build = function(cwd, conf, opt) {
             shell.mkdir(docDir);
             // 遍历版本号，切换到对应的分支拷贝文件
             conf.mutiversion.versions.forEach(function(item, index){
-                console.log(item);
                 li += '<li class="m-version-item"><a class="link" href="../' + item.name + '/index.html">'+item.name+'</a></li>\n';
                 // 切换到各版本分支
                 shell.exec('git checkout ' + item.branch);
@@ -113,7 +112,7 @@ ydoc.build = function(cwd, conf, opt) {
                 shell.sed('-i', /(navbar-brand.+\<\/a\>)/gi, '$1' + getVersionHTML(versionName), file);
                 console.log(('√ ' + file+ ' 添加版本切换标签').yellow);
             });
-            console.log('√ Complete!'.green);
+            console.log('√ Complete!\n'.green);
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);
         }
