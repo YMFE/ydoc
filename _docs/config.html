@@ -16,13 +16,10 @@
         <header class="ydoc-header">
             <div class="ydoc-header-area">
                 
-                <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a><div class="m-version"><p class="version-selector" data-target="version">3.0<span data-target="version" class="ydocIcon icon">&#xf3ff;</span></p><ul class="m-version-mask"><li class="m-version-item"><a class="link" href="../3.0/index.html">3.0</a></li>
-<li class="m-version-item"><a class="link" href="../4.0/index.html">4.0</a></li>
-<li class="m-version-item"><a class="link" href="../v3.0/index.html">v3.0</a></li>
-</ul></div>  
+                <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+                
                 <button class="ydocIcon navbar-toggle">&#xf020;</button>
                 <nav class="ydoc-nav">
-
                     <ul class="navbar-left">
                          
                         <li class="">
@@ -184,7 +181,6 @@
 <h3 class="subject" id="完整配置说明">完整配置说明 <a class="hashlink" href="#完整配置说明">#</a></h3><p>示例:</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span> // 标示 配置文件
-    <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"3.0"</span><span class="token punctuation">,</span> // 使用版本切换功能时配置的版本号
     <span class="token property">"dest"</span><span class="token operator">:</span> <span class="token string">"path/to/destination"</span><span class="token punctuation">,</span> // 默认为  <span class="token string">"_docs"</span>
     <span class="token property">"examplePath"</span><span class="token operator">:</span> <span class="token string">"./examples"</span><span class="token punctuation">,</span> // 示例代码路径 默认 <span class="token string">"./"</span>
     <span class="token property">"template"</span><span class="token operator">:</span> <span class="token string">"path/to/templte"</span><span class="token punctuation">,</span> // 默认使用 YDoc 内置的模板
@@ -192,6 +188,19 @@
     <span class="token property">"instructionsUrlPath"</span><span class="token operator">:</span> <span class="token string">"./demo/component"</span><span class="token punctuation">,</span> //使用说明demo路径
     <span class="token property">"theme"</span><span class="token operator">:</span> <span class="token string">"ocean"</span><span class="token punctuation">,</span> // 配置主题，默认没有主题
     <span class="token property">"defaultGrammer"</span><span class="token operator">:</span> <span class="token string">"javascript"</span><span class="token punctuation">,</span> // 默认高亮语法
+    <span class="token property">"mutiversion"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 配置多版本切换，使用此功能需要切换到新的分支(专门用于生成文档<span class="token punctuation">)</span>，在新分支的配置文件中添加此配置项
+        <span class="token property">"docbranch"</span><span class="token operator">:</span> <span class="token string">"doc"</span><span class="token punctuation">,</span> // 新分支的分支名称
+        <span class="token property">"versions"</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"3.0"</span><span class="token punctuation">,</span> // 需要生成的版本名称
+            <span class="token property">"branch"</span><span class="token operator">:</span> <span class="token string">"3.0"</span> // 需要生成的版本所在的git分支
+        <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"4.0"</span><span class="token punctuation">,</span>
+            <span class="token property">"branch"</span><span class="token operator">:</span> <span class="token string">"4.0"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+            <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"v3.0"</span><span class="token punctuation">,</span>
+            <span class="token property">"branch"</span><span class="token operator">:</span> <span class="token string">"v3.0.0"</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span> // 需要切换的版本信息
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token property">"options"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 通用编译器配置
         <span class="token property">"markdown"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 对于 markdown 编译器进行统一配置
             <span class="token property">"menuLevel"</span><span class="token operator">:</span> <span class="token number">2</span> //选取第几级 head 作为目录，默认 -<span class="token number">1</span> 没有目录
@@ -202,8 +211,7 @@
         <span class="token property">"staticsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 侧边目录不折叠且不跟随页面滚动
         <span class="token property">"insertCSS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./style/a.css"</span><span class="token punctuation">,</span><span class="token string">"./style/b.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
         <span class="token property">"insertJS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./scripts/a.js"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置js路径
-        <span class="token property">"hasPageName"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符<span class="token punctuation">)</span>
-        <span class="token property">"mutiversion"</span><span class="token operator">:</span> <span class="token boolean">true</span> // 是否启用版本切换； 如启用需要配置version字段
+        <span class="token property">"hasPageName"</span><span class="token operator">:</span> <span class="token boolean">true</span> //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符<span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token property">"resources"</span><span class="token operator">:</span> <span class="token punctuation">{</span> //将配置文件夹拷贝至生成文档的source文件夹下  
             <span class="token property">"images"</span><span class="token operator">:</span> <span class="token string">"./test-reactweb/docs/images/"</span><span class="token punctuation">,</span>   

@@ -86,7 +86,6 @@ module.exports = function(callback) {
 ```json
 {
     "name": "YDoc", // 标示 配置文件
-    "version": "3.0", // 使用版本切换功能时配置的版本号
     "dest": "path/to/destination", // 默认为  "_docs"
     "examplePath": "./examples", // 示例代码路径 默认 "./"
     "template": "path/to/templte", // 默认使用 YDoc 内置的模板
@@ -94,6 +93,19 @@ module.exports = function(callback) {
     "instructionsUrlPath": "./demo/component", //使用说明demo路径
     "theme": "ocean", // 配置主题，默认没有主题
     "defaultGrammer": "javascript", // 默认高亮语法
+    "mutiversion": { // 配置多版本切换，使用此功能需要切换到新的分支(专门用于生成文档)，在新分支的配置文件中添加此配置项
+        "docbranch": "doc", // 新分支的分支名称
+        "versions":[{
+            "name": "3.0", // 需要生成的版本名称
+            "branch": "3.0" // 需要生成的版本所在的git分支
+        },{
+            "name": "4.0",
+            "branch": "4.0"
+        },{
+            "name": "v3.0",
+            "branch": "v3.0.0"
+        }] // 需要切换的版本信息
+    },
     "options": { // 通用编译器配置
         "markdown": { // 对于 markdown 编译器进行统一配置
             "menuLevel": 2 //选取第几级 head 作为目录，默认 -1 没有目录
@@ -104,8 +116,7 @@ module.exports = function(callback) {
         "staticsidenav": true, // 侧边目录不折叠且不跟随页面滚动
         "insertCSS": ["./style/a.css","./style/b.css"],  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
         "insertJS": ["./scripts/a.js"],  // 配置js路径
-        "hasPageName": true, //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符)
-        "mutiversion": true // 是否启用版本切换； 如启用需要配置version字段
+        "hasPageName": true //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符)
     },
     "resources": { //将配置文件夹拷贝至生成文档的source文件夹下  
             "images": "./test-reactweb/docs/images/",   
