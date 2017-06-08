@@ -8,6 +8,8 @@ $(document).ready(function() {
     var $contentLeftWidth = $contentLeft.width() - 1;
     var $ydoc = $('.ydoc');
     var $mask = $('.mask');
+    var $versionSelector = $('.version-selector');
+    var $versionMask = $('.m-version-mask');
     var isPanelHide = true;
     var winWidth = $(window).width();
     var h2 = $('.content-right').find('h2');
@@ -17,24 +19,24 @@ $(document).ready(function() {
     var titles = [];
     var menus = [];
     $ydoc.addClass('hidden');
-    if(isWechat()&&$contentLeft[0]){
+    if (isWechat() && $contentLeft[0]) {
         $ydoc.addClass('off-webkit-scroll');
     }
-    for(var i=0; i<a.length; i++){
+    for (var i = 0; i < a.length; i++) {
         menus.push({
             name: $(a[i]).attr('href').split('#')[1],
-            offsetTop: $(a[i]).offset().top -77,
+            offsetTop: $(a[i]).offset().top - 77,
             parent: $(a[i]).parent()
         })
     }
-    for(var i=0; i<h2.length; i++){
+    for (var i = 0; i < h2.length; i++) {
         titles.push({
             name: h2[i].id,
             jq: $(h2[i]),
             offsetTop: $(h2[i]).offset().top
         })
     }
-    for(var i=0; i<h3.length; i++){
+    for (var i = 0; i < h3.length; i++) {
         titles.push({
             name: h3[i].id,
             jq: $(h3[i]),
@@ -43,41 +45,41 @@ $(document).ready(function() {
     }
     titles.sort(sortAsOffset('offsetTop'));
 
-    $openPanel.on('click',function(){
-        if(isPanelHide){    // 点击弹出panel
+    $openPanel.on('click', function() {
+        if (isPanelHide) { // 点击弹出panel
             isPanelHide = false;
             $ydoc.addClass('hidden');
             $mask.show();
-            setTimeout(function(){
+            setTimeout(function() {
                 $mask.addClass('show');
-            },50)
+            }, 50)
             $openPanel.css({
-                 'transform':'translateX(-'+$contentLeftWidth+'px)'
+                'transform': 'translateX(-' + $contentLeftWidth + 'px)'
             })
             $contentLeft.css({
-                 'transform':'translateX(-'+$contentLeftWidth+'px)'
+                'transform': 'translateX(-' + $contentLeftWidth + 'px)'
             })
-        }else {     // 点击隐藏panel
+        } else { // 点击隐藏panel
             isPanelHide = true;
             $ydoc.removeClass('hidden');
             $mask.removeClass('show');
-            setTimeout(function(){
+            setTimeout(function() {
                 $mask.hide();
-            },400)
+            }, 400)
             $openPanel.css({
-                 'transform':'translateX(0px)'
+                'transform': 'translateX(0px)'
             })
             $contentLeft.css({
-                 'transform':'translateX(0px)'
+                'transform': 'translateX(0px)'
             })
         }
         var scrollTop = $ydoc.scrollTop();
         // 遍历主页面的标题，找到当前窗口顶部的标题
-        for(var i=0; i<titles.length; i++){
-            if(titles[i].offsetTop > scrollTop){
+        for (var i = 0; i < titles.length; i++) {
+            if (titles[i].offsetTop > scrollTop) {
                 // 遍历侧栏，找到对应的标题
-                for(var j in menus){
-                    if(menus[j].name == titles[i].name){
+                for (var j in menus) {
+                    if (menus[j].name == titles[i].name) {
                         lis.removeClass('active');
                         menus[j].parent.addClass('active');
                         $('.docs-sidenav').scrollTop(menus[j].offsetTop);
@@ -90,34 +92,43 @@ $(document).ready(function() {
     });
 
     $ydoc.removeClass('hidden');
-    $ydoc.on('scroll', function(){
-        sessionStorage.setItem('offsetTop',$ydoc.scrollTop());
+    $ydoc.on('scroll', function() {
+        sessionStorage.setItem('offsetTop', $ydoc.scrollTop());
     })
     // 待元素获获取offsetTop值之后再设置ydoc的offsetTop
-    if(sessionStorage.offsetTop){
+    if (sessionStorage.offsetTop) {
         $ydoc.scrollTop(sessionStorage.offsetTop);
     }
     // $openPanel.trigger('click');
-    $mask.on('click',function(){
-        if(!isPanelHide){
+    $mask.on('click', function() {
+        if (!isPanelHide) {
             $openPanel.click();
         }
     });
 
     // PC端导航
-    $('.navbar-toggle').click(function(){
+    $('.navbar-toggle').click(function() {
         $(this).next(".ydoc-nav").toggle();
     });
 
-    $('.docs-sidenav li').click(function(e){
+    $('.docs-sidenav li').click(function(e) {
         $('.docs-sidenav li').removeClass('active');
         $(this).addClass('active');
-        if(!isPanelHide){
+        if (!isPanelHide) {
             $openPanel.trigger('click');
         }
     });
+    $ydoc.click(function(e) {
+        if ($(e.target).data('target') !== 'version') {
+            $versionMask.hide();
+        }
+    })
+    $versionSelector.click(function(e) {
+        $versionMask.show();
+        console.log('e');
+    });
 
-    $('.markdown-body pre').map(function(i,item){
+    $('.markdown-body pre').map(function(i, item) {
         $(item).addClass('ydoc-example');
     });
 
@@ -141,15 +152,16 @@ $(document).ready(function() {
     var winHeight = $(window).height() - 44,
         sidebar = $('.docs-sidebar');
     var docSideNav = $('.docs-sidenav');
-    var  ydocContainerCon= $('.ydoc-container-content');
-    if(winWidth>767){
+    if (winWidth > 767) {
         docSideNav.width($contentLeftWidth);
     }
     if (sidebar.height() > winHeight) {
         sidebar.css('max-height', winHeight + 'px');
         $('.docs-sidenav').css('max-height', winHeight + 'px');
-        if(winWidth<768){
-            $('.docs-sidenav').css({'overflow-x':'hidden'});
+        if (winWidth < 768) {
+            $('.docs-sidenav').css({
+                'overflow-x': 'hidden'
+            });
         }
         var activeMenu,
             barScroll = false;
@@ -163,11 +175,11 @@ $(document).ready(function() {
     };
 
     $(window).on('scroll', function(e) {
-        if( $(this).scrollTop() >  ($('.footer').offset().top - $(window).height()) ){
-            winHeight = $(window).height() - $('.footer').outerHeight()-44;
+        if ($(this).scrollTop() > ($('.footer').offset().top - $(window).height())) {
+            winHeight = $(window).height() - $('.footer').outerHeight() - 44;
             sidebar.css('max-height', winHeight + 'px');
             $('.docs-sidenav').css('max-height', winHeight + 'px');
-        }else{
+        } else {
             winHeight = $(window).height() - 44;
             sidebar.css('max-height', winHeight + 'px');
             $('.docs-sidenav').css('max-height', winHeight + 'px');
@@ -192,22 +204,25 @@ $(document).ready(function() {
     });
 
     // 退出全屏浏览器窗口大小改变，不触发resize
-    $(window).on('resize', function(e){
+    $(window).on('resize', function(e) {
         resizeSidebar();
         $contentLeftWidth = $contentLeft.width() - 1;
     });
-    function resizeSidebar(){
+
+    function resizeSidebar() {
         var winHeight = $(window).height() - 44,
             sidebar = $('.docs-sidebar');
         var docSideNav = $('.docs-sidenav');
-        var ydocContainerCon= $('.ydoc-container-content');
-        if(winWidth>767){
+        if (winWidth > 767) {
             docSideNav.width($contentLeftWidth);
         }
         if (sidebar.height() > winHeight) {
             sidebar.css('max-height', winHeight + 'px');
             $('.docs-sidenav').css('max-height', winHeight + 'px');
-            $('.docs-sidenav').css({'overflow-y':'scroll','overflow-x':'hidden'});
+            $('.docs-sidenav').css({
+                'overflow-y': 'scroll',
+                'overflow-x': 'hidden'
+            });
             var barScroll = false;
 
             sidebar.on('mouseover', function() {
@@ -218,11 +233,11 @@ $(document).ready(function() {
                 barScroll = false;
             });
             // scroll
-            if( $(window).scrollTop() >  ($('.footer').offset().top - $(window).height()) ){
-                winHeight = $(window).height() - $('.footer').outerHeight()-44;
+            if ($(window).scrollTop() > ($('.footer').offset().top - $(window).height())) {
+                winHeight = $(window).height() - $('.footer').outerHeight() - 44;
                 sidebar.css('max-height', winHeight + 'px');
                 $('.docs-sidenav').css('max-height', winHeight + 'px');
-            }else{
+            } else {
                 winHeight = $(window).height() - 44;
                 sidebar.css('max-height', winHeight + 'px');
                 $('.docs-sidenav').css('max-height', winHeight + 'px');
@@ -230,24 +245,25 @@ $(document).ready(function() {
         }
     }
 
-    function sortAsOffset(propertyName){
-        return function(obj1, obj2){
+    function sortAsOffset(propertyName) {
+        return function(obj1, obj2) {
             var val1 = obj1[propertyName];
             var val2 = obj2[propertyName];
-            if(val1 < val2){
+            if (val1 < val2) {
                 return -1;
-            }else if (val1 > val2) {
+            } else if (val1 > val2) {
                 return 1;
-            }else {
+            } else {
                 return 0;
             }
         }
     }
-    function isWechat(){
+
+    function isWechat() {
         var ua = navigator.userAgent.toLowerCase();
-        if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        if (ua.match(/MicroMessenger/i) == "micromessenger") {
             return true;
-         } else {
+        } else {
             return false;
         }
     }
