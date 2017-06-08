@@ -77,6 +77,7 @@ ydoc.build = function(cwd, conf, opt) {
             // 新建目录 ydocCache 缓存各分支文档
             shell.rm('-rf', docDir);
             shell.mkdir(docDir);
+            // 遍历版本号，切换到对应的分支拷贝文件
             conf.mutiversion.versions.forEach(function(item, index){
                 console.log(item);
                 li += '<li class="m-version-item"><a class="link" href="../' + item.name + '/index.html">'+item.name+'</a></li>\n';
@@ -94,18 +95,18 @@ ydoc.build = function(cwd, conf, opt) {
                     }
                 });
             });
+            // 获取多版本标签切换的 html
+            function getVersionHTML(versionName) {
+                var title = '<p class="version-selector" data-target="version">' + versionName + '<span data-target="version" class="ydocIcon icon">&#xf3ff;</span></p>';
+                var ul = '<ul class="m-version-mask">' + li + '</ul>';
+                return '<div class="m-version">' + title + ul + '</div>';
+            }
             // 切换回生成文档的分支
             shell.exec('git checkout ' + docBranch);
             // 删除主分支文档，将其他分支拷贝出来的文档剪切进来
             shell.rm('-rf', rDest);
             shell.cp('-rf', docDir + '/', rDest);
             shell.rm('-rf', docDir);
-            console.log(conf.mutiversion);
-            function getVersionHTML(versionName) {
-                var title = '<p class="version-selector" data-target="version">' + versionName + '<span data-target="version" class="ydocIcon icon">&#xf3ff;</span></p>';
-                var ul = '<ul class="m-version-mask">' + li + '</ul>';
-                return '<div class="m-version">' + title + ul + '</div>';
-            }
             shell.ls(rDest + '/*/*.html').forEach(function (file) {
                 var reg = new RegExp(rDest + "\/(.+)\/","gi");
                 var versionName = reg.exec(file)[1];
