@@ -85,6 +85,7 @@ ydoc.build = function(cwd, conf, opt) {
                     if (conf) {
                         // 获取该分支文档目录
                         var branchDest = opt.dest || conf.dest || '_docs';
+                        shell.rm('-rf', branchDest + '/' + item.name);
                         shell.cp('-rf', branchDest + '/', docDir + '/' + item.name);
                         console.log(('√ 复制 ' + item.name + ' 分支文档至: ' + docDir + '/' + item.name).yellow);
                     } else {
