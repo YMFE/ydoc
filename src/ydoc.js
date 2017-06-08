@@ -97,7 +97,7 @@ ydoc.build = function(cwd, conf, opt) {
             shell.rm('-rf', rDest);
             shell.cp('-rf', docDir + '/', rDest);
             shell.rm('-rf', docDir);
-            console.log(rDest);
+            console.log(rDest,docDir);
             shell.ls(rDest + '/*/*.html').forEach(function (file) {
                 console.log('e');
             });
