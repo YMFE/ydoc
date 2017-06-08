@@ -99,7 +99,7 @@ ydoc.build = function(cwd, conf, opt) {
             shell.cp('-rf', docDir + '/', rDest);
             shell.rm('-rf', docDir);
             shell.ls(rDest + '/*/*.html').forEach(function (file) {
-                shell.sed('-i', /(navbar-brand\w+\<\/a\>)/, '$1<div>div</div>', file);
+                shell.sed('-i', /(navbar-brand.+\<\/a\>$)/gi, '$1<div>div</div>', file);
                 console.log('e');
             });
         }else {
