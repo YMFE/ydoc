@@ -78,6 +78,7 @@ ydoc.build = function(cwd, conf, opt) {
             shell.rm('-rf', docDir);
             shell.mkdir(docDir);
             conf.mutiversion.versions.forEach(function(item, index){
+                console.log(item);
                 // 切换到各版本分支
                 shell.exec('git checkout ' + item.branch);
                 // 加载配置文件
@@ -100,6 +101,13 @@ ydoc.build = function(cwd, conf, opt) {
             shell.rm('-rf', docDir);
             console.log(conf.mutiversion);
             function getVersionHTML(versionName) {
+                    // <li class="m-version-item">
+                    //     <a class="link" href={{ '../' + item + '/' + pageName + '.html'}}>{{item}}</a>
+                    // </li>
+                var title = '<p class="version-selector" data-target="version">' + versionName + '<span data-target="version" class="ydocIcon icon">&#xf3ff;</span></p>';
+
+                var ul = '<ul class="m-version-mask">' + item + '</ul>';
+                var res = '<div class="m-version">' + title + ul + '</div>'
                 return '<span>'+versionName+'</span>';
             }
             shell.ls(rDest + '/*/*.html').forEach(function (file) {
