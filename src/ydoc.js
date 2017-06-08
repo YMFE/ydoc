@@ -112,9 +112,8 @@ ydoc.build = function(cwd, conf, opt) {
                 shell.sed('-i', /(navbar-brand.+\<\/a\>)/gi, '$1' + getVersionHTML(versionName), file);
                 console.log(('√ 添加版本切换标签: ' + file).yellow);
             });
-            shell.ls('app.js').forEach(function(file){
-                console.log(file);
-            });
+            // shell.cp('-rf', sysPath.join(cwd, 'node_modules/ydoc/' + theme), rDest);
+            console.log(pwd);
             console.log('√ Complete!\n'.green);
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);
