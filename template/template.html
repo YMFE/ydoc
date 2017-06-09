@@ -75,13 +75,13 @@
                         <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                             <ul class="nav docs-sidenav">
                                 {{each article.sidebars as m index}} {{if m.sub}} {{if index > 0 && !article.sidebars[index - 1].sub}}
-                                <ul class="nav docs-sidenav-extend" {{if article.name==m .name}} style="display:block;" {{/if}} {{if article.parentName &&(article.parentName==m .pName)}} style="display:block;" {{/if}}>
-                                    {{/if}}
-                                    <li {{if article.name==m .name}} class="active" {{/if}}>
-                                        <a href="{{ m.tag || m.url || ('#' + m.href)}}">{{m.name}}</a>
+                                <ul class="nav docs-sidenav-extend" {{if article.name == m.name}} style="display:block;" {{/if}} {{if article.parentName &&(article.parentName == m.pName)}}  style="display:block;" {{/if}}>
+                                {{/if}}
+                                    <li {{if article.name == m.name}} class="active" {{/if}}>
+                                        <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
                                     </li>
-                                    {{if index
-                                    < article.sidebars.length-1 && !article.sidebars[index + 1].sub}} </ul>
+                                {{if index < article.sidebars.length-1 && !article.sidebars[index + 1].sub}}
+                                </ul>
                                         {{/if}} {{if index===article.sidebars.length-1}}
                                 </ul>
                                 {{/if}} {{else}}
@@ -114,12 +114,12 @@
                             <ul class="nav docs-sidenav">
                                 {{each article.sidebars as m index}} {{if m.sub}} {{if index > 0 && !article.sidebars[index - 1].sub}}
                                 <ul class="nav docs-sidenav-extend">
-                                    {{/if}}
+                                {{/if}}
                                     <li>
-                                        <a href="{{ m.tag || m.url || ('#' + m.href)}}">{{m.name}}</a>
+                                        <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
                                     </li>
-                                    {{if index
-                                    < article.sidebars.length - 1 && !article.sidebars[index + 1].sub}} </ul>
+                                {{if index < article.sidebars.length - 1 && !article.sidebars[index + 1].sub}}
+                                </ul>
                                         {{/if}} {{else}}
                                         <li>
                                             <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
