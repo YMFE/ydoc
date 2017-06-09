@@ -19,6 +19,24 @@ if (!shell.which('git')) {
     shell.exit(1);
 }
 
+// 获取时间, 格式 => hh:mm:ss
+function checkTime(i){
+    if (i<10){
+        i="0" + i;
+    }
+    return i;
+}
+function startTime(){
+    var today=new Date()
+    var h=today.getHours()
+    var m=today.getMinutes()
+    var s=today.getSeconds()
+    h=checkTime(h)
+    m=checkTime(m)
+    s=checkTime(s)
+    return '[' + h + ':' + m + ':' + s + ']';
+}
+
 function execTemplate(destPath, tplPath, callback) {
     if (!fs.existsSync(destPath)) {
         fs.mkdirSync(destPath);
@@ -146,14 +164,16 @@ ydoc.build = function(cwd, conf, opt) {
             conf.templateContent = content;
             conf.codeTemplateContent = codeContent;
             build(content);
+            // 监听文件变化
             if (opt.watch) {
                 console.log('√ Start Watching .......'.green);
                 watch.watchTree(cwd, {
-                    ignoreDirectoryPattern: new RegExp(rDest)
+                    ignoreDirectoryPattern: new RegExp(rDest) // 不监听这些文件的变化
                 }, function(path) {
-                    var fileName = sysPath.basename(path);
-                    if (fileName == 'ydocfile.js' || fileName == 'ydoc.config') {
-                        console.log('--> Reload Config ......'.gray);
+                    var reg = /ydoc.json$|ydoc.config$|ydocfile.js$/gi;
+                    // 判断doc的配置文件是否变化，若变化则更新配置文件后构建文档
+                    if(reg.test(path)){
+                        console.log((startTime()+'--> Reload Config ......').cyan);
                         loadConfig(cwd, function(cf) {
                             cf.buildPages = buildPages;
                             cf.dest = destPath;
@@ -162,7 +182,8 @@ ydoc.build = function(cwd, conf, opt) {
                             conf = cf;
                             build(content);
                         });
-                    } else {
+                    }else {
+                        console.log((startTime()+'--> Reload Config ......').cyan);
                         build(content);
                     }
                 });
