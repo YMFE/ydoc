@@ -24,8 +24,10 @@ var parseAliases = function(lang) {
 
 // 设置markdown选项
 function setMarkedOptions(grammar) {
+    // grammar: defaultGrammar 默认高亮语法
     grammar = parseAliases(grammar);
 
+    // 检测是否支持需要高亮的语法
     if (typeof grammar === 'string') {
         try {
             require.resolve('prismjs/components/prism-' + grammar + '.js');
@@ -43,6 +45,7 @@ function setMarkedOptions(grammar) {
                 lang = lang.toLowerCase();
                 require('prismjs/components/prism-' + lang + '.js');
                 if (Prism.languages[lang]) {
+                    // Prism 将代码高亮
                     return Prism.highlight(code, Prism.languages[lang])
                 } else {
                     return code;

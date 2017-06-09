@@ -5,6 +5,7 @@ var artTemplate = require('art-template');
 var formatter = require('atropa-jsformatter');
 
 var analyseComment = require('../../utils/analyseComment.js');
+var hightLight = require('../../utils/exampleHightLight.js');
 
 var componentKeywords = ['component', 'property', 'event', 'method'];
 var componentTPL = fs.readFileSync(sysPath.join(__dirname, './component.html'), 'UTF-8');
@@ -39,16 +40,17 @@ var execFns = {
                         ret.props.push(analyseComment(comment, filePath, conf, fm));
                         break;
                     case 'event':
-                        console.log(analyseComment(comment, filePath, conf, fm));
                         ret.events.push(analyseComment(comment, filePath, conf, fm));
                         break;
                     case 'method':
-                        // console.log(analyseComment(comment, filePath, conf, fm));
                         ret.methods.push(analyseComment(comment, filePath, conf, fm));
                         break;
                 };
             });
         });
+        ret.props.forEach(function(item) {
+            item.example = hightLight(item.example, conf.defaultGrammar, item.examplelanguage);
+        })
         return {
             type: 'html',
             content: artTemplate.compile(componentTPL)(ret)
@@ -125,6 +127,7 @@ var execFns = {
                 tag: '#' + cont.name.replace(/[\.\:\s\@\/]/g, '-')
             });
             cont.list.forEach(function(item) {
+                item.example = hightLight(item.example, conf.defaultGrammar, item.examplelanguage);
                 ret.sidebars.push({
                     sub: true,
                     name: item.id,

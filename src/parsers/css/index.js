@@ -2,9 +2,8 @@ var fs = require('fs');
 var sysPath = require('path');
 var commentParser = require('comment-parser');
 var artTemplate = require('art-template');
-
 var analyseComment = require('../../utils/analyseComment.js');
-
+var hightLight = require('../../utils/exampleHightLight.js');
 var pageTPL = fs.readFileSync(sysPath.join(__dirname, './page.html'), 'UTF-8');
 
 module.exports = {
@@ -75,6 +74,12 @@ module.exports = {
                 };
             })
         };
+        // 高亮 css 语法
+        rs.list.forEach(function(item){
+            item.list.forEach(function(o){
+                o.example = hightLight(o.example, conf.defaultGrammar, o.examplelanguage);
+            })
+        });
 
         return {
             type: 'html',
