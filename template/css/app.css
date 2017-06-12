@@ -230,6 +230,30 @@ sup, sub {
     padding-bottom: 121px; }
     .ydoc .ydoc-banner-bg .desc {
       font-family: "微软雅黑"; }
+  .ydoc .ydoc-banner-home {
+    padding: .8rem 0;
+    text-align: center; }
+    .ydoc .ydoc-banner-home .home-title {
+      margin-bottom: 20px;
+      font-size: .8rem;
+      font-weight: bold; }
+    .ydoc .ydoc-banner-home .home-desc {
+      padding: 0 0.6rem;
+      font-size: .25rem; }
+    .ydoc .ydoc-banner-home .home-btn {
+      display: inline-block;
+      margin: 0.04rem;
+      padding: 0.1rem 0.4rem;
+      border: 1px solid;
+      border-radius: 0.05rem;
+      color: #ff503f;
+      font-size: .2rem;
+      font-weight: bold; }
+    .ydoc .ydoc-banner-home .home-version {
+      display: block;
+      margin-top: .15rem;
+      color: #ff503f;
+      font-size: .14rem; }
   .ydoc-banner {
     color: #fff;
     font-size: .18rem;
@@ -1032,9 +1056,14 @@ sup, sub {
         left: .18rem;
         border: 0; }
 
+/* 标题后的标签 */
 .ui-badge {
   color: #fff;
   background-color: #ff503f;
   font-size: .12rem;
   padding: .03rem .08rem;
   border-radius: .03rem; }
+
+/* 无侧栏时宽度主内容区撑满 */
+.ydoc-container-content .nosidebar {
+  width: 100%; }

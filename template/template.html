@@ -60,10 +60,22 @@
         <!-- Docs page layout -->
         {{if banner}}
         <div class="ydoc-banner-bg">
-            <div class="ydoc-banner">
+            <div class="ydoc-banner {{if homePage}}ydoc-banner-home{{/if}}">
                 <div class="ydoc-banner-area">
-                    <h1>{{banner.title}}</h1>
-                    <p class="desc">{{banner.description}}</p>
+                    <h1 {{if homePage}}class="home-title"{{/if}}>{{banner.title}}</h1>
+                    <p class="desc {{if homePage}}home-desc{{/if}}">{{banner.description}}</p>
+                    {{if homePage}}
+                        {{if homePage.button && homePage.button.length}}
+                            {{each homePage.button as btn}}
+                            <a class="ydoc-banner-button home-btn" href="{{btn.href}}"> {{btn.name}}</a>
+                            {{/each}}
+                        {{else}}
+                            <a class="ydoc-banner-button home-btn" href="{{homePage.button.href}}"> ssss{{homePage.button.name}}</a>
+                        {{/if}}
+                        {{if homePage.version}}
+                        <p class="home-version"> ddd </p>
+                        {{/if}}
+                    {{/if}}
                 </div>
             </div>
             {{/if}}
@@ -71,6 +83,7 @@
             <div class="ydoc-container">
                 {{if article.type == 'html'}} {{if article.sidebars}}
                 <div class="ydoc-container-content">
+                    {{if article.sidebar !== false}}
                     <div class="content-left {{if staticsidenav}}staticsidenav{{/if}}" role="complementary">
                         <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                             <ul class="nav docs-sidenav">
@@ -95,7 +108,8 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="content-right markdown-body" role="main">
+                    {{/if}}
+                    <div class="content-right markdown-body {{if article.sidebar === false}}nosidebar{{/if}}" role="main">
 
                         {{if intro}}{{intro}}{{/if}} {{if article.content}}{{article.content}}{{/if}}
                     </div>
@@ -109,6 +123,7 @@
                 {{/if}} {{else if article.type == 'block'}}
                 <div class="ydoc-container-content">
                     {{if article.sidebars}}
+                    {{if article.sidebar !== false}}
                     <div class="content-left {{if staticsidenav}}staticsidenav{{/if}}" role="complementary">
                         <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                             <ul class="nav docs-sidenav">
@@ -128,8 +143,8 @@
                                 </ul>
                         </nav>
                     </div>
-                    {{/if}}
-                    <div class="content-right right markdown-body" role="main">
+                    {{/if}}{{/if}}
+                    <div class="content-right right markdown-body {{if article.sidebar === false}}nosidebar{{/if}}" role="main">
                         {{if intro}}
                         <div>{{intro}}</div>
                         {{/if}} {{each article.blocks as c index}} {{if c.type == 'html'}}
