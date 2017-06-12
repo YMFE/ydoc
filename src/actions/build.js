@@ -11,7 +11,20 @@ var Prism = require('prismjs');
 var globby = require('globby');
 
 var parsers = require('../parsers');
-var reJS = /^javascript|js$/i;
+
+var reJS = /^javascript|js$/i,
+    arr = [],
+    sum = 1;
+// 目录id名相同时给予不同id
+function addNumberWhileSameName(id) {
+    if(arr.indexOf(id) !== -1){
+        id += sum;
+        sum++;
+    }
+    arr.push(id);
+    return id;
+}
+// 代码高亮处理language
 var parseAliases = function(lang) {
     if (reJS.test(lang)) {
         return 'javascript';
@@ -307,12 +320,16 @@ module.exports = function(cwd, conf) {
                 } else {
                     var navs = [],
                         blocks = [];
+                    // article.type == 'block'
                     page.content.blocks.forEach(function(block) {
+                        // 一级标题：block.name
                         if (block.name) {
+                            var realText = block.name;
+                            var text = addNumberWhileSameName(block.name);
                             navs.push({
-                                name: block.name,
+                                name: realText,
                                 index: block.index,
-                                tag: "#" + block.name.replace(/[\.\:\s\@\/]/g, '-'),
+                                tag: "#" + text.replace(/[\.\:\s\@\/]/g, '-'),
                                 sub: block.sub || false
                             });
                         }
@@ -320,10 +337,13 @@ module.exports = function(cwd, conf) {
                             var ret = doParser(cwd, block.content, block.ignore, block.compile, block.options, conf, codeRender);
                             if (block.name && !block.sub && ret.menus) {
                                 ret.menus.forEach(function(item) {
+                                    var realText = item.name;
+                                    var text = addNumberWhileSameName(item.name);
+                                    // 二级标题：item
                                     if (!item.sub) {
                                         navs.push({
-                                            name: item.name,
-                                            tag: "#" + item.name.replace(/[\.\:\s\@\/]/g, '-'),
+                                            name: realText,
+                                            tag: "#" + text.replace(/[\.\:\s\@\/]/g, '-'),
                                             sub: true
                                         });
                                     }

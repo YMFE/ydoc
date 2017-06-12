@@ -18,14 +18,14 @@ function parser(contents, options) {
         menus = [];
     renderer.heading = function(text, level) {
         var realText = text;
-        var text = addNumberWhileSameName(text);
         if (level == menuLevel) {
+            var text = addNumberWhileSameName(text);
             menus.push({
                 name: realText,
                 href: text
             });
-        }
-        if (level == subMenuLevel) {
+        }else if (level == subMenuLevel) {
+            var text = addNumberWhileSameName(text);
             menus.push({
                 name: realText,
                 href: text,
@@ -40,20 +40,16 @@ function parser(contents, options) {
 
     };
     renderer.listitem = function(text) {
-        var realText = text;
-        var text = addNumberWhileSameName(text);
         if (/^\s*\[[x ]\]\s*/.test(text)) {
             text = text
             .replace(/^\s*\[ \]\s*/, '<i class="empty checkbox">&#xf35f;</i> ')
             .replace(/^\s*\[x\]\s*/, '<i class="checked checkbox">&#xf35e;</i> ');
-            return '<li class="task-list">' + realText + '</li>';
+            return '<li class="task-list">' + text + '</li>';
         } else {
-            return '<li>' + realText + '</li>';
+            return '<li>' + text + '</li>';
         }
     };
     renderer.link = function(href, title, text) {
-        var realText = text;
-        var text = addNumberWhileSameName(text);
         if (this.options.sanitize) {
             try {
                 var prot = decodeURIComponent(unescape(href))
@@ -75,7 +71,7 @@ function parser(contents, options) {
         if (title) {
             out += ' title="' + title + '"';
         }
-        out += '>' + realText + '</a>';
+        out += '>' + text + '</a>';
         return out;
     }
     return {

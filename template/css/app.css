@@ -249,6 +249,11 @@ sup, sub {
       color: #ff503f;
       font-size: .2rem;
       font-weight: bold; }
+    .ydoc .ydoc-banner-home .home-btn:hover {
+      text-decoration: none;
+      border-color: #ff503f;
+      background-color: #ff503f;
+      color: #fff; }
     .ydoc .ydoc-banner-home .home-version {
       display: block;
       margin-top: .15rem;

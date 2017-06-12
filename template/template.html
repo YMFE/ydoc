@@ -73,7 +73,7 @@
                             <a class="ydoc-banner-button home-btn" href="{{homepage.button.href}}">{{homepage.button.name}}</a>
                         {{/if}}
                         {{if homepage.version}}
-                        <p class="home-version"> ddd </p>
+                        <p class="home-version">当前版本：{{homepage.version}}</p>
                         {{/if}}
                     {{/if}}
                 </div>
@@ -102,7 +102,7 @@
                                 <li {{if article.name==m .name}} class="active" {{/if}}>
                                     {{if m.blank == true}}
                                     <a href="javascript:void(0);">{{m.name}}</a> {{else}}
-                                    <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a> {{/if}}
+                                    <a href="{{ m.tag || m.url || ('#' + m.href)}}">{{m.name}}</a> {{/if}}
                                 </li>
                                 {{/if}} {{/each}}
                             </ul>

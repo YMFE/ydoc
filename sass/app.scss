@@ -231,6 +231,12 @@ sup,sub{vertical-align:baseline}
         font-size: .2rem;
         font-weight: bold;
      }
+     .home-btn:hover{
+         text-decoration: none;
+         border-color: #ff503f;
+         background-color: #ff503f;
+         color: #fff;
+     }
      .home-version{
          display: block;
         margin-top: .15rem;
