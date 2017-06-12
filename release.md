@@ -1,10 +1,14 @@
 ### v3.0.0
 * 添加自定义主题、配置主题功能
+* 添加多版本文档切换功能 配置项为mutiversion
+* 添加homepage配置首页
+* 添加注释规则: js component 支持@event(事件)
+* 添加homepage配置首页
 * 添加staticsidenav配置侧边目录不滚动
 * 为页面中的标题添加hashlink
 * JSComponent注释参数类型支持string
 * markdown支持task list
-* 代码高亮优化
+* 注释@example与markdown代码高亮
 * 侧栏动画优化
 * 一些其他优化
 
@@ -15,7 +19,7 @@
 ### v2.2.0
 * 添加移动端侧边目录
 * 添加foldsidenav侧边目录的展开/收起功能
-* @foldnumber 配置代码折叠的行号
+* 注释规则: @foldnumber 配置代码折叠的行号
 * 添加index配置子page路径名
 * 特殊字符处理
 * 布局优化

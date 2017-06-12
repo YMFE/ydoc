@@ -209,7 +209,7 @@
             <mark>{{event.returns.type}}</mark> {{event.returns.name}}
         </p>
         {{/if}} {{if event.example}}
-        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{method.example}}</code></pre> {{/if}} {{/each}} {{/if}} {{if example}}
+        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{event.example}}</code></pre> {{/if}} {{/each}} {{/if}} {{if example}}
         <div class="con-head">示例</div>
         <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{example}}</code></pre> {{/if}} {{if demo}}
         <p>

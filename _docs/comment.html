@@ -128,12 +128,14 @@
  * 打开
  *
  * @method XXX.router.open
+ * @static 标识静态属性/方法
  * @alias XXX.open
  * @category Router
  * @version 1.0.0
  * @foldnumber 8 代码块折叠行数
  * @param {String} name 视图名 &lt;1.0.0>
  * @returns {Object} 东西
+ * @examplelanguage js
  * @example
  * XXX.open('view', {
  *     param: {
@@ -164,11 +166,12 @@
                              
                             <h2 id="JS-Component" class="page-header subject">JS-Component<a class="hashlink" href="#JS-Component">#</a></h2>   
                             <div>
-                                <p>每个组件的代码在一个文件内，一个包含 <code>@component</code> 标签的注释块为组件说明，数个包含 <code>@property</code> 标签的注释块为配置属性，数个包含 <code>@method</code> 标签的注释块为实例方法。</p>
+                                <p>每个组件的代码在一个文件内，一个包含 <code>@component</code> 标签的注释块为组件说明，数个包含 <code>@property</code> 标签的注释块为配置属性，数个包含 <code>@method</code> 标签的注释块为实例方法，数个包含 <code>@event</code> 标签的注释块为监听的事件类型。</p>
 <pre><code class="lang-js"><span class="token comment" spellcheck="true">/**
  * 滚动组件
  *
  * @component ScrollView
+ * @examplelanguage js
  * @example ./Playground/js/Examples/ScrollViewExample/vertical&amp;horizontal.js[1-77]
  * @version >=0.20.0
  * @foldnumber 8 代码块折叠行数
@@ -190,6 +193,7 @@
  *
  * 滑块刻度标签
  * @property scaleFormat
+ * @static
  * @type function/string
  * @param {Number} scale 单个标签对应的value值
  * @param {Number} index 当前标签对应的下标
@@ -197,6 +201,7 @@
  * 受控属性：滑块滑到某一刻度时所展示的刻度文本信息。如果不需要标签，请将该属性设置为 [] 空列表来覆盖默认转换函数。
  * @returns {Boolean} 是否成功
  * @default scale => scale
+ * @examplelanguage js
  * @example
  * PropTypes.arrayOf(
  *     PropTypes.shape({
@@ -212,11 +217,13 @@
 
  <span class="token comment" spellcheck="true">/**
   * @method 组件关闭,无过渡动画
+  * @static
   * 返回给外部的回调函数, 为swipeMenuList特制,
   * @param isClearTransition {Boolean}
   * @description 类型提示：支持数组传值；也支持用函数格式化字符串：函数有两个参数(scale, index)；
   * 受控属性：滑块滑到某一刻度时所展示的刻度文本信息。如果不需要标签，请将该属性设置为 [] 空列表来覆盖默认转换函数。
   * @returns {Boolean} 是否成功
+  * @examplelanguage js
   * @example
   * PropTypes.arrayOf(
   *     PropTypes.shape({
@@ -226,6 +233,25 @@
   *   })
   * )
   */</span>
+
+<span class="token comment" spellcheck="true">// 事件</span>
+
+  <span class="token comment" spellcheck="true">/**
+   * @event onScroll
+   * @static
+   * @description 类型提示：支持数组传值；也支持用函数格式化字符串：函数有两个参数(scale, index)；
+   * @param isClearTransition {Boolean}
+   * @returns {Boolean} 是否成功
+   * @examplelanguage js
+   * @example
+   * PropTypes.arrayOf(
+   *     PropTypes.shape({
+   *         text: PropTypes.string.isRequired,
+   *         className: PropTypes.string,
+   *         onTap: PropTypes.func.isRequired,
+   *   })
+   * )
+   */</span>
 </code></pre>
 
                             </div>
@@ -244,6 +270,7 @@
  * @foldnumber 8 代码块折叠行数
  * @description 构造列表的自定义使用方法
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-list.html
+ * @examplelanguage css
  * @example ./examples/fragment/yo-list.sccs[5-48]
  * @param {Color} $on-color 子项选中文本色 {add:1.4.0}
  * @param {Boolean} $has-last-border 是否有最后一根底边线，改由`border-width`参数控制 {add:2.1.0}{del:2.1.3}
@@ -253,7 +280,7 @@
  */</span>
 </code></pre>
 <h4 class="subject" id="标签说明">标签说明 <a class="hashlink" href="#标签说明">#</a></h4><ul>
-<li><code>module</code>: 模块名（分类）</li><li><code>method</code>: 方法名</li><li><code>version</code>: 版本</li><li><code>demo</code>: demo 地址</li><li><code>example</code>: example 代码，文件路径[起始位置-结束位置] 或者直接写 源代码</li><li><code>param</code>: 参数，格式为：{类型} 名称 描述</li><li><code>skip</code>: 跳过此注释块</li></ul>
+<li><code>module</code>: 模块名（分类）</li><li><code>method</code>: 方法名</li><li><code>static</code>: 标识静态属性/方法</li><li><code>version</code>: 版本</li><li><code>demo</code>: demo 地址</li><li><code>example</code>: example 代码，文件路径[起始位置-结束位置] 或者直接写 源代码</li><li><code>examplelanguage</code>: 配置example的高亮语法</li><li><code>param</code>: 参数，格式为：{类型} 名称 描述</li><li><code>skip</code>: 跳过此注释块</li></ul>
 
                             </div>
                             

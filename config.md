@@ -93,17 +93,17 @@ module.exports = function(callback) {
     "instructionsUrlPath": "./demo/component", //使用说明demo路径
     "theme": "ocean", // 配置主题，默认没有主题
     "defaultGrammer": "javascript", // 默认高亮语法
-    "mutiversion": { // 配置多版本切换，使用此功能需要切换到新的分支(专门用于生成文档)，在新分支的配置文件中添加此配置项
-        "docbranch": "doc", // 新分支的分支名称
+    "mutiversion": { // 配置多版本切换，使用此功能需要切换到新的分支(此分支专门用于生成文档)，在新分支的配置文件中添加此配置项
+        "docbranch": "doc", // 新分支(专门用于生成文档的分支)名称
         "versions":[{
             "name": "3.0", // 需要生成的版本名称
-            "branch": "3.0" // 需要生成的版本所在的git分支
+            "branch": "v3.0.0" // 需要生成的版本所在的git分支
         },{
             "name": "4.0",
-            "branch": "4.0"
+            "branch": "v4.0.0"
         },{
-            "name": "v3.0",
-            "branch": "v3.0.0"
+            "name": "4.1",
+            "branch": "v4.1.0"
         }] // 需要切换的版本信息
     },
     "options": { // 通用编译器配置
@@ -132,6 +132,13 @@ module.exports = function(callback) {
     "pages": [{
         "name": "index", // Page Name 会根据他生成 html 文件，例: index.html
         "title": "开始", // Page Title
+        "homepage": { // 配置首页，样式区别于其他页面
+            "version": "v3.0.0", // 版本信息将显示在banner底部
+            "button": [{ // 按钮将显示在banner底部
+                "name": "Github",
+                "href": "./github.html"
+            }]
+        },
         "banner": { // Banner 配置
             "title": "YDoc",
             "description": "开始"

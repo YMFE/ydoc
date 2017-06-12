@@ -60,19 +60,19 @@
         <!-- Docs page layout -->
         {{if banner}}
         <div class="ydoc-banner-bg">
-            <div class="ydoc-banner {{if homePage}}ydoc-banner-home{{/if}}">
+            <div class="ydoc-banner {{if homepage}}ydoc-banner-home{{/if}}">
                 <div class="ydoc-banner-area">
-                    <h1 {{if homePage}}class="home-title"{{/if}}>{{banner.title}}</h1>
-                    <p class="desc {{if homePage}}home-desc{{/if}}">{{banner.description}}</p>
-                    {{if homePage}}
-                        {{if homePage.button && homePage.button.length}}
-                            {{each homePage.button as btn}}
-                            <a class="ydoc-banner-button home-btn" href="{{btn.href}}"> {{btn.name}}</a>
+                    <h1 {{if homepage}}class="home-title"{{/if}}>{{banner.title}}</h1>
+                    <p class="desc {{if homepage}}home-desc{{/if}}">{{banner.description}}</p>
+                    {{if homepage}}
+                        {{if homepage.button && homepage.button.length}}
+                            {{each homepage.button as btn}}
+                            <a class="ydoc-banner-button home-btn" href="{{btn.href}}">{{btn.name}}</a>
                             {{/each}}
                         {{else}}
-                            <a class="ydoc-banner-button home-btn" href="{{homePage.button.href}}"> ssss{{homePage.button.name}}</a>
+                            <a class="ydoc-banner-button home-btn" href="{{homepage.button.href}}">{{homepage.button.name}}</a>
                         {{/if}}
-                        {{if homePage.version}}
+                        {{if homepage.version}}
                         <p class="home-version"> ddd </p>
                         {{/if}}
                     {{/if}}

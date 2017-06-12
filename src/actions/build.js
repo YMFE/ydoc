@@ -355,7 +355,7 @@ module.exports = function(cwd, conf) {
                 }
                 data.pagename = page.name;
                 data.article.sidebar = page.sidebar;
-                data.homePage = page.homePage;
+                data.homepage = page.homepage;
                 fs.writeFileSync(sysPath.join(conf.dest, page.name + '.html'), render(data));
                 console.log(('√ 生成文件: ' + sysPath.join(conf.dest, page.name + '.html')).yellow);
             }

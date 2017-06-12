@@ -21,7 +21,6 @@ module.exports = function(example, grammar, language){
     }else if (language) {
         lang = parseAliases(language);
     }
-    lang = 'css';
     if(lang){
         // 判断orism是否支持该语法高亮
         try {
@@ -36,6 +35,8 @@ module.exports = function(example, grammar, language){
         } catch (e) {
             // console.warn(2,'! 无法解析默认语法 ' + lang + '，未检测到语法的将不进行高亮'.blue);
         }
+    }else {
+        res = example;
     }
     return res;
 }
