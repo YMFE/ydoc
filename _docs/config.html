@@ -24,7 +24,12 @@
                          
                         <li class="">
                             
-                            <a href="index.html">开始</a> 
+                            <a href="index.html">首页</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="start.html">开始</a> 
                         </li>
                         
                         <li class="">
@@ -79,6 +84,7 @@
             <div class="ydoc-container">
                  
                 <div class="ydoc-container-content">
+                    
                     
                     <div class="content-left staticsidenav" role="complementary">
                         <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
@@ -236,6 +242,38 @@
             <span class="token property">"button"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> // 按钮将显示在banner底部
                 <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Github"</span><span class="token punctuation">,</span>
                 <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"./github.html"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">"homepage"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 配置首页，样式区别于其他页面
+            <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"v3.0.0"</span><span class="token punctuation">,</span> // 版本信息将显示在banner底部
+            <span class="token property">"button"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> // 按钮组将显示在banner底部
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"&amp;nbsp;&amp;nbsp;起步&amp;nbsp;&amp;nbsp;"</span><span class="token punctuation">,</span>
+                <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"./start.html"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Github"</span><span class="token punctuation">,</span>
+                <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"https://github.com/YMFE/ydoc"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"intro"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> // 首页的正文部分，数组项依次渲染，可重复使用
+                <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"为前端开发者设计的文档生成工具"</span><span class="token punctuation">,</span> // 介绍板块标题
+                <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"YDoc让文档开发更简单高效，让开发者专注于程序本身，让项目代码更具可读性、可维护性。"</span> // 介绍板块描述
+            <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+                <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"特性"</span><span class="token punctuation">,</span>
+                <span class="token property">"detail"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"thumbnail"</span><span class="token punctuation">,</span> // 三列布局的介绍板块
+                    <span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> // 三列布局的内容，每项的key值非必需，但建议每列的key值一致
+                        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"丰富、可扩展的API"</span><span class="token punctuation">,</span> // 板块名称
+                        <span class="token property">"src"</span><span class="token operator">:</span> <span class="token string">"http://ojk406wln.bkt.clouddn.com/intro_muti.png"</span><span class="token punctuation">,</span> // 缩略图
+                        <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"YDoc提供了非常详尽的API，扩展性较强，如果你希望添加某些功能，可以在&lt;a href=\"https://github.com/YMFE/ydoc\" target=\"_blank\"> Github &lt;/a>上面提Issue。"</span> // 描述
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+                        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"基于注释/markdown"</span><span class="token punctuation">,</span>
+                        <span class="token property">"src"</span><span class="token operator">:</span> <span class="token string">"http://ojk406wln.bkt.clouddn.com/intro_md.png"</span><span class="token punctuation">,</span>
+                        <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"基于项目代码注释与markdown快速构建文档，二者亦可在同一页面中使用。"</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+                        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"可配置主题"</span><span class="token punctuation">,</span>
+                        <span class="token property">"src"</span><span class="token operator">:</span> <span class="token string">"http://ojk406wln.bkt.clouddn.com/intro_theme.png"</span><span class="token punctuation">,</span>
+                        <span class="token property">"desc"</span><span class="token operator">:</span> <span class="token string">"官方提供多套主题，并且支持用户自定义开发主题。"</span>
+                    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+                <span class="token punctuation">}</span>
             <span class="token punctuation">}</span><span class="token punctuation">]</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token property">"banner"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // Banner 配置

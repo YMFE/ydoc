@@ -259,6 +259,62 @@ sup, sub {
       margin-top: .15rem;
       color: #ff503f;
       font-size: .14rem; }
+  .ydoc .home-page-title {
+    text-align: center;
+    margin-top: .6rem;
+    border: none;
+    font-size: .35rem; }
+  .ydoc .home-page-desc {
+    text-align: center;
+    width: 80%;
+    margin: .2rem auto;
+    color: #666;
+    font-size: .2rem; }
+  .ydoc .home-thumbnail {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-around;
+    -moz-box-pack: justify;
+    -moz-justify-content: space-around;
+    -ms-flex-pack: justify;
+    justify-content: space-around;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 .6rem;
+    margin: 0;
+    list-style: none; }
+  .ydoc .home-item {
+    overflow: hidden;
+    width: 200px;
+    -webkit-background-clip: padding-box !important;
+    -moz-background-clip: padding-box !important;
+    -ms-background-clip: padding-box !important;
+    background-clip: padding-box !important; }
+  .ydoc .home-thumbnail-img {
+    margin: .16rem 0;
+    text-align: center; }
+  .ydoc .home-thumbnail-src {
+    margin: 10px 3%;
+    vertical-align: middle;
+    max-width: 1rem;
+    max-height: 1rem; }
+  .ydoc .home-thumbnail-name {
+    color: #444;
+    text-align: center;
+    font-size: .18rem;
+    margin-top: .3rem;
+    margin-bottom: .16rem; }
+  .ydoc .home-thumbnail-desc {
+    color: #999;
+    text-align: center;
+    font-size: .14rem; }
   .ydoc-banner {
     color: #fff;
     font-size: .18rem;

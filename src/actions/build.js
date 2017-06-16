@@ -267,6 +267,7 @@ module.exports = function(cwd, conf) {
                 }
             }
             if (page.content && (!conf.buildPages.length || conf.buildPages.indexOf(page.name) > -1)) {
+                // multi多页配置
                 if (page.content.multi) {
                     var pName;
                     var navs = page.content.pages.map(function(p) {
@@ -313,11 +314,13 @@ module.exports = function(cwd, conf) {
                     data.article = doParser(cwd, page.content.index, page.indexIngore, page.indexCompile, page.content.indexOptions, conf, codeRender);
                     data.article.sidebars = navs;
                 } else if (typeof page.content == 'string') {
+                    // 单页
                     data.article = doParser(cwd, page.content, page.ignore, page.compile, page.options, conf, codeRender);
                     if (data.article.menus && data.article.menus.length && !data.article.sidebars) {
                         data.article.sidebars = data.article.menus;
                     }
                 } else {
+                    // 单页多模块配置
                     var navs = [],
                         blocks = [];
                     // article.type == 'block'

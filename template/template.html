@@ -83,6 +83,29 @@
             <div class="ydoc-container">
                 {{if article.type == 'html'}} {{if article.sidebars}}
                 <div class="ydoc-container-content">
+                    {{if homepage && homepage.intro}}
+                        {{each homepage.intro as intro}}
+                        {{if intro.title}}<h1 class="home-page-title">{{intro.title}}</h1>{{/if}}
+                        {{if intro.desc}}<p class="home-page-desc">{{intro.desc}}</p>{{/if}}
+                            {{if intro.detail}}
+                                {{if intro.detail.content && intro.detail.content.length}}
+                                <div class="home-thumbnail">
+                                    {{each intro.detail.content as item index}}
+                                    <div class="home-item">
+                                        {{if item.src}}
+                                        <div class="home-thumbnail-img">
+                                            <img class="home-thumbnail-src" src={{item.src}} alt="">
+                                        </div>
+                                        {{/if}}
+                                        {{if item.name}}<h3 class="home-thumbnail-name">{{item.name}}</h3>{{/if}}
+                                        {{if item.desc}}<p class="home-thumbnail-desc">{{item.desc}}</p>{{/if}}
+                                    </div>
+                                    {{/each}}
+                                </div>
+                                {{/if}}
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
                     {{if article.sidebar !== false}}
                     <div class="content-left {{if staticsidenav}}staticsidenav{{/if}}" role="complementary">
                         <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
@@ -116,12 +139,58 @@
                 </div>
                 {{else}}
                 <div class="ydoc-container-content" id="readme">
+                    {{if homepage && homepage.intro}}
+                        {{each homepage.intro as intro}}
+                        {{if intro.title}}<h1 class="home-page-title">{{intro.title}}</h1>{{/if}}
+                        {{if intro.desc}}<p class="home-page-desc">{{intro.desc}}</p>{{/if}}
+                            {{if intro.detail}}
+                                {{if intro.detail.content && intro.detail.content.length}}
+                                <div class="home-thumbnail">
+                                    {{each intro.detail.content as item index}}
+                                    <div class="home-item">
+                                        {{if item.src}}
+                                        <div class="home-thumbnail-img">
+                                            <img class="home-thumbnail-src" src={{item.src}} alt="">
+                                        </div>
+                                        {{/if}}
+                                        {{if item.name}}<h3 class="home-thumbnail-name">{{item.name}}</h3>{{/if}}
+                                        {{if item.desc}}<p class="home-thumbnail-desc">{{item.desc}}</p>{{/if}}
+                                    </div>
+                                    {{/each}}
+                                </div>
+                                {{/if}}
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
                     <article class="markdown-body">
                         {{if intro}}{{intro}}{{/if}} {{if article.content}}{{article.content}}{{/if}}
                     </article>
                 </div>
                 {{/if}} {{else if article.type == 'block'}}
                 <div class="ydoc-container-content">
+                    {{if homepage && homepage.intro}}
+                        {{each homepage.intro as intro}}
+                        {{if intro.title}}<h1 class="home-page-title">{{intro.title}}</h1>{{/if}}
+                        {{if intro.desc}}<p class="home-page-desc">{{intro.desc}}</p>{{/if}}
+                            {{if intro.detail}}
+                                {{if intro.detail.content && intro.detail.content.length}}
+                                <div class="home-thumbnail">
+                                    {{each intro.detail.content as item index}}
+                                    <div class="home-item">
+                                        {{if item.src}}
+                                        <div class="home-thumbnail-img">
+                                            <img class="home-thumbnail-src" src={{item.src}} alt="">
+                                        </div>
+                                        {{/if}}
+                                        {{if item.name}}<h3 class="home-thumbnail-name">{{item.name}}</h3>{{/if}}
+                                        {{if item.desc}}<p class="home-thumbnail-desc">{{item.desc}}</p>{{/if}}
+                                    </div>
+                                    {{/each}}
+                                </div>
+                                {{/if}}
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
                     {{if article.sidebars}}
                     {{if article.sidebar !== false}}
                     <div class="content-left {{if staticsidenav}}staticsidenav{{/if}}" role="complementary">

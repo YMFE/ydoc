@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
-    <title>YDoc 开始</title>
+    <title>YDoc 首页</title>
     <link rel="stylesheet" href="source/main.css" />  
 </head>
 <body>
@@ -24,7 +24,12 @@
                          
                         <li class="active">
                             
-                            <a href="index.html">开始</a> 
+                            <a href="index.html">首页</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="start.html">开始</a> 
                         </li>
                         
                         <li class="">
@@ -67,10 +72,21 @@
         <!-- Docs page layout -->
         
         <div class="ydoc-banner-bg">
-            <div class="ydoc-banner ">
+            <div class="ydoc-banner ydoc-banner-home">
                 <div class="ydoc-banner-area">
-                    <h1 >YDoc</h1>
-                    <p class="desc ">前端工程文档生成工具</p>
+                    <h1 class="home-title">YDoc</h1>
+                    <p class="desc home-desc">基于项目代码注释与markdown快速构建文档，目前支持诸如：React Native, JavaScript, CSS, SCSS 等类别。</p>
+                    
+                        
+                            
+                            <a class="ydoc-banner-button home-btn" href="./start.html">&nbsp;&nbsp;起步&nbsp;&nbsp;</a>
+                            
+                            <a class="ydoc-banner-button home-btn" href="https://github.com/YMFE/ydoc">Github</a>
+                            
+                        
+                        
+                        <p class="home-version">当前版本：v3.0.0</p>
+                        
                     
                 </div>
             </div>
@@ -78,87 +94,57 @@
 
             <div class="ydoc-container">
                  
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content" id="readme">
                     
-                    <div class="content-left staticsidenav" role="complementary">
-                        <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
-                            <ul class="nav docs-sidenav">
-                                 
-                                <!-- <li  > -->
-                                <li >
-                                    
-                                    <a href="#简介">简介</a> 
-                                </li>
-                                  
-                                <!-- <li  > -->
-                                <li >
-                                    
-                                    <a href="#安装">安装</a> 
-                                </li>
-                                  
-                                <!-- <li  > -->
-                                <li >
-                                    
-                                    <a href="#使用方式">使用方式</a> 
-                                </li>
-                                   
-                                <ul class="nav docs-sidenav-extend"  >
+                        
+                        <h1 class="home-page-title">为前端开发者设计的文档生成工具</h1>
+                        <p class="home-page-desc">YDoc让文档开发更简单高效，让开发者专注于程序本身，让项目代码更具可读性、可维护性。</p>
+                            
+                        
+                        <h1 class="home-page-title">特性</h1>
+                        
+                            
                                 
-                                    <li >
-                                        <a href="#使用命令快速起步">使用命令快速起步</a>
-                                    </li>
-                                     
-                                    <li >
-                                        <a href="#使用其他方式">使用其他方式</a>
-                                    </li>
-                                
-                                </ul>
-                                            
-                                <!-- <li  > -->
-                                <li >
+                                <div class="home-thumbnail">
                                     
-                                    <a href="#开发者">开发者</a> 
-                                </li>
-                                 
-                            </ul>
-                        </nav>
-                    </div>
+                                    <div class="home-item">
+                                        
+                                        <div class="home-thumbnail-img">
+                                            <img class="home-thumbnail-src" src=http://ojk406wln.bkt.clouddn.com/intro_muti.png alt="">
+                                        </div>
+                                        
+                                        <h3 class="home-thumbnail-name">丰富、可扩展的API</h3>
+                                        <p class="home-thumbnail-desc">YDoc提供了非常详尽的API，扩展性较强，如果你希望添加某些功能，可以在<a href="https://github.com/YMFE/ydoc" target="_blank"> Github </a>上面提Issue。</p>
+                                    </div>
+                                    
+                                    <div class="home-item">
+                                        
+                                        <div class="home-thumbnail-img">
+                                            <img class="home-thumbnail-src" src=http://ojk406wln.bkt.clouddn.com/intro_md.png alt="">
+                                        </div>
+                                        
+                                        <h3 class="home-thumbnail-name">基于注释/markdown</h3>
+                                        <p class="home-thumbnail-desc">基于项目代码注释与markdown快速构建文档，二者亦可在同一页面中使用。</p>
+                                    </div>
+                                    
+                                    <div class="home-item">
+                                        
+                                        <div class="home-thumbnail-img">
+                                            <img class="home-thumbnail-src" src=http://ojk406wln.bkt.clouddn.com/intro_theme.png alt="">
+                                        </div>
+                                        
+                                        <h3 class="home-thumbnail-name">可配置主题</h3>
+                                        <p class="home-thumbnail-desc">官方提供多套主题，并且支持用户自定义开发主题。</p>
+                                    </div>
+                                    
+                                </div>
+                                
+                            
+                        
                     
-                    <div class="content-right markdown-body " role="main">
-
-                         <h2 class="subject" id="简介">简介 <a class="hashlink" href="#简介">#</a></h2><p><a href="http://badge.fury.io/js/ydoc"><img src="https://badge.fury.io/js/ydoc.svg" alt="npm version"></a></p>
-<p><img src="https://nodei.co/npm/ydoc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt=""></p>
-<p>ydoc是基于项目代码注释与markdown快速构建文档的工具，目前支持诸如：React Native, JavaScript, CSS, SCSS 等类别。</p>
-<h2 class="subject" id="安装">安装 <a class="hashlink" href="#安装">#</a></h2><pre><code class="lang-bash"><span class="token function">npm</span> <span class="token function">install</span> ydoc <span class="token punctuation">[</span>-g<span class="token punctuation">]</span>
-</code></pre>
-<h2 class="subject" id="使用方式">使用方式 <a class="hashlink" href="#使用方式">#</a></h2><h3 class="subject" id="使用命令快速起步">使用命令快速起步 <a class="hashlink" href="#使用命令快速起步">#</a></h3><ul>
-<li><code>cd /path/to/project/</code>  进入项目目录</li><li><code>ydoc init</code>  初始化ydoc配置文件，编写配置文件ydoc.config或者ydocfile.js (配置及配置文件请查看 <a href="./config.html">配置说明</a>)</li><li><code>cd ydoc build</code>  构建文档</li></ul>
-<p>详细请查看<a href="./usage.html">命令使用方式说明</a>。</p>
-<h3 class="subject" id="使用其他方式">使用其他方式 <a class="hashlink" href="#使用其他方式">#</a></h3><h4 class="subject" id="使用脚本的方式">使用脚本的方式 <a class="hashlink" href="#使用脚本的方式">#</a></h4><pre><code class="lang-javascript"><span class="token keyword">var</span> ydoc <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"ydoc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-ydoc<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token string">'/path/to/project'</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h4 class="subject" id="使用Gulp的方式">使用Gulp的方式 <a class="hashlink" href="#使用Gulp的方式">#</a></h4><pre><code class="lang-javascript"><span class="token keyword">var</span> ydoc <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"ydoc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">'ydoc'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'./'</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">ydoc</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// 配置</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h4 class="subject" id="使用Grunt的方式">使用Grunt的方式 <a class="hashlink" href="#使用Grunt的方式">#</a></h4><pre><code class="lang-javascript">grunt<span class="token punctuation">.</span><span class="token function">initConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    ydoc<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 配置</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-grunt<span class="token punctuation">.</span><span class="token function">loadNpmTasks</span><span class="token punctuation">(</span><span class="token string">'ydoc'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h2 class="subject" id="开发者">开发者 <a class="hashlink" href="#开发者">#</a></h2><ul>
-<li>林洋 <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#x61;&#x64;&#119;&#x6f;&#x6e;&#x2e;&#108;&#x69;&#110;&#x40;&#x71;&#117;&#110;&#x61;&#x72;&#x2e;&#x63;&#111;&#109;">&#x61;&#x64;&#119;&#x6f;&#x6e;&#x2e;&#108;&#x69;&#110;&#x40;&#x71;&#117;&#110;&#x61;&#x72;&#x2e;&#x63;&#111;&#109;</a> | <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#101;&#x64;&#x77;&#111;&#x6e;&#x2e;&#108;&#105;&#109;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#109;">&#101;&#x64;&#x77;&#111;&#x6e;&#x2e;&#108;&#105;&#109;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#109;</a></li><li>董文博 <a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#119;&#101;&#x6e;&#98;&#x6f;&#46;&#100;&#x6f;&#110;&#x67;&#x40;&#113;&#117;&#x6e;&#97;&#x72;&#x2e;&#x63;&#x6f;&#109;">&#119;&#101;&#x6e;&#98;&#x6f;&#46;&#100;&#x6f;&#110;&#x67;&#x40;&#113;&#117;&#x6e;&#97;&#x72;&#x2e;&#x63;&#x6f;&#109;</a></li><li>王丽丽 <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#58;&#108;&#101;&#105;&#x6c;&#x61;&#x2e;&#x77;&#97;&#110;&#103;&#64;&#113;&#117;&#x6e;&#97;&#114;&#x2e;&#99;&#x6f;&#x6d;">&#108;&#101;&#105;&#x6c;&#x61;&#x2e;&#x77;&#97;&#110;&#103;&#64;&#113;&#117;&#x6e;&#97;&#114;&#x2e;&#99;&#x6f;&#x6d;</a></li></ul>
-
-                    </div>
+                    <article class="markdown-body">
+                         
+                    </article>
                 </div>
                  
             </div>
@@ -172,9 +158,6 @@ grunt<span class="token punctuation">.</span><span class="token function">loadNp
         </footer>
     </div>
 
-    
-    <div class="open-panel"></div>
-    <div class="mask"></div>
      
 
     <script src="source/main.js"></script>
