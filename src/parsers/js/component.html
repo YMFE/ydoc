@@ -36,14 +36,14 @@
         {{each props as prop}}
         <blockquote class="api">
             <h3 id="{{prop.property}}" class="subject">
-    <strong>{{prop.property}}</strong>
-     <span class="prop-type">{ {{prop.type}} }</span>
-    {{if prop.version}}
-    <span class="ui-badge">{{prop.version}}</span>
-    {{/if}}
-    {{if prop.static}}<span class="ui-badge">static</span>{{/if}}
-    <a class="hashlink" href="#{{prop.property}}">#</a>
-    </h3>
+                <strong>{{prop.property}}</strong>
+                <span class="prop-type">{ {{prop.type}} }</span>
+                {{if prop.version}}
+                <span class="ui-badge">{{prop.version}}</span>
+                {{/if}}
+                {{if prop.static}}<span class="ui-badge">static</span>{{/if}}
+                <a class="hashlink" href="#{{prop.property}}">#</a>
+            </h3>
         </blockquote>
         <div class="api-content">
             <div>{{prop.description | markdown}}</div>
@@ -103,13 +103,13 @@
         {{each methods as method}}
         <blockquote class="api">
             <h3 id="{{method.method}}" class="subject">
-    <strong>{{method.method}}</strong>
-    {{if method.version}}
-    <span class="ui-badge">{{method.version}}</span>
-    {{/if}}
-    {{if method.static}}<span class="ui-badge">static</span>{{/if}}
-    <a class="hashlink" href="#{{method.method}}">#</a>
-    </h3>
+                <strong>{{method.method}}</strong>
+                {{if method.version}}
+                <span class="ui-badge">{{method.version}}</span>
+                {{/if}}
+                {{if method.static}}<span class="ui-badge">static</span>{{/if}}
+                <a class="hashlink" href="#{{method.method}}">#</a>
+            </h3>
         </blockquote>
         <div class="api-content">{{method.description | markdown}}</div>
         {{if method.params.length}}
@@ -153,13 +153,9 @@
             <mark>{{method.returns.type}}</mark> {{method.returns.name}}
         </p>
         {{/if}} {{if method.example}}
-        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>1{{method.example}}</code></pre> {{/if}} {{/each}} {{/if}} {{if example}}
-        <div class="con-head">示例</div>
-        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>2{{example}}</code></pre> {{/if}} {{if demo}}
-        <p>
-            <small class="text-muted">Demo地址:</small>
-            <a href="{{demo}}" target="_blank">点击访问</a>
-        </p>
+        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{method.example}}</code></pre>
+        {{/if}}
+        {{/each}}
         {{/if}}
         <!-- 实例方法(@method) end -->
 
@@ -169,13 +165,13 @@
         {{each events as event}}
         <blockquote class="api">
             <h3 id="{{event.event}}" class="subject">
-    <strong>{{event.event}}</strong>
-    {{if event.version}}
-    <span class="ui-badge">{{event.version}}</span>
-    {{/if}}
-    {{if event.static}}<span class="ui-badge">static</span>{{/if}}
-    <a class="hashlink" href="#{{event.event}}">#</a>
-    </h3>
+                <strong>{{event.event}}</strong>
+                {{if event.version}}
+                <span class="ui-badge">{{event.version}}</span>
+                {{/if}}
+                {{if event.static}}<span class="ui-badge">static</span>{{/if}}
+                <a class="hashlink" href="#{{event.event}}">#</a>
+            </h3>
         </blockquote>
         <div class="api-content">{{event.description | markdown}}</div>
         {{if event.params.length}}
@@ -213,15 +209,21 @@
                 {{/each}}
             </table>
         </div>
-        {{/if}} {{if event.returns}}
+        {{/if}}
+        {{if event.returns}}
         <p class="api-content">
             <small class="text-muted">返回值:</small>
             <mark>{{event.returns.type}}</mark> {{event.returns.name}}
         </p>
-        {{/if}} {{if event.example}}
-        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>3{{event.example}}</code></pre> {{/if}} {{/each}} {{/if}} {{if example}}
+        {{/if}}
+        {{if event.example}}
+        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{event.example}}</code></pre> {{/if}} {{/each}} {{/if}} {{if example}}
+        {{/if}}
+        {{if example}}
         <div class="con-head">示例</div>
-        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>4{{example}}</code></pre> {{/if}} {{if demo}}
+        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{example}}</code></pre>
+        {{/if}}
+        {{if demo}}
         <p>
             <small class="text-muted">Demo地址:</small>
             <a href="{{demo}}" target="_blank">点击访问</a>

@@ -48,9 +48,19 @@ var execFns = {
                 };
             });
         });
+
+        // 为Component添加语法高亮
         ret.props.forEach(function(item) {
             item.example = hightLight(item.example, conf.defaultGrammar, item.examplelanguage);
         })
+        ret.events.forEach(function(item) {
+            item.example = hightLight(item.example, conf.defaultGrammar, item.examplelanguage);
+        })
+        ret.methods.forEach(function(item) {
+            item.example = hightLight(item.example, conf.defaultGrammar, item.examplelanguage);
+        })
+        if(ret.example) ret.example = hightLight(ret.example, conf.defaultGrammar, ret.examplelanguage);
+
         return {
             type: 'html',
             content: artTemplate.compile(componentTPL)(ret)
