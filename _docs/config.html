@@ -24,7 +24,7 @@
                          
                         <li class="">
                             
-                            <a href="index.html">首页</a> 
+                            <a href="index.html">v3.0</a> 
                         </li>
                         
                         <li class="">
@@ -93,7 +93,7 @@
                                 <!-- <li  > -->
                                 <li >
                                     
-                                    <a href="#配置文件">配置文件</a> 
+                                    <a href="#配置文件126">配置文件</a> 
                                 </li>
                                    
                                 <ul class="nav docs-sidenav-extend"  >
@@ -111,7 +111,7 @@
                                 <!-- <li  > -->
                                 <li >
                                     
-                                    <a href="#配置内容">配置内容</a> 
+                                    <a href="#配置内容129">配置内容</a> 
                                 </li>
                                    
                                 <ul class="nav docs-sidenav-extend"  >
@@ -136,15 +136,15 @@
                     
                     <div class="content-right markdown-body " role="main">
 
-                         <h2 class="subject" id="配置文件">配置文件 <a class="hashlink" href="#配置文件">#</a></h2><p>配置文件可以以 <code>ydoc.json</code> 、 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
-<h3 class="subject" id="静态文件形式">静态文件形式 <a class="hashlink" href="#静态文件形式">#</a></h3><p><code>ydoc.json</code> 与 <code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
+                         <h2 class="subject" id="配置文件126">配置文件 <a class="hashlink" href="#配置文件126">#</a></h2><p>配置文件可以以 <code>ydoc.json</code> 、 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
+<h3 class="subject" id="静态文件形式127">静态文件形式 <a class="hashlink" href="#静态文件形式127">#</a></h3><p><code>ydoc.json</code> 与 <code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
 <p>示例：</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
     ...
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 class="subject" id="动态脚本形式">动态脚本形式 <a class="hashlink" href="#动态脚本形式">#</a></h3><p><code>ydocfile.js</code> 可以 <code>exports</code> 一个 <code>Object</code> 配置，也可以 <code>exports</code> 一个 <code>Function</code> 用于执行获取配置。</p>
+<h3 class="subject" id="动态脚本形式128">动态脚本形式 <a class="hashlink" href="#动态脚本形式128">#</a></h3><p><code>ydocfile.js</code> 可以 <code>exports</code> 一个 <code>Object</code> 配置，也可以 <code>exports</code> 一个 <code>Function</code> 用于执行获取配置。</p>
 <p>示例1：</p>
 <pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
@@ -168,7 +168,7 @@
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 class="subject" id="配置内容">配置内容 <a class="hashlink" href="#配置内容">#</a></h2><h3 class="subject" id="简单配置">简单配置 <a class="hashlink" href="#简单配置">#</a></h3><p>示例(使用README.md文件生成一个html页面):</p>
+<h2 class="subject" id="配置内容129">配置内容 <a class="hashlink" href="#配置内容129">#</a></h2><h3 class="subject" id="简单配置130">简单配置 <a class="hashlink" href="#简单配置130">#</a></h3><p>示例(使用README.md文件生成一个html页面):</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span>
     <span class="token property">"common"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 通用默认配置，包括主页配置等
@@ -188,7 +188,7 @@
     <span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 class="subject" id="完整配置说明">完整配置说明 <a class="hashlink" href="#完整配置说明">#</a></h3><p>示例:</p>
+<h3 class="subject" id="完整配置说明131">完整配置说明 <a class="hashlink" href="#完整配置说明131">#</a></h3><p>示例:</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span> // 标示 配置文件
     <span class="token property">"dest"</span><span class="token operator">:</span> <span class="token string">"path/to/destination"</span><span class="token punctuation">,</span> // 默认为  <span class="token string">"_docs"</span>
@@ -326,7 +326,7 @@
     <span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 class="subject" id="解析器配置">解析器配置 <a class="hashlink" href="#解析器配置">#</a></h3><h4 class="subject" id="js">js <a class="hashlink" href="#js">#</a></h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code></p>
+<h3 class="subject" id="解析器配置132">解析器配置 <a class="hashlink" href="#解析器配置132">#</a></h3><h4 class="subject" id="js">js <a class="hashlink" href="#js">#</a></h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code></p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"component"</span><span class="token punctuation">,</span> // 类型，可选 component 和 lib，默认 component
     <span class="token property">"source"</span><span class="token operator">:</span> <span class="token boolean">false</span> // 是否生成源文件预览，默认 <span class="token boolean">false</span>
