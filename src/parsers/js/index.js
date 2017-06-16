@@ -59,7 +59,9 @@ var execFns = {
         ret.methods.forEach(function(item) {
             item.example = hightLight(item.example, conf.defaultGrammar, item.examplelanguage);
         })
-        if(ret.example) ret.example = hightLight(ret.example, conf.defaultGrammar, ret.examplelanguage);
+        if(ret.example){
+            ret.example = hightLight(ret.example, conf.defaultGrammar, ret.examplelanguage);
+        }
 
         return {
             type: 'html',
