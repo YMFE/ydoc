@@ -53,34 +53,6 @@ module.exports = function(callback) {
 
 ## 配置内容
 
-### 简单配置
-
-示例(使用README.md文件生成一个html页面):
-
-```json
-{
-    "name": "index",
-    "common": { // 通用默认配置，包括主页配置等
-        "title": "index", //page title
-        "footer": "&copy; 2016 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
-        "home": "YMFE", // logo
-        "homeUrl": "http://ued.qunar.com/ymfe/" // logourl
-    },
-    "pages": [{
-        "name": "index", // Page Name 会根据他生成 html 文件，例: index.html
-        "title": "首页", // Page Title
-        "banner": { // Banner 配置
-            "title": "index",
-            "description": "首页说明文字"
-        },
-        "content": "./README.md" // 内容(这里以markdown文件举例)
-    }]
-}
-
-```
-
-### 完整配置说明
-
 示例:
 
 ```json
@@ -132,13 +104,6 @@ module.exports = function(callback) {
     "pages": [{
         "name": "index", // Page Name 会根据他生成 html 文件，例: index.html
         "title": "开始", // Page Title
-        "homepage": { // 配置首页，样式区别于其他页面
-            "version": "v3.0.0", // 版本信息将显示在banner底部
-            "button": [{ // 按钮将显示在banner底部
-                "name": "Github",
-                "href": "./github.html"
-            }]
-        },
         "homepage": { // 配置首页，样式区别于其他页面
             "version": "v3.0.0", // 版本信息将显示在banner底部
             "button": [{ // 按钮组将显示在banner底部
@@ -227,10 +192,11 @@ module.exports = function(callback) {
 #### js
 
 支持文件类型：`.js`，`.jsx`
+type字段配置的 `component` 和 `lib`，二者所支持的注释规则有所区别，参见[注释规则](./comment.html)。
 
 ```json
 {
-    "type": "component", // 类型，可选 component 和 lib，默认 component
+    "type": "component", // 类型，可选 component 和 lib ，默认 component
     "source": false // 是否生成源文件预览，默认 false
 }
 ```
