@@ -4,10 +4,6 @@
 
 > npm install ydoc -g
 
-[![npm version](https://badge.fury.io/js/ydoc.svg)](http://badge.fury.io/js/ydoc)
-
-![](https://nodei.co/npm/ydoc.png?downloads=true&downloadRank=true&stars=true)
-
 ## 构建命令
 
 > ydoc build [-t templatePath] [-p page] [-w] [-o dest]
