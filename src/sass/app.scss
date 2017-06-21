@@ -216,18 +216,18 @@ sup,sub{vertical-align:baseline}
      padding: .8rem 0;
      text-align: center;
      .home-title{
-         margin-bottom: 20px;
+         margin-bottom: .2rem;
          font-size: .8rem;
          font-weight: bold;
      }
      .home-desc{
-         padding: 0 0.6rem;
+         padding: 0 .6rem;
          font-size: .25rem;
      }
      .home-btn{
         display: inline-block;
-        margin: 0.04rem;
-        padding: 0.1rem;
+        margin: .04rem;
+        padding: .1rem .4rem;
         min-width: 1.5rem;
         border: 1px solid;
         border-radius: 0.05rem;
@@ -440,7 +440,7 @@ sup,sub{vertical-align:baseline}
                      width: 100%;
                      position: relative;
                      overflow: hidden;
-                     white-space: nowrap
+                     white-space: nowrap;
                      transition: all .4s;
                  }
                  a:hover{

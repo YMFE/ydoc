@@ -158,7 +158,9 @@ sup, sub {
     .ydoc-nav li {
       float: left; }
       .ydoc-nav li a {
-        padding: 0 15px; }
+        padding: 0 15px;
+        color: #fff;
+        transition: all .4s; }
       .ydoc-nav li a:hover {
         color: #ff503f; }
     .ydoc-nav .navbar-right {
@@ -213,7 +215,8 @@ sup, sub {
     display: inline-block;
     color: #000;
     padding: .08rem .3rem;
-    width: 100%; }
+    width: 100%;
+    transition: all .4s; }
     .ydoc .link:hover {
       background-color: #eee; }
   .ydoc .navbar-toggle {
@@ -234,16 +237,16 @@ sup, sub {
     padding: .8rem 0;
     text-align: center; }
     .ydoc .ydoc-banner-home .home-title {
-      margin-bottom: 20px;
+      margin-bottom: .2rem;
       font-size: .8rem;
       font-weight: bold; }
     .ydoc .ydoc-banner-home .home-desc {
-      padding: 0 0.6rem;
+      padding: 0 .6rem;
       font-size: .25rem; }
     .ydoc .ydoc-banner-home .home-btn {
       display: inline-block;
-      margin: 0.04rem;
-      padding: 0.1rem;
+      margin: .04rem;
+      padding: .1rem .4rem;
       min-width: 1.5rem;
       border: 1px solid;
       border-radius: 0.05rem;
@@ -378,8 +381,7 @@ sup, sub {
         float: right;
         min-height: 500px; }
       .ydoc-container-content .hashlink {
-        display: none;
-        transition: all .4s; }
+        display: none; }
       .ydoc-container-content .subject:hover .hashlink {
         display: inline; }
       .ydoc-container-content .right {
@@ -428,7 +430,8 @@ sup, sub {
               width: 100%;
               position: relative;
               overflow: hidden;
-              white-space: nowrap; }
+              white-space: nowrap;
+              transition: all .4s; }
             .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
               background-color: #fff8ef;
               border-left-color: #fff8ef; }
@@ -521,7 +524,8 @@ sup, sub {
     background-color: #222; }
     .ydoc-container-content .docs-sidebar .docs-sidenav li a {
       color: #999;
-      border-color: #222; }
+      border-color: #222;
+      transition: all .4s; }
     .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
       background-color: #222; }
   .ydoc-container-content .docs-sidebar.affix {
@@ -554,7 +558,8 @@ sup, sub {
           .ydoc .ydoc-nav .navbar-left li a, .ydoc .ydoc-nav .navbar-right li a {
             padding: 0;
             width: 100%;
-            display: inline-block; }
+            display: inline-block;
+            transition: all .4s; }
           .ydoc .ydoc-nav .navbar-left li a:hover, .ydoc .ydoc-nav .navbar-right li a:hover {
             color: #ff503f; }
     .ydoc .ydoc-banner-bg {

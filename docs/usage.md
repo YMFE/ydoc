@@ -1,8 +1,10 @@
 ## 安装
 
-从 NPM 中安装
-
+安装正式版
 > npm install ydoc -g
+
+安装测试版 (有新功能但不稳定)
+> npm install ydoc@beta -g
 
 ## 构建命令
 
@@ -19,7 +21,7 @@
 
 > ydoc init [-t templatePath]
 
-初始项目，创建配置文件或自定义模板(-t)
+初始项目，创建配置文件或自定义模板(-t)，默认生成 `ydoc.config` 文件。
 
 * `-t|--template`: 参数为自定义模板路径
 
