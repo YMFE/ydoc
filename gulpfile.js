@@ -6,7 +6,7 @@ sass = require('gulp-sass');
 
 gulp.task('sass',function(){
     console.log('sass编译。。。');
-    return gulp.src('sass/*.scss').pipe(sass()).pipe(gulp.dest('template/css/'));
+    return gulp.src('src/sass/*.scss').pipe(sass()).pipe(gulp.dest('template/css/'));
 });
 
 // 合并css 文件
@@ -38,6 +38,6 @@ gulp.task('concatJs', function() {
 });
 
 gulp.task('watch',function(){
-    gulp.watch('sass/*.scss',['sass']);
+    gulp.watch('src/sass/*.scss',['sass']);
     gulp.watch('template/css/*.css',['concatCss']);
 });
