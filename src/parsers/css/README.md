@@ -17,14 +17,3 @@
  * @skip
  */
 ```
-#### 标签说明
-
-* `module`: 模块名（分类）
-* `method`: 方法名
-* `static`: 标识静态属性/方法
-* `version`: 版本
-* `demo`: demo 地址
-* `example`: example 代码，文件路径[起始位置-结束位置] 或者直接写 源代码
-* `examplelanguage`: 配置example的高亮语法
-* `param`: 参数，格式为：{类型} 名称 描述
-* `skip`: 跳过此注释块

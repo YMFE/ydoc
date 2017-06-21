@@ -24,7 +24,7 @@
                          
                         <li class="">
                             
-                            <a href="index.html">v3.0</a> 
+                            <a href="index.html">简介</a> 
                         </li>
                         
                         <li class="">
@@ -49,17 +49,12 @@
                         
                         <li class="">
                             
-                            <a href="release.html">版本</a> 
-                        </li>
-                        
-                        <li class="">
-                            
                             <a href="theme.html">主题</a> 
                         </li>
                         
                         <li class="">
                             
-                            <a href="http://ymfe.corp.qunar.com/c/ydoc" target="_blank">FAQ</a> 
+                            <a href="release.html">版本</a> 
                         </li>
                          
                     </ul>
@@ -117,14 +112,6 @@
                                 <ul class="nav docs-sidenav-extend"  >
                                 
                                     <li >
-                                        <a href="#简单配置">简单配置</a>
-                                    </li>
-                                     
-                                    <li >
-                                        <a href="#完整配置说明">完整配置说明</a>
-                                    </li>
-                                     
-                                    <li >
                                         <a href="#解析器配置">解析器配置</a>
                                     </li>
                                  
@@ -168,27 +155,7 @@
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 class="subject" id="配置内容">配置内容 <a class="hashlink" href="#配置内容">#</a></h2><h3 class="subject" id="简单配置">简单配置 <a class="hashlink" href="#简单配置">#</a></h3><p>示例(使用README.md文件生成一个html页面):</p>
-<pre><code class="lang-json"><span class="token punctuation">{</span>
-    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span>
-    <span class="token property">"common"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 通用默认配置，包括主页配置等
-        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span> //page title
-        <span class="token property">"footer"</span><span class="token operator">:</span> <span class="token string">"&amp;copy; 2016 &lt;a href=\"http://ued.qunar.com/ymfe/\">YMFE&lt;/a> Team. Build by &lt;a href=\"http://ued.qunar.com/ydoc/\">ydoc&lt;/a>."</span><span class="token punctuation">,</span> // 通用尾
-        <span class="token property">"home"</span><span class="token operator">:</span> <span class="token string">"YMFE"</span><span class="token punctuation">,</span> // logo
-        <span class="token property">"homeUrl"</span><span class="token operator">:</span> <span class="token string">"http://ued.qunar.com/ymfe/"</span> // logourl
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"pages"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
-        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span> // Page Name 会根据他生成 html 文件，例<span class="token operator">:</span> index.html
-        <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"首页"</span><span class="token punctuation">,</span> // Page Title
-        <span class="token property">"banner"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // Banner 配置
-            <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span>
-            <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"首页说明文字"</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"./README.md"</span> // 内容(这里以markdown文件举例<span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">]</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 class="subject" id="完整配置说明">完整配置说明 <a class="hashlink" href="#完整配置说明">#</a></h3><p>示例:</p>
+<h2 class="subject" id="配置内容">配置内容 <a class="hashlink" href="#配置内容">#</a></h2><p>示例:</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span> // 标示 配置文件
     <span class="token property">"dest"</span><span class="token operator">:</span> <span class="token string">"path/to/destination"</span><span class="token punctuation">,</span> // 默认为  <span class="token string">"_docs"</span>
@@ -237,13 +204,6 @@
     <span class="token property">"pages"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
         <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"index"</span><span class="token punctuation">,</span> // Page Name 会根据他生成 html 文件，例<span class="token operator">:</span> index.html
         <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"开始"</span><span class="token punctuation">,</span> // Page Title
-        <span class="token property">"homepage"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 配置首页，样式区别于其他页面
-            <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"v3.0.0"</span><span class="token punctuation">,</span> // 版本信息将显示在banner底部
-            <span class="token property">"button"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> // 按钮将显示在banner底部
-                <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Github"</span><span class="token punctuation">,</span>
-                <span class="token property">"href"</span><span class="token operator">:</span> <span class="token string">"./github.html"</span>
-            <span class="token punctuation">}</span><span class="token punctuation">]</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token property">"homepage"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 配置首页，样式区别于其他页面
             <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"v3.0.0"</span><span class="token punctuation">,</span> // 版本信息将显示在banner底部
             <span class="token property">"button"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> // 按钮组将显示在banner底部
@@ -326,9 +286,10 @@
     <span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 class="subject" id="解析器配置">解析器配置 <a class="hashlink" href="#解析器配置">#</a></h3><h4 class="subject" id="js">js <a class="hashlink" href="#js">#</a></h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code></p>
+<h3 class="subject" id="解析器配置">解析器配置 <a class="hashlink" href="#解析器配置">#</a></h3><h4 class="subject" id="js">js <a class="hashlink" href="#js">#</a></h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code>
+type字段配置的 <code>component</code> 和 <code>lib</code>，二者所支持的注释规则有所区别，参见<a href="./comment.html">注释规则</a>。</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
-    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"component"</span><span class="token punctuation">,</span> // 类型，可选 component 和 lib，默认 component
+    <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"component"</span><span class="token punctuation">,</span> // 类型，可选 component 和 lib ，默认 component
     <span class="token property">"source"</span><span class="token operator">:</span> <span class="token boolean">false</span> // 是否生成源文件预览，默认 <span class="token boolean">false</span>
 <span class="token punctuation">}</span>
 </code></pre>
