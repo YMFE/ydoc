@@ -395,7 +395,7 @@ module.exports = function(cwd, conf) {
         }
     }
 
-    // 复制theme文件夹下的文件到_docs/theme
+    // 复制theme文件夹下的文件到 /doc/theme
     if (conf.theme) {
         try {
             childProcess.execSync('cp -r ' + sysPath.join(cwd, 'node_modules/ydoc-theme-' + theme) + ' ' + sysPath.join(conf.dest, 'theme'));

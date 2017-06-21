@@ -1,3 +1,29 @@
+## 安装
+
+从 NPM 中安装
+
+> npm install ydoc -g
+
+## 构建命令
+
+> ydoc build [-t templatePath] [-p page] [-w] [-o dest]
+
+读取配置，构建文档
+
+* `-w|--watch`: 监听变化自动构建
+* `-t|--template`: 参数为自定义模板路径
+* `-o|--output`: 输出目录
+* `-p|--page`: 指定编译某页，默认编译所有。（多个页面名可以逗号分开，例 -p index,demo）
+
+## 初始化命令
+
+> ydoc init [-t templatePath]
+
+初始项目，创建配置文件或自定义模板(-t)
+
+* `-t|--template`: 参数为自定义模板路径
+
+
 ## 配置文件
 
 配置文件可以以 `ydoc.json` 、 `ydoc.config` 或者 `ydocfile.js` 的形式出现。
@@ -58,7 +84,7 @@ module.exports = function(callback) {
 ```json
 {
     "name": "YDoc", // 标示 配置文件
-    "dest": "path/to/destination", // 默认为  "_docs"
+    "dest": "path/to/destination", // 默认为  "doc"
     "examplePath": "./examples", // 示例代码路径 默认 "./"
     "template": "path/to/templte", // 默认使用 YDoc 内置的模板
     "instructionsInfoPath": "./demo/component", //使用说明 内容路径
@@ -97,7 +123,7 @@ module.exports = function(callback) {
     },
     "common": { // 通用默认配置，包括主页配置等
         "title": "YDoc", //page title
-        "footer": "&copy; 2016 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
+        "footer": "&copy; 2017 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
         "home": "YMFE", // logo
         "homeUrl": "http://ued.qunar.com/ymfe/" // logourl
     },

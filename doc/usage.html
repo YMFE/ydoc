@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
-    <title>YDoc 配置</title>
+    <title>YDoc 命令与配置</title>
     <link rel="stylesheet" href="source/main.css" />  
 </head>
 <body>
@@ -32,14 +32,9 @@
                             <a href="start.html">开始</a> 
                         </li>
                         
-                        <li class="">
-                            
-                            <a href="usage.html">命令</a> 
-                        </li>
-                        
                         <li class="active">
                             
-                            <a href="config.html">配置</a> 
+                            <a href="usage.html">命令与配置</a> 
                         </li>
                         
                         <li class="">
@@ -70,7 +65,7 @@
             <div class="ydoc-banner ">
                 <div class="ydoc-banner-area">
                     <h1 >YDoc</h1>
-                    <p class="desc ">配置</p>
+                    <p class="desc ">使用</p>
                     
                 </div>
             </div>
@@ -88,7 +83,25 @@
                                 <!-- <li  > -->
                                 <li >
                                     
-                                    <a href="#配置文件">配置文件</a> 
+                                    <a href="#安装189">安装</a> 
+                                </li>
+                                  
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#构建命令190">构建命令</a> 
+                                </li>
+                                  
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#初始化命令191">初始化命令</a> 
+                                </li>
+                                  
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#配置文件192">配置文件</a> 
                                 </li>
                                    
                                 <ul class="nav docs-sidenav-extend"  >
@@ -106,7 +119,7 @@
                                 <!-- <li  > -->
                                 <li >
                                     
-                                    <a href="#配置内容">配置内容</a> 
+                                    <a href="#配置内容195">配置内容</a> 
                                 </li>
                                    
                                 <ul class="nav docs-sidenav-extend"  >
@@ -123,15 +136,31 @@
                     
                     <div class="content-right markdown-body " role="main">
 
-                         <h2 class="subject" id="配置文件">配置文件 <a class="hashlink" href="#配置文件">#</a></h2><p>配置文件可以以 <code>ydoc.json</code> 、 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
-<h3 class="subject" id="静态文件形式">静态文件形式 <a class="hashlink" href="#静态文件形式">#</a></h3><p><code>ydoc.json</code> 与 <code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
+                         <h2 class="subject" id="安装189">安装 <a class="hashlink" href="#安装189">#</a></h2><p>从 NPM 中安装</p>
+<blockquote>
+<p>npm install ydoc -g</p>
+</blockquote>
+<h2 class="subject" id="构建命令190">构建命令 <a class="hashlink" href="#构建命令190">#</a></h2><blockquote>
+<p>ydoc build [-t templatePath] [-p page] [-w] [-o dest]</p>
+</blockquote>
+<p>读取配置，构建文档</p>
+<ul>
+<li><code>-w|--watch</code>: 监听变化自动构建</li><li><code>-t|--template</code>: 参数为自定义模板路径</li><li><code>-o|--output</code>: 输出目录</li><li><code>-p|--page</code>: 指定编译某页，默认编译所有。（多个页面名可以逗号分开，例 -p index,demo）</li></ul>
+<h2 class="subject" id="初始化命令191">初始化命令 <a class="hashlink" href="#初始化命令191">#</a></h2><blockquote>
+<p>ydoc init [-t templatePath]</p>
+</blockquote>
+<p>初始项目，创建配置文件或自定义模板(-t)</p>
+<ul>
+<li><code>-t|--template</code>: 参数为自定义模板路径</li></ul>
+<h2 class="subject" id="配置文件192">配置文件 <a class="hashlink" href="#配置文件192">#</a></h2><p>配置文件可以以 <code>ydoc.json</code> 、 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
+<h3 class="subject" id="静态文件形式193">静态文件形式 <a class="hashlink" href="#静态文件形式193">#</a></h3><p><code>ydoc.json</code> 与 <code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
 <p>示例：</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
     ...
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 class="subject" id="动态脚本形式">动态脚本形式 <a class="hashlink" href="#动态脚本形式">#</a></h3><p><code>ydocfile.js</code> 可以 <code>exports</code> 一个 <code>Object</code> 配置，也可以 <code>exports</code> 一个 <code>Function</code> 用于执行获取配置。</p>
+<h3 class="subject" id="动态脚本形式194">动态脚本形式 <a class="hashlink" href="#动态脚本形式194">#</a></h3><p><code>ydocfile.js</code> 可以 <code>exports</code> 一个 <code>Object</code> 配置，也可以 <code>exports</code> 一个 <code>Function</code> 用于执行获取配置。</p>
 <p>示例1：</p>
 <pre><code class="lang-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
@@ -155,10 +184,10 @@
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 class="subject" id="配置内容">配置内容 <a class="hashlink" href="#配置内容">#</a></h2><p>示例:</p>
+<h2 class="subject" id="配置内容195">配置内容 <a class="hashlink" href="#配置内容195">#</a></h2><p>示例:</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span> // 标示 配置文件
-    <span class="token property">"dest"</span><span class="token operator">:</span> <span class="token string">"path/to/destination"</span><span class="token punctuation">,</span> // 默认为  <span class="token string">"_docs"</span>
+    <span class="token property">"dest"</span><span class="token operator">:</span> <span class="token string">"path/to/destination"</span><span class="token punctuation">,</span> // 默认为  <span class="token string">"doc"</span>
     <span class="token property">"examplePath"</span><span class="token operator">:</span> <span class="token string">"./examples"</span><span class="token punctuation">,</span> // 示例代码路径 默认 <span class="token string">"./"</span>
     <span class="token property">"template"</span><span class="token operator">:</span> <span class="token string">"path/to/templte"</span><span class="token punctuation">,</span> // 默认使用 YDoc 内置的模板
     <span class="token property">"instructionsInfoPath"</span><span class="token operator">:</span> <span class="token string">"./demo/component"</span><span class="token punctuation">,</span> //使用说明 内容路径
@@ -197,7 +226,7 @@
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token property">"common"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 通用默认配置，包括主页配置等
         <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span> //page title
-        <span class="token property">"footer"</span><span class="token operator">:</span> <span class="token string">"&amp;copy; 2016 &lt;a href=\"http://ued.qunar.com/ymfe/\">YMFE&lt;/a> Team. Build by &lt;a href=\"http://ued.qunar.com/ydoc/\">ydoc&lt;/a>."</span><span class="token punctuation">,</span> // 通用尾
+        <span class="token property">"footer"</span><span class="token operator">:</span> <span class="token string">"&amp;copy; 2017 &lt;a href=\"http://ued.qunar.com/ymfe/\">YMFE&lt;/a> Team. Build by &lt;a href=\"http://ued.qunar.com/ydoc/\">ydoc&lt;/a>."</span><span class="token punctuation">,</span> // 通用尾
         <span class="token property">"home"</span><span class="token operator">:</span> <span class="token string">"YMFE"</span><span class="token punctuation">,</span> // logo
         <span class="token property">"homeUrl"</span><span class="token operator">:</span> <span class="token string">"http://ued.qunar.com/ymfe/"</span> // logourl
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -286,7 +315,7 @@
     <span class="token punctuation">}</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 class="subject" id="解析器配置">解析器配置 <a class="hashlink" href="#解析器配置">#</a></h3><h4 class="subject" id="js">js <a class="hashlink" href="#js">#</a></h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code>
+<h3 class="subject" id="解析器配置196">解析器配置 <a class="hashlink" href="#解析器配置196">#</a></h3><h4 class="subject" id="js">js <a class="hashlink" href="#js">#</a></h4><p>支持文件类型：<code>.js</code>，<code>.jsx</code>
 type字段配置的 <code>component</code> 和 <code>lib</code>，二者所支持的注释规则有所区别，参见<a href="./comment.html">注释规则</a>。</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"component"</span><span class="token punctuation">,</span> // 类型，可选 component 和 lib ，默认 component
@@ -314,7 +343,7 @@ type字段配置的 <code>component</code> 和 <code>lib</code>，二者所支�
         
         <footer class="footer">
             <div class="copyright">
-                &copy; 2016 <a href="http://ued.qunar.com/ymfe/">YMFE</a> Team. Build by <a href="http://ued.qunar.com/ydoc/">ydoc</a>.
+                &copy; 2017 <a href="http://ued.qunar.com/ymfe/">YMFE</a> Team. Build by <a href="http://ued.qunar.com/ydoc/">ydoc</a>.
             </div>
         </footer>
     </div>
