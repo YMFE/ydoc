@@ -113,6 +113,8 @@ sup,sub{vertical-align:baseline}
      float:left;
      a{
        padding: 0 15px;
+       color:#fff;
+       transition: all .4s;
      }
      a:hover{
         color:#ff503f;
@@ -188,6 +190,7 @@ sup,sub{vertical-align:baseline}
      color: #000;
      padding: .08rem .3rem;
      width: 100%;
+     transition: all .4s;
      &:hover{
          background-color: #eee;
      }
@@ -224,12 +227,14 @@ sup,sub{vertical-align:baseline}
      .home-btn{
         display: inline-block;
         margin: 0.04rem;
-        padding: 0.1rem 0.4rem;
+        padding: 0.1rem;
+        min-width: 1.5rem;
         border: 1px solid;
         border-radius: 0.05rem;
         color: #ff503f;
         font-size: .2rem;
         font-weight: bold;
+        transition: all .4s;
      }
      .home-btn:hover{
          text-decoration: none;
@@ -435,7 +440,8 @@ sup,sub{vertical-align:baseline}
                      width: 100%;
                      position: relative;
                      overflow: hidden;
-                     white-space: nowrap;
+                     white-space: nowrap
+                     transition: all .4s;
                  }
                  a:hover{
                     background-color: #fff8ef;
@@ -575,6 +581,7 @@ sup,sub{vertical-align:baseline}
     .docs-sidenav li a{
         color: #999;
         border-color: #222;
+        transition: all .4s;
     }
     .docs-sidenav li a:hover{
         background-color: #222;
@@ -616,6 +623,7 @@ sup,sub{vertical-align:baseline}
                      padding:0;
                      width:100%;
                      display: inline-block;
+                     transition: all .4s;
                  }
                  a:hover{
                      color:#ff503f;

@@ -243,12 +243,14 @@ sup, sub {
     .ydoc .ydoc-banner-home .home-btn {
       display: inline-block;
       margin: 0.04rem;
-      padding: 0.1rem 0.4rem;
+      padding: 0.1rem;
+      min-width: 1.5rem;
       border: 1px solid;
       border-radius: 0.05rem;
       color: #ff503f;
       font-size: .2rem;
-      font-weight: bold; }
+      font-weight: bold;
+      transition: all .4s; }
     .ydoc .ydoc-banner-home .home-btn:hover {
       text-decoration: none;
       border-color: #ff503f;
@@ -376,7 +378,8 @@ sup, sub {
         float: right;
         min-height: 500px; }
       .ydoc-container-content .hashlink {
-        display: none; }
+        display: none;
+        transition: all .4s; }
       .ydoc-container-content .subject:hover .hashlink {
         display: inline; }
       .ydoc-container-content .right {
