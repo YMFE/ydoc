@@ -53,8 +53,6 @@ module.exports = {
         rs = {
             linkSource: options.source,
             list: groupList.map(function(group) {
-                // console.log('group=======', group);
-                // console.log('tag=======', "#"+group);
                 sidebars.push({
                     name: group,
                     tag: group && "#"+group
