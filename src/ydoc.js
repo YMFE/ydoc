@@ -86,7 +86,7 @@ ydoc.build = function(cwd, conf, opt) {
         buildPages = opt.page;
     // 多版本切换
     if(conf.mutiversion){
-        shell.exec('git add -A && git commit -m "commit *doc"');
+        shell.exec('git add -A && git commit -m "doc: auto-commit of muti-version building."');
         var docBranch = conf.mutiversion.docbranch,
             docDir = '../ydocCache';
         if(docBranch){

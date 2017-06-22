@@ -220,13 +220,14 @@
         <span class="token property">"foldsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠侧边目录
         <span class="token property">"staticsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 侧边目录不折叠且不跟随页面滚动
         <span class="token property">"insertCSS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./style/a.css"</span><span class="token punctuation">,</span><span class="token string">"./style/b.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
-        <span class="token property">"insertJS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./scripts/a.js"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置js路径
+        <span class="token property">"insertJS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./scripts/a.js"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置js路径；相对路径需要配置resources路径
         <span class="token property">"hasPageName"</span><span class="token operator">:</span> <span class="token boolean">true</span> //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符<span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"resources"</span><span class="token operator">:</span> <span class="token punctuation">{</span> //将配置文件夹拷贝至生成文档的source文件夹下  
+    <span class="token property">"resources"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 将配置的文件夹拷贝至生成文档的文件夹下
             <span class="token property">"images"</span><span class="token operator">:</span> <span class="token string">"./test-reactweb/docs/images/"</span><span class="token punctuation">,</span>   
             <span class="token property">"demo"</span><span class="token operator">:</span><span class="token string">"./test-reactweb/docs/demo/"</span><span class="token punctuation">,</span>
             <span class="token property">"style"</span><span class="token operator">:</span> <span class="token string">"./style/"</span><span class="token punctuation">,</span>  // 指定insertCss后，配置css的目录
+            <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token string">"./scripts/"</span><span class="token punctuation">,</span> // 指定insertJS后，配置js的目录
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token property">"common"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 通用默认配置，包括主页配置等
         <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span> //page title
