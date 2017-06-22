@@ -5,14 +5,9 @@ var fs = require('fs'),
 module.exports = function(cwd, callback) {
     var confJSPath = sysPath.join(cwd, 'ydocfile.js'),
         jsonPath = fs.existsSync(sysPath.join(cwd, 'ydoc.json')),
-        configPath = fs.existsSync(sysPath.join(cwd, 'ydoc.config')),
-        conf, confPath;;
-    if(jsonPath && configPath){
+        conf, confPath;
+    if (jsonPath) {
         confPath = sysPath.join(cwd, 'ydoc.json');
-    }else if (jsonPath) {
-        confPath = sysPath.join(cwd, 'ydoc.json');
-    }else if (configPath) {
-        confPath = sysPath.join(cwd, 'ydoc.config');
     }
     if (fs.existsSync(confPath)) {
         try {

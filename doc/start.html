@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta name="description" content="description of your site">
+    <meta name="author" content="author of the site">
+    <title>YDoc 开始</title>
+    <link rel="stylesheet" href="source/main.css" />  
+</head>
+<body>
+    <div class="ydoc">
+        <header class="ydoc-header">
+            <div class="ydoc-header-area">
+                
+                <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+                
+                <button class="ydocIcon navbar-toggle">&#xf020;</button>
+                <nav class="ydoc-nav">
+                    <ul class="navbar-left">
+                         
+                        <li class="">
+                            
+                            <a href="index.html">简介</a> 
+                        </li>
+                        
+                        <li class="active">
+                            
+                            <a href="start.html">开始</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="usage.html">命令与配置</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="comment.html">注释规则</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="theme.html">主题</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="release.html">版本</a> 
+                        </li>
+                         
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <!-- <header style="height:20px"></header> -->
+        
+        <!-- Docs page layout -->
+        
+        <div class="ydoc-banner-bg">
+            <div class="ydoc-banner ">
+                <div class="ydoc-banner-area">
+                    <h1 >YDoc</h1>
+                    <p class="desc ">如何使用 YDoc 为前端项目生成文档。</p>
+                    
+                </div>
+            </div>
+            
+
+            <div class="ydoc-container">
+                 
+                <div class="ydoc-container-content">
+                    
+                    
+                    <div class="content-left staticsidenav" role="complementary">
+                        <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                            <ul class="nav docs-sidenav">
+                                 
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#简介">简介</a> 
+                                </li>
+                                  
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#安装">安装</a> 
+                                </li>
+                                  
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#使用方式">使用方式</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"  >
+                                
+                                    <li >
+                                        <a href="#使用命令方式">使用命令方式</a>
+                                    </li>
+                                     
+                                    <li >
+                                        <a href="#使用其他方式">使用其他方式</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#开发者">开发者</a> 
+                                </li>
+                                 
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                    <div class="content-right markdown-body " role="main">
+
+                         <h2 class="subject" id="简介">简介 <a class="hashlink" href="#简介">#</a></h2><p><a href="http://badge.fury.io/js/ydoc"><img src="https://badge.fury.io/js/ydoc.svg" alt="npm version"></a></p>
+<p><img src="https://nodei.co/npm/ydoc.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt=""></p>
+<p><code>YDoc</code> 是基于代码注释与 <code>markdown</code> 快速构建文档的工具，目前支持诸如：<code>React Native</code>, <code>JavaScript</code>, <code>CSS</code>, <code>SCSS</code> 等类别。</p>
+<h2 class="subject" id="安装">安装 <a class="hashlink" href="#安装">#</a></h2><pre><code class="lang-bash"><span class="token function">npm</span> <span class="token function">install</span> ydoc <span class="token punctuation">[</span>-g<span class="token punctuation">]</span>
+</code></pre>
+<h2 class="subject" id="使用方式">使用方式 <a class="hashlink" href="#使用方式">#</a></h2><h3 class="subject" id="使用命令方式">使用命令方式 <a class="hashlink" href="#使用命令方式">#</a></h3><ul>
+<li><code>cd /path/to/project/</code> 进入项目目录</li><li><code>ydoc init</code> 初始化 YDoc 配置文件 ydoc.json（<a href="./usage.html#配置文件">配置说明</a>）</li><li><code>ydoc build</code> 构建文档，更多命令请查看（<a href="./usage.html#构建命令">构建命令</a>）</li></ul>
+<h3 class="subject" id="使用其他方式">使用其他方式 <a class="hashlink" href="#使用其他方式">#</a></h3><ol>
+<li><p>使用脚本：</p>
+<pre><code class="lang-javascript"> <span class="token keyword">var</span> ydoc <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"ydoc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ ydoc<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token string">'/path/to/project'</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</li><li><p>使用Gulp：</p>
+<pre><code class="lang-javascript"> <span class="token keyword">var</span> ydoc <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"ydoc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">'ydoc'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">'./'</span><span class="token punctuation">)</span>
+         <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">ydoc</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+             <span class="token comment" spellcheck="true">// 配置</span>
+         <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</li><li><p>使用Grunt：</p>
+<pre><code class="lang-javascript"> grunt<span class="token punctuation">.</span><span class="token function">initConfig</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+     ydoc<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+         <span class="token comment" spellcheck="true">// 配置</span>
+     <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ grunt<span class="token punctuation">.</span><span class="token function">loadNpmTasks</span><span class="token punctuation">(</span><span class="token string">'ydoc'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</li></ol>
+<h2 class="subject" id="开发者">开发者 <a class="hashlink" href="#开发者">#</a></h2><ul>
+<li>林洋 <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#97;&#100;&#119;&#111;&#110;&#46;&#108;&#105;&#x6e;&#x40;&#113;&#x75;&#x6e;&#x61;&#x72;&#x2e;&#x63;&#111;&#109;">&#97;&#100;&#119;&#111;&#110;&#46;&#108;&#105;&#x6e;&#x40;&#113;&#x75;&#x6e;&#x61;&#x72;&#x2e;&#x63;&#111;&#109;</a> | <a href="&#109;&#x61;&#105;&#x6c;&#116;&#x6f;&#x3a;&#101;&#100;&#x77;&#x6f;&#110;&#x2e;&#108;&#x69;&#109;&#64;&#103;&#109;&#97;&#x69;&#108;&#46;&#x63;&#111;&#x6d;">&#101;&#100;&#x77;&#x6f;&#110;&#x2e;&#108;&#x69;&#109;&#64;&#103;&#109;&#97;&#x69;&#108;&#46;&#x63;&#111;&#x6d;</a></li><li>董文博 <a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#58;&#x77;&#x65;&#110;&#x62;&#111;&#x2e;&#x64;&#111;&#110;&#x67;&#x40;&#113;&#x75;&#x6e;&#97;&#x72;&#46;&#x63;&#x6f;&#109;">&#x77;&#x65;&#110;&#x62;&#111;&#x2e;&#x64;&#111;&#110;&#x67;&#x40;&#113;&#x75;&#x6e;&#97;&#x72;&#46;&#x63;&#x6f;&#109;</a></li><li>王丽丽 <a href="&#109;&#97;&#105;&#x6c;&#116;&#111;&#58;&#x6c;&#101;&#x69;&#x6c;&#x61;&#46;&#119;&#97;&#x6e;&#103;&#x40;&#113;&#117;&#110;&#x61;&#x72;&#x2e;&#x63;&#x6f;&#x6d;">&#x6c;&#101;&#x69;&#x6c;&#x61;&#46;&#119;&#97;&#x6e;&#103;&#x40;&#113;&#117;&#110;&#x61;&#x72;&#x2e;&#x63;&#x6f;&#x6d;</a></li></ul>
+
+                    </div>
+                </div>
+                 
+            </div>
+            
+        </div>
+        
+        <footer class="footer">
+            <div class="copyright">
+                &copy; 2017 <a href="http://ued.qunar.com/ymfe/">YMFE</a> Team. Build by <a href="http://ued.qunar.com/ydoc/">ydoc</a>.
+            </div>
+        </footer>
+    </div>
+
+    
+    <div class="open-panel"></div>
+    <div class="mask"></div>
+     
+
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+        
+
+    </body>
+
+</html>

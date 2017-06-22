@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta name="description" content="description of your site">
+    <meta name="author" content="author of the site">
+    <title>YDoc 注释规则</title>
+    <link rel="stylesheet" href="source/main.css" />  
+</head>
+<body>
+    <div class="ydoc">
+        <header class="ydoc-header">
+            <div class="ydoc-header-area">
+                
+                <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+                
+                <button class="ydocIcon navbar-toggle">&#xf020;</button>
+                <nav class="ydoc-nav">
+                    <ul class="navbar-left">
+                         
+                        <li class="">
+                            
+                            <a href="index.html">简介</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="start.html">开始</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="usage.html">命令与配置</a> 
+                        </li>
+                        
+                        <li class="active">
+                            
+                            <a href="comment.html">注释规则</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="theme.html">主题</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="release.html">版本</a> 
+                        </li>
+                         
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <!-- <header style="height:20px"></header> -->
+        
+        <!-- Docs page layout -->
+        
+        <div class="ydoc-banner-bg">
+            <div class="ydoc-banner ">
+                <div class="ydoc-banner-area">
+                    <h1 >YDoc</h1>
+                    <p class="desc ">这里聚合了 YDoc 所有注释标记的使用规则。</p>
+                    
+                </div>
+            </div>
+            
+
+            <div class="ydoc-container">
+                
+                <div class="ydoc-container-content">
+                    
+                    
+                    
+                    <div class="content-left staticsidenav" role="complementary">
+                        <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                            <ul class="nav docs-sidenav">
+                                 
+                                        <li>
+                                            <a href="#JS-Library">JS-Library</a>
+                                        </li>
+                                          
+                                        <li>
+                                            <a href="#JS-Component">JS-Component</a>
+                                        </li>
+                                          
+                                        <li>
+                                            <a href="#CSS-Library">CSS-Library</a>
+                                        </li>
+                                          
+                                        <li>
+                                            <a href="#注释标签说明">注释标签说明</a>
+                                        </li>
+                                         
+                                </ul>
+                        </nav>
+                    </div>
+                    
+                    <div class="content-right right markdown-body " role="main">
+                        
+                        <div><p>对于代码，解析器会根据注释内容提取出相应信息，形成文档页面。</p>
+<p>现在支持的注释形式如下：</p>
+<ul>
+<li><a href="#JS-Library">JS Library 形式</a></li>
+<li><a href="#JS-Component">JS component 形式</a></li>
+<li><a href="#CSS-Library">CSS(SASS/SCSS) Library 形式</a></li>
+</ul>
+</div>
+                          
+                        <div class="docs-section">
+                             
+                            <h2 id="JS-Library" class="page-header subject">JS-Library<a class="hashlink" href="#JS-Library">#</a></h2>   
+                            <div>
+                                <p>每个代码块可以用这样一个注释块。</p>
+<p>对于方法可以使用下面注释形式：</p>
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">/**
+ * 打开
+ *
+ * @method XXX.router.open
+ * @static 标识静态属性/方法
+ * @alias XXX.open
+ * @category Router
+ * @version 1.0.0
+ * @foldnumber 8 代码块折叠行数
+ * @param {String} [name] 视图名 &lt;1.0.0>
+ * @returns {Object} 东西
+ * @examplelanguage js
+ * @example
+ * XXX.open('view', {
+ *     param: {
+ *         x: 1,
+ *         y: 2
+ *     },
+ *     ani: 'moveEnter',
+ * });
+ * @description
+ * *open* 主要用于切换视图，类似于PC端的跳转，近似于App上的切换视图操作。
+ */</span>
+</code></pre>
+<p>对于属性可以使用下面注释形式：</p>
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">/**
+ * iOS 设备嗅探
+ *
+ * @property XXX.sniff.ios
+ * @type {Boolean}
+ * @category Sniff
+ */</span>
+</code></pre>
+
+                            </div>
+                            
+                        </div>
+                          
+                        <div class="docs-section">
+                             
+                            <h2 id="JS-Component" class="page-header subject">JS-Component<a class="hashlink" href="#JS-Component">#</a></h2>   
+                            <div>
+                                <p>每个组件的代码在一个文件内，一个包含 <code>@component</code> 标签的注释块为组件说明，数个包含 <code>@property</code> 标签的注释块为配置属性，数个包含 <code>@method</code> 标签的注释块为实例方法，数个包含 <code>@event</code> 标签的注释块为监听的事件类型。</p>
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">/**
+ * 滚动组件
+ *
+ * @component ScrollView
+ * @examplelanguage js
+ * @example ./Playground/js/Examples/ScrollViewExample/vertical&amp;horizontal.js[1-77]
+ * @version >=0.20.0
+ * @foldnumber 8 代码块折叠行数
+ * @description 一个包装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。
+ *
+ * * 记住ScrollView必须有一个确定的高度才能正常工作，因为它实际上所做的就是将一系列不确定高度的子组件装进一个确定高度的容器（通过滚动操作）。
+ * * 要给一个ScrollView确定一个高度的话，要么直接给它设置高度（不建议），要么确定所有的父容器都已经绑定了高度。
+ * * 在视图栈的任意一个位置忘记使用{flex:1}都会导致错误，你可以使用元素查看器来查找问题的原因。
+ *
+ * ![ScrollView](./images/ScrollView.png)
+ *
+ *  @instructions {instruInfo: ./alert.md}{instruUrl: alert/index.html}
+ */</span>
+
+<span class="token comment" spellcheck="true">// 配置</span>
+
+<span class="token comment" spellcheck="true">/**
+ * 内容位移
+ *
+ * 滑块刻度标签
+ * @property scaleFormat
+ * @static
+ * @type function/string
+ * @param {Number} scale 单个标签对应的value值
+ * @param {Number} [index] 当前标签对应的下标
+ * @description 类型提示：支持数组传值；也支持用函数格式化字符串：函数有两个参数(scale, index)；
+ * 受控属性：滑块滑到某一刻度时所展示的刻度文本信息。如果不需要标签，请将该属性设置为 [] 空列表来覆盖默认转换函数。
+ * @returns {Boolean} 是否成功
+ * @default scale => scale
+ * @examplelanguage js
+ * @example
+ * PropTypes.arrayOf(
+ *     PropTypes.shape({
+ *         text: PropTypes.string.isRequired,
+ *         className: PropTypes.string,
+ *         onTap: PropTypes.func.isRequired,
+ *   })
+ * )
+ *
+ */</span>
+
+<span class="token comment" spellcheck="true">// 方法</span>
+
+ <span class="token comment" spellcheck="true">/**
+  * @method 组件关闭,无过渡动画
+  * @static
+  * 返回给外部的回调函数, 为swipeMenuList特制,
+  * @param isClearTransition {Boolean}
+  * @description 类型提示：支持数组传值；也支持用函数格式化字符串：函数有两个参数(scale, index)；
+  * 受控属性：滑块滑到某一刻度时所展示的刻度文本信息。如果不需要标签，请将该属性设置为 [] 空列表来覆盖默认转换函数。
+  * @returns {Boolean} 是否成功
+  * @examplelanguage js
+  * @example
+  * PropTypes.arrayOf(
+  *     PropTypes.shape({
+  *         text: PropTypes.string.isRequired,
+  *         className: PropTypes.string,
+  *         onTap: PropTypes.func.isRequired,
+  *   })
+  * )
+  */</span>
+
+<span class="token comment" spellcheck="true">// 事件</span>
+
+  <span class="token comment" spellcheck="true">/**
+   * @event onScroll
+   * @static
+   * @description 类型提示：支持数组传值；也支持用函数格式化字符串：函数有两个参数(scale, index)；
+   * @param isClearTransition {Boolean}
+   * @returns {Boolean} 是否成功
+   * @examplelanguage js
+   * @example
+   * PropTypes.arrayOf(
+   *     PropTypes.shape({
+   *         text: PropTypes.string.isRequired,
+   *         className: PropTypes.string,
+   *         onTap: PropTypes.func.isRequired,
+   *   })
+   * )
+   */</span>
+</code></pre>
+
+                            </div>
+                            
+                        </div>
+                          
+                        <div class="docs-section">
+                             
+                            <h2 id="CSS-Library" class="page-header subject">CSS-Library<a class="hashlink" href="#CSS-Library">#</a></h2>   
+                            <div>
+                                <p>每个代码块可以用这样一个注释块。</p>
+<pre><code class="lang-css"><span class="token comment" spellcheck="true">/**
+ * @module fragment
+ * @method yo-list
+ * @version 1.0.0
+ * @foldnumber 8 代码块折叠行数
+ * @description 构造列表的自定义使用方法
+ * @demo http://doyoe.github.io/Yo/demo/fragment/yo-list.html
+ * @examplelanguage css
+ * @example ./examples/fragment/yo-list.sccs[5-48]
+ * @param {Color} $on-color 子项选中文本色 &lt;1.4.0>
+ * @param {Color} $item-bordercolor 子项边框色 &lt;1.2.0,2.0.0>
+ * @skip
+ */</span>
+</code></pre>
+
+                            </div>
+                            
+                        </div>
+                          
+                        <div class="docs-section">
+                             
+                            <h2 id="注释标签说明" class="page-header subject">注释标签说明<a class="hashlink" href="#注释标签说明">#</a></h2>   
+                            <div>
+                                <ul>
+<li><code>module</code>: 模块名（分类）</li><li><code>method</code>: 方法名</li><li><code>static</code>: 标识静态属性/方法</li><li><code>version</code>: 版本</li><li><code>demo</code>: demo 地址</li><li><code>example</code>: example 代码，文件路径[起始位置-结束位置] 或者直接写 源代码</li><li><code>examplelanguage</code>: 配置example的高亮语法</li><li><code>param</code>: 参数，格式为：{类型} [名称] 描述（若名称以方括号包裹, 则这个参数不是必选参数） </li><li><code>skip</code>: 跳过此注释块</li></ul>
+<h4 class="subject" id="关于参数表述内版本">关于参数表述内版本 <a class="hashlink" href="#关于参数表述内版本">#</a></h4><p>可以用以下形式标识：</p>
+<ul>
+<li>从 1.0.0 开始支持： <code>&lt;1.0.0&gt;</code></li><li>在 1.0.0 添加，2.0.0版本删除： <code>&lt;1.0.0,2.0.0&gt;</code></li></ul>
+
+                            </div>
+                            
+                        </div>
+                         
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <footer class="footer">
+            <div class="copyright">
+                &copy; 2017 <a href="http://ued.qunar.com/ymfe/">YMFE</a> Team. Build by <a href="http://ued.qunar.com/ydoc/">ydoc</a>.
+            </div>
+        </footer>
+    </div>
+
+     
+    <div class="open-panel"></div>
+    <div class="mask"></div>
+    
+
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+        
+
+    </body>
+
+</html>
