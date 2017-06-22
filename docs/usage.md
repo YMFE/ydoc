@@ -1,3 +1,31 @@
+## 安装
+
+安装正式版
+> npm install ydoc -g
+
+安装测试版 (有新功能但不稳定)
+> npm install ydoc@beta -g
+
+## 构建命令
+
+> ydoc build [-t templatePath] [-p page] [-w] [-o dest]
+
+读取配置，构建文档
+
+* `-w|--watch`: 监听变化自动构建
+* `-t|--template`: 参数为自定义模板路径
+* `-o|--output`: 输出目录
+* `-p|--page`: 指定编译某页，默认编译所有。（多个页面名可以逗号分开，例 -p index,demo）
+
+## 初始化命令
+
+> ydoc init [-t templatePath]
+
+初始项目，创建配置文件或自定义模板(-t)，默认生成 `ydoc.config` 文件。
+
+* `-t|--template`: 参数为自定义模板路径
+
+
 ## 配置文件
 
 配置文件可以以 `ydoc.json` 、 `ydoc.config` 或者 `ydocfile.js` 的形式出现。
@@ -58,7 +86,7 @@ module.exports = function(callback) {
 ```json
 {
     "name": "YDoc", // 标示 配置文件
-    "dest": "path/to/destination", // 默认为  "_docs"
+    "dest": "path/to/destination", // 默认为  "doc"
     "examplePath": "./examples", // 示例代码路径 默认 "./"
     "template": "path/to/templte", // 默认使用 YDoc 内置的模板
     "instructionsInfoPath": "./demo/component", //使用说明 内容路径
@@ -84,20 +112,21 @@ module.exports = function(callback) {
         },
         "foldcode": true, // 是否折叠示例code
         "foldparam": true, // 是否折叠param
-        "foldsidenav": true, // 是否折叠侧边目录
+        "foldsidenav": true, // 是否折叠侧边目录，默认不折叠
         "staticsidenav": true, // 侧边目录不折叠且不跟随页面滚动
         "insertCSS": ["./style/a.css","./style/b.css"],  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
-        "insertJS": ["./scripts/a.js"],  // 配置js路径
+        "insertJS": ["./scripts/a.js"],  // 配置js路径；相对路径需要配置resources路径
         "hasPageName": true //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符)
     },
-    "resources": { //将配置文件夹拷贝至生成文档的source文件夹下  
+    "resources": { // 将配置的文件夹拷贝至生成文档的文件夹下
             "images": "./test-reactweb/docs/images/",   
             "demo":"./test-reactweb/docs/demo/",
             "style": "./style/",  // 指定insertCss后，配置css的目录
+            "scripts": "./scripts/", // 指定insertJS后，配置js的目录
     },
     "common": { // 通用默认配置，包括主页配置等
         "title": "YDoc", //page title
-        "footer": "&copy; 2016 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
+        "footer": "&copy; 2017 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
         "home": "YMFE", // logo
         "homeUrl": "http://ued.qunar.com/ymfe/" // logourl
     },

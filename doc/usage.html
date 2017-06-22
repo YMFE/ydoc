@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
-    <title>YDoc 配置</title>
+    <title>YDoc 命令与配置</title>
     <link rel="stylesheet" href="source/main.css" />  
 </head>
 <body>
@@ -32,14 +32,9 @@
                             <a href="start.html">开始</a> 
                         </li>
                         
-                        <li class="">
-                            
-                            <a href="usage.html">命令</a> 
-                        </li>
-                        
                         <li class="active">
                             
-                            <a href="config.html">配置</a> 
+                            <a href="usage.html">命令与配置</a> 
                         </li>
                         
                         <li class="">
@@ -70,7 +65,7 @@
             <div class="ydoc-banner ">
                 <div class="ydoc-banner-area">
                     <h1 >YDoc</h1>
-                    <p class="desc ">配置</p>
+                    <p class="desc ">使用</p>
                     
                 </div>
             </div>
@@ -85,6 +80,24 @@
                         <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
                             <ul class="nav docs-sidenav">
                                  
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#安装1">安装</a> 
+                                </li>
+                                  
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#构建命令">构建命令</a> 
+                                </li>
+                                  
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#初始化命令">初始化命令</a> 
+                                </li>
+                                  
                                 <!-- <li  > -->
                                 <li >
                                     
@@ -123,7 +136,27 @@
                     
                     <div class="content-right markdown-body " role="main">
 
-                         <h2 class="subject" id="配置文件">配置文件 <a class="hashlink" href="#配置文件">#</a></h2><p>配置文件可以以 <code>ydoc.json</code> 、 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
+                         <h2 class="subject" id="安装1">安装 <a class="hashlink" href="#安装1">#</a></h2><p>安装正式版</p>
+<blockquote>
+<p>npm install ydoc -g</p>
+</blockquote>
+<p>安装测试版 (有新功能但不稳定)</p>
+<blockquote>
+<p>npm install ydoc@beta -g</p>
+</blockquote>
+<h2 class="subject" id="构建命令">构建命令 <a class="hashlink" href="#构建命令">#</a></h2><blockquote>
+<p>ydoc build [-t templatePath] [-p page] [-w] [-o dest]</p>
+</blockquote>
+<p>读取配置，构建文档</p>
+<ul>
+<li><code>-w|--watch</code>: 监听变化自动构建</li><li><code>-t|--template</code>: 参数为自定义模板路径</li><li><code>-o|--output</code>: 输出目录</li><li><code>-p|--page</code>: 指定编译某页，默认编译所有。（多个页面名可以逗号分开，例 -p index,demo）</li></ul>
+<h2 class="subject" id="初始化命令">初始化命令 <a class="hashlink" href="#初始化命令">#</a></h2><blockquote>
+<p>ydoc init [-t templatePath]</p>
+</blockquote>
+<p>初始项目，创建配置文件或自定义模板(-t)，默认生成 <code>ydoc.config</code> 文件。</p>
+<ul>
+<li><code>-t|--template</code>: 参数为自定义模板路径</li></ul>
+<h2 class="subject" id="配置文件">配置文件 <a class="hashlink" href="#配置文件">#</a></h2><p>配置文件可以以 <code>ydoc.json</code> 、 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
 <h3 class="subject" id="静态文件形式">静态文件形式 <a class="hashlink" href="#静态文件形式">#</a></h3><p><code>ydoc.json</code> 与 <code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
 <p>示例：</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
@@ -158,7 +191,7 @@
 <h2 class="subject" id="配置内容">配置内容 <a class="hashlink" href="#配置内容">#</a></h2><p>示例:</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span> // 标示 配置文件
-    <span class="token property">"dest"</span><span class="token operator">:</span> <span class="token string">"path/to/destination"</span><span class="token punctuation">,</span> // 默认为  <span class="token string">"_docs"</span>
+    <span class="token property">"dest"</span><span class="token operator">:</span> <span class="token string">"path/to/destination"</span><span class="token punctuation">,</span> // 默认为  <span class="token string">"doc"</span>
     <span class="token property">"examplePath"</span><span class="token operator">:</span> <span class="token string">"./examples"</span><span class="token punctuation">,</span> // 示例代码路径 默认 <span class="token string">"./"</span>
     <span class="token property">"template"</span><span class="token operator">:</span> <span class="token string">"path/to/templte"</span><span class="token punctuation">,</span> // 默认使用 YDoc 内置的模板
     <span class="token property">"instructionsInfoPath"</span><span class="token operator">:</span> <span class="token string">"./demo/component"</span><span class="token punctuation">,</span> //使用说明 内容路径
@@ -187,17 +220,18 @@
         <span class="token property">"foldsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠侧边目录
         <span class="token property">"staticsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 侧边目录不折叠且不跟随页面滚动
         <span class="token property">"insertCSS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./style/a.css"</span><span class="token punctuation">,</span><span class="token string">"./style/b.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
-        <span class="token property">"insertJS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./scripts/a.js"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置js路径
+        <span class="token property">"insertJS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./scripts/a.js"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置js路径；相对路径需要配置resources路径
         <span class="token property">"hasPageName"</span><span class="token operator">:</span> <span class="token boolean">true</span> //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符<span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token property">"resources"</span><span class="token operator">:</span> <span class="token punctuation">{</span> //将配置文件夹拷贝至生成文档的source文件夹下  
+    <span class="token property">"resources"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 将配置的文件夹拷贝至生成文档的文件夹下
             <span class="token property">"images"</span><span class="token operator">:</span> <span class="token string">"./test-reactweb/docs/images/"</span><span class="token punctuation">,</span>   
             <span class="token property">"demo"</span><span class="token operator">:</span><span class="token string">"./test-reactweb/docs/demo/"</span><span class="token punctuation">,</span>
             <span class="token property">"style"</span><span class="token operator">:</span> <span class="token string">"./style/"</span><span class="token punctuation">,</span>  // 指定insertCss后，配置css的目录
+            <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token string">"./scripts/"</span><span class="token punctuation">,</span> // 指定insertJS后，配置js的目录
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token property">"common"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 通用默认配置，包括主页配置等
         <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span> //page title
-        <span class="token property">"footer"</span><span class="token operator">:</span> <span class="token string">"&amp;copy; 2016 &lt;a href=\"http://ued.qunar.com/ymfe/\">YMFE&lt;/a> Team. Build by &lt;a href=\"http://ued.qunar.com/ydoc/\">ydoc&lt;/a>."</span><span class="token punctuation">,</span> // 通用尾
+        <span class="token property">"footer"</span><span class="token operator">:</span> <span class="token string">"&amp;copy; 2017 &lt;a href=\"http://ued.qunar.com/ymfe/\">YMFE&lt;/a> Team. Build by &lt;a href=\"http://ued.qunar.com/ydoc/\">ydoc&lt;/a>."</span><span class="token punctuation">,</span> // 通用尾
         <span class="token property">"home"</span><span class="token operator">:</span> <span class="token string">"YMFE"</span><span class="token punctuation">,</span> // logo
         <span class="token property">"homeUrl"</span><span class="token operator">:</span> <span class="token string">"http://ued.qunar.com/ymfe/"</span> // logourl
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -314,7 +348,7 @@ type字段配置的 <code>component</code> 和 <code>lib</code>，二者所支�
         
         <footer class="footer">
             <div class="copyright">
-                &copy; 2016 <a href="http://ued.qunar.com/ymfe/">YMFE</a> Team. Build by <a href="http://ued.qunar.com/ydoc/">ydoc</a>.
+                &copy; 2017 <a href="http://ued.qunar.com/ymfe/">YMFE</a> Team. Build by <a href="http://ued.qunar.com/ydoc/">ydoc</a>.
             </div>
         </footer>
     </div>

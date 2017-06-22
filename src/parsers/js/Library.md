@@ -12,7 +12,7 @@
  * @category Router
  * @version 1.0.0
  * @foldnumber 8 代码块折叠行数
- * @param {String} name 视图名 <1.0.0>
+ * @param {String} [name] 视图名 <1.0.0>
  * @returns {Object} 东西
  * @examplelanguage js
  * @example

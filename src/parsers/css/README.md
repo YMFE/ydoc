@@ -10,10 +10,8 @@
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-list.html
  * @examplelanguage css
  * @example ./examples/fragment/yo-list.sccs[5-48]
- * @param {Color} $on-color 子项选中文本色 {add:1.4.0}
- * @param {Boolean} $has-last-border 是否有最后一根底边线，改由`border-width`参数控制 {add:2.1.0}{del:2.1.3}
+ * @param {Color} $on-color 子项选中文本色 <1.4.0>
  * @param {Color} $item-bordercolor 子项边框色 <1.2.0,2.0.0>
- * @param {Color} $item-border-color 子项边框色 <2.0.0>
  * @skip
  */
 ```

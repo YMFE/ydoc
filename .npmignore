@@ -1,9 +1,7 @@
-config.md
-usage.md
-release.md
+./docs
 ydoc.config
-_docs
-./_docs
-/_docs
+doc
+./doc
+/doc
 .gitignore
 .sass-cache/

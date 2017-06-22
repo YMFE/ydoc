@@ -30,7 +30,7 @@
  * @static
  * @type function/string
  * @param {Number} scale 单个标签对应的value值
- * @param {Number} index 当前标签对应的下标
+ * @param {Number} [index] 当前标签对应的下标
  * @description 类型提示：支持数组传值；也支持用函数格式化字符串：函数有两个参数(scale, index)；
  * 受控属性：滑块滑到某一刻度时所展示的刻度文本信息。如果不需要标签，请将该属性设置为 [] 空列表来覆盖默认转换函数。
  * @returns {Boolean} 是否成功

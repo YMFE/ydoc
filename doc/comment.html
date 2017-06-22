@@ -34,12 +34,7 @@
                         
                         <li class="">
                             
-                            <a href="usage.html">命令</a> 
-                        </li>
-                        
-                        <li class="">
-                            
-                            <a href="config.html">配置</a> 
+                            <a href="usage.html">命令与配置</a> 
                         </li>
                         
                         <li class="active">
@@ -99,7 +94,7 @@
                                         </li>
                                           
                                         <li>
-                                            <a href="#标签说明">标签说明</a>
+                                            <a href="#注释标签说明">注释标签说明</a>
                                         </li>
                                          
                                 </ul>
@@ -132,7 +127,7 @@
  * @category Router
  * @version 1.0.0
  * @foldnumber 8 代码块折叠行数
- * @param {String} name 视图名 &lt;1.0.0>
+ * @param {String} [name] 视图名 &lt;1.0.0>
  * @returns {Object} 东西
  * @examplelanguage js
  * @example
@@ -195,7 +190,7 @@
  * @static
  * @type function/string
  * @param {Number} scale 单个标签对应的value值
- * @param {Number} index 当前标签对应的下标
+ * @param {Number} [index] 当前标签对应的下标
  * @description 类型提示：支持数组传值；也支持用函数格式化字符串：函数有两个参数(scale, index)；
  * 受控属性：滑块滑到某一刻度时所展示的刻度文本信息。如果不需要标签，请将该属性设置为 [] 空列表来覆盖默认转换函数。
  * @returns {Boolean} 是否成功
@@ -271,10 +266,8 @@
  * @demo http://doyoe.github.io/Yo/demo/fragment/yo-list.html
  * @examplelanguage css
  * @example ./examples/fragment/yo-list.sccs[5-48]
- * @param {Color} $on-color 子项选中文本色 {add:1.4.0}
- * @param {Boolean} $has-last-border 是否有最后一根底边线，改由`border-width`参数控制 {add:2.1.0}{del:2.1.3}
+ * @param {Color} $on-color 子项选中文本色 &lt;1.4.0>
  * @param {Color} $item-bordercolor 子项边框色 &lt;1.2.0,2.0.0>
- * @param {Color} $item-border-color 子项边框色 &lt;2.0.0>
  * @skip
  */</span>
 </code></pre>
@@ -285,10 +278,10 @@
                           
                         <div class="docs-section">
                              
-                            <h2 id="标签说明" class="page-header subject">标签说明<a class="hashlink" href="#标签说明">#</a></h2>   
+                            <h2 id="注释标签说明" class="page-header subject">注释标签说明<a class="hashlink" href="#注释标签说明">#</a></h2>   
                             <div>
                                 <ul>
-<li><code>module</code>: 模块名（分类）</li><li><code>method</code>: 方法名</li><li><code>static</code>: 标识静态属性/方法</li><li><code>version</code>: 版本</li><li><code>demo</code>: demo 地址</li><li><code>example</code>: example 代码，文件路径[起始位置-结束位置] 或者直接写 源代码</li><li><code>examplelanguage</code>: 配置example的高亮语法</li><li><code>param</code>: 参数，格式为：{类型} 名称 描述</li><li><code>skip</code>: 跳过此注释块</li></ul>
+<li><code>module</code>: 模块名（分类）</li><li><code>method</code>: 方法名</li><li><code>static</code>: 标识静态属性/方法</li><li><code>version</code>: 版本</li><li><code>demo</code>: demo 地址</li><li><code>example</code>: example 代码，文件路径[起始位置-结束位置] 或者直接写 源代码</li><li><code>examplelanguage</code>: 配置example的高亮语法</li><li><code>param</code>: 参数，格式为：{类型} [名称] 描述（若名称以方括号包裹, 则这个参数不是必选参数） </li><li><code>skip</code>: 跳过此注释块</li></ul>
 <h4 class="subject" id="关于参数表述内版本">关于参数表述内版本 <a class="hashlink" href="#关于参数表述内版本">#</a></h4><p>可以用以下形式标识：</p>
 <ul>
 <li>从 1.0.0 开始支持： <code>&lt;1.0.0&gt;</code></li><li>在 1.0.0 添加，2.0.0版本删除： <code>&lt;1.0.0,2.0.0&gt;</code></li></ul>
@@ -306,7 +299,7 @@
         
         <footer class="footer">
             <div class="copyright">
-                &copy; 2016 <a href="http://ued.qunar.com/ymfe/">YMFE</a> Team. Build by <a href="http://ued.qunar.com/ydoc/">ydoc</a>.
+                &copy; 2017 <a href="http://ued.qunar.com/ymfe/">YMFE</a> Team. Build by <a href="http://ued.qunar.com/ydoc/">ydoc</a>.
             </div>
         </footer>
     </div>

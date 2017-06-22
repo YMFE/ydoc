@@ -1,7 +1,7 @@
 {
     "common": {
         "title": "YDoc",
-        "footer": "&copy; 2016 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.",
+        "footer": "&copy; 2017 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.",
         "home": "YMFE",
         "homeUrl": "http://ued.qunar.com/ymfe/"
     }

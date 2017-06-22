@@ -80,13 +80,13 @@ ydoc.build = function(cwd, conf, opt) {
     // 多版本时生成文件到对应version的路径
     var li = '',
         template = opt.template || conf.template,
-        rDest = opt.dest || conf.dest || '_docs',
+        rDest = opt.dest || conf.dest || 'doc',
         destPath = sysPath.join(cwd, rDest), // add=>version?
         tplPath = template ? sysPath.join(cwd, template) : templatePath,
         buildPages = opt.page;
     // 多版本切换
     if(conf.mutiversion){
-        shell.exec('git add -A && git commit -m "commit *doc"');
+        shell.exec('git add -A && git commit -m "doc: auto-commit of muti-version building."');
         var docBranch = conf.mutiversion.docbranch,
             docDir = '../ydocCache';
         if(docBranch){
@@ -103,7 +103,7 @@ ydoc.build = function(cwd, conf, opt) {
                 loadConfig(cwd, function(conf) {
                     if (conf) {
                         // 获取该分支文档目录
-                        var branchDest = opt.dest || conf.dest || '_docs';
+                        var branchDest = opt.dest || conf.dest || 'doc';
                         shell.rm('-rf', branchDest + '/' + item.name);
                         shell.cp('-rf', branchDest + '/', docDir + '/' + item.name);
                         console.log(('√ 复制 ' + item.name + ' 分支文档至: ' + docDir + '/' + item.name).yellow);
