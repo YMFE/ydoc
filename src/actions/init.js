@@ -26,13 +26,13 @@ module.exports = function(cwd, conf) {
             });
         }
     } else {
-        var confFilePath = sysPath.join(cwd, 'ydoc.config'),
+        var confFilePath = sysPath.join(cwd, 'ydoc.json'),
             jsConfFilePath = sysPath.join(cwd, 'ydocfile.js');
         if (fs.existsSync(confFilePath) || fs.existsSync(jsConfFilePath)) {
             console.log('X 配置文件已经存在!'.red);
         } else {
             fs.writeFileSync(confFilePath, JSON.stringify(configTPL, {}, 4), 'UTF-8');
-            console.log('√ 生成 ydoc.config 成功！'.green);
+            console.log('√ 生成 ydoc.json 成功！'.green);
         }
     }
 }

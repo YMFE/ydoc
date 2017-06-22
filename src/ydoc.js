@@ -170,7 +170,7 @@ ydoc.build = function(cwd, conf, opt) {
                 watch.watchTree(cwd, {
                     ignoreDirectoryPattern: new RegExp(rDest) // 不监听这些文件的变化
                 }, function(path) {
-                    var reg = /ydoc.json$|ydoc.config$|ydocfile.js$/gi;
+                    var reg = /ydoc.json$|ydocfile.js$/gi;
                     // 判断doc的配置文件是否变化，若变化则更新配置文件后构建文档
                     if(reg.test(path)){
                         console.log((startTime()+'--> Reload Config ......').cyan);

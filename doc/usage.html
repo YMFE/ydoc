@@ -153,11 +153,11 @@
 <h2 class="subject" id="初始化命令">初始化命令 <a class="hashlink" href="#初始化命令">#</a></h2><blockquote>
 <p>ydoc init [-t templatePath]</p>
 </blockquote>
-<p>初始项目，创建配置文件或自定义模板(-t)，默认生成 <code>ydoc.config</code> 文件。</p>
+<p>初始项目，创建配置文件或自定义模板(-t)，默认生成 <code>ydoc.json</code> 文件。</p>
 <ul>
 <li><code>-t|--template</code>: 参数为自定义模板路径</li></ul>
-<h2 class="subject" id="配置文件">配置文件 <a class="hashlink" href="#配置文件">#</a></h2><p>配置文件可以以 <code>ydoc.json</code> 、 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
-<h3 class="subject" id="静态文件形式">静态文件形式 <a class="hashlink" href="#静态文件形式">#</a></h3><p><code>ydoc.json</code> 与 <code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
+<h2 class="subject" id="配置文件">配置文件 <a class="hashlink" href="#配置文件">#</a></h2><p>配置文件可以以 <code>ydoc.json</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
+<h3 class="subject" id="静态文件形式">静态文件形式 <a class="hashlink" href="#静态文件形式">#</a></h3><p><code>ydoc.json</code> 的内容是 <code>JSON</code>，支持注释。</p>
 <p>示例：</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
@@ -217,7 +217,7 @@
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token property">"foldcode"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠示例code
         <span class="token property">"foldparam"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠param
-        <span class="token property">"foldsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠侧边目录
+        <span class="token property">"foldsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠侧边目录，默认不折叠
         <span class="token property">"staticsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 侧边目录不折叠且不跟随页面滚动
         <span class="token property">"insertCSS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./style/a.css"</span><span class="token punctuation">,</span><span class="token string">"./style/b.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
         <span class="token property">"insertJS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./scripts/a.js"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置js路径；相对路径需要配置resources路径

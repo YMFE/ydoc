@@ -21,18 +21,18 @@
 
 > ydoc init [-t templatePath]
 
-初始项目，创建配置文件或自定义模板(-t)，默认生成 `ydoc.config` 文件。
+初始项目，创建配置文件或自定义模板(-t)，默认生成 `ydoc.json` 文件。
 
 * `-t|--template`: 参数为自定义模板路径
 
 
 ## 配置文件
 
-配置文件可以以 `ydoc.json` 、 `ydoc.config` 或者 `ydocfile.js` 的形式出现。
+配置文件可以以 `ydoc.json` 或者 `ydocfile.js` 的形式出现。
 
 ### 静态文件形式
 
-`ydoc.json` 与 `ydoc.config` 的内容是 `JSON`，支持注释。
+`ydoc.json` 的内容是 `JSON`，支持注释。
 
 示例：
 
