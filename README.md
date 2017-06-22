@@ -54,6 +54,7 @@ npm install ydoc [-g]
     });
 
     grunt.loadNpmTasks('ydoc');
+    ```
 
 ## 构建示例
 
