@@ -65,7 +65,7 @@
             <div class="ydoc-banner ">
                 <div class="ydoc-banner-area">
                     <h1 >YDoc</h1>
-                    <p class="desc ">使用</p>
+                    <p class="desc ">命令集锦与配置说明详细地描述了 YDoc 如何进行文档构建。</p>
                     
                 </div>
             </div>
@@ -153,7 +153,7 @@
 <h2 class="subject" id="初始化命令">初始化命令 <a class="hashlink" href="#初始化命令">#</a></h2><blockquote>
 <p>ydoc init [-t templatePath]</p>
 </blockquote>
-<p>初始项目，创建配置文件或自定义模板(-t)，默认生成 <code>ydoc.json</code> 文件。</p>
+<p>初始项目，创建配置文件与自定义模板(-t)，默认生成 <code>ydoc.json</code> 配置文件。</p>
 <ul>
 <li><code>-t|--template</code>: 参数为自定义模板路径</li></ul>
 <h2 class="subject" id="配置文件">配置文件 <a class="hashlink" href="#配置文件">#</a></h2><p>配置文件可以以 <code>ydoc.json</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
@@ -224,7 +224,7 @@
         <span class="token property">"hasPageName"</span><span class="token operator">:</span> <span class="token boolean">true</span> //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符<span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token property">"resources"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 将配置的文件夹拷贝至生成文档的文件夹下
-            <span class="token property">"images"</span><span class="token operator">:</span> <span class="token string">"./test-reactweb/docs/images/"</span><span class="token punctuation">,</span>   
+            <span class="token property">"images"</span><span class="token operator">:</span> <span class="token string">"./test-reactweb/docs/images/"</span><span class="token punctuation">,</span>
             <span class="token property">"demo"</span><span class="token operator">:</span><span class="token string">"./test-reactweb/docs/demo/"</span><span class="token punctuation">,</span>
             <span class="token property">"style"</span><span class="token operator">:</span> <span class="token string">"./style/"</span><span class="token punctuation">,</span>  // 指定insertCss后，配置css的目录
             <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token string">"./scripts/"</span><span class="token punctuation">,</span> // 指定insertJS后，配置js的目录

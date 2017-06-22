@@ -21,7 +21,7 @@
 
 > ydoc init [-t templatePath]
 
-初始项目，创建配置文件或自定义模板(-t)，默认生成 `ydoc.json` 文件。
+初始项目，创建配置文件与自定义模板(-t)，默认生成 `ydoc.json` 配置文件。
 
 * `-t|--template`: 参数为自定义模板路径
 
@@ -119,7 +119,7 @@ module.exports = function(callback) {
         "hasPageName": true //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符)
     },
     "resources": { // 将配置的文件夹拷贝至生成文档的文件夹下
-            "images": "./test-reactweb/docs/images/",   
+            "images": "./test-reactweb/docs/images/",
             "demo":"./test-reactweb/docs/demo/",
             "style": "./style/",  // 指定insertCss后，配置css的目录
             "scripts": "./scripts/", // 指定insertJS后，配置js的目录
