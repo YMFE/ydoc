@@ -54,7 +54,13 @@ npm install ydoc [-g]
     });
 
     grunt.loadNpmTasks('ydoc');
-    ```
+
+## 构建示例
+
+想知道ydoc能构建什么样的文档吗？
+
+[ydoc-demo](https://github.com/YMFE/ydoc-demo) 展示了一些使用ydoc构建的文档案例，帮助您快速了解ydoc。
+
 
 ## 开发者
 
