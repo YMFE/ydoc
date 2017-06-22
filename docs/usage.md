@@ -92,7 +92,7 @@ module.exports = function(callback) {
     "instructionsInfoPath": "./demo/component", //使用说明 内容路径
     "instructionsUrlPath": "./demo/component", //使用说明demo路径
     "theme": "ocean", // 配置主题，默认没有主题
-    "defaultGrammer": "javascript", // 默认高亮语法
+    "defaultGrammar": "javascript", // 默认高亮语法
     "mutiversion": { // 配置多版本切换，使用此功能需要切换到新的分支(此分支专门用于生成文档)，在新分支的配置文件中添加此配置项
         "docbranch": "doc", // 新分支(专门用于生成文档的分支)名称
         "versions":[{
