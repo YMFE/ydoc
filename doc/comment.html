@@ -65,7 +65,7 @@
             <div class="ydoc-banner ">
                 <div class="ydoc-banner-area">
                     <h1 >YDoc</h1>
-                    <p class="desc ">注释规则</p>
+                    <p class="desc ">这里聚合了 YDoc 所有注释标记的使用规则。</p>
                     
                 </div>
             </div>
@@ -128,7 +128,7 @@
  * @version 1.0.0
  * @foldnumber 8 代码块折叠行数
  * @param {String} [name] 视图名 &lt;1.0.0>
- * @returns {Object} 东西
+ * @returns {Object} 返回值
  * @examplelanguage js
  * @example
  * XXX.open('view', {
@@ -280,11 +280,20 @@
                              
                             <h2 id="注释标签说明" class="page-header subject">注释标签说明<a class="hashlink" href="#注释标签说明">#</a></h2>   
                             <div>
-                                <ul>
-<li><code>module</code>: 模块名（分类）</li><li><code>method</code>: 方法名</li><li><code>static</code>: 标识静态属性/方法</li><li><code>version</code>: 版本</li><li><code>demo</code>: demo 地址</li><li><code>example</code>: example 代码，文件路径[起始位置-结束位置] 或者直接写 源代码</li><li><code>examplelanguage</code>: 配置example的高亮语法</li><li><code>param</code>: 参数，格式为：{类型} [名称] 描述（若名称以方括号包裹, 则这个参数不是必选参数） </li><li><code>skip</code>: 跳过此注释块</li></ul>
-<h4 class="subject" id="关于参数表述内版本">关于参数表述内版本 <a class="hashlink" href="#关于参数表述内版本">#</a></h4><p>可以用以下形式标识：</p>
-<ul>
+                                <h4 class="subject" id="名称类注释">名称类注释 <a class="hashlink" href="#名称类注释">#</a></h4><ul>
+<li><code>@component</code>: 组件名</li><li><code>@module</code>: 模块名（分类）</li><li><code>@method</code>: 方法名</li><li><code>@property</code>: 属性名</li><li><code>@event</code>: 方法名</li></ul>
+<h4 class="subject" id="标识类注释">标识类注释 <a class="hashlink" href="#标识类注释">#</a></h4><ul>
+<li><code>@static</code>: 标识静态属性/方法</li><li><code>@version</code>: 版本</li></ul>
+<h4 class="subject" id="参数说明类注释">参数说明类注释 <a class="hashlink" href="#参数说明类注释">#</a></h4><ul>
+<li><code>@param</code>: 参数，格式为：{类型} [名称] 描述 <code>（若名称以方括号包裹, 则这个参数不是必选参数）</code><h5 class="subject" id="表述参数的版本">表述参数的版本 <a class="hashlink" href="#表述参数的版本">#</a></h5><ul>
 <li>从 1.0.0 开始支持： <code>&lt;1.0.0&gt;</code></li><li>在 1.0.0 添加，2.0.0版本删除： <code>&lt;1.0.0,2.0.0&gt;</code></li></ul>
+</li></ul>
+<h4 class="subject" id="示例代码">示例代码 <a class="hashlink" href="#示例代码">#</a></h4><ul>
+<li><code>@example</code>: example 代码，文件路径[起始位置-结束位置] 或者直接写 源代码</li><li><code>@examplelanguage</code>: 配置example的高亮语法</li><li><code>@foldnumber</code>: 代码块折叠的行数，需要在配置文件中配置 &quot;foldcode&quot;: true，默认6行</li></ul>
+<h4 class="subject" id="描述类注释">描述类注释 <a class="hashlink" href="#描述类注释">#</a></h4><ul>
+<li><code>@demo</code>: demo 地址</li><li><code>@alias</code>: 缩略</li><li><code>@description</code> 描述、说明</li><li><code>@returns</code>: 返回值</li></ul>
+<h4 class="subject" id="其他">其他 <a class="hashlink" href="#其他">#</a></h4><ul>
+<li><code>@category</code>: 分类</li><li><code>@instructions</code>: 介绍说明，格式： {instruInfo: ./xxx.md}{instruUrl: xxx.html} <code>前者是介绍文字，后者页面右侧会出现手机模块展示xxx.html文件</code></li><li><code>@skip</code>: 跳过此注释块</li></ul>
 
                             </div>
                             

@@ -65,7 +65,7 @@
             <div class="ydoc-banner ">
                 <div class="ydoc-banner-area">
                     <h1 >YDoc</h1>
-                    <p class="desc ">使用</p>
+                    <p class="desc ">命令集锦与配置说明详细地描述了 YDoc 如何进行文档构建。</p>
                     
                 </div>
             </div>
@@ -153,11 +153,11 @@
 <h2 class="subject" id="初始化命令">初始化命令 <a class="hashlink" href="#初始化命令">#</a></h2><blockquote>
 <p>ydoc init [-t templatePath]</p>
 </blockquote>
-<p>初始项目，创建配置文件或自定义模板(-t)，默认生成 <code>ydoc.config</code> 文件。</p>
+<p>初始项目，创建配置文件与自定义模板(-t)，默认生成 <code>ydoc.json</code> 配置文件。</p>
 <ul>
 <li><code>-t|--template</code>: 参数为自定义模板路径</li></ul>
-<h2 class="subject" id="配置文件">配置文件 <a class="hashlink" href="#配置文件">#</a></h2><p>配置文件可以以 <code>ydoc.json</code> 、 <code>ydoc.config</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
-<h3 class="subject" id="静态文件形式">静态文件形式 <a class="hashlink" href="#静态文件形式">#</a></h3><p><code>ydoc.json</code> 与 <code>ydoc.config</code> 的内容是 <code>JSON</code>，支持注释。</p>
+<h2 class="subject" id="配置文件">配置文件 <a class="hashlink" href="#配置文件">#</a></h2><p>配置文件可以以 <code>ydoc.json</code> 或者 <code>ydocfile.js</code> 的形式出现。</p>
+<h3 class="subject" id="静态文件形式">静态文件形式 <a class="hashlink" href="#静态文件形式">#</a></h3><p><code>ydoc.json</code> 的内容是 <code>JSON</code>，支持注释。</p>
 <p>示例：</p>
 <pre><code class="lang-json"><span class="token punctuation">{</span>
     <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"YDoc"</span><span class="token punctuation">,</span>
@@ -197,7 +197,7 @@
     <span class="token property">"instructionsInfoPath"</span><span class="token operator">:</span> <span class="token string">"./demo/component"</span><span class="token punctuation">,</span> //使用说明 内容路径
     <span class="token property">"instructionsUrlPath"</span><span class="token operator">:</span> <span class="token string">"./demo/component"</span><span class="token punctuation">,</span> //使用说明demo路径
     <span class="token property">"theme"</span><span class="token operator">:</span> <span class="token string">"ocean"</span><span class="token punctuation">,</span> // 配置主题，默认没有主题
-    <span class="token property">"defaultGrammer"</span><span class="token operator">:</span> <span class="token string">"javascript"</span><span class="token punctuation">,</span> // 默认高亮语法
+    <span class="token property">"defaultGrammar"</span><span class="token operator">:</span> <span class="token string">"javascript"</span><span class="token punctuation">,</span> // 默认高亮语法
     <span class="token property">"mutiversion"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 配置多版本切换，使用此功能需要切换到新的分支(此分支专门用于生成文档<span class="token punctuation">)</span>，在新分支的配置文件中添加此配置项
         <span class="token property">"docbranch"</span><span class="token operator">:</span> <span class="token string">"doc"</span><span class="token punctuation">,</span> // 新分支(专门用于生成文档的分支<span class="token punctuation">)</span>名称
         <span class="token property">"versions"</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>
@@ -217,14 +217,14 @@
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token property">"foldcode"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠示例code
         <span class="token property">"foldparam"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠param
-        <span class="token property">"foldsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠侧边目录
+        <span class="token property">"foldsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 是否折叠侧边目录，默认不折叠
         <span class="token property">"staticsidenav"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 侧边目录不折叠且不跟随页面滚动
         <span class="token property">"insertCSS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./style/a.css"</span><span class="token punctuation">,</span><span class="token string">"./style/b.css"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
         <span class="token property">"insertJS"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"./scripts/a.js"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>  // 配置js路径；相对路径需要配置resources路径
         <span class="token property">"hasPageName"</span><span class="token operator">:</span> <span class="token boolean">true</span> //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符<span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token property">"resources"</span><span class="token operator">:</span> <span class="token punctuation">{</span> // 将配置的文件夹拷贝至生成文档的文件夹下
-            <span class="token property">"images"</span><span class="token operator">:</span> <span class="token string">"./test-reactweb/docs/images/"</span><span class="token punctuation">,</span>   
+            <span class="token property">"images"</span><span class="token operator">:</span> <span class="token string">"./test-reactweb/docs/images/"</span><span class="token punctuation">,</span>
             <span class="token property">"demo"</span><span class="token operator">:</span><span class="token string">"./test-reactweb/docs/demo/"</span><span class="token punctuation">,</span>
             <span class="token property">"style"</span><span class="token operator">:</span> <span class="token string">"./style/"</span><span class="token punctuation">,</span>  // 指定insertCss后，配置css的目录
             <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token string">"./scripts/"</span><span class="token punctuation">,</span> // 指定insertJS后，配置js的目录

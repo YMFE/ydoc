@@ -6,7 +6,7 @@
 > npm install ydoc-theme-[name] --save
 
 ### 配置
-在config文件里添加配置，如果不配置此项，则为默认主题。
+在配置文件里添加配置，如果不配置此项，则为默认主题。
 
 ```json
 {

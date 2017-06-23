@@ -1,5 +1,6 @@
 ./docs
 ydoc.config
+ydoc.json
 doc
 ./doc
 /doc

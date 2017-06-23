@@ -6,13 +6,12 @@ module.exports = function(cwd, callback) {
     var confJSPath = sysPath.join(cwd, 'ydocfile.js'),
         jsonPath = fs.existsSync(sysPath.join(cwd, 'ydoc.json')),
         configPath = fs.existsSync(sysPath.join(cwd, 'ydoc.config')),
-        conf, confPath;;
-    if(jsonPath && configPath){
+        conf, confPath;
+    if (configPath) {
+        console.log(('v3.1.0版本后不再支持 ydoc.config 配置文件，请将配置文件更换成 ydoc.json!').red);
+    }
+    if (jsonPath) {
         confPath = sysPath.join(cwd, 'ydoc.json');
-    }else if (jsonPath) {
-        confPath = sysPath.join(cwd, 'ydoc.json');
-    }else if (configPath) {
-        confPath = sysPath.join(cwd, 'ydoc.config');
     }
     if (fs.existsSync(confPath)) {
         try {

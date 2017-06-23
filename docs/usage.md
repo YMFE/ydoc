@@ -21,18 +21,18 @@
 
 > ydoc init [-t templatePath]
 
-初始项目，创建配置文件或自定义模板(-t)，默认生成 `ydoc.config` 文件。
+初始项目，创建配置文件与自定义模板(-t)，默认生成 `ydoc.json` 配置文件。
 
 * `-t|--template`: 参数为自定义模板路径
 
 
 ## 配置文件
 
-配置文件可以以 `ydoc.json` 、 `ydoc.config` 或者 `ydocfile.js` 的形式出现。
+配置文件可以以 `ydoc.json` 或者 `ydocfile.js` 的形式出现。
 
 ### 静态文件形式
 
-`ydoc.json` 与 `ydoc.config` 的内容是 `JSON`，支持注释。
+`ydoc.json` 的内容是 `JSON`，支持注释。
 
 示例：
 
@@ -92,7 +92,7 @@ module.exports = function(callback) {
     "instructionsInfoPath": "./demo/component", //使用说明 内容路径
     "instructionsUrlPath": "./demo/component", //使用说明demo路径
     "theme": "ocean", // 配置主题，默认没有主题
-    "defaultGrammer": "javascript", // 默认高亮语法
+    "defaultGrammar": "javascript", // 默认高亮语法
     "mutiversion": { // 配置多版本切换，使用此功能需要切换到新的分支(此分支专门用于生成文档)，在新分支的配置文件中添加此配置项
         "docbranch": "doc", // 新分支(专门用于生成文档的分支)名称
         "versions":[{
@@ -119,7 +119,7 @@ module.exports = function(callback) {
         "hasPageName": true //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符)
     },
     "resources": { // 将配置的文件夹拷贝至生成文档的文件夹下
-            "images": "./test-reactweb/docs/images/",   
+            "images": "./test-reactweb/docs/images/",
             "demo":"./test-reactweb/docs/demo/",
             "style": "./style/",  // 指定insertCss后，配置css的目录
             "scripts": "./scripts/", // 指定insertJS后，配置js的目录

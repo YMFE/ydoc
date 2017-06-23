@@ -16,7 +16,7 @@
         "name": "index",
         "title": "简介",
         "homepage": {
-            "version": "v3.0.0",
+            "version": "v3.1.0",
             "button": [{
                 "name": "起步",
                 "href": "./start.html"
@@ -57,7 +57,7 @@
         "title": "开始",
         "banner": {
             "title": "YDoc",
-            "description": "前端工程文档生成工具"
+            "description": "如何使用 YDoc 为前端项目生成文档。"
         },
         "content": "./README.md"
     }, {
@@ -65,7 +65,7 @@
         "title": "命令与配置",
         "banner": {
             "title": "YDoc",
-            "description": "使用"
+            "description": "命令集锦与配置说明详细地描述了 YDoc 如何进行文档构建。"
         },
         "content": "./docs/usage.md"
     }, {
@@ -73,7 +73,7 @@
         "title": "注释规则",
         "banner": {
             "title": "YDoc",
-            "description": "注释规则"
+            "description": "这里聚合了 YDoc 所有注释标记的使用规则。"
         },
         "intro": "src/parsers/README.md",
         "content": {
@@ -97,7 +97,7 @@
         "title": "主题",
         "banner": {
             "title": "YDoc",
-            "description": "主题 (从v3.0.0版本开始支持)"
+            "description": "为了保持趣味性和个性化，YDoc 从版本 v3.0.0 开始支持主题。"
         },
         "content": "./docs/theme.md"
     }, {
@@ -105,7 +105,7 @@
         "title": "版本",
         "banner": {
             "title": "YDoc",
-            "description": "版本"
+            "description": "这里列举着 YDoc 的历史版本发布时间及变更记录，帮助你追溯到每个版本的演进过程。"
         },
         "content": "./docs/release.md"
     }]
