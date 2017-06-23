@@ -136,7 +136,7 @@ module.exports = function(callback) {
         "homepage": { // 配置首页，样式区别于其他页面
             "version": "v3.0.0", // 版本信息将显示在banner底部
             "button": [{ // 按钮组将显示在banner底部
-                "name": "&nbsp;&nbsp;起步&nbsp;&nbsp;",
+                "name": "起步",
                 "href": "./start.html"
             },{
                 "name": "Github",
