@@ -19,7 +19,7 @@
             "version": "v3.1.0",
             "button": [{
                 "name": "起步",
-                "href": "./start.html"
+                "href": "http://ydoc.ymfe.tech/start.html"
             },{
                 "name": "Github",
                 "href": "https://github.com/YMFE/ydoc"

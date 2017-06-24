@@ -24,8 +24,8 @@ npm install ydoc [-g]
 ### 使用命令方式
 
 * `cd /path/to/project/` 进入项目目录
-* `ydoc init` 初始化 YDoc 配置文件 ydoc.json（[配置说明](./usage.html#配置文件)）
-* `ydoc build` 构建文档，更多命令请查看（[构建命令](./usage.html#构建命令)）
+* `ydoc init` 初始化 YDoc 配置文件 ydoc.json（[配置说明](http://ydoc.ymfe.tech/usage.html#配置文件)）
+* `ydoc build` 构建文档，更多命令请查看（[构建命令](http://ydoc.ymfe.tech/usage.html#构建命令)）
 
 
 ### 使用其他方式
