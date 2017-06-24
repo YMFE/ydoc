@@ -136,7 +136,7 @@ module.exports = function(callback) {
         "homepage": { // 配置首页，样式区别于其他页面
             "version": "v3.0.0", // 版本信息将显示在banner底部
             "button": [{ // 按钮组将显示在banner底部
-                "name": "&nbsp;&nbsp;起步&nbsp;&nbsp;",
+                "name": "起步",
                 "href": "./start.html"
             },{
                 "name": "Github",
@@ -221,7 +221,7 @@ module.exports = function(callback) {
 #### js
 
 支持文件类型：`.js`，`.jsx`
-type字段配置的 `component` 和 `lib`，二者所支持的注释规则有所区别，参见[注释规则](./comment.html)。
+type字段配置的 `component` 和 `lib`，二者所支持的注释规则有所区别，参见[注释规则](http://ydoc.ymfe.tech/comment.html)。
 
 ```json
 {
