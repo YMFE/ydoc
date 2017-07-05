@@ -241,8 +241,8 @@ sup, sub {
       font-size: .8rem;
       font-weight: bold; }
     .ydoc .ydoc-banner-home .home-desc {
-      padding: 0 .6rem;
-      font-size: .25rem; }
+      padding: 0 1rem .16rem;
+      font-size: .28rem; }
     .ydoc .ydoc-banner-home .home-btn {
       display: inline-block;
       margin: .04rem;
@@ -500,6 +500,10 @@ sup, sub {
     transition: all .4s; }
   .show {
     background-color: rgba(0, 0, 0, 0.35); }
+  .ydoc-container-content {
+    padding: .2rem; }
+    .ydoc-container-content .home-page-desc {
+      font-size: .14rem; }
   .ydoc-container-content .content-right {
     width: 100% !important; }
   .ydoc-container-content .content-left {
@@ -566,6 +570,15 @@ sup, sub {
       padding-bottom: 0; }
     .ydoc .footer {
       position: static; }
+    .ydoc .ydoc-banner-home {
+      padding: .4rem 0; }
+      .ydoc .ydoc-banner-home .home-title {
+        font-size: .6rem; }
+      .ydoc .ydoc-banner-home .home-desc {
+        padding: 0 .2rem;
+        font-size: .2rem; }
+    .ydoc .home-page-title {
+      font-size: .24rem; }
   .off-webkit-scroll {
     -webkit-overflow-scrolling: auto; }
   .hidden {

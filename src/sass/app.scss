@@ -494,18 +494,6 @@ sup,sub{vertical-align:baseline}
       content:" ";
       box-sizing: border-box;
   }
-    //  &-content-hassidebar:before{
-    //     height: 100%;
-    //     background-color: #eee;
-    //     width: 1px;
-    //     position: absolute;
-    //     left: 25%;
-    //     display:block;
-    //     min-height: 500px;
-    //     z-index: 99;
-    //     content:" ";
-    //     box-sizing: border-box;
-    // }
  }
 }
 
@@ -551,6 +539,12 @@ sup,sub{vertical-align:baseline}
 }
 .show{
     background-color: rgba(0,0,0,.35);
+}
+.ydoc-container-content{
+  padding: .2rem;
+  .home-page-desc{
+    font-size: .14rem;
+  }
 }
 .ydoc-container-content {
  .content-right{
@@ -636,6 +630,19 @@ sup,sub{vertical-align:baseline}
      }
      .footer{
          position: static;
+     }
+     .ydoc-banner-home{
+       padding: .4rem 0;
+       .home-title{
+         font-size: .6rem;
+       }
+       .home-desc{
+         padding: 0 .2rem;
+         font-size: .2rem;
+       }
+     }
+     .home-page-title{
+       font-size: .24rem;
      }
  }
  .off-webkit-scroll{
