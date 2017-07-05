@@ -12,16 +12,17 @@ var globby = require('globby');
 
 var parsers = require('../parsers');
 
+
 var reJS = /^javascript|js$/i,
-    arr = [],
-    sum = 1;
+    stash = {};
 // 目录id名相同时给予不同id
 function addNumberWhileSameName(id) {
-    if(arr.indexOf(id) !== -1){
-        id += sum;
-        sum++;
+    if (typeof stash[id] !== 'undefined') {
+        stash[id]++;
+        id += stash[id];
+    } else {
+        stash[id] = 0;
     }
-    arr.push(id);
     return id;
 }
 // 代码高亮处理language

@@ -1,13 +1,13 @@
 var marked = require('marked'),
     sysPath = require('path'),
-    arr = [],
-    sum = 1;
+    stash = {};
 function addNumberWhileSameName(id) {
-    if(arr.indexOf(id) !== -1){
-        id += sum;
-        sum++;
+    if (typeof stash[id] !== 'undefined') {
+        stash[id]++;
+        id += stash[id];
+    } else {
+        stash[id] = 0;
     }
-    arr.push(id);
     return id;
 }
 
