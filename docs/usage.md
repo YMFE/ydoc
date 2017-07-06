@@ -112,8 +112,6 @@ module.exports = function(callback) {
         },
         "foldcode": true, // 是否折叠示例code
         "foldparam": true, // 是否折叠param
-        "foldsidenav": true, // 是否折叠侧边目录，默认不折叠
-        "staticsidenav": true, // 侧边目录不折叠且不跟随页面滚动
         "insertCSS": ["./style/a.css","./style/b.css"],  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
         "insertJS": ["./scripts/a.js"],  // 配置js路径；相对路径需要配置resources路径
         "hasPageName": true //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符)
@@ -172,8 +170,7 @@ module.exports = function(callback) {
         "content": "./README.md",  // 内容
         "compile": "markdown", // 解析器，如果内容有固定的扩展名，此项可忽略
         "options": { // 此 Page 用的编译器的配置
-            "menuLevel": 2,
-            "foldsidenav": true // 是否折叠侧边目录(优先级高于通用编译器配置)
+            "menuLevel": 2
         }
     }, {
         "name": "hybird",

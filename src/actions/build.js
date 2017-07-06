@@ -180,19 +180,6 @@ module.exports = function(cwd, conf) {
             if (conf.options) {
                 conf.options.foldcode && (data.foldcode = conf.options.foldcode);
                 conf.options.foldparam && (data.foldparam = conf.options.foldparam);
-                conf.options.foldsidenav && (data.foldsidenav = conf.options.foldsidenav);
-                conf.options.staticsidenav && (data.staticsidenav = conf.options.staticsidenav);
-                // 子页面 options
-                if (page.options && page.options.foldsidenav) {
-                    data.foldsidenav = page.options.foldsidenav;
-                }
-                if (page.options && page.options.staticsidenav) {
-                    data.staticsidenav = page.options.staticsidenav;
-                }
-                // staticsidenav & foldsidenav 同时存在时禁用 foldsidenav
-                if (data.staticsidenav && data.foldsidenav) {
-                    data.foldsidenav = false;
-                }
                 if (conf.options.insertCSS) {
                     data.insertCSS = conf.options.insertCSS;
                 }
@@ -203,6 +190,10 @@ module.exports = function(cwd, conf) {
                     data.hasPageName = conf.options.hasPageName;
                 }
             }
+            // 默认目录不跟随页面不折叠目录
+            data.staticsidenav = true;
+            // 默认不折叠目录
+            data.foldsidenav = false;
             data.name = conf.name;
             data.title = common.title + ' ' + page.title;
             data.footer = common.footer;
