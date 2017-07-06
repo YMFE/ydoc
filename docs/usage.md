@@ -4,7 +4,7 @@
 > npm install ydoc -g
 
 安装测试版 (有新功能但不稳定)
-> npm install ydoc@beta -g
+> npm install ydoc@rc -g
 
 ## 构建命令
 

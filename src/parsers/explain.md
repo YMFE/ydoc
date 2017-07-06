@@ -3,7 +3,8 @@
 * `@module`: 模块名（分类）
 * `@method`: 方法名
 * `@property`: 属性名
-* `@event`: 方法名
+* `@event`: 事件名
+* `@interface`: 接口名
 
 #### 标识类注释
 * `@static`: 标识静态属性/方法
