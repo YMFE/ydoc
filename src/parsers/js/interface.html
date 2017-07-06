@@ -19,6 +19,12 @@
         <small class="text-muted">描述:</small>
         {{el._desc}}
     </p>
+    {{if linkSource}}
+    <p>
+        <small class="text-muted">源码位置:</small>
+        <a href="./static{{el._path}}.html#{{el._line}}" target="_blank">.{{el._path}}:{{el._line}}</a>
+    </p>
+    {{/if}}
     {{if el.params.length}}
     <p>
         <small class="text-muted">参数:</small>
