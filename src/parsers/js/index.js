@@ -10,6 +10,7 @@ var hightLight = require('../../utils/exampleHightLight.js');
 var componentKeywords = ['component', 'property', 'event', 'method'];
 var componentTPL = fs.readFileSync(sysPath.join(__dirname, './component.html'), 'UTF-8');
 var libTPL = fs.readFileSync(sysPath.join(__dirname, './lib.html'), 'UTF-8');
+var interfaceTPL = fs.readFileSync(sysPath.join(__dirname, './interface.html'), 'UTF-8');
 
 function getCommentType(comment, commentKeywords) {
     var tags = comment.tags;
@@ -149,6 +150,73 @@ var execFns = {
         });
 
         ret.content = artTemplate.compile(libTPL)({
+            linkSource: options.source,
+            list: content
+        });
+        return ret;
+    },
+    'interface': function(contents, options, conf) {
+
+        var ret = {
+            type: 'html',
+            content: '',
+            sidebars: []
+        };
+        var categories = options.categories || [],
+            contentMapping = {},
+            content = [],
+            list = [];
+
+        categories.forEach(function(category) {
+            contentMapping[category] = [];
+        });
+
+        contents.forEach(function(commentList, index) {
+            commentList.forEach(function(comment) {
+                var tags = comment.tags;
+                if (tags.length) {
+                    var typeItem = tags.filter(function(tag) {
+                        return ~['interface'].indexOf(tag.tag);
+                    });
+                    if (typeItem.length > 0) {
+                        typeItem = typeItem[0];
+                        var info = analyseComment(comment, options.files[index].substring(1), conf, options.format && formatter);
+                        info.id = typeItem.name;
+                        info.name = typeItem.name.substring(typeItem.name.lastIndexOf('.') + 1);
+                        if (!~categories.indexOf(info.category)) {
+                            categories.push(info.category);
+                            contentMapping[info.category] = [];
+                        }
+                        contentMapping[info.category].push(info);
+                        info.title = info.id;
+                        list.push(info);
+                    }
+                }
+            });
+        });
+
+        categories.forEach(function(category) {
+            content.push({
+                name: category,
+                list: contentMapping[category]
+            });
+        });
+        content.forEach(function(cont) {
+            ret.sidebars.push({
+                name: cont.name,
+                tag: '#' + cont.name.replace(/[\.\:\s\@\/]/g, '-')
+            });
+            cont.list.forEach(function(item) {
+                item.example = hightLight(item.example, conf.defaultGrammar, item.examplelanguage);
+                ret.sidebars.push({
+                    sub: true,
+                    name: item.id,
+                    tag: item.url || ('#' + item.id.replace(/[\.\:\s\@\/]/g, '-'))
+                });
+            })
+        });
+
+        ret.content = artTemplate.compile(interfaceTPL)({
             linkSource: options.source,
             list: content
         });

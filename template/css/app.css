@@ -394,7 +394,8 @@ sup, sub {
       .ydoc-container-content .ydoc-example {
         position: relative;
         overflow: hidden;
-        height: auto; }
+        height: auto;
+        margin-top: .16rem; }
         .ydoc-container-content .ydoc-example code {
           overflow-y: hidden;
           display: block;
@@ -451,6 +452,8 @@ sup, sub {
         position: absolute; }
       .ydoc-container-content .docs-section {
         margin: 10px; }
+      .ydoc-container-content .con-list-item {
+        margin-bottom: .32rem; }
     .ydoc-container .docs-sidebar:before {
       height: 100%;
       background-color: #eee;

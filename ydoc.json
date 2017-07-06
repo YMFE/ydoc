@@ -85,6 +85,9 @@
                 "name": "JS-Component",
                 "content": "src/parsers/js/Component.md"
             }, {
+                "name": "JS-Interface",
+                "content": "src/parsers/js/interface.md"
+            }, {
                 "name": "CSS-Library",
                 "content": "src/parsers/css/README.md"
             }, {

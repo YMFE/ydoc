@@ -1,0 +1,74 @@
+<div class="docs-section">
+{{each list as cont}}
+<h2 id="{{cont.name | anchor}}" class="page-header subject">{{cont.name}}<a class="hashlink" href="#{{cont.name | anchor}}">#</a></h2>
+{{each cont.list as el index}}
+<div class="con-list-item">
+    <blockquote class="api">
+        <h3 id="{{el.id | anchor}}" class="page-header subject">
+            {{el.interface}}
+            {{if el.method}}
+            <span class="ui-badge">{{el.method}}</span>
+            {{/if}}
+            {{if el.version}}
+            <span class="ui-badge">{{el.version}}</span>
+            {{/if}}
+            <a class="hashlink" href="#{{el.id | anchor}}">#</a>
+        </h3>
+    </blockquote>
+    <p>
+        <small class="text-muted">描述:</small>
+        {{el._desc}}
+    </p>
+    {{if el.params.length}}
+    <p>
+        <small class="text-muted">参数:</small>
+    </p>
+    <div class="docs-table">
+        <table class="yo-table yo-table-border">
+            <colgroup>
+                <col class="c1">
+                <col class="c2">
+                <col class="c3">
+                <col class="c4">
+            </colgroup>
+            <thead>
+                <tr class="active">
+                    <th>参数名</th>
+                    <th>类型</th>
+                    <th>描述</th>
+                    <th>必选</th>
+                    <th>支持版本</th>
+                </tr>
+            </thead>
+            {{each el.params as param index}}
+            <tr>
+                <td>{{param.name}}</td>
+                <td>{{param.type}}</td>
+                <td>{{param.description}}</td>
+                <td>
+                    {{if !param.optional}}
+                    <i class="yo-ico glyphicon glyphicon-ok text-success"></i>
+                    {{/if}}
+                </td>
+                <td>{{param.version}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    {{/if}}
+    {{if el.example}}
+    <div>返回示例：</div>
+    <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{el.example}}</code></pre>
+    {{/if}}
+    {{if el.description}}
+    <p>
+        <small class="text-muted">额外说明:</small>
+    </p>
+    <blockquote>
+        {{el.description | markdown}}
+    </blockquote>
+    {{/if}}
+</div>
+{{/each}}
+{{/each}}
+</div>

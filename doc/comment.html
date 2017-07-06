@@ -90,6 +90,10 @@
                                         </li>
                                           
                                         <li>
+                                            <a href="#JS-Interface">JS-Interface</a>
+                                        </li>
+                                          
+                                        <li>
                                             <a href="#CSS-Library">CSS-Library</a>
                                         </li>
                                           
@@ -107,7 +111,8 @@
 <p>现在支持的注释形式如下：</p>
 <ul>
 <li><a href="#JS-Library">JS Library 形式</a></li>
-<li><a href="#JS-Component">JS component 形式</a></li>
+<li><a href="#JS-Component">JS Component 形式</a></li>
+<li><a href="#JS-Interface">JS Interface 形式</a></li>
 <li><a href="#CSS-Library">CSS(SASS/SCSS) Library 形式</a></li>
 </ul>
 </div>
@@ -246,6 +251,33 @@
    *   })
    * )
    */</span>
+</code></pre>
+
+                            </div>
+                            
+                        </div>
+                          
+                        <div class="docs-section">
+                             
+                            <h2 id="JS-Interface" class="page-header subject">JS-Interface<a class="hashlink" href="#JS-Interface">#</a></h2>   
+                            <div>
+                                <p>每个代码块可以用这样一个注释块。</p>
+<p>对于方法可以使用下面注释形式：</p>
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">/**
+ * 注释头部可以直接编写描述
+ *
+ * @interface /qhot/v2/addModule  接口名称
+ * @method GET 请求的方法
+ * @category 接口分类
+ * @foldnumber 3 需要在配置文件中配置foldnumber，默认折叠6行，可以在这里自定义配置行数
+ * @param {String} name name描述 &lt;1.0.0>
+ * @param  {String} [age] age描述 &lt;1.0.0, 2.1.2>
+ * @examplelanguage js
+ * @example ./test.json[1-12] // 返回示例
+ * @description
+ * *斜体* 额外说明的描述文字
+ *
+ */</span>
 </code></pre>
 
                             </div>
