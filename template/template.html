@@ -90,7 +90,7 @@
 
             <div class="ydoc-container">
                 {{if article.type == 'html'}} {{if article.sidebars}}
-                <div class="ydoc-container-content">
+                <div class="ydoc-container-content {{if homepage}}ydoc-container-home{{/if}}">
                     {{if homepage && homepage.intro}}
                         {{each homepage.intro as intro}}
                         {{if intro.title}}<h1 class="home-page-title">{{intro.title}}</h1>{{/if}}
@@ -140,13 +140,13 @@
                         </nav>
                     </div>
                     {{/if}}
-                    <div class="content-right markdown-body {{if article.sidebar === false}}nosidebar{{/if}}" role="main">
+                    <div class="content-right markdown-body {{if article.sidebar === false}}nosidebar{{else}}use-sidebar{{/if}}" role="main">
 
                         {{if intro}}{{intro}}{{/if}} {{if article.content}}{{article.content}}{{/if}}
                     </div>
                 </div>
                 {{else}}
-                <div class="ydoc-container-content" id="readme">
+                <div class="ydoc-container-content {{if homepage}}ydoc-container-home{{/if}}" id="readme">
                     {{if homepage && homepage.intro}}
                         {{each homepage.intro as intro}}
                         {{if intro.title}}<h1 class="home-page-title">{{intro.title}}</h1>{{/if}}
@@ -221,7 +221,7 @@
                         </nav>
                     </div>
                     {{/if}}{{/if}}
-                    <div class="content-right right markdown-body {{if article.sidebar === false}}nosidebar{{/if}}" role="main">
+                    <div class="content-right right markdown-body {{if article.sidebar === false}}nosidebar{{else}}use-sidebar{{/if}}" role="main">
                         {{if intro}}
                         <div>{{intro}}</div>
                         {{/if}} {{each article.blocks as c index}} {{if c.type == 'html'}}

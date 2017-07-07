@@ -363,11 +363,10 @@ sup,sub{vertical-align:baseline}
    &-content{
      overflow:hidden;
      background-color: #fff; //eee;
-     margin:20px auto;
-     padding:24px 0 0;
-     box-shadow: 0 0  3px #e5e5e5;
+     margin: .2rem auto;
+     padding: .24rem 0;
+     box-shadow: 0 0 3px #e5e5e5;
      position: relative;
-
      .static-code-content{
           width: 100%;
           background: #fff;
@@ -385,6 +384,9 @@ sup,sub{vertical-align:baseline}
         padding:15px;
         float: right;
         min-height: 500px;
+     }
+     .use-sidebar{
+       border-left: 1px solid #eee;
      }
      .hashlink{
          display: none;
@@ -486,18 +488,6 @@ sup,sub{vertical-align:baseline}
      }
    }
 
-   .docs-sidebar:before{
-      height: 100%;
-      background-color: #eee;
-      width: 1px;
-      position: absolute;
-      right:0;
-      display:block;
-      min-height: 500px;
-      z-index: 99;
-      content:" ";
-      box-sizing: border-box;
-  }
  }
 }
 
@@ -544,7 +534,7 @@ sup,sub{vertical-align:baseline}
 .show{
     background-color: rgba(0,0,0,.35);
 }
-.ydoc-container-content{
+.ydoc-container-home{
   padding: .2rem;
   .home-page-desc{
     font-size: .14rem;

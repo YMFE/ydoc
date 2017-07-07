@@ -361,9 +361,9 @@ sup, sub {
     .ydoc-container-content {
       overflow: hidden;
       background-color: #fff;
-      margin: 20px auto;
-      padding: 24px 0 0;
-      box-shadow: 0 0  3px #e5e5e5;
+      margin: .2rem auto;
+      padding: .24rem 0;
+      box-shadow: 0 0 3px #e5e5e5;
       position: relative; }
       .ydoc-container-content .static-code-content {
         width: 100%;
@@ -380,6 +380,8 @@ sup, sub {
         padding: 15px;
         float: right;
         min-height: 500px; }
+      .ydoc-container-content .use-sidebar {
+        border-left: 1px solid #eee; }
       .ydoc-container-content .hashlink {
         display: none; }
       .ydoc-container-content .subject:hover .hashlink {
@@ -454,17 +456,6 @@ sup, sub {
         margin: 10px; }
       .ydoc-container-content .con-list-item {
         margin-bottom: .32rem; }
-    .ydoc-container .docs-sidebar:before {
-      height: 100%;
-      background-color: #eee;
-      width: 1px;
-      position: absolute;
-      right: 0;
-      display: block;
-      min-height: 500px;
-      z-index: 99;
-      content: " ";
-      box-sizing: border-box; }
 
 .open-panel {
   display: none;
@@ -503,9 +494,9 @@ sup, sub {
     transition: all .4s; }
   .show {
     background-color: rgba(0, 0, 0, 0.35); }
-  .ydoc-container-content {
+  .ydoc-container-home {
     padding: .2rem; }
-    .ydoc-container-content .home-page-desc {
+    .ydoc-container-home .home-page-desc {
       font-size: .14rem; }
   .ydoc-container-content .content-right {
     width: 100% !important; }
