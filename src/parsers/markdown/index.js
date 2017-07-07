@@ -32,6 +32,7 @@ function parser(contents, options) {
                 sub: true
             });
         }
+        stash = {}; // 清空stash watch时清空scope中的缓存
         if(text.match(/<.*>/) && (text.match(/<.*>/).length > 0)){
             return '<h' + level + '>' + realText + '</h' + level + '>';
         }else{

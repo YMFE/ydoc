@@ -175,17 +175,29 @@ module.exports = function(cwd, conf) {
     if (conf.pages) {
         conf.pages.forEach(function(page) {
             var data = {},
-                common = conf.common || {};
+                common = conf.common || {},
+                insertCssPath = [],
+                insertJsPath = [];
             // 此 Page 用的编译器的配置
             if (conf.options) {
                 conf.options.foldcode && (data.foldcode = conf.options.foldcode);
                 conf.options.foldparam && (data.foldparam = conf.options.foldparam);
-                if (conf.options.insertCSS) {
-                    data.insertCSS = conf.options.insertCSS;
+
+                // 将配置文件夹拷贝至生成文档的source文件夹下
+                for (var key in resources) {
+                  if (key === 'styles') {
+                      var cssfiles = fs.readdirSync(resources[key]);
+                      data.insertCSS = cssfiles.map((item, index) => {
+                        return sysPath.join('./styles',item);
+                      });
+                  } else if (key === 'scripts') {
+                      var jsfiles = fs.readdirSync(resources[key]);
+                      data.insertJS = jsfiles.map((item, index) => {
+                        return sysPath.join('./scripts',item);
+                      });
+                  }
                 }
-                if (conf.options.insertJS) {
-                    data.insertJS = conf.options.insertJS;
-                }
+
                 if (conf.options.hasPageName) {
                     data.hasPageName = conf.options.hasPageName;
                 }
@@ -365,7 +377,7 @@ module.exports = function(cwd, conf) {
                     if (page.content.sidebar) {
                         data.article.sidebars = navs;
                     }
-
+                    stash = {}; // 清空stash watch时清空scope中的缓存
                     data.article.blocks = blocks;
                 }
                 data.pagename = page.name;

@@ -9,9 +9,17 @@
     <meta name="description" content="description of your site">
     <meta name="author" content="author of the site">
     <title>{{title}}</title>
-    <link rel="stylesheet" href="source/main.css" /> {{if themeCSS && themeCSS.length}} {{each themeCSS as item}}
-    <link rel="stylesheet" href="{{'theme/'+item}}" /> {{/each}} {{/if}} {{if insertCSS && insertCSS.length}} {{each insertCSS as item}}
-    <link rel="stylesheet" href="{{item}}" /> {{/each}} {{/if}}
+    <link rel="stylesheet" href="source/main.css" />
+    {{if themeCSS && themeCSS.length}}
+      {{each themeCSS as item}}
+      <link rel="stylesheet" href="{{'theme/'+item}}" />
+      {{/each}}
+    {{/if}}
+    {{if insertCSS && insertCSS.length}}
+      {{each insertCSS as item}}
+      <link rel="stylesheet" href="{{item}}" />
+      {{/each}}
+    {{/if}}
 </head>
 <body{{if hasPageName && pagename}} class={{pagename}} {{/if}}>
     <div class="ydoc">

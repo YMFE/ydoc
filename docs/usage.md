@@ -112,14 +112,12 @@ module.exports = function(callback) {
         },
         "foldcode": true, // 是否折叠示例code
         "foldparam": true, // 是否折叠param
-        "insertCSS": ["./style/a.css","./style/b.css"],  // 配置css路径，可覆盖默认样式； 相对路径需要配置resources路径
-        "insertJS": ["./scripts/a.js"],  // 配置js路径；相对路径需要配置resources路径
         "hasPageName": true //是否添加页面名称，默认关闭；(文件名不包含中文和特殊字符)
     },
     "resources": { // 将配置的文件夹拷贝至生成文档的文件夹下
             "images": "./test-reactweb/docs/images/",
             "demo":"./test-reactweb/docs/demo/",
-            "style": "./style/",  // 指定insertCss后，配置css的目录
+            "styles": "./styles/",  // 指定insertCss后，配置css的目录
             "scripts": "./scripts/", // 指定insertJS后，配置js的目录
     },
     "common": { // 通用默认配置，包括主页配置等
