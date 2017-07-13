@@ -10,7 +10,8 @@ var JSON5 = require('json5');
 var Prism = require('prismjs');
 var globby = require('globby');
 
-var parsers = require('../parsers');
+var parsers = require('../parsers'),
+    utils = require('../utils/utils.js');
 
 
 var reJS = /^javascript|js$/i,
@@ -336,7 +337,7 @@ module.exports = function(cwd, conf) {
                             navs.push({
                                 name: realText,
                                 index: block.index,
-                                tag: "#" + text.replace(/[\.\:\s\@\/]/g, '-'),
+                                tag: "#" + utils.deepEncode(text),
                                 sub: block.sub || false
                             });
                         }
@@ -350,14 +351,14 @@ module.exports = function(cwd, conf) {
                                     if (!item.sub) {
                                         navs.push({
                                             name: realText,
-                                            tag: "#" + text.replace(/[\.\:\s\@\/]/g, '-'),
+                                            tag: "#" + utils.deepEncode(text),
                                             sub: true
                                         });
                                     }
                                 });
                             }
                             ret.name = block.name;
-                            ret.tag = block.name.replace(/[\.\:\s\@\/]/g, '-');
+                            ret.tag = utils.deepEncode(block.name);
                             ret.sub = block.sub || false;
                             blocks.push(ret);
                         } else {
@@ -365,7 +366,7 @@ module.exports = function(cwd, conf) {
                                 type: 'html',
                                 name: block.name,
                                 index: block.index,
-                                tag: block.name.replace(/[\.\:\s\@\/]/g, '-'),
+                                tag: utils.deepEncode(block.name),
                                 sub: false,
                                 content: ''
                             });

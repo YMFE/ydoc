@@ -1,6 +1,6 @@
 ## 安装
 
-### 下载
+### 下载:
 从 NPM 中安装
 
 > npm install ydoc-theme-[name] --save

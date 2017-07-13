@@ -122,7 +122,7 @@
                                 <ul class="nav docs-sidenav-extend" {{if article.name == m.name}} style="display:block;" {{/if}} {{if article.parentName &&(article.parentName == m.pName)}}  style="display:block;" {{/if}}>
                                 {{/if}}
                                     <li {{if article.name == m.name}} class="active" {{/if}}>
-                                        <a href="{{ m.tag || m.url || ('#' + m.name)}}">{{m.name}}</a>
+                                        <a href="{{ m.tag || m.url || ('#' + m.href)}}">{{m.name}}</a>
                                     </li>
                                 {{if index < article.sidebars.length-1 && !article.sidebars[index + 1].sub}}
                                 </ul>

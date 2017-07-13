@@ -1,6 +1,7 @@
 var marked = require('marked'),
     sysPath = require('path'),
-    stash = {};
+    stash = {},
+    utils = require('../../utils/utils.js');
 function addNumberWhileSameName(id) {
     if (typeof stash[id] !== 'undefined') {
         stash[id]++;
@@ -22,13 +23,13 @@ function parser(contents, options) {
             var text = addNumberWhileSameName(text);
             menus.push({
                 name: realText,
-                href: text
+                href: utils.deepEncode(text)
             });
         }else if (level == subMenuLevel) {
             var text = addNumberWhileSameName(text);
             menus.push({
                 name: realText,
-                href: text,
+                href: utils.deepEncode(text),
                 sub: true
             });
         }
@@ -36,7 +37,7 @@ function parser(contents, options) {
         if(text.match(/<.*>/) && (text.match(/<.*>/).length > 0)){
             return '<h' + level + '>' + realText + '</h' + level + '>';
         }else{
-            return '<h' + level + ' class="subject" id="' + text + '">' + realText + ' <a class="hashlink" href="#' + text + '">#</a></h' + level + '>';
+            return '<h' + level + ' class="subject" id="' + utils.deepEncode(text) + '">' + realText + ' <a class="hashlink" href="#' + utils.deepEncode(text) + '">#</a></h' + level + '>';
         }
 
     };
