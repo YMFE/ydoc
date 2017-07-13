@@ -52,24 +52,24 @@
     "validate-commit-msg": "^2.12.2"
   },
   "config": {
-  "ghooks": {
-    "commit-msg": "validate-commit-msg"
-  },
-  "validate-commit-msg": {
-    "types": [
-      "feat",
-      "fix",
-      "docs",
-      "test",
-      "chore",
-      "refactor",
-      "opti"
-    ],
-    "warnOnFail": false,
-    "maxSubjectLength": 50,
-    "subjectPattern": ".+",
-    "subjectPatternErrorMsg": "请输入message信息!",
-    "helpMessage": "Commit msg 格式错误, \n请查看规范: http://wiki.corp.qunar.com/pages/viewpage.action?pageId=159698767"
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    },
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "docs",
+        "test",
+        "chore",
+        "refactor",
+        "opti"
+      ],
+      "warnOnFail": false,
+      "maxSubjectLength": 5,
+      "subjectPattern": ".+",
+      "subjectPatternErrorMsg": "请输入message信息!",
+      "helpMessage": "Commit message 格式错误, \n请查看规范: http://wiki.corp.qunar.com/pages/viewpage.action?pageId=159698767"
+    }
   }
-}
 }
