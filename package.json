@@ -1,6 +1,6 @@
 {
   "name": "ydoc",
-  "version": "3.2.0-rc.1",
+  "version": "3.2.0-rc.3",
   "description": "Yummy Doc 文档生成工具",
   "keywords": [
     "doc",
@@ -43,10 +43,33 @@
     "watch": "^0.17.1"
   },
   "devDependencies": {
+    "ghooks": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-sass": "^2.3.2",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^2.0.0",
+    "validate-commit-msg": "^2.12.2"
+  },
+  "config": {
+  "ghooks": {
+    "commit-msg": "validate-commit-msg"
+  },
+  "validate-commit-msg": {
+    "types": [
+      "feat",
+      "fix",
+      "docs",
+      "test",
+      "chore",
+      "refactor",
+      "opti"
+    ],
+    "warnOnFail": false,
+    "maxSubjectLength": 50,
+    "subjectPattern": ".+",
+    "subjectPatternErrorMsg": "请输入message信息!",
+    "helpMessage": "Commit msg 格式错误, \n请查看规范: http://wiki.corp.qunar.com/pages/viewpage.action?pageId=159698767"
   }
+}
 }
