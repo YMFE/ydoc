@@ -4,7 +4,7 @@ var commentParser = require('comment-parser');
 var artTemplate = require('art-template');
 var analyseComment = require('../../utils/analyseComment.js');
 var hightLight = require('../../utils/exampleHightLight.js');
-var pageTPL = fs.readFileSync(sysPath.join(__dirname, './page.html'), 'UTF-8');
+var pageTPL = fs.readFileSync(sysPath.join(__dirname, './css.html'), 'UTF-8');
 
 module.exports = {
     type: "css",

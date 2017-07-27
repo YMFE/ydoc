@@ -48,7 +48,7 @@
         <div class="api-content">
             <div>{{prop.description | markdown}}</div>
             {{if prop.example}}
-            <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{prop.example}}</code></pre> {{/if}}
+            <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code class="js-code">{{prop.example}}</code></pre> {{/if}}
         </div>
         {{if prop.default}}
         <p class="api-content">
@@ -153,7 +153,7 @@
             <mark>{{method.returns.type}}</mark> {{method.returns.name}}
         </p>
         {{/if}} {{if method.example}}
-        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{method.example}}</code></pre>
+        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code class="js-code">{{method.example}}</code></pre>
         {{/if}}
         {{/each}}
         {{/if}}
@@ -217,11 +217,11 @@
         </p>
         {{/if}}
         {{if event.example}}
-        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{event.example}}</code></pre> {{/if}} {{/each}} {{/if}} {{if example}}
+        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code class="js-code">{{event.example}}</code></pre> {{/if}} {{/each}} {{/if}} {{if example}}
         {{/if}}
         {{if example}}
         <div class="con-head">示例</div>
-        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code>{{example}}</code></pre>
+        <pre class="ydoc-example" {{if (el && el.foldnumber)}}data-foldnumber={{el.foldnumber}}{{/if}}><code class="js-code">{{example}}</code></pre>
         {{/if}}
         {{if demo}}
         <p>

@@ -410,6 +410,45 @@ sup, sub {
           cursor: pointer; }
         .ydoc-container-content .ydoc-example .fold:hover, .ydoc-container-content .ydoc-example .extend:hover {
           text-decoration: underline; }
+        .ydoc-container-content .ydoc-example .ui-copy {
+          position: absolute;
+          right: 0;
+          top: -1px;
+          text-align: center;
+          line-height: 20px;
+          width: 40px;
+          height: 24px;
+          border-left: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
+          border-bottom-left-radius: 3px;
+          background-color: #efefef;
+          cursor: pointer;
+          user-select: none;
+          transition: all .4s;
+          transform: translateY(0); }
+        .ydoc-container-content .ydoc-example .ui-copy:hover {
+          transform: translateY(1px);
+          background-color: #fff; }
+        .ydoc-container-content .ydoc-example .copy-tip {
+          display: none;
+          color: #fff;
+          padding: 4px;
+          border-radius: 4px;
+          position: absolute;
+          right: 0px;
+          top: 27px;
+          background-color: rgba(0, 0, 0, 0.85); }
+        .ydoc-container-content .ydoc-example .copy-tip:after {
+          content: '';
+          display: block;
+          position: absolute;
+          right: 20px;
+          top: -8px;
+          transform: translateX(50%);
+          width: 0;
+          height: 0;
+          border: 4px solid transparent;
+          border-bottom-color: rgba(0, 0, 0, 0.85); }
       .ydoc-container-content .docs-sidebar {
         background: #fff;
         z-index: 9999;

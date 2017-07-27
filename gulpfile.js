@@ -26,7 +26,7 @@ gulp.task('concatCss', function() {
 // 合并js文件
 gulp.task('concatJs', function() {
     // 将所有js文件连接为一个文件并压缩，存到public/js
-    gulp.src(['template/js/jquery.min.js','template/js/bootstrap.min.js','template/js/docs.min.js'])
+    gulp.src(['template/js/jquery.min.js','template/js/bootstrap.min.js','template/js/docs.min.js','clipboard.min.js'])
         .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(gulp.dest('template/source'));
