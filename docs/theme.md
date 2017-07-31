@@ -51,7 +51,10 @@
 
 ## 开发主题
 每一个插件都是一个 npm 模块，命名规则为 `ydoc-theme-<name>`，比如 `ydoc-theme-ocean`。
-最简单的方法是 fork 一份 `ydoc-theme-default`，根据自己的设计在文件中修改或添加内容。
+最简单的方法是使用npm安装默认主题的模块 `ydoc-theme-default`，根据自己的设计在文件中修改或添加内容。
+``` bash
+npm install ydoc-theme-default
+```
 
 <h3 style="font-weight: normal"> 配置 </h3>
 修改或新建 `ydoc-theme-<name>` 目录中的 `theme.config` 文件。
