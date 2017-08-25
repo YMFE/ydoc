@@ -1,5 +1,15 @@
+### v3.2.0 (2017.8.25)
+* 首页改版，优化功能介绍
+* 添加代码复制功能
+* 修复 hashlink 对应错误的 bug
+* 修复 hashlink 中出现特殊字符引起浏览器的报错
+* 构建示例在 ydoc 文档站显示[构建示例](https://github.com/YMFE/ydoc-demo)
+* 多版本切换样式优化、首页样式优化
+* 配置项调整：html中外部引用的各种文件无需再支持配置 ```options.[insertCSS/insertJS]```，直接在 ```resource``` 字段配置即可。
+
 ### v3.1.0
 * 首页改版，优化功能介绍
+* 添加js-interface注释形式
 * 添加首页正文的配置功能
 * 添加若干套[构建示例](https://github.com/YMFE/ydoc-demo)
 * 修复 @example 注释重复解析和无法高亮的bug

@@ -252,7 +252,7 @@ sup, sub {
     .ydoc .ydoc-banner-home .home-title {
       margin-bottom: .2rem;
       font-size: .8rem;
-      font-weight: bold; }
+      font-weight: normal; }
     .ydoc .ydoc-banner-home .home-desc {
       padding: 0 1rem .16rem;
       font-size: .28rem; }

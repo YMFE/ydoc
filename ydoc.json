@@ -16,7 +16,7 @@
         "name": "index",
         "title": "简介",
         "homepage": {
-            "version": "v3.1.0",
+            "version": "v3.2.0",
             "button": [{
                 "name": "起步",
                 "href": "http://ydoc.ymfe.tech/start.html"
