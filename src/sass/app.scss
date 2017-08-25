@@ -159,10 +159,19 @@ sup,sub{vertical-align:baseline}
      clear: both;
  }
  .version-selector{
-     color: #ff503f;
-     .icon{
-         vertical-align: bottom;
-     }
+    color: #fff;
+    background-color: #ff503f;
+    line-height: 20px;
+    margin-top: 12px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    min-width: 50px;
+    text-align: center;
+    .icon{
+      vertical-align: bottom;
+      display: inline-block;
+      width: 14px;
+    }
  }
  .m-version{
      float: left;
@@ -184,6 +193,12 @@ sup,sub{vertical-align:baseline}
  .m-version-item{
      line-height: normal;
      text-align: center;
+     .link {
+       color: #333;
+     }
+     .active {
+       background-color: #ccc;
+     }
  }
  .link{
      display: inline-block;

@@ -95,6 +95,7 @@ module.exports = function(callback) {
     "defaultGrammar": "javascript", // 默认高亮语法
     "mutiversion": { // 配置多版本切换，使用此功能需要切换到新的分支(此分支专门用于生成文档)，在新分支的配置文件中添加此配置项
         "docbranch": "doc", // 新分支(专门用于生成文档的分支)名称
+        "latestPath": "3.0", // 最新版本文档的路径
         "versions":[{
             "name": "3.0", // 需要生成的版本名称
             "branch": "v3.0.0" // 需要生成的版本所在的git分支

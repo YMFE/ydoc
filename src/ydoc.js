@@ -7,6 +7,7 @@ var through = require('through2');
 var globby = require('globby');
 var childProcess = require('child_process');
 var shell = require('shelljs');
+var artTemplate = require('art-template');
 
 var actions = require('./actions');
 var loadConfig = require('./utils/loadConfig.js');
@@ -86,8 +87,9 @@ ydoc.build = function(cwd, conf, opt) {
         buildPages = opt.page;
     // 多版本切换
     if(conf.mutiversion){
-        shell.exec('git add -A && git commit -m "doc: auto-commit of muti-version building."');
+        shell.exec('git add -A && git commit -m "docs: [ydoc]auto-commit of muti-version building."');
         var docBranch = conf.mutiversion.docbranch,
+            latestPath = conf.mutiversion.latestPath,
             docDir = '../ydocCache';
         if(docBranch){
             // 新建目录 ydocCache 缓存各分支文档
@@ -95,7 +97,8 @@ ydoc.build = function(cwd, conf, opt) {
             shell.mkdir(docDir);
             // 遍历版本号，切换到对应的分支拷贝文件
             conf.mutiversion.versions.forEach(function(item, index){
-                li += '<li class="m-version-item"><a class="link" href="../' + item.name + '/index.html">'+item.name+'</a></li>\n';
+              console.log(item,'==================');
+                li += '<li class="m-version-item"><a class="link _' + item.name + '" href="../' + item.name + '/index.html">'+item.name+'</a></li>\n';
                 // 切换到各版本分支
                 shell.exec('git checkout ' + item.branch);
                 shell.exec('ydoc build');
@@ -116,7 +119,7 @@ ydoc.build = function(cwd, conf, opt) {
             // 获取多版本标签切换的 html
             var getVersionHTML = function(versionName) {
                 var title = '<p class="version-selector" data-target="version">' + versionName + '<span data-target="version" class="ydocIcon icon">&#xf3ff;</span></p>';
-                var ul = '<ul class="m-version-mask">' + li + '</ul>';
+                var ul = '<ul class="m-version-mask">' + li.replace('\_' + versionName, 'active') + '</ul>';
                 return '<div class="m-version">' + title + ul + '</div>';
             }
             // 切换回生成文档的分支
@@ -132,6 +135,8 @@ ydoc.build = function(cwd, conf, opt) {
                 shell.sed('-i', /(navbar-brand.+\<\/a\>)/gi, '$1' + getVersionHTML(versionName), file);
                 console.log(('√ 添加版本切换标签: ' + file).yellow);
             });
+            var render = artTemplate.compile(fs.readFileSync(sysPath.join(templatePath, '/index.html'), 'utf-8'));
+            fs.writeFileSync(sysPath.join(rDest, './index.html'), render({ latestPath: './' + latestPath + '/index.html' }));
             console.log('√ Complete!\n'.green);
         }else {
             console.log('Warning: 请配置文档分支名称!'.red);

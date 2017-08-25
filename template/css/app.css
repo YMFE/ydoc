@@ -190,9 +190,18 @@ sup, sub {
     display: block;
     clear: both; }
   .ydoc .version-selector {
-    color: #ff503f; }
+    color: #fff;
+    background-color: #ff503f;
+    line-height: 20px;
+    margin-top: 12px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    min-width: 50px;
+    text-align: center; }
     .ydoc .version-selector .icon {
-      vertical-align: bottom; }
+      vertical-align: bottom;
+      display: inline-block;
+      width: 14px; }
   .ydoc .m-version {
     float: left;
     color: #fff;
@@ -211,6 +220,10 @@ sup, sub {
   .ydoc .m-version-item {
     line-height: normal;
     text-align: center; }
+    .ydoc .m-version-item .link {
+      color: #333; }
+    .ydoc .m-version-item .active {
+      background-color: #ccc; }
   .ydoc .link {
     display: inline-block;
     color: #000;
