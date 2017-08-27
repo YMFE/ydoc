@@ -1,16 +1,3 @@
-
-```json
-{
-    "errcode|200-500": 200,
-    "errmsg|4-8": "@string",
-    "data": {
-        "boolean|1": true,
-        "array|4": 1,
-        "combine": "@boolean & @array"
-    }
-}
-```
-
 ## 安装
 
 ### 下载:

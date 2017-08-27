@@ -11,7 +11,7 @@
 
 想知道ydoc能构建什么样的文档吗？
 
-[ydoc-demo](https://github.com/YMFE/ydoc-demo) 展示了一些使用ydoc构建的文档案例，帮助您快速了解ydoc。
+[ydoc-demo](https://ydoc.ymfe.org/demo/index.html) 展示了一些使用ydoc构建的文档案例，帮助您快速了解ydoc。
 
 ## 安装
 
@@ -24,8 +24,8 @@ npm install ydoc [-g]
 ### 使用命令方式
 
 * `cd /path/to/project/` 进入项目目录
-* `ydoc init` 初始化 YDoc 配置文件 ydoc.json（[配置说明](http://ydoc.ymfe.tech/usage.html#配置文件)）
-* `ydoc build` 构建文档，更多命令请查看（[构建命令](http://ydoc.ymfe.tech/usage.html#构建命令)）
+* `ydoc init` 初始化 YDoc 配置文件 ydoc.json（[配置说明](https://ydoc.ymfe.org/usage.html#配置文件)）
+* `ydoc build` 构建文档，更多命令请查看（[构建命令](https://ydoc.ymfe.org/usage.html#构建命令)）
 
 
 ### 使用其他方式

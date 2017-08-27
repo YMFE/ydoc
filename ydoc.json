@@ -19,7 +19,7 @@
             "version": "v3.2.0",
             "button": [{
                 "name": "起步",
-                "href": "http://ydoc.ymfe.tech/start.html"
+                "href": "https://ydoc.ymfe.org/start.html"
             },{
                 "name": "Github",
                 "href": "https://github.com/YMFE/ydoc"
@@ -111,5 +111,9 @@
             "description": "这里列举着 YDoc 的历史版本发布时间及变更记录，帮助你追溯到每个版本的演进过程。"
         },
         "content": "./docs/release.md"
+    }, {
+      "name": "示例",
+      "title": "构建示例",
+      "url": "./demo/index.html"
     }]
 }

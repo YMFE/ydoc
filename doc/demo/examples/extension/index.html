@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta name="description" content="description of your site">
+    <meta name="author" content="author of the site">
+    <title>扩展 首页</title>
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+      
+      <link rel="stylesheet" href="styles/insert0.css" />
+      
+      <link rel="stylesheet" href="styles/insert1.css" />
+      
+    
+</head>
+<body>
+    <div class="ydoc">
+        <header class="ydoc-header">
+            <div class="ydoc-header-area">
+                
+                <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+                
+                <button class="ydocIcon navbar-toggle">&#xf020;</button>
+                <nav class="ydoc-nav">
+                    <ul class="navbar-left">
+                         
+                        <li class="active">
+                            
+                            <a href="index.html">首页</a> 
+                        </li>
+                         
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <!-- <header style="height:20px"></header> -->
+        
+        <!-- Docs page layout -->
+        
+        <div class="ydoc-banner-bg">
+            <div class="ydoc-banner ">
+                <div class="ydoc-banner-area">
+                    <h1 >扩展示例</h1>
+                    <p class="desc ">配置自定义的css、js、img等文件</p>
+                    
+                </div>
+            </div>
+            
+
+            <div class="ydoc-container">
+                 
+                <div class="ydoc-container-content " id="readme">
+                    
+                    <article class="markdown-body">
+                         <h2 class="subject" id="扩展示例配置说明">扩展示例配置说明 <a class="hashlink" href="#扩展示例配置说明">#</a></h2><h3 class="subject" id="效果">效果 <a class="hashlink" href="#效果">#</a></h3><p>在控制台中查看Console有两个js文件的输出。</p>
+<p>在控制台中查看Elements有两个css文件的样式。</p>
+<p>在控制台中查看Network可以看到自定义的扩展文件。</p>
+<h3 class="subject" id="关键配置">关键配置 <a class="hashlink" href="#关键配置">#</a></h3><p><code>resources</code> 中配置路径，可以拷贝文件夹到生成文档的目录中.</p>
+<p>其中<code>scripts</code>与<code>plugins</code>字段配置的文件将分别以js/css文件的形式被引入到每个页面的尾部。</p>
+<ul>
+<li>注意: <code>3.2.0</code> 版本后无需配置 <code>options</code> 即可使用文件拷贝功能。</li></ul>
+<pre><code><span class="token property">"resources"</span><span class="token operator">:</span> <span class="token punctuation">{</span> //将配置的文件夹拷贝至生成文档的文件夹下
+    <span class="token property">"img"</span><span class="token operator">:</span> <span class="token string">"./images"</span><span class="token punctuation">,</span> // key值为source
+    <span class="token property">"styles"</span><span class="token operator">:</span> <span class="token string">"./styles/"</span><span class="token punctuation">,</span> // 指定insertCSS后，配置css的目录
+    <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token string">"./scripts/"</span> // 指定insertJS后，配置js的目录
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
+                    </article>
+                </div>
+                 
+            </div>
+            
+        </div>
+        
+        <footer class="footer">
+            <div class="copyright">
+                &copy; 2016 <a href="http://ued.qunar.com/ymfe/">YMFE</a> Team. Build by <a href="http://ued.qunar.com/ydoc/">ydoc</a>.
+            </div>
+        </footer>
+    </div>
+
+     
+
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+         
+    <script type="text/javascript" src="scripts/insert.js"></script>
+    
+    <script type="text/javascript" src="scripts/plugin.js"></script>
+     
+
+    </body>
+
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <meta name="description" content="description of your site">
+    <meta name="author" content="author of the site">
+    <title>在页面中使用多个文件 多页配置(js)</title>
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+</head>
+<body>
+    <div class="ydoc">
+        <header class="ydoc-header">
+            <div class="ydoc-header-area">
+                
+                <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+                
+                <button class="ydocIcon navbar-toggle">&#xf020;</button>
+                <nav class="ydoc-nav">
+                    <ul class="navbar-left">
+                         
+                        <li class="">
+                            
+                            <a href="index.html">首页</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="blocks-md.html">单页多模块(md)</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="js.html">单页多文件(js)</a> 
+                        </li>
+                        
+                        <li class="active">
+                            
+                            <a href="pages-js.html">多页配置(js)</a> 
+                        </li>
+                         
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <!-- <header style="height:20px"></header> -->
+        
+        <!-- Docs page layout -->
+        
+        <div class="ydoc-banner-bg">
+            <div class="ydoc-banner ">
+                <div class="ydoc-banner-area">
+                    <h1 >多页配置</h1>
+                    <p class="desc ">展示多页配置的示例，.md文件与.js文件混合使用，生成多个html文件在同一页面切换。</p>
+                    
+                </div>
+            </div>
+            
+
+            <div class="ydoc-container">
+                 
+                <div class="ydoc-container-content ">
+                    
+                    
+                    <div class="content-left staticsidenav" role="complementary">
+                        <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                            <ul class="nav docs-sidenav">
+                                 
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="pages-js-Touchable.html">Touchable</a> 
+                                </li>
+                                  
+                                <!-- <li   class="active" > -->
+                                <li >
+                                    
+                                    <a href="javascript:void(0);">滚动</a> 
+                                </li>
+                                   
+                                <ul class="nav docs-sidenav-extend"    style="display:block;" >
+                                
+                                    <li >
+                                        <a href="pages-js-ScrollView1.html">ScrollView1</a>
+                                    </li>
+                                     
+                                    <li  class="active" >
+                                        <a href="pages-js-ScrollView2.html">ScrollView2</a>
+                                    </li>
+                                
+                                </ul>
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="pages-js-Alert.html">Alert</a> 
+                                </li>
+                                 
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                    <div class="content-right markdown-body use-sidebar" role="main">
+
+                        <h2 id="-">效果</h2>
+<p>在同一页面中使用多个文件生成本页面。</p>
+<h3 id="-">关键配置</h3>
+<p><code>content.multi</code> 多页配置。</p>
+<p><code>content.index</code> 首页配置。</p>
+<p><code>content.pages</code> 每页配置。</p>
+<p><code>content.pages[*].sub</code> 配置为目录子项。</p>
+<p>配置文件：</p>
+<pre><code><span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"sidebar"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"multi"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"index"</span><span class="token operator">:</span> <span class="token string">"./docs/blocks-js-intro.md"</span><span class="token punctuation">,</span>
+    <span class="token property">"pages"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Touchable"</span><span class="token punctuation">,</span>
+        <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"./component/touch.js"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"滚动"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"ScrollView1"</span><span class="token punctuation">,</span>
+        <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"./component/scroll1.js"</span><span class="token punctuation">,</span>
+        <span class="token property">"sub"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"ScrollView2"</span><span class="token punctuation">,</span>
+        <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"./component/scroll2.js"</span><span class="token punctuation">,</span>
+        <span class="token property">"sub"</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Alert"</span><span class="token punctuation">,</span>
+        <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"./component/alert.js"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="docs-section">
+    <h2 id="Scroll2">
+    Scroll2
+    <small></small>
+    <span class="ui-badge">3.0.0</span>
+</h2>
+    <div class="api-content"><p><code>Touchable</code> 组件是一个&quot;虚拟&quot;组件，它不会真的在文档中创建一个 <code>dom</code> 节点作为根节点，而是返回它唯一的子组件的一个克隆，并给它绑定一些手势事件。
+除了能给 <code>dom</code> 绑定 <code>tap</code> 事件之外，它还解决了一些移动端的手势&quot;顽疾&quot;，例如触摸反馈和滚动/触摸的冲突问题。在需要绑定 <code>tap</code> 事件的情况下，应该优先使用 <code>Touchable</code>，
+而不是直接把 <code>tap</code> 事件回调绑定给 <code>dom</code>。</p>
+</div>
+
+    <!-- 使用说明begin -->
+    
+    <!-- 使用说明end -->
+
+    <div class="con-list-item">
+        <!-- 配置属性(@property) begin -->
+        
+        <div class="con-head">属性</div>
+        
+        <blockquote class="api">
+            <h3 id="touchClass" class="subject">
+                <strong>touchClass</strong>
+                <span class="prop-type">{ String }</span>
+                
+                
+                <a class="hashlink" href="#touchClass">#</a>
+            </h3>
+        </blockquote>
+        <div class="api-content">
+            <div><p>触摸Touchable时附加的className，可以用来实现Native常见的触摸反馈功能(例如给触摸区域添加深色背景或者改变透明度等等)。</p>
+</div>
+            
+            <pre class="ydoc-example" ><code class="js-code"> hysdk<span class="token punctuation">.</span><span class="token function">checkJsApi</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+ jsApiList<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'chooseImage'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 需要检测的JS接口列表</span>
+  success<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true">// 以键值对的形式返回，可用的api值true，不可用为false</span>
+     <span class="token comment" spellcheck="true">// res: {"chooseImage": true}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  fail<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>yes<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> 
+        </div>
+        
+        <p class="api-content">
+            <small class="text-muted">默认值:</small> null
+        </p>
+         
+        <p class="api-content">
+            <small class="text-muted">方法参数:</small>
+        </p>
+        <div class="docs-table api-content">
+            <table class="yo-table yo-table-border">
+                <colgroup>
+                    <col class="c1">
+                    <col class="c2">
+                    <col class="c3">
+                    <!-- <col class="c4"> -->
+                </colgroup>
+                <thead>
+                    <tr class="active">
+                        <th>参数名</th>
+                        <th>类型</th>
+                        <th>描述</th>
+                        <!-- <th>必选</th> -->
+                        <th>支持版本</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <td>target</td>
+                    <td>DOMElement</td>
+                    <td>tap事件的target </td>
+                    <!-- <td>
+                
+                <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+            </td> -->
+                    <td>3.0.0</td>
+                </tr>
+                
+            </table>
+        </div>
+           
+        <!-- 配置属性(@property) end -->
+
+        <!-- 实例方法(@method) begin -->
+        
+        <div class="con-head">方法</div>
+        
+        <blockquote class="api">
+            <h3 id="disabled" class="subject">
+                <strong>disabled</strong>
+                
+                <span class="ui-badge">3.0.7</span>
+                
+                
+                <a class="hashlink" href="#disabled">#</a>
+            </h3>
+        </blockquote>
+        <div class="api-content"><p>Touchable是否处于可点击状态，如果设为true，那么onTap事件回调和触摸反馈效果都不可用。</p>
+</div>
+        
+        <p class="api-content">
+            <small class="text-muted">方法参数:</small>
+        </p>
+        <div class="docs-table api-content">
+            <table class="yo-table yo-table-border">
+                <colgroup>
+                    <col class="c1">
+                    <col class="c2">
+                    <col class="c3">
+                    <col class="c4">
+                </colgroup>
+                <thead>
+                    <tr class="active">
+                        <th>参数名</th>
+                        <th>类型</th>
+                        <th>描述</th>
+                        <th>必选</th>
+                        <th>支持版本</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <td>target</td>
+                    <td>DOMElement</td>
+                    <td>tap事件的target </td>
+                    <td>
+                        
+                        <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+                    </td>
+                    <td>3.0.0</td>
+                </tr>
+                
+            </table>
+        </div>
+          
+        <pre class="ydoc-example" ><code class="js-code"> hysdk<span class="token punctuation">.</span><span class="token function">checkJsApi</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+ jsApiList<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'chooseImage'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 需要检测的JS接口列表</span>
+  success<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true">// 以键值对的形式返回，可用的api值true，不可用为false</span>
+     <span class="token comment" spellcheck="true">// res: {"chooseImage": true}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  fail<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+        
+        
+        
+        <!-- 实例方法(@method) end -->
+
+        <!-- 监听的事件类型(@event) begin -->
+        
+        <div class="con-head">事件</div>
+        
+        <blockquote class="api">
+            <h3 id="onTap" class="subject">
+                <strong>onTap</strong>
+                
+                
+                <a class="hashlink" href="#onTap">#</a>
+            </h3>
+        </blockquote>
+        <div class="api-content"><p>给Touchable绑定的onTap事件。</p>
+</div>
+        
+        <p class="api-content">
+            <small class="text-muted">方法参数:</small>
+        </p>
+        <div class="docs-table api-content">
+            <table class="yo-table yo-table-border">
+                <colgroup>
+                    <col class="c1">
+                    <col class="c2">
+                    <col class="c3">
+                    <col class="c4">
+                </colgroup>
+                <thead>
+                    <tr class="active">
+                        <th>参数名</th>
+                        <th>类型</th>
+                        <th>描述</th>
+                        <th>必选</th>
+                        <th>支持版本</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <td>target</td>
+                    <td>DOMElement</td>
+                    <td>tap事件的target </td>
+                    <td>
+                        
+                        <i class="yo-ico glyphicon glyphicon-ok text-success"></i> 
+                    </td>
+                    <td>3.0.0</td>
+                </tr>
+                
+            </table>
+        </div>
+        
+        
+        
+        <pre class="ydoc-example" ><code class="js-code"> hysdk<span class="token punctuation">.</span><span class="token function">checkJsApi</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+ jsApiList<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'chooseImage'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 需要检测的JS接口列表</span>
+  success<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true">// 以键值对的形式返回，可用的api值true，不可用为false</span>
+     <span class="token comment" spellcheck="true">// res: {"chooseImage": true}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  fail<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>    
+        
+        
+        <div class="con-head">示例</div>
+        <pre class="ydoc-example" ><code class="js-code"> hysdk<span class="token punctuation">.</span><span class="token function">checkJsApi</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+ jsApiList<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'chooseImage'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// 需要检测的JS接口列表</span>
+  success<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck="true">// 以键值对的形式返回，可用的api值true，不可用为false</span>
+     <span class="token comment" spellcheck="true">// res: {"chooseImage": true}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  fail<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+        
+        
+        <p>
+            <small class="text-muted">Demo地址:</small>
+            <a href="http://ued.qunar.com/" target="_blank">点击访问</a>
+        </p>
+        
+        <!-- 监听的事件类型(@event) end -->
+    </div>
+</div>
+
+                    </div>
+                </div>
+                 
+            </div>
+            
+        </div>
+        
+        <footer class="footer">
+            <div class="copyright">
+                &copy; 2016 <a href="http://ued.qunar.com/ymfe/">YMFE</a> Team. Build by <a href="http://ued.qunar.com/ydoc/">ydoc</a>.
+            </div>
+        </footer>
+    </div>
+
+    
+    <div class="open-panel"></div>
+    <div class="mask"></div>
+     
+
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+        
+
+    </body>
+
+</html>

@@ -217,7 +217,7 @@ module.exports = function(callback) {
 #### js
 
 支持文件类型：`.js`，`.jsx`
-type字段配置的 `component` `lib` 和 `interface`，三者所支持的注释规则有所区别，参见[注释规则](http://ydoc.ymfe.tech/comment.html)。
+type字段配置的 `component` `lib` 和 `interface`，三者所支持的注释规则有所区别，参见[注释规则](https://ydoc.ymfe.org/comment.html)。
 
 ```json
 {
