@@ -33,15 +33,15 @@
                     "type": "thumbnail",
                     "content": [{
                         "name": "丰富、可扩展的API",
-                        "src": "http://ojk406wln.bkt.clouddn.com/intro_muti.png",
+                        "src": "https://ws1.sinaimg.cn/large/006cGJIjly1fjaw7r0zeuj305k05kgli.jpg",
                         "desc": "YDoc提供了非常详尽的API，扩展性较强，如果你希望添加某些功能，可以在<a href=\"https://github.com/YMFE/ydoc\" target=\"_blank\"> Github </a>上面提Issue。"
                     },{
                         "name": "基于注释/markdown",
-                        "src": "http://ojk406wln.bkt.clouddn.com/intro_md.png",
+                        "src": "https://ws1.sinaimg.cn/large/006cGJIjly1fjaw7r1d05j305k05k0sm.jpg",
                         "desc": "基于项目代码注释与markdown快速构建文档，二者亦可在同一页面中使用。"
                     },{
                         "name": "可配置主题",
-                        "src": "http://ojk406wln.bkt.clouddn.com/intro_theme.png",
+                        "src": "https://ws1.sinaimg.cn/large/006cGJIjly1fjaw7r1bc1j305k05kjr9.jpg",
                         "desc": "官方提供多套主题，并且支持用户自定义开发主题。"
                     }]
                 }
