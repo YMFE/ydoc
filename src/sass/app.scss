@@ -400,9 +400,6 @@ sup,sub{vertical-align:baseline}
         float: right;
         min-height: 500px;
      }
-     .use-sidebar{
-       border-left: 1px solid #eee;
-     }
      .hashlink{
          display: none;
      }
@@ -414,7 +411,7 @@ sup,sub{vertical-align:baseline}
      }
      .content-left{
         width: 25%;
-       //  background: #f6f6f6;
+        border-right: 1px solid #eee;
      }
      .docs-table del{
          text-decoration: line-through;
@@ -613,6 +610,7 @@ sup,sub{vertical-align:baseline}
     z-index: 1;
     transition: all .4s;
     -webkit-transition: all .4s;
+    overflow-y: scroll;
 }
 .content-left:before{
     content: '目录：';

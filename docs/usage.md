@@ -246,3 +246,16 @@ type字段配置的 `component` `lib` 和 `interface`，三者所支持的注释
     "subMeneLevel": 3 // 选取第几级 head 作为子目录，默认 menuLevel + 1
 }
 ```
+
+## 废弃的配置项
+- options.foldsidenav & options.staticsidenav `v3.2.0版本废弃`
+
+不再支持侧栏菜单的固定与折叠
+
+- options.insertCSS & options.insertJS `v3.2.0版本废弃`
+
+后续版本直接配置 `resources.styles/resources.scripts` 即可，ydoc 会把配置的路径里的 `css/js` 文件拷贝到静态资源里，并自动引入到页面里
+
+- 配置文件： ydoc.config `v3.1.0版本废弃`
+
+后续版本不再支持 ydoc.config 格式的配置文件，请使用 ydoc.json.

@@ -134,9 +134,15 @@
                                     <li >
                                         <a href="#解析器配置">解析器配置</a>
                                     </li>
-                                 
+                                
                                 </ul>
-                                  
+                                            
+                                <!-- <li  > -->
+                                <li >
+                                    
+                                    <a href="#废弃的配置项">废弃的配置项</a> 
+                                </li>
+                                 
                             </ul>
                         </nav>
                     </div>
@@ -341,6 +347,15 @@ type字段配置的 <code>component</code> <code>lib</code> 和 <code>interface<
     <span class="token property">"subMeneLevel"</span><span class="token operator">:</span> <span class="token number">3</span> // 选取第几级 head 作为子目录，默认 menuLevel + <span class="token number">1</span>
 <span class="token punctuation">}</span>
 </code></pre>
+<h2 class="subject" id="废弃的配置项">废弃的配置项 <a class="hashlink" href="#废弃的配置项">#</a></h2><ul>
+<li>options.foldsidenav &amp; options.staticsidenav <code>v3.2.0版本废弃</code></li></ul>
+<p>不再支持侧栏菜单的固定与折叠</p>
+<ul>
+<li>options.insertCSS &amp; options.insertJS <code>v3.2.0版本废弃</code></li></ul>
+<p>后续版本直接配置 <code>resources.styles/resources.scripts</code> 即可，ydoc 会把配置的路径里的 <code>css/js</code> 文件拷贝到静态资源里，并自动引入到页面里</p>
+<ul>
+<li>配置文件： ydoc.config <code>v3.1.0版本废弃</code></li></ul>
+<p>后续版本不再支持 ydoc.config 格式的配置文件，请使用 ydoc.json.</p>
 
                     </div>
                 </div>

@@ -393,8 +393,6 @@ sup, sub {
         padding: 15px;
         float: right;
         min-height: 500px; }
-      .ydoc-container-content .use-sidebar {
-        border-left: 1px solid #eee; }
       .ydoc-container-content .hashlink {
         display: none; }
       .ydoc-container-content .subject:hover .hashlink {
@@ -402,7 +400,8 @@ sup, sub {
       .ydoc-container-content .right {
         float: right; }
       .ydoc-container-content .content-left {
-        width: 25%; }
+        width: 25%;
+        border-right: 1px solid #eee; }
       .ydoc-container-content .docs-table del {
         text-decoration: line-through;
         color: #999; }
@@ -562,7 +561,8 @@ sup, sub {
     background-color: #222;
     z-index: 1;
     transition: all .4s;
-    -webkit-transition: all .4s; }
+    -webkit-transition: all .4s;
+    overflow-y: scroll; }
   .ydoc-container-content .content-left:before {
     content: '目录：';
     display: block;
