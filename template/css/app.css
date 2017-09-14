@@ -801,9 +801,13 @@ sup, sub {
   font-size: 0.85em;
   color: #777; }
 
-.markdown-body ul, .markdown-body ol {
+.markdown-body ul {
   padding-left: 2em;
   list-style-type: disc; }
+
+.markdown-body ol {
+  padding-left: 2em;
+  list-style-type: decimal; }
 
 .markdown-body ul.no-list, .markdown-body ol.no-list {
   padding: 0;
