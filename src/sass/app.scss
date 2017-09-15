@@ -40,6 +40,25 @@ sup,sub{vertical-align:baseline}
 .h4 .small,.h4 small,.h5 .small,.h5 small,.h6 .small,.h6 small,h4 .small,h4 small,h5 .small,h5 small,h6 .small,h6 small {
     font-size: 75%
 }
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+             "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+             SimSun, sans-serif;
+}
+
+.markdown-body h1, .markdown-body h2 {
+  padding-bottom: .75em;
+  margin-top: 3em;
+}
+
+/* 覆盖掉 Interface 下的标题样式 */
+.markdown-body blockquote.api {
+  background-color: transparent;
+}
+.markdown-body blockquote.api:before {
+  content: '';
+  display: none;
+}
 
 *,::before,::after {
  -webkit-box-sizing: border-box;

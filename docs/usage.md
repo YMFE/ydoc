@@ -1,14 +1,20 @@
 ## 安装
 
 安装正式版
-> npm install ydoc -g
+``` bash
+npm install ydoc -g
+```
 
 安装测试版 (有新功能但不稳定)
-> npm install ydoc@rc -g
+``` bash
+npm install ydoc@rc -g
+```
 
 ## 构建命令
 
-> ydoc build [-t templatePath] [-p page] [-w] [-o dest]
+``` bash
+ydoc build [-t templatePath] [-p page] [-w] [-o dest]
+```
 
 读取配置，构建文档
 
@@ -19,7 +25,9 @@
 
 ## 初始化命令
 
-> ydoc init [-t templatePath]
+``` bash
+ydoc init [-t templatePath]
+```
 
 初始项目，创建配置文件与自定义模板(-t)，默认生成 `ydoc.json` 配置文件。
 

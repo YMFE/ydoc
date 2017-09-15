@@ -1,16 +1,9 @@
-# h1啊
-## h2啊
-### h3啊
-#### h4啊
-##### h5啊
-###### 好6啊
-
-
-
-### 下载:
+## 下载:
 从 NPM 中安装
 
-> npm install ydoc-theme-[name] --save
+``` bash
+npm install ydoc-theme-[name] --save
+```
 
 ### 配置
 在配置文件里添加配置，如果不配置此项，则为默认主题。

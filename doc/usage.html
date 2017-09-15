@@ -150,22 +150,18 @@
                     <div class="content-right markdown-body use-sidebar" role="main">
 
                          <h2 class="subject" id="安装">安装 <a class="hashlink" href="#安装">#</a></h2><p>安装正式版</p>
-<blockquote>
-<p>npm install ydoc -g</p>
-</blockquote>
+<pre><code class="lang-bash"><span class="token function">npm</span> <span class="token function">install</span> ydoc -g
+</code></pre>
 <p>安装测试版 (有新功能但不稳定)</p>
-<blockquote>
-<p>npm install ydoc@rc -g</p>
-</blockquote>
-<h2 class="subject" id="构建命令">构建命令 <a class="hashlink" href="#构建命令">#</a></h2><blockquote>
-<p>ydoc build [-t templatePath] [-p page] [-w] [-o dest]</p>
-</blockquote>
+<pre><code class="lang-bash"><span class="token function">npm</span> <span class="token function">install</span> ydoc@rc -g
+</code></pre>
+<h2 class="subject" id="构建命令">构建命令 <a class="hashlink" href="#构建命令">#</a></h2><pre><code class="lang-bash">ydoc build <span class="token punctuation">[</span>-t templatePath<span class="token punctuation">]</span> <span class="token punctuation">[</span>-p page<span class="token punctuation">]</span> <span class="token punctuation">[</span>-w<span class="token punctuation">]</span> <span class="token punctuation">[</span>-o dest<span class="token punctuation">]</span>
+</code></pre>
 <p>读取配置，构建文档</p>
 <ul>
 <li><code>-w|--watch</code>: 监听变化自动构建</li><li><code>-t|--template</code>: 参数为自定义模板路径</li><li><code>-o|--output</code>: 输出目录</li><li><code>-p|--page</code>: 指定编译某页，默认编译所有。（多个页面名可以逗号分开，例 -p index,demo）</li></ul>
-<h2 class="subject" id="初始化命令">初始化命令 <a class="hashlink" href="#初始化命令">#</a></h2><blockquote>
-<p>ydoc init [-t templatePath]</p>
-</blockquote>
+<h2 class="subject" id="初始化命令">初始化命令 <a class="hashlink" href="#初始化命令">#</a></h2><pre><code class="lang-bash">ydoc init <span class="token punctuation">[</span>-t templatePath<span class="token punctuation">]</span>
+</code></pre>
 <p>初始项目，创建配置文件与自定义模板(-t)，默认生成 <code>ydoc.json</code> 配置文件。</p>
 <ul>
 <li><code>-t|--template</code>: 参数为自定义模板路径</li></ul>
