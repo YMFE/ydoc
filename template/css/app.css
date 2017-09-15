@@ -71,6 +71,9 @@ mark,
   background-color: #fcf8e3;
   padding: .2em; }
 
+body {
+  color: #333; }
+
 a, ins, s, u, del {
   text-decoration: none; }
 
@@ -795,11 +798,13 @@ sup, sub {
   font-size: 1.15em; }
 
 .markdown-body h5 {
-  font-size: 0.875em; }
+  font-size: 1.1em;
+  font-weight: 400; }
 
 .markdown-body h6 {
-  font-size: 0.85em;
-  color: #777; }
+  font-size: 0.875em;
+  font-weight: 400;
+  color: #666; }
 
 .markdown-body ul {
   padding-left: 2em;
