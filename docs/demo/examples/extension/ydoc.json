@@ -1,0 +1,25 @@
+{
+    "name": "index",
+    "dest": "../../../../doc/demo/examples/extension",
+    "defaultGrammar": "json",
+    "common": { // 通用默认配置，包括主页配置等
+        "title": "扩展", //page title
+        "footer": "&copy; 2016 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
+        "home": "YMFE", // logo
+        "homeUrl": "http://ued.qunar.com/ymfe/" // logourl
+    },
+    "resources": { //将配置的文件夹拷贝至生成文档的文件夹下
+        "img": "./images", // key值为source
+        "styles": "./styles/", // 指定insertCSS后，配置css的目录
+        "scripts": "./scripts/" // 指定insertJS后，配置js的目录
+    },
+    "pages": [{
+        "name": "index", // Page Name 会根据他生成 html 文件，例: index.html
+        "title": "首页", // Page Title
+        "banner": { // Banner 配置
+            "title": "扩展示例",
+            "description": "配置自定义的css、js、img等文件"
+        },
+        "content": "./README.md" // 内容(这里以markdown文件举例)
+    }]
+}

@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # 构建 demo 的页面们
-cd docs/ydoc-demo && ../../bin/ydoc build
+cd docs/demo && ../../bin/ydoc build
 
 # 新建目录
 mkdir ../../doc/demo/examples

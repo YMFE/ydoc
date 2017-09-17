@@ -1,0 +1,85 @@
+{
+    "name": "index",
+    "dest": "../../../../doc/demo/examples/multifiles",
+    "defaultGrammar": "json",
+    "common": { // 通用默认配置，包括主页配置等
+        "title": "在页面中使用多个文件", //page title
+        "footer": "&copy; 2016 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
+        "home": "YMFE", // logo
+        "homeUrl": "http://ued.qunar.com/ymfe/" // logourl
+    },
+    "pages": [{
+        "name": "index",
+        "title": "首页", // Page Title
+        "banner": { // Banner 配置
+            "title": "在页面中使用多个文件",
+            "description": "本示例展示了怎样在页面中使用多个文件"
+        },
+        "content": "./README.md" // 内容(这里以markdown文件举例)
+    },{
+        "name": "blocks-md", // Page Name 会根据他生成 html 文件，例: index.html
+        "title": "单页多模块(md)", // Page Title
+        "intro": "./docs/blocks-js-md.md",
+        "banner": { // Banner 配置
+            "title": "单页多模块",
+            "description": "展示单页多模块配置的示例，各个模块都是.md文件。"
+        },
+        "content": { // 单页多模块配置
+            "sidebar": true, // 是否显示侧边目录
+            "blocks": [{
+                "name": "简介", // 标题
+                "content": "./docs/markdown/md1.md" // 内容
+            }, {
+                "name": "Hybrid" // 只有标题，做目录和分割用
+            }, {
+                "name": "说明",
+                "sub": true, // 标题在目录里已子目录形式显示
+                "content": "./docs/markdown/md2.md"
+            }]
+        }
+    },{
+        "name": "js", // Page Name 会根据他生成 html 文件，例: index.html
+        "title": "单页多文件(js)", // Page Title
+        "intro": "./docs/blocks-js-intro.md",
+        "banner": { // Banner 配置
+            "title": "单页多文件",
+            "description": "展示单页多文件配置的示例，.md文件与.js文件混合使用。"
+        },
+        "content": "./src/*.js",
+        "compile": "js",
+        "options": {
+            "type": "lib",
+            "categories": ["Router", "Base"] // 分类
+        }
+    },{
+        "name": "pages-js",
+        "title": "多页配置(js)", // Page Title
+        "intro": "./docs/pages-js-intro.md",
+        "banner": { // Banner 配置
+            "title": "多页配置",
+            "description": "展示多页配置的示例，.md文件与.js文件混合使用，生成多个html文件在同一页面切换。"
+        },
+        "content": {
+            "sidebar": true,
+            "multi": true,
+            "index": "./docs/pages-js-intro.md",
+            "pages": [{
+                "name": "Touchable",
+                "content": "./component/touch.js"
+            },{
+                "name": "滚动"
+            },{
+                "name": "ScrollView1",
+                "content": "./component/scroll1.js",
+                "sub": true
+            },{
+                "name": "ScrollView2",
+                "content": "./component/scroll2.js",
+                "sub": true
+            },{
+                "name": "Alert",
+                "content": "./component/alert.js"
+            }]
+        }
+    }]
+}
