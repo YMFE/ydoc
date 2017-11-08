@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no,email=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
-    <meta name="description" content="description of your site">
-    <meta name="author" content="author of the site">
+<head>    
     <title>{{title}}</title>
+    {{if keywords}}        
+        <meta name="keywords" content="{{keywords}}">
+    {{/if}}
+    {{if description}}        
+        <meta name="description" content="{{description}}">
+    {{/if}}
+    
     <link rel="stylesheet" href="source/main.css" />
     {{if themeCSS && themeCSS.length}}
       {{each themeCSS as item}}
@@ -20,6 +21,10 @@
       <link rel="stylesheet" href="{{item}}" />
       {{/each}}
     {{/if}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
 </head>
 <body{{if hasPageName && pagename}} class={{pagename}} {{/if}}>
     <div class="ydoc">

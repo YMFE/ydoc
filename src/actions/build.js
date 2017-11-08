@@ -212,6 +212,8 @@ module.exports = function(cwd, conf) {
             data.footer = common.footer;
             data.home = common.home;
             data.homeUrl = common.homeUrl;
+            data.keywords = common.keywords;
+            data.description = common.description;
 
             // 多版本切换
             if(conf.options.mutiversion){
