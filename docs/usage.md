@@ -133,7 +133,9 @@ module.exports = function(callback) {
         "title": "YDoc", //page title
         "footer": "&copy; 2017 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
         "home": "YMFE", // logo
-        "homeUrl": "http://ued.qunar.com/ymfe/" // logourl
+        "homeUrl": "http://ued.qunar.com/ymfe/" // logourl,
+        "keywords": "doc,build,fe,html,markdown,css,js", // <meta> 标签的 name 属性为 keywords 时 content 的内容
+        "description": "基于项目代码注释与markdown快速构建文档" // <meta> 标签的 name 属性为 description 时 content 的内容
     },
     "pages": [{
         "name": "index", // Page Name 会根据他生成 html 文件，例: index.html

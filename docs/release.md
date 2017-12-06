@@ -1,3 +1,9 @@
+### v3.2.1 (2017.12.06)
+* `opti` 样式优化
+* `feat` 添加 `favicon` 路径为 `./images/favicon.ico`
+* `feat` 搜索引擎优化: 新增配置项 `common.keywords` 与 `common.description`
+* `opti` 多页配置的 title 名称优化
+
 ### v3.2.1 (2017.9.15)
 * `opti` 样式优化
 * `docs` 修改构建示例
