@@ -19,3 +19,5 @@ cd ../homepage && ../../../../bin/ydoc build
 cd ../multifiles && ../../../../bin/ydoc build
 cd ../page && ../../../../bin/ydoc build
 cd ../sidenav && ../../../../bin/ydoc build
+
+cd ../../../../ && bin/ydoc build
