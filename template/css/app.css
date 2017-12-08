@@ -15,11 +15,15 @@ body, input, textarea, button, select, pre, xmp, tt, code, kbd, samp {
 h1, h2, h3, h4, h5, h6, small, big, input, textarea, button, select {
   font-size: 100%; }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: tahoma,arial,"Hiragino Sans GB","微软雅黑",simsun,sans-serif; }
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: tahoma, arial, "Hiragino Sans GB", "微软雅黑", simsun, sans-serif;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased; }
 
 address, cite, dfn, em, i, optgroup, var {
   font-style: normal; }
@@ -178,7 +182,8 @@ body, h1, h2, h3, h4, h5, h6 {
       .ydoc-nav li a {
         padding: 0 15px;
         color: #fff;
-        transition: all .4s; }
+        transition: all .4s;
+        font-weight: 200; }
       .ydoc-nav li a:hover {
         color: #ff503f; }
     .ydoc-nav .navbar-right {
@@ -263,7 +268,7 @@ body, h1, h2, h3, h4, h5, h6 {
     background: url(./images/grid-18px-masked.png) repeat-x 0 top;
     padding-bottom: 121px; }
     .ydoc .ydoc-banner-bg .desc {
-      font-family: "微软雅黑"; }
+      -webkit-font-smoothing: antialiased; }
   .ydoc .ydoc-banner-home {
     padding: .8rem 0;
     text-align: center; }
