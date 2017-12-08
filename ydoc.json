@@ -2,9 +2,9 @@
     "name": "YDoc",
     "common": {
         "title": "YDoc",
-        "footer": "&copy; 2017 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.",
+        "footer": "&copy; 2017 <a href=\"https://ymfe.org/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.",
         "home": "YMFE",
-        "homeUrl": "http://ued.qunar.com/ymfe/",
+        "homeUrl": "https://ymfe.org/",
         "keywords": "doc,build,fe,html,markdown,css,js",
         "description": "基于项目代码注释与markdown快速构建文档，目前支持诸如：React Native, JavaScript, CSS, SCSS 等类别。"
     },
