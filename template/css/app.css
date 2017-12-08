@@ -3,16 +3,60 @@ html {
   font-size: 100px;
   height: 100%; }
 
-body, ul, ol, dl, dd, h1, h2, h3, h4, h5, h6, figure, form, fieldset, legend, input, textarea, button, p, blockquote, th, td, pre, xmp {
+body,
+ul,
+ol,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+p,
+blockquote,
+th,
+td,
+pre,
+xmp {
   margin: 0;
   padding: 0; }
 
-body, input, textarea, button, select, pre, xmp, tt, code, kbd, samp {
+body,
+input,
+textarea,
+button,
+select,
+pre,
+xmp,
+tt,
+code,
+kbd,
+samp {
   height: 100%;
   line-height: 1.5;
-  font-family: tahoma,arial,"Hiragino Sans GB",simsun,sans-serif; }
+  font-family: tahoma, arial, "Hiragino Sans GB", simsun, sans-serif; }
 
-h1, h2, h3, h4, h5, h6, small, big, input, textarea, button, select {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small,
+big,
+input,
+textarea,
+button,
+select {
   font-size: 100%; }
 
 h1,
@@ -25,7 +69,13 @@ h6 {
   font-weight: normal;
   -webkit-font-smoothing: antialiased; }
 
-address, cite, dfn, em, i, optgroup, var {
+address,
+cite,
+dfn,
+em,
+i,
+optgroup,
+var {
   font-style: normal; }
 
 table {
@@ -33,37 +83,66 @@ table {
   border-spacing: 0;
   text-align: left; }
 
-caption, th {
+caption,
+th {
   text-align: inherit; }
 
-ul, ol, menu {
+ul,
+ol,
+menu {
   list-style: none; }
 
-fieldset, img {
+fieldset,
+img {
   border: 0; }
 
-img, object, input, textarea, button, select {
+img,
+object,
+input,
+textarea,
+button,
+select {
   vertical-align: middle; }
 
-article, aside, footer, header, section, nav, figure, figcaption, hgroup, details, menu {
+article,
+aside,
+footer,
+header,
+section,
+nav,
+figure,
+figcaption,
+hgroup,
+details,
+menu {
   display: block; }
 
-audio, canvas, video {
+audio,
+canvas,
+video {
   display: inline-block;
   *display: inline;
   *zoom: 1; }
 
-blockquote:before, blockquote:after, q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: "\0020"; }
 
 textarea {
   overflow: auto;
   resize: vertical; }
 
-input, textarea, button, select, a {
+input,
+textarea,
+button,
+select,
+a {
   outline: 0 none; }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner,
+input::-moz-focus-inner {
   padding: 0;
   border: 0; }
 
@@ -78,27 +157,84 @@ mark,
 body {
   color: #333; }
 
-a, ins, s, u, del {
+a,
+ins,
+s,
+u,
+del {
   text-decoration: none; }
 
-sup, sub {
+sup,
+sub {
   vertical-align: baseline; }
 
-.h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, .h4 .small, .h4 small, .h5 .small, .h5 small, .h6 .small, .h6 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small, h4 .small, h4 small, h5 .small, h5 small, h6 .small, h6 small {
+.h1 .small,
+.h1 small,
+.h2 .small,
+.h2 small,
+.h3 .small,
+.h3 small,
+.h4 .small,
+.h4 small,
+.h5 .small,
+.h5 small,
+.h6 .small,
+.h6 small,
+h1 .small,
+h1 small,
+h2 .small,
+h2 small,
+h3 .small,
+h3 small,
+h4 .small,
+h4 small,
+h5 .small,
+h5 small,
+h6 .small,
+h6 small {
   font-weight: 400;
   line-height: 1;
   color: #777; }
 
-.h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small {
+.h1 .small,
+.h1 small,
+.h2 .small,
+.h2 small,
+.h3 .small,
+.h3 small,
+h1 .small,
+h1 small,
+h2 .small,
+h2 small,
+h3 .small,
+h3 small {
   font-size: 65%; }
 
-.h4 .small, .h4 small, .h5 .small, .h5 small, .h6 .small, .h6 small, h4 .small, h4 small, h5 .small, h5 small, h6 .small, h6 small {
+.h4 .small,
+.h4 small,
+.h5 .small,
+.h5 small,
+.h6 .small,
+.h6 small,
+h4 .small,
+h4 small,
+h5 .small,
+h5 small,
+h6 .small,
+h6 small {
   font-size: 75%; }
 
-body, h1, h2, h3, h4, h5, h6 {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif; }
 
-.markdown-body h1, .markdown-body h2 {
+.markdown-body h1,
+.markdown-body h2 {
   padding-bottom: .75em;
   margin-top: 3em; }
 
@@ -110,7 +246,9 @@ body, h1, h2, h3, h4, h5, h6 {
   content: '';
   display: none; }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -405,7 +543,8 @@ body, h1, h2, h3, h4, h5, h6 {
         width: 100%;
         background: #fff;
         padding: .15rem; }
-      .ydoc-container-content .content-left, .ydoc-container-content .content-right {
+      .ydoc-container-content .content-left,
+      .ydoc-container-content .content-right {
         float: left;
         position: relative;
         min-height: 1px; }
@@ -436,14 +575,16 @@ body, h1, h2, h3, h4, h5, h6 {
         .ydoc-container-content .ydoc-example code {
           overflow-y: hidden;
           display: block;
-          font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace; }
-        .ydoc-container-content .ydoc-example .fold, .ydoc-container-content .ydoc-example .extend {
+          font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace; }
+        .ydoc-container-content .ydoc-example .fold,
+        .ydoc-container-content .ydoc-example .extend {
           color: #337ab7;
           position: absolute;
           left: 15px;
           bottom: 10px;
           cursor: pointer; }
-        .ydoc-container-content .ydoc-example .fold:hover, .ydoc-container-content .ydoc-example .extend:hover {
+        .ydoc-container-content .ydoc-example .fold:hover,
+        .ydoc-container-content .ydoc-example .extend:hover {
           text-decoration: underline; }
         .ydoc-container-content .ydoc-example .ui-copy {
           position: absolute;
@@ -512,14 +653,19 @@ body, h1, h2, h3, h4, h5, h6 {
             .ydoc-container-content .docs-sidebar .docs-sidenav li a:hover {
               background-color: #fff8ef;
               border-left-color: #fff8ef; }
-          .ydoc-container-content .docs-sidebar .docs-sidenav li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav li.active a:hover {
+          .ydoc-container-content .docs-sidebar .docs-sidenav li.active a,
+          .ydoc-container-content .docs-sidebar .docs-sidenav li.active a:hover {
             border-left: 2px solid #ff503f;
             color: #ff503f; }
           .ydoc-container-content .docs-sidebar .docs-sidenav ul {
             width: 100%; }
-            .ydoc-container-content .docs-sidebar .docs-sidenav ul li, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active {
+            .ydoc-container-content .docs-sidebar .docs-sidenav ul li,
+            .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active {
               font-size: .12rem; }
-              .ydoc-container-content .docs-sidebar .docs-sidenav ul li a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li a:hover, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a, .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a:hover {
+              .ydoc-container-content .docs-sidebar .docs-sidenav ul li a,
+              .ydoc-container-content .docs-sidebar .docs-sidenav ul li a:hover,
+              .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a,
+              .ydoc-container-content .docs-sidebar .docs-sidenav ul li.active a:hover {
                 padding-left: 48px; }
       .ydoc-container-content .docs-sidebar.affix {
         position: fixed;
@@ -544,15 +690,21 @@ body, h1, h2, h3, h4, h5, h6 {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2lpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpEMzJFMTVDOUNCMTQxMUU2OERGOEZGOEM1MkU1MUJENCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEQThGQTIzRENEQTUxMUU2QTczMUM3QjRDM0UxNjQxMiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEQThGQTIzQ0NEQTUxMUU2QTczMUM3QjRDM0UxNjQxMiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6ODZjMjliOTEtNjI0Zi1iZDQ3LWEzZWQtMDIwYzQwNDQxMjlkIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkQzMkUxNUM5Q0IxNDExRTY4REY4RkY4QzUyRTUxQkQ0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+g3TxwAAAANRJREFUeNrsmT0KwkAQhWfXNGLhQewUW08i2FlZ7LZeQMRiC0EQwcvYixcRrbRc35DYaJNGdpD34EsRUnzs/AQSF0IQpAN2YAq6wEmZZPAABxD1RtVwAQMpHz2YHtBTm4Cxx2VrRO4zQ7BSwZnYzdw3PWc1fS+246wLCgX/XrBq81BK6SdvlhhjZolNlLhNKTjFFOQe5B7kHuQUU5B7kHuQe5BTTEEKUvArWQWfhgVvKng0LLhXwQU4G5Q7geW7B0dgA+5S/woo1nPgCtZSf+WXlwADAGEgKNreXHUxAAAAAElFTkSuQmCC) no-repeat; }
 
 @media screen and (min-width: 1200px) {
-  .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
+  .ydoc-header-area,
+  .ydoc-banner-area,
+  .ydoc-container-content {
     width: 1200px; } }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
+  .ydoc-header-area,
+  .ydoc-banner-area,
+  .ydoc-container-content {
     width: 992px; } }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-  .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
+  .ydoc-header-area,
+  .ydoc-banner-area,
+  .ydoc-container-content {
     width: 768px; } }
 
 @media screen and (max-width: 767px) {
@@ -610,7 +762,9 @@ body, h1, h2, h3, h4, h5, h6 {
     cursor: default;
     transition: all .4s;
     -webkit-transition: all .4s; }
-  .ydoc-header-area, .ydoc-banner-area, .ydoc-container-content {
+  .ydoc-header-area,
+  .ydoc-banner-area,
+  .ydoc-container-content {
     width: 100%; }
   .ydoc {
     overflow: scroll;
@@ -622,18 +776,22 @@ body, h1, h2, h3, h4, h5, h6 {
       display: none;
       clear: both;
       width: 100%; }
-      .ydoc .ydoc-nav .navbar-left, .ydoc .ydoc-nav .navbar-right {
+      .ydoc .ydoc-nav .navbar-left,
+      .ydoc .ydoc-nav .navbar-right {
         width: 100%; }
-        .ydoc .ydoc-nav .navbar-left li, .ydoc .ydoc-nav .navbar-right li {
+        .ydoc .ydoc-nav .navbar-left li,
+        .ydoc .ydoc-nav .navbar-right li {
           width: 100%;
           text-align: left;
           display: inline-block; }
-          .ydoc .ydoc-nav .navbar-left li a, .ydoc .ydoc-nav .navbar-right li a {
+          .ydoc .ydoc-nav .navbar-left li a,
+          .ydoc .ydoc-nav .navbar-right li a {
             padding: 0;
             width: 100%;
             display: inline-block;
             transition: all .4s; }
-          .ydoc .ydoc-nav .navbar-left li a:hover, .ydoc .ydoc-nav .navbar-right li a:hover {
+          .ydoc .ydoc-nav .navbar-left li a:hover,
+          .ydoc .ydoc-nav .navbar-right li a:hover {
             color: #ff503f; }
     .ydoc .ydoc-banner-bg {
       padding-bottom: 0; }

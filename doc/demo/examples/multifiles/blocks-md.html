@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>在页面中使用多个文件 单页多模块(md)</title>
+    
+    
+
+    <link rel="shortcut icon" href="./images/favicon.ico" />
+    <link rel="stylesheet" href="source/main.css" />
+    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no,email=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+</head>
+<body>
+    <div class="ydoc">
+        <header class="ydoc-header">
+            <div class="ydoc-header-area">
+                
+                <a href="http://ued.qunar.com/ymfe/" class="navbar-brand">YMFE</a>
+                
+                <button class="ydocIcon navbar-toggle">&#xf020;</button>
+                <nav class="ydoc-nav">
+                    <ul class="navbar-left">
+                         
+                        <li class="">
+                            
+                            <a href="index.html">首页</a> 
+                        </li>
+                        
+                        <li class="active">
+                            
+                            <a href="blocks-md.html">单页多模块(md)</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="js.html">单页多文件(js)</a> 
+                        </li>
+                        
+                        <li class="">
+                            
+                            <a href="pages-js.html">多页配置(js)</a> 
+                        </li>
+                         
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <!-- <header style="height:20px"></header> -->
+        
+        <!-- Docs page layout -->
+        
+        <div class="ydoc-banner-bg">
+            <div class="ydoc-banner ">
+                <div class="ydoc-banner-area">
+                    <h1 >单页多模块</h1>
+                    <p class="desc ">展示单页多模块配置的示例，各个模块都是.md文件。</p>
+                    
+                </div>
+            </div>
+            
+
+            <div class="ydoc-container">
+                
+                <div class="ydoc-container-content">
+                    
+                    
+                    
+                    <div class="content-left staticsidenav" role="complementary">
+                        <nav class="docs-sidebar hidden-print hidden-xs hidden-sm">
+                            <ul class="nav docs-sidenav">
+                                 
+                                        <li>
+                                            <a href="#简介">简介</a>
+                                        </li>
+                                          
+                                        <li>
+                                            <a href="#Hybrid">Hybrid</a>
+                                        </li>
+                                           
+                                <ul class="nav docs-sidenav-extend">
+                                
+                                    <li>
+                                        <a href="#说明">说明</a>
+                                    </li>
+                                  
+                                </ul>
+                        </nav>
+                    </div>
+                    
+                    <div class="content-right right markdown-body use-sidebar" role="main">
+                        
+                        <div><h2 id="-">效果</h2>
+<p>在同一页面中使用多个文件生成本页面。</p>
+<h3 id="-">关键配置</h3>
+<p><code>intro</code> 页面介绍。</p>
+<p><code>content.blocks</code> 单页多模块配置。</p>
+<p>配置文件：</p>
+<pre><code><span class="token property">"intro"</span><span class="token operator">:</span> <span class="token string">"./docs/blocks-js-md.md"</span><span class="token punctuation">,</span>
+<span class="token property">"content"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"blocks"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"简介"</span><span class="token punctuation">,</span> // 标题
+        <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"./docs/markdown/md1.md"</span> // 内容
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Hybrid"</span> // 只有标题，做目录和分割用
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"说明"</span><span class="token punctuation">,</span>
+        <span class="token property">"sub"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> // 标题在目录里已子目录形式显示
+        <span class="token property">"content"</span><span class="token operator">:</span> <span class="token string">"./docs/markdown/md2.md"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+                          
+                        <div class="docs-section">
+                             
+                            <h2 id="简介" class="page-header subject">简介<a class="hashlink" href="#简介">#</a></h2>   
+                            <div>
+                                <h2 class="subject" id="第一个markdown文件">第一个markdown文件 <a class="hashlink" href="#第一个markdown文件">#</a></h2><p>第一个markdown文件的内容。</p>
+
+                            </div>
+                            
+                        </div>
+                          
+                        <div class="docs-section">
+                             
+                            <h2 id="Hybrid" class="page-header subject">Hybrid<a class="hashlink" href="#Hybrid">#</a></h2>   
+                        </div>
+                          
+                        <div class="docs-section">
+                             
+                            <h3 id="说明" class="page-header subject">说明<a class="hashlink" href="#说明">#</a></h3>   
+                            <div>
+                                <h4 class="subject" id="第二个markdown文件">第二个markdown文件 <a class="hashlink" href="#第二个markdown文件">#</a></h4><p>第二个markdown文件的内容。</p>
+
+                            </div>
+                            
+                        </div>
+                         
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <footer class="footer">
+            <div class="copyright">
+                &copy; 2016 <a href="http://ued.qunar.com/ymfe/">YMFE</a> Team. Build by <a href="http://ued.qunar.com/ydoc/">ydoc</a>.
+            </div>
+        </footer>
+    </div>
+
+     
+    <div class="open-panel"></div>
+    <div class="mask"></div>
+    
+
+    <script src="source/main.js"></script>
+    <script src="source/app.js"></script>
+        
+
+    </body>
+
+</html>

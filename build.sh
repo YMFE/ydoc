@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# 构建 ydoc 的页面
+bin/ydoc build
+
 # 构建 demo 的页面们
 cd docs/demo && ../../bin/ydoc build
 
@@ -19,5 +22,3 @@ cd ../homepage && ../../../../bin/ydoc build
 cd ../multifiles && ../../../../bin/ydoc build
 cd ../page && ../../../../bin/ydoc build
 cd ../sidenav && ../../../../bin/ydoc build
-
-cd ../../../../ && bin/ydoc build
