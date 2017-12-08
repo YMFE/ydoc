@@ -1,3 +1,8 @@
+### v3.2.5 (2017.12.08)
+* `opti` 样式优化
+* `opti` 静态资源文件优化
+* `opti` css 代码格式化
+
 ### v3.2.4 (2017.12.06)
 * `opti` 样式优化
 * `feat` 添加 `favicon` 路径为 `./images/favicon.ico`
