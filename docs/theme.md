@@ -23,7 +23,7 @@ npm install ydoc-theme-[name] --save
 
 去除冗余的设计元素，直达目标，极致简约。
 
-![](http://ojk406wln.bkt.clouddn.com/ydoc-default.png)
+![](https://ws1.sinaimg.cn/large/006oPFLAly1fm9gizrlwzj31840otdh2.jpg)
 
 ### library
 
@@ -31,7 +31,7 @@ npm install ydoc-theme-[name] --save
 
 ————我见过，那时我正在debug。。
 
-![](http://ojk406wln.bkt.clouddn.com/ydoc-library.png)
+![](https://ws1.sinaimg.cn/large/006oPFLAly1fm9ghk63a4j31830osqkk.jpg)
 
 ### ocean
 
@@ -39,7 +39,7 @@ npm install ydoc-theme-[name] --save
 
 沉默之中亦有波澜，这是每个程序员内心深处的情愫。
 
-![](http://ojk406wln.bkt.clouddn.com/ydoc-ocean.png)
+![](https://ws1.sinaimg.cn/large/006oPFLAly1fm9ghjm4l5j31820orn1i.jpg)
 
 ### travel
 
@@ -47,7 +47,7 @@ npm install ydoc-theme-[name] --save
 
 在清晨的阳光中，踏上一次探索的旅行。
 
-![](http://ojk406wln.bkt.clouddn.com/ydoc-travel.png)
+![](https://ws1.sinaimg.cn/large/006oPFLAly1fm9ghjm3ifj31850osdja.jpg)
 
 ## 开发主题
 每一个插件都是一个 npm 模块，命名规则为 `ydoc-theme-<name>`，比如 `ydoc-theme-ocean`。
