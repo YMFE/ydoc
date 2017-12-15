@@ -6,7 +6,7 @@
     "doc",
     "document"
   ],
-  "homepage": "http://ymfe.tech/ydoc",
+  "homepage": "https://ydoc.ymfe.org/",
   "main": "src/ydoc.js",
   "bin": {
     "ydoc": "bin/ydoc"
@@ -14,7 +14,7 @@
   "author": {
     "name": "edwon.lin",
     "email": "edwon.lim@gmail.com",
-    "url": "http://ymfe.tech"
+    "url": "https://ymfe.org/"
   },
   "repository": {
     "type": "git",
