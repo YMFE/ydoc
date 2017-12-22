@@ -1,6 +1,3 @@
 #!/usr/bin/env node
 
-var cli = require('../src/cli'),
-    cmd = process.argv[2];
-
-cmd ? cli.run(cmd) : cli.help();
+require('../src/index.js');
