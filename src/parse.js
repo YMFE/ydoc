@@ -33,19 +33,25 @@ function getBookContext(book, page){
 }
 
 function handleMdPathToHtml(filepath){
-  let hashRegexp = /#[\S]*$/;
-  
-  let hashStr = filepath.match(hashRegexp);
-  if(hashStr)filepath = filepath.replace(hashRegexp, '');
   let fileObj = path.parse(filepath);
   if(fileObj.ext === '.md'){
     let name = fileObj.base === defaultIndexPage ? 'index.html' : fileObj.name + '.html';
     return path.format({
       dir: fileObj.dir,
-      base: hashStr ? name + hashStr : name
+      base: name
     })
   }
   throw new Error(`The File ${filepath} isn't md type`)
+}
+
+function handleHash(filepath){
+  let hashRegexp = /#[\S]*$/;
+  let hashStr = filepath.match(hashRegexp);
+  if(hashStr)filepath = filepath.replace(hashRegexp, '');
+  return {
+    filepath: filepath,
+    hash: hashStr ? hashStr[0] : ''
+  }
 }
 
 exports.parseSite =async function(dist){
@@ -76,67 +82,6 @@ exports.parseSite =async function(dist){
 // }
 
 
-
-const summaryData = [
-  {
-    "title": "",
-    "articles": [
-      {
-        "title": "Chapter 1",
-        "ref": "chapter-1/README.md",
-        "articles": [
-          {
-            "title": "Article 1",
-            "ref": "chapter-1/ARTICLE1.md",
-            "articles": []
-          },
-          {
-            "title": "Article 2",
-            "ref": "chapter-1/ARTICLE2.md",
-            "articles": [
-              {
-                "title": "article 1.2.1",
-                "ref": "chapter-1ARTICLE-1-2-1.md",
-                "articles": []
-              },
-              {
-                "title": "article 1.2.2",
-                "ref": "chapter-1/ARTICLE-1-2-2.md",
-                "articles": []
-              }
-            ]
-          }
-        ]
-      },
-     
-      {
-        "title": "Chapter 4",
-        "ref": "chapter-4/README.md",
-        "articles": [
-          {
-            "title": "Unfinished article",
-            "articles": []
-          }
-        ]
-      },
-      {
-        "title": "Unfinished Chapter",
-        "articles": []
-      }
-    ]
-  },
-  {
-    "title": "",
-    "articles": [
-      {
-        "title": "Chapter 1",
-        "ref": "chapter-1/README.md",
-        "articles": []
-      }
-    ]
-  }
-]
-
 async function parseBook(bookpath){
   const book = {}; //书籍公共变量
   const documents = {};
@@ -161,17 +106,21 @@ async function parseBook(bookpath){
 
   function parseDocuments(summary){
     summary.forEach(item=>{
-      if(item.ref) {        
-        let documentPath = path.resolve(bookpath, item.ref);
+      if(item.ref) {
+        let releativePathObj = handleHash(item.ref);
+        let releativePath = releativePathObj.filepath;
+        let documentPath = path.resolve(bookpath, releativePath);
+        let releativeHtmlPath = handleMdPathToHtml(releativePath);
+
         if(utils.fileExist(documentPath)){
           let html = parseMarkdown(documentPath);
           let curPage = parsePage(html);
           curPage.title = curPage.title || item.title;
-          generatePage(handleMdPathToHtml(item.ref), getBookContext(book, curPage));
+          generatePage(releativeHtmlPath, getBookContext(book, curPage));
           fs.unlink(documentPath);
         }        
-        item.ref = handleMdPathToHtml(item.ref);
-
+        item.ref = releativeHtmlPath + releativePathObj.hash;
+        console.log(item.ref);
       }
       if(item.articles && Array.isArray(item.articles) && item.articles.length > 0){
         parseDocuments(item.articles)
@@ -179,8 +128,6 @@ async function parseBook(bookpath){
     })
   }
 }
-
-
 
 function documentType(documentPath){
   let stats = fs.statSync(documentPath);
@@ -193,7 +140,6 @@ function documentType(documentPath){
   }
 }
 
-
 function parsePage(html){
   const $ = dom.parse(html);
   return {
@@ -202,8 +148,6 @@ function parsePage(html){
       content: html
   };
 }
-
-
 
 function parseMarkdown(filepath) {
   const content = fs.readFileSync(filepath, 'utf8');

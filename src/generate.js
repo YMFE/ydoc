@@ -20,10 +20,8 @@ exports.generatePage = function generatePage(bookpath){
 
   return function _generatePage(releativePath, context){
     const page = context.page;
-
     page.releativePath = releativePath;
     page.next = null;
-
     if(prevPage === null){
       page.prev = null;      
     }else{
