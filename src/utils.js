@@ -1,5 +1,5 @@
 const fs = require('fs')
-
+const logger = require('./logger');
 /**
  * 复制一个对象的属性到另一个对象
  *
@@ -34,3 +34,12 @@ exports.fileExist = (filePath) => {
     return false;
   }
 };
+
+/**
+ * log 输出，一共四个 api:
+ *  log.debug(msg)
+ *  log.info(msg)
+ *  log.warn(msg)
+ *  log.error(msg)
+ */
+exports.log = new logger();

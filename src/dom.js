@@ -1,14 +1,14 @@
-var cheerio = require('cheerio');
-
+const cheerio = require('cheerio');
+const _ = require('underscore');
 
 function parse(html) {
-  var $ = cheerio.load(html);
-  var $el = $('html, body').first();
+  let $ = cheerio.load(html);
+  let $el = $('html, body').first();
   return $el.length > 0 ? $el : $;
 }
 
 function root($) {
-  var $el = $('html, body, > div').first();
+  let $el = $('html, body, > div').first();
   return $el.length > 0 ? $el : $.root();
 }
 
@@ -21,7 +21,7 @@ function textNode($el) {
 
 function cleanup($el, $) {
   $el.find('div').each(function () {
-    var $div = $(this);
+    let $div = $(this);
     cleanup($div, $);
 
     $div.replaceWith($div.html());

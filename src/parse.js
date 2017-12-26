@@ -5,47 +5,182 @@ const MarkdownIt = require('markdown-it');
 const md = new MarkdownIt();
 const dom = require('./dom');
 const ydoc = require('./ydoc.js');
+const defaultIndexPage = 'README.md';
+const defaultSummaryPage = 'SUMMARY.md';
+const generate = require('./generate.js').generatePage;
+const runBatch = require('./generate.js').runBatch;
+const parseSummary = require('./summary');
 
 function getBookContent(filepath){
-  let contentFilepath = path.resolve(filepath, './README.md');
+  let contentFilepath = path.resolve(filepath, defaultIndexPage);
   if(!utils.fileExist(contentFilepath)) return;
   let content = parseMarkdown(contentFilepath);
   return parsePage(content);
 }
 
 function getBookSummary(filepath){
-  let summaryFilepath = path.resolve(filepath, './SUMMARY.md');
-  if(!utils.fileExist(summaryFilepath)) return;
+  let summaryFilepath = path.resolve(filepath, defaultSummaryPage);
+  if(!utils.fileExist(summaryFilepath)) return null;
   let summary = parseMarkdown(summaryFilepath);
-
+  fs.unlink(summaryFilepath);
+  return parseSummary(summary);
 }
 
-exports.parseBook = function parseBook(bookpath){
-  const book = {}; //书籍公共变量
-  let bookContent = getBookContent(bookpath);
-  utils.extend(book, {
-    title: bookContent.title,
-    description: bookContent.description
-  });
-  generatePage(path.resolve(bookpath, './index.html'), book, bookContent);
+function getBookContext(book, page){
+  const context = utils.extend({}, book);
+  context.page = page;
+  return context;
+}
 
+function handleMdPathToHtml(filepath){
+  let hashRegexp = /#[\S]*$/;
   
-  function parseDocuments(bookpath){
-    let mds = fs.readdirSync(bookpath);
-    mds.forEach(item=>{
-      let documentPath = path.resolve(bookpath, item);
-      if(item === 'README.md') return;
-      let type = documentType(documentPath);
-      switch(type){
-        case 'dir' : parseDocuments(documentPath); break;
-        case 'md'  : 
-          let html = parseMarkdown(documentPath);
-          let page = parsePage(html);
-          generatePage(documentPath, book, page);
+  let hashStr = filepath.match(hashRegexp);
+  if(hashStr)filepath = filepath.replace(hashRegexp, '');
+  let fileObj = path.parse(filepath);
+  if(fileObj.ext === '.md'){
+    let name = fileObj.base === defaultIndexPage ? 'index.html' : fileObj.name + '.html';
+    return path.format({
+      dir: fileObj.dir,
+      base: hashStr ? name + hashStr : name
+    })
+  }
+  throw new Error(`The File ${filepath} isn't md type`)
+}
+
+exports.parseSite =async function(dist){
+  try{
+    let rootFiles = fs.readdirSync(dist);
+    for(let index in rootFiles){
+      let item = rootFiles[index];
+      let bookPath = path.resolve(dist, item);
+      let stats = fs.statSync(bookPath);      
+      if(stats.isDirectory() && item[0] !== '_' && item[0] !== 'style' ){
+        await parseBook(bookPath);
       }
+    }
+  }catch(err){
+    console.error(err)
+  }
+  
+}
+
+// const bookSchema = {
+//   title: README.md.title,
+//   description: README.md.description,
+//   page:{  //Current page data
+//     title:'',
+//     content: ''
+//   },
+//   summary: null or Object
+// }
+
+
+
+const summaryData = [
+  {
+    "title": "",
+    "articles": [
+      {
+        "title": "Chapter 1",
+        "ref": "chapter-1/README.md",
+        "articles": [
+          {
+            "title": "Article 1",
+            "ref": "chapter-1/ARTICLE1.md",
+            "articles": []
+          },
+          {
+            "title": "Article 2",
+            "ref": "chapter-1/ARTICLE2.md",
+            "articles": [
+              {
+                "title": "article 1.2.1",
+                "ref": "chapter-1ARTICLE-1-2-1.md",
+                "articles": []
+              },
+              {
+                "title": "article 1.2.2",
+                "ref": "chapter-1/ARTICLE-1-2-2.md",
+                "articles": []
+              }
+            ]
+          }
+        ]
+      },
+     
+      {
+        "title": "Chapter 4",
+        "ref": "chapter-4/README.md",
+        "articles": [
+          {
+            "title": "Unfinished article",
+            "articles": []
+          }
+        ]
+      },
+      {
+        "title": "Unfinished Chapter",
+        "articles": []
+      }
+    ]
+  },
+  {
+    "title": "",
+    "articles": [
+      {
+        "title": "Chapter 1",
+        "ref": "chapter-1/README.md",
+        "articles": []
+      }
+    ]
+  }
+]
+
+async function parseBook(bookpath){
+  const book = {}; //书籍公共变量
+  const documents = {};
+  let page = getBookContent(bookpath);
+  
+  let summary = getBookSummary(bookpath);
+  utils.extend(book, {
+    title: page.title || ydoc.title,
+    description: page.description || ydoc.description,
+    summary: summary
+  });
+  const generatePage = generate(bookpath);
+
+  generatePage(handleMdPathToHtml(defaultIndexPage), getBookContext(book, page))
+  fs.unlink(path.resolve(bookpath, defaultIndexPage));
+
+  if(summary && Array.isArray(summary)) parseDocuments(summary);
+
+  runBatch();
+
+  utils.log.ok();
+
+  function parseDocuments(summary){
+    summary.forEach(item=>{
+      if(item.ref) {        
+        let documentPath = path.resolve(bookpath, item.ref);
+        if(utils.fileExist(documentPath)){
+          let html = parseMarkdown(documentPath);
+          let curPage = parsePage(html);
+          curPage.title = curPage.title || item.title;
+          generatePage(handleMdPathToHtml(item.ref), getBookContext(book, curPage));
+          fs.unlink(documentPath);
+        }        
+        item.ref = handleMdPathToHtml(item.ref);
+
+      }
+      if(item.articles && Array.isArray(item.articles) && item.articles.length > 0){
+        parseDocuments(item.articles)
+      } 
     })
   }
 }
+
+
 
 function documentType(documentPath){
   let stats = fs.statSync(documentPath);
@@ -58,24 +193,6 @@ function documentType(documentPath){
   }
 }
 
-function handleMdPathToHtml(filepath){
-  if(path.extname(filepath) === '.md'){
-    filepath = filepath.substr(0, filepath.length - 2) + 'html';
-  }
-  return filepath;
-}
-
-
-function generatePage(filepath, data, page){
-  filepath = handleMdPathToHtml(filepath);
-  let context = {}
-  utils.extend(context, ydoc);
-  console.log(context);
-  context.title = page.title + '-' + ydoc.title;
-
-
-  fs.writeFileSync(filepath, page.content)
-}
 
 function parsePage(html){
   const $ = dom.parse(html);
@@ -84,10 +201,6 @@ function parsePage(html){
       description: $('div.paragraph,p').first().text().trim(),
       content: html
   };
-}
-
-function parseSummary(content){
-
 }
 
 

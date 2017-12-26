@@ -25,9 +25,12 @@
   },
   "license": "MIT",
   "dependencies": {
+    "bash-color": "0.0.4",
     "cheerio": "^0.20.0",
     "fs-extra": "^5.0.0",
     "markdown-it": "^8.4.0",
+    "nunjucks": "^3.0.1",
+    "underscore": "^1.8.3",
     "yargs": "^10.0.3"
   },
   "devDependencies": {

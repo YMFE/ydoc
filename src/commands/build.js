@@ -18,15 +18,7 @@ module.exports = {
     fs.removeSync(dist);
     fs.ensureDirSync(dist);
     fs.copySync(root, dist);
-
-    var rootFiles = fs.readdirSync(dist);
-    rootFiles.forEach(item=>{
-      let bookPath = path.resolve(dist, item);
-      let stats = fs.statSync(bookPath);      
-      if(stats.isDirectory() && item[0] !== '_' && item[0] !== 'style' ){
-        parse.parseBook(bookPath);
-      }
-    })
+    parse.parseSite(dist);
   },
   desc: 'build'
 }
