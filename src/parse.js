@@ -1,8 +1,6 @@
 const path = require('path');
 const fs = require('fs-extra');
 const utils = require('./utils.js');
-const MarkdownIt = require('markdown-it');
-const md = new MarkdownIt();
 const dom = require('./dom');
 const ydoc = require('./ydoc.js');
 const defaultIndexPage = 'README.md';
@@ -10,6 +8,7 @@ const defaultSummaryPage = 'SUMMARY.md';
 const generate = require('./generate.js').generatePage;
 const runBatch = require('./generate.js').runBatch;
 const parseSummary = require('./summary');
+const parseMarkdown = require('./markdown.js');
 
 function getBookContent(filepath){
   let contentFilepath = path.resolve(filepath, defaultIndexPage);
@@ -120,7 +119,6 @@ async function parseBook(bookpath){
           fs.unlink(documentPath);
         }        
         item.ref = releativeHtmlPath + releativePathObj.hash;
-        console.log(item.ref);
       }
       if(item.articles && Array.isArray(item.articles) && item.articles.length > 0){
         parseDocuments(item.articles)
@@ -149,8 +147,5 @@ function parsePage(html){
   };
 }
 
-function parseMarkdown(filepath) {
-  const content = fs.readFileSync(filepath, 'utf8');
-  return md.render(content);
-}
+
 

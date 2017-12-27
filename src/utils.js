@@ -42,4 +42,4 @@ exports.fileExist = (filePath) => {
  *  log.warn(msg)
  *  log.error(msg)
  */
-exports.log = new logger();
+exports.log = new logger('debug');

@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const batch = [];
 const utils = require('./utils');
+const output = require('./output.js');
 
 function insertToBatch(transaction){
   batch.push(transaction);
@@ -32,10 +33,7 @@ exports.generatePage = function generatePage(bookpath){
     context.title = page.title === page.title ? page.title : page.title + '-' + context.title
     page.absolutePath = path.resolve(bookpath, page.releativePath);
     insertToBatch({
-      run: ()=>{
-        fs.writeFileSync(page.absolutePath, JSON.stringify(context, null, 2));
-        utils.log.info('Generate file: ' + page.absolutePath)
-      }
+      run: output(page, context)
     })
     
   };
