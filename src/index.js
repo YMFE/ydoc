@@ -3,8 +3,8 @@ const path = require('path');
 const yargs = require('yargs');
 
 const commandsDir = path.resolve(__dirname, 'commands');
-var commands = [];
-var commandsFile = fs.readdirSync(commandsDir);
+
+const commandsFile = fs.readdirSync(commandsDir);
 commandsFile.forEach(function (file) {
   if (path.extname(file) !== '.js') return null;
   let commandModule = require(path.resolve(commandsDir, file));

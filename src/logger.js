@@ -79,11 +79,11 @@ class logger {
   ok(...args) {
     let msg = this._format.apply(util, args);
     if (args.length > 0) {
-        this._logLn(LEVELS.INFO, color.green('>> ') + msg.trim().replace(/\n/g, color.green('\n>> ')));
+        this._logLn(LEVELS.INFO, color.green('>> ') + msg.trim().replace(/\n/g, color.green('\n>> ')), color.green('OK'));
     } else {
         this._log(LEVELS.INFO, color.green('OK'), '\n');
     }
-  };
+  }
 
   _logLn(...args) {
     if (this.lastChar != '\n') this._write('\n');

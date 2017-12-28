@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs-extra');
-const parse = require('../parse.js');
+const parse = require('../parse/parse.js');
 const utils = require('../utils');
 
 const defaultBuildPath = '_site';

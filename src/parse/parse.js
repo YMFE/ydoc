@@ -1,20 +1,31 @@
 const path = require('path');
 const fs = require('fs-extra');
-const utils = require('./utils.js');
+const utils = require('../utils.js');
 const dom = require('./dom');
-const ydoc = require('./ydoc.js');
-const defaultIndexPage = 'README.md';
-const defaultSummaryPage = 'SUMMARY.md';
-const generate = require('./generate.js').generatePage;
-const runBatch = require('./generate.js').runBatch;
+const ydoc = require('../ydoc.js');
+const defaultIndexPage = 'index';
+const defaultSummaryPage = 'summary.md';
+const generate = require('../generate.js').generatePage;
+const runBatch = require('../generate.js').runBatch;
 const parseSummary = require('./summary');
 const parseMarkdown = require('./markdown.js');
+const parseHtml = require('./html');
 
 function getBookContent(filepath){
-  let contentFilepath = path.resolve(filepath, defaultIndexPage);
-  if(!utils.fileExist(contentFilepath)) return;
-  let content = parseMarkdown(contentFilepath);
+  let contentFilepath = path.resolve(filepath, defaultIndexPage + '.md');
+  let content;
+  if(!utils.fileExist(contentFilepath)){    
+    contentFilepath = path.resolve(filepath, defaultIndexPage + '.html');
+    if(!utils.fileExist(contentFilepath)){
+      return null;
+    }
+    content = parseHtml(contentFilepath);
+  }else{
+    content = parseMarkdown(contentFilepath);
+    fs.unlink(contentFilepath);
+  }
   return parsePage(content);
+  
 }
 
 function getBookSummary(filepath){
@@ -34,13 +45,19 @@ function getBookContext(book, page){
 function handleMdPathToHtml(filepath){
   let fileObj = path.parse(filepath);
   if(fileObj.ext === '.md'){
-    let name = fileObj.base === defaultIndexPage ? 'index.html' : fileObj.name + '.html';
+    let name = fileObj.base === defaultIndexPage + '.md' ? 'index.html' : fileObj.name + '.html';
     return path.format({
       dir: fileObj.dir,
       base: name
     })
+  }else if(fileObj.ext === '.html'){
+    return path.format({
+      dir: fileObj.dir,
+      base: fileObj.base
+    })
   }
-  throw new Error(`The File ${filepath} isn't md type`)
+
+  throw new Error(`The file ${filepath} type isn't .md or .html .`)
 }
 
 function handleHash(filepath){
@@ -65,7 +82,7 @@ exports.parseSite =async function(dist){
       }
     }
   }catch(err){
-    console.error(err)
+    throw err;
   }
   
 }
@@ -83,9 +100,7 @@ exports.parseSite =async function(dist){
 
 async function parseBook(bookpath){
   const book = {}; //书籍公共变量
-  const documents = {};
   let page = getBookContent(bookpath);
-  
   let summary = getBookSummary(bookpath);
   utils.extend(book, {
     title: page.title || ydoc.title,
@@ -94,15 +109,13 @@ async function parseBook(bookpath){
   });
   const generatePage = generate(bookpath);
 
-  generatePage(handleMdPathToHtml(defaultIndexPage), getBookContext(book, page))
-  fs.unlink(path.resolve(bookpath, defaultIndexPage));
+  generatePage('./index.html', getBookContext(book, page))
 
   if(summary && Array.isArray(summary)) parseDocuments(summary);
 
   runBatch();
 
-  utils.log.ok();
-
+  utils.log.ok(`Generate ${book.title} book "${bookpath}/index.html"`);
   function parseDocuments(summary){
     summary.forEach(item=>{
       if(item.ref) {
@@ -112,6 +125,7 @@ async function parseBook(bookpath){
         let releativeHtmlPath = handleMdPathToHtml(releativePath);
 
         if(utils.fileExist(documentPath)){
+          console.log(documentPath)
           let html = parseMarkdown(documentPath);
           let curPage = parsePage(html);
           curPage.title = curPage.title || item.title;

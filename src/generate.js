@@ -1,8 +1,6 @@
 const path = require('path');
-const fs = require('fs-extra');
-const batch = [];
-const utils = require('./utils');
 const output = require('./output.js');
+const batch = [];
 
 function insertToBatch(transaction){
   batch.push(transaction);
@@ -17,8 +15,7 @@ exports.runBatch = function runBatch(){
 
 exports.generatePage = function generatePage(bookpath){
   let prevPage = null;  
-  const batch = [];
-
+  
   return function _generatePage(releativePath, context){
     const page = context.page;
     page.releativePath = releativePath;
