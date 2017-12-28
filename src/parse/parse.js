@@ -74,8 +74,13 @@ function handleMdPathToHtml(filepath){
       base: fileObj.base
     })
   }
+  let errpath = filepath.substr(ydoc.buildPath.length);
+  
+  utils.log.warn(`The file ${errpath} type isn't .md or .html .`)
 
-  throw new Error(`The file ${filepath} type isn't .md or .html .`)
+  return filepath;
+
+  
 }
 
 function handleHash(filepath){
@@ -90,9 +95,10 @@ function handleHash(filepath){
 
 exports.parseSite =async function(dist){
   try{
+    ydoc.buildPath = dist;
     let indexPage = getSiteContent(dist);
     if(!indexPage){
-      return utils.log.error(`The documents directory didn't find index.html`)
+      return utils.log.error(`The root directory of documents didn't find index.html or index.md`)
     }
     
     ydoc.nav = getNav(dist);
@@ -127,7 +133,13 @@ exports.parseSite =async function(dist){
 //     title:'',
 //     content: ''
 //   },
-//   summary: null or Object
+//   summary: null or Object,
+//   config: ydoc,
+//   nav: {
+//    title: '',
+//    menus: Object,
+//    logo: urlPath
+//   }
 // }
 
 
