@@ -8,6 +8,7 @@
     "parserOptions": {
         "ecmaVersion": 2017
     },
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
     "rules": {
         "indent": ["off", 2],
         "comma-dangle": ["error", "never"],

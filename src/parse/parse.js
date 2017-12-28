@@ -90,15 +90,18 @@ function handleHash(filepath){
 
 exports.parseSite =async function(dist){
   try{
-    let indexContent = getSiteContent(dist);
-    if(!indexContent){
+    let indexPage = getSiteContent(dist);
+    if(!indexPage){
       return utils.log.error(`The documents directory didn't find index.html`)
     }
+    
     ydoc.nav = getNav(dist);
     const generateSitePage = generate(dist);
     generateSitePage('./index.html', {
       title: ydoc.title,
-      page: {},
+      page: {
+       content: indexPage.content 
+      },
       config: ydoc
     })
     runBatch();
