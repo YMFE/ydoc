@@ -1,7 +1,6 @@
 # ydoc
-![logo](https://cn.vuejs.org/images/logo.png)
+![](style/images/logo.png)
 
-### your menu
-* [documents](./documents)
-* [api](./api)
-* [GITHUB](https://github.com/ymfe/ydoc)
+### menus
+* [document](/documents/index.html)
+* [github](https://github.com/ymfe/ydoc)

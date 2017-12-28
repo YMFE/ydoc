@@ -5,13 +5,19 @@ const dom = require('./dom');
 const ydoc = require('../ydoc.js');
 const defaultIndexPage = 'index';
 const defaultSummaryPage = 'summary.md';
+const defaultNavPage = 'nav.md';
 const generate = require('../generate.js').generatePage;
 const runBatch = require('../generate.js').runBatch;
 const parseSummary = require('./summary');
 const parseMarkdown = require('./markdown.js');
 const parseHtml = require('./html');
+const parseNav = require('./nav');
 
 function getBookContent(filepath){
+  return parsePage(getIndexContent(filepath));
+}
+
+function getIndexContent(filepath){
   let contentFilepath = path.resolve(filepath, defaultIndexPage + '.md');
   let content;
   if(!utils.fileExist(contentFilepath)){    
@@ -22,23 +28,35 @@ function getBookContent(filepath){
     content = parseHtml(contentFilepath);
   }else{
     content = parseMarkdown(contentFilepath);
-    fs.unlink(contentFilepath);
+    fs.unlinkSync(contentFilepath);
   }
-  return parsePage(content);
-  
+  return content;
+}
+
+function getSiteContent(filepath){
+  return getBookContent(filepath);
 }
 
 function getBookSummary(filepath){
   let summaryFilepath = path.resolve(filepath, defaultSummaryPage);
   if(!utils.fileExist(summaryFilepath)) return null;
   let summary = parseMarkdown(summaryFilepath);
-  fs.unlink(summaryFilepath);
+  fs.unlinkSync(summaryFilepath);
   return parseSummary(summary);
+}
+
+function getNav(filepath){
+  let navFilepath = path.resolve(filepath, defaultNavPage);
+  if(!utils.fileExist(navFilepath)) return null;
+  let content = parseMarkdown(navFilepath);
+  fs.unlinkSync(navFilepath);
+  return parseNav(content);
 }
 
 function getBookContext(book, page){
   const context = utils.extend({}, book);
   context.page = page;
+  context.config = ydoc;
   return context;
 }
 
@@ -72,6 +90,18 @@ function handleHash(filepath){
 
 exports.parseSite =async function(dist){
   try{
+    let indexContent = getSiteContent(dist);
+    if(!indexContent){
+      return utils.log.error(`The documents directory didn't find index.html`)
+    }
+    ydoc.nav = getNav(dist);
+    const generateSitePage = generate(dist);
+    generateSitePage('./index.html', {
+      title: ydoc.title,
+      page: {},
+      config: ydoc
+    })
+    runBatch();
     let rootFiles = fs.readdirSync(dist);
     for(let index in rootFiles){
       let item = rootFiles[index];
@@ -82,7 +112,7 @@ exports.parseSite =async function(dist){
       }
     }
   }catch(err){
-    throw err;
+    utils.log.error(err);
   }
   
 }
@@ -100,17 +130,18 @@ exports.parseSite =async function(dist){
 
 async function parseBook(bookpath){
   const book = {}; //书籍公共变量
+
   let page = getBookContent(bookpath);
+  if(!page) return ;
   let summary = getBookSummary(bookpath);
   utils.extend(book, {
     title: page.title || ydoc.title,
     description: page.description || ydoc.description,
     summary: summary
   });
+
   const generatePage = generate(bookpath);
-
   generatePage('./index.html', getBookContext(book, page))
-
   if(summary && Array.isArray(summary)) parseDocuments(summary);
 
   runBatch();
@@ -129,7 +160,7 @@ async function parseBook(bookpath){
           let curPage = parsePage(html);
           curPage.title = curPage.title || item.title;
           generatePage(releativeHtmlPath, getBookContext(book, curPage));
-          fs.unlink(documentPath);
+          fs.unlinkSync(documentPath);
         }        
         item.ref = releativeHtmlPath + releativePathObj.hash;
       }

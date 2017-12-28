@@ -4,10 +4,10 @@ const ydoc = {
 }
 
 const defaultConfig = {
-  "root": "./docs",
-  "title": "ydoc",
-  "description": "ydoc description",
-  "author": "ymfe"
+  root: "./docs",
+  title: "ydoc",
+  description: "ydoc description",
+  author: "ymfe"
 }
 utils.extend(ydoc, defaultConfig);
 module.exports=ydoc;

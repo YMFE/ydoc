@@ -13,6 +13,14 @@ exports.runBatch = function runBatch(){
   runBatch();
 }
 
+// exports.generateSiteIndex = function generateSiteIndex(sitepath){
+//   return function _generateSiteIndex(releativePath, context){
+//     insertToBatch({
+//       run: output({}, context)
+//     })
+//   }
+// }
+
 exports.generatePage = function generatePage(bookpath){
   let prevPage = null;  
   
@@ -27,7 +35,10 @@ exports.generatePage = function generatePage(bookpath){
       prevPage.next = releativePath;
     }
     prevPage = page;
-    context.title = page.title === page.title ? page.title : page.title + '-' + context.title
+    if(page.title){
+      context.title = page.title === context.title ? page.title : page.title + '-' + context.title
+    }
+    
     page.absolutePath = path.resolve(bookpath, page.releativePath);
     insertToBatch({
       run: output(page, context)
