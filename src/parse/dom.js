@@ -7,11 +7,19 @@ function parse(html) {
   return $el.length > 0 ? $el : $;
 }
 
+/**
+ * Get root element
+ * @param {*} $ 
+ */
 function root($) {
   let $el = $('html, body, > div').first();
   return $el.length > 0 ? $el : $.root();
 }
 
+/**
+ * Get element children text content
+ * @param {*}  
+ */
 function textNode($el) {
   return _.reduce($el.children, function (text, e) {
     if (e.type == 'text') text += e.data;
@@ -19,6 +27,11 @@ function textNode($el) {
   }, '');
 }
 
+/**
+ * remove div element
+ * @param {*}  
+ * @param {*} $ 
+ */
 function cleanup($el, $) {
   $el.find('div').each(function () {
     let $div = $(this);

@@ -125,7 +125,6 @@ async function parseBook(bookpath){
         let releativeHtmlPath = handleMdPathToHtml(releativePath);
 
         if(utils.fileExist(documentPath)){
-          console.log(documentPath)
           let html = parseMarkdown(documentPath);
           let curPage = parsePage(html);
           curPage.title = curPage.title || item.title;
@@ -138,17 +137,6 @@ async function parseBook(bookpath){
         parseDocuments(item.articles)
       } 
     })
-  }
-}
-
-function documentType(documentPath){
-  let stats = fs.statSync(documentPath);
-  if(stats.isDirectory()){
-    return 'dir';
-  }else if(stats.isFile() && path.extname(documentPath) === '.md'){
-    return 'md';
-  }else {
-    return 'file';
   }
 }
 

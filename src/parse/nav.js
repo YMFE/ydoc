@@ -4,9 +4,6 @@ const SELECTOR_LIST = 'ol, ul';
 const SELECTOR_LINK = '> a, p > a';
 const SELECTOR_PART = 'h2, h3, h4';
 
-const BL = '\n';
-
-
 function findList($parent) {
     let $container = $parent.children('.olist');
     if ($container.length > 0) $parent = $container.first();
@@ -15,7 +12,7 @@ function findList($parent) {
 }
 
 function parseList($ul, $) {
-    let articles = [];
+    let items = [];
 
     $ul.children('li').each(function() {
         let article = {};
@@ -30,13 +27,13 @@ function parseList($ul, $) {
         }
 
         let $sub = findList($li);
-        article.articles = parseList($sub, $);
+        article.items = parseList($sub, $);
 
         if (!article.title) return;
-        articles.push(article);
+        items.push(article);
     });
 
-    return articles;
+    return items;
 }
 
 function findParts($parent, $) {
@@ -85,8 +82,8 @@ function getPartTitle(el, $) {
     return $(el).text().trim();
 }
 
-function parseSummary(html) {
-    let $ = dom.parse(html);
+function parseMenu($) {
+    
     let $root = dom.cleanup(dom.root($), $);
 
     let parts = findParts($root, $);
@@ -97,11 +94,31 @@ function parseSummary(html) {
         part = parts[i];
         parsedParts.push({
             title: part.title,
-            articles: parseList($(part.list), $)
+            items: parseList($(part.list), $)
         });
     }
 
     return parsedParts;
 }
 
-module.exports = parseSummary;
+function parseTitleAndLogo($){
+
+    let $title = $('h1:first-child');
+    let $logo = $('p>img:first-child').first();
+    let data = {
+        title: $title.text().trim(),
+        logo: $logo.attr('src')
+    }
+    $title.remove();
+    $logo.remove();
+    return data;
+}
+
+function parseNav(html){
+    let $ = dom.parse(html);
+    let data = parseTitleAndLogo($);
+    data.menus = parseMenu($)
+    return data;
+}
+
+module.exports = parseNav;
