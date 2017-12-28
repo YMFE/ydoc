@@ -1,14 +1,6 @@
 const React = require('react');
-
-const Header = (props)=> {
-  return <head>
-    <title>{props.data.title}</title>
-  </head> 
-};
-
-const Body = (props)=> {
-  return <div dangerouslySetInnerHTML={{__html: props.content}}></div>
-}
+const Header = require('./Header.js');
+const Body = require('./Body.js');
 
 const App = function(context){
   return <html><Header data={context} /><body><div>    
