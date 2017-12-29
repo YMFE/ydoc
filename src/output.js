@@ -8,7 +8,7 @@ const Layout = require('../theme/template/Layout.js');
 const ReactDOMServer = require('react-dom/server');
 
 function render(context){
-  return ReactDOMServer.renderToString(Layout(context));
+  return ReactDOMServer.renderToStaticMarkup(Layout(context));
 }
 
 module.exports = function(page, context){
