@@ -1,4 +1,6 @@
 const ydoc = require('./ydoc.js');
+const path = require('path');
+const utils = require('./utils.js');
 
 const Plugins = [];
 
@@ -7,9 +9,6 @@ const hooks = {
     listener: []
   },
   "finish":  {
-    listener: []
-  },
-  "markdown": {
     listener: []
   },
   "book:before":{
@@ -47,31 +46,33 @@ exports.emitHook = function emitHook(name) {
       if (Array.isArray(hooks[name].listener)) {
           let listenerList = hooks[name].listener;
           for (let i = 0, l = listenerList.length; i < l; i++) {
-              promiseAll.push(Promise.resolve(listenerList[i].apply(yapi, args)));
+              promiseAll.push(Promise.resolve(listenerList[i].apply(ydoc, args)));
           }
       }
       return Promise.all(promiseAll);
   }
 }
 
-function loadPlugins(){
+exports.loadPlugins = function loadPlugins(){
   let modules = path.resolve(process.cwd(), 'node_modules');
+  let plugins = [];
   if(ydoc.plugins && Array.isArray(ydoc.plugins)){
     plugins = plugins.concat(ydoc.plugins)
   }
   for(let i=0, l= plugins.length; i< l; i++){
-    let pluginName = plugins[i];
+    let pluginName = plugins[i].name;
     try{
       let pluginModule = require(path.resolve(modules, './ydoc-plugin-' + pluginName));
       utils.log.info(`Load plugin ${pluginName} success.`)
+      for(let key in pluginModule){
+        if(hooks[key]){
+          bindHook(key, pluginModule[key])
+        }
+      }
     }catch(err){
       err.message = 'Load ' + path.resolve(modules, './ydoc-plugin-' + pluginName) + ' plugin failed, ' + err.message;
       throw err;
     }
-    for(let key in pluginModule){
-      if(hooks[key]){
-        bindHook(key, pluginModule[key])
-      }
-    }
+    
   }
 }
