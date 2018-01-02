@@ -7,5 +7,8 @@ module.exports = {
         options: {
             xxx: 'test'
         }
-    }]
+    }],
+    markdown: function(md){
+        
+    }
 }

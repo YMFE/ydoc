@@ -48,7 +48,8 @@ function findTransactionBySrcPath(path){
 
 exports.runBatch = async function runBatch(){
   if(batch.length === 0) return;
-  batch.forEach(transaction=>{
+  for(let index=0, l = batch.length; index<l; index++){
+    let transaction = batch[index];
     let page = transaction.context.page;
     if(page.title){
       context.title = page.title === context.title ? page.title : page.title + '-' + context.title
@@ -70,7 +71,7 @@ exports.runBatch = async function runBatch(){
     }catch(err){
       throw err;
     }
-  })
+  }
   batch.forEach(transaction=>{
     if(utils.fileExist(transaction.context.page.srcPath) && transaction.context.page.srcPath !== transaction.context.page.distPath){
       fs.unlinkSync(transaction.context.page.srcPath);
