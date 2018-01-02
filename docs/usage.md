@@ -131,7 +131,7 @@ module.exports = function(callback) {
     },
     "common": { // 通用默认配置，包括主页配置等
         "title": "YDoc", //page title
-        "footer": "&copy; 2017 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
+        "footer": "&copy; 2018 <a href=\"http://ued.qunar.com/ymfe/\">YMFE</a> Team. Build by <a href=\"http://ued.qunar.com/ydoc/\">ydoc</a>.", // 通用尾
         "home": "YMFE", // logo
         "homeUrl": "http://ued.qunar.com/ymfe/" // logourl,
         "keywords": "doc,build,fe,html,markdown,css,js", // <meta> 标签的 name 属性为 keywords 时 content 的内容
