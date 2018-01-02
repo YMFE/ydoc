@@ -3,6 +3,7 @@ const fs = require('fs-extra');
 const parse = require('../parse/parse.js');
 const utils = require('../utils');
 const stylus = require('stylus');
+const loadPlugins = require('../plugin.js').loadPlugins;
 
 const defaultBuildPath = '_site';
 const projectPath = process.cwd();
@@ -37,6 +38,7 @@ module.exports = {
     fs.removeSync(dist);
     fs.ensureDirSync(dist);
     fs.copySync(root, dist);
+    loadPlugins();
     parse.parseSite(dist);
   },
   desc: 'build'

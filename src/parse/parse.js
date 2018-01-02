@@ -124,6 +124,23 @@ function getBookInfo(filepath){
   }
 }
 
+const bookSchema = {
+  title: 'string',
+  description: 'string',
+  summary: {},
+  nav: {},
+  page: {
+    title: 'string',
+    description: 'string',
+    content: 'string',
+    prev: 'string',
+    next: 'string',
+    srcPath: 'string',
+    distPath: 'string'
+  },
+  config: {} //ydoc 配置
+}
+
 async function parseBook(bookpath){
   const book = {}; //书籍公共变量
   let indexPath = await getIndexPath(bookpath);
