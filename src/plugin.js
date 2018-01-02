@@ -12,7 +12,7 @@ const hooks = {
   "markdown": {
     listener: []
   },
-  "book:bofore":{
+  "book:before":{
     listener: []
   },
   "book":{

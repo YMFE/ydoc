@@ -21,7 +21,7 @@ Authors can extend the templates of a theme directly from their book's source (w
 
 ### Extend instead of Forking
 
-When you want to make your theme changes available to multiple books, instead of forking the default theme, you can extend it using the [templating syntax](../templating/README.md):
+When you want to make your theme changes available to multiple books, instead of forking the default theme, you can extend it using the [templating syntax](../templating/index.md):
 
 ```html
 {% extends template.self %}
@@ -36,4 +36,4 @@ Take a look at the [API](https://github.com/GitbookIO/theme-api) theme for a mor
 
 ### Publish a theme
 
-Themes are published as plugins ([see related docs](../plugins/README.md)) with a `theme-` prefix. For example the theme `awesome` will be loaded from the `theme-awesome` plugin, and then from the `gitbook-plugin-theme-awesome` NPM package.
+Themes are published as plugins ([see related docs](../plugins/index.md)) with a `theme-` prefix. For example the theme `awesome` will be loaded from the `theme-awesome` plugin, and then from the `gitbook-plugin-theme-awesome` NPM package.

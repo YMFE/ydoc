@@ -11,7 +11,7 @@ The `Book` class is the central point of GitBook, it centralize all access read 
 var value = book.config.get('title', 'Default Value');
 
 // Resolve a filename to an absolute path
-var filepath = book.resolve('README.md');
+var filepath = book.resolve('index.md');
 
 // Render an inline markup string
 book.renderInline('markdown', 'This is **Markdown**')
@@ -34,7 +34,7 @@ var root = output.root();
 var filepath = output.resolve('myimage.png');
 
 // Convert a filename to an URL (returns a path to an html file)
-var fileurl = output.toURL('mychapter/README.md');
+var fileurl = output.toURL('mychapter/index.md');
 
 // Write a file in the output folder
 output.writeFile('hello.txt', 'Hello World')

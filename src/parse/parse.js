@@ -9,33 +9,22 @@ const defaultNavPage = 'nav.md';
 const generate = require('../generate.js').generatePage;
 const runBatch = require('../generate.js').runBatch;
 const parseSummary = require('./summary');
-const parseMarkdown = require('./markdown.js');
-const parseHtml = require('./html');
+const parseMarkdown = require('./markdown');
+const parsePage = require('./page.js');
+const parseHtml = require('./html.js');
 const parseNav = require('./nav');
 const emitHook = require('../plugin.js').emitHook;
+const url = require('url');
 
-async function getBookContent(filepath){
-  return await parsePage(getIndexContent(filepath));
-}
-
-function getIndexContent(filepath){
+function getIndexPath(filepath){
   let contentFilepath = path.resolve(filepath, defaultIndexPage + '.md');
-  let content;
   if(!utils.fileExist(contentFilepath)){    
     contentFilepath = path.resolve(filepath, defaultIndexPage + '.html');
     if(!utils.fileExist(contentFilepath)){
       return null;
     }
-    content = parseHtml(contentFilepath);
-  }else{
-    content = parseMarkdown(contentFilepath);
-    fs.unlinkSync(contentFilepath);
   }
-  return content;
-}
-
-async function getSiteContent(filepath){
-  return await getBookContent(filepath);
+  return contentFilepath;
 }
 
 function getBookSummary(filepath){
@@ -84,31 +73,23 @@ function handleMdPathToHtml(filepath){
   
 }
 
-function handleHash(filepath){
-  let hashRegexp = /#[\S]*$/;
-  let hashStr = filepath.match(hashRegexp);
-  if(hashStr)filepath = filepath.replace(hashRegexp, '');
-  return {
-    filepath: filepath,
-    hash: hashStr ? hashStr[0] : ''
-  }
-}
-
 exports.parseSite =async function(dist){
   try{
     ydoc.buildPath = dist;
     await emitHook('init');
-    let indexPage = await getSiteContent(dist);
-    if(!indexPage){
+    await emitHook('markdown', utils.md);
+    let indexPath = await getIndexPath(dist);
+    if(!indexPath){
       return utils.log.error(`The root directory of documents didn't find index.html or index.md`)
     }
     
     ydoc.nav = getNav(dist);
     const generateSitePage = generate(dist);
-    generateSitePage('./index.html', {
+    generateSitePage({
       title: ydoc.title,
       page: {
-       content: indexPage.content 
+        srcPath: indexPath,
+        distPath: './index.html'
       },
       config: ydoc
     })
@@ -129,37 +110,42 @@ exports.parseSite =async function(dist){
   
 }
 
-// const bookSchema = {
-//   title: README.md.title,
-//   description: README.md.description,
-//   page:{  //Current page data
-//     title:'',
-//     content: ''
-//   },
-//   summary: null or Object,
-//   config: ydoc,
-//   nav: {
-//    title: '',
-//    menus: Object,
-//    logo: urlPath
-//   }
-// }
-
+function getBookInfo(filepath){
+  let page;
+  if(path.extname(filepath) === '.md'){
+    page = parseMarkdown(filepath);    
+  }else{
+    page = parseHtml(filepath);
+  }
+  page = parsePage(page);
+  return {
+    title: page.title || ydoc.title,
+    description: page.description
+  }
+}
 
 async function parseBook(bookpath){
   const book = {}; //书籍公共变量
+  let indexPath = await getIndexPath(bookpath);
+  if(!indexPath) return ;
 
-  let page = await getBookContent(bookpath);
-  if(!page) return ;
   let summary = getBookSummary(bookpath);
-  utils.extend(book, {
-    title: page.title || ydoc.title,
-    description: page.description || ydoc.description,
+  let baseInfo = getBookInfo(indexPath);
+  utils.extend(book, baseInfo);
+  book.summary = summary;
+
+  await emitHook('book:before', {
+    title: book.title,
+    description: book.description,
     summary: summary
   });
 
   const generatePage = generate(bookpath);
-  generatePage('./index.html', getBookContext(book, page))
+
+  generatePage(getBookContext(book, {
+    srcPath: indexPath,
+    distPath: './index.html'
+  }))
   if(summary && Array.isArray(summary)) {
     await parseDocuments(summary); 
   };
@@ -170,38 +156,28 @@ async function parseBook(bookpath){
   async function parseDocuments(summary){
     for(let index = 0; index< summary.length; index++){
       let item = summary[index];
-      if(item.ref) {
-        let releativePathObj = handleHash(item.ref);
-        let releativePath = releativePathObj.filepath;
-        let documentPath = path.resolve(bookpath, releativePath);
-        let releativeHtmlPath = handleMdPathToHtml(releativePath);
 
-        if(utils.fileExist(documentPath)){
-          let html = parseMarkdown(documentPath);
-          let curPage = await parsePage(html);
-          curPage.title = curPage.title || item.title;
-          generatePage(releativeHtmlPath, getBookContext(book, curPage));
-          fs.unlinkSync(documentPath);
-        }        
-        item.ref = releativeHtmlPath + releativePathObj.hash;
+      if(item.ref){
+        let urlObj = url.parse(item.ref);
+        if(urlObj.host) continue;
+        let releativePath = urlObj.pathname;
+        let absolutePath = path.resolve(bookpath, releativePath);
+        if(utils.fileExist(absolutePath)){
+          let releativeHtmlPath = handleMdPathToHtml(releativePath);
+          item.ref = releativeHtmlPath + urlObj.hash;
+          generatePage(getBookContext(book, {
+            srcPath: absolutePath,
+            distPath: releativeHtmlPath
+          }));
+        }
+        
       }
+
       if(item.articles && Array.isArray(item.articles) && item.articles.length > 0){
         parseDocuments(item.articles)
       }
     }
   }
+  await emitHook('book');
+
 }
-
-async function parsePage(html){
-  const $ = dom.parse(html);
-  let page = {
-      title: $('h1:first-child').text().trim(),
-      description: $('div.paragraph,p').first().text().trim(),
-      content: html
-  };
-  await emitHook('page:bofore', page);
-  return page;
-}
-
-
-

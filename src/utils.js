@@ -1,5 +1,10 @@
 const fs = require('fs')
 const logger = require('./logger');
+const MarkdownIt = require('markdown-it');
+const md = MarkdownIt({
+  html: true,
+  linkify: true
+});
 /**
  * 复制一个对象的属性到另一个对象
  *
@@ -14,6 +19,10 @@ exports.extend = function extend(obj, props) {
     }
   }
   return obj;
+}
+
+exports.clearArray =  function clearArray(a) {
+  return a.splice(0, a.length);
 }
 
 /**
@@ -43,3 +52,5 @@ exports.fileExist = (filePath) => {
  *  log.error(msg)
  */
 exports.log = new logger('info');
+
+exports.md = md;

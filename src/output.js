@@ -7,15 +7,15 @@ const Layout = require('../theme/template/Layout.js');
 
 const ReactDOMServer = require('react-dom/server');
 
-function render(context){
+function render(context) {
   return ReactDOMServer.renderToStaticMarkup(Layout(context));
 }
 
-module.exports = function(page, context){
-  return ()=> {
-    // console.log(context);
-    // throw new Error('err')
-    fs.writeFileSync(page.absolutePath, render(context));
-    utils.log.debug('Generate file: ' + page.absolutePath)
-  }  
+module.exports = function (context) {
+
+  // console.log(context);
+  // throw new Error('err')
+  fs.writeFileSync(context.page.distPath, render(context));
+  utils.log.debug('Generate file: ' + context.page.distPath)
+
 }

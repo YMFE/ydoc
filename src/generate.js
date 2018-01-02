@@ -1,32 +1,98 @@
 const path = require('path');
 const output = require('./output.js');
+const _ = require('underscore');
 const batch = [];
+const utils = require('./utils.js');
+const dom = require('./parse/dom.js');
+const url = require('url');
+const fs = require('fs-extra');
+
+const parseMarkdown = require('./parse/markdown.js');
+const parseHtml = require('./parse/html');
+const parsePage = require('./parse/page');
+const emitHook = require('./plugin.js').emitHook;
 
 function insertToBatch(transaction){
   batch.push(transaction);
 }
 
-exports.runBatch = function runBatch(){
-  if(batch.length === 0) return;
-  let transaction = batch.shift();
-  transaction.run();
-  runBatch();
+function handleUrl($, filepath){
+  let urls = $('a');
+  urls.each(function(){
+    let item = $(this);
+    let href = item.attr('href');
+
+    let urlObj = url.parse(href);
+
+    if(urlObj.hostname){
+      return;
+    }
+    if(!urlObj.path){
+      return;
+    }
+    
+    if(path.extname(urlObj.pathname) === '.md'){
+      let srcPath = path.resolve(filepath, urlObj.pathname);
+      let findTransaction = findTransactionBySrcPath(srcPath);
+      if(findTransaction){
+        item.attr('href', findTransaction.context.page.releativePath)
+      }
+    }
+  })
+  return $.html()
 }
 
-// exports.generateSiteIndex = function generateSiteIndex(sitepath){
-//   return function _generateSiteIndex(releativePath, context){
-//     insertToBatch({
-//       run: output({}, context)
-//     })
-//   }
-// }
+function findTransactionBySrcPath(path){
+  return _.find(batch, {srcPath: path})
+}
+
+exports.runBatch = async function runBatch(){
+  if(batch.length === 0) return;
+  batch.forEach(transaction=>{
+    let page = transaction.context.page;
+    if(page.title){
+      context.title = page.title === context.title ? page.title : page.title + '-' + context.title
+    }
+    let _p;
+    switch(page.type){
+      case 'md'  :         
+        _p = parsePage(parseMarkdown(page.srcPath));break;
+      default : _p = {
+        content: parseHtml(page.srcPath)
+      }
+    }
+    _p.content = handleUrl(dom.parse(_p.content), transaction.context._bookpath);
+    utils.extend(page, _p);
+    try{
+      await emitHook('page:before', page);
+      output(transaction.context);      
+      delete transaction.context.page.content;
+    }catch(err){
+      throw err;
+    }
+  })
+  batch.forEach(transaction=>{
+    if(utils.fileExist(transaction.context.page.srcPath) && transaction.context.page.srcPath !== transaction.context.page.distPath){
+      fs.unlinkSync(transaction.context.page.srcPath);
+    }
+  })
+  utils.clearArray(batch);
+}
+
+function getType(filepath){  
+  return path.extname(filepath).substr(1).toLowerCase();
+}
 
 exports.generatePage = function generatePage(bookpath){
   let prevPage = null;  
   
-  return function _generatePage(releativePath, context){
+  return function _generatePage(context){    
     const page = context.page;
+    context._bookpath = bookpath;
+    let releativePath = page.distPath;
+    page.type = getType(page.srcPath);
     page.releativePath = releativePath;
+    page.distPath = path.resolve(bookpath, releativePath);
     page.next = null;
     if(prevPage === null){
       page.prev = null;      
@@ -35,13 +101,9 @@ exports.generatePage = function generatePage(bookpath){
       prevPage.next = releativePath;
     }
     prevPage = page;
-    if(page.title){
-      context.title = page.title === context.title ? page.title : page.title + '-' + context.title
-    }
-    
-    page.absolutePath = path.resolve(bookpath, page.releativePath);
     insertToBatch({
-      run: output(page, context)
+      srcPath: page.srcPath,
+      context: context
     })
     
   };

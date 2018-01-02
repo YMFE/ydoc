@@ -18,9 +18,9 @@ GitBook allows you to customize your book using a flexible configuration. These 
 
 ### Plugins
 
-Plugins and their configurations are specified in the `book.json`. See [the plugins section](plugins/README.md) for more details.
+Plugins and their configurations are specified in the `book.json`. See [the plugins section](plugins/index.md) for more details.
 
-Since version 3.0.0, GitBook can use themes. See [the theming section](themes/README.md) for more details.
+Since version 3.0.0, GitBook can use themes. See [the theming section](themes/index.md) for more details.
 
 | Variable | Description |
 | -------- | ----------- |
@@ -29,12 +29,12 @@ Since version 3.0.0, GitBook can use themes. See [the theming section](themes/RE
 
 ### Structure
 
-In addition to the `root` variable, you can tell Gitbook the name of the files for Readme, Summary, Glossary, Languages (instead of using the default names such as `README.md`).
-These files must be at the root of your book (or the root of every language book). Paths such as `dir/MY_README.md` are not accepted.
+In addition to the `root` variable, you can tell Gitbook the name of the files for Readme, Summary, Glossary, Languages (instead of using the default names such as `index.md`).
+These files must be at the root of your book (or the root of every language book). Paths such as `dir/MY_index.md` are not accepted.
 
 | Variable | Description |
 | -------- | ----------- |
-| `structure.readme` | Readme file name (defaults to `README.md`) |
+| `structure.readme` | Readme file name (defaults to `index.md`) |
 | `structure.summary` | Summary file name (defaults to `SUMMARY.md`) |
 | `structure.glossary` | Glossary file name (defaults to `GLOSSARY.md`) |
 | `structure.languages` | Languages file name (defaults to `LANGS.md`) |

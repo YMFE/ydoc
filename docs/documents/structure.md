@@ -7,13 +7,13 @@ A basic GitBook usually looks something like this:
 ```
 .
 ├── book.json
-├── README.md
+├── index.md
 ├── SUMMARY.md
 ├── chapter-1/
-|   ├── README.md
+|   ├── index.md
 |   └── something.md
 └── chapter-2/
-    ├── README.md
+    ├── index.md
     └── something.md
 ```
 
@@ -22,7 +22,7 @@ An overview of what each of these does:
 | File | Description |
 | -------- | ----------- |
 | `book.json` | Stores [configuration](config.md) data (__optional__) |
-| `README.md` | Preface / Introduction for your book (**required**) |
+| `index.md` | Preface / Introduction for your book (**required**) |
 | `SUMMARY.md` | Table of Contents (See [Pages](pages.md)) (__optional__) |
 | `GLOSSARY.md` | Lexicon / List of terms to annotate (See [Glossary](lexicon.md)) (__optional__) |
 
@@ -53,7 +53,7 @@ For software projects, you can use a subdirectory (like `docs/`) to store the bo
 .
 ├── book.json
 └── docs/
-    ├── README.md
+    ├── index.md
     └── SUMMARY.md
 ```
 

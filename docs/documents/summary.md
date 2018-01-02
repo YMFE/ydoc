@@ -2,7 +2,7 @@
 
 ### Getting Started
 
-* [About this documentation](README.md)
+* [About this documentation](index.md)
 * [Installation and Setup](setup.md)
 
 ### Your Content
@@ -29,18 +29,18 @@
 
 ### Customization
 
-* [Templating](templating/README.md)
+* [Templating](templating/index.md)
     * [Content References](templating/conrefs.md)
     * [Variables](templating/variables.md)
     * [Builtin](templating/builtin.md)
-* [Plugins](plugins/README.md)
+* [Plugins](plugins/index.md)
     * [Create a plugin](plugins/create.md)
     * [Hooks](plugins/hooks.md)
     * [Blocks](plugins/blocks.md)
     * [Filters](plugins/filters.md)
     * [API & Context](plugins/api.md)
     * [Test your plugin](plugins/testing.md)
-* [Theming](themes/README.md)
+* [Theming](themes/index.md)
 
 --
 

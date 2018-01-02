@@ -13,15 +13,15 @@ Adding a nested list to a parent chapter will create subchapters.
 ```markdown
 # Summary
 
-* [Part I](part1/README.md)
+* [Part I](part1/index.md)
     * [Writing is nice](part1/writing.md)
     * [GitBook is nice](part1/gitbook.md)
-* [Part II](part2/README.md)
+* [Part II](part2/index.md)
     * [We love feedback](part2/feedback_please.md)
     * [Better tools for authors](part2/better_tools.md)
 ```
 
-Each chapter has a dedicated page (`part#/README.md`) and is split into subchapters.
+Each chapter has a dedicated page (`part#/index.md`) and is split into subchapters.
 
 ##### Anchors
 
@@ -32,12 +32,12 @@ Chapters in the Table of Contents can be pointing to specific part of a file usi
 
 ### Part I
 
-* [Part I](part1/README.md)
-    * [Writing is nice](part1/README.md#writing)
-    * [GitBook is nice](part1/README.md#gitbook)
-* [Part II](part2/README.md)
-    * [We love feedback](part2/README.md#feedback)
-    * [Better tools for authors](part2/README.md#tools)
+* [Part I](part1/index.md)
+    * [Writing is nice](part1/index.md#writing)
+    * [GitBook is nice](part1/index.md#gitbook)
+* [Part II](part2/index.md)
+    * [We love feedback](part2/index.md#feedback)
+    * [Better tools for authors](part2/index.md#tools)
 ```
 
 

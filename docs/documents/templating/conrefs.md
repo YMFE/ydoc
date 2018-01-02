@@ -15,7 +15,7 @@ Importing an other file's content is easy using the `include` tag:
 GitBook can also resolve the include path by using git:
 
 ```
-{% include "git+https://github.com/GitbookIO/documentation.git/README.md#0.0.1" %}
+{% include "git+https://github.com/GitbookIO/documentation.git/index.md#0.0.1" %}
 ```
 
 The format of git url is:
