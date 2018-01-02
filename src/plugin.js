@@ -46,7 +46,9 @@ exports.emitHook = function emitHook(name) {
       if (Array.isArray(hooks[name].listener)) {
           let listenerList = hooks[name].listener;
           for (let i = 0, l = listenerList.length; i < l; i++) {
-              promiseAll.push(Promise.resolve(listenerList[i].apply(ydoc, args)));
+              promiseAll.push(Promise.resolve(listenerList[i].apply({
+                config: ydoc
+              }, args)));
           }
       }
       return Promise.all(promiseAll);
