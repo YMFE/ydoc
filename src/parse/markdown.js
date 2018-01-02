@@ -1,5 +1,8 @@
 const MarkdownIt = require('markdown-it');
-const md = new MarkdownIt();
+const md = MarkdownIt({
+  html: true,
+  linkify: true
+});
 const fs = require('fs-extra');
 
 module.exports = function parseMarkdown(filepath) {

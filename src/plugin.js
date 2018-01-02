@@ -1,13 +1,23 @@
+const ydoc = require('./ydoc.js');
+
+const Plugins = [];
+
 const hooks = {
-  init: {
-    listener: []
-  },
-  "finish:before": {
+  "init": {
     listener: []
   },
   "finish":  {
     listener: []
   },
+  "markdown": {
+    listener: []
+  },
+  "book:bofore":{
+    listener: []
+  },
+  "book":{
+    listener: []
+  },  
   "page:before": {
     listener: []
   },
@@ -41,5 +51,27 @@ exports.emitHook = function emitHook(name) {
           }
       }
       return Promise.all(promiseAll);
+  }
+}
+
+function loadPlugins(){
+  let modules = path.resolve(process.cwd(), 'node_modules');
+  if(ydoc.plugins && Array.isArray(ydoc.plugins)){
+    plugins = plugins.concat(ydoc.plugins)
+  }
+  for(let i=0, l= plugins.length; i< l; i++){
+    let pluginName = plugins[i];
+    try{
+      let pluginModule = require(path.resolve(modules, './ydoc-plugin-' + pluginName));
+      utils.log.info(`Load plugin ${pluginName} success.`)
+    }catch(err){
+      err.message = 'Load ' + path.resolve(modules, './ydoc-plugin-' + pluginName) + ' plugin failed, ' + err.message;
+      throw err;
+    }
+    for(let key in pluginModule){
+      if(hooks[key]){
+        bindHook(key, pluginModule[key])
+      }
+    }
   }
 }
