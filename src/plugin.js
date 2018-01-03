@@ -1,4 +1,4 @@
-const ydoc = require('./ydoc.js').config;
+const ydocConfig = require('./ydoc.js').config;
 const path = require('path');
 const utils = require('./utils.js');
 
@@ -50,7 +50,7 @@ exports.emitHook = function emitHook(name) {
           let listenerList = hooks[name].listener;
           for (let i = 0, l = listenerList.length; i < l; i++) {
               promiseAll.push(Promise.resolve(listenerList[i].apply({
-                config: ydoc
+                config: ydocConfig
               }, args)));
           }
       }
@@ -61,8 +61,8 @@ exports.emitHook = function emitHook(name) {
 exports.loadPlugins = function loadPlugins(){
   let modules = path.resolve(process.cwd(), 'node_modules');
   let plugins = [];
-  if(ydoc.plugins && Array.isArray(ydoc.plugins)){
-    plugins = plugins.concat(ydoc.plugins)
+  if(ydocConfig.plugins && Array.isArray(ydocConfig.plugins)){
+    plugins = plugins.concat(ydocConfig.plugins)
   }
   for(let i=0, l= plugins.length; i< l; i++){
     let pluginName = plugins[i].name;
