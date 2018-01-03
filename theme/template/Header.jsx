@@ -1,3 +1,3 @@
 <header>
-  <div>header</div>
+  <div>header{props.test}</div>
 </header>

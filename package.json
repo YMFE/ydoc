@@ -42,6 +42,7 @@
     "ydoc-plugin-execution-time": "^1.0.0"
   },
   "devDependencies": {
+    "babel-standalone": "^6.26.0",
     "ghooks": "^2.0.0",
     "mocha": "^4.1.0",
     "node-sass": "^4.7.2",
