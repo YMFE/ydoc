@@ -1,11 +1,14 @@
 const fs = require('fs-extra');
 const utils = require('./utils');
-const Layout = require('../theme/template/Layout.js');
+
 const emitHook = require('./plugin.js').emitHook;
 const ReactDOMServer = require('react-dom/server');
+const jsx = require('./jsx.js');
+const components = jsx();
+
 
 function render(context) {
-  return ReactDOMServer.renderToStaticMarkup(Layout(context));
+  return ReactDOMServer.renderToStaticMarkup(components.Layout.fn(context));
 }
 
 module.exports = async function (context) {

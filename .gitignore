@@ -39,3 +39,4 @@ Thumbs.db
 # *.tar.gz
 
 _site
+./test.js

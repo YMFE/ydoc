@@ -4,7 +4,7 @@ const path = require('path');
 const utils = require('./utils.js');
 
 const PLUGINS = [
-  {name: 'execution-time'}
+  {name: 'execution-time', hideLog: true}
 ];
 
 const hooks = {
@@ -73,7 +73,7 @@ exports.loadPlugins = function loadPlugins() {
     let options = plugins[i].options;
     try {
       let pluginModule = require(path.resolve(modules, './ydoc-plugin-' + pluginName));
-      utils.log.info(`Load plugin "${pluginName}" success.`)
+      if(!plugins[i].hideLog) utils.log.info(`Load plugin "${pluginName}" success.`)
       for (let key in pluginModule) {
         if (hooks[key]) {
           bindHook(key, {

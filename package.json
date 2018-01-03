@@ -23,10 +23,12 @@
   },
   "license": "MIT",
   "dependencies": {
+    "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
+    "babel-standalone": "^6.26.0",
     "bash-color": "0.0.4",
     "cheerio": "^0.20.0",
     "fs-extra": "^5.0.0",
