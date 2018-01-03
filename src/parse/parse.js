@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const utils = require('../utils.js');
 const dom = require('./dom');
-const ydoc = require('../ydoc.js');
+const ydocConfig = require('../ydoc.js').config;
 const defaultIndexPage = 'index';
 const defaultSummaryPage = 'summary.md';
 const defaultNavPage = 'nav.md';
@@ -46,7 +46,7 @@ function getNav(filepath){
 function getBookContext(book, page){
   const context = utils.extend({}, book);
   context.page = page;
-  context.config = ydoc;
+  context.config = ydocConfig;
   return context;
 }
 
@@ -64,7 +64,7 @@ function handleMdPathToHtml(filepath){
       base: fileObj.base
     })
   }
-  let errpath = filepath.substr(ydoc.buildPath.length);
+  let errpath = filepath.substr(ydocConfig.buildPath.length);
   
   utils.log.warn(`The file ${errpath} type isn't .md or .html .`)
 
@@ -75,7 +75,7 @@ function handleMdPathToHtml(filepath){
 
 exports.parseSite =async function(dist){
   try{
-    ydoc.buildPath = dist;
+    ydocConfig.buildPath = dist;
     await emitHook('init');
     await emitHook('markdown', utils.md);
     let indexPath = await getIndexPath(dist);
@@ -83,17 +83,17 @@ exports.parseSite =async function(dist){
       return utils.log.error(`The root directory of documents didn't find index.html or index.md`)
     }
     
-    ydoc.nav = getNav(dist);
+    ydocConfig.nav = getNav(dist);
     const generateSitePage = generate(dist);
     generateSitePage({
-      title: ydoc.title,
+      title: ydocConfig.title,
       page: {
         srcPath: indexPath,
         distPath: './index.html'
       },
-      config: ydoc
+      config: ydocConfig
     })
-    runBatch();
+    await runBatch();
     let rootFiles = fs.readdirSync(dist);
     for(let index in rootFiles){
       let item = rootFiles[index];
@@ -119,7 +119,7 @@ function getBookInfo(filepath){
   }
   page = parsePage(page);
   return {
-    title: page.title || ydoc.title,
+    title: page.title || ydocConfig.title,
     description: page.description
   }
 }
@@ -138,7 +138,7 @@ const bookSchema = {
     srcPath: 'string',
     distPath: 'string'
   },
-  config: {} //ydoc 配置
+  config: {} //ydocConfig 配置
 }
 
 async function parseBook(bookpath){
@@ -167,7 +167,7 @@ async function parseBook(bookpath){
     await parseDocuments(summary); 
   };
 
-  runBatch();
+  await runBatch();
 
   utils.log.ok(`Generate ${book.title} book "${bookpath}/index.html"`);
   async function parseDocuments(summary){

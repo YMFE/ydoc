@@ -1,4 +1,4 @@
-const ydoc = require('./ydoc.js');
+const ydoc = require('./ydoc.js').config;
 const path = require('path');
 const utils = require('./utils.js');
 
@@ -21,6 +21,9 @@ const hooks = {
     listener: []
   },
   "page": {
+    listener: []
+  },
+  "markdown": {
     listener: []
   }
 }
@@ -65,7 +68,7 @@ exports.loadPlugins = function loadPlugins(){
     let pluginName = plugins[i].name;
     try{
       let pluginModule = require(path.resolve(modules, './ydoc-plugin-' + pluginName));
-      utils.log.info(`Load plugin ${pluginName} success.`)
+      utils.log.info(`Load plugin "${pluginName}" success.`)
       for(let key in pluginModule){
         if(hooks[key]){
           bindHook(key, pluginModule[key])

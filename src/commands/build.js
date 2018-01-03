@@ -11,7 +11,7 @@ const logger = require('../logger');
 
 const config = utils.fileExist(configFilepath) ?  require(configFilepath) : require(path.resolve(projectPath, 'ydoc.js'));
 const ydoc = require('../ydoc.js');
-utils.extend(ydoc, config);
+utils.extend(ydoc.config, config);
 
 module.exports = {
   setOptions: function (yargs) {
@@ -21,7 +21,7 @@ module.exports = {
     })
   },
   run: function (argv) {
-    const root = path.resolve(process.cwd(), ydoc.root);
+    const root = path.resolve(process.cwd(), ydoc.config.root);
     const dist = path.resolve(process.cwd(), defaultBuildPath);
     utils.log = new logger( argv.verbose ? 'debug' : 'info' );
     fs.removeSync(dist);

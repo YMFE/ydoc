@@ -1,15 +1,14 @@
 const utils = require('./utils.js');
 const ydoc = {
-  version: require('../package.json').version
+  version: require('../package.json').version,
+  config: {
+    root: "./docs",
+    title: "ydoc",
+    description: "ydoc description",
+    author: "ymfe"
+  }
 }
 
-const defaultConfig = {
-  root: "./docs",
-  title: "ydoc",
-  description: "ydoc description",
-  author: "ymfe"
-}
-utils.extend(ydoc, defaultConfig);
 module.exports=ydoc;
 
 
