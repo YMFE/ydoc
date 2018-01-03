@@ -66,7 +66,7 @@ exports.runBatch = async function runBatch(){
     utils.extend(page, _p);
     try{
       await emitHook('page:before', page);
-      output(transaction.context);      
+      await output(transaction.context);      
       delete transaction.context.page.content;
     }catch(err){
       throw err;

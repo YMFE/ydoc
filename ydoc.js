@@ -1,4 +1,4 @@
-require('babel-register');
+global.React = require('react');
 
 module.exports = {
     title: "ydoc demo",

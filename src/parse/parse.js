@@ -15,6 +15,7 @@ const parseHtml = require('./html.js');
 const parseNav = require('./nav');
 const emitHook = require('../plugin.js').emitHook;
 const url = require('url');
+const color = require('bash-color');
 
 function getIndexPath(filepath){
   let contentFilepath = path.resolve(filepath, defaultIndexPage + '.md');
@@ -103,6 +104,10 @@ exports.parseSite =async function(dist){
         await parseBook(bookPath);
       }
     }
+
+    let showpath = color.yellow( dist + '/index.html');
+    utils.log.ok(`Generate Site "${ydocConfig.title}" ${showpath}`);
+
     await emitHook('finish')
   }catch(err){
     utils.log.error(err);
@@ -168,9 +173,10 @@ async function parseBook(bookpath){
   };
 
   await runBatch();
-  const color = require('bash-color');
+  
   let showpath = color.yellow(bookpath+'/index.html');
   utils.log.ok(`Generate book "${book.title}" ${showpath}`);
+
   async function parseDocuments(summary){
     for(let index = 0; index< summary.length; index++){
       let item = summary[index];

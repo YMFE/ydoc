@@ -1,6 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const yargs = require('yargs');
+require('babel-register');
 
 const commandsDir = path.resolve(__dirname, 'commands');
 

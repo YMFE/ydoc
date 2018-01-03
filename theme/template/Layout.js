@@ -1,4 +1,3 @@
-const React = require('react');
 const Head = require('./Head.js');
 const Header = require('./Header.js');
 const Body = require('./Body.js');

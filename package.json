@@ -3,7 +3,7 @@
   "version": "3.2.5",
   "description": "Yummy Doc 文档生成工具",
   "scripts": {
-     "test": "export TESTING=true; mocha --reporter spec --bail --recursive"
+    "test": "export TESTING=true; mocha --reporter spec --bail --recursive"
   },
   "keywords": [
     "doc",
