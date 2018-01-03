@@ -168,8 +168,9 @@ async function parseBook(bookpath){
   };
 
   await runBatch();
-
-  utils.log.ok(`Generate ${book.title} book "${bookpath}/index.html"`);
+  const color = require('bash-color');
+  let showpath = color.yellow(bookpath+'/index.html');
+  utils.log.ok(`Generate book "${book.title}" ${showpath}`);
   async function parseDocuments(summary){
     for(let index = 0; index< summary.length; index++){
       let item = summary[index];

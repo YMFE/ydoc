@@ -1,4 +1,4 @@
-require('babel-register');
+
 const fs = require('fs-extra');
 const utils = require('./utils');
 const Layout = require('../theme/template/Layout.js');

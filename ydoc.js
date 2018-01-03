@@ -1,3 +1,5 @@
+require('babel-register');
+
 module.exports = {
     title: "ydoc demo",
     description: "ydoc description demo",
