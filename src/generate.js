@@ -57,7 +57,8 @@ exports.runBatch = async function runBatch(){
     let _p;
     switch(page.type){
       case 'md'  :         
-        _p = parsePage(parseMarkdown(page.srcPath));break;
+        _p = parsePage(parseMarkdown(page.srcPath));
+        break;
       default : _p = {
         content: parseHtml(page.srcPath)
       }
