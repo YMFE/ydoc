@@ -1,18 +1,15 @@
 const fs = require('fs-extra');
 const utils = require('./utils');
-
+const path = require('path')
 const emitHook = require('./plugin.js').emitHook;
-const ReactDOMServer = require('react-dom/server');
-const jsx = require('./jsx.js');
-const components = jsx();
+
+const noox = require('noox');
+let nx = new noox(path.resolve(__dirname, '../theme/template'));
 
 
-function render(context) {
-  return ReactDOMServer.renderToStaticMarkup(components.Layout.fn(context));
-}
 
 module.exports = async function (context) {
-  let content = render(context);
+  let content = nx.render('Layout', context);
   context.page.content = content;
   await emitHook('page', context.page);
   fs.writeFileSync(context.page.distPath, content);

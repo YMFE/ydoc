@@ -24,15 +24,12 @@
   "license": "MIT",
   "dependencies": {
     "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-register": "^6.26.0",
     "babel-standalone": "^6.26.0",
     "bash-color": "0.0.4",
     "cheerio": "^0.20.0",
     "fs-extra": "^5.0.0",
     "markdown-it": "^8.4.0",
+    "noox": "^0.0.1-beta",
     "nunjucks": "^3.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -42,16 +39,10 @@
     "ydoc-plugin-execution-time": "^1.0.0"
   },
   "devDependencies": {
-    "babel-standalone": "^6.26.0",
     "ghooks": "^2.0.0",
     "mocha": "^4.1.0",
     "node-sass": "^4.7.2",
     "validate-commit-msg": "^2.12.2"
-  },
-  "ava": {
-    "files": [
-      "test/**/*.js"
-    ]
   },
   "config": {
     "ghooks": {
