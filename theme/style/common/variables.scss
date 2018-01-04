@@ -1,1 +1,46 @@
-$blue : #1875e7;
+// variable namespace guide:
+// {adj.}-{place}-{element}-{function}
+// eg. $deep-body-text-color
+@import './color';
+
+$white:			#fff;
+$black:			#000;
+$red:       #f5222d;
+$volcano:   #fa541c;
+$orange:    #fa8c16;
+$gold:      #faad14;
+$yellow:    #fadb14;
+$lime:      #a0d911;
+$green:     #52c41a;
+$cyan:      #13c2c2;
+$blue:      #1890ff;
+$geekBlue:  #2f54eb;
+$purple:    #722ed1;
+$pink:      #eb2f96;
+
+// colors
+// ------------------------------------------
+// primary colors
+$primary-color: 				$blue-6;
+$deep-primary-color: 		$blue-8;
+$light-primary-color:		$blue-2;
+// secondary colors
+$secondary-color: 			$yellow-6;
+$deep-secondary-color: 	$yellow-8;
+$light-secondary-color:	$yellow-2;
+// function colors
+$info-color: 						$blue-6;
+$warn-color: 						$yellow-6;
+$success-color: 				$green-6;
+// text colors on light background
+$deep-body-text-color:			rgba(color($deep-primary-color, 10), .87);
+$deep-caption-text-color:		rgba(color($deep-primary-color, 10), .54);
+$deep-disable-text-color:		rgba(color($deep-primary-color, 10), .38);
+// text colors on dark background
+$light-body-text-color:			rgba($white, 1);
+$light-caption-text-color:	rgba($white, .7);
+$light-disable-text-color:	rgba($white, .5);
+
+// .useage1 {
+// 	background: $deep-disable-text-color;
+// }
