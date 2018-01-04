@@ -51,6 +51,19 @@ function initComponents(){
   })
 }
 
+function checkDepends(){
+  Object.keys(Components).forEach(componentName=>{
+    if(Components[componentName].depends.length > 0){
+      Components[componentName].depends.map(d=>{
+        if(!Components[d]){
+          let componentPath = path.resolve(filepath, d)
+          throw new Error(`Cannot find the Component "${d}" in the "${componentPath}"`)
+        }
+      })
+    }
+  })
+}
+
 function checkCompents(){
   let sign = true;
   Object.keys(Components).forEach(componentName=>{
