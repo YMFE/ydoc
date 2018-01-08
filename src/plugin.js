@@ -2,6 +2,7 @@ const ydoc = require('./ydoc.js');
 const ydocConfig = ydoc.config;
 const path = require('path');
 const utils = require('./utils.js');
+const fs = require('fs-extra');
 
 const PLUGINS = [
   {name: 'execution-time', hideLog: true}
@@ -62,6 +63,40 @@ exports.emitHook = function emitHook(name) {
   }
 }
 
+
+
+function handleAsserts(config, dir, pluginName){
+  let pluginAssertPath;
+  if(config && typeof config === 'object'){
+    if(config.dir){
+      let pluginPath = path.resolve(dir, config.dir);
+      pluginAssertPath = path.resolve(ydoc.config.buildPath, 'ydoc/ydoc-plugin-' + pluginName) ;
+      fs.ensureDirSync(pluginAssertPath);
+      fs.copySync(pluginPath, pluginAssertPath);
+    }
+    if(config.js){
+      importAssert(config.js);
+    }
+    if(config.css){
+      importAssert(config.css);
+    }
+  }
+
+  function importAssert(filepath){
+    if(typeof filepath === 'string'){
+      _importAssert(filepath, 'js');
+    }else if(Array.isArray(filepath)){      
+      filepath.forEach(item=> _importAssert(item, 'js'))
+    }
+  }
+
+  function _importAssert(filepath, type){
+    filepath = path.resolve(pluginAssertPath, filepath);
+    return ydoc.addAssert(filepath, type)
+  }
+  
+}
+
 exports.loadPlugins = function loadPlugins() {
   let modules = path.resolve(process.cwd(), 'node_modules');
   let plugins = [];
@@ -72,7 +107,15 @@ exports.loadPlugins = function loadPlugins() {
     let pluginName = plugins[i].name;
     let options = plugins[i].options;
     try {
-      let pluginModule = require(path.resolve(modules, './ydoc-plugin-' + pluginName));
+      let pluginModule, pluginModuleDir;
+      try{
+        pluginModuleDir = path.resolve(modules, './ydoc-plugin-' + pluginName)
+        pluginModule = require(pluginModuleDir);
+      }catch(err){
+        pluginModuleDir = path.resolve(__dirname, '../node_modules', './ydoc-plugin-' + pluginName)
+        pluginModule = require(pluginModuleDir);
+      }
+      
       if(!plugins[i].hideLog) utils.log.info(`Load plugin "${pluginName}" success.`)
       for (let key in pluginModule) {
         if (hooks[key]) {
@@ -81,6 +124,9 @@ exports.loadPlugins = function loadPlugins() {
             options: options
           })
         }
+      }
+      if(pluginModule.asserts){
+        handleAsserts(pluginModule.asserts, pluginModuleDir, pluginName)
       }
     } catch (err) {
       err.message = 'Load ' + path.resolve(modules, './ydoc-plugin-' + pluginName) + ' plugin failed, ' + err.message;

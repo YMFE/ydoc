@@ -16,6 +16,7 @@ const config = utils.fileExist(configFilepath) ?  require(configFilepath) : requ
 const ydoc = require('../ydoc.js');
 utils.extend(ydoc.config, config);
 
+
 module.exports = {
   setOptions: function (yargs) {
     yargs.option('verbose', {
@@ -24,11 +25,12 @@ module.exports = {
     })
   },
   run: function (argv) {
+    utils.log = new logger( argv.verbose ? 'debug' : 'info' );
+
     const root = path.resolve(process.cwd(), ydoc.config.root);
     const dist = path.resolve(process.cwd(), defaultBuildPath);
-
-
-    utils.log = new logger( argv.verbose ? 'debug' : 'info' );
+    ydoc.config.buildPath = dist;
+    
     fs.removeSync(dist);
     fs.ensureDirSync(dist);
     fs.copySync(root, dist);

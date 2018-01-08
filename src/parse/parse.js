@@ -75,8 +75,7 @@ function handleMdPathToHtml(filepath){
 }
 
 exports.parseSite =async function(dist){
-  try{
-    ydocConfig.buildPath = dist;
+  try{    
     await emitHook('init');
     await emitHook('markdown', utils.md);
     let indexPath = await getIndexPath(dist);
