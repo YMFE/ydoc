@@ -9,7 +9,9 @@ const defaultBuildPath = '_site';
 const projectPath = process.cwd();
 const configFilepath = path.resolve(projectPath, 'ydoc.json');
 const styleInPath = path.resolve(projectPath, 'theme/styles/index.scss');
-const styleOutPath = path.resolve(projectPath, defaultBuildPath+'/ydoc/styles', 'style.css');
+const scriptInPath = path.resolve(projectPath, 'theme/scripts/');
+const styleOutPath = path.resolve(projectPath, defaultBuildPath + '/ydoc/styles', 'style.css');
+const scriptOutPath = path.resolve(projectPath, defaultBuildPath + '/ydoc/scripts/');
 const logger = require('../logger');
 
 const config = utils.fileExist(configFilepath) ?  require(configFilepath) : require(path.resolve(projectPath, 'ydoc.js'));
@@ -33,7 +35,9 @@ module.exports = {
     
     fs.removeSync(dist);
     fs.ensureDirSync(dist);
-    fs.ensureDirSync(path.resolve(dist, 'ydoc'));
+    fs.ensureDirSync(path.resolve(dist, 'ydoc/styles'));
+    fs.ensureDirSync(path.resolve(dist, 'ydoc/scripts'));
+    fs.copySync(scriptInPath, scriptOutPath);
     fs.copySync(root, dist);
     loadPlugins();
     parse.parseSite(dist);
