@@ -1,7 +1,6 @@
 const utils = require('./utils.js');
 const path = require('path');
 
-
 const ydoc = {
   version: require('../package.json').version,
   log: utils.log,

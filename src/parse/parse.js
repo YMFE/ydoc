@@ -2,7 +2,8 @@ const path = require('path');
 const fs = require('fs-extra');
 const utils = require('../utils.js');
 const dom = require('./dom');
-const ydocConfig = require('../ydoc.js').config;
+const ydoc = require('../ydoc.js');
+const ydocConfig = ydoc.config;
 const defaultIndexPage = 'index';
 const defaultSummaryPage = 'summary.md';
 const defaultNavPage = 'nav.md';
@@ -16,6 +17,11 @@ const parseNav = require('./nav');
 const emitHook = require('../plugin.js').emitHook;
 const url = require('url');
 const color = require('bash-color');
+const noox = require('noox');
+
+utils.noox = new noox(path.resolve(__dirname, '../../theme/template'), {
+  relePath: ydoc.relePath
+});
 
 function getIndexPath(filepath){
   let contentFilepath = path.resolve(filepath, defaultIndexPage + '.md');
@@ -67,7 +73,7 @@ function handleMdPathToHtml(filepath){
   }
   let errpath = filepath.substr(ydocConfig.buildPath.length);
   
-  utils.log.warn(`The file ${errpath} type isn't .md or .html .`)
+  utils.log.warn(`The document file ${errpath} only suport md ,html or jsx .`)
 
   return filepath;
 
@@ -108,8 +114,9 @@ exports.parseSite =async function(dist){
     utils.log.ok(`Generate Site "${ydocConfig.title}" ${showpath}`);
 
     await emitHook('finish')
-  }catch(err){
+  }catch(err){    
     utils.log.error(err);
+    //throw err;
   }
   
 }
@@ -141,6 +148,10 @@ const bookSchema = {
     next: 'string',
     srcPath: 'string',
     distPath: 'string'
+  },
+  asserts: { // asserts 资源
+    js: [],
+    css: []
   },
   config: {} //ydocConfig 配置
 }
