@@ -8,8 +8,8 @@ const loadPlugins = require('../plugin.js').loadPlugins;
 const defaultBuildPath = '_site';
 const projectPath = process.cwd();
 const configFilepath = path.resolve(projectPath, 'ydoc.json');
-const styleInPath = path.resolve(projectPath, 'theme/style/index.scss');
-const styleOutPath = path.resolve(projectPath, defaultBuildPath+'/ydoc', 'style.css');
+const styleInPath = path.resolve(projectPath, 'theme/styles/index.scss');
+const styleOutPath = path.resolve(projectPath, defaultBuildPath+'/ydoc/styles', 'style.css');
 const logger = require('../logger');
 
 const config = utils.fileExist(configFilepath) ?  require(configFilepath) : require(path.resolve(projectPath, 'ydoc.js'));
