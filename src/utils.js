@@ -1,9 +1,20 @@
 const fs = require('fs')
 const logger = require('./logger');
 const MarkdownIt = require('markdown-it');
+const hljs = require('highlight.js'); // https://highlightjs.org/
+
 const md = MarkdownIt({
   html: true,
-  linkify: true
+  linkify: true,
+  highlight: function (str, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(lang, str).value;
+      } catch (__) {}
+    }
+
+    return ''; // use external default escaping
+  }
 });
 /**
  * 复制一个对象的属性到另一个对象
