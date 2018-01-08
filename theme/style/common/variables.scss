@@ -21,17 +21,27 @@ $pink:      #eb2f96;
 // colors
 // ------------------------------------------
 // primary colors
-$primary-color: 				$blue-6;
-$deep-primary-color: 		$blue-8;
-$light-primary-color:		$blue-2;
+$primary-color: 				    $blue-6;
+$deep-primary-color: 		    $blue-8;
+$light-primary-color:		    $blue-2;
+$primary-1:		color($primary-color, 1);
+$primary-2:		color($primary-color, 2);
+$primary-3:		color($primary-color, 3);
+$primary-4:		color($primary-color, 4);
+$primary-5:		color($primary-color, 5);
+$primary-6:		color($primary-color, 6);
+$primary-7:		color($primary-color, 7);
+$primary-8:		color($primary-color, 8);
+$primary-9:		color($primary-color, 9);
+$primary-10:		color($primary-color, 10);
 // secondary colors
-$secondary-color: 			$yellow-6;
-$deep-secondary-color: 	$yellow-8;
-$light-secondary-color:	$yellow-2;
+$secondary-color: 			    $yellow-6;
+$deep-secondary-color: 	    $yellow-8;
+$light-secondary-color:	    $yellow-2;
 // function colors
-$info-color: 					  $blue-6;
-$warn-color: 					  $yellow-6;
-$success-color: 				$green-6;
+$info-color: 					      $blue-6;
+$warn-color: 					      $yellow-6;
+$success-color: 				    $green-6;
 // text colors on light background
 $deep-body-text-color:			rgba(color($deep-primary-color, 10), .87);
 $deep-caption-text-color:		rgba(color($deep-primary-color, 10), .54);
@@ -40,6 +50,12 @@ $deep-disable-text-color:		rgba(color($deep-primary-color, 10), .38);
 $light-body-text-color:			rgba($white, 1);
 $light-caption-text-color:	rgba($white, .7);
 $light-disable-text-color:	rgba($white, .5);
+
+$font-size:     .14rem;
+$line-height:   1.5;
+
+$transition-time-quick:     .2s;
+$transition-time-slow:      .4s;
 
 // .useage1 {
 // 	background: $deep-disable-text-color;
