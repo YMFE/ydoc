@@ -35,7 +35,7 @@ function handleUrl($, filepath){
       let srcPath = path.resolve(filepath, urlObj.pathname);
       let findTransaction = findTransactionBySrcPath(srcPath);
       if(findTransaction){
-        item.attr('href', findTransaction.context.page.releativePath)
+        item.attr('href', href.replace('.md', '.html'))
       }
     }
   })
@@ -63,7 +63,7 @@ exports.runBatch = async function runBatch(){
         content: parseHtml(page.srcPath)
       }
     }
-    _p.content = handleUrl(dom.parse(_p.content), transaction.context._bookpath);
+    _p.content = handleUrl(dom.parse(_p.content), path.dirname(page.srcPath));
     utils.extend(page, _p);
     try{
       await emitHook('page:before', page);
