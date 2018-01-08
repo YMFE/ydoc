@@ -37,7 +37,7 @@ $pink:      #eb2f96;
 	@return $resColor;
 }
 
-$red-1:		red;
+$red-1:		color($red, 1);
 $red-2:		color($red, 2);
 $red-3:		color($red, 3);
 $red-4:		color($red, 4);
