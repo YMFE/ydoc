@@ -1,3 +1,11 @@
-.header {
-    color: #ccc;
+.m-header {
+    &-title, &-logo {
+        display: inline-block;
+    }
+    &-nav {
+        float: right;
+        .item {
+            display: inline-block;
+        }
+    }
 }

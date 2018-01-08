@@ -1,7 +1,12 @@
-@import './header.scss';
+// core
 @import './common/index';
-@import './plugins/highlight.scss';
-@import './plugins/nav.scss';
+
+// plugins
+@import './plugins/highlight';
+@import './plugins/nav';
+
+// components
+@import './header';
 
 * {
     margin: 0;
