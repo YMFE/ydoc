@@ -50,21 +50,29 @@ $deep-disable-text-color:		rgba(color($deep-primary-color, 10), .38);
 $light-body-text-color:			rgba($white, 1);
 $light-caption-text-color:	rgba($white, .7);
 $light-disable-text-color:	rgba($white, .5);
+// background colors
+$html-bg: #ccc;
+$body-bg: #fff;
 
+// text
+// ------------------------------------------
 $font-size:     .14rem;
 $line-height:   1.5;
 
 // transition
+// ------------------------------------------
 $transition-time-quick:     .2s;
 $transition-time-slow:      .4s;
 
 // padding
+// ------------------------------------------
 $padding-xs:     .08rem;
 $padding-sm:     .16rem;
 $padding-md:     .24rem;
 $padding-lg:     .32rem;
 
 // shadow
+// ------------------------------------------
 $shadow-color: rgba(0, 0, 0, .18);
 $shadow-1:  0 1px 2px $shadow-color;
 $shadow-2:  0 2px 4px $shadow-color;
