@@ -2,12 +2,14 @@
 // Considering design/coding of mobile devices at the first time.
 // Making responsive layouts when width increase.
 
-// xsmall (mobile phone)
-@mixin media-xs() {
-    @media screen and (max-width: 600px) {
-        @content;
-    }
-}
+// * xsmall (mobile phone)
+// * Do not use this area (media-xs) !
+// * Because mobile is default in "mobile first thinking" !
+// @mixin media-xs() {
+//     @media screen and (max-width: 600px) {
+//         @content;
+//     }
+// }
 // small (tablet PC/mobile phone)
 @mixin media-sm() {
     @media screen and (min-width: 600px) {
@@ -32,3 +34,8 @@
         @content;
     }
 }
+
+// usage: 
+// @include media-sm() {
+// 	...(your code)
+// }

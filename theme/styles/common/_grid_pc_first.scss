@@ -2,6 +2,8 @@
 // Considering design/coding of PC devices at the first time.
 // Making responsive layouts when width decrease.
 
+// ! We recommend you using mobile first thinking.
+
 // xsmall (mobile phone)
 @mixin media-xs() {
     @media screen and (max-width: 600px) {
