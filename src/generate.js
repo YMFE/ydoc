@@ -10,6 +10,7 @@ const fs = require('fs-extra');
 const parseMarkdown = require('./parse/markdown.js');
 const parseHtml = require('./parse/html');
 const parsePage = require('./parse/page');
+const parseJsx = require('./parse/jsx');
 const emitHook = require('./plugin.js').emitHook;
 
 function insertToBatch(transaction){
@@ -50,6 +51,7 @@ exports.runBatch = async function runBatch(){
   if(batch.length === 0) return;
   for(let index=0, l = batch.length; index<l; index++){
     let transaction = batch[index];
+    let context = transaction.context;
     let page = transaction.context.page;
     if(page.title){
       context.title = page.title === context.title ? page.title : page.title + '-' + context.title
@@ -58,6 +60,11 @@ exports.runBatch = async function runBatch(){
     switch(page.type){
       case 'md'  :         
         _p = parsePage(parseMarkdown(page.srcPath));
+        break;
+      case 'jsx' :
+        _p = {
+          content: parseJsx(page.srcPath, context)
+        }
         break;
       default : _p = {
         content: parseHtml(page.srcPath)
