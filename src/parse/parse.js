@@ -24,14 +24,15 @@ utils.noox = new noox(path.resolve(__dirname, '../../theme/template'), {
 });
 
 function getIndexPath(filepath){
-  let contentFilepath = path.resolve(filepath, defaultIndexPage + '.md');
-  if(!utils.fileExist(contentFilepath)){    
-    contentFilepath = path.resolve(filepath, defaultIndexPage + '.html');
-    if(!utils.fileExist(contentFilepath)){
-      return null;
+  let getIndexPathByType = (type)=> path.resolve(filepath, defaultIndexPage + '.' + type);
+  let types = ['md', 'jsx', 'html'];
+  let contentFilepath;
+  for(let index in types){
+    contentFilepath = getIndexPathByType(types[index]);
+    if(utils.fileExist(contentFilepath)){
+      return contentFilepath;
     }
   }
-  return contentFilepath;
 }
 
 function getBookSummary(filepath){
