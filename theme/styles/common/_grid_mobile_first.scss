@@ -5,11 +5,11 @@
 // * xsmall (mobile phone)
 // * Do not use this area (media-xs) !
 // * Because mobile is default in "mobile first thinking" !
-// @mixin media-xs() {
-//     @media screen and (max-width: 600px) {
-//         @content;
-//     }
-// }
+@mixin media-xs() {
+    @media screen and (max-width: 600px) {
+        @content;
+    }
+}
 // small (tablet PC/mobile phone)
 @mixin media-sm() {
     @media screen and (min-width: 600px) {

@@ -1,11 +1,38 @@
 .m-header {
-    &-title, &-logo {
-        display: inline-block;
-    }
-    &-nav {
-        float: right;
-        .item {
-            display: inline-block;
-        }
-    }
+	min-height: .64rem;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+	&-title {
+		width: 3rem;
+		height: .64rem;
+		display: flex;
+    align-items: center;
+		.name, .logo {
+			display: inline-block;
+		}
+	}
+	&-nav {
+		// float: right;
+		border-top: 1px solid #ccc;
+		.item {
+			width: 100%;
+			display: inline-block;
+		}
+	}
+	&-btn {
+		position: absolute;
+		top: $padding-xs;
+		right: $padding-xs;
+		font-size: .24rem;
+		line-height: 1;
+		color: $deep-body-text-color;
+		border-radius: 2px;
+		padding: .12rem;
+		cursor: pointer;
+		transition: color $transition-time-quick;
+		@include user-select-none;
+		&:hover {
+			color: $primary-color;
+		}
+	}
 }

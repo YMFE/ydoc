@@ -1,18 +1,18 @@
- <header className="m-header">
-  <div className="row">
-     <div className="m-header-title">title: {props.content.title}</div>
-     <div className="m-header-logo">logo: {props.content.logo}</div>
-     <nav className="m-header-nav js-nav">
-       <ul>
-         {
-           props.content.menus.map((sortItem) => {
-             return sortItem.items.map((menuitem) => {
-               return <li className="item"><a href="#">{menuitem.title}</a></li>;
-             });
-           })
-         }
-       </ul>
-     </nav>
-     <button id="js-nav-btn" className="m-header-btn">Toggle Menu</button>
+<header className="m-header">
+  <div className="m-header-title">
+     <div className="logo">logo: {props.content.logo}</div>
+    <span className="name">title: {props.content.title}</span>
   </div>
+  <nav className="m-header-nav js-nav">
+    <ul>
+      {
+        props.content.menus.map((sortItem) => {
+          return sortItem.items.map((menuitem) => {
+            return <li className="item"><a href="#">{menuitem.title}</a></li>;
+          });
+        })
+      }
+    </ul>
+  </nav>
+  <div id="js-nav-btn" className="m-header-btn ui-font-ydoc">&#xf020;</div>
 </header>

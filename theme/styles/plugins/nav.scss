@@ -31,25 +31,16 @@
   user-select: none;
 }
 
-@media screen and (min-width: 40em) {
+@include media-md() {
+  .js .m-header-nav {
+    position: relative;
+  }
+  .js .m-header-nav.closed {
+    max-height: none;
+  }
   .nav-toggle {
     display: none;
   }
-}
-.m-header-btn {
-  color: white;
-  padding: 1em;
-  border: 0;
-  cursor: pointer;
-  background: red;
-}
-
-.m-header-btn.active {
-  background: green;
-}
-
-
-@media (min-width: 700px) {
   .m-header-btn {
     display: none;
   }

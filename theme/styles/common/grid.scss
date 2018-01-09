@@ -2,12 +2,12 @@
 
 
 // container common styles
-@mixin containerBoxStyle {
+@mixin container-box-style {
     width: 100%; // Don't use constant 'width' value with containerBox of responsive layouts.
     padding: 0 .16rem;
 }
 // clear fix
-@mixin clearFix {
+@mixin clear-fix {
 	content: '';
 	display: table;
 	clear: both;
@@ -19,7 +19,7 @@
 	width: 100%;
 }
 .row:after {
-	@include clearFix;
+	@include clear-fix;
 }
 
 // produce layouts
@@ -41,24 +41,24 @@
 @include media-xs() {
 	@include generateGrid('xs');
     .container {
-        @include containerBoxStyle;
+        @include container-box-style;
     }
 }
 @include media-sm() {
     @include generateGrid('sm');
     .container {
-        @include containerBoxStyle;
+        @include container-box-style;
     }
 }
 @include media-md() {
     @include generateGrid('md');
     .container {
-        @include containerBoxStyle;
+        @include container-box-style;
     }
 }
 @include media-lg() {
     @include generateGrid('lg');
     .container {
-        @include containerBoxStyle;
+        @include container-box-style;
     }
 }

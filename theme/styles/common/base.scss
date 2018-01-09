@@ -2,6 +2,18 @@ body {
     font-size: $font-size;
 }
 
+
+@font-face {
+  font-family: 'ydoc';
+  src: url("https://s.qunarzz.com/ydoc/fonts/0.0.3/ydoc.eot");
+  /* IE9*/
+  src: url("https://s.qunarzz.com/ydoc/fonts/0.0.3/ydoc.woff") format("woff"), url("https://s.qunarzz.com/ydoc/fonts/0.0.3/ymfe.ttf") format("truetype"), url("https://s.qunarzz.com/ydoc/fonts/0.0.3/ydoc.svg#iconfont") format("svg");
+  /* iOS 4.1- */
+}
+.ui-font-ydoc {
+  font-family: ydoc;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: .5em;
