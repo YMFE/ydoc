@@ -32,17 +32,11 @@
 }
 
 @media screen and (min-width: 40em) {
-  .js .m-header-nav {
-    position: relative;
-  }
-  .js .m-header-nav.closed {
-    max-height: none;
-  }
   .nav-toggle {
     display: none;
   }
 }
-button {
+.m-header-btn {
   color: white;
   padding: 1em;
   border: 0;
@@ -50,13 +44,13 @@ button {
   background: red;
 }
 
-button.active {
+.m-header-btn.active {
   background: green;
 }
 
 
 @media (min-width: 700px) {
-  button {
+  .m-header-btn {
     display: none;
   }
 }

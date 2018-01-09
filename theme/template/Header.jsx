@@ -13,6 +13,6 @@
          }
        </ul>
      </nav>
-     <button id="toggle" className="closed">Toggle Menu</button>
+     <button id="js-nav-btn" className="m-header-btn">Toggle Menu</button>
   </div>
 </header>

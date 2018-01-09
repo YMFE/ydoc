@@ -1,5 +1,5 @@
 console.log('app.js');
 
-var navigation = responsiveNav(".m-header-nav", {
-    customToggle: "#toggle"
+var navigation = responsiveNav(".js-nav", {
+    customToggle: "#js-nav-btn"
 });
