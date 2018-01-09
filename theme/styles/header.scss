@@ -15,7 +15,6 @@
 		}
 	}
 	&-nav {
-		// float: right;
 		border-top: 1px solid #ccc;
 		.m-header-items {
 			padding: $padding-sm;
@@ -68,6 +67,7 @@
 	}
 }
 
+// Expand navigation on PC
 @include media-md() {
 	.m-header {
 		flex-direction: row;

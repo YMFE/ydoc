@@ -11,10 +11,8 @@
   <meta httpEquiv="Cache-Control" content="no-siteapp" />
   <Head data={props} />
   <body>
-    <div>
-      <Header content={props.config.nav} path={props.page.distPath} />
-      <Body content={props.page.content} />
-    </div>
+    <Header content={props.config.nav} path={props.page.distPath} />
+    <Body content={props.page.content} />
     <Scripts data={props} />
   </body>
 </html>
