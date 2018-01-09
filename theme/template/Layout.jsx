@@ -12,7 +12,7 @@
   <Head data={props} />
   <body>
     <div>
-      <Header content={props.config.nav} />
+      <Header content={props.config.nav} path={props.page.distPath} />
       <Body content={props.page.content} />
     </div>
     <Scripts data={props} />

@@ -1,14 +1,14 @@
 <header className="m-header">
   <div className="m-header-title">
-     <div className="logo">logo: {props.content.logo}</div>
-    <span className="name">title: {props.content.title}</span>
+    <img className="logo" src={props.path} />
+    <h6 className="name">title: {props.content.title}</h6>
   </div>
   <nav className="m-header-nav js-nav">
-    <ul>
+    <ul className="m-header-items">
       {
         props.content.menus.map((sortItem) => {
-          return sortItem.items.map((menuitem) => {
-            return <li className="item"><a href="#">{menuitem.title}</a></li>;
+          return sortItem.items.map((menuitem, index) => {
+            return <li className={'item ' + (index===1?'active':'')}><a href="#">{menuitem.title}</a></li>;
           });
         })
       }
