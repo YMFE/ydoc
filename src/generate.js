@@ -56,15 +56,20 @@ exports.runBatch = async function runBatch(){
     if(page.title){
       context.title = page.title === context.title ? page.title : page.title + '-' + context.title
     }
-    let _p;
+    let _p, parseJsxInst;
     switch(page.type){
       case 'md'  :         
         _p = parsePage(parseMarkdown(page.srcPath));
         break;
       case 'jsx' :
+      parseJsxInst = parseJsx(page.srcPath);
+      parseJsxInst.data = parseJsxInst.data && typeof parseJsxInst.data === 'object' ? parseJsxInst.data : {};
         _p = {
-          content: parseJsx(page.srcPath, context)
+          title: parseJsxInst.data.title || '',
+          description: parseJsxInst.data.description || '',
+          content: parseJsxInst.render(Object.assign({}, context, parseJsxInst.data))
         }
+        
         break;
       default : _p = {
         content: parseHtml(page.srcPath)

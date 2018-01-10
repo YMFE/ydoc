@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs-extra');
 const utils = require('../utils.js');
-const dom = require('./dom');
 const ydoc = require('../ydoc.js');
 const ydocConfig = ydoc.config;
 const defaultIndexPage = 'index';
@@ -125,14 +124,17 @@ exports.parseSite =async function(dist){
 function getBookInfo(filepath){
   let page;
   if(path.extname(filepath) === '.md'){
-    page = parseMarkdown(filepath);    
+    page = parsePage(parseMarkdown(filepath));
+  }else if(path.extname(filepath) === '.jsx'){    
+    page = {
+      title: ydocConfig.title
+    }
   }else{
-    page = parseHtml(filepath);
+    page = parsePage( parseHtml(filepath));
   }
-  page = parsePage(page);
   return {
     title: page.title || ydocConfig.title,
-    description: page.description
+    description: page.description || ''
   }
 }
 
@@ -181,7 +183,7 @@ async function parseBook(bookpath){
   }))
   if(summary && Array.isArray(summary)) {
     await parseDocuments(summary); 
-  };
+  }
 
   await runBatch();
   
@@ -199,7 +201,7 @@ async function parseBook(bookpath){
         let absolutePath = path.resolve(bookpath, releativePath);
         if(utils.fileExist(absolutePath)){
           let releativeHtmlPath = handleMdPathToHtml(releativePath);
-          item.ref = releativeHtmlPath + urlObj.hash;
+          item.ref = releativeHtmlPath + (urlObj.hash || '');
           generatePage(getBookContext(book, {
             srcPath: absolutePath,
             distPath: releativeHtmlPath
