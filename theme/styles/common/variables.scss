@@ -43,9 +43,10 @@ $info-color: 					      $blue-6;
 $warn-color: 					      $yellow-6;
 $success-color: 				    $green-6;
 // text colors on light background
-$deep-body-text-color:			rgba(color($deep-primary-color, 10), .87);
-$deep-caption-text-color:		rgba(color($deep-primary-color, 10), .54);
-$deep-disable-text-color:		rgba(color($deep-primary-color, 10), .38);
+$base-deep-text-color:      color($deep-primary-color, 10);
+$deep-body-text-color:			rgba($base-deep-text-color, .87);
+$deep-caption-text-color:		rgba($base-deep-text-color, .54);
+$deep-disable-text-color:		rgba($base-deep-text-color, .38);
 // text colors on dark background
 $light-body-text-color:			rgba($white, 1);
 $light-caption-text-color:	rgba($white, .7);
