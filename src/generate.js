@@ -63,6 +63,7 @@ exports.runBatch = async function runBatch(){
         break;
       case 'jsx' :
       parseJsxInst = parseJsx(page.srcPath);
+      parseJsxInst.data = parseJsxInst.data && typeof parseJsxInst.data === 'object' ? parseJsxInst.data : {};
         _p = {
           title: parseJsxInst.data.title || '',
           description: parseJsxInst.data.description || '',

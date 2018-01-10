@@ -183,7 +183,7 @@ async function parseBook(bookpath){
   }))
   if(summary && Array.isArray(summary)) {
     await parseDocuments(summary); 
-  };
+  }
 
   await runBatch();
   
@@ -201,7 +201,7 @@ async function parseBook(bookpath){
         let absolutePath = path.resolve(bookpath, releativePath);
         if(utils.fileExist(absolutePath)){
           let releativeHtmlPath = handleMdPathToHtml(releativePath);
-          item.ref = releativeHtmlPath + urlObj.hash;
+          item.ref = releativeHtmlPath + (urlObj.hash || '');
           generatePage(getBookContext(book, {
             srcPath: absolutePath,
             distPath: releativeHtmlPath
