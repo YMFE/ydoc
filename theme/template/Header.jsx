@@ -1,7 +1,7 @@
 <header className="m-header">
   <div className="m-header-title">
     <img className="logo" src={props.path} />
-    <h6 className="name">title: {props.content.title}</h6>
+    <h6 className="name">{props.content.title}</h6>
   </div>
   <nav className="m-header-nav js-nav">
     <ul className="m-header-items">

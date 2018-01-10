@@ -12,7 +12,14 @@
   <Head data={props} />
   <body>
     <Header content={props.config.nav} path={props.page.distPath} />
-    <Body content={props.page.content} />
+    <div className="g-doc">
+      {
+        (props.summary && props.summary.length) ? (
+          <Summary content={props.summary} />
+        ) : null
+      }
+      <Content content={props.page.content}/>
+    </div>
     <Scripts data={props} />
   </body>
 </html>
