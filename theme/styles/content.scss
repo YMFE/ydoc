@@ -2,3 +2,9 @@
   flex: 1;
   overflow-y: scroll;
 }
+
+@include media-md() {
+  .m-content {
+    overflow-y: auto;
+  }
+}

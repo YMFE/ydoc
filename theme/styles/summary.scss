@@ -4,12 +4,33 @@
 	width: 60vw;
 	height: 100%;
 	z-index: $zindex-drawer;
-	&:after {
-		content: '\f020';
+	&-switch {
 		font-family: 'ydoc';
-		display: block;
 		position: absolute;
-		right: -.24rem;
+		right: -.48rem;
 		top: 0;
+		width: .48rem;
+		height: .48rem;
+		display: flex;
+    align-items: center;
+		justify-content: center;
+		background-color: $white;
+		border: 1px solid #ccc;
+	}
+}
+
+// show drawer & hide button on PC
+@include media-md() {
+	.m-summary {
+		position: static;
+		z-index: 0;
+		height: auto;
+		width: auto;
+		flex-basis: 3rem;
+		background-color: color($primary-1, 1);
+		box-shadow: rgba(76, 82, 158, 0.07) 0px 4px 5px 0px inset, rgba(124, 135, 191, 0.06) 0px 1px 10px 0px inset, rgba(124, 132, 191, 0.1) 0px 2px 4px -1px inset;
+		&-switch {
+			display: none;
+		}
 	}
 }
