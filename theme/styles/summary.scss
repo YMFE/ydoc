@@ -1,0 +1,15 @@
+.m-summary {
+	position: absolute;
+	left: -60vw;
+	width: 60vw;
+	height: 100%;
+	z-index: $zindex-drawer;
+	&:after {
+		content: '\f020';
+		font-family: 'ydoc';
+		display: block;
+		position: absolute;
+		right: -.24rem;
+		top: 0;
+	}
+}

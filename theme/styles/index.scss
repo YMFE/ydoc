@@ -6,7 +6,10 @@
 @import './plugins/nav';
 
 // components
+@import './layout';
 @import './header';
+@import './summary';
+@import './content';
 
 * {
     margin: 0;

@@ -79,3 +79,9 @@ $shadow-1:  0 1px 2px $shadow-color;
 $shadow-2:  0 2px 4px $shadow-color;
 $shadow-4:  0 4px 8px $shadow-color;
 $shadow-8:  0 8px 16px $shadow-color;
+
+// z-index
+$zindex-modal:      3000;
+$zindex-drawer:     2000;
+$zindex-mask:       1050;
+$zindex-over:       1000;

@@ -1,0 +1,9 @@
+.g-doc {
+	display: flex;
+	width: 100%;
+	padding-top: .65rem;
+	position: relative;
+	left: 0;
+	transition: all $transition-time-quick ease-in-out;
+	overflow: hidden;
+}
