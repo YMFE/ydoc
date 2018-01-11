@@ -1,3 +1,7 @@
+{
+  // console.log(JSON.stringify(props,null,2))
+}
+
 <header className="m-header js-header">
   <div className="m-header-title">
     <img className="logo" src={props.path} />
@@ -8,7 +12,15 @@
       {
         props.content.menus.map((sortItem) => {
           return sortItem.items.map((menuitem, index) => {
-            return <li className={'item ' + (index === 1 ? 'active' : '')} key={index}><a href="#">{menuitem.title}</a></li>;
+            console.log(menuitem);
+            const bookpath = props.bookpath;
+            const activeItem = bookpath.substring(bookpath.lastIndexOf('\/') + 1, bookpath.length)
+            
+            return (
+              <li className={'item ' + (menuitem.title === activeItem ? 'active' : '')} key={index}>
+                <a href={menuitem.ref ? relePath(props.distPath, menuitem.ref) : '#'}>{menuitem.title}</a>
+              </li>
+              );
           });
         })
       }

@@ -11,7 +11,10 @@
   <meta httpEquiv="Cache-Control" content="no-siteapp" />
   <Head data={props} />
   <body>
-    
+    {
+      console.log(JSON.stringify(props._bookpath, null, 2))
+
+    }
     <div className="g-doc">
       {
         (props.summary && props.summary.length) ? (
@@ -19,7 +22,7 @@
         ) : null
       }
       <div className="m-main">
-        <Header content={props.config.nav} path={props.page.distPath} />
+        <Header content={props.config.nav} path={props.page.distPath} bookpath={props._bookpath} distPath={props.page.distPath} />
         <Content content={props.page.content} />
       </div>
     </div>
