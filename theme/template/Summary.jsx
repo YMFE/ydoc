@@ -15,7 +15,7 @@
 				});
 			};
 			
-			return props.content.map((item, index) => {
+			return props.summary.map((item, index) => {
 				return (
 					<div className="m-summary-block" key={index}>
 						{item.title ? <div className="m-summary-title">{item.title}</div> : ''}
