@@ -12,20 +12,24 @@
   <Head data={props} />
   <body>
     {
-      console.log(JSON.stringify(props._bookpath, null, 2))
+      // console.log(JSON.stringify(props.config.nav, null, 2))
 
     }
     <div className="g-doc">
       {
         (props.summary && props.summary.length) ? (
-          <Summary content={props.summary} />
+          <Summary summary={props.summary} />
         ) : null
       }
       <div className="m-main">
-        <Header content={props.config.nav} path={props.page.distPath} bookpath={props._bookpath} distPath={props.page.distPath} />
+        <Header
+          nav={props.config.nav}
+          bookpath={props._bookpath}
+          distPath={props.page.distPath}
+        />
         <Content content={props.page.content} />
       </div>
     </div>
-    <Scripts data={props} />
+    <Scripts distPath={props.page.distPath} />
   </body>
 </html>
