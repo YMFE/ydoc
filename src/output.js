@@ -9,7 +9,6 @@ module.exports = async function (context) {
   
   let content = utils.noox.render('Layout', context);
   context.page.content = content;
-
   await emitHook('page', context.page);
   fs.writeFileSync(context.page.distPath, content);
   utils.log.debug('Generate file: ' + context.page.distPath)

@@ -83,7 +83,6 @@ function handleMdPathToHtml(filepath){
 exports.parseSite =async function(dist){
   try{    
     await emitHook('init');
-    await emitHook('markdown', utils.md);
     let indexPath = await getIndexPath(dist);
     if(!indexPath){
       return utils.log.error(`The root directory of documents didn't find index.html or index.md`)
@@ -116,7 +115,6 @@ exports.parseSite =async function(dist){
     await emitHook('finish')
   }catch(err){    
     utils.log.error(err);
-    //throw err;
   }
   
 }
@@ -193,15 +191,15 @@ async function parseBook(bookpath){
   async function parseDocuments(summary){
     for(let index = 0; index< summary.length; index++){
       let item = summary[index];
-
       if(item.ref){
         let urlObj = url.parse(item.ref);
         if(urlObj.host) continue;
         let releativePath = urlObj.pathname;
         let absolutePath = path.resolve(bookpath, releativePath);
-        if(utils.fileExist(absolutePath)){
+        if(utils.fileExist(absolutePath)){          
           let releativeHtmlPath = handleMdPathToHtml(releativePath);
-          item.ref = releativeHtmlPath + (urlObj.hash || '');
+          urlObj.hash = urlObj.hash ? urlObj.hash : '';
+          item.ref = releativeHtmlPath + urlObj.hash;
           generatePage(getBookContext(book, {
             srcPath: absolutePath,
             distPath: releativeHtmlPath

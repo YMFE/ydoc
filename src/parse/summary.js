@@ -4,7 +4,7 @@ const SELECTOR_LIST = 'ol, ul';
 const SELECTOR_LINK = '> a, p > a';
 const SELECTOR_PART = 'h2, h3, h4';
 
-const BL = '\n';
+const utils = require('../utils');
 
 
 function findList($parent) {
@@ -25,8 +25,8 @@ function parseList($ul, $) {
 
         let $a = $li.find(SELECTOR_LINK);
         if ($a.length > 0) {
-            article.title = $a.first().text();
-            article.ref = $a.attr('href').replace(/\\/g, '/').replace(/^\/+/, '');
+            article.title = $a.first().text();            
+            article.ref = $a.attr('href').replace(/\\/g, '/').replace(/^\/+/, '').replace(/#(.*?)$/, (str, match)=> '#'+ utils.hashEncode(match));
         }
 
         let $sub = findList($li);
@@ -87,6 +87,7 @@ function getPartTitle(el, $) {
 
 function parseSummary(html) {
     let $ = dom.parse(html);
+   
     let $root = dom.cleanup(dom.root($), $);
 
     let parts = findParts($root, $);
@@ -100,7 +101,6 @@ function parseSummary(html) {
             articles: parseList($(part.list), $)
         });
     }
-
     return parsedParts;
 }
 

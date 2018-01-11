@@ -11,12 +11,11 @@
 		(() => {
 			const getItems = (articles) => {
 				return articles.map((item) => {
-					return <li className="item">{item.title}</li>;
+					return <li className="item"><a href={item.ref} >{item.title}</a></li>;
 				});
 			};
 			
 			return props.content.map((item) => {
-				console.log(item);
 				return (
 					<div className="m-summary-block">
 						{item.title ? <div className="m-summary-title">{item.title}</div> : ''}
