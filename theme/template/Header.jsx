@@ -8,7 +8,7 @@
       {
         props.content.menus.map((sortItem) => {
           return sortItem.items.map((menuitem, index) => {
-            return <li className={'item ' + (index===1?'active':'')}><a href="#">{menuitem.title}</a></li>;
+            return <li className={'item ' + (index === 1 ? 'active' : '')} key={index}><a href="#">{menuitem.title}</a></li>;
           });
         })
       }
