@@ -1,4 +1,4 @@
-<header className="m-header">
+<header className="m-header js-header">
   <div className="m-header-title">
     <img className="logo" src={props.path} />
     <h6 className="name">{props.content.title}</h6>

@@ -6,13 +6,9 @@
 	}
 }
 
-<div className="m-summary">
+<div className="m-summary" id="js-menu">
 	{
 		(() => {
-			const testz = () => {
-				console.log('-=-=-=-==--==--==--=');
-				
-			}
 			const getItems = (articles) => {
 				return articles.map((item) => {
 					return <li className="item">{item.title}</li>;
@@ -21,7 +17,6 @@
 			
 			return props.content.map((item) => {
 				console.log(item);
-				
 				return (
 					<div className="m-summary-block">
 						{item.title ? <div className="m-summary-title">{item.title}</div> : ''}
@@ -31,7 +26,5 @@
 			});
 		})()
 	}
-	<div className="m-summary-switch js-summaty-switch" onclick={() => console.log('eeee')
-	
-	}>&#xf020;</div>
+	{/* <div className="m-summary-switch js-summaty-switch" >&#xf020;</div> */}
 </div>

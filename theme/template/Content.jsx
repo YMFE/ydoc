@@ -1,1 +1,1 @@
-<div className="m-content" dangerouslySetInnerHTML={{ __html: props.content }}></div>
+<div className="m-content" id="js-panel" dangerouslySetInnerHTML={{ __html: props.content }}></div>

@@ -1,6 +1,8 @@
 .m-content {
-  flex: 1;
   overflow-y: scroll;
+  background-color: #fff;
+  min-height: 100%;
+  border-top: 1px solid #e5f0f6;
 }
 
 @include media-md() {

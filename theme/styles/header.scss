@@ -1,6 +1,5 @@
 .m-header {
 	min-height: .64rem;
-	border-bottom: 1px solid #ccc;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -9,7 +8,8 @@
 	left: 0;
 	width: 100%;
 	background-color: $white;
-	z-index: $zindex-over;
+  backface-visibility: hidden;
+  z-index: 2;
 	&-title {
 		width: 3rem;
 		height: .64rem;
@@ -21,7 +21,7 @@
 		}
 	}
 	&-nav {
-		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #e5f0f6;
 		.m-header-items {
 			padding: $padding-sm;
 		}

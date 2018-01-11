@@ -11,14 +11,17 @@
   <meta httpEquiv="Cache-Control" content="no-siteapp" />
   <Head data={props} />
   <body>
-    <Header content={props.config.nav} path={props.page.distPath} />
+    
     <div className="g-doc">
       {
         (props.summary && props.summary.length) ? (
           <Summary content={props.summary} />
         ) : null
       }
-      <Content content={props.page.content}/>
+      <div className="m-main">
+        <Header content={props.config.nav} path={props.page.distPath} />
+        <Content content={props.page.content} />
+      </div>
     </div>
     <Scripts data={props} />
   </body>
