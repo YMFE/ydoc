@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon-precomposed" href="icon.png" />
   <meta httpEquiv="Cache-Control" content="no-transform" />
   <meta httpEquiv="Cache-Control" content="no-siteapp" />
-  <Head data={props} />
+  <Head />
   <body>
     
     <div className="g-doc">

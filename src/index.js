@@ -1,6 +1,12 @@
 const fs = require('fs-extra');
 const path = require('path');
+
+if(process.argv.length === 2){
+  process.argv.push('--help')
+}
+
 const yargs = require('yargs');
+
 
 const commandsDir = path.resolve(__dirname, 'commands');
 
@@ -16,4 +22,8 @@ commandsFile.forEach(function (file) {
 })
 
 
-yargs.argv;
+yargs
+.usage('Usage: $0 [command]')
+.help('h')
+.alias('h', 'help')
+.argv;

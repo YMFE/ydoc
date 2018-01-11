@@ -59,5 +59,5 @@ module.exports = {
       }
     });
   },
-  desc: 'build'
+  desc: 'Generate the document site'
 }

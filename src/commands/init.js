@@ -6,5 +6,5 @@ module.exports = {
   run: function (argv) {
     console.log(argv)
   },
-  desc: 'init'
+  desc: 'Initialize a document site'
 }
