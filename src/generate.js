@@ -47,6 +47,8 @@ function findTransactionBySrcPath(path){
   return _.find(batch, {srcPath: path})
 }
 
+exports.findTransactionBySrcPath = findTransactionBySrcPath;
+
 exports.runBatch = async function runBatch(){
   if(batch.length === 0) return;
   for(let index=0, l = batch.length; index<l; index++){
@@ -59,7 +61,7 @@ exports.runBatch = async function runBatch(){
     let _p, parseJsxInst;
     switch(page.type){
       case 'md'  :         
-        _p = parsePage(parseMarkdown(page.srcPath));
+        _p = parsePage(parseMarkdown(page.srcPath), true);
         break;
       case 'jsx' :
       parseJsxInst = parseJsx(page.srcPath);
