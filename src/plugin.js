@@ -99,9 +99,9 @@ function handleAsserts(config, dir, pluginName){
 
 exports.loadPlugins = function loadPlugins() {
   let modules = path.resolve(process.cwd(), 'node_modules');
-  let plugins = [];
+  let plugins = PLUGINS;
   if (ydocConfig.plugins && Array.isArray(ydocConfig.plugins)) {
-    plugins = PLUGINS.concat(ydocConfig.plugins)
+    plugins = plugins.concat(ydocConfig.plugins)
   }
   for (let i = 0, l = plugins.length; i < l; i++) {
     let pluginName = plugins[i].name;
