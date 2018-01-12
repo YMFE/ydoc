@@ -12,7 +12,7 @@
   <Head data={props} />
   <body>
     {
-      // console.log(JSON.stringify(props.config.nav, null, 2))
+      // console.log(JSON.stringify(props, null, 2))
 
     }
     <div className="g-doc">
@@ -28,6 +28,7 @@
           distPath={props.page.distPath}
         />
         <Content content={props.page.content} />
+        <Footer />
       </div>
     </div>
     <Scripts distPath={props.page.distPath} />

@@ -56,22 +56,6 @@ samp {
     font-family: inherit;
 }
 
-// 为不继承的元素设定继承父级字号
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-small,
-big,
-input,
-textarea,
-button,
-select {
-    font-size: inherit;
-}
-
 // 清除单元格边距并让边框合并
 table {
     border-collapse: collapse;

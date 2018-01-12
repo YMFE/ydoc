@@ -3,6 +3,14 @@
   background-color: #fff;
   min-height: 100%;
   border-top: 1px solid #e5f0f6;
+  &-container {
+    max-width: 8rem;
+    margin: .24rem auto;
+    .title {
+      margin-top: .48rem;
+      line-height: 1;
+    }
+  }
 }
 
 @include media-md() {
