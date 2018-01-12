@@ -15,6 +15,7 @@
 
 @include media-md() {
   .m-content {
+    overflow-x: hidden;
     overflow-y: auto;
   }
 }
