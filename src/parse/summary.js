@@ -26,7 +26,7 @@ function parseList($ul, $) {
         let $a = $li.find(SELECTOR_LINK);
         if ($a.length > 0) {
             article.title = $a.first().text();            
-            article.ref = $a.attr('href').replace(/\\/g, '/').replace(/^\/+/, '').replace(/#(.*?)$/, (str, match)=> '#'+ utils.hashEncode(match));
+            article.ref = $a.attr('href').replace(/\\/g, '/').replace(/^\/+/, '');
         }
 
         let $sub = findList($li);

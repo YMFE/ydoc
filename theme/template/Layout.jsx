@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon-precomposed" href="icon.png" />
   <meta httpEquiv="Cache-Control" content="no-transform" />
   <meta httpEquiv="Cache-Control" content="no-siteapp" />
-  <Head />
+  <Head data={props} />
   <body>
     {
       // console.log(JSON.stringify(props.config.nav, null, 2))

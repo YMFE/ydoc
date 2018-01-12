@@ -83,6 +83,7 @@ function handleMdPathToHtml(filepath){
 exports.parseSite =async function(dist){
   try{    
     await emitHook('init');
+    await emitHook('markdown', utils.md);
     let indexPath = await getIndexPath(dist);
     if(!indexPath){
       return utils.log.error(`The root directory of documents didn't find index.html or index.md`)

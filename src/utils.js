@@ -1,5 +1,23 @@
 const fs = require('fs')
 const logger = require('./logger');
+const MarkdownIt = require('markdown-it');
+const hljs = require('highlight.js'); // https://highlightjs.org/
+
+exports.md = MarkdownIt({
+  html: true,
+  linkify: false,
+  highlight: function (str, lang) {
+    try{
+      if (lang && hljs.getLanguage(lang)) {
+        return hljs.highlight(lang, str).value;
+      }
+      return hljs.highlightAuto(str).value
+    }catch(err){
+      return str;
+    }
+  }  
+});
+
 /**
  * 复制一个对象的属性到另一个对象
  *
@@ -48,6 +66,9 @@ exports.fileExist = (filePath) => {
  */
 exports.log = new logger('info');
 
-exports.hashEncode = (text)=>{
-  return text.replace(/[\~\:\s\@\/\(\)]/g, '_');
+function hashEncode(text){
+  return text.replace(/ /g, '-')
+  //return text.replace(/[\~\:\s\@\/\(\)]/g, '_');
 }
+
+exports.hashEncode = hashEncode
