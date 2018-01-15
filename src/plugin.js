@@ -41,6 +41,8 @@ function bindHook(name, listener) {
   hooks[name].listener.push(listener);
 }
 
+exports.bindHook = bindHook;
+
 /**
 * 
 * @param {*} hookname
@@ -63,7 +65,10 @@ exports.emitHook = function emitHook(name) {
   }
 }
 
-
+function _importAssert(filepath, type, pluginAssertPath){
+  filepath = path.resolve(pluginAssertPath, filepath);
+  return ydoc.addAssert(filepath, type)
+}
 
 function handleAsserts(config, dir, pluginName){
   let pluginAssertPath;
@@ -84,17 +89,11 @@ function handleAsserts(config, dir, pluginName){
 
   function importAssert(filepath){
     if(typeof filepath === 'string'){
-      _importAssert(filepath, 'js');
+      _importAssert(filepath, 'js', pluginAssertPath);
     }else if(Array.isArray(filepath)){      
-      filepath.forEach(item=> _importAssert(item, 'js'))
+      filepath.forEach(item=> _importAssert(item, 'js', pluginAssertPath))
     }
   }
-
-  function _importAssert(filepath, type){
-    filepath = path.resolve(pluginAssertPath, filepath);
-    return ydoc.addAssert(filepath, type)
-  }
-  
 }
 
 exports.loadPlugins = function loadPlugins() {

@@ -40,3 +40,5 @@ Thumbs.db
 
 _site
 ./test.js
+
+/coverage

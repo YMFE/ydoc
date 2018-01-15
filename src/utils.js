@@ -17,16 +17,6 @@ exports.extend = function extend(obj, props) {
   return obj;
 }
 
-exports.clearArray =  function clearArray(a) {
-  return a.splice(0, a.length);
-}
-
-/**
- * 一个空函数
- *
- * @export
- */
-exports.noop = function noop() { }
 
 exports.clearArray = function clearArray(a) {
   return a.splice(0, a.length);

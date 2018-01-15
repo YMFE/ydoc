@@ -1,6 +1,5 @@
 const util = require('util');
 const color = require('bash-color');
-const _ = require('underscore');
 
 
 const LEVELS = {
