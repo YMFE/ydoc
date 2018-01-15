@@ -19,7 +19,14 @@
 		line-height: 2.5;
 		.item.active {
 			font-weight: bold;
-			color: $primary-color;
+			color: $primary-6;
+		}
+		.href {
+			background-color: color($primary-1, 1);
+			transition: all $transition-time-quick;
+		}
+		.href:hover {
+			background-color: $primary-2;
 		}
 	}
 	&-switch {
