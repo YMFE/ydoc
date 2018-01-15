@@ -7,7 +7,8 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	background-color: $white;
+	background-color: rgba($white, .97);
+	border-bottom: 1px solid #e5f0f6;
   backface-visibility: hidden;
   z-index: 2;
 	&-title {

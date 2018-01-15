@@ -1,15 +1,17 @@
 # Summary
 
-* [first](test222.md#哈 哈)
+* [安装](test222.md#哈哈)
+* [静态文件形式](test111.md#)
+* [初始化](test222.md#哈哈)
 
-### sort 111
+### 配置文件
 
-* [test](test111.md#)
-* [faq](faq.md)
+* [静态文件形式](test111.md#)
+* [动态脚本形式](faq.md)
 
-### 22sort222
+### 配置内容
 
-* [structure](structure.md)
+* [解析器配置](structure.md)
     * [setup](setup.md)
 
 --

@@ -3,8 +3,21 @@
 	// left: -60vw;
 	// width: 60vw;
 	// height: 100%;
-	box-shadow: rgba(76, 82, 158, 0.07) 0px 4px 5px 0px inset, rgba(124, 135, 191, 0.06) 0px 1px 10px 0px inset, rgba(124, 132, 191, 0.1) 0px 2px 4px -1px inset;
+	padding: .24rem;
+	box-shadow: inset 0 1px 10px 0 rgba(24,144,255,0.06), inset 0 2px 4px 0 rgba(24,144,255,0.10), inset 0 4px 5px 0 rgba(9,109,217,0.07);
 	background-color: color($primary-1, 1);
+	&-block {
+		margin-bottom: .16rem;
+	}
+	&-title {
+		font-size: $font-size-h6;
+		line-height: 2.5;
+		color: $deep-disable-text-color;
+	}
+	&-list {
+		font-size: $font-size-body;
+		line-height: 2.5;
+	}
 	&-switch {
 		font-family: 'ydoc';
 		position: absolute;
@@ -25,6 +38,9 @@
 		position: static;
 		height: auto;
 		width: auto;
+		padding: .4rem;
+		padding-right: .24rem;
+		margin-top: .64rem;
 		flex: 3rem 0 0;
 		&-switch {
 			display: none;
