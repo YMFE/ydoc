@@ -1,6 +1,7 @@
 body {
   font-size: $font-size;
   color: $deep-body-text-color;
+  -webkit-font-smoothing: antialiased;
 }
 
 
