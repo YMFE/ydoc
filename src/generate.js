@@ -47,8 +47,6 @@ function findTransactionBySrcPath(path){
   return _.find(batch, {srcPath: path})
 }
 
-exports.findTransactionBySrcPath = findTransactionBySrcPath;
-
 exports.runBatch = async function runBatch(){
   if(batch.length === 0) return;
   for(let index=0, l = batch.length; index<l; index++){
@@ -104,6 +102,7 @@ exports.generatePage = function generatePage(bookpath){
   
   return function _generatePage(context){    
     const page = context.page;
+    if(findTransactionBySrcPath(page.srcPath))return;
     context._bookpath = bookpath;
     let releativePath = page.distPath;
     page.type = getType(page.srcPath);

@@ -8,7 +8,6 @@ const defaultSummaryPage = 'summary.md';
 const defaultNavPage = 'nav.md';
 const generate = require('../generate.js').generatePage;
 const runBatch = require('../generate.js').runBatch;
-const findTransactionBySrcPath = require('../generate.js').findTransactionBySrcPath;
 const parseSummary = require('./summary');
 const parseMarkdown = require('./markdown');
 const parsePage = require('./page.js');
@@ -198,7 +197,7 @@ async function parseBook(bookpath){
         if(urlObj.host) continue;
         let releativePath = urlObj.pathname;
         let absolutePath = path.resolve(bookpath, releativePath);
-        if(!findTransactionBySrcPath(absolutePath) && utils.fileExist(absolutePath)){          
+        if(utils.fileExist(absolutePath)){
           let releativeHtmlPath = handleMdPathToHtml(releativePath);
           urlObj.hash = urlObj.hash ? urlObj.hash : '';
           item.ref = releativeHtmlPath + urlObj.hash;
