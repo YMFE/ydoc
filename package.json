@@ -3,7 +3,8 @@
   "version": "3.2.5",
   "description": "Yummy Doc 文档生成工具",
   "scripts": {
-    "test": "export TESTING=true; mocha --reporter spec --bail --recursive"
+    "test": "mocha --reporter spec --bail --recursive",
+    "coverage": "istanbul cover node_modules/.bin/_mocha"
   },
   "keywords": [
     "doc",
@@ -36,8 +37,10 @@
   },
   "devDependencies": {
     "ghooks": "^2.0.0",
+    "istanbul": "^0.4.5",
     "mocha": "^4.1.0",
     "node-sass": "^4.7.2",
+    "rewire": "^3.0.2",
     "validate-commit-msg": "^2.12.2"
   },
   "config": {
