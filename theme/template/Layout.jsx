@@ -18,7 +18,7 @@
     <div className="g-doc">
       {
         (props.summary && props.summary.length) ? (
-          <Summary summary={props.summary} />
+          <Summary summary={props.summary} distPath={props.page.distPath} />
         ) : null
       }
       <div className="m-main">

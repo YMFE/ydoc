@@ -17,6 +17,10 @@
 	&-list {
 		font-size: $font-size-body;
 		line-height: 2.5;
+		.item.active {
+			font-weight: bold;
+			color: $primary-color;
+		}
 	}
 	&-switch {
 		font-family: 'ydoc';

@@ -36,7 +36,7 @@
         props.nav.menus.map((sortItem) => {
           return sortItem.items.map((menuitem, index) => {
             const bookpath = props.bookpath;
-            const activeItem = bookpath.substring(bookpath.lastIndexOf('\/') + 1, bookpath.length)
+            const activeItem = bookpath.substring(bookpath.lastIndexOf('\/') + 1, bookpath.length);
             
             return (
               <li className={'item ' + (menuitem.title === activeItem ? 'active' : '')} key={index}>
