@@ -57,8 +57,16 @@ $body-bg: #fff;
 
 // text
 // ------------------------------------------
-$font-size:     .14rem;
-$line-height:   1.5;
+$font-size:       14px;
+$line-height:     1.5;
+// headline
+$font-size-h1:    56px;
+$font-size-h2:    45px;
+$font-size-h3:    34px;
+$font-size-h4:    24px;
+$font-size-h5:    21px;
+$font-size-h6:    16px;
+$font-size-body:  $font-size;
 
 // transition
 // ------------------------------------------
