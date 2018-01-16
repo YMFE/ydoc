@@ -79,12 +79,14 @@ exports.runBatch = async function runBatch(){
     utils.extend(page, _p);
     try{
       await emitHook('page:before', page);
-      await output(transaction.context);      
+      await output(transaction.context);   
+      //避免内存占用太大，使用完立即释放   
       delete transaction.context.page.content;
     }catch(err){
       throw err;
     }
   }
+  //batch 任务执行完成后，删除源文件
   batch.forEach(transaction=>{
     if(utils.fileExist(transaction.context.page.srcPath) && transaction.context.page.srcPath !== transaction.context.page.distPath){
       fs.unlinkSync(transaction.context.page.srcPath);
