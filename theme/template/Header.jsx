@@ -17,11 +17,11 @@
       {
         props.nav.menus.map((sortItem) => {
           return sortItem.items.map((menuitem, index) => {
-            const bookpath = props.bookpath;
-            const activeItem = bookpath.substring(bookpath.lastIndexOf('\/') + 1, bookpath.length);
+            const distPath = props.distPath;
+            const activeItem = distPath.split('_site\/')[1].split('\/')[0];
             
             return (
-              <li className={'item ' + (menuitem.title === activeItem ? 'active' : '')} key={index}>
+              <li className={'item ' + (menuitem.ref.split('\/')[0] === activeItem ? 'active' : '')} key={index}>
                 <a className="href" href={menuitem.ref ? relePath(props.distPath, menuitem.ref) : '#'}>{menuitem.title}</a>
               </li>
               );

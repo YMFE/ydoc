@@ -12,7 +12,7 @@
   <Head data={props} />
   <body>
     {
-      // console.log(JSON.stringify(props, null, 2))
+      // console.log(JSON.stringify(props.page, null, 2))
 
     }
     <div className="g-doc">
