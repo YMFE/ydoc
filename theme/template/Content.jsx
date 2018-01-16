@@ -4,7 +4,7 @@
   
 }
 
-<div className="m-content" id="js-panel">
+<div className="m-content">
   <div className="m-content-container">
     <h1 className="title">Heading H1</h1>
     <div dangerouslySetInnerHTML={{ __html: props.content }}></div>

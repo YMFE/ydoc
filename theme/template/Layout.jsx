@@ -21,7 +21,7 @@
           <Summary summary={props.summary} distPath={props.page.distPath} />
         ) : null
       }
-      <div className="m-main">
+      <div className="m-main" id="js-panel">
         <Header
           nav={props.config.nav}
           bookpath={props._bookpath}
