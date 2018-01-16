@@ -1,9 +1,5 @@
 {
 	// console.log(JSON.stringify(props.content, null, 2))
-	function testz() {
-		console.log('rerere');
-		
-	}
 }
 
 <div className="m-summary" id="js-menu">

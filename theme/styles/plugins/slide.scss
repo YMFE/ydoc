@@ -52,4 +52,7 @@ body {
   .slideout-menu {
     display: block;
   }
+  .slideout-panel {
+    will-change: inherit;
+  }
 }

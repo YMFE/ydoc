@@ -34,21 +34,21 @@ var slideout = new Slideout({
 // 	});
 
 // translate the fixed header
-var fixed = document.querySelector('.js-header');
-slideout.on('translate', function (translated) {
-	fixed.style.transform = 'translateX(' + translated + 'px)';
-});
-slideout.on('beforeopen', function () {
-	fixed.style.transition = 'transform 300ms ease';
-	fixed.style.transform = 'translateX(256px)';
-});
-slideout.on('beforeclose', function () {
-	fixed.style.transition = 'transform 300ms ease';
-	fixed.style.transform = 'translateX(0px)';
-});
-slideout.on('open', function () {
-	fixed.style.transition = '';
-});
-slideout.on('close', function () {
-	fixed.style.transition = '';
-});
+// var fixed = document.querySelector('.js-header');
+// slideout.on('translate', function (translated) {
+// 	fixed.style.transform = 'translateX(' + translated + 'px)';
+// });
+// slideout.on('beforeopen', function () {
+// 	fixed.style.transition = 'transform 300ms ease';
+// 	fixed.style.transform = 'translateX(256px)';
+// });
+// slideout.on('beforeclose', function () {
+// 	fixed.style.transition = 'transform 300ms ease';
+// 	fixed.style.transform = 'translateX(0px)';
+// });
+// slideout.on('open', function () {
+// 	fixed.style.transition = '';
+// });
+// slideout.on('close', function () {
+// 	fixed.style.transition = '';
+// });
