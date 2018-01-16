@@ -22,7 +22,7 @@ function handleUrl($, filepath){
   urls.each(function(){
     let item = $(this);
     let href = item.attr('href');
-
+    if(!href) return;
     let urlObj = url.parse(href);
 
     if(urlObj.hostname){

@@ -11,7 +11,7 @@ utils.md = MarkdownIt({
       if (lang && hljs.getLanguage(lang)) {
         return hljs.highlight(lang, str).value;
       }
-      return hljs.highlightAuto(str).value
+      return str;
     } catch (err) {
       return str;
     }
