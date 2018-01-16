@@ -1,10 +1,14 @@
 {
   // console.log(JSON.stringify(props,null,2))
+  (() => {
+    const test = () => console.log(1)
+  })
+  
 }
 
 <header className="m-header">
-  <div className="m-header-title">
-    <Logo />
+  <div className="m-header-title js-logo">
+    <Logo distPath={props.distPath}/>
     {/* <img className="logo" src={props.nav.logo} /> */}
     {/* <h6 className="name">{props.nav.title}</h6> */}
   </div>
