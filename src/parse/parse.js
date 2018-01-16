@@ -70,14 +70,18 @@ function handleMdPathToHtml(filepath){
       dir: fileObj.dir,
       base: fileObj.base
     })
+  }else if(fileObj.ext === '.jsx'){
+    let name = fileObj.base === defaultIndexPage + '.jsx' ? 'index.html' : fileObj.name + '.html';
+    return path.format({
+      dir: fileObj.dir,
+      base: name
+    }) 
   }
   let errpath = filepath.substr(ydocConfig.buildPath.length);
   
-  utils.log.warn(`The document file ${errpath} only suport md ,html or jsx .`)
+  utils.log.warn(`The document  "${errpath}" extname is not .md ,.html or .jsx .`)
 
   return filepath;
-
-  
 }
 
 exports.parseSite =async function(dist){
