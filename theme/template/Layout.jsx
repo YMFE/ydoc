@@ -28,7 +28,7 @@
           distPath={props.page.distPath}
         />
         <Content content={props.page.content} />
-        <Footer />
+        <Footer distPath={props.page.distPath} />
       </div>
     </div>
     <Scripts distPath={props.page.distPath} />
