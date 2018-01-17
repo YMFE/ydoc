@@ -25,13 +25,25 @@ exports.clearArray = function clearArray(a) {
   return a.splice(0, a.length);
 }
 
-exports.fileExist = (filePath) => {
+function fileExist(filePath){
   try {
     return fs.statSync(filePath).isFile();
   } catch (err) {
     return false;
   }
-};
+}
+exports.fileExist = fileExist;
+
+
+function dirExist(filePath){
+  try {
+    return fs.statSync(filePath).isDirectory();
+  } catch (err) {
+    return false;
+  }
+}
+exports.dirExist = dirExist;
+
 
 /**
  * log 输出，一共四个 api:
@@ -74,4 +86,13 @@ exports.handleMdUrl = (findTransactionBySrcPath) => (content, filepath) => {
     }
   })
   return $.html()
+}
+
+exports.getConfigPath = function getConfigPath(dirname){
+  let allowFilename = ['ydoc.json', 'ydoc.js'];
+  for(let i =0; i< allowFilename.length; i++){
+    let configFilepath = path.resolve(dirname, allowFilename[i]);
+    if(fileExist(configFilepath)) return configFilepath;
+  }
+  return null;
 }
