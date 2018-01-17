@@ -5,7 +5,7 @@
 }
 
 <div className="m-content">
-  <div className="m-content-container">
+  <div className="m-content-container markdown-body">
     <h1 className="title">Heading H1</h1>
     <div dangerouslySetInnerHTML={{ __html: props.content }}></div>
   </div>

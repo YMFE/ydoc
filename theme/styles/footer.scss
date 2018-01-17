@@ -5,9 +5,12 @@
   &-container {
     display: flex;
     flex-direction: column-reverse;
+    padding: 0;
+    transition: all $transition-time-quick;
   }
   &-title {
     text-align: center;
+    padding-top: .08rem;
     .copyright {
       margin-top: .16rem;
     }
@@ -44,8 +47,9 @@
     padding: .24rem .64rem;
     &-container {
       flex-direction: column;
-      max-width: 8rem;
+      max-width: 8.1rem;
       margin: .24rem auto;
+      padding: 0 .4rem;
     }
     &-title {
       text-align: left;
