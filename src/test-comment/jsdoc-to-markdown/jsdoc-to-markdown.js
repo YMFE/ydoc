@@ -7,7 +7,12 @@ const JsdocOptions = require('./jsdoc-options')
 /**
  * @module jsdoc-to-markdown
  * @example
+ * ```js
  * const jsdoc2md = require('jsdoc-to-markdown')
+ * function example(param1, param2) {
+ *   return param1 + param2;
+ * }
+ * ```
  */
 
 /**

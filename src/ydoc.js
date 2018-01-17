@@ -8,7 +8,13 @@ const ydoc = {
     root: "./docs",
     title: "ydoc",
     description: "ydoc description",
-    author: "ymfe"
+    author: "ymfe",
+    plugins: [{
+      name: 'comment',
+      options: {
+        files: 'src/test-comment/**/*.js'
+      }
+    }]
   },
   relePath: function(srcFilepath, importFilepath){
     importFilepath = path.isAbsolute(importFilepath)? importFilepath : path.resolve(ydoc.config.buildPath, importFilepath);
