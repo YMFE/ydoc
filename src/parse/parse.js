@@ -59,29 +59,18 @@ function getBookContext(book, page){
 
 function handleMdPathToHtml(filepath){
   let fileObj = path.parse(filepath);
-  if(fileObj.ext === '.md'){
-    let name = fileObj.base === defaultIndexPage + '.md' ? 'index.html' : fileObj.name + '.html';
+  if(fileObj.ext === '.md' || fileObj.ext === '.jsx'){
+    let name = fileObj.name === defaultIndexPage  ? 'index.html' : fileObj.name + '.html';
     return path.format({
       dir: fileObj.dir,
       base: name
     })
-  }else if(fileObj.ext === '.html'){
+  }else{
     return path.format({
       dir: fileObj.dir,
       base: fileObj.base
     })
-  }else if(fileObj.ext === '.jsx'){
-    let name = fileObj.base === defaultIndexPage + '.jsx' ? 'index.html' : fileObj.name + '.html';
-    return path.format({
-      dir: fileObj.dir,
-      base: name
-    }) 
   }
-  let errpath = filepath.substr(ydocConfig.buildPath.length);
-  
-  utils.log.warn(`The document  "${errpath}" extname is not .md ,.html or .jsx .`)
-
-  return filepath;
 }
 
 exports.parseSite =async function(dist){
@@ -90,7 +79,7 @@ exports.parseSite =async function(dist){
     await emitHook('markdown', utils.md);
     let indexPath = await getIndexPath(dist);
     if(!indexPath){
-      return utils.log.error(`The root directory of documents didn't find index.html or index.md`)
+      return utils.log.error(`The root directory of documents didn't find index page.`)
     }
     
     ydocConfig.nav = getNav(dist);
