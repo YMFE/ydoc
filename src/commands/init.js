@@ -15,7 +15,9 @@ module.exports = {
       return utils.log.error('The current directory already exists docs directory.');
     }
     fs.ensureDirSync(docsPath);
-    fs.copySync(initPath, docsPath)
+    fs.copySync(initPath, docsPath);
+    utils.log.ok('Initialization successful, please use the following command.')
+    utils.log.info('Execute "ydoc build"')
   },
   desc: 'Initialize a document site'
 }
