@@ -1,5 +1,8 @@
 const fs = require('fs')
 const logger = require('./logger');
+const dom = require('./parse/dom.js');
+const url = require('url');
+const path = require('path');
 
 /**
  * 复制一个对象的属性到另一个对象
@@ -39,8 +42,36 @@ exports.fileExist = (filePath) => {
  */
 exports.log = new logger('info');
 
-function hashEncode(text){
+exports.hashEncode = function hashEncode(text){
   return text.replace(/[\~\:\#\@\/\(\)]/g, '').replace(/\s+/g, '-');
 }
 
-exports.hashEncode = hashEncode
+exports.handleMdUrl = (findTransactionBySrcPath) => (content, filepath) => {
+  if(!/\.md/.test(content)){
+    return content;
+  }
+  let $ = dom.parse(content);
+  let urls = $('a');
+  urls.each(function(){
+    let item = $(this);
+    let href = item.attr('href');
+    if(!href) return;
+    let urlObj = url.parse(href);
+
+    if(urlObj.hostname){
+      return;
+    }
+    if(!urlObj.path){
+      return;
+    }
+    
+    if(path.extname(urlObj.pathname) === '.md'){
+      let srcPath = path.resolve(filepath, urlObj.pathname);
+      let findTransaction = findTransactionBySrcPath(srcPath);
+      if(findTransaction){
+        item.attr('href', href.replace('.md', '.html'))
+      }
+    }
+  })
+  return $.html()
+}
