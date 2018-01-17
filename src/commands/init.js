@@ -16,8 +16,8 @@ module.exports = {
     }
     fs.ensureDirSync(docsPath);
     fs.copySync(initPath, docsPath);
-    utils.log.ok('Initialization successful, please use the following command.')
-    utils.log.info('Execute "ydoc build"')
+    utils.log.ok('Initialization successful, please use the following command to generate the documents site.')
+    utils.log.info('Execute: "ydoc build"')
   },
   desc: 'Initialize a document site'
 }
