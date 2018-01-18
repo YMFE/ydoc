@@ -7,16 +7,19 @@ const loadPlugins = require('../plugin.js').loadPlugins;
 
 const defaultBuildPath = '_site';
 const projectPath = process.cwd();
-const configFilepath = path.resolve(projectPath, 'ydoc.json');
-const styleInPath = path.resolve(projectPath, 'theme/styles/index.scss');
-const scriptInPath = path.resolve(projectPath, 'theme/scripts/');
+const ydocPath = path.resolve(__dirname, '../..')
+const styleInPath = path.resolve(ydocPath, 'theme/styles/index.scss');
+const scriptInPath = path.resolve(ydocPath, 'theme/scripts/');
 const styleOutPath = path.resolve(projectPath, defaultBuildPath + '/ydoc/styles', 'style.css');
 const scriptOutPath = path.resolve(projectPath, defaultBuildPath + '/ydoc/scripts/');
 const logger = require('../logger');
 
-const config = utils.fileExist(configFilepath) ?  require(configFilepath) : require(path.resolve(projectPath, 'ydoc.js'));
+const configFilepath = utils.getConfigPath(projectPath);
+const config = utils.fileExist(configFilepath) ? require(configFilepath) : {};
 const ydoc = require('../ydoc.js');
 utils.extend(ydoc.config, config);
+
+
 
 
 module.exports = {

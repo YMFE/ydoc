@@ -13,9 +13,8 @@
   <body>
     {
       // console.log(JSON.stringify(props.page, null, 2))
-
     }
-    <div className="g-doc">
+    <div className={'g-doc' + ((props.page.distPath.indexOf('/_site/index.html') !== -1) ? ' g-home' : '')}>
       {
         (props.summary && props.summary.length) ? (
           <Summary summary={props.summary} distPath={props.page.distPath} />
@@ -27,7 +26,11 @@
           bookpath={props._bookpath}
           distPath={props.page.distPath}
         />
-        <Content content={props.page.content} />
+        {
+          (props.page.distPath.indexOf('/_site/index.html') !== -1) ? 
+            <Homepage content={props.page.content} /> :
+            <Content content={props.page.content} />
+        }
         <Footer distPath={props.page.distPath} />
       </div>
     </div>

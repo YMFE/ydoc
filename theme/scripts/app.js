@@ -1,15 +1,32 @@
 console.log('app.js');
 
-var navigation = responsiveNav(".js-nav", {
-	customToggle: "#js-nav-btn"
+var $menu = document.getElementById('js-menu');
+var $panel = document.getElementById('js-panel');
+var $header = document.getElementById('js-header');
+
+// header
+$panel.onscroll = function (e) {
+	if (e.target.scrollTop > 0) {
+		$header.classList.add('moved');
+	} else {
+		$header.classList.remove('moved');
+	}
+}
+
+// nav
+var navigation = responsiveNav('.js-nav', {
+	customToggle: '#js-nav-btn'
 });
 
-var slideout = new Slideout({
-	'panel': document.getElementById('js-panel'),
-	'menu': document.getElementById('js-menu'),
-	'padding': 256,
-	'tolerance': 70
-});
+// summary
+if ($menu) {
+	var slideout = new Slideout({
+		'panel': document.getElementById('js-panel'),
+		'menu': document.getElementById('js-menu'),
+		'padding': 256,
+		'tolerance': 70
+	});
+}
 
 // Toggle button
 // document.querySelector('.js-slide-btn').addEventListener('click', function () {

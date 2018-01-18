@@ -39,6 +39,7 @@ Thumbs.db
 # *.tar.gz
 
 _site
+demo/
 ./test.js
 
 /coverage

@@ -35,9 +35,6 @@
 			position: relative;
 			cursor: pointer;
 			transition: all $transition-time-quick;
-			&:hover {
-				background-color: $light-primary-color;
-			}
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -93,7 +90,6 @@
 				width: auto;
 				transition: color $transition-time-quick;
 				&:hover {
-					background-color: #fff;
 					color: $primary-color;
 				}
 			}

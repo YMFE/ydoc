@@ -3,8 +3,7 @@ const output = require('./output.js');
 const _ = require('underscore');
 const batch = [];
 const utils = require('./utils.js');
-const dom = require('./parse/dom.js');
-const url = require('url');
+
 const fs = require('fs-extra');
 
 const parseMarkdown = require('./parse/markdown.js');
@@ -15,32 +14,6 @@ const emitHook = require('./plugin.js').emitHook;
 
 function insertToBatch(transaction){
   batch.push(transaction);
-}
-
-function handleUrl($, filepath){
-  let urls = $('a');
-  urls.each(function(){
-    let item = $(this);
-    let href = item.attr('href');
-    if(!href) return;
-    let urlObj = url.parse(href);
-
-    if(urlObj.hostname){
-      return;
-    }
-    if(!urlObj.path){
-      return;
-    }
-    
-    if(path.extname(urlObj.pathname) === '.md'){
-      let srcPath = path.resolve(filepath, urlObj.pathname);
-      let findTransaction = findTransactionBySrcPath(srcPath);
-      if(findTransaction){
-        item.attr('href', href.replace('.md', '.html'))
-      }
-    }
-  })
-  return $.html()
 }
 
 function findTransactionBySrcPath(path){
@@ -75,7 +48,8 @@ exports.runBatch = async function runBatch(){
         content: parseHtml(page.srcPath)
       }
     }
-    _p.content = handleUrl(dom.parse(_p.content), path.dirname(page.srcPath));
+
+    _p.content = utils.handleMdUrl(findTransactionBySrcPath)(_p.content, path.dirname(page.srcPath))    
     utils.extend(page, _p);
     try{
       await emitHook('page:before', page);

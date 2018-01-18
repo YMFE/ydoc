@@ -10,6 +10,7 @@ describe('parse', function(){
     assert.equal(ht('/a/a.md'), '/a/a.html')
     assert.equal(ht('/a/a.jsx'), '/a/a.html')
     assert.equal(ht('/a/a.html'), '/a/a.html')
+    assert.equal(ht('/a/a.x'), '/a/a.x')
   })
 
   it('getIndexPath', function(){

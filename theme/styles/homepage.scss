@@ -1,0 +1,296 @@
+.g-home {
+  .m-header {
+    color: rgba($white, .7);
+    border-bottom: transparent;
+    background-color: transparent;
+    // nav color transition unnormal
+    transition: all $transition-time-quick;
+    #ydoc {
+      fill: rgba($white, .97);
+    }
+    &-nav {
+      border-bottom: none;
+      .item:hover {
+        color: rgba($white, 1);
+      }
+    }
+    &-btn {
+      color: rgba($white, .97);
+    }
+    &.moved {
+      color: inherit;
+      background-color: rgba($white, .97);
+      #ydoc {
+        fill: $primary-6;
+      }
+      .m-header-nav .item:hover {
+        color: $primary-6;
+      }
+      .m-header-btn {
+		    color: inherit;
+      }
+    }
+  }
+  .m-content {
+    padding: 0;
+  }
+  .m-section {
+    &-container {
+      max-width: 11rem;
+      margin: 0 auto;
+      padding-bottom: 1.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    &-box {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: .64rem 0;
+      padding: 0 .24rem;
+      .item {
+        position: relative;
+        width: 100%;
+        margin-bottom: .6rem;
+        border-radius: .16rem;
+        padding: .24rem;
+        padding-top: .64rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+      }
+      .logo {
+        width: 50%;
+        padding: .16rem;
+      }
+      .img {
+        width: 100%;
+        filter: grayscale(100%);
+        transition: filter $transition-time-quick;
+        &:hover {
+          filter: initial;
+        }
+      }
+      .title {
+        margin-bottom: .08rem;
+      }
+      .desc {
+        color: $deep-caption-text-color;
+      }
+      .icon {
+        color: rgba($white, .85);
+        font-size: $font-size-h3;
+        position: absolute;
+        top: 0;
+        left: .24rem;
+        transform: translateY(-50%);
+        height: .8rem;
+        width: .8rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-image: linear-gradient(120deg, $primary-2 0%, $primary-6 100%);
+      }
+    }
+    &-title {
+      text-align: center;
+      margin: .24rem;
+      .name {
+        margin-bottom: .24rem;
+        font-size: $font-size-h3;
+        position: relative;
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: -.08rem;
+          left: 50%;
+          transform: translateX(-50%);
+          width: .48rem;
+          height: 3px;
+          background-color: $primary-7;
+        }
+      }
+      .desc {
+        font-size: $font-size-h6;
+        color: $deep-caption-text-color;
+        line-height: 1.6;
+      }
+    }
+    &-stage {
+      display: none;
+    }
+    .btn {
+      width: 1.4rem;
+      padding: .16rem;
+      line-height: .2rem;
+      font-size: $font-size-h6;
+      color: $primary-6;
+      background-color: $white;
+      margin-right: .08rem;
+      border-radius: 6px;
+      text-align: center;
+      user-select: none;
+      cursor: pointer;
+      transition: all $transition-time-quick;
+      transform: translateY(0);
+      &:hover {
+        transform: translateY(-1px);
+      }
+      &:active {
+        background-color: $primary-1;
+        transform: translateY(1px);
+      }
+    }
+  }
+  // headline block
+  // -----------------------------
+  .m-section.home {
+    padding: .88rem .24rem 2rem;
+    background-image: linear-gradient(to right, $primary-7 0%, $primary-5 100%);
+    .m-section-container {
+      padding: .24rem 0;
+    }
+    .m-section-title {
+      text-align: center;
+      color: $white;
+      flex: 1;
+      .name {
+        margin: .16rem 0;
+        &:after {
+          display: none;
+        }
+      }
+      .desc {
+        color: $white;
+      }
+    }
+    .m-section-stage {
+      flex: 2;
+      position: relative;
+      height: 7.2rem;
+      .mobile {
+        position: absolute;
+        left: 1rem;
+        bottom: -1rem;
+        width: 3.84rem;
+        z-index: 1;
+      }
+      .tablet {
+        left: 2.6rem;
+        top: -.4rem;
+        position: absolute;
+        width: 10.24rem;
+        z-index: 0;
+      }
+    }
+    .m-section-btngroup {
+      display: flex;
+      justify-content: center;
+      padding: .24rem 0;
+    }
+  }
+  // feature block
+  // -----------------------------
+  .m-section.feature, .m-section.user {
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2rem;
+      position: absolute;
+      left: 0;
+      top: -1rem;
+      transform: skewY(-3deg);
+      background-color: $white;
+    }
+    .m-section-container {
+      position: relative;
+      z-index: 1;
+    }
+  }
+  .m-section.user {
+    background-color: color($primary-1, 2);
+    &:before {
+      background-color: color($primary-1, 2);
+    }
+  }
+}
+.js-nav-active {
+  .g-home {
+    .m-header {
+      color: inherit;
+      background-color: rgba($white, .97);
+      #ydoc {
+        fill: $primary-6;
+      }
+      .m-header-btn {
+		    color: inherit;
+      }
+    }
+  }
+}
+
+@include media-md() {
+	.g-home {
+    .m-section.home {
+      .m-section-container {
+        flex-direction: row;
+      }
+    }
+    .m-section {
+      &-stage {
+        display: block;
+      }
+      &-box {
+        padding: 0;
+        flex-direction: row;
+        .item {
+          flex-shrink: 0;
+          width: 30%;
+          margin: .16rem;
+          margin-bottom: .6rem;
+        }
+        .logo {
+          width: 20%;
+          padding: .24rem;
+        }
+      }
+      &-title {
+        .name {
+          font-size: $font-size-h2;
+        }
+        .desc {
+          font-size: $font-size-h5;
+          line-height: 1.6;
+        }
+      }
+      .btn {
+        margin-right: .16rem;
+      }
+    }
+    .m-section.home {
+      .m-section-title {
+        text-align: left;
+      }
+      .m-section-title .name {
+        font-size: $font-size-h2;
+      }
+      .m-section-title .desc {
+        font-size: $font-size-h5;
+        line-height: 1.6;
+      }
+      .m-section-btngroup {
+        justify-content: left;
+        margin-top: .64rem;
+      }
+    }
+    .m-footer {
+      .m-footer-container {
+        max-width: 11rem;
+      }
+    }
+  }
+}

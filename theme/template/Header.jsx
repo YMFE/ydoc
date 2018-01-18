@@ -1,12 +1,4 @@
-{
-  // console.log(JSON.stringify(props,null,2))
-  (() => {
-    const test = () => console.log(1)
-  })
-  
-}
-
-<header className="m-header">
+<header className="m-header" id="js-header">
   <div className="m-header-title js-logo">
     <Logo distPath={props.distPath}/>
     {/* <img className="logo" src={props.nav.logo} /> */}
