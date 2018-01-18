@@ -1,5 +1,9 @@
 const utils = require('./utils.js');
 const path = require('path');
+const asserts = {
+  js: [],
+  css: []
+}
 
 const ydoc = {
   version: require('../package.json').version,
@@ -17,15 +21,16 @@ const ydoc = {
   },
   addAssert: function(filepath, type){
     if(type === 'js'){
-      this.asserts.js.push(filepath);
+      asserts.js.push(filepath);
     }else if(type === 'css'){
-      this.asserts.css.push(filepath);
-    }
-    
+      asserts.css.push(filepath);
+    }    
   },
-  asserts: {
-    js: [],
-    css: []
+  getAsserts: function(type){
+    return type ? [].concat(asserts[type]) : {
+      js: [].concat(asserts.js),
+      css: [].concat(asserts.css)
+    };
   }
 }
 

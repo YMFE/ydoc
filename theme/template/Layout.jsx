@@ -34,6 +34,6 @@
         <Footer distPath={props.page.distPath} />
       </div>
     </div>
-    <Scripts distPath={props.page.distPath} />
+    <Scripts asserts={props.asserts} page={props.page} />
   </body>
 </html>
