@@ -63,9 +63,11 @@
       .img {
         width: 100%;
         filter: grayscale(100%);
-        transition: filter $transition-time-quick;
+        opacity: 0.6;
+        transition: all $transition-time-quick;
         &:hover {
-          filter: initial;
+          opacity: 1;
+          filter: grayscale(10%);;
         }
       }
       .title {
@@ -208,12 +210,12 @@
       z-index: 1;
     }
   }
-  .m-section.user {
-    background-color: color($primary-1, 2);
-    &:before {
-      background-color: color($primary-1, 2);
-    }
-  }
+  // .m-section.user {
+  //   background-color: $break-line-color;
+  //   &:before {
+  //     background-color: $break-line-color;
+  //   }
+  // }
 }
 // .js-nav-active {
 //   .g-home {
