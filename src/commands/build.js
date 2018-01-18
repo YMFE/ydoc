@@ -19,9 +19,6 @@ const config = utils.fileExist(configFilepath) ? require(configFilepath) : {};
 const ydoc = require('../ydoc.js');
 utils.extend(ydoc.config, config);
 
-
-
-
 module.exports = {
   setOptions: function (yargs) {
     yargs.option('verbose', {

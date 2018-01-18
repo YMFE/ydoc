@@ -1,66 +1,29 @@
-# Directory Structure
+# 目录结构
 
-GitBook uses a simple directory structure. All Markdown/Asciidoc files listed in the [SUMMARY](pages.md) will be transformed as HTML. Multi-Lingual books have a slightly [different structure](languages.md).
-
-A basic GitBook usually looks something like this:
+一个基本的 ydoc 目录结构如下:
 
 ```
-.
-├── book.json
-├── index.md
-├── SUMMARY.md
-├── chapter-1/
+├── index.jsx
+├── nav.md
+├── book-1/
 |   ├── index.md
-|   └── something.md
-└── chapter-2/
+|   └── summary.md
+└── book-2/
     ├── index.md
-    └── something.md
+    └── summary.md
 ```
 
-An overview of what each of these does:
+以下是他们的功能描述:
 
-| File | Description |
+| 文件 | 描述 |
 | -------- | ----------- |
-| `book.json` | Stores [configuration](config.md) data (__optional__) |
-| `index.md` | Preface / Introduction for your book (**required**) |
-| `SUMMARY.md` | Table of Contents (See [Pages](pages.md)) (__optional__) |
-| `GLOSSARY.md` | Lexicon / List of terms to annotate (See [Glossary](lexicon.md)) (__optional__) |
+| `index.jsx` | 首页 ( [文档](home.md)) (**必需**) |
+| `nav.md` | 导航 (See [Nav](nav.md)) (**必需**) |
+| `book/index.md` | 文档首页 (**必需**) |
+| `book/summary.md` | 文档目录，summary.md 引用的所有 markdown 文件将会被转换成 html 文件， (查看 [内容和目录](pages.md)) (__可选__) |
 
-### Static files and Images
 
-A static file is a file that is not listed in the `SUMMARY.md`. All static files, unless [ignored](#ignore), are copied to the output.
+### 静态文件和图片
 
-### Ignoring files & folders {#ignore}
+所有在 docs 目录下的静态文件，将会被复制到 build 目录，这也就是说可以在文档执行引用这些静态文件的相对路径。
 
-GitBook will read the `.gitignore`, `.bookignore` and `.ignore` files to get a list of files and folders to skip.
-The format inside those files, follows the same convention as `.gitignore`:
-
-```
-# This is a comment
-
-# Ignore the file test.md
-test.md
-
-# Ignore everything in the directory "bin"
-bin/*
-```
-
-### Project integration with subdirectory {#subdirectory}
-
-For software projects, you can use a subdirectory (like `docs/`) to store the book for the project's documentation. You can configure the [`root` option](config.md) to indicate the folder where GitBook can find the book's files:
-
-```
-.
-├── book.json
-└── docs/
-    ├── index.md
-    └── SUMMARY.md
-```
-
-With `book.json` containing:
-
-```
-{
-    "root": "./docs"
-}
-```

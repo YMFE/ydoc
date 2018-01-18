@@ -2,7 +2,7 @@
 ![](style/images/logo.png)
 
 
-* [documents](/documents/index.html)
-* [jsxbook](/jsxbook/index.html)
-  * [second](/jsxbook/index.html)
+* [Documents](/documents/index.html)
+
 * [API](/api/index.html)
+* [Plugin](/plugins/index.html)
