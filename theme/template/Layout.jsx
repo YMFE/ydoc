@@ -16,7 +16,7 @@
   {
     // console.log(JSON.stringify(props.title, null, 2))
   }
-  <Head asserts={props.asserts} title={props.page.title} distPath={props.page.distPath} />
+  <Head asserts={props.asserts} title={props.title} distPath={props.page.distPath} />
   <body>
     <div className="g-doc">
       {

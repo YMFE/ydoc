@@ -5,9 +5,8 @@
 ### 教程
 
 * [目录结构](structure.md)
-* [内容和目录](pages.md)
+* [页面 和 Summary](pages.md)
 * [配置文件](config.md)
-* [首页](home.md)
 * [导航](nav.md)
 * [Markdown](markdown.md)
 
