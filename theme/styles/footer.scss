@@ -1,7 +1,7 @@
 .m-footer {
   background-color: $white;
   padding: .24rem;
-  border-top: 1px solid #e5f0f6;
+  border-top: 1px solid $break-line-color;
   &-container {
     display: flex;
     flex-direction: column-reverse;

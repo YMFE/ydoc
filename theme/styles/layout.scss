@@ -11,4 +11,11 @@
 .m-main {
 	width: 100%;
 	overflow-y: auto;
+	box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 10px;
+}
+
+@include media-md() {
+	.m-main {
+		box-shadow: none;
+	}
 }

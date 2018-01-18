@@ -2,10 +2,12 @@
 {
   // console.log(JSON.stringify(props, null, 2))
 }
-
-<div className="m-content">
-  <div className="m-content-container markdown-body">
-    {/* <h1 className="title">Heading H1</h1> */}
-    <div dangerouslySetInnerHTML={{ __html: props.content }}></div>
-  </div>
-</div>
+{
+  props.type === 'md' ? (
+    <div className="m-content">
+      <div className="m-content-container markdown-body" dangerouslySetInnerHTML={{ __html: props.content }}></div>
+    </div>
+  ) : (
+    <div className="m-content" dangerouslySetInnerHTML={{ __html: props.content }}></div>
+  )
+}

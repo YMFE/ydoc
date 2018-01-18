@@ -6,3 +6,4 @@
 
 * [API](/api/index.html)
 * [Plugin](/plugins/index.html)
+* [JSX Test](/jsxbook/index.html)
