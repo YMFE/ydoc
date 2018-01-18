@@ -1,11 +1,8 @@
 .m-summary {
-	// position: absolute;
-	// left: -60vw;
-	// width: 60vw;
-	// height: 100%;
 	padding: .24rem;
-	box-shadow: inset 0 1px 10px 0 rgba(24,144,255,0.06), inset 0 2px 4px 0 rgba(24,144,255,0.10), inset 0 4px 5px 0 rgba(9,109,217,0.07);
-	background-color: color($primary-1, 1);
+	border-right: 1px solid $break-line-color;
+	// box-shadow: inset 0 1px 10px 0 rgba(24,144,255,0.06), inset 0 2px 4px 0 rgba(24,144,255,0.10), inset 0 4px 5px 0 rgba(9,109,217,0.07);
+	// background-color: color($primary-1, 1);
 	&-block {
 		margin-bottom: .16rem;
 	}
@@ -17,12 +14,15 @@
 	&-list {
 		font-size: $font-size-body;
 		line-height: 2.5;
+		&.indent {
+			text-indent: 1em;
+		}
 		.item.active {
 			font-weight: bold;
 			color: $primary-6;
 		}
 		.href {
-			background-color: color($primary-1, 1);
+			background-color: transparent;
 			transition: all $transition-time-quick;
 		}
 		.href:hover {

@@ -23,7 +23,7 @@
 				return (
 					<div className="m-summary-block" key={index}>
 						{item.title ? <div className="m-summary-title">{item.title}</div> : ''}
-						<ul className="m-summary-list">{getItems(item.articles)}</ul>
+						<ul className={'m-summary-list' + (item.title ? ' indent' : '')}>{getItems(item.articles)}</ul>
 					</div>
 				);
 			});
