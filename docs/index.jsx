@@ -97,4 +97,4 @@
     </div>
   </section>
 </div>
-<Footer />
+<Footer distPath={props.page.distPath} />

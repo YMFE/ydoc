@@ -1,4 +1,4 @@
-<a href="/index.html" target="_self">
+<a href={relePath(props.distPath, "index.html")} target="_self">
   <svg width="97px" height="25px" viewBox="0 0 97 25" version="1.1">
     <title>ydoc</title>
     <desc>ydoc logo.</desc>
