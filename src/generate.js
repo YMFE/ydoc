@@ -55,7 +55,7 @@ exports.runBatch = async function runBatch(){
       await emitHook('page:before', page);
       await output(transaction.context);   
       //避免内存占用太大，使用完立即释放   
-      delete transaction.context.page.content;
+      transaction.context.page.content = undefined;
     }catch(err){
       throw err;
     }

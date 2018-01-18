@@ -1,97 +1,16 @@
-# Context and APIs
+# 介绍 
+YDoc 是一个基于 markdown, jsx 的 node 命令行工具，用于构建漂亮的静态文档站点，和其他文档站点不同的是，YDoc 非常易用，只需少量的配置和熟悉 markdown 就能生成完整的站点，让你专注于文档写作。
 
-GitBooks provides different APIs and contexts to plugins. These APIs can vary according to the GitBook version being used, your plugin should specify the `engines.gitbook` field in `package.json` accordingly.
+## 快速开始
 
-#### Book instance
-
-The `Book` class is the central point of GitBook, it centralize all access read methods. This class is defined in [book.js](https://github.com/GitbookIO/gitbook/blob/master/lib/book.js).
-
-```js
-// Read configuration from book.json
-var value = book.config.get('title', 'Default Value');
-
-// Resolve a filename to an absolute path
-var filepath = book.resolve('index.md');
-
-// Render an inline markup string
-book.renderInline('markdown', 'This is **Markdown**')
-    .then(function(str) { ... })
-
-// Render a markup string (block mode)
-book.renderBlock('markdown', '* This is **Markdown**')
-    .then(function(str) { ... })
+### 安装
+```
+npm install -g ydoc
 ```
 
-#### Output instance
-
-The `Output` class represent the output/write process.
-
-```js
-// Return root folder for the output
-var root = output.root();
-
-// Resolve a file in the output folder
-var filepath = output.resolve('myimage.png');
-
-// Convert a filename to an URL (returns a path to an html file)
-var fileurl = output.toURL('mychapter/index.md');
-
-// Write a file in the output folder
-output.writeFile('hello.txt', 'Hello World')
-    .then(function() { ... });
-
-// Copy a file to the output folder
-output.copyFile('./myfile.jpg', 'cover.jpg')
-    .then(function() { ... });
-
-// Verify that a file exists
-output.hasFile('hello.txt')
-    .then(function(exists) { ... });
+## 创建你的站点
+```
+ydoc init
+ydoc build
 ```
 
-#### Page instance
-
-A page instance represent the current parsed page.
-
-```js
-// Title of the page (from SUMMARY)
-page.title
-
-// Content of the page (Markdown/Asciidoc/HTML according to the stage)
-page.content
-
-// Relative path in the book
-page.path
-
-// Absolute path to the file
-page.rawPath
-
-// Type of parser used for this file
-page.type ('markdown' or 'asciidoc')
-```
-
-#### Context for Blocks and Filters
-
-Blocks and filters have access to the same context, this context is bind to the template engine execution:
-
-```js
-{
-    // Current templating syntax
-    "ctx": {
-        // For example, after a {% set message = "hello" %}
-        "message": "hello"
-    },
-
-    // Book instance
-    "book" <Book>,
-
-    // Output instance
-    "output": <Output>
-}
-```
-
-For example a filter or block function can access the current book using: `this.book`.
-
-#### Context for Hooks
-
-Hooks only have access to the `<Book>` instance using `this.book`.
