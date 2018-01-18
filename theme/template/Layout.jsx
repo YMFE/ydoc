@@ -14,7 +14,7 @@
   <meta httpEquiv="Cache-Control" content="no-transform" />
   <meta httpEquiv="Cache-Control" content="no-siteapp" />
   {
-    // console.log(props)
+    // console.log(JSON.stringify(props.title, null, 2))
   }
   <Head asserts={props.asserts} title={props.page.title} distPath={props.page.distPath} />
   <body>
@@ -27,7 +27,6 @@
       <div className="m-main" id="js-panel">
         <Header nav={props.config.nav} bookpath={props._bookpath} distPath={props.page.distPath} />
         <Content content={props.page.content} type={props.page.type} />
-        <Footer distPath={props.page.distPath} />
       </div>
     </div>
     <Scripts asserts={props.asserts} page={props.page} />
