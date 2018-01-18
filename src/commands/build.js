@@ -10,17 +10,16 @@ const projectPath = process.cwd();
 const ydocPath = path.resolve(__dirname, '../..')
 const styleInPath = path.resolve(ydocPath, 'theme/styles/index.scss');
 const scriptInPath = path.resolve(ydocPath, 'theme/scripts/');
+const imageInPath = path.resolve(ydocPath, 'theme/images/');
 const styleOutPath = path.resolve(projectPath, defaultBuildPath + '/ydoc/styles', 'style.css');
 const scriptOutPath = path.resolve(projectPath, defaultBuildPath + '/ydoc/scripts/');
+const imageOutPath = path.resolve(projectPath, defaultBuildPath + '/ydoc/images/');
 const logger = require('../logger');
 
 const configFilepath = utils.getConfigPath(projectPath);
 const config = utils.fileExist(configFilepath) ? require(configFilepath) : {};
 const ydoc = require('../ydoc.js');
 utils.extend(ydoc.config, config);
-
-
-
 
 module.exports = {
   setOptions: function (yargs) {
@@ -40,7 +39,9 @@ module.exports = {
     fs.ensureDirSync(dist);
     fs.ensureDirSync(path.resolve(dist, 'ydoc/styles'));
     fs.ensureDirSync(path.resolve(dist, 'ydoc/scripts'));
+    fs.ensureDirSync(path.resolve(dist, 'ydoc/images'));
     fs.copySync(scriptInPath, scriptOutPath);
+    fs.copySync(imageInPath, imageOutPath);
     fs.copySync(root, dist);
     loadPlugins();
     parse.parseSite(dist);

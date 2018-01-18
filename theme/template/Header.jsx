@@ -1,6 +1,6 @@
 <header className="m-header" id="js-header">
   <div className="m-header-title js-logo">
-    <Logo distPath={props.distPath}/>
+    <Logo distPath={props.distPath} />
     {/* <img className="logo" src={props.nav.logo} /> */}
     {/* <h6 className="name">{props.nav.title}</h6> */}
   </div>

@@ -27,12 +27,12 @@ describe('ydoc', function(){
   describe('addAssert', function(){
     it('addJsAssert', function(){
       ydoc.addAssert('a.js', 'js')
-      let filepath = ydoc.asserts.js.pop();
+      let filepath = ydoc.getAsserts('js').pop();
       assert.equal(filepath, 'a.js');
     })
     it('addCssAssert', function(){
       ydoc.addAssert('a.css', 'css')
-      let filepath = ydoc.asserts.css.pop();
+      let filepath = ydoc.getAsserts('css').pop();
       assert.equal(filepath, 'a.css');
     })
   })

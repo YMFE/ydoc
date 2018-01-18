@@ -17,7 +17,7 @@
           <circle id="1" cx="2.825" cy="2.825" r="2.825"></circle>
         </g>
         <text id="title" fontFamily="ArialRoundedMTBold, Arial Rounded MT Bold" fontSize="24" fontWeight="normal">
-          <tspan x="36" y="23">YDoc</tspan>
+          <tspan x="36" y="22">YDoc</tspan>
         </text>
       </g>
     </g>

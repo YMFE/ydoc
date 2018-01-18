@@ -5,35 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="apple-touch-icon" href="icon.png" />
-  <link rel="apple-touch-icon-precomposed" href="icon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href={relePath(props.page.distPath, 'ydoc/images/apple-touch-icon.png')} />
+  <link rel="icon" type="image/png" sizes="32x32" href={relePath(props.page.distPath, 'ydoc/images/favicon-32x32.png')} />
+  <link rel="icon" type="image/png" sizes="16x16" href={relePath(props.page.distPath, 'ydoc/images/favicon-16x16.png')} />
+  <link rel="manifest" href={relePath(props.page.distPath, 'ydoc/images/manifest.json')} />
+  <link rel="mask-icon" href={relePath(props.page.distPath, 'ydoc/images/safari-pinned-tab.svg"')} color="#5bbad5" />
+  <meta name="theme-color" content="#ffffff" />
   <meta httpEquiv="Cache-Control" content="no-transform" />
   <meta httpEquiv="Cache-Control" content="no-siteapp" />
-  <Head data={props} />
+  {
+    // console.log(JSON.stringify(props.title, null, 2))
+  }
+  <Head asserts={props.asserts} title={props.title} distPath={props.page.distPath} />
   <body>
-    {
-      // console.log(JSON.stringify(props.page, null, 2))
-    }
-    <div className={'g-doc' + ((props.page.distPath.indexOf('/_site/index.html') !== -1) ? ' g-home' : '')}>
+    <div className="g-doc">
       {
         (props.summary && props.summary.length) ? (
           <Summary summary={props.summary} distPath={props.page.distPath} />
         ) : null
       }
       <div className="m-main" id="js-panel">
-        <Header
-          nav={props.config.nav}
-          bookpath={props._bookpath}
-          distPath={props.page.distPath}
-        />
-        {
-          (props.page.distPath.indexOf('/_site/index.html') !== -1) ? 
-            <Homepage content={props.page.content} /> :
-            <Content content={props.page.content} />
-        }
-        <Footer distPath={props.page.distPath} />
+        <Header nav={props.config.nav} bookpath={props._bookpath} distPath={props.page.distPath} />
+        <Content content={props.page.content} type={props.page.type} />
       </div>
     </div>
-    <Scripts distPath={props.page.distPath} />
+    <Scripts asserts={props.asserts} page={props.page} />
   </body>
 </html>

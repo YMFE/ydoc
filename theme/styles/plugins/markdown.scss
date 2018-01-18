@@ -708,3 +708,29 @@
 .markdown-body hr {
   border-bottom-color: #eee;
 }
+
+// customize this lib
+// --------------------------
+.markdown-body {
+  color: $deep-body-text-color;
+}
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 500;
+}
+.markdown-body a {
+  text-decoration: none;
+  background-color: rgba(187,239,253,0.3);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  color: $deep-body-text-color;
+  transition: all .2s;
+}
+.markdown-body a:hover {
+  text-decoration: none;
+  background-color: #bbeffd;
+  border-bottom-color: $deep-body-text-color;
+}

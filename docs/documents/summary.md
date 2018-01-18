@@ -1,21 +1,27 @@
 # Summary
 
-* [安装](test222.md#哈哈)
-* [静态文件形式](test111.md#)
-* [初始化](test222.md#哈哈)
+* [快速开始](index.md)
 
-### 配置文件
+### 教程
 
-* [静态文件形式](test111.md#)
-* [动态脚本形式](faq.md)
+* [目录结构](structure.md)
+* [页面 和 Summary](pages.md)
+* [配置文件](config.md)
+* [导航](nav.md)
+* [Markdown](markdown.md)
 
-### 配置内容
+### 自定义
 
-* [解析器配置](structure.md)
-    * [setup](setup.md)
+* [扩展](plugins.md)
+  * [创建一个插件](plugins.md)
+  * [Hooks](plugins.md)
+  * [Api](plugins.md)
+* [主题](theme.md)
+  * [安装](theme.md)
+  * [开发](theme.md)
 
 --
 
-* [last](ebook.md)
+* [版本历史](https://github.com/YMFE/ydoc/blob/master/README.md)
 
 

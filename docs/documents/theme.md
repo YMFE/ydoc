@@ -1,3 +1,6 @@
+# theme
+正在完善中，请期待。。。
+
 # 目录结构
 
 一个基本的 ydoc 目录结构如下:
@@ -25,5 +28,6 @@
 
 ### 静态文件和图片
 
-所有在 docs 目录下的静态文件，将会被复制到 build 目录，这也就是说可以在文档执行引用这些静态文件的相对路径。
+所有在 [docs](#) 目录下的[静态文件](#)，将会被复制到 build 目录，这也就是说 [可以在](#) 文档执行引用这些静态文件的相对路径。
 
+Throughout this tutorial, we have touched on a number of React concepts including elements, components, props, and state. For a more in-depth explanation for each of these topics, check out [the rest of the documentation](#). To learn more about defining components, check out the [React.Component API reference]().

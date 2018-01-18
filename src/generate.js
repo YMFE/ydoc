@@ -20,15 +20,16 @@ function findTransactionBySrcPath(path){
   return _.find(batch, {srcPath: path})
 }
 
+function handleTitle(subTitle, title) {
+  return subTitle === title ? subTitle : (subTitle + '-' + title)
+}
+
 exports.runBatch = async function runBatch(){
   if(batch.length === 0) return;
   for(let index=0, l = batch.length; index<l; index++){
     let transaction = batch[index];
     let context = transaction.context;
-    let page = transaction.context.page;
-    if(page.title){
-      context.title = page.title === context.title ? page.title : page.title + '-' + context.title
-    }
+    let page = context.page;    
     let _p, parseJsxInst;
     switch(page.type){
       case 'md'  :         
@@ -41,21 +42,23 @@ exports.runBatch = async function runBatch(){
           title: parseJsxInst.data.title || '',
           description: parseJsxInst.data.description || '',
           content: parseJsxInst.render(Object.assign({}, context, parseJsxInst.data))
-        }
-        
+        }        
         break;
       default : _p = {
         content: parseHtml(page.srcPath)
       }
     }
 
-    _p.content = utils.handleMdUrl(findTransactionBySrcPath)(_p.content, path.dirname(page.srcPath))    
+    _p.content = utils.handleMdUrl(findTransactionBySrcPath)(_p.content, path.dirname(page.srcPath))  
     utils.extend(page, _p);
+    if(page.title){
+      context.title = handleTitle(page.title, context.title)
+    }  
     try{
       await emitHook('page:before', page);
       await output(transaction.context);   
       //避免内存占用太大，使用完立即释放   
-      delete transaction.context.page.content;
+      transaction.context.page.content = undefined;
     }catch(err){
       throw err;
     }

@@ -23,8 +23,8 @@ links:
 			<div className="m-footer-title">
 				{/* <img className="logo" src={title.logoSrc} /> */}
 				{/* <h6 className="name">{title.name}</h6> */}
-				<Logo distPath={props.distPath} />
-				<div className="copyright">© 2018 <a href="">YMFE</a> Team. Build by <a href="">ydoc</a>.</div>
+				<Logo distPath={props.distPath}/>
+				<p className="copyright">© 2018 <a href="">YMFE</a> Team.<br/>Build by <a href="">ydoc</a>.</p>
 			</div>
 			<div className="m-footer-links">
 				{

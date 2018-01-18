@@ -1,1 +1,0 @@
-<div className="m-content" dangerouslySetInnerHTML={{ __html: props.content }}></div>
