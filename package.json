@@ -32,7 +32,6 @@
     "noox": "0.1.0-beta",
     "underscore": "^1.8.3",
     "yargs": "^10.0.3",
-    "ydoc-plugin-comment": "0.0.1",
     "ydoc-plugin-demo": "^1.0.0",
     "ydoc-plugin-execution-time": "^1.0.0"
   },
