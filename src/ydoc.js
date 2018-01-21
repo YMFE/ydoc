@@ -14,9 +14,9 @@ const ydoc = {
     description: "ydoc description",
     author: "ymfe",
     plugins: [{
-      name: 'comment',
+      name: 'jsdoc',
       options: {
-        files: 'src/test-comment/**/*.js'
+        files: 'node_modules/ydoc-plugin-jsdoc/test-comment/**/*.js'
       }
     }]
   },
