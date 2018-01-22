@@ -9,7 +9,15 @@
 					
 					return (
 						<li className={'item ' + (activeFlag ? 'active' : '')} key={index}>
-							<a href={relePath(props.releativePath, item.ref)}  className="href" >{item.title}</a>
+							{ 
+								item.articles.length ? (
+									<div className="m-summary-block">
+										{item.title ? <a href={relePath(props.releativePath, item.ref)} className="href" >{item.title}</a> : ''}
+										<ul className={'m-summary-list' + (item.title ? ' indent' : '')}>{getItems(item.articles)}</ul>
+									</div>
+								) : <a href={relePath(props.releativePath, item.ref)} className="href" >{item.title}</a>
+							}
+							
 						</li>
 					);
 				});

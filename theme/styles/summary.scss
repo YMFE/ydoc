@@ -5,6 +5,9 @@
 	// background-color: color($primary-1, 1);
 	&-block {
 		margin-bottom: .16rem;
+		.m-summary-block {
+			margin-bottom: 0;
+		}
 	}
 	&-title {
 		font-size: $font-size-h6;
@@ -15,7 +18,7 @@
 		font-size: $font-size-body;
 		line-height: 2.5;
 		&.indent {
-			text-indent: 1em;
+			padding-left: 1em;
 		}
 		.item {
 			overflow: hidden;
