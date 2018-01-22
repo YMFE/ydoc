@@ -82,6 +82,8 @@ exports.parseSite =async function(dist){
       return utils.log.error(`The root directory of documents didn't find index page.`)
     }
     ydocConfig.nav = getNav(dist);
+    let books = handleNav(ydocConfig.nav.menus[0].items, dist);
+
     const generateSitePage = generate(dist);
     generateSitePage({
       title: ydocConfig.title,
@@ -91,36 +93,8 @@ exports.parseSite =async function(dist){
       },
       config: ydocConfig
     })
+    
     await runBatch();
-
-    let menus = ydocConfig.nav.menus[0].items;
-    let books = [];
-    for(let i=0; i< menus.length; i++){
-      let item = menus[i];
-      if( !item.ref || item.ref.indexOf('http') === 0){
-        continue;
-      }
-      if(path.isAbsolute(item.ref)){
-        item.ref = '.' + item.ref;
-      }
-      let bookHomePath = path.resolve(dist, item.ref);
-      let indexFile = path.basename(bookHomePath);
-      let bookPath = path.dirname(bookHomePath);
-      let stats;
-      try{
-        stats = fs.statSync(bookPath);
-      }catch(err){
-        continue;
-      }
-      if(stats.isDirectory() && item[0] !== '_' && item[0] !== 'style' ){
-        item.ref = handleMdPathToHtml(item.ref);
-        books.push({
-          bookPath: bookPath,
-          indexFile: indexFile
-        })
-        
-      }
-    }
 
     for(let j=0; j< books.length ; j++){
       await parseBook(books[j].bookPath, books[j].indexFile);
@@ -133,7 +107,37 @@ exports.parseSite =async function(dist){
   }catch(err){    
     utils.log.error(err);
   }
-  
+}
+
+function handleNav(menus, dist){
+  let books = [];
+  for(let i=0; i< menus.length; i++){
+    let item = menus[i];
+    if( !item.ref || item.ref.indexOf('http') === 0){
+      continue;
+    }
+    if(path.isAbsolute(item.ref)){
+      item.ref = '.' + item.ref;
+    }
+    let bookHomePath = path.resolve(dist, item.ref);
+    let indexFile = path.basename(bookHomePath);
+    let bookPath = path.dirname(bookHomePath);
+    let stats;
+    try{
+      stats = fs.statSync(bookPath);
+    }catch(err){
+      continue;
+    }
+    if(stats.isDirectory() && item[0] !== '_' && item[0] !== 'style' ){
+      item.ref = handleMdPathToHtml(item.ref);
+      books.push({
+        bookPath: bookPath,
+        indexFile: indexFile
+      })
+      
+    }
+  }
+  return books;
 }
 
 function getBookInfo(filepath){

@@ -12,7 +12,7 @@ module.exports = {
     if(configFilepath){
       return utils.log.error('The current directory already exists ydoc config.')
     }else if(utils.dirExist(docsPath)){
-      return utils.log.error('The current directory already exists docs directory.');
+      return utils.log.error('The current directory already exists directory "docs".');
     }
     fs.ensureDirSync(docsPath);
     fs.copySync(initPath, docsPath);

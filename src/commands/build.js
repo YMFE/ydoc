@@ -30,7 +30,6 @@ module.exports = {
   },
   run: function (argv) {
     utils.log = new logger( argv.verbose ? 'debug' : 'info' );
-
     const root = path.resolve(process.cwd(), ydoc.config.root);
     const dist = path.resolve(process.cwd(), defaultBuildPath);
     ydoc.config.buildPath = dist;
