@@ -3,7 +3,7 @@ const fs = require('fs-extra');
 const utils = require('../utils.js');
 const ydoc = require('../ydoc.js');
 const ydocConfig = ydoc.config;
-const defaultIndexPage = 'index';
+let defaultIndexPageName = 'index';
 const defaultSummaryPage = 'summary.md';
 const defaultNavPage = 'nav.md';
 const generate = require('../generate.js').generatePage;
@@ -23,7 +23,7 @@ utils.noox = new noox(path.resolve(__dirname, '../../theme/template'), {
 });
 
 function getIndexPath(filepath){
-  let getIndexPathByType = (type)=> path.resolve(filepath, defaultIndexPage + '.' + type);
+  let getIndexPathByType = (type)=> path.resolve(filepath, defaultIndexPageName + '.' + type);
   let types = ['md', 'jsx', 'html'];
   let contentFilepath;
   for(let index in types){
@@ -60,7 +60,7 @@ function getBookContext(book, page){
 function handleMdPathToHtml(filepath){
   let fileObj = path.parse(filepath);
   if(fileObj.ext === '.md' || fileObj.ext === '.jsx'){
-    let name = fileObj.name === defaultIndexPage  ? 'index.html' : fileObj.name + '.html';
+    let name = fileObj.name === defaultIndexPageName  ? 'index.html' : fileObj.name + '.html';
     return path.format({
       dir: fileObj.dir,
       base: name
@@ -81,7 +81,6 @@ exports.parseSite =async function(dist){
     if(!indexPath){
       return utils.log.error(`The root directory of documents didn't find index page.`)
     }
-    
     ydocConfig.nav = getNav(dist);
     const generateSitePage = generate(dist);
     generateSitePage({
@@ -93,14 +92,38 @@ exports.parseSite =async function(dist){
       config: ydocConfig
     })
     await runBatch();
-    let rootFiles = fs.readdirSync(dist);
-    for(let index in rootFiles){
-      let item = rootFiles[index];
-      let bookPath = path.resolve(dist, item);
-      let stats = fs.statSync(bookPath);      
-      if(stats.isDirectory() && item[0] !== '_' && item[0] !== 'style' ){
-        await parseBook(bookPath);
+
+    let menus = ydocConfig.nav.menus[0].items;
+    let books = [];
+    for(let i=0; i< menus.length; i++){
+      let item = menus[i];
+      if( !item.ref || item.ref.indexOf('http') === 0){
+        continue;
       }
+      if(path.isAbsolute(item.ref)){
+        item.ref = '.' + item.ref;
+      }
+      let bookHomePath = path.resolve(dist, item.ref);
+      let indexFile = path.basename(bookHomePath);
+      let bookPath = path.dirname(bookHomePath);
+      let stats;
+      try{
+        stats = fs.statSync(bookPath);
+      }catch(err){
+        continue;
+      }
+      if(stats.isDirectory() && item[0] !== '_' && item[0] !== 'style' ){
+        item.ref = handleMdPathToHtml(item.ref);
+        books.push({
+          bookPath: bookPath,
+          indexFile: indexFile
+        })
+        
+      }
+    }
+
+    for(let j=0; j< books.length ; j++){
+      await parseBook(books[j].bookPath, books[j].indexFile);
     }
 
     let showpath = color.yellow( dist + '/index.html');
@@ -130,29 +153,33 @@ function getBookInfo(filepath){
   }
 }
 
-const bookSchema = {
-  title: 'string',
-  description: 'string',
-  summary: {},
-  nav: {},
-  page: {
-    title: 'string',
-    description: 'string',
-    content: 'string',
-    prev: 'string',
-    next: 'string',
-    srcPath: 'string',
-    distPath: 'string'
-  },
-  asserts: { // asserts 资源
-    js: [],
-    css: []
-  },
-  config: {} //ydocConfig 配置
-}
+// Schema
+// const bookSchema = {
+//   title: 'string',
+//   description: 'string',
+//   summary: {},
+//   nav: {},
+//   page: {
+//     title: 'string',
+//     description: 'string',
+//     content: 'string',
+//     prev: 'string',
+//     next: 'string',
+//     srcPath: 'string',
+//     distPath: 'string'
+//   },
+//   asserts: { // asserts 资源
+//     js: [],
+//     css: []
+//   },
+//   config: {} //ydocConfig 配置
+// }
 
-async function parseBook(bookpath){
+async function parseBook(bookpath, indexFile){
   const book = {}; //书籍公共变量
+  let extname = path.extname(indexFile);
+  let name = path.basename(indexFile, extname);
+  defaultIndexPageName = name;
   let indexPath = await getIndexPath(bookpath);
   if(!indexPath) return ;
 
@@ -171,7 +198,7 @@ async function parseBook(bookpath){
 
   generatePage(getBookContext(book, {
     srcPath: indexPath,
-    distPath: './index.html'
+    distPath: defaultIndexPageName + '.html'
   }))
   if(summary && Array.isArray(summary)) {
     await parseDocuments(summary); 
@@ -179,7 +206,7 @@ async function parseBook(bookpath){
 
   await runBatch();
   
-  let showpath = color.yellow(bookpath+'/index.html');
+  let showpath = color.yellow( bookpath + '/' + defaultIndexPageName + '.html');
   utils.log.ok(`Generate book "${book.title}" ${showpath}`);
 
   async function parseDocuments(summary){
