@@ -17,6 +17,11 @@
 		&.indent {
 			text-indent: 1em;
 		}
+		.item {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 		.item.active {
 			font-weight: bold;
 			color: $primary-6;
