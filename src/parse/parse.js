@@ -60,7 +60,7 @@ function getBookContext(book, page){
 function handleMdPathToHtml(filepath){
   let fileObj = path.parse(filepath);
   if(fileObj.ext === '.md' || fileObj.ext === '.jsx'){
-    let name = fileObj.name === defaultIndexPageName  ? 'index.html' : fileObj.name + '.html';
+    let name = fileObj.name + '.html';
     return path.format({
       dir: fileObj.dir,
       base: name
