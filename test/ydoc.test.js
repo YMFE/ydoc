@@ -17,10 +17,16 @@ describe('ydoc', function(){
   })
 
   describe('relePath', function(){
-    it('relePath', function(){
+    it('relePathAbso', function(){
       let srcPath = '/Users/sean/qunar/ydoc/src/logger.js';
       let importPath = '/Users/sean/qunar/ydoc/style/common.js';
       assert.equal(ydoc.relePath(srcPath, importPath), '../style/common.js')
+    })
+
+    it('relePathRele', function(){
+      let srcPath = 'abs/a/x.html';
+      let importPath = 'abs/b/y.html';
+      assert.equal(ydoc.relePath(srcPath, importPath), '../b/y.html')
     })
   })
 

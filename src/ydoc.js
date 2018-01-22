@@ -16,6 +16,7 @@ const ydoc = {
   },
   relePath: function(srcFilepath, importFilepath){
     importFilepath = path.isAbsolute(importFilepath)? importFilepath : path.resolve(ydoc.config.buildPath, importFilepath);
+    srcFilepath = path.isAbsolute(srcFilepath) ? srcFilepath : path.resolve(ydoc.config.buildPath, srcFilepath);
     let rele =  path.relative(srcFilepath, importFilepath);
     return rele.substr(3);
   },

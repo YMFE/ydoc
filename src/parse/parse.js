@@ -4,8 +4,8 @@ const utils = require('../utils.js');
 const ydoc = require('../ydoc.js');
 const ydocConfig = ydoc.config;
 let defaultIndexPageName = 'index';
-const defaultSummaryPage = 'summary.md';
-const defaultNavPage = 'nav.md';
+const defaultSummaryPage = 'SUMMARY.md';
+const defaultNavPage = 'NAV.md';
 const generate = require('../generate.js').generatePage;
 const runBatch = require('../generate.js').runBatch;
 const parseSummary = require('./summary');
@@ -93,7 +93,7 @@ exports.parseSite =async function(dist){
       },
       config: ydocConfig
     })
-    
+
     await runBatch();
 
     for(let j=0; j< books.length ; j++){

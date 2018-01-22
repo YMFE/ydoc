@@ -21,7 +21,7 @@
     <div className="g-doc">
       {
         (props.summary && props.summary.length) ? (
-          <Summary summary={props.summary} distPath={props.page.distPath} />
+          <Summary summary={props.summary} releativePath={props.page.releativePath} distPath={props.page.distPath} />
         ) : null
       }
       <div className="m-main" id="js-panel">

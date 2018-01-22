@@ -1,7 +1,3 @@
-{
-	// console.log(JSON.stringify(props.content, null, 2))
-}
-
 <div className="m-summary" id="js-menu">
 	{
 		(() => {
@@ -13,7 +9,7 @@
 					
 					return (
 						<li className={'item ' + (activeFlag ? 'active' : '')} key={index}>
-							<a href={item.ref} className="href" >{item.title}</a>
+							<a href={relePath(props.releativePath, item.ref)}  className="href" >{item.title}</a>
 						</li>
 					);
 				});
