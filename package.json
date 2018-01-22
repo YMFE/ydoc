@@ -4,7 +4,8 @@
   "description": "基于 React 的静态站点生成工具",
   "scripts": {
     "test": "mocha --reporter spec --bail --recursive",
-    "coverage": "istanbul cover node_modules/.bin/_mocha"
+    "coverage": "istanbul cover node_modules/.bin/_mocha",
+    "commet": "node commetparser/app.js"
   },
   "keywords": [
     "doc",
