@@ -1,5 +1,5 @@
-# YDoc
-![](style/images/logo.png)
+# YDoc11
+![logo](style/images/logo.png)
 
 * [Documents](/documents/index.md)
 * [Plugins](/plugins/index.md)

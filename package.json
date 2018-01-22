@@ -1,7 +1,7 @@
 {
   "name": "ydoc",
   "version": "3.2.5",
-  "description": "Yummy Doc 文档生成工具",
+  "description": "基于 React 的静态站点生成工具",
   "scripts": {
     "test": "mocha --reporter spec --bail --recursive",
     "coverage": "istanbul cover node_modules/.bin/_mocha"
@@ -60,8 +60,8 @@
       "warnOnFail": false,
       "maxSubjectLength": 100,
       "subjectPattern": ".+",
-      "subjectPatternErrorMsg": "请输入message信息!",
-      "helpMessage": "Commit message 格式错误, \n请查看规范: http://wiki.corp.qunar.com/pages/viewpage.action?pageId=159698767"
+      "subjectPatternErrorMsg": "please input meesage!",
+      "helpMessage": "Commit message error, \n Please see: https://github.com/conventional-changelog-archived-repos/validate-commit-msg"
     }
   }
 }

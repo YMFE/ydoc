@@ -1,5 +1,5 @@
 module.exports = {
-  title: "ydoc demo",
+  title: "ydoc demo111",
   description: "ydoc description demo",
   author: "ymfe"
   // plugins: [{

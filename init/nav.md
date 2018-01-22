@@ -2,6 +2,6 @@
 ![](style/images/logo.png)
 
 
-* [documents](/documents/index.html)
+* [documents](/documents/index.md)
 
-* [about](/about/index.html)
+* [about](/about/index.md)
