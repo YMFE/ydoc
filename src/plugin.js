@@ -104,7 +104,7 @@ exports.loadPlugins = function loadPlugins() {
   }
   for (let i = 0, l = plugins.length; i < l; i++) {
     let pluginName = plugins[i].name;
-    let options = plugins[i].options;
+    let options = ydocConfig[pluginName];
     try {
       let pluginModule, pluginModuleDir;
       try{

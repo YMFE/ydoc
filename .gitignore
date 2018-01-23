@@ -44,3 +44,4 @@ demo/
 
 /coverage
 .vscode
+.package-lock.json
