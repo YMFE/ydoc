@@ -18,9 +18,6 @@ const url = require('url');
 const color = require('bash-color');
 const noox = require('noox');
 
-utils.noox = new noox(path.resolve(__dirname, '../../theme/template'), {
-  relePath: ydoc.relePath
-});
 
 function getIndexPath(filepath){
   let getIndexPathByType = (type)=> path.resolve(filepath, defaultIndexPageName + '.' + type);
@@ -77,6 +74,14 @@ exports.parseSite =async function(dist){
   try{    
     await emitHook('init');
     await emitHook('markdown', utils.md);
+
+    let componentPath = path.resolve(dist, '_components')
+    utils.noox = new noox(componentPath, {
+      relePath: ydoc.relePath
+    });
+
+    fs.removeSync(componentPath)
+    
     let indexPath = await getIndexPath(dist);
     if(!indexPath){
       return utils.log.error(`The root directory of documents didn't find index page.`)
@@ -166,11 +171,12 @@ function getBookInfo(filepath){
 //   page: {
 //     title: 'string',
 //     description: 'string',
-//     content: 'string',
-//     prev: 'string',
-//     next: 'string',
-//     srcPath: 'string',
-//     distPath: 'string'
+//     content: '内容',
+//     prev: '上一页连接',
+//     next: '下一页链接',
+//     releativePath: '相对路径'
+//     srcPath: '源文件路径',
+//     distPath: '生成文件路径'
 //   },
 //   asserts: { // asserts 资源
 //     js: [],

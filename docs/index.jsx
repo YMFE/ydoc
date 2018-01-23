@@ -87,4 +87,5 @@
     </div>
   </section>
 </div>
+<Company />
 <Footer distPath={props.page.distPath} />
