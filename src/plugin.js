@@ -4,9 +4,7 @@ const path = require('path');
 const utils = require('./utils.js');
 const fs = require('fs-extra');
 
-const PLUGINS = [
-  {name: 'execution-time', hideLog: true}
-];
+const DEFAULT_PLUGINS = ['execution-time', 'import-assert'];
 
 const hooks = {
   "init": {
@@ -98,13 +96,13 @@ function handleAsserts(config, dir, pluginName){
 
 exports.loadPlugins = function loadPlugins() {
   let modules = path.resolve(process.cwd(), 'node_modules');
-  let plugins = PLUGINS;
+  let plugins = [].concat(DEFAULT_PLUGINS);
   if (ydocConfig.plugins && Array.isArray(ydocConfig.plugins)) {
     plugins = plugins.concat(ydocConfig.plugins)
   }
   for (let i = 0, l = plugins.length; i < l; i++) {
-    let pluginName = plugins[i].name;
-    let options = ydocConfig[pluginName];
+    let pluginName = plugins[i];
+    let options = ydocConfig.pluginsConfig[pluginName];
     try {
       let pluginModule, pluginModuleDir;
       try{
@@ -115,7 +113,7 @@ exports.loadPlugins = function loadPlugins() {
         pluginModule = require(pluginModuleDir);
       }
       
-      if(!plugins[i].hideLog) utils.log.info(`Load plugin "${pluginName}" success.`)
+      utils.log.info(`Load plugin "${pluginName}" success.`)
       for (let key in pluginModule) {
         if (hooks[key]) {
           bindHook(key, {
