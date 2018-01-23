@@ -34,7 +34,8 @@
     "underscore": "^1.8.3",
     "yargs": "^10.0.3",
     "ydoc-plugin-demo": "^1.0.0",
-    "ydoc-plugin-execution-time": "^1.0.0"
+    "ydoc-plugin-execution-time": "^1.0.0",
+    "ydoc-plugin-import-assert": "^1.0.0"
   },
   "devDependencies": {
     "ghooks": "^2.0.0",
