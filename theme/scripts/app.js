@@ -1,8 +1,18 @@
 console.log('app.js');
+var locationHref = window.location.href;
 
 var $menu = document.getElementById('js-menu');
 var $panel = document.getElementById('js-panel');
 var $header = document.getElementById('js-header');
+var $summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href'));
+
+$summaryItems.map(function(item, index) {
+	console.log(item.href);
+	if (item.href === locationHref) {
+		// add 'active' for present summary item.
+		item.parentElement.classList.add('active');
+	}
+});
 
 // header
 $panel.onscroll = function (e) {

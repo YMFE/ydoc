@@ -3,12 +3,12 @@
 		(() => {
 			const getItems = (articles) => {
 				return articles.map((item, index) => {
-					const distPath = props.distPath;
-					const activeItem = distPath.substring(distPath.lastIndexOf('\/') + 1, distPath.length);
-					const activeFlag = (item.ref.indexOf(activeItem) === 0);
+					// const distPath = props.distPath;
+					// const activeItem = distPath.substring(distPath.lastIndexOf('\/') + 1, distPath.length);
+					// const activeFlag = (item.ref.indexOf(activeItem) === 0);
 					
 					return (
-						<li className={'item ' + (activeFlag ? 'active' : '')} key={index}>
+						<li className="item" key={index}>
 							{ 
 								item.articles.length ? (
 									<div className="m-summary-block">
