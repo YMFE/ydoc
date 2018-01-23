@@ -102,7 +102,7 @@ exports.loadPlugins = function loadPlugins() {
   }
   for (let i = 0, l = plugins.length; i < l; i++) {
     let pluginName = plugins[i];
-    let options = ydocConfig.pluginsConfig[pluginName];
+    let options = typeof ydocConfig.pluginsConfig === 'object' && ydocConfig.pluginsConfig ? ydocConfig.pluginsConfig[pluginName] : null;
     try {
       let pluginModule, pluginModuleDir;
       try{
