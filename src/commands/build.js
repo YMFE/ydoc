@@ -32,16 +32,29 @@ module.exports = {
     utils.log = new logger( argv.verbose ? 'debug' : 'info' );
     const root = path.resolve(process.cwd(), ydoc.config.root);
     const dist = path.resolve(process.cwd(), defaultBuildPath);
+    const componentsDist = path.resolve(dist, '_components');
+    const componentsRoot = path.resolve(__dirname, '../../theme/components');
     ydoc.config.buildPath = dist;
     
     fs.removeSync(dist);
     fs.ensureDirSync(dist);
+    fs.ensureDirSync(componentsDist);
     fs.ensureDirSync(path.resolve(dist, 'ydoc/styles'));
     fs.ensureDirSync(path.resolve(dist, 'ydoc/scripts'));
     fs.ensureDirSync(path.resolve(dist, 'ydoc/images'));
     fs.copySync(scriptInPath, scriptOutPath);
     fs.copySync(imageInPath, imageOutPath);
     fs.copySync(root, dist);
+
+    let components = fs.readdirSync(componentsRoot);
+    components.forEach(item=>{
+      if(path.extname(item) !== '.jsx' || item[0].toUpperCase() !== item[0]) return;
+      let distPath = path.resolve(componentsDist, item)
+      if(!utils.fileExist(distPath)){
+        fs.copySync(path.resolve(componentsRoot, item), distPath)
+      }
+    })
+
     loadPlugins();
     parse.parseSite(dist);
 

@@ -13,9 +13,7 @@
   <meta name="theme-color" content="#ffffff" />
   <meta httpEquiv="Cache-Control" content="no-transform" />
   <meta httpEquiv="Cache-Control" content="no-siteapp" />
-  {
-    // console.log(JSON.stringify(props.title, null, 2))
-  }
+
   <Head asserts={props.asserts} title={props.title} distPath={props.page.distPath} />
   <body>
     <div className="g-doc">
