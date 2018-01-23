@@ -25,7 +25,7 @@ Hello {#id}
 # Hello # {#id}
 ```
 
-### Paragraphs and Line Breaks {#paragraphs}
+### Paragraphs and Line Breaks
 
 A paragraph is simply one or more consecutive lines of text, separated by one or more blank lines. (A blank line is any line that looks like a blank line — a line containing nothing but spaces or tabs is considered blank.) Normal paragraphs should not be indented with spaces or tabs.
 
@@ -35,7 +35,7 @@ Here's a line for us to start with.
 This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
 ```
 
-### Emphasis {#emphasis}
+### Emphasis
 
 ```markdown
 *This text will be italic*
@@ -49,7 +49,7 @@ __This will also be bold__
 _You **can** combine them_
 ```
 
-### Lists {#lists}
+### Lists
 
 Markdown supports ordered (numbered) and unordered (bulleted) lists.
 
@@ -76,7 +76,7 @@ Ordered lists use numbers followed by periods:
    * Item 3b
 ```
 
-### Links {#links}
+### Links
 
 Markdown supports two style of links: inline and reference.
 
@@ -105,7 +105,7 @@ Then, anywhere in the document, you define your link label like this, on a line 
 [id]: http://example.com/  "Optional Title Here"
 ```
 
-### Images {#images}
+### Images
 
 Images can be created in a similar way than links: just use an exclamation mark before the square brackets. The link text will become the alternative text of the image and the link URL specifies the image source:
 
@@ -113,7 +113,7 @@ Images can be created in a similar way than links: just use an exclamation mark 
 An image: ![gras](img/image.jpg)
 ```
 
-### Blockquotes {#blockquotes}
+### Blockquotes
 
 A blockquote is started using the `>` marker followed by an optional space; all following lines that are also started with the blockquote marker belong to the blockquote. You can use any block-level elements inside a blockquote:
 
@@ -124,7 +124,7 @@ As Kanye West said:
 > the present is our past.
 ```
 
-### Tables {#tables}
+### Tables
 
 You can create tables by assembling a list of words and dividing them with hyphens `-` (for the first row), and then separating each column with a pipe `|`:
 
@@ -137,7 +137,7 @@ You can create tables by assembling a list of words and dividing them with hyphe
 
 The pipes on either end of the table are optional. Cells can vary in width and do not need to be perfectly aligned within columns. There must be at least three hyphens in each column of the header row.
 
-### Code {#code}
+### Code
 
 Markdown supports two different code block styles. One uses lines indented with either four spaces or one tab whereas the other uses lines with tilde characters as delimiters – therefore the content does not need to be indented:
 

@@ -18,6 +18,7 @@ function handleArchor($){
     }else{
       utils.log.warn(`The document ${tagname} title: "${text}" repeated.`)
     }
+    id = id.toLowerCase();
     $(this).attr('id', id)
   })
 

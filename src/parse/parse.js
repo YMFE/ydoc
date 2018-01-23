@@ -223,7 +223,7 @@ async function parseBook(bookpath, indexFile){
         let absolutePath = path.resolve(bookpath, releativePath);
         if(utils.fileExist(absolutePath)){
           let releativeHtmlPath = handleMdPathToHtml(releativePath);
-          urlObj.hash = urlObj.hash ? urlObj.hash : '';
+          urlObj.hash = urlObj.hash ? urlObj.hash.toLowerCase() : '';
           item.ref = releativeHtmlPath + urlObj.hash;
           generatePage(getBookContext(book, {
             srcPath: absolutePath,
