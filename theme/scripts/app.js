@@ -19,24 +19,25 @@ var utils = {
 function itemAddActive() {
 	var locationHref = window.location.href;
 	$summaryItems.map(function (item, index) {
-		item.parentElement.classList.remove('active');
 		if (item.href === locationHref) {
 			// add 'active' for present summary item.
 			item.parentElement.classList.add('active');
+		} else {
+			item.parentElement.classList.remove('active');
 		}
 	});
 }
 
 // Add EventListener
 function addEvents() {
-	$panel.onscroll = utils.debounce(function(e) {
+	$panel.onscroll = function(e) {
 		itemAddActive();
 		if (e.target.scrollTop > 0) {
 			$header.classList.add('moved');
 		} else {
 			$header.classList.remove('moved');
 		}
-	}, 200);
+	};
 }
 
 // initial components
