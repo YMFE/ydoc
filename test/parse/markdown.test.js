@@ -9,6 +9,7 @@ describe('parseMarkdown', function(){
     let html = parseMarkdown(path.resolve(__dirname, './fixtures/markdown.md'), 'utf8');
     let $ = dom.parse(html);
     assert.equal($('a').attr('href'), 'a.md#a-1')
+    assert.equal($('a').text(), 'url')
   })
 })
 

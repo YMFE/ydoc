@@ -23,7 +23,7 @@ utils.md = MarkdownIt({
  *  处理 hash 带特殊字符的问题
  */
 utils.md.use(function (md) {
-  let urlRegexp = /^(\[.*?\])\((.*?)\)$/;
+  let urlRegexp = /^\[(.*?)\]\((.*?)\)$/;
   let hashRegexp = /#(.*)/;
 
   let defaultHtmlRender = md.renderer.rules.html_inline;

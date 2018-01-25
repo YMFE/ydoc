@@ -10,7 +10,6 @@ var jsx = require('../../src/parse/jsx');
 describe('jsx', function(){  
   it('data', function(){
     let component = jsx(path.resolve(__dirname, './fixtures/jsx.jsx'), 'utf8');
-    console.log(component)
     assert.deepEqual(component.data, {
       "title": "ydoc",
       "list": [
