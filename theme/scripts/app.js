@@ -1,42 +1,67 @@
 console.log('app.js');
-var locationHref = window.location.href;
 
 var $menu = document.getElementById('js-menu');
 var $panel = document.getElementById('js-panel');
 var $header = document.getElementById('js-header');
 var $summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href'));
 
-$summaryItems.map(function(item, index) {
-	console.log(item.href);
-	if (item.href === locationHref) {
-		// add 'active' for present summary item.
-		item.parentElement.classList.add('active');
+var utils = {
+	debounce: function(func, wait) {
+		var timeout;
+		return function () {
+			clearTimeout(timeout);
+			timeout = setTimeout(func, wait);
+		};
 	}
-});
+};
 
-// header
-$panel.onscroll = function (e) {
-	if (e.target.scrollTop > 0) {
-		$header.classList.add('moved');
-	} else {
-		$header.classList.remove('moved');
-	}
-}
-
-// nav
-var navigation = responsiveNav('.js-nav', {
-	customToggle: '#js-nav-btn'
-});
-
-// summary
-if ($menu) {
-	var slideout = new Slideout({
-		'panel': document.getElementById('js-panel'),
-		'menu': document.getElementById('js-menu'),
-		'padding': 256,
-		'tolerance': 70
+// Add 'active' to summary item
+function itemAddActive() {
+	var locationHref = window.location.href;
+	$summaryItems.map(function (item, index) {
+		item.parentElement.classList.remove('active');
+		if (item.href === locationHref) {
+			// add 'active' for present summary item.
+			item.parentElement.classList.add('active');
+		}
 	});
 }
+
+// Add EventListener
+function addEvents() {
+	$panel.onscroll = utils.debounce(function(e) {
+		itemAddActive();
+		if (e.target.scrollTop > 0) {
+			$header.classList.add('moved');
+		} else {
+			$header.classList.remove('moved');
+		}
+	}, 200);
+}
+
+// initial components
+function initComponents() {
+	// nav
+	var navigation = responsiveNav('.js-nav', {
+		customToggle: '#js-nav-btn'
+	});
+
+	// summary
+	if ($menu) {
+		var slideout = new Slideout({
+			'panel': document.getElementById('js-panel'),
+			'menu': document.getElementById('js-menu'),
+			'padding': 256,
+			'tolerance': 70
+		});
+	}
+}
+
+window.onload = function() {
+	addEvents();
+	initComponents();
+	itemAddActive();
+};
 
 // Toggle button
 // document.querySelector('.js-slide-btn').addEventListener('click', function () {
