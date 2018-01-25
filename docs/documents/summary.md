@@ -12,6 +12,7 @@
 
 ### 自定义
 
+* [组件](component.md)
 * [扩展](plugins.md)
   * [创建一个插件](plugins.md)
   * [Hooks](plugins.md)
