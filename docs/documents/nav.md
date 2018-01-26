@@ -8,18 +8,12 @@
 * [文档](/documents/index.md)
 * [文档规范](/style-guide/index.md)
 * [插件](/plugins/index.md)
-* [Gitbook](/gitbook/README.md)
 ```
 
 上面的 markdown 内容可生成如下导航信息：
 
-**标题**：YDoc
-
-**Logo**: ydoc/images/logo.png
-
-**菜单**：
-
-* [文档](/documents/index.md)
-* [文档规范](/style-guide/index.md)
-* [插件](/plugins/index.md)
-* [Gitbook](/gitbook/README.md)
+```
+标题：YDoc
+Logo：ydoc/images/logo.png
+菜单： 文档 文档规范 插件
+```
