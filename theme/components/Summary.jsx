@@ -6,6 +6,8 @@
 					// const distPath = props.distPath;
 					// const activeItem = distPath.substring(distPath.lastIndexOf('\/') + 1, distPath.length);
 					// const activeFlag = (item.ref.indexOf(activeItem) === 0);
+					// console.log(props.releativePath, item.ref);
+					// console.log(JSON.stringify(relePath(props.releativePath, item.ref), null, 2));
 					
 					return (
 						<li className="item" key={index}>

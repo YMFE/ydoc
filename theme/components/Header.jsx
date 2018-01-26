@@ -11,10 +11,18 @@
           return sortItem.items.map((menuitem, index) => {
             const distPath = props.distPath;
             const activeItem = distPath.split('_site\/')[1].split('\/')[0];
+            const isLink = /http(s?)\:\/\//.test(menuitem.ref);
+            let path;
+            
+            if (isLink) {
+              path = menuitem.ref;
+            } else {
+              path = relePath(props.distPath, menuitem.ref);
+            }
             
             return (
               <li className={'item ' + (menuitem.ref.split('\/')[0] === activeItem ? 'active' : '')} key={index}>
-                <a className="href" href={menuitem.ref ? relePath(props.distPath, menuitem.ref) : '#'}>{menuitem.title}</a>
+                <a className="href" href={menuitem.ref ? path : '#'}>{menuitem.title}</a>
               </li>
               );
           });

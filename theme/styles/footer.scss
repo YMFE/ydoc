@@ -2,6 +2,9 @@
   background-color: $white;
   padding: .24rem;
   border-top: 1px solid $break-line-color;
+  ul, ol, li {
+    list-style: none;
+  }
   &-container {
     display: flex;
     flex-direction: column-reverse;

@@ -7,14 +7,11 @@ title:
 
 links: 
  COMMUNITY:
-  - { name: 'one', href: 'https://ydoc.ymfe.org/' }
-  - { name: 'two', href: 'https://ydoc.ymfe.org/' }
+  - { name: 'YMFE', href: 'https://ymfe.org/' }
+  - { name: 'YMFE blog', href: 'https://blog.ymfe.org/' }
  BASE:
-  - { name: 'one', href: 'https://ydoc.ymfe.org/' }
-  - { name: 'two', href: 'https://ydoc.ymfe.org/' }
- MORE:
-  - { name: 'one', href: 'https://ydoc.ymfe.org/' }
-  - { name: 'two', href: 'https://ydoc.ymfe.org/' }
+  - { name: 'FAQ', href: 'http://ymfe.corp.qunar.com/c/qrn' }
+  - { name: 'QRN-WEB', href: 'https://github.com/GitbookIO/gitbook/blob/master/CHANGES.md' }
 
 ---
 
