@@ -3,13 +3,14 @@ const fs = require('fs-extra');
 const utils = require('../utils.js');
 const ydoc = require('../ydoc.js');
 const ydocConfig = ydoc.config;
-let defaultIndexPageName = 'index';
+let   defaultIndexPageName = 'index';
 const defaultSummaryPage = 'SUMMARY.md';
 const defaultNavPage = 'NAV.md';
 const generate = require('../generate.js').generatePage;
 const runBatch = require('../generate.js').runBatch;
 const parseSummary = require('./summary');
-const parseMarkdown = require('./markdown');
+const parseMarkdown = require('./markdown').parseMarkdown;
+const loadMarkdownPlugins = require('./markdown').loadMarkdownPlugins;
 const parsePage = require('./page.js');
 const parseHtml = require('./html.js');
 const parseNav = require('./nav');
@@ -70,24 +71,25 @@ function handleMdPathToHtml(filepath){
   }
 }
 
-exports.parseSite =async function(dist){
-  try{    
-    await emitHook('init');
-    await emitHook('markdown', utils.md);
-
-    let componentPath = path.resolve(dist, '_components')
+async function init(dist){
+  await emitHook('init');
+  let componentPath = path.resolve(dist, '_components')
     utils.noox = new noox(componentPath, {
       relePath: ydoc.relePath
     });
+  fs.removeSync(componentPath)
+  loadMarkdownPlugins(ydocConfig.markdownItPlugins);
+}
 
-    fs.removeSync(componentPath)
-    
+exports.parseSite = async function(dist){
+  try{
+    await init(dist)
     let indexPath = await getIndexPath(dist);
     if(!indexPath){
       return utils.log.error(`The root directory of documents didn't find index page.`)
     }
     ydocConfig.nav = getNav(dist);
-    let books = handleNav(ydocConfig.nav.menus[0].items, dist);
+    let books = getBooks(ydocConfig.nav.menus[0].items, dist);
 
     const generateSitePage = generate(dist);
     generateSitePage({
@@ -114,7 +116,7 @@ exports.parseSite =async function(dist){
   }
 }
 
-function handleNav(menus, dist){
+function getBooks(menus, dist){
   let books = [];
   for(let i=0; i< menus.length; i++){
     let item = menus[i];
@@ -125,6 +127,7 @@ function handleNav(menus, dist){
       item.ref = '.' + item.ref;
     }
     let bookHomePath = path.resolve(dist, item.ref);
+    if(!utils.fileExist(bookHomePath)) continue;
     let indexFile = path.basename(bookHomePath);
     let bookPath = path.dirname(bookHomePath);
     let stats;
@@ -211,7 +214,13 @@ async function parseBook(bookpath, indexFile){
     distPath: defaultIndexPageName + '.html'
   }))
   if(summary && Array.isArray(summary)) {
-    await parseDocuments(summary); 
+    console.log(JSON.stringify(summary, null, 2))
+    parseDocuments(bookpath, function(absolutePath, releativeHtmlPath){
+      generatePage(getBookContext(book, {
+        srcPath: absolutePath,
+        distPath: releativeHtmlPath
+      }));
+    })(summary); 
   }
 
   await runBatch();
@@ -219,7 +228,12 @@ async function parseBook(bookpath, indexFile){
   let showpath = color.yellow( bookpath + '/' + defaultIndexPageName + '.html');
   utils.log.ok(`Generate book "${book.title}" ${showpath}`);
 
-  async function parseDocuments(summary){
+  await emitHook('book');
+
+}
+
+function parseDocuments(bookpath, callback){
+  return function _parseDocuments(summary){
     for(let index = 0; index< summary.length; index++){
       let item = summary[index];
       if(item.ref){
@@ -231,19 +245,13 @@ async function parseBook(bookpath, indexFile){
           let releativeHtmlPath = handleMdPathToHtml(releativePath);
           urlObj.hash = urlObj.hash ? urlObj.hash.toLowerCase() : '';
           item.ref = releativeHtmlPath + urlObj.hash;
-          generatePage(getBookContext(book, {
-            srcPath: absolutePath,
-            distPath: releativeHtmlPath
-          }));
+          callback(absolutePath, releativeHtmlPath)
         }
-        
       }
-
+  
       if(item.articles && Array.isArray(item.articles) && item.articles.length > 0){
-        parseDocuments(item.articles)
+        _parseDocuments(item.articles)
       }
     }
   }
-  await emitHook('book');
-
 }

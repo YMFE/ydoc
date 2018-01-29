@@ -2,7 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
 var parsePage = require('../../src/parse/page');
-var parseMarkdown = require('../../src/parse/markdown');
+var parseMarkdown = require('../../src/parse/markdown').parseMarkdown;
 var dom = require('../../src/parse/dom');
 
 describe('parsePage', function(){

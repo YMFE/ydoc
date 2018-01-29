@@ -18,6 +18,19 @@ utils.md = MarkdownIt({
   }
 })
 
+exports.loadMarkdownPlugins = function(markdownItPlugins){
+  if(markdownItPlugins && Array.isArray(markdownItPlugins) && markdownItPlugins.length){
+    markdownItPlugins.forEach(item=>{
+      let args;
+      if(!item) return;    
+      if(!Array.isArray(item)) args = [item];
+      else args = item;
+      utils.md.use.apply(utils.md, args)
+    })
+  }
+}
+
+
 
 /**
  *  处理 hash 带特殊字符的问题
@@ -47,7 +60,7 @@ utils.md.use(function (md) {
   }
 })
 
-module.exports = function parseMarkdown(filepath) {
+exports.parseMarkdown = function parseMarkdown(filepath) {
   const content = fs.readFileSync(filepath, 'utf8');
   return utils.md.render(content);
 }

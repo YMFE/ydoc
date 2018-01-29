@@ -24,9 +24,6 @@ const hooks = {
   },
   "page": {
     listener: []
-  },
-  "markdown": {
-    listener: []
   }
 }
 

@@ -7,5 +7,8 @@ module.exports = {
       css: 'custom.css',
       js:  'custom.js'
     }
-  }
+  },
+  markdownItPlugins: [function(md){
+    console.log(typeof md)
+  }]
 }

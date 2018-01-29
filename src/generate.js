@@ -6,7 +6,7 @@ const utils = require('./utils.js');
 
 const fs = require('fs-extra');
 
-const parseMarkdown = require('./parse/markdown.js');
+const parseMarkdown = require('./parse/markdown.js').parseMarkdown;
 const parseHtml = require('./parse/html');
 const parsePage = require('./parse/page');
 const parseJsx = require('./parse/jsx');
