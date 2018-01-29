@@ -24,6 +24,12 @@ function handleTitle(subTitle, title) {
   return subTitle === title ? subTitle : (subTitle + '-' + title)
 }
 
+const handleMdUrl = utils.handleMdUrl(findTransactionBySrcPath);
+
+exports.getBatch = function(){
+  return batch;
+}
+
 exports.runBatch = async function runBatch(){
   if(batch.length === 0) return;
   for(let index=0, l = batch.length; index<l; index++){
@@ -49,7 +55,7 @@ exports.runBatch = async function runBatch(){
       }
     }
 
-    _p.content = utils.handleMdUrl(findTransactionBySrcPath)(_p.content, path.dirname(page.srcPath))  
+    _p.content = handleMdUrl(_p.content, path.dirname(page.srcPath))  
     utils.extend(page, _p);
     if(page.title){
       context.title = handleTitle(page.title, context.title)
@@ -82,7 +88,7 @@ exports.generatePage = function generatePage(bookpath){
   return function _generatePage(context){    
     const page = context.page;
     if(findTransactionBySrcPath(page.srcPath))return;
-    context._bookpath = bookpath;
+    context.bookpath = bookpath;
     let releativePath = page.distPath;
     page.type = getType(page.srcPath);
     page.releativePath = releativePath;

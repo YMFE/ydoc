@@ -11,7 +11,7 @@
         ) : null
       }
       <div className="m-main" id="js-panel">
-        <Header nav={props.config.nav} bookpath={props._bookpath} distPath={props.page.distPath} />
+        <Header nav={props.config.nav} bookpath={props.bookpath} distPath={props.page.distPath} />
         <Content content={props.page.content} type={props.page.type} />
       </div>
     </div>

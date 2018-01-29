@@ -171,6 +171,7 @@ function getBookInfo(filepath){
 //   description: 'string',
 //   summary: {},
 //   nav: {},
+//   bookpath: '当前书籍路径',
 //   page: {
 //     title: 'string',
 //     description: 'string',
@@ -214,7 +215,6 @@ async function parseBook(bookpath, indexFile){
     distPath: defaultIndexPageName + '.html'
   }))
   if(summary && Array.isArray(summary)) {
-    console.log(JSON.stringify(summary, null, 2))
     parseDocuments(bookpath, function(absolutePath, releativeHtmlPath){
       generatePage(getBookContext(book, {
         srcPath: absolutePath,
