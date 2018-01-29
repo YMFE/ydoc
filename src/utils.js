@@ -96,3 +96,7 @@ exports.getConfigPath = function getConfigPath(dirname){
   }
   return null;
 }
+
+exports.isUrl = function(url){
+  return /^https?:\/\//.test(url)
+}

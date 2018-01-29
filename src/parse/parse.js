@@ -120,7 +120,7 @@ function getBooks(menus, dist){
   let books = [];
   for(let i=0; i< menus.length; i++){
     let item = menus[i];
-    if( !item.ref || item.ref.indexOf('http') === 0){
+    if( !item.ref || utils.isUrl(item.ref)){
       continue;
     }
     if(path.isAbsolute(item.ref)){

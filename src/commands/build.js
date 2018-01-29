@@ -1,25 +1,25 @@
 const path = require('path');
 const fs = require('fs-extra');
+const projectPath = process.cwd();
 const parse = require('../parse/parse.js');
 const utils = require('../utils');
 const sass = require('node-sass');
 const loadPlugins = require('../plugin.js').loadPlugins;
-
-const defaultBuildPath = '_site';
-const projectPath = process.cwd();
+const ydoc = require('../ydoc.js');
 const ydocPath = path.resolve(__dirname, '../..')
+const logger = require('../logger');
+const configFilepath = utils.getConfigPath(projectPath);
+const config = utils.fileExist(configFilepath) ? require(configFilepath) : {};
+utils.extend(ydoc.config, config);
+
+const defaultBuildPath = ydoc.config.buildPath || '_site';
 const styleInPath = path.resolve(ydocPath, 'theme/styles/index.scss');
 const scriptInPath = path.resolve(ydocPath, 'theme/scripts/');
 const imageInPath = path.resolve(ydocPath, 'theme/images/');
 const styleOutPath = path.resolve(projectPath, defaultBuildPath + '/ydoc/styles', 'style.css');
 const scriptOutPath = path.resolve(projectPath, defaultBuildPath + '/ydoc/scripts/');
 const imageOutPath = path.resolve(projectPath, defaultBuildPath + '/ydoc/images/');
-const logger = require('../logger');
 
-const configFilepath = utils.getConfigPath(projectPath);
-const config = utils.fileExist(configFilepath) ? require(configFilepath) : {};
-const ydoc = require('../ydoc.js');
-utils.extend(ydoc.config, config);
 
 module.exports = {
   setOptions: function (yargs) {
