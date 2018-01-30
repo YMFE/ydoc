@@ -68,5 +68,5 @@ module.exports = {
       preventDuplicationRunner(runner)
     })
   },
-  desc: 'Generate the document site'
+  desc: 'Starts a local server. By default, this is at http://127.0.0.1:9999/.'
 }
