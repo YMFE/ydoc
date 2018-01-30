@@ -43,7 +43,7 @@ const configFilepath = utils.getConfigPath(projectPath);
 const config = utils.getConfig(configFilepath);
 utils.extend(ydoc.config, config);
 
-const defaultBuildPath = ydoc.config.buildPath || '_site';
+const defaultBuildPath = ydoc.config.buildPath || utils.defaultBuildPath;
 ydoc.config.dist = path.resolve(projectPath, defaultBuildPath);  
 ydoc.config.root = path.resolve(projectPath, ydoc.config.root);
 

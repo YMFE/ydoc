@@ -3,9 +3,9 @@ const logger = require('./logger');
 const dom = require('./parse/dom.js');
 const url = require('url');
 const path = require('path');
-const defaultDocsPath = './docs'
 
-exports.defaultDocsPath = defaultDocsPath;
+exports.defaultDocsPath = './docs';
+exports.defaultBuildPath = './_site'
 exports.projectPath = process.cwd();
 /**
  * 复制一个对象的属性到另一个对象
