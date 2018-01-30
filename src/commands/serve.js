@@ -3,6 +3,7 @@ const path = require('path')
 const child_process = require('child_process');
 const utils = require('../utils')
 const ora = require('ora');
+let port = 9999;
 
 function runner() {
   const spinner = ora('').start();
@@ -11,9 +12,9 @@ function runner() {
     child_process.exec(`node ${ydocPath} build`, function(error, stdout, stderr){
       spinner.stop()
       if(error) throw error;
-      if(stdout)process.stdout.write(stdout);
-      if(stderr)process.stdout.write(stderr);
-      utils.log.ok('Starting up http-server: http://127.0.0.1:9999')
+      if(stdout) process.stdout.write(stdout);
+      if(stderr) process.stdout.write(stderr);
+      utils.log.ok('Starting up http-server: http://127.0.0.1:' + port)
     })
 }
 
@@ -50,13 +51,20 @@ function server(buildPath){
   const app = new Koa();
   app.use(require('koa-static')(buildPath));   
 
-  app.listen(9999); 
+  app.listen(port); 
 }
 
 module.exports = {
-  setOptions: function () { },
-  run: function () {
-    let preventDuplicationRunner = preventDuplication()
+  setOptions: function (yargs) { 
+    yargs.option('port', {
+      describe: 'Port of server',
+      default: 9999
+    })
+  },
+  run: function (argv) {
+    let preventDuplicationRunner = preventDuplication()    
+    port = argv.port;
+
     let config = init()
     runner()   
     server(config.buildPath)
@@ -68,5 +76,5 @@ module.exports = {
       preventDuplicationRunner(runner)
     })
   },
-  desc: 'Starts a local server. By default, this is at http://127.0.0.1:9999/.'
+  desc: 'Starts a local server. By default, this is at http://127.0.0.1:' + port
 }

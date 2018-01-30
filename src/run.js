@@ -3,7 +3,7 @@ const fs = require('fs-extra');
 const noox = require('noox');
 const parse = require('./parse/parse.js');
 const utils = require('./utils');
-const sass = require('node-sass');
+
 const loadPlugins = require('./plugin.js').loadPlugins;
 const ydoc = require('./ydoc.js');
 const ydocPath = path.resolve(__dirname, '..')
@@ -13,7 +13,7 @@ async function run() {
   // init Resources path  
   const dist = ydoc.config.dist;  
   const root = ydoc.config.root;
-  const styleInPath = path.resolve(ydocPath, 'theme/styles/index.scss');
+  const styleInPath = path.resolve(ydocPath, 'theme/style.css');
   const scriptInPath = path.resolve(ydocPath, 'theme/scripts/');
   const imageInPath = path.resolve(ydocPath, 'theme/images/');
   const styleOutPath = path.resolve( dist , 'ydoc/styles', 'style.css');
@@ -33,6 +33,7 @@ async function run() {
   fs.copySync(scriptInPath, scriptOutPath);
   fs.copySync(imageInPath, imageOutPath);
   fs.copySync(root, dist);
+  fs.copySync(styleInPath, styleOutPath);
 
   let components = fs.readdirSync(componentsRoot);
   components.forEach(item => {
@@ -54,22 +55,7 @@ async function run() {
 
   await parse.parseSite(dist);
 
-  // 编译 scss 文件至 docs 目录中
-  sass.render({
-    file: styleInPath,
-    outFile: styleOutPath,
-    outputStyle: 'expanded'
-  }, function (err, result) {
-    if (!err) {
-      fs.writeFile(styleOutPath, result.css, function (err) {
-        if (err) {
-          throw err;
-        }
-      })
-    } else {
-      throw err;
-    }
-  });
+  
 
 }
 
