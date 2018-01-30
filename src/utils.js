@@ -3,7 +3,10 @@ const logger = require('./logger');
 const dom = require('./parse/dom.js');
 const url = require('url');
 const path = require('path');
+const defaultDocsPath = './docs'
 
+exports.defaultDocsPath = defaultDocsPath;
+exports.projectPath = process.cwd();
 /**
  * 复制一个对象的属性到另一个对象
  *
@@ -95,6 +98,13 @@ exports.getConfigPath = function getConfigPath(dirname){
     if(fileExist(configFilepath)) return configFilepath;
   }
   return null;
+}
+
+exports.getConfig = function getConfig(filepath){
+  if(fileExist(filepath)){
+    return require(filepath)
+  }
+  return {};
 }
 
 exports.isUrl = function(url){

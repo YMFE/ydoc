@@ -1,5 +1,5 @@
 module.exports = {
-  title: "ydoc demo111",
+  title: "ydoc",
   description: "ydoc description demo",
   author: "ymfe",
   pluginsConfig: {
@@ -9,7 +9,7 @@ module.exports = {
     }
   },
   markdownItPlugins: [function(md){
-    console.log(typeof md)
-  }],
+    
+  }]
   // buildPath: '_site2'
 }

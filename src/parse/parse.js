@@ -10,15 +10,13 @@ const generate = require('../generate.js').generatePage;
 const runBatch = require('../generate.js').runBatch;
 const parseSummary = require('./summary');
 const parseMarkdown = require('./markdown').parseMarkdown;
-const loadMarkdownPlugins = require('./markdown').loadMarkdownPlugins;
+
 const parsePage = require('./page.js');
 const parseHtml = require('./html.js');
 const parseNav = require('./nav');
 const emitHook = require('../plugin.js').emitHook;
 const url = require('url');
 const color = require('bash-color');
-const noox = require('noox');
-
 
 function getIndexPath(filepath){
   let getIndexPathByType = (type)=> path.resolve(filepath, defaultIndexPageName + '.' + type);
@@ -71,22 +69,14 @@ function handleMdPathToHtml(filepath){
   }
 }
 
-async function init(dist){
-  await emitHook('init');
-  let componentPath = path.resolve(dist, '_components')
-    utils.noox = new noox(componentPath, {
-      relePath: ydoc.relePath
-    });
-  fs.removeSync(componentPath)
-  loadMarkdownPlugins(ydocConfig.markdownItPlugins);
-}
-
 exports.parseSite = async function(dist){
   try{
-    await init(dist)
+    await emitHook('init');
+    
+    defaultIndexPageName = 'index'
     let indexPath = await getIndexPath(dist);
     if(!indexPath){
-      return utils.log.error(`The root directory of documents didn't find index page.`)
+      return utils.log.error(`The root directory of site didn't find index page.`)
     }
     ydocConfig.nav = getNav(dist);
     let books = getBooks(ydocConfig.nav.menus[0].items, dist);

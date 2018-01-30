@@ -1,5 +1,6 @@
 const utils = require('./utils.js');
 const path = require('path');
+const projectPath = utils.projectPath;
 const asserts = {
   js: [],
   css: []
@@ -9,7 +10,7 @@ const ydoc = {
   version: require('../package.json').version,
   log: utils.log,
   config: {
-    root: "./docs",
+    root: utils.defaultDocsPath,
     title: "ydoc",
     description: "ydoc description",
     author: "ymfe"
@@ -37,6 +38,14 @@ const ydoc = {
     };
   }
 }
+
+const configFilepath = utils.getConfigPath(projectPath);
+const config = utils.getConfig(configFilepath);
+utils.extend(ydoc.config, config);
+
+const defaultBuildPath = ydoc.config.buildPath || '_site';
+ydoc.config.dist = path.resolve(projectPath, defaultBuildPath);  
+ydoc.config.root = path.resolve(projectPath, ydoc.config.root);
 
 module.exports=ydoc;
 
