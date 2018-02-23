@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs-extra')
 const logger = require('./logger');
 const dom = require('./parse/dom.js');
 const url = require('url');
@@ -110,3 +110,24 @@ exports.getConfig = function getConfig(filepath){
 exports.isUrl = function(url){
   return /^https?:\/\//.test(url)
 }
+
+/**
+ * 递归合并文件
+ * @param {*} src 源文件目录
+ * @param {*} dist 目标文件目录
+ */
+function mergeCopyFiles(src, dist){
+  let files = fs.readdirSync(src);
+  files.forEach(item=>{
+    let distPath = path.resolve(dist, item);
+    let srcPath = path.resolve(src, item)
+    if(fileExist(srcPath)){
+      fs.copySync(srcPath, distPath)
+    }else if(dirExist(srcPath)){
+      mergeCopyFiles(srcPath, distPath)
+    }
+  })
+}
+
+exports.mergeCopyFiles = mergeCopyFiles
+

@@ -19,7 +19,7 @@ async function run() {
   const styleOutPath = path.resolve( dist , 'ydoc/styles', 'style.css');
   const scriptOutPath = path.resolve(dist,  'ydoc/scripts/');
   const imageOutPath = path.resolve(dist,  'ydoc/images/');
-  
+  const customerComponentsPath = path.resolve(root, '_components');
   const componentsDist = path.resolve(dist, '_components');
   const componentsRoot = path.resolve(ydocPath, 'theme/components');
   ydoc.config.buildPath = dist;
@@ -34,15 +34,9 @@ async function run() {
   fs.copySync(imageInPath, imageOutPath);
   fs.copySync(root, dist);
   fs.copySync(styleInPath, styleOutPath);
+  fs.copySync(componentsRoot, componentsDist)
 
-  let components = fs.readdirSync(componentsRoot);
-  components.forEach(item => {
-    if (path.extname(item) !== '.jsx' || item[0].toUpperCase() !== item[0]) return;
-    let distPath = path.resolve(componentsDist, item)
-    if (!utils.fileExist(distPath)) {
-      fs.copySync(path.resolve(componentsRoot, item), distPath)
-    }
-  })
+  utils.mergeCopyFiles(customerComponentsPath, componentsDist)
 
   loadPlugins();
 
@@ -51,6 +45,7 @@ async function run() {
       relePath: ydoc.relePath
     });
   fs.removeSync(componentPath)
+
   loadMarkdownPlugins(ydoc.config.markdownItPlugins);
 
   await parse.parseSite(dist);
