@@ -19,8 +19,8 @@ utils.md = MarkdownIt({
 })
 
 exports.loadMarkdownPlugins = function(fn){
-  if(fn && typeof fn === 'fucntion'){
-    fn.apply(this, utils.md)
+  if(fn && typeof fn === 'function'){
+    fn.call(this, utils.md)
   }
 }
 
