@@ -18,15 +18,9 @@ utils.md = MarkdownIt({
   }
 })
 
-exports.loadMarkdownPlugins = function(markdownItPlugins){
-  if(markdownItPlugins && Array.isArray(markdownItPlugins) && markdownItPlugins.length){
-    markdownItPlugins.forEach(item=>{
-      let args;
-      if(!item) return;    
-      if(!Array.isArray(item)) args = [item];
-      else args = item;
-      utils.md.use.apply(utils.md, args)
-    })
+exports.loadMarkdownPlugins = function(fn){
+  if(fn && typeof fn === 'fucntion'){
+    fn.apply(this, utils.md)
   }
 }
 

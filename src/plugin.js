@@ -6,29 +6,22 @@ const fs = require('fs-extra');
 
 const DEFAULT_PLUGINS = ['execution-time', 'import-assert'];
 
-const hooks = {
-  "init": {
+const hooks = {}
+
+function addHook(arr){
+  arr.forEach(hookname=> hooks[hookname] = {
     listener: []
-  },
-  "finish": {
-    listener: []
-  },
-  "book:before": {
-    listener: []
-  },
-  "book": {
-    listener: []
-  },
-  "page:before": {
-    listener: []
-  },
-  "page": {
-    listener: []
-  },
-  "tpl:header":{
-    listener: []
-  }
+  })
 }
+
+function addTplHook(arr){
+  arr.forEach(hookname=> hooks[utils.defaultTplHookPrefix + hookname] = {
+    listener: []
+  })
+}
+
+addHook(["init", "finish", "book:before", "book", "page:before", "page"])
+addTplHook(["header"])
 
 
 function bindHook(name, listener) {
@@ -82,7 +75,7 @@ exports.emitTplHook = function emitHook(name) {
       }
     }
   }
-  return promiseAll;
+  return all;
 }
 
 function _importAssert(filepath, type, pluginAssertPath){
