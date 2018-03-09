@@ -1,10 +1,13 @@
 const utils = require('./utils.js');
 const path = require('path');
+const {emitTplHook} = require('./plugin.js')
+
 const projectPath = utils.projectPath;
 const asserts = {
   js: [],
   css: []
 }
+
 
 const ydoc = {
   version: require('../package.json').version,
@@ -15,6 +18,11 @@ const ydoc = {
     description: "ydoc description",
     author: "ymfe",
     theme: 'default'
+  },
+  hook: function(name){
+    let args = Array.prototype.slice.call(arguments, 1);
+    let tpls = emitTplHook.apply(this, args)
+    return tpls.split("\n")
   },
   relePath: function(srcFilepath, importFilepath){
     if(utils.isUrl(importFilepath)){

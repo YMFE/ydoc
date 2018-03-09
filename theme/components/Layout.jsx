@@ -11,8 +11,8 @@
         ) : null
       }
       <div className="m-main" id="js-panel">
-        <Header nav={props.config.nav} distPath={props.page.distPath} buildPath={props.config.buildPath} />
-        <Content content={props.page.content} type={props.page.type} />
+        <Header nav={props.config.nav} distPath={props.page.distPath} buildPath={props.config.buildPath} ydoc={props} />
+        <Content content={props.page.content} type={props.page.type} ydoc={props} />
       </div>
     </div>
     <Scripts asserts={props.asserts} page={props.page} />

@@ -24,6 +24,9 @@ const hooks = {
   },
   "page": {
     listener: []
+  },
+  "tpl:header":{
+    listener: []
   }
 }
 
@@ -58,6 +61,28 @@ exports.emitHook = function emitHook(name) {
     }
     return Promise.all(promiseAll);
   }
+}
+
+/**
+* 
+* @param {*} hookname
+* @return promise 
+*/
+exports.emitTplHook = function emitHook(name) {
+  let all = [];
+  if (hooks[name] && typeof hooks[name] === 'object') {
+    let args = Array.prototype.slice.call(arguments, 1);
+    
+    if (Array.isArray(hooks[name].listener)) {
+      let listenerList = hooks[name].listener;
+      for (let i = 0, l = listenerList.length; i < l; i++) {
+        let context = utils.extend({}, ydoc);
+        context.options = listenerList[i].options;
+        all.push(listenerList[i].fn.apply(context, args));
+      }
+    }
+  }
+  return promiseAll;
 }
 
 function _importAssert(filepath, type, pluginAssertPath){
