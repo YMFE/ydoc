@@ -8,12 +8,13 @@ const asserts = {
 
 const ydoc = {
   version: require('../package.json').version,
-  log: utils.log,
+  log: utils.log,  
   config: {
     root: utils.defaultDocsPath,
     title: "ydoc",
     description: "ydoc description",
-    author: "ymfe"
+    author: "ymfe",
+    theme: 'default'
   },
   relePath: function(srcFilepath, importFilepath){
     if(utils.isUrl(importFilepath)){
