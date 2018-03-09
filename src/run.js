@@ -9,7 +9,9 @@ const ydoc = require("./ydoc.js");
 const ydocPath = path.resolve(__dirname, "..");
 const loadMarkdownPlugins = require("./parse/markdown").loadMarkdownPlugins;
 
-async function run() {
+async function run(options = {
+  mode: 'prd'
+}) {
   // init Resources path
   const dist = ydoc.config.dist;
   const root = ydoc.config.root;
@@ -21,7 +23,9 @@ async function run() {
 
   ydoc.config.buildPath = dist;
 
-  fs.removeSync(dist);
+  if(options.mode === 'prd'){
+    fs.removeSync(dist);
+  }
   fs.ensureDirSync(dist);
   fs.ensureDirSync(themeDist);
 

@@ -10,10 +10,15 @@ module.exports = {
       describe: 'show debug info.',
       default: false
     })
+    yargs.option('mode', {
+      default: 'prd'
+    })
   },
   run: async function (argv) {
     utils.log = new logger(argv.verbose ? 'debug' : 'info');
-    await runner()
+    await runner({
+      mode: argv.mode
+    })
   },
   desc: 'Generate the document site'
 }

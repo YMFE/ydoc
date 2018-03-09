@@ -9,7 +9,7 @@ function runner() {
   const spinner = ora('').start();
 
   const ydocPath = path.resolve(path.dirname(__dirname), '../bin/ydoc')
-    child_process.exec(`node ${ydocPath} build`, function(error, stdout, stderr){
+    child_process.exec(`node ${ydocPath} build --mode=dev`, function(error, stdout, stderr){
       spinner.stop()
       if(error) throw error;
       if(stdout) process.stdout.write(stdout);
@@ -31,7 +31,12 @@ function preventDuplication(time = 500) {
 }
 
 function init() {
-  let paths = []
+  const ydocPath = path.resolve(__dirname, '../..')
+  const paths = [
+    path.resolve(ydocPath, './src'),
+    path.resolve(ydocPath, './theme')
+  ]
+  
   const projectPath = utils.projectPath;
   const configFilepath = utils.getConfigPath(projectPath);
   const config = utils.getConfig(configFilepath);
@@ -48,7 +53,9 @@ function init() {
 
 function server(buildPath){
   const Koa = require('koa');
+  var liveload = require('koa-liveload');
   const app = new Koa();
+  app.use(liveload(buildPath))
   app.use(require('koa-static')(buildPath));   
 
   app.listen(port); 
@@ -69,7 +76,7 @@ module.exports = {
     runner()   
     server(config.buildPath)
     
-    chokidar.watch(config.paths, {      
+    chokidar.watch(config.paths, {
       ignoreInitial: true
     }).on('all', () => {
       config = init()
