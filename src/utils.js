@@ -7,6 +7,7 @@ const path = require('path');
 exports.defaultDocsPath = './docs';
 exports.defaultBuildPath = './_site'
 exports.projectPath = process.cwd();
+exports.defaultTplHookPrefix = 'tpl:'
 /**
  * 复制一个对象的属性到另一个对象
  *

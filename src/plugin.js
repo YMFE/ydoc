@@ -6,26 +6,22 @@ const fs = require('fs-extra');
 
 const DEFAULT_PLUGINS = ['execution-time', 'import-assert'];
 
-const hooks = {
-  "init": {
+const hooks = {}
+
+function addHook(arr){
+  arr.forEach(hookname=> hooks[hookname] = {
     listener: []
-  },
-  "finish": {
-    listener: []
-  },
-  "book:before": {
-    listener: []
-  },
-  "book": {
-    listener: []
-  },
-  "page:before": {
-    listener: []
-  },
-  "page": {
-    listener: []
-  }
+  })
 }
+
+function addTplHook(arr){
+  arr.forEach(hookname=> hooks[utils.defaultTplHookPrefix + hookname] = {
+    listener: []
+  })
+}
+
+addHook(["init", "finish", "book:before", "book", "page:before", "page"])
+addTplHook(["header"])
 
 
 function bindHook(name, listener) {
@@ -58,6 +54,28 @@ exports.emitHook = function emitHook(name) {
     }
     return Promise.all(promiseAll);
   }
+}
+
+/**
+* 
+* @param {*} hookname
+* @return promise 
+*/
+exports.emitTplHook = function emitHook(name) {
+  let all = [];
+  if (hooks[name] && typeof hooks[name] === 'object') {
+    let args = Array.prototype.slice.call(arguments, 1);
+    
+    if (Array.isArray(hooks[name].listener)) {
+      let listenerList = hooks[name].listener;
+      for (let i = 0, l = listenerList.length; i < l; i++) {
+        let context = utils.extend({}, ydoc);
+        context.options = listenerList[i].options;
+        all.push(listenerList[i].fn.apply(context, args));
+      }
+    }
+  }
+  return all;
 }
 
 function _importAssert(filepath, type, pluginAssertPath){

@@ -9,7 +9,9 @@ const ydoc = require("./ydoc.js");
 const ydocPath = path.resolve(__dirname, "..");
 const loadMarkdownPlugins = require("./parse/markdown").loadMarkdownPlugins;
 
-async function run() {
+async function run(options = {
+  mode: 'prd'
+}) {
   // init Resources path
   const dist = ydoc.config.dist;
   const root = ydoc.config.root;
@@ -21,7 +23,9 @@ async function run() {
 
   ydoc.config.buildPath = dist;
 
-  fs.removeSync(dist);
+  if(options.mode === 'prd'){
+    fs.removeSync(dist);
+  }
   fs.ensureDirSync(dist);
   fs.ensureDirSync(themeDist);
 
@@ -49,17 +53,18 @@ async function run() {
   loadPlugins();
 
   utils.noox = new noox(componentsDist, {
-    relePath: ydoc.relePath
+    relePath: ydoc.relePath,
+    hook: ydoc.hook
   });
 
-  loadMarkdownPlugins(ydoc.config.markdownItPlugins);
+  loadMarkdownPlugins(ydoc.config.markdownIt);
 
   await parse.parseSite(dist);
   fs.removeSync(themeDist);
 
   function handleTheme(theme) {
     let modules = path.resolve(process.cwd(), "node_modules");
-    let themeModuleDir = path.resolve(modules, "./ydoc-plugin-" + theme);
+    let themeModuleDir = path.resolve(modules, "./ydoc-theme-" + theme);
     try {
       let themeModule = require(themeModuleDir);
       utils.mergeCopyFiles(path.resolve(themeModuleDir, "theme"), themeDist);
