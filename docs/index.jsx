@@ -2,17 +2,12 @@
   <section className="m-section home">
     <div className="m-section-container">
       <div className="m-section-title">
-        <h4 className="name">更优雅的文档站构建工具</h4>
-        <p className="desc">基于 markdown 轻松生成完整静态站点
-          <br />从此爱上文档写作</p>
+        <h4 className="name">更懂你的文档站构建工具</h4>
+        <p className="desc">基于 markdown 轻松生成完整静态站点</p>
         <div className="m-section-btngroup">
           <a href="./documents/index.html"><div className="btn">开始</div></a>
           <a href="https://github.com/YMFE/ydoc"><div className="btn">Github</div></a>
         </div>
-      </div>
-      <div className="m-section-stage">
-        <img src="https://ws1.sinaimg.cn/large/006oPFLAly1fnjxrqeu44j30ay0j4jsy.jpg" alt="" srcSet="" className="mobile" />
-        <img src="https://ws1.sinaimg.cn/large/006oPFLAly1fnjxs1rcw3j30sj0kq43m.jpg" alt="" srcSet="" className="tablet" />
       </div>
     </div>
   </section>

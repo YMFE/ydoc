@@ -1,6 +1,6 @@
 <html>
   {
-    // console.log(JSON.stringify(props.title, null, 2))
+    // console.log(JSON.stringify(props, null, 2))
   }
   <Head asserts={props.asserts} title={props.title} distPath={props.page.distPath} />
   <body>
