@@ -12,21 +12,21 @@
   </defs>
   <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
     <g id="bearhead" transform="translate(0.000000, -2.000000)">
-      <g id="圆" transform="translate(0.000000, 2.117647)">
+      <g id="bg" transform="translate(0.000000, 2.117647)">
         <mask id="mask-2" fill="white">
           <use href="#path-1"></use>
                 </mask>
       <g id="path-1"></g>
       <ellipse id="Mask" fill="#1890FF" fillRule="nonzero" mask="url(#mask-2)" cx="16.943612" cy="16.9411765" rx="16.943612" ry="16.9411765"></ellipse>
     </g>
-    <g id="边框" transform="translate(0.000000, 2.117647)">
+    <g id="border" transform="translate(0.000000, 2.117647)">
       <mask id="mask-4" fill="white">
         <use href="#path-3"></use>
                 </mask>
     <g id="path-1"></g>
     <ellipse id="Mask" stroke="#1890FF" strokeWidth="1.19391079" mask="url(#mask-4)" cx="16.943612" cy="16.9411765" rx="16.943612" ry="16.9411765"></ellipse>
   </g>
-  <g id="皮肤白色" transform="translate(0.000000, 2.117647)">
+  <g id="skin" transform="translate(0.000000, 2.117647)">
     <mask id="mask-6" fill="white">
       <use href="#path-5"></use>
                 </mask>
@@ -49,14 +49,14 @@
                     </g >
                 </g >
             </g >
-  <g id="脖子阴影-">
+  <g id="nose">
     <mask id="mask-11" fill="white">
       <use href="#path-10"></use>
                 </mask>
   <g id="path-1"></g>
   <path d="M15.1409367,25.0252181 C14.3666029,23.7604601 14.9282667,23.3890348 14.1283832,21.9931097 C18.2720955,23.9756721 25.600578,20.0677922 27.816338,17.6518196 C26.0483028,21.9931097 19.2447048,22.6753864 18.4498398,25.6653111 C17.9292318,24.0257186 17.5024085,24.149713 15.1409367,25.0252181 Z" id="Soft-Neck-+-Ear" fill="#D1D1D1" fillRule="nonzero" mask="url(#mask-11)"></path>
             </g >
-  <g id="脖子阴影-" transform="translate(24.705882, 12.000000)" fill="#D1D1D1" fillRule="nonzero">
+  <g id="shadow" transform="translate(24.705882, 12.000000)" fill="#D1D1D1" fillRule="nonzero">
     <path d="M2.86825458,3.36883245 C1.22894385,4.20248771 -1.59083431,1.51894367 1.24974781,0.266692517 C4.35806053,-0.890871112 3.85264135,2.84894734 2.86825458,3.36883245 Z" id="Soft-Neck-+-Ear"></path>
   </g>
   <path d="M11.3083683,14.0122875 C14.3994831,21.0345253 16.4839582,26.3145775 14.3994831,28.3440189 C12.315008,30.3734604 4.8401411,27.0739312 4.00147482,24.0171151 C4.1724847,22.0340025 4.98644497,19.4555873 6.44335562,16.2818695 C5.36467466,19.350221 4.90689898,21.8241256 5.07002861,23.7035832 C5.2528416,25.8098179 12.1611038,29.0291086 13.8030746,27.4595334 C15.1817531,26.1416417 12.8565943,18.8580038 11.3083683,14.0122875 Z" id="Path-2" fill="#D1D1D1"></path>
