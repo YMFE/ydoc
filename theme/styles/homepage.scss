@@ -3,10 +3,11 @@
     background-color: #fbfbfb;
   }
   .m-section {
+    position: relative;
     &-container {
       max-width: 10.24rem;
       margin: 0 auto;
-      padding-bottom: 1.2rem;
+      padding: .8rem .32rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -14,7 +15,6 @@
     }
     &-title {
       text-align: center;
-      margin: .24rem;
       .name {
         margin-bottom: .24rem;
         font-size: $font-size-h3;
@@ -37,9 +37,20 @@
         line-height: 1.6;
       }
     }
+    &-banner {
+      position: absolute;
+      z-index: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-45%);
+    }
+    &-box {
+      display: flex;
+      flex-wrap: wrap;
+    }
     .btn {
-      width: 1.4rem;
-      padding: .16rem;
+      width: 1.2rem;
+      padding: .14rem;
       line-height: .2rem;
       font-size: $font-size-h6;
       color: $primary-6;
@@ -48,32 +59,36 @@
       border-radius: 6px;
       text-align: center;
       user-select: none;
+      border: 1px solid $primary-color;
       cursor: pointer;
       transition: all $transition-time-quick;
       transform: translateY(0);
       &:hover {
-        transform: translateY(-1px);
+        color: $white;
+        background-color: $primary-color;
       }
       &:active {
         background-color: $primary-1;
-        transform: translateY(1px);
       }
+    }
+    .btn.btn-ghost {
+      border: none;
     }
   }
   // headline block
   // -----------------------------
   .m-section.home {
-    padding: .88rem .24rem 2rem;
-    background-color: #fbfbfb;
+    padding: .56rem .24rem .64rem;
+    border-bottom: 1px solid $deep-line-text-color;
     .m-section-container {
-      padding: .24rem 0;
+      padding: .24rem .32rem;
     }
     .m-section-title {
       text-align: center;
       color: $deep-body-text-color;
       flex: 1;
       .name {
-        margin: .16rem 0;
+        margin-bottom: .16rem;
         &:after {
           display: none;
         }
@@ -86,15 +101,27 @@
       display: flex;
       justify-content: center;
       padding: .24rem 0;
+      position: relative;
+      z-index: 1;
     }
   }
   // feature block
   // -----------------------------
-  .m-section.feature, .m-section.user {
-    position: relative;
-    .m-section-container {
-      position: relative;
-      z-index: 1;
+  .m-section.feature {
+    background-color: #fbfbfb;
+    border-bottom: 1px solid $deep-line-text-color;
+    .item  {
+      flex: 1 0 50%;
+      margin-bottom: .32rem;
+      .title {
+        font-size: $font-size-h3;
+        margin-bottom: .16rem;
+      }
+      .desc {
+        font-size: $font-size-h6;
+        color: $deep-caption-text-color;
+        padding-right: .4rem;
+      }
     }
   }
 }
@@ -133,7 +160,7 @@
       }
       .m-section-btngroup {
         justify-content: left;
-        margin-top: .64rem;
+        margin-top: .24rem;
       }
     }
     .m-footer {

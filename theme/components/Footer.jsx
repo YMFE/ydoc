@@ -17,12 +17,6 @@ links:
 
 <footer className="m-footer">
 	<div className="m-footer-container">
-			<div className="m-footer-title">
-				{/* <img className="logo" src={title.logoSrc} /> */}
-				{/* <h6 className="name">{title.name}</h6> */}
-				<Logo distPath={props.distPath}/>
-				<p className="copyright">© 2018 <a href="">YMFE</a> Team.<br/>Build by <a href="">ydoc</a>.</p>
-			</div>
 			<div className="m-footer-links">
 				{
 					(() => {
@@ -45,6 +39,10 @@ links:
 						return dom;
 					})()
 				}
+			</div>
+			<div className="m-footer-title">
+				<p className="copyright">© 2018 <a href="">YMFE</a> Team.</p>
+				<p>Build by <a href="">ydoc</a>.</p>
 			</div>
 	</div>
 </footer>

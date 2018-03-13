@@ -2,6 +2,7 @@ body {
   font-size: $font-size;
   color: $deep-body-text-color;
   -webkit-font-smoothing: antialiased;
+  line-height: $line-height;
 }
 
 
@@ -44,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
 	margin-top: 0;
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 // font sizes:

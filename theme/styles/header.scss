@@ -7,8 +7,9 @@
 	top: 0;
 	left: 0;
 	width: 100%;
+	color: $deep-caption-text-color;
 	background-color: rgba($white, .97);
-	border-bottom: 1px solid $break-line-color;
+	// border-bottom: 1px solid $break-line-color;
   backface-visibility: hidden;
   z-index: 2;
 	&-title {
@@ -40,7 +41,11 @@
 			}
 		}
 		.item.active {
-			color: $primary-color;
+			font-weight: bold;
+			color: $deep-body-text-color;
+			.href {
+				border-bottom: 2px solid $primary-color;
+			}
 			// &:after {
 			// 	content: '';
 			// 	display: block;
@@ -69,7 +74,8 @@
 		transition: color $transition-time-quick;
 		@include user-select-none;
 		&:hover {
-			color: $primary-color;
+			font-weight: bold;
+			color: $deep-body-text-color;
 		}
 	}
 }
@@ -90,7 +96,8 @@
 				width: auto;
 				transition: color $transition-time-quick;
 				&:hover {
-					color: $primary-color;
+					font-weight: bold;
+					color: $deep-body-text-color;
 				}
 			}
 		}
