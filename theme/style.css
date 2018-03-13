@@ -1593,7 +1593,6 @@ body {
 
 .m-summary {
   padding: .24rem;
-  border-right: 1px solid #e5f0f6;
 }
 
 .m-summary ul, .m-summary ol, .m-summary li {
@@ -1624,6 +1623,7 @@ body {
 }
 
 .m-summary-list .item {
+  color: rgba(3, 17, 31, 0.54);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1635,12 +1635,13 @@ body {
 }
 
 .m-summary-list .href {
+  color: inherit;
   background-color: transparent;
   transition: all 0.2s;
 }
 
 .m-summary-list .href:hover {
-  background-color: #b2daff;
+  color: #1890ff;
 }
 
 .m-summary-switch {
@@ -1737,12 +1738,13 @@ body {
 .m-footer-links .href {
   line-height: 1.8;
   padding: .3em 0;
+  color: rgba(3, 17, 31, 0.54);
   background-color: #fff;
   transition: all 0.2s;
 }
 
 .m-footer-links .href:hover {
-  background-color: #b2daff;
+  color: #1890ff;
 }
 
 @media screen and (min-width: 960px) {
