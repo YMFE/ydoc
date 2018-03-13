@@ -1707,7 +1707,7 @@ body {
 
 .m-footer-container {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   padding: 0;
   transition: all 0.2s;
 }
@@ -1764,7 +1764,6 @@ body {
   }
   .m-footer-links {
     flex: 2;
-    padding-left: .32rem;
   }
 }
 
@@ -1824,6 +1823,7 @@ body {
 
 .g-home .m-section-box {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -1898,7 +1898,7 @@ body {
 }
 
 .g-home .m-section.feature .item {
-  flex: 1 0 50%;
+  flex: 0 0 46%;
   margin-bottom: .32rem;
 }
 
@@ -1910,7 +1910,6 @@ body {
 .g-home .m-section.feature .item .desc {
   font-size: 16px;
   color: rgba(3, 17, 31, 0.54);
-  padding-right: .4rem;
 }
 
 @media screen and (min-width: 960px) {

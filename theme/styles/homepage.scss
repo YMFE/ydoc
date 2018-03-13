@@ -46,6 +46,7 @@
     }
     &-box {
       display: flex;
+      justify-content: space-between;
       flex-wrap: wrap;
     }
     .btn {
@@ -111,7 +112,7 @@
     background-color: #fbfbfb;
     border-bottom: 1px solid $deep-line-text-color;
     .item  {
-      flex: 1 0 50%;
+      flex: 0 0 46%;
       margin-bottom: .32rem;
       .title {
         font-size: $font-size-h3;
@@ -120,7 +121,6 @@
       .desc {
         font-size: $font-size-h6;
         color: $deep-caption-text-color;
-        padding-right: .4rem;
       }
     }
   }
