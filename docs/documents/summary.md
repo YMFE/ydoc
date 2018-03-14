@@ -12,14 +12,11 @@
 
 ### 自定义
 
-* [组件](component.md)
-* [扩展](plugins.md)
-  * [创建一个插件](plugins.md)
-  * [Hooks](plugins.md)
-  * [Api](plugins.md)
 * [主题](theme.md)
-  * [安装](theme.md)
-  * [开发](theme.md)
+* [扩展](plugins.md)
+  * [创建一个插件](create.md)
+  * [Hooks](hooks.md)
+
 
 --
 

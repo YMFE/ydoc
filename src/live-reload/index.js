@@ -39,8 +39,7 @@ module.exports = function (root, opts) {
   //setup the server
   var server = new tinylr();
   server.listen(port, err => {
-    if (err) { throw err; }
-    console.log('... Starting Livereload server on ' + port);
+    if (err) { throw err; }    
   })
   watchDir(root, opts, function (file) {
     //send notification
