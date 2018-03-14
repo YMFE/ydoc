@@ -1,7 +1,6 @@
 # Markdown
 
-**Markdown** 是一种轻量级**标记语言**，它以纯文本形式(*易读、易写、易更改*)编写文档，并最终以 HTML 格式发布。    
-**Markdown**也可以理解为将以 MARKDOWN 语法编写的语言转换成 HTML 内容的工具。    
+Markdown 是一种轻量级标记语言，它以纯文本形式(*易读、易写、易更改*)编写文档，并最终以 HTML 格式发布。Markdown也可以理解为将以 MARKDOWN 语法编写的语言转换成 HTML 内容的工具。    
 
 ## 为什么要使用它
 * 它是易读（看起开舒服）、易写（语法简单）、易更改**纯文本**。处处体现着**极简主义**的影子。
@@ -105,25 +104,11 @@ void main()
 ### 链接
 链接可以由两种形式生成：**行内式**和**参考式**。    
 **行内式**：
-> \[younghz的Markdown库\]\(https:://github.com/younghz/Markdown "Markdown"\)。
+> \[url\]\(https:://github.com/ymfe "Markdown"\)。
 
 效果：
-> [younghz的Markdown库](https:://github.com/younghz/Markdown "Markdown")。
+> [url](https:://github.com/ymfe "Markdown")
 
-**参考式**：
-> \[younghz的Markdown库1\]\[1\]    
-> \[younghz的Markdown库2\]\[2\]    
-> \[1\]:https:://github.com/younghz/Markdown "Markdown"    
-> \[2\]:https:://github.com/younghz/Markdown "Markdown"    
-
-效果：
-> [younghz的Markdown库1][1]    
-> [younghz的Markdown库2][2]
-
-[1]: https:://github.com/younghz/Markdown "Markdown"
-[2]: https:://github.com/younghz/Markdown "Markdown"
-
-**注意**：上述的`[1]:https:://github.com/younghz/Markdown "Markdown"`不出现在区块中。
 
 ### 图片
 添加图片的形式和链接相似，只需在链接的基础上前方加一个`!`。

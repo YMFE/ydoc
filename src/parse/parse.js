@@ -128,6 +128,7 @@ function getBooks(menus, dist){
     }
     if(stats.isDirectory() && item[0] !== '_' && item[0] !== 'style' ){
       item.ref = handleMdPathToHtml(item.ref);
+      item.absolutePath = path.resolve(dist,item.ref)
       books.push({
         bookPath: bookPath,
         indexFile: indexFile
@@ -162,6 +163,7 @@ function getBookInfo(filepath){
 //   summary: {},
 //   nav: {},
 //   bookpath: '当前书籍路径',
+//   indexPath: '首页相对路径',
 //   page: {
 //     title: 'string',
 //     description: 'string',
@@ -191,6 +193,7 @@ async function parseBook(bookpath, indexFile){
   let baseInfo = getBookInfo(indexPath);
   utils.extend(book, baseInfo);
   book.summary = summary;
+  book.bookpath = path.resolve(bookpath, name + '.html')
 
   await emitHook('book:before', {
     title: book.title,
@@ -235,6 +238,7 @@ function parseDocuments(bookpath, callback){
           let releativeHtmlPath = handleMdPathToHtml(releativePath);
           urlObj.hash = urlObj.hash ? urlObj.hash.toLowerCase() : '';
           item.ref = releativeHtmlPath + urlObj.hash;
+          item.absolutePath = absolutePath;
           callback(absolutePath, releativeHtmlPath)
         }
       }
