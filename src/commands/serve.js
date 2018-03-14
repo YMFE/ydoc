@@ -53,11 +53,10 @@ function init() {
 
 function server(buildPath){
   const Koa = require('koa');
-  var liveload = require('koa-liveload');
+  var liveload = require('../live-reload');
   const app = new Koa();
   app.use(liveload(buildPath))
   app.use(require('koa-static')(buildPath));   
-
   app.listen(port); 
 }
 
