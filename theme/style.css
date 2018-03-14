@@ -1595,13 +1595,19 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  background-color: #fff;
   width: 100%;
-  display: none;
+  height: 100%;
 }
 
 .m-summary ul, .m-summary ol, .m-summary li {
   list-style: none;
+}
+
+.m-summary-content {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: none;
 }
 
 .m-summary-block {
@@ -1652,19 +1658,21 @@ body {
 .m-summary-switch {
   font-family: 'ydoc';
   position: absolute;
-  right: -.48rem;
-  top: 0;
-  width: .48rem;
-  height: .48rem;
+  right: .24rem;
+  bottom: .48rem;
+  width: .6rem;
+  height: .6rem;
+  border-radius: 50%;
+  color: #1890ff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: rgba(3, 17, 31, 0.87);
 }
 
 @media screen and (min-width: 960px) {
   .m-summary {
-    display: block;
     position: static;
     height: auto;
     width: auto;
@@ -1675,6 +1683,9 @@ body {
   }
   .m-summary-switch {
     display: none;
+  }
+  .m-summary-content {
+    display: block;
   }
 }
 

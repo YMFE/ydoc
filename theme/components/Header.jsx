@@ -17,10 +17,10 @@
           return sortItem.items.map((menuitem, index) => {
             const distPath = props.distPath;
             const activeItem = distPath.split(props.buildPath + '/')[1];
-            let active = ''
-            if(props.ydoc.bookpath){
-              if(props.ydoc.bookpath === menuitem.absolutePath){
-                active = 'active'
+            let active = '';
+            if (props.ydoc.bookpath) {
+              if (props.ydoc.bookpath === menuitem.absolutePath) {
+                active = 'active';
               }
             }
             
