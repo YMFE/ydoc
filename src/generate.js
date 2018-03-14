@@ -88,7 +88,6 @@ exports.generatePage = function generatePage(bookpath){
   return function _generatePage(context){    
     const page = context.page;
     if(findTransactionBySrcPath(page.srcPath))return;
-    context.bookpath = bookpath;
     let releativePath = page.distPath;
     page.type = getType(page.srcPath);
     page.releativePath = releativePath;

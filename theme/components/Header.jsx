@@ -12,9 +12,15 @@
           return sortItem.items.map((menuitem, index) => {
             const distPath = props.distPath;
             const activeItem = distPath.split(props.buildPath + '/')[1];
+            let active = ''
+            if(props.ydoc.bookpath){
+              if(props.ydoc.bookpath === menuitem.absolutePath){
+                active = 'active'
+              }
+            }
             
             return (
-              <li className={'item ' + (menuitem.ref === activeItem ? 'active' : '')} key={index}>
+              <li className={'item ' + active} key={index}>
                 <a className="href" href={menuitem.ref ? relePath(props.distPath, menuitem.ref) : '#'}>{menuitem.title}</a>
               </li>
               );
