@@ -48,14 +48,14 @@ function initComponents() {
 	});
 
 	// summary
-	if ($menu) {
-		var slideout = new Slideout({
-			'panel': document.getElementById('js-panel'),
-			'menu': document.getElementById('js-menu'),
-			'padding': 256,
-			'tolerance': 70
-		});
-	}
+	// if ($menu) {
+	// 	var slideout = new Slideout({
+	// 		'panel': document.getElementById('js-panel'),
+	// 		'menu': document.getElementById('js-menu'),
+	// 		'padding': 256,
+	// 		'tolerance': 70
+	// 	});
+	// }
 }
 
 window.onload = function() {

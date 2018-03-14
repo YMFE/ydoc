@@ -1472,7 +1472,6 @@ body {
 .m-main {
   width: 100%;
   overflow-y: auto;
-  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 10px;
 }
 
 @media screen and (min-width: 960px) {
@@ -1593,6 +1592,12 @@ body {
 
 .m-summary {
   padding: .24rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+  display: none;
 }
 
 .m-summary ul, .m-summary ol, .m-summary li {
@@ -1610,7 +1615,7 @@ body {
 .m-summary-title {
   font-size: 16px;
   line-height: 2.5;
-  color: rgba(3, 17, 31, 0.38);
+  color: rgba(3, 17, 31, 0.87);
 }
 
 .m-summary-list {
@@ -1659,6 +1664,7 @@ body {
 
 @media screen and (min-width: 960px) {
   .m-summary {
+    display: block;
     position: static;
     height: auto;
     width: auto;
@@ -1699,7 +1705,6 @@ body {
 .m-footer {
   background-color: #fff;
   padding: .24rem;
-  border-top: 1px solid #e5f0f6;
 }
 
 .m-footer ul, .m-footer ol, .m-footer li {

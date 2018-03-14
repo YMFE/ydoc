@@ -3,15 +3,21 @@
     <Logo distPath={props.distPath} />
     {/* <img className="logo" src={props.nav.logo} /> */}
     {/* <h6 className="name">{props.nav.title}</h6> */}
+    {
+      console.log(props.ydoc.bookpath)
+      
+    }
   </div>
   <Hook name="header" ydoc={props.ydoc} />
   <nav className="m-header-nav js-nav">
     <ul className="m-header-items">
       {
         props.nav.menus.map((sortItem) => {
+          
           return sortItem.items.map((menuitem, index) => {
             const distPath = props.distPath;
             const activeItem = distPath.split(props.buildPath + '/')[1];
+            console.log(menuitem.ref,activeItem);
             
             return (
               <li className={'item ' + (menuitem.ref === activeItem ? 'active' : '')} key={index}>
