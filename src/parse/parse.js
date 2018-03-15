@@ -208,8 +208,9 @@ async function parseBook(bookpath, indexFile){
     distPath: defaultIndexPageName + '.html'
   }))
   if(summary && Array.isArray(summary)) {
-    parseDocuments(bookpath, function(absolutePath, releativeHtmlPath){
+    parseDocuments(bookpath, function(absolutePath, releativeHtmlPath, title=''){
       generatePage(getBookContext(book, {
+        title: title,
         srcPath: absolutePath,
         distPath: releativeHtmlPath
       }));
@@ -237,9 +238,9 @@ function parseDocuments(bookpath, callback){
         if(utils.fileExist(absolutePath)){
           let releativeHtmlPath = handleMdPathToHtml(releativePath);
           urlObj.hash = urlObj.hash ? urlObj.hash.toLowerCase() : '';
-          item.ref = releativeHtmlPath + urlObj.hash;
+          item.ref = releativeHtmlPath + urlObj.hash;          
           item.absolutePath = absolutePath;
-          callback(absolutePath, releativeHtmlPath)
+          callback(absolutePath, releativeHtmlPath, item.title)
         }
       }
   
