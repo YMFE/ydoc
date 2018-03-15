@@ -1597,11 +1597,15 @@ body {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 0;
 }
 
 .m-summary ul, .m-summary ol, .m-summary li {
   list-style: none;
+}
+
+.m-summary.active {
+  height: 100%;
 }
 
 .m-summary.active .m-summary-content {
@@ -1662,7 +1666,7 @@ body {
 
 .m-summary-switch {
   font-family: 'ydoc';
-  position: absolute;
+  position: fixed;
   right: .24rem;
   bottom: .48rem;
   width: .6rem;
