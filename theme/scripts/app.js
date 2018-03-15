@@ -1,9 +1,9 @@
-console.log('app.js');
-
-var $menu = document.getElementById('js-menu');
 var $panel = document.getElementById('js-panel');
 var $header = document.getElementById('js-header');
 var $summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href'));
+var $menu = document.getElementById('js-menu');
+var $menuContent = document.getElementById('js-menu-content');
+var $menuBar = document.getElementById('js-summary-switch');
 
 var utils = {
 	debounce: function(func, wait) {
@@ -30,14 +30,20 @@ function itemAddActive() {
 
 // Add EventListener
 function addEvents() {
-	$panel.onscroll = function(e) {
+	$panel.addEventListener('click', function (e) {
 		itemAddActive();
 		if (e.target.scrollTop > 0) {
 			$header.classList.add('moved');
 		} else {
 			$header.classList.remove('moved');
 		}
-	};
+	});
+	$menuContent.addEventListener('click', function(e) {
+		$menu.classList.remove('active');
+	});
+	$menuBar.addEventListener('click', function() {
+		$menu.classList.toggle('active');
+	});
 }
 
 // initial components

@@ -1592,6 +1592,7 @@ body {
 
 .m-summary {
   padding: .24rem;
+  padding-bottom: 0;
   position: absolute;
   left: 0;
   top: 0;
@@ -1601,6 +1602,10 @@ body {
 
 .m-summary ul, .m-summary ol, .m-summary li {
   list-style: none;
+}
+
+.m-summary.active .m-summary-content {
+  display: block;
 }
 
 .m-summary-content {
@@ -1669,6 +1674,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgba(3, 17, 31, 0.87);
+  user-select: none;
 }
 
 @media screen and (min-width: 960px) {

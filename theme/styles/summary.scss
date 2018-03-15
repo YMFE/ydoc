@@ -1,5 +1,6 @@
 .m-summary {
 	padding: .24rem;
+	padding-bottom: 0;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -11,6 +12,11 @@
 	// background-color: color($primary-1, 1);
   ul, ol, li {
     list-style: none;
+	}
+	&.active {
+		.m-summary-content {
+			display: block;
+		}
 	}
 	&-content {
 		width: 100%;
@@ -68,6 +74,7 @@
     align-items: center;
 		justify-content: center;
 		background-color: $deep-body-text-color;
+		user-select: none;
 	}
 }
 

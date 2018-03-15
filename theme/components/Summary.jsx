@@ -1,5 +1,5 @@
 <div className="m-summary" id="js-menu">
-	<div className="m-summary-content">
+	<div className="m-summary-content" id="js-menu-content">
 		{
 			(() => {
 				const getItems = (articles) => {
@@ -38,5 +38,5 @@
 		}
 	</div>
 	
-	<div className="m-summary-switch js-summaty-switch" >&#xf020;</div>
+	<div className="m-summary-switch" id="js-summary-switch" >&#xf020;</div>
 </div>
