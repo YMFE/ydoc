@@ -96,8 +96,14 @@ exports.generatePage = function generatePage(bookpath){
     if(prevPage === null){
       page.prev = null;      
     }else{
-      page.prev = prevPage.releativePath;
-      prevPage.next = releativePath;
+      page.prev = {
+        releativePath:prevPage.releativePath,
+        title: prevPage.title
+      };
+      prevPage.next = {
+        releativePath: releativePath,
+        title: page.title
+      };
     }
     prevPage = page;
     insertToBatch({
