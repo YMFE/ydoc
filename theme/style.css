@@ -1718,14 +1718,25 @@ body {
 
 .m-paging {
   display: flex;
+  font-size: 16px;
 }
 
-.m-paging-prev, .m-paging-next {
+.m-paging-item {
   flex-basis: 50%;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.m-paging-item:hover {
+  color: #1890ff;
 }
 
 .m-paging-next {
   text-align: right;
+}
+
+.m-paging .href {
+  margin: 0 .04rem;
 }
 
 @media screen and (min-width: 960px) {
