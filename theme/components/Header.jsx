@@ -3,10 +3,6 @@
     <Logo distPath={props.distPath} />
     {/* <img className="logo" src={props.nav.logo} /> */}
     {/* <h6 className="name">{props.nav.title}</h6> */}
-    {
-      console.log(props.ydoc.bookpath)
-      
-    }
   </div>
   <Hook name="header" ydoc={props.ydoc} />
   <nav className="m-header-nav js-nav">
