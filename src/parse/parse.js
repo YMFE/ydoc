@@ -79,7 +79,11 @@ exports.parseSite = async function(dist){
       return utils.log.error(`The root directory of site didn't find index page.`)
     }
     ydocConfig.nav = getNav(dist);
-    let books = getBooks(ydocConfig.nav.menus[0].items, dist);
+    let books = []
+    ydocConfig.nav.menus.forEach(menu=>{
+      let menuBooks = getBooks(menu.items, dist);
+      books = books.concat(menuBooks)
+    })
 
     const generateSitePage = generate(dist);
     generateSitePage({
@@ -109,7 +113,7 @@ exports.parseSite = async function(dist){
 function getBooks(menus, dist){
   let books = [];
   for(let i=0; i< menus.length; i++){
-    let item = menus[i];
+    let item = menus[i];    
     if( !item.ref || utils.isUrl(item.ref)){
       continue;
     }
