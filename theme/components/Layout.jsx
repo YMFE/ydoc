@@ -12,7 +12,7 @@
       }
       <div className="m-main" id="js-panel">
         <Header nav={props.config.nav} distPath={props.page.distPath} buildPath={props.config.buildPath} ydoc={props} />
-        <Content content={props.page.content} type={props.page.type} ydoc={props} />
+        <Content distPath={props.page.distPath} content={props.page.content} type={props.page.type} ydoc={props} prev={props.page.prev} next={props.page.next} />
       </div>
     </div>
     <Scripts asserts={props.asserts} page={props.page} />

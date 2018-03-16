@@ -12,6 +12,15 @@
     }
   }
 }
+.m-paging {
+  display: flex;
+  &-prev, &-next {
+    flex-basis: 50%;
+  }
+  &-next {
+    text-align: right;
+  }
+}
 
 @include media-md() {
   .m-content {

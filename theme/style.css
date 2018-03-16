@@ -1716,6 +1716,18 @@ body {
   line-height: 1;
 }
 
+.m-paging {
+  display: flex;
+}
+
+.m-paging-prev, .m-paging-next {
+  flex-basis: 50%;
+}
+
+.m-paging-next {
+  text-align: right;
+}
+
 @media screen and (min-width: 960px) {
   .m-content {
     overflow-x: hidden;
