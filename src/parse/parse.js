@@ -208,6 +208,7 @@ async function parseBook(bookpath, indexFile){
   const generatePage = generate(bookpath);
 
   generatePage(getBookContext(book, {
+    title: book.title,
     srcPath: indexPath,
     distPath: defaultIndexPageName + '.html'
   }))
