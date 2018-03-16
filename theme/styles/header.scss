@@ -27,6 +27,9 @@
 		.m-header-items {
 			padding: $padding-sm;
 		}
+		.m-header-subtitle {
+			padding: .16rem 1.5em;
+		}
 		.item {
 			margin-bottom: $padding-xs;
 			width: 100%;
@@ -88,6 +91,37 @@
 			border: none;
 			.m-header-items {
 				padding: 0;
+				> .item:hover {
+					.m-header-subtitle {
+						display: block;
+					}
+				}
+			}
+			.m-header-subtitle {
+				display: none;
+				position: absolute;
+				left: 50%;
+				top: .64rem;
+				transform: translateX(-50%);
+				width: auto;
+				background-color: #fff;
+				border-radius: 4px;
+				box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
+				.item {
+					line-height: .4rem;
+				}
+				&:after {
+					content: '';
+					display: block;
+					width: 0;
+					height: 0;
+					border: .08rem solid transparent;
+					border-bottom-color: #fff;
+					position: absolute;
+					left: 50%;
+					top: -.16rem;
+					transform: translateX(-50%);
+				}
 			}
 			.item {
 				margin: 0;
@@ -100,6 +134,10 @@
 					color: $deep-body-text-color;
 				}
 			}
+		}
+		// 覆盖插件控制的 header overflow属性
+		.m-header-nav {
+			overflow: inherit;
 		}
 	}
 }

@@ -6,6 +6,8 @@
 	top: 0;
 	width: 100%;
 	height: 0;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
 	// display: none;
 	// give up box shadow
 	// border-right: 1px solid $break-line-color;
@@ -16,14 +18,14 @@
 	}
 	&.active {
 		height: 100%;
+		background-color: #fff;
 		.m-summary-content {
 			display: block;
 		}
 	}
 	&-content {
 		width: 100%;
-		height: 100%;
-		background-color: #fff;
+		height: auto;
 		display: none;
 	}
 	&-block {

@@ -38,12 +38,16 @@ function addEvents() {
 			$header.classList.remove('moved');
 		}
 	});
-	$menuContent.addEventListener('click', function(e) {
-		$menu.classList.remove('active');
-	});
-	$menuBar.addEventListener('click', function() {
-		$menu.classList.toggle('active');
-	});
+	if ($menuContent) {
+		$menuContent.addEventListener('click', function (e) {
+			$menu.classList.remove('active');
+		});
+	}
+	if ($menuBar) {
+		$menuBar.addEventListener('click', function () {
+			$menu.classList.toggle('active');
+		});
+	}
 }
 
 // initial components
