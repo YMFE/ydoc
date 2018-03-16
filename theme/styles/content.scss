@@ -12,6 +12,24 @@
     }
   }
 }
+.m-paging {
+  display: flex;
+  font-size: 16px;
+  &-item {
+    flex-basis: 50%;
+    color: inherit;
+    transition: color $transition-time-quick;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+  &-next {
+    text-align: right;
+  }
+  .href {
+    margin: 0 .04rem;
+  }
+}
 
 @include media-md() {
   .m-content {

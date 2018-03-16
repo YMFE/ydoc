@@ -38,5 +38,8 @@
 		}
 	</div>
 	
-	<div className="m-summary-switch" id="js-summary-switch" >&#xf020;</div>
+	<div className="m-summary-switch" id="js-summary-switch" >
+		<svg width="60px" height="60px" viewBox="-37 -29 60 60" version="1.1">
+		</svg>
+	</div>
 </div>

@@ -25,9 +25,9 @@ function getName(type, file) {
 
 
 shell.ls('test/jsdoc-to-markdown/Button.js').forEach(function (file) {
-  console.log(file);
+  // console.log(file);
   var name = getName('component', file);
-  console.log(name);
+  // console.log(name);
   // 为属性添加 memberof
   shell.sed('-i', /(.*)(@property.*)/gi, '$1$2\n$1@memberof ' + name, file);
   // component 修改为 class
