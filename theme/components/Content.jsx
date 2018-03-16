@@ -1,9 +1,3 @@
-
-{
-  console.log(props.prev)
-  
-}
-{ console.log(props.next)}
 {
   props.type === 'md' ? (
     <div className="m-content">
