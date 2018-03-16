@@ -3,7 +3,7 @@
     <Logo distPath={props.distPath} />
     {/* <img className="logo" src={props.nav.logo} /> */}
     {/* <h6 className="name">{props.nav.title}</h6> */}
-    {console.log(JSON.stringify(props.nav.menus,null, 2))}
+    {/* {console.log(JSON.stringify(props.nav.menus,null, 2))} */}
   </div>
   <Hook name="header" ydoc={props.ydoc} />
   <nav className="m-header-nav js-nav">
@@ -19,26 +19,43 @@
             });
           };
 
-          return props.nav.menus.map((sortItem) => {
-            return sortItem.items.map((menuitem, index) => {
-              const distPath = props.distPath;
-              const activeItem = distPath.split(props.buildPath + '/')[1];
-              let active = '';
-              if (props.ydoc.bookpath) {
-                if (props.ydoc.bookpath === menuitem.absolutePath) {
-                  active = 'active';
-                }
-              }
+        return props.nav.menus.map((sortItem) => {
+          const distPath = props.distPath;
+          const activeItem = distPath.split(props.buildPath + '/')[1];
+          let active = '';
 
+          // 存在二级导航时
+          if (sortItem.title) {
+            if (props.ydoc.bookpath) {
+              if (props.ydoc.bookpath === sortItem.absolutePath) {
+                active = 'active';
+              }
+            }
+            return (
+              <li className={'item ' + active}>
+                {sortItem.title}
+                {
+                  sortItem.title.length ? <ul className="m-header-subtitle">{getItems(sortItem.items)}</ul> : null
+                }
+              </li>
+            );
+          } else { // 不存在二级导航时
+            return sortItem.items.map((menuitem, index) => {
+              // 判断是否为高亮项
+              if (props.ydoc.bookpath) {
+                active = (props.ydoc.bookpath === menuitem.absolutePath) ? 'active' : '';
+              }
               return (
                 <li className={'item ' + active} key={index}>
                   <a className="href" href={menuitem.ref ? relePath(props.distPath, menuitem.ref) : '#'}>{menuitem.title}</a>
                   {
-                    menuitem.items.length ? <ul className="m-header-subtitle">{getItems(menuitem.items)}</ul> : null
+                    sortItem.title.length ? <ul className="m-header-subtitle">{getItems(menuitem.items)}</ul> : null
                   }
                 </li>
               );
             });
+          }
+
           });
         })()
       }

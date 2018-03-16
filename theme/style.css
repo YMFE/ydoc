@@ -1596,6 +1596,9 @@ body {
     box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1), 0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
   }
   .m-header-nav .m-header-subtitle .item {
+    color: rgba(3, 17, 31, 0.54);
+    font-weight: normal;
+    white-space: nowrap;
     line-height: .4rem;
   }
   .m-header-nav .m-header-subtitle:after {
