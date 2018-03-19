@@ -2,7 +2,7 @@ module.exports = {
   title: "ydoc",
   description: "ydoc description demo",
   author: "ymfe",
-  plugins: [],
+  plugins: ['demo'],
   pluginsConfig: {
     'import-assert': {
       css: 'custom.css',

@@ -91,13 +91,14 @@ function handleAsserts(config, dir, pluginName){
       pluginAssertPath = path.resolve(ydoc.config.buildPath, 'ydoc/ydoc-plugin-' + pluginName) ;
       fs.ensureDirSync(pluginAssertPath);
       fs.copySync(pluginPath, pluginAssertPath);
+      if(config.js){
+        importAssert(config.js);
+      }
+      if(config.css){
+        importAssert(config.css);
+      }
     }
-    if(config.js){
-      importAssert(config.js);
-    }
-    if(config.css){
-      importAssert(config.css);
-    }
+    
   }
 
   function importAssert(filepath){
