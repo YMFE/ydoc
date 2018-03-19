@@ -102,10 +102,11 @@ function handleAsserts(config, dir, pluginName){
   }
 
   function importAssert(filepath){
+    let type = path.extname(filepath).substr(1)
     if(typeof filepath === 'string'){
-      _importAssert(filepath, 'js', pluginAssertPath);
+      _importAssert(filepath, type, pluginAssertPath);
     }else if(Array.isArray(filepath)){      
-      filepath.forEach(item=> _importAssert(item, 'js', pluginAssertPath))
+      filepath.forEach(item=> _importAssert(item, type, pluginAssertPath))
     }
   }
 }
