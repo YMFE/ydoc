@@ -92,17 +92,20 @@ function handleAsserts(config, dir, pluginName){
       fs.ensureDirSync(pluginAssertPath);
       fs.copySync(pluginPath, pluginAssertPath);
       if(config.js){
-        importAssert(config.js);
+        importAssert(config.js, 'js');
       }
       if(config.css){
-        importAssert(config.css);
+        importAssert(config.css, 'css');
       }
     }
     
   }
 
-  function importAssert(filepath){
-    let type = path.extname(filepath).substr(1)
+  function getType(p){
+    return path.extname(filepath).substr(1)
+  }
+
+  function importAssert(filepath, type){        
     if(typeof filepath === 'string'){
       _importAssert(filepath, type, pluginAssertPath);
     }else if(Array.isArray(filepath)){      
