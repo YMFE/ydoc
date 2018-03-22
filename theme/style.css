@@ -1504,6 +1504,7 @@ body {
 
 .m-header-title .name, .m-header-title .logo {
   display: inline-block;
+  vertical-align: middle;
 }
 
 .m-header-title .name {

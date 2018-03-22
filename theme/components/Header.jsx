@@ -1,7 +1,9 @@
 <header className="m-header" id="js-header">
   <div className="m-header-title js-logo">
-    <img className="logo" src={relePath(props.distPath, props.nav.logo)} />
-    <h6 className="name">{props.nav.title}</h6>
+    <a href={relePath(props.distPath, "index.html")} target="_self">
+      <img className="logo" src={relePath(props.distPath, props.nav.logo)} />
+      <h6 className="name">{props.nav.title}</h6>
+    </a>
   </div>
   <Hook name="header" ydoc={props.ydoc} />
   <nav className="m-header-nav js-nav">
