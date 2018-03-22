@@ -1,21 +1,20 @@
 <header className="m-header" id="js-header">
   <div className="m-header-title js-logo">
-    <img className="logo" src={relePath(props.distPath, props.nav.logo)} />
-    <h6 className="name">{props.nav.title}</h6>
+    <Logo distPath={props.distPath} />
   </div>
   <Hook name="header" ydoc={props.ydoc} />
   <nav className="m-header-nav js-nav">
     <ul className="m-header-items">
       {(() => {
-          const getItems = (items) => {
-            return items.map((item, index) => {
-              return (
-                <li className="item" key={index}>
-                  <a href={relePath(props.distPath, item.ref)}>{item.title}</a>
-                </li>
-              );
-            });
-          };
+        const getItems = (items) => {
+          return items.map((item, index) => {
+            return (
+              <li className="item" key={index}>
+                <a href={relePath(props.distPath, item.ref)}>{item.title}</a>
+              </li>
+            );
+          });
+        };
 
         return props.nav.menus.map((sortItem) => {
           const distPath = props.distPath;
@@ -54,8 +53,8 @@
             });
           }
 
-          });
-        })()
+        });
+      })()
       }
     </ul>
   </nav>

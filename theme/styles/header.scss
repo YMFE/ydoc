@@ -21,6 +21,12 @@
 		.name, .logo {
 			display: inline-block;
 		}
+		.name {
+			margin-left: .08rem;
+			color: $primary-color;
+			font-size: 24px;
+			font-family: 'Arial Rounded MT Bold';
+		}
 	}
 	&-nav {
 		border-bottom: 1px solid $break-line-color;

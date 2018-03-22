@@ -1,7 +1,7 @@
-# YDoc11
-![logo](style/images/logo.png)
+# YDoc
+![logo](ydoc/images/dog@1x.png)
 
-## 文档
+<!-- ## 文档
 * [guide](/documents/index.md)  
 * [规范](/style-guide/index.md)
 
@@ -12,6 +12,6 @@
 
 ---
 
-* [关于我们](./about.md)
+* [关于我们](./about.md) -->
 
-<!-- * [etst](/testdoc/second/index.md) -->
+* [etst](/testdoc/second/index.md)

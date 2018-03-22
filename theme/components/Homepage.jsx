@@ -13,7 +13,7 @@
         </div>
       </div>
       <div className="m-section-banner">
-        <img src="./ydoc/images/bear@1x.png" alt="bg" srcset="./ydoc/images/bear@2x.png 2x" />
+        <img src="./ydoc/images/bear@1x.png" alt="bg" srcSet="./ydoc/images/bear@2x.png 2x" />
       </div>
     </div>
   </section>
