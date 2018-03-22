@@ -24,6 +24,18 @@ exports.extend = function extend(obj, props) {
   return obj;
 }
 
+exports.distinct = function(arr, fn){
+  let data = [], existValue = []
+  arr.forEach(item=>{
+    let value = fn(item)
+    if(existValue.indexOf(value) === -1){
+      existValue.push(value)
+      data.push(item)
+    }
+  })
+  return data;
+}
+
 
 exports.clearArray = function clearArray(a) {
   return a.splice(0, a.length);

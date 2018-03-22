@@ -82,14 +82,14 @@ describe('generatePage', function(){
       assert.equal(page.distPath, '/docs/a.html')
     })
     it('prev', function(){
-      assert.equal(page.prev, './index.html')
+      assert.equal(page.prev.releativePath, './index.html')
     })
     it('next', function(){
       assert.equal(page.next, null)
     })
 
     it('first:next', function(){
-      assert.equal(batch[0].context.page.next, './a.html')
+      assert.equal(batch[0].context.page.next.releativePath, './a.html')
     })
   })
 

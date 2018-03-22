@@ -84,7 +84,7 @@ exports.parseSite = async function(dist){
       let menuBooks = getBooks(menu.items, dist);
       books = books.concat(menuBooks)
     })
-
+    books = utils.distinct(books, (item) => item.bookPath + item.indexFile)
     const generateSitePage = generate(dist);
     generateSitePage({
       title: ydocConfig.title,
