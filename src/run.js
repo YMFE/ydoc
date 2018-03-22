@@ -17,7 +17,7 @@ async function run(options = {
   const root = ydoc.config.root;
   const themePath = path.resolve(ydocPath, "theme");  
   const customerComponentsPath = path.resolve(root, "_components");
-
+  
   const themeDist = path.resolve(dist, "_theme");
   const componentsDist = path.resolve(themeDist, "components");
 
@@ -48,7 +48,10 @@ async function run(options = {
     path.resolve(dist, "ydoc/scripts")
   );
 
-  utils.mergeCopyFiles(customerComponentsPath, componentsDist);
+  if(utils.dirExist(customerComponentsPath)){
+    utils.mergeCopyFiles(customerComponentsPath, componentsDist);
+  }
+  
 
   loadPlugins();
 
