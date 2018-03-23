@@ -16,6 +16,7 @@
 * [扩展](plugins.md)
   * [创建一个插件](create.md)
   * [Hooks](hooks.md)
+  * [markdown扩展](markdown-it.md)
 
 
 --
