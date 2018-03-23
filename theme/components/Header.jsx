@@ -1,9 +1,6 @@
 <header className="m-header" id="js-header">
   <div className="m-header-title js-logo">
-    <a href={relePath(props.distPath, "index.html")} target="_self">
-      <img className="logo" src={relePath(props.distPath, props.nav.logo)} />
-      <h6 className="name">{props.nav.title}</h6>
-    </a>
+    <Logo  distPath={props.distPath} nav={props.nav} />
   </div>
   <Hook name="header" ydoc={props.ydoc} />
   <nav className="m-header-nav js-nav">
@@ -19,7 +16,7 @@
             });
           };
 
-        return props.nav.menus.map((sortItem) => {
+        return props.nav.menus.map((sortItem, sortIndex) => {
           const distPath = props.distPath;
           const activeItem = distPath.split(props.buildPath + '/')[1];
           let active = '';
@@ -32,7 +29,7 @@
               }
             }
             return (
-              <li className={'item ' + active}>
+              <li key={sortIndex} className={'item ' + active}>
                 {sortItem.title}
                 {
                   sortItem.title.length ? <ul className="m-header-subtitle">{getItems(sortItem.items)}</ul> : null
