@@ -69,8 +69,7 @@ async function run(options = {
     let modules = path.resolve(process.cwd(), "node_modules");
     let themeModuleDir = path.resolve(modules, "./ydoc-theme-" + theme);
     try {
-      let themeModule = require(themeModuleDir);
-      utils.mergeCopyFiles(path.resolve(themeModuleDir, "theme"), themeDist);
+      utils.mergeCopyFiles(path.resolve(themeModuleDir, "./theme"), themeDist);
     } catch (err) {
       err.message =
         "Load " +
