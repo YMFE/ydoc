@@ -12,5 +12,5 @@ module.exports = {
   markdownIt: function(md){
     
   },
-  dist: '_site2'
+  dist: '_site'
 }
