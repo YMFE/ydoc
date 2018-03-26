@@ -1,7 +1,7 @@
 {
   "name": "ydoc",
-  "version": "3.2.5",
-  "description": "基于 React 的静态站点生成工具",
+  "version": "4.0.0-rc.0",
+  "description": "基于 Markdown 的静态站点生成工具",
   "scripts": {
     "test": "mocha --reporter spec --bail --recursive",
     "commet": "node commetparser/app.js"
