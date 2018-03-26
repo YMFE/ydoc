@@ -8,7 +8,7 @@
 * [API](/style-guide/index.md)
 
 ---
-* [插件](/plugin/index.html)
+* [插件](/plugin/index.jsx)
 * [主题](/style-guide/index.md)
 
 ## 设计
