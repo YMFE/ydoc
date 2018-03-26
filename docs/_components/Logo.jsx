@@ -1,7 +1,7 @@
 
 <a href={relePath(props.distPath, "index.html")} target="_self">
 <svg width="103px" height="34px" viewBox="0 0 103 34" version="1.1">
-    <title>bearhead</title>
+    <title>dog</title>
   <desc>Created with Sketch.</desc>
   <defs>
     <ellipse id="path-1" cx="16.943612" cy="16.9411765" rx="16.943612" ry="16.9411765"></ellipse>
@@ -12,7 +12,7 @@
     <ellipse id="path-10" cx="16.943612" cy="16.9411765" rx="16.943612" ry="16.9411765"></ellipse>
   </defs>
   <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
-    <g id="bearhead" transform="translate(0.000000, -2.000000)">
+    <g id="dog" transform="translate(0.000000, -2.000000)">
       <g id="bg" transform="translate(0.000000, 2.117647)">
         <mask id="mask-2" fill="white">
           <use href="#path-1"></use>
