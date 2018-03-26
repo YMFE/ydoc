@@ -78,24 +78,24 @@ exports.emitTplHook = function emitHook(name) {
   return all;
 }
 
-function _importAssert(filepath, type, pluginAssertPath){
-  filepath = path.resolve(pluginAssertPath, filepath);
-  return ydoc.addAssert(filepath, type)
+function _importAsset(filepath, type, pluginAssetPath){
+  filepath = path.resolve(pluginAssetPath, filepath);
+  return ydoc.addAsset(filepath, type)
 }
 
 function handleAssets(config, dir, pluginName){
-  let pluginAssertPath;
+  let pluginAssetPath;
   if(config && typeof config === 'object'){
     if(config.dir){
       let pluginPath = path.resolve(dir, config.dir);
-      pluginAssertPath = path.resolve(ydoc.config.dist, 'ydoc/ydoc-plugin-' + pluginName) ;
-      fs.ensureDirSync(pluginAssertPath);
-      fs.copySync(pluginPath, pluginAssertPath);
+      pluginAssetPath = path.resolve(ydoc.config.dist, 'ydoc/ydoc-plugin-' + pluginName) ;
+      fs.ensureDirSync(pluginAssetPath);
+      fs.copySync(pluginPath, pluginAssetPath);
       if(config.js){
-        importAssert(config.js, 'js');
+        importAsset(config.js, 'js');
       }
       if(config.css){
-        importAssert(config.css, 'css');
+        importAsset(config.css, 'css');
       }
     }
     
@@ -105,11 +105,11 @@ function handleAssets(config, dir, pluginName){
     return path.extname(filepath).substr(1)
   }
 
-  function importAssert(filepath, type){        
+  function importAsset(filepath, type){        
     if(typeof filepath === 'string'){
-      _importAssert(filepath, type, pluginAssertPath);
+      _importAsset(filepath, type, pluginAssetPath);
     }else if(Array.isArray(filepath)){      
-      filepath.forEach(item=> _importAssert(item, type, pluginAssertPath))
+      filepath.forEach(item=> _importAsset(item, type, pluginAssetPath))
     }
   }
 }

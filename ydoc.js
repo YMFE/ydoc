@@ -4,7 +4,7 @@ module.exports = {
   author: "ymfe",
   plugins: [],
   pluginsConfig: {
-    'import-assert': {
+    'import-asset': {
       css: 'custom.css',
       js:  'custom.js'
     }
