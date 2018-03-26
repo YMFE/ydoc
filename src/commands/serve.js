@@ -42,7 +42,7 @@ function init() {
   const config = utils.getConfig(configFilepath);
   config.root = config.root || utils.defaultDocsPath;
   config.root = path.resolve(projectPath, config.root);
-  const buildPath = config.buildPath || utils.defaultBuildPath;
+  const buildPath = config.dist || utils.defaultBuildPath;
   paths.push(config.root);
   if (configFilepath) paths.push(configFilepath)
   return {

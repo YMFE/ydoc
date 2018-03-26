@@ -29,8 +29,8 @@ const ydoc = {
     if(utils.isUrl(importFilepath)){
       return importFilepath;
     }
-    importFilepath = path.isAbsolute(importFilepath)? importFilepath : path.resolve(ydoc.config.buildPath, importFilepath);
-    srcFilepath = path.isAbsolute(srcFilepath) ? srcFilepath : path.resolve(ydoc.config.buildPath, srcFilepath);
+    importFilepath = path.isAbsolute(importFilepath)? importFilepath : path.resolve(ydoc.config.dist, importFilepath);
+    srcFilepath = path.isAbsolute(srcFilepath) ? srcFilepath : path.resolve(ydoc.config.dist, srcFilepath);
     let rele =  path.relative(srcFilepath, importFilepath);
     return rele.substr(3);
   },
@@ -53,7 +53,7 @@ const configFilepath = utils.getConfigPath(projectPath);
 const config = utils.getConfig(configFilepath);
 utils.extend(ydoc.config, config);
 
-const defaultBuildPath = ydoc.config.buildPath || utils.defaultBuildPath;
+const defaultBuildPath = ydoc.config.dist || utils.defaultBuildPath;
 ydoc.config.dist = path.resolve(projectPath, defaultBuildPath);  
 ydoc.config.root = path.resolve(projectPath, ydoc.config.root);
 

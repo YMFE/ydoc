@@ -11,6 +11,6 @@ module.exports = {
   },
   markdownIt: function(md){
     
-  }
-  // buildPath: '_site2'
+  },
+  dist: '_site2'
 }

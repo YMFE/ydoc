@@ -88,7 +88,7 @@ function handleAsserts(config, dir, pluginName){
   if(config && typeof config === 'object'){
     if(config.dir){
       let pluginPath = path.resolve(dir, config.dir);
-      pluginAssertPath = path.resolve(ydoc.config.buildPath, 'ydoc/ydoc-plugin-' + pluginName) ;
+      pluginAssertPath = path.resolve(ydoc.config.dist, 'ydoc/ydoc-plugin-' + pluginName) ;
       fs.ensureDirSync(pluginAssertPath);
       fs.copySync(pluginPath, pluginAssertPath);
       if(config.js){

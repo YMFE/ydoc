@@ -21,8 +21,6 @@ async function run(options = {
   const themeDist = path.resolve(dist, "_theme");
   const componentsDist = path.resolve(themeDist, "components");
 
-  ydoc.config.buildPath = dist;
-
   if(options.mode === 'prd'){
     fs.removeSync(dist);
   }
