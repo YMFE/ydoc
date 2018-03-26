@@ -2,7 +2,7 @@
   {
     // console.log(JSON.stringify(props, null, 2))
   }
-  <Head asserts={props.asserts} title={props.title} distPath={props.page.distPath} />
+  <Head assets={props.assets} title={props.title} distPath={props.page.distPath} />
   <body>
     <div className="g-doc">
       {
@@ -15,6 +15,6 @@
         <Content distPath={props.page.distPath} content={props.page.content} type={props.page.type} ydoc={props} prev={props.page.prev} next={props.page.next} />
       </div>
     </div>
-    <Scripts asserts={props.asserts} page={props.page} />
+    <Scripts assets={props.assets} page={props.page} />
   </body>
 </html>
