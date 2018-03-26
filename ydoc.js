@@ -4,10 +4,10 @@ module.exports = {
   author: "ymfe",
   plugins: [],
   pluginsConfig: {
-    // 'import-assert': {
-    //   css: 'custom.css',
-    //   js:  'custom.js'
-    // }
+    'import-assert': {
+      css: 'custom.css',
+      js:  'custom.js'
+    }
   },
   markdownIt: function(md){
     

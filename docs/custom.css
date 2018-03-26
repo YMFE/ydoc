@@ -1,0 +1,24 @@
+/** 在这里可以自定义页面 css */
+.m-pluginbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+.m-pluginbox-item {
+  flex-basis: 50%;
+  margin-bottom: 24px;
+  padding: 8px;
+}
+.m-pluginbox-item .title {
+  font-size: 24px;
+  color: #1890ff;
+}
+.m-pluginbox-item .desc {
+  margin-top: 16px;
+}
+
+@media screen and (min-width: 960px) {
+  .m-pluginbox-item {
+    flex-basis: 33.3%;
+    margin-bottom: 32px;
+  }
+}
