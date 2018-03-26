@@ -13,18 +13,27 @@
   }
 }
 .m-paging {
-  display: flex;
+  // display: flex;
   font-size: 16px;
   &-item {
-    flex-basis: 50%;
+    width: 50%;
     color: inherit;
     transition: color $transition-time-quick;
     &:hover {
       color: $primary-color;
     }
   }
+  &-prev {
+    float: left;
+  }
   &-next {
+    float: right;
     text-align: right;
+  }
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
   }
   .href {
     margin: 0 .04rem;

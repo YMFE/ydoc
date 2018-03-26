@@ -1766,12 +1766,11 @@ body {
 }
 
 .m-paging {
-  display: flex;
   font-size: 16px;
 }
 
 .m-paging-item {
-  flex-basis: 50%;
+  width: 50%;
   color: inherit;
   transition: color 0.2s;
 }
@@ -1780,8 +1779,19 @@ body {
   color: #1890ff;
 }
 
+.m-paging-prev {
+  float: left;
+}
+
 .m-paging-next {
+  float: right;
   text-align: right;
+}
+
+.m-paging:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 .m-paging .href {
