@@ -4,7 +4,7 @@ const emitHook = require('./plugin.js').emitHook;
 const ydoc = require('./ydoc.js');
 
 module.exports = async function (props) {
-  props.asserts = ydoc.getAsserts();
+  props.assets = ydoc.getAssets();
   let content = utils.noox.render('Layout', props);
   props.page.content = content;
   await emitHook('page', props.page);

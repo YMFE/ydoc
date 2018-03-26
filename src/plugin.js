@@ -4,7 +4,7 @@ const path = require('path');
 const utils = require('./utils.js');
 const fs = require('fs-extra');
 
-const DEFAULT_PLUGINS = ['execution-time', 'import-assert'];
+const DEFAULT_PLUGINS = ['execution-time', 'import-asset'];
 
 const hooks = {}
 
@@ -83,7 +83,7 @@ function _importAssert(filepath, type, pluginAssertPath){
   return ydoc.addAssert(filepath, type)
 }
 
-function handleAsserts(config, dir, pluginName){
+function handleAssets(config, dir, pluginName){
   let pluginAssertPath;
   if(config && typeof config === 'object'){
     if(config.dir){
@@ -142,8 +142,8 @@ exports.loadPlugins = function loadPlugins() {
           })
         }
       }
-      if(pluginModule.asserts){
-        handleAsserts(pluginModule.asserts, pluginModuleDir, pluginName)
+      if(pluginModule.assets){
+        handleAssets(pluginModule.assets, pluginModuleDir, pluginName)
       }
     } catch (err) {
       err.message = 'Load ' + path.resolve(modules, './ydoc-plugin-' + pluginName) + ' plugin failed, ' + err.message;

@@ -42,7 +42,7 @@
     "yargs": "^10.0.3",
     "ydoc-plugin-demo": "^1.0.0",
     "ydoc-plugin-execution-time": "^1.0.0",
-    "ydoc-plugin-import-assert": "^1.0.0"
+    "ydoc-plugin-import-asset": "^1.0.1"
   },
   "devDependencies": {
     "ghooks": "^2.0.0",
