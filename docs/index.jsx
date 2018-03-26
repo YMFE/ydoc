@@ -10,7 +10,21 @@ features:
   - { name: '灵动', desc: '我们拥有非常灵活的 插件机制 与 主题定制 功能，正在努力构建活跃的插件社区。也许初次使用未见其惊艳，但当你灵活使用插件后便会发现她的强大。' }
   - { name: '灵动', desc: '我们拥有非常灵活的 插件机制 与 主题定制 功能，正在努力构建活跃的插件社区。也许初次使用未见其惊艳，但当你灵活使用插件后便会发现她的强大。' }
   - { name: '优雅', desc: '经过精雕细琢，我们带给大家一个精心设计的、拥有卓越的视觉与交互体验的文档构建工具。' }
+
+footer:
+  title:
+    logoSrc: 'https://ydoc.ymfe.org/'
+    name: YDoc
+    copyRight: '© 2018 YMFE Team. Build by ydoc.'
+  links:
+    COMMUNITY:
+      - { name: 'YMFE', href: 'https://ymfe.org/' }
+      - { name: 'YMFE blog', href: 'https://blog.ymfe.org/' }
+    BASE:
+      - { name: 'FAQ', href: 'http://ymfe.corp.qunar.com/c/qrn' }
+      - { name: 'QRN-WEB', href: 'https://github.com/GitbookIO/gitbook/blob/master/CHANGES.md' }
+
 ---
 
 <Homepage banner={banner} features={features} />
-<Footer distPath={props.page.distPath} />
+<Footer distPath={props.page.distPath} title={props.footer.title} links={props.footer.links} />
