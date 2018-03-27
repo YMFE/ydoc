@@ -40,6 +40,7 @@
     "underscore": "^1.8.3",
     "watch": "~0.9.0",
     "yargs": "^10.0.3",
+    "ydoc-plugin-copy": "0.0.1",
     "ydoc-plugin-demo": "^1.0.0",
     "ydoc-plugin-execution-time": "^1.0.0",
     "ydoc-plugin-import-assert": "^1.0.0"

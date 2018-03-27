@@ -2,11 +2,10 @@ module.exports = {
   title: "ydoc",
   description: "ydoc description demo",
   author: "ymfe",
-  plugins: [],
+  plugins: ["copy"],
   pluginsConfig: {
     'import-assert': {
-      css: 'custom.css',
-      js:  'custom.js'
+      css: 'custom.css'
     }
   },
   markdownIt: function(md){
