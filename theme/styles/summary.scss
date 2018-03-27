@@ -22,6 +22,12 @@
 		.m-summary-content {
 			display: block;
 		}
+		.m-summary-switch .top {
+			transform: translateY(10px);
+		}
+		.m-summary-switch .bottom {
+			transform: translateY(-10px);
+		}
 	}
 	&-content {
 		width: 100%;
@@ -74,11 +80,15 @@
 		border-radius: 50%;
 		color: $primary-color;
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-		display: flex;
-    align-items: center;
-		justify-content: center;
 		background-color: $deep-body-text-color;
 		user-select: none;
+		display: flex;
+    justify-content: center;
+    align-items: center;
+		flex-direction: column-reverse;
+		.top, .bottom {
+			transition: all $transition-time-quick ease-in-out;
+		}
 	}
 }
 
