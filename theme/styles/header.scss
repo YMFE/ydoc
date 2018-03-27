@@ -36,6 +36,13 @@
 		}
 		.m-header-subtitle {
 			padding: .16rem 1.5em;
+			.item {
+				width: 100%;
+			}
+			.link {
+				display: inline-block;
+				width: 100%;
+			}
 		}
 		.item {
 			margin-bottom: $padding-xs;
@@ -115,6 +122,8 @@
 				border-radius: 4px;
 				box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
 				.item {
+					margin: 0;
+					padding: 0 8px;
 					color: $deep-caption-text-color;
 					font-weight: normal;
 					white-space: nowrap;
@@ -134,7 +143,6 @@
 				}
 			}
 			.item {
-				margin: 0;
 				margin: 0 $padding-sm;
 				line-height: .64rem;
 				width: auto;

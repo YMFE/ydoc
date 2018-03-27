@@ -10,7 +10,7 @@
             return items.map((item, index) => {
               return (
                 <li className="item" key={index}>
-                  <a href={relePath(props.distPath, item.ref)}>{item.title}</a>
+                  <a href={relePath(props.distPath, item.ref)} className="link">{item.title}</a>
                 </li>
               );
             });
