@@ -35,7 +35,8 @@ exports.runBatch = async function runBatch(){
   for(let index=0, l = batch.length; index<l; index++){
     let transaction = batch[index];
     let context = transaction.context;
-    let page = context.page;    
+    context.name = context.title;
+    let page = context.page;
     let _p, parseJsxInst;
     switch(page.type){
       case 'md'  :         
@@ -61,7 +62,7 @@ exports.runBatch = async function runBatch(){
       context.title = handleTitle(page.title, context.title)
     }  
     try{
-      await emitHook('page:before', page);
+      await emitHook('page:before', page, context);
       await output(transaction.context);   
       //避免内存占用太大，使用完立即释放   
       transaction.context.page.content = undefined;

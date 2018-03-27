@@ -1,7 +1,7 @@
 {
   props.type === 'md' ? (
     <div className="m-content">
-      <div className="m-content-container markdown-body" dangerouslySetInnerHTML={{ __html: props.content }}>
+      <div id="markdown-body" className="m-content-container markdown-body" dangerouslySetInnerHTML={{ __html: props.content }}>
       
       </div>
       {
