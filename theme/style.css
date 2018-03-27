@@ -1531,7 +1531,7 @@ body {
   width: 100%;
   display: inline-block;
   line-height: 1.8;
-  padding: 0 0.08rem;
+  margin: 0 0.08rem;
   position: relative;
   cursor: pointer;
   transition: all 0.2s;
@@ -1623,7 +1623,7 @@ body {
   }
   .m-header-nav .item {
     margin: 0;
-    padding: 0 0.16rem;
+    margin: 0 0.16rem;
     line-height: .64rem;
     width: auto;
     transition: color 0.2s;
@@ -1660,6 +1660,14 @@ body {
 
 .m-summary.active .m-summary-content {
   display: block;
+}
+
+.m-summary.active .m-summary-switch .top {
+  transform: translateY(10px);
+}
+
+.m-summary.active .m-summary-switch .bottom {
+  transform: translateY(-10px);
 }
 
 .m-summary-content {
@@ -1723,11 +1731,16 @@ body {
   border-radius: 50%;
   color: #1890ff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: rgba(3, 17, 31, 0.87);
   user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.m-summary-switch .top, .m-summary-switch .bottom {
+  transition: all 0.2s ease-in-out;
 }
 
 @media screen and (min-width: 960px) {

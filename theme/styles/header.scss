@@ -42,7 +42,7 @@
 			width: 100%;
 			display: inline-block;
 			line-height: 1.8;
-			padding: 0 $padding-xs;
+			margin: 0 $padding-xs;
 			position: relative;
 			cursor: pointer;
 			transition: all $transition-time-quick;
@@ -135,7 +135,7 @@
 			}
 			.item {
 				margin: 0;
-				padding: 0 $padding-sm;
+				margin: 0 $padding-sm;
 				line-height: .64rem;
 				width: auto;
 				transition: color $transition-time-quick;
