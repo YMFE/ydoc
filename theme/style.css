@@ -1474,6 +1474,14 @@ body {
   overflow-y: auto;
 }
 
+.m-main h2:before, .m-main h3:before {
+  content: "";
+  display: block;
+  margin-top: -.8rem;
+  height: .8rem;
+  visibility: hidden;
+}
+
 @media screen and (min-width: 960px) {
   .m-main {
     box-shadow: none;
@@ -1655,7 +1663,7 @@ body {
   top: 0;
   width: 100%;
   height: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
