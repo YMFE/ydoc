@@ -30,15 +30,15 @@ describe('ydoc', function(){
     })
   })
 
-  describe('addAssert', function(){
+  describe('addAsset', function(){
     it('addJsAssert', function(){
-      ydoc.addAssert('a.js', 'js')
-      let filepath = ydoc.getAsserts('js').pop();
+      ydoc.addAsset('a.js', 'js')
+      let filepath = ydoc.getAssets('js').pop();
       assert.equal(filepath, 'a.js');
     })
     it('addCssAssert', function(){
-      ydoc.addAssert('a.css', 'css')
-      let filepath = ydoc.getAsserts('css').pop();
+      ydoc.addAsset('a.css', 'css')
+      let filepath = ydoc.getAssets('css').pop();
       assert.equal(filepath, 'a.css');
     })
   })

@@ -2,7 +2,7 @@ const utils = require('./utils.js');
 const path = require('path');
 
 const projectPath = utils.projectPath;
-const asserts = {
+const assets = {
   js: [],
   css: []
 }
@@ -34,17 +34,17 @@ const ydoc = {
     let rele =  path.relative(srcFilepath, importFilepath);
     return rele.substr(3);
   },
-  addAssert: function(filepath, type){
+  addAsset: function(filepath, type){
     if(type === 'js'){
-      asserts.js.push(filepath);
+      assets.js.push(filepath);
     }else if(type === 'css'){
-      asserts.css.push(filepath);
+      assets.css.push(filepath);
     }    
   },
-  getAsserts: function(type){
-    return type ? [].concat(asserts[type]) : {
-      js: [].concat(asserts.js),
-      css: [].concat(asserts.css)
+  getAssets: function(type){
+    return type ? [].concat(assets[type]) : {
+      js: [].concat(assets.js),
+      css: [].concat(assets.css)
     };
   }
 }

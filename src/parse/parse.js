@@ -178,7 +178,7 @@ function getBookInfo(filepath){
 //     srcPath: '源文件路径',
 //     distPath: '生成文件路径'
 //   },
-//   asserts: { // asserts 资源
+//   assets: { // assets 资源
 //     js: [],
 //     css: []
 //   },

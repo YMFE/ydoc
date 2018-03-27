@@ -8,7 +8,7 @@
 | ---- | ----------- | --------- |
 | `init` | 在生成文档站点前触发. | 无 |
 | `finish` | 在生成文档站点完成后触发. | 无 |
-| `asserts` | 引用插件静态文件| 无 |
+| `assets` | 引用插件静态文件| 无 |
 
 #### 页面钩子
 
@@ -75,19 +75,19 @@
 
 #### 引用静态文件
 
-使用 `asserts` 钩子
+使用 `assets` 钩子
 
 ```js
 {
-    asserts: {
-        dir: './asserts',
+    assets: {
+        dir: './assets',
         js: ['app.js'],
         css: ['app.css']
   }
 }
 
 ```
-复制当前目录下的 asserts 文件夹到文档，并且在每个文件引入 app.js 和 app.css。
+复制当前目录下的 assets 文件夹到文档，并且在每个文件引入 app.js 和 app.css。
 
 
 

@@ -1,6 +1,6 @@
 # 插件列表
 
-### [import-assert](https://github.com/YMFE/ydoc-plugin-import-assert)
+### [import-asset](https://github.com/YMFE/ydoc-plugin-import-asset)
 在页面引入 css,js 文件
 
 ### jsdoc

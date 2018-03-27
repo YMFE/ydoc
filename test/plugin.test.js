@@ -46,13 +46,13 @@ describe('plugin', function(){
 
   })
 
-  describe('handleAsserts', function(){
-    let handleAsserts = plugin.__get__('handleAsserts');
+  describe('handleAssets', function(){
+    let handleAssets = plugin.__get__('handleAssets');
     var _ensureDirSync, _copySync;
-    var asserts = [];
+    var assets = [];
 
-    plugin.__set__("_importAssert", function(filepath, type, pluginAssertPath){
-      asserts.push({
+    plugin.__set__("_importAsset", function(filepath, type, pluginAssetPath){
+      assets.push({
         filepath
       })
     })
@@ -63,22 +63,22 @@ describe('plugin', function(){
     plugin.__set__("ydoc", ydoc)
 
     var config = {
-      dir: 'asserts',
+      dir: 'assets',
       js: 'a.js',
       css: ['b.css', 'c.css']
     }
     var dirpath = '/var1/www/ydoc';
     var pluginName = 'test';
-    var pluginPath, assertsPath;
+    var pluginPath, assetsPath;
 
     before(function(){
       let FsMock = plugin.__get__('fs');
-      asserts = [];
+      assets = [];
       FsMock.ensureDirSync = function(filepath){
         pluginPath = filepath;
       };
       FsMock.copySync = function(filepath){
-        assertsPath = filepath;
+        assetsPath = filepath;
       };
       plugin.__set__('fs', FsMock);
     })
@@ -88,11 +88,11 @@ describe('plugin', function(){
     
 
     it('dir-js-css', function(){
-      handleAsserts(config, dirpath, pluginName);
-      assert.equal(pluginPath, path.resolve(ydoc.config.buildPath, 'ydoc/ydoc-plugin-' + pluginName))
-      assert.equal(assertsPath, path.resolve(dirpath, config.dir))
-      assert.equal(asserts.length, 3)
-      assert.deepEqual(asserts[2],{filepath:  'c.css'})
+      handleAssets(config, dirpath, pluginName);
+      assert.equal(pluginPath, path.resolve(ydoc.config.dist, 'ydoc/ydoc-plugin-' + pluginName))
+      assert.equal(assetsPath, path.resolve(dirpath, config.dir))
+      assert.equal(assets.length, 3)
+      assert.deepEqual(assets[2],{filepath:  'c.css'})
     })
     
   })
