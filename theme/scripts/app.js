@@ -41,6 +41,7 @@ function addEvents() {
 	if ($menuContent) {
 		$menuContent.addEventListener('click', function (e) {
 			$menu.classList.remove('active');
+			setTimeout(itemAddActive, 0);
 		});
 	}
 	if ($menuBar) {

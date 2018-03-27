@@ -11,6 +11,13 @@
 .m-main {
 	width: 100%;
 	overflow-y: auto;
+	h2:before, h3:before {
+		content: "";
+    display: block;
+    margin-top: -.8rem;
+    height: .8rem;
+    visibility: hidden;
+	}
 }
 
 @include media-md() {
