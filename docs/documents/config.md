@@ -14,10 +14,13 @@ Ydoc 允许你使用灵活的配置来自定义站点，这些配置项被指定
 
 | 变量 | 类型 | 默认值 | 描述 |
 | -------- | ---  |-----|  ----------- |
-| `root` | String | ./docs | 文档目录，默认是 docs |
+| `root` | String | docs | 文档目录 |
 | `title` | String | ydoc | 网站标题 |
+| `keywords` | String| ydoc | 网站关键字 |
+| `author` | String| ymfe | 网站作者 |
 | `description` | String| ydoc | 网站描述 |
-| `plugins` | Array | [] | 插件列表，如加载 demo 插件
+| `dist` | String| _site | 网站生成路径 |
+| `plugins` | Array | [] | 插件列表
 | `pluginsConfig` | Object | null | 插件配置
 
 
