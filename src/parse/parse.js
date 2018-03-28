@@ -84,7 +84,10 @@ exports.parseSite = async function(dist){
       let menuBooks = getBooks(menu.items, dist);
       books = books.concat(menuBooks)
     })
-    books = utils.distinct(books, (item) => item.bookPath + item.indexFile)
+    books = utils.distinct(books, (item) => {
+      return item.bookpath + item.indexFile
+    })
+    
     const generateSitePage = generate(dist);
     generateSitePage({
       title: ydocConfig.title,
@@ -117,11 +120,13 @@ function getBooks(menus, dist){
     if( !item.ref || utils.isUrl(item.ref)){
       continue;
     }
+
     if(path.isAbsolute(item.ref)){
-      item.ref = '.' + item.ref;
+      item.ref = '.' + item.ref;      
     }
     let bookHomePath = path.resolve(dist, item.ref);
     if(!utils.fileExist(bookHomePath)) continue;
+    
     let indexFile = path.basename(bookHomePath);
     let bookpath = path.dirname(bookHomePath);
     let stats;
@@ -130,6 +135,7 @@ function getBooks(menus, dist){
     }catch(err){
       continue;
     }
+    
     if(stats.isDirectory() && item[0] !== '_' && item[0] !== 'style' ){
       item.ref = handleMdPathToHtml(item.ref);
       item.absolutePath = path.resolve(dist,item.ref)
