@@ -13,7 +13,6 @@
   }
 }
 .m-paging {
-  // display: flex;
   font-size: 16px;
   &-item {
     width: 50%;
@@ -36,7 +35,9 @@
     clear: both;
   }
   .href {
-    margin: 0 .04rem;
+    display: inline-block;
+    width: 100%;
+    padding: .04rem;
   }
 }
 

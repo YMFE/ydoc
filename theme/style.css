@@ -1826,7 +1826,9 @@ body {
 }
 
 .m-paging .href {
-  margin: 0 .04rem;
+  display: inline-block;
+  width: 100%;
+  padding: .04rem;
 }
 
 @media screen and (min-width: 960px) {
