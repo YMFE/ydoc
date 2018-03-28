@@ -15,6 +15,10 @@
 	<meta httpEquiv="Cache-Control" content="no-siteapp" />
 	<title>{props.title}</title>
 	<link rel="stylesheet" href={relePath(props.distPath, 'ydoc/styles/style.css')} />
+	<meta name="author" content={props.config.author} />
+	<meta name="keywords" content={props.config.keywords} />
+	<meta name="description" content={props.config.description} />
+	<meta id="releativePath" content={relePath(props.distPath, './')} />
 	{props.assets.css.map(item=>{
 		return <link key={item} rel="stylesheet" href={relePath(props.distPath, item)} />
 	})}

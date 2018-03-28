@@ -98,7 +98,7 @@ exports.parseSite = async function(dist){
     await runBatch();
 
     for(let j=0; j< books.length ; j++){
-      await parseBook(books[j].bookPath, books[j].indexFile);
+      await parseBook(books[j]);
     }
 
     let showpath = color.yellow( dist + '/index.html');
@@ -123,10 +123,10 @@ function getBooks(menus, dist){
     let bookHomePath = path.resolve(dist, item.ref);
     if(!utils.fileExist(bookHomePath)) continue;
     let indexFile = path.basename(bookHomePath);
-    let bookPath = path.dirname(bookHomePath);
+    let bookpath = path.dirname(bookHomePath);
     let stats;
     try{
-      stats = fs.statSync(bookPath);
+      stats = fs.statSync(bookpath);
     }catch(err){
       continue;
     }
@@ -134,8 +134,9 @@ function getBooks(menus, dist){
       item.ref = handleMdPathToHtml(item.ref);
       item.absolutePath = path.resolve(dist,item.ref)
       books.push({
-        bookPath: bookPath,
-        indexFile: indexFile
+        bookpath: bookpath,
+        indexFile: indexFile,
+        title: item.title
       })
       
     }
@@ -185,7 +186,7 @@ function getBookInfo(filepath){
 //   config: {} //ydocConfig 配置
 // }
 
-async function parseBook(bookpath, indexFile){
+async function parseBook({bookpath, indexFile, title}){
   const book = {}; //书籍公共变量
   let extname = path.extname(indexFile);
   let name = path.basename(indexFile, extname);
@@ -198,6 +199,9 @@ async function parseBook(bookpath, indexFile){
   utils.extend(book, baseInfo);
   book.summary = summary;
   book.bookpath = path.resolve(bookpath, name + '.html')
+
+  //优先使用导航定义的 title
+  book.title = title? title: book.title;
 
   await emitHook('book:before', {
     title: book.title,

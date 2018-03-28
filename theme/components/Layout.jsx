@@ -1,8 +1,5 @@
 <html>
-  {
-    // console.log(JSON.stringify(props, null, 2))
-  }
-  <Head assets={props.assets} title={props.title} distPath={props.page.distPath} />
+  <Head config={props.config} assets={props.assets} title={props.title} distPath={props.page.distPath} />
   <body>
     <div className="g-doc">
       {

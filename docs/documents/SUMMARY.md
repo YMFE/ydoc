@@ -5,14 +5,17 @@
 ### 教程
 
 * [目录结构](structure.md)
-* [页面 和 Summary 目录](pages.md)
-* [配置文件](config.md)
 * [导航](nav.md)
+* [页面](pages.md)
+  * [目录](pages.md#目录)
+  * [页面](pages.md#页面)
+* [配置文件](config.md)
 * [Markdown](markdown.md)
 
 ### 自定义
 
 * [主题](theme.md)
+* [JSX](jsx.md)
 * [扩展](plugins.md)
   * [创建一个插件](create.md)
   * [Hooks](hooks.md)

@@ -74,4 +74,4 @@ YDoc 支持解析 .html 文件，你可以使用 html 所有特性高度自定�
 
 JSX 就是 Javascript 和 XML 结合的一种格式。React发明了JSX，利用HTML语法来创建虚拟DOM。
 
-Ydoc 使用了开源工具 [noox](https://github.com/suxiaoxin/noox)  解析 .jsx 文件，详细使用方法参考 [组件](component.md)
+Ydoc 使用了开源工具 [noox](https://github.com/suxiaoxin/noox)  解析 .jsx 文件，详细使用方法参考 [jsx](jsx.md)

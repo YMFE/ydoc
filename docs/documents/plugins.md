@@ -36,8 +36,3 @@ npm install --save-dev ydoc-plugin-demo
 
 ## 创建一个插件
 YDoc 插件是发布到 npm 的 node 包，本篇教程假定你已经拥有了 npm 和 node 相关的经验。
-
-
-## Hooks
-
-## Api
