@@ -12,15 +12,13 @@ React发明了JSX， 可以简单地理解它是一种在JS中编写与XML类似
 
 我们从最简单的一个helloworld开始：
 ```jsx
-  <h1>Hello, world!</h1>,
+<h1>Hello, world!</h1>
 ```
 
 script标签里面的内容实际会被编译成
 
 ```javascript
-  React.createElement('h1',null, 'Hello, world!')
-);
-
+React.createElement('h1',null, 'Hello, world!')
 ```
 
 又如
@@ -36,8 +34,8 @@ var root =(
 会被编译成
 ```javascript
 var root = React.createElement('ul', { className: 'my-list' },
-    React.createElement('li', null, 'First Text Content'),
-    React.createElement('li', null, 'Second Text Content')
+  React.createElement('li', null, 'First Text Content'),
+  React.createElement('li', null, 'Second Text Content')
 );
 ```
 
@@ -89,14 +87,14 @@ React.createElement('div',null,"xxx111yyy")
 var ul = (
   <ul className="unstyled">
     {
-        this.todoList.todos.map(function (todo) {
-            return  (
-                <li>
-                <input type="checkbox" checked={todo.done}>
-                <span className={'done-' + todo.done}>{todo.text}</span>
-                </li>
-            );
-        })
+      this.todoList.todos.map(function (todo) {
+        return  (
+          <li>
+          <input type="checkbox" checked={todo.done}>
+          <span className={'done-' + todo.done}>{todo.text}</span>
+          </li>
+        );
+      })
     }
   </ul>
 );
