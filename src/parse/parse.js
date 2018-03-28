@@ -187,7 +187,6 @@ function getBookInfo(filepath){
 // }
 
 async function parseBook({bookpath, indexFile, title}){
-  console.log(bookpath,indexFile, title)
   const book = {}; //书籍公共变量
   let extname = path.extname(indexFile);
   let name = path.basename(indexFile, extname);
