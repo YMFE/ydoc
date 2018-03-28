@@ -1,1 +1,0 @@
-* [etst](http://qunar.com/)
