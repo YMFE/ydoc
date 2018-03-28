@@ -1,6 +1,6 @@
 <header className="m-header" id="js-header">
   <div className="m-header-title js-logo">
-    <Logo  distPath={props.distPath} nav={props.nav} />
+    <Logo distPath={props.distPath} nav={props.nav} />
   </div>
   <Hook name="header" ydoc={props.ydoc} />
   <nav className="m-header-nav js-nav">
