@@ -4,7 +4,7 @@ YDoc 是一个优雅的文档站构建工具，能够基于 markdown 轻松生�
 
 ## 安装依赖
 
-YDoc 依赖 Node.js , 请安装不低于 8.0 版本的 Node.js
+YDoc 依赖 Node.js , 请安装不低于 7.6 版本的 Node.js
 
 ### 安装 Node.js
 

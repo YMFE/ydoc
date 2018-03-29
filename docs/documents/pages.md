@@ -27,8 +27,8 @@ SUMMARY.md 由一组链接列表组成，将一个列表嵌套到父章节将创
 ### 章节 2
 
 * [API](api.md)
-  * [a](api.md#a)
-  * [b](api.md#b)
+  * [a](api.md#anchor1)
+  * [b](api.md#anchor2)
 ```
 
 ##### 章节

@@ -155,7 +155,7 @@ value,id,title,alt,htmlFor,longDesc,className
  而自定义属性，则是用户随便设置的。
 
 
-### 怎么自定义组件
+### 如何自定义组件
 在 YDoc 新建组件是非常简单的，第一步在 docs 目录下新建 _components 目录
 假设我们要新建一个 Demo 组件，可以新建 Demo.jsx 文件（确保文件名第一个字母大写），文件内容如下：
 
