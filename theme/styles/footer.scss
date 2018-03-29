@@ -23,7 +23,7 @@
       margin-bottom: .24rem;
     }
     .title {
-      font-size: $font-size-h6;
+      font-size: $font-size-h4;
       line-height: 2;
       color: $deep-disable-text-color;
     }
@@ -43,7 +43,7 @@
 // Expand footer on PC
 @include media-md() {
 	.m-footer {
-    font-size: $font-size-h6;
+    font-size: $font-size-h4;
     color: $deep-caption-text-color;
     padding: .24rem .64rem;
     &-container {

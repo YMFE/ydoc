@@ -17,7 +17,7 @@
       text-align: center;
       .name {
         margin-bottom: .24rem;
-        font-size: $font-size-h3;
+        font-size: $font-size-h1;
         position: relative;
         &:after {
           content: '';
@@ -32,7 +32,7 @@
         }
       }
       .desc {
-        font-size: $font-size-h6;
+        font-size: $font-size-h4;
         color: $deep-caption-text-color;
         line-height: 1.6;
       }
@@ -53,7 +53,7 @@
       width: 1.2rem;
       padding: .14rem;
       line-height: .2rem;
-      font-size: $font-size-h6;
+      font-size: $font-size-h4;
       color: $primary-6;
       background-color: $white;
       margin-right: .08rem;
@@ -115,11 +115,11 @@
       flex: 0 0 46%;
       margin-bottom: .32rem;
       .title {
-        font-size: $font-size-h3;
+        font-size: $font-size-h1;
         margin-bottom: .16rem;
       }
       .desc {
-        font-size: $font-size-h6;
+        font-size: $font-size-h4;
         color: $deep-caption-text-color;
       }
     }
@@ -136,10 +136,10 @@
     .m-section {
       &-title {
         .name {
-          font-size: $font-size-h2;
+          font-size: $font-size-display1;
         }
         .desc {
-          font-size: $font-size-h5;
+          font-size: $font-size-h3;
           line-height: 1.6;
         }
       }
@@ -152,10 +152,10 @@
         text-align: left;
       }
       .m-section-title .name {
-        font-size: $font-size-h2;
+        font-size: $font-size-display1;
       }
       .m-section-title .desc {
-        font-size: $font-size-h5;
+        font-size: $font-size-h3;
         line-height: 1.6;
       }
       .m-section-btngroup {
