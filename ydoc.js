@@ -2,7 +2,7 @@ module.exports = {
   title: "ydoc",
   description: "ydoc description demo",
   author: "ymfe",
-  plugins: ["copy", "search", "pangu"],
+  plugins: ["copy", "search"],
   pluginsConfig: {
     'import-asset': {
       css: 'custom.css',

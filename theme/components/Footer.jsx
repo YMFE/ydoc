@@ -1,20 +1,3 @@
----
-
-title: 
- logoSrc: 'https://ydoc.ymfe.org/'
- name: YDoc
- copyRight: '© 2018 YMFE Team. Build by ydoc.'
-
-links: 
- COMMUNITY:
-  - { name: 'YMFE', href: 'https://ymfe.org/' }
-  - { name: 'YMFE blog', href: 'https://blog.ymfe.org/' }
- BASE:
-  - { name: 'FAQ', href: 'http://ymfe.corp.qunar.com/c/qrn' }
-  - { name: 'QRN-WEB', href: 'https://github.com/GitbookIO/gitbook/blob/master/CHANGES.md' }
-
----
-
 <footer className="m-footer">
 	<div className="m-footer-container">
 			<div className="m-footer-links">
@@ -28,11 +11,11 @@ links:
 						};
 
 						let dom = [];
-						for (let key in links) {
+						for (let key in props.links) {
 							dom.push(
 								<div className="group" key={key}>
 									<p className="title">{key}</p>
-									<ul>{getItems(links[key])}</ul>
+									<ul>{getItems(props.links[key])}</ul>
 								</div>
 							);
 						}
