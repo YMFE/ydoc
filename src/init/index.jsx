@@ -12,19 +12,18 @@ features:
   - { name: '优雅', desc: '经过精雕细琢，我们带给大家一个精心设计的、拥有卓越的视觉与交互体验的文档构建工具。' }
 
 footer:
-  title:
-    logoSrc: 'https://ydoc.ymfe.org/'
-    name: YDoc
-    copyRight: '© 2018 YMFE Team. Build by ydoc.'
+  copyRight:
+    name: 'YMFE Team'
+    href: 'https://ymfe.org/'
   links:
-    COMMUNITY:
+    团队网址:
       - { name: 'YMFE', href: 'https://ymfe.org/' }
-      - { name: 'YMFE blog', href: 'https://blog.ymfe.org/' }
-    BASE:
-      - { name: 'FAQ', href: 'http://ymfe.corp.qunar.com/c/qrn' }
-      - { name: 'QRN-WEB', href: 'https://github.com/GitbookIO/gitbook/blob/master/CHANGES.md' }
+      - { name: 'YMFE Blog', href: 'https://blog.ymfe.org/' }
+    Git仓库:
+      - { name: 'Github', href: 'https://github.com/YMFE/ydoc' }
+      - { name: 'Github Issue', href: 'https://github.com/YMFE/ydoc/issues' }
 
 ---
 
 <Homepage banner={banner} features={features} />
-<Footer distPath={props.page.distPath} title={props.footer.title} links={props.footer.links} />
+<Footer distPath={props.page.distPath} copyRight={props.footer.copyRight} links={props.footer.links} />
