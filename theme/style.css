@@ -1498,6 +1498,7 @@ body {
   width: 100%;
   color: rgba(3, 17, 31, 0.54);
   background-color: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid #e5f0f6;
   backface-visibility: hidden;
   z-index: 2;
 }

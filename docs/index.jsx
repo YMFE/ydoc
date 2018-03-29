@@ -4,7 +4,7 @@ banner:
   desc: '基于 markdown 轻松生成完整静态站点'
   btns: 
     - { name: '开始', href: './documents/index.html', primary: true }
-    - { name: 'Github >', href: './documents/index.html' }
+    - { name: 'Github >', href: 'https://github.com/YMFE/ydoc' }
 features: 
   - { name: '优雅', desc: '经过精雕细琢，我们带给大家一个精心设计的、拥有卓越的视觉与交互体验的文档构建工具。' }
   - { name: '灵动', desc: '我们拥有非常灵活的 插件机制 与 主题定制 功能，正在努力构建活跃的插件社区。也许初次使用未见其惊艳，但当你灵活使用插件后便会发现她的强大。' }

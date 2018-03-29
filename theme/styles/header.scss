@@ -9,7 +9,7 @@
 	width: 100%;
 	color: $deep-caption-text-color;
 	background-color: rgba($white, .97);
-	// border-bottom: 1px solid $break-line-color;
+	border-bottom: 1px solid $break-line-color;
   backface-visibility: hidden;
   z-index: 2;
 	&-title {
