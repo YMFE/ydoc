@@ -56,28 +56,27 @@ p {
 }
 
 h1, .h1 {
-  font-size: 56px;
+  font-size: 32px;
 }
 
 h2, .h2 {
-  font-size: 45px;
-}
-
-h3, .h3 {
-  font-size: 34px;
-}
-
-h4, .h4 {
   font-size: 24px;
 }
 
+h3, .h3 {
+  font-size: 20px;
+}
+
+h4, .h4 {
+  font-size: 16px;
+}
+
 h5, .h5 {
-  font-size: 21px;
-  line-height: 32px;
+  font-size: 14px;
 }
 
 h6, .h6 {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 @media screen and (max-width: 960px) {
@@ -1703,7 +1702,7 @@ body {
 }
 
 .m-summary-title {
-  font-size: 16px;
+  font-size: 12px;
   line-height: 2.5;
   color: rgba(3, 17, 31, 0.87);
 }
@@ -1876,7 +1875,7 @@ body {
 }
 
 .m-footer-links .title {
-  font-size: 16px;
+  font-size: 12px;
   line-height: 2;
   color: rgba(3, 17, 31, 0.38);
 }
@@ -1895,7 +1894,7 @@ body {
 
 @media screen and (min-width: 960px) {
   .m-footer {
-    font-size: 16px;
+    font-size: 12px;
     color: rgba(3, 17, 31, 0.54);
     padding: .24rem .64rem;
   }
@@ -1939,7 +1938,7 @@ body {
 
 .g-home .m-section-title .name {
   margin-bottom: .24rem;
-  font-size: 32px;
+  font-size: 20px;
   position: relative;
 }
 
@@ -1956,7 +1955,7 @@ body {
 }
 
 .g-home .m-section-title .desc {
-  font-size: 16px;
+  font-size: 12px;
   color: rgba(3, 17, 31, 0.54);
   line-height: 1.6;
 }
@@ -1979,7 +1978,7 @@ body {
   width: 1.2rem;
   padding: .14rem;
   line-height: .2rem;
-  font-size: 16px;
+  font-size: 12px;
   color: #1890ff;
   background-color: #fff;
   margin-right: .08rem;
@@ -2051,12 +2050,12 @@ body {
 }
 
 .g-home .m-section.feature .item .title {
-  font-size: 32px;
+  font-size: 20px;
   margin-bottom: .16rem;
 }
 
 .g-home .m-section.feature .item .desc {
-  font-size: 16px;
+  font-size: 12px;
   color: rgba(3, 17, 31, 0.54);
 }
 
@@ -2065,10 +2064,10 @@ body {
     flex-direction: row;
   }
   .g-home .m-section-title .name {
-    font-size: 48px;
+    font-size: 24px;
   }
   .g-home .m-section-title .desc {
-    font-size: 21px;
+    font-size: 14px;
     line-height: 1.6;
   }
   .g-home .m-section .btn {
@@ -2078,10 +2077,10 @@ body {
     text-align: left;
   }
   .g-home .m-section.home .m-section-title .name {
-    font-size: 48px;
+    font-size: 24px;
   }
   .g-home .m-section.home .m-section-title .desc {
-    font-size: 21px;
+    font-size: 14px;
     line-height: 1.6;
   }
   .g-home .m-section.home .m-section-btngroup {
