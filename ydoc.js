@@ -5,8 +5,7 @@ module.exports = {
   plugins: ["copy", "search"],
   pluginsConfig: {
     'import-asset': {
-      css: 'custom.css',
-      js:  'custom.js'
+      css: 'custom.css'
     }
   },
   markdownIt: function(md){

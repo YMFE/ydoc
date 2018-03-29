@@ -23,27 +23,27 @@
       margin-bottom: .24rem;
     }
     .title {
-      font-size: $font-size-h6;
+      font-size: $font-size-h4;
       line-height: 2;
       color: $deep-disable-text-color;
     }
-    .href {
-      line-height: 1.8;
-      padding: .3em 0;
-      color: $deep-caption-text-color;
-      background-color: $white;
-			transition: all $transition-time-quick;
-    }
-    .href:hover {
-			color: $primary-color;
-    }
+  }
+  .href {
+    line-height: 1.8;
+    padding: .3em 0;
+    color: $deep-caption-text-color;
+    background-color: $white;
+    transition: all $transition-time-quick;
+  }
+  .href:hover {
+    color: $primary-color;
   }
 }
 
 // Expand footer on PC
 @include media-md() {
 	.m-footer {
-    font-size: $font-size-h6;
+    font-size: $font-size-h4;
     color: $deep-caption-text-color;
     padding: .24rem .64rem;
     &-container {

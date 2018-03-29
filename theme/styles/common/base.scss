@@ -28,7 +28,7 @@ body {
 }
 // scrollbar slider
 ::-webkit-scrollbar-thumb {
-  border-radius: 1px;
+  border-radius: 3px;
   background: rgba($primary-4, 0.3);
   -webkit-box-shadow: rgba($primary-1, 0.5);
 }
@@ -47,26 +47,24 @@ p {
 	margin-top: 0;
   margin-bottom: 1em;
 }
-
 // font sizes:
 h1, .h1 {
-	font-size: 56px;
+	font-size: 32px;
 }
 h2, .h2 {
-	font-size: 45px;
-}
-h3, .h3 {
-	font-size: 34px;
-}
-h4, .h4 {
 	font-size: 24px;
 }
+h3, .h3 {
+	font-size: 20px;
+}
+h4, .h4 {
+	font-size: 16px;
+}
 h5, .h5 {
-	font-size: 21px;
-	line-height: 32px;
+	font-size: 14px;
 }
 h6, .h6 {
-	font-size: 16px;
+	font-size: 12px;
 }
 
 @media screen and (max-width: 960px) {

@@ -10,18 +10,18 @@ features:
   - { name: '灵动', desc: '我们拥有非常灵活的 插件机制 与 主题定制 功能，正在努力构建活跃的插件社区。也许初次使用未见其惊艳，但当你灵活使用插件后便会发现她的强大。' }
 
 footer:
-  title:
-    logoSrc: 'https://ydoc.ymfe.org/'
-    name: YDoc
-    copyRight: '© 2018 YMFE Team. Build by ydoc.'
+  copyRight:
+    name: 'YMFE Team'
+    href: 'https://ymfe.org/'
   links:
-    COMMUNITY:
+    团队网址:
       - { name: 'YMFE', href: 'https://ymfe.org/' }
-      - { name: 'YMFE blog', href: 'https://blog.ymfe.org/' }
-    BASE:
-      - { name: 'YDOC', href: 'http://ydoc.ymfe.org' }
+      - { name: 'YMFE Blog', href: 'https://blog.ymfe.org/' }
+    Git仓库:
+      - { name: 'Github', href: 'https://github.com/YMFE/ydoc' }
+      - { name: 'Github Issue', href: 'https://github.com/YMFE/ydoc/issues' }
 
 ---
 
 <Homepage banner={banner} features={features} />
-<Footer distPath={props.page.distPath} title={props.footer.title} links={props.footer.links} />
+<Footer distPath={props.page.distPath} copyRight={props.footer.copyRight} links={props.footer.links} />

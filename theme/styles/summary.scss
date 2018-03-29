@@ -41,7 +41,7 @@
 		}
 	}
 	&-title {
-		font-size: $font-size-h6;
+		font-size: $font-size-h4;
 		line-height: 2.5;
 		color: $deep-body-text-color;
 	}
@@ -65,9 +65,14 @@
 			color: inherit;
 			background-color: transparent;
 			transition: all $transition-time-quick;
+			display: inline-block;
+			width: 100%;
+			border-radius: 4px;
+    	padding-left: $padding-xs;
 		}
 		.href:hover {
 			color: $primary-color;
+			background-color: $primary-1;
 		}
 	}
 	&-switch {
