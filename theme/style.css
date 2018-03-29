@@ -1733,10 +1733,15 @@ body {
   color: inherit;
   background-color: transparent;
   transition: all 0.2s;
+  display: inline-block;
+  width: 100%;
+  border-radius: 4px;
+  padding-left: 0.08rem;
 }
 
 .m-summary-list .href:hover {
   color: #1890ff;
+  background-color: #d9edff;
 }
 
 .m-summary-switch {
