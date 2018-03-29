@@ -22,8 +22,8 @@
 
 下面是两个真实范例，可参考。
 
-- [Redux 手册](http://redux.js.org/index.html)
-- [Atom 手册](http://flight-manual.atom.io/)
+- [Redux 手册](http://redux.js.org)
+- [Atom 手册](http://flight-manual.atom.io)
 
 ## 文件名
 
