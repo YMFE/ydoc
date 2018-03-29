@@ -24,6 +24,6 @@
 
 --
 
-* [版本历史](https://github.com/YMFE/ydoc/blob/master/README.md)
+* [版本历史](release.md)
 
 

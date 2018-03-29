@@ -117,7 +117,7 @@ var style = {
 var node = <div style={style}>HelloWorld.</div>;
 ```
 
-要明确记住,{}里面是JS代码,这里传进去的是标准的JS对象。在JSX中可以使用所有的的样式，基本上属性名的转换规范就是将其写成驼峰写法，例如“background-color”变为“backgroundColor”, “font-size”变为“fontSize”，这和标准的JavaScript操作DOM样式的API是一致的。
+要明确记住,{}里面是JS代码,这里传进去的是标准的JS对象。在JSX中可以使用所有的样式，基本上属性名的转换规范就是将其写成驼峰写法，例如“background-color”变为“backgroundColor”, “font-size”变为“fontSize”，这和标准的JavaScript操作DOM样式的API是一致的。
 
 ### HTML转义
 
