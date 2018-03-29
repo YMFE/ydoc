@@ -17,7 +17,7 @@
 * [主题](theme.md)
 * [JSX](jsx.md)
 * [扩展](plugins.md)
-  * [创建一个插件](create.md)
+  * [创建插件](create.md)
   * [Hooks](hooks.md)
   * [markdown扩展](markdown-it.md)
 
