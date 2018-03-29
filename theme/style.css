@@ -34,7 +34,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 1px;
+  border-radius: 3px;
   background: rgba(101, 181, 255, 0.3);
   -webkit-box-shadow: rgba(217, 237, 255, 0.5);
 }
@@ -1881,7 +1881,7 @@ body {
   color: rgba(3, 17, 31, 0.38);
 }
 
-.m-footer-links .href {
+.m-footer .href {
   line-height: 1.8;
   padding: .3em 0;
   color: rgba(3, 17, 31, 0.54);
@@ -1889,7 +1889,7 @@ body {
   transition: all 0.2s;
 }
 
-.m-footer-links .href:hover {
+.m-footer .href:hover {
   color: #1890ff;
 }
 
