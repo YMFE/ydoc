@@ -20,8 +20,8 @@
     "url": "git@github.com:YMFE/ydoc.git"
   },
   "engines": {
-    "node": ">=4"
-  },
+    "node": ">=7.6.0"
+  },  
   "license": "MIT",
   "dependencies": {
     "bash-color": "0.0.4",
