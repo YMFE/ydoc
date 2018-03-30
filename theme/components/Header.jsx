@@ -17,8 +17,6 @@
           };
 
         return props.nav.menus.map((sortItem, sortIndex) => {
-          const distPath = props.distPath;
-          const activeItem = distPath.split(props.buildPath + '/')[1];
           let active = '';
 
           // 存在二级导航时
