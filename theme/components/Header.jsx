@@ -30,7 +30,7 @@
             }
             return (
               <li key={sortIndex} className={'item ' + active}>
-                {sortItem.title}
+                <span className="href">{sortItem.title}</span>
                 {
                   sortItem.title.length ? <ul className="m-header-subtitle">{getItems(sortItem.items)}</ul> : null
                 }
