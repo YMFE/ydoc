@@ -17,6 +17,7 @@
 | `name` | 标语标题 |
 | `desc` | 标语描述信息 |
 | `btns` | 按钮组，可设置多个按钮 |
+| `caption` | 说明信息，例如“当前版本信息” |
 | `btns[n].name` | 按钮名称 |
 | `btns[n].href` | 按钮链接 |
 | `btns[n].primary` | 是否为主按钮 |

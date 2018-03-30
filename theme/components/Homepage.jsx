@@ -11,6 +11,7 @@
             })
           }
         </div>
+        {props.banner.caption ? <p className="caption">{props.banner.caption}</p> : null}
       </div>
       <div className="m-section-banner">
         <img src="./ydoc/images/dogbg@1x.png" alt="bg" srcSet="./ydoc/images/dogbg@2x.png 2x" />

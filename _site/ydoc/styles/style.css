@@ -2040,9 +2040,14 @@ body {
 .g-home .m-section.home .m-section-btngroup {
   display: flex;
   justify-content: center;
-  padding: .24rem 0;
+  padding: .24rem 0 .16rem;
   position: relative;
   z-index: 1;
+}
+
+.g-home .m-section.home .caption {
+  font-size: 16px;
+  color: rgba(3, 17, 31, 0.38);
 }
 
 .g-home .m-section.feature {

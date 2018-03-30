@@ -74,7 +74,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "banner 网站标语栏",
           "url": "/documents/pages-index.html#首页-banner-网站标语栏",
-          "content": "banner 网站标语栏\n\n属性\n描述\n\n\n\n\nname\n标语标题\n\n\ndesc\n标语描述信息\n\n\nbtns\n按钮组，可设置多个按钮\n\n\nbtns[n].name\n按钮名称\n\n\nbtns[n].href\n按钮链接\n\n\nbtns[n].primary\n是否为主按钮\n\n\n"
+          "content": "banner 网站标语栏\n\n属性\n描述\n\n\n\n\nname\n标语标题\n\n\ndesc\n标语描述信息\n\n\nbtns\n按钮组，可设置多个按钮\n\n\ncaption\n说明信息，例如“当前版本信息”\n\n\nbtns[n].name\n按钮名称\n\n\nbtns[n].href\n按钮链接\n\n\nbtns[n].primary\n是否为主按钮\n\n\n"
         },
         {
           "title": "features 特性",

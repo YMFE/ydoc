@@ -102,9 +102,13 @@
     .m-section-btngroup {
       display: flex;
       justify-content: center;
-      padding: .24rem 0;
+      padding: .24rem 0 .16rem;
       position: relative;
       z-index: 1;
+    }
+    .caption {
+      font-size: $font-size-h4;
+      color: $deep-disable-text-color;
     }
   }
   // feature block
