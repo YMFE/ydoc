@@ -80,8 +80,8 @@ function initComponents() {
 	sessionStorage.setItem('locationPathname', window.location.pathname);
 }
 
-window.onload = function () {
-	initComponents();
-	addEvents();
-	itemAddActive();
-};
+
+initComponents();
+addEvents();
+itemAddActive();
+
