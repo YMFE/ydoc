@@ -1,7 +1,8 @@
-
-<div style="text-align: center; padding: 24px;">
-  <img src="https://ws1.sinaimg.cn/large/006FkmqZly1fpswv9gzalj305e05ft98.jpg" width="194" alt="logo" srcSet="https://ws1.sinaimg.cn/large/006FkmqZly1fpswvk5qsyj30as0au75x.jpg 2x" />
-</div>
+<p align="center">
+  <a href="https://ydoc.ymfe.org/">
+    <img src="https://ws1.sinaimg.cn/large/006FkmqZly1fpswv9gzalj305e05ft98.jpg" width="194" alt="logo" srcSet="https://ws1.sinaimg.cn/large/006FkmqZly1fpswvk5qsyj30as0au75x.jpg 2x" />
+  </a>
+</p>
 
 ## YDoc
 
@@ -9,8 +10,7 @@
 
 YDoc 是一个优雅的文档站构建工具，能够基于 markdown 轻松生成完整静态站点，让你专注于文档写作。YDoc 拥有灵活而强大的插件 / 主题机制，开发者可以轻松定制属于自己的文档站点。
 
-[文档首页](https://ydoc.ymfe.org/)
-[README in English](https://github.com/YMFE/ydoc/blob/master/README-en.md)
+[文档首页](https://ydoc.ymfe.org/) | [README in English](https://github.com/YMFE/ydoc/blob/master/README-en.md)
 
 ## 用法
 
