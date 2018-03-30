@@ -1966,6 +1966,7 @@ body {
 }
 
 .g-home .m-section-banner {
+  width: 7.7rem;
   position: absolute;
   z-index: 0;
   bottom: 0;
