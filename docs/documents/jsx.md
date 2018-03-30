@@ -18,7 +18,7 @@ React发明了JSX， 可以简单地理解它是一种在JS中编写与XML类似
 script标签里面的内容实际会被编译成
 
 ```javascript
-React.createElement('h1',null, 'Hello, world!')
+React.createElement('h1', null, 'Hello, world!');
 ```
 
 又如
@@ -59,7 +59,7 @@ var component = <Component {...props} />;
 ```
 花括号里面可以使用三元表达式
 ```jsx
-var person = <Person name={window.isLoggedIn ? window.name : ''} />;
+var person = <Person name={ window.isLoggedIn ? window.name : '' } />;
 ```
 会编译成
 ```javascript
@@ -78,7 +78,7 @@ var person = React.createElement(
 
 这个会编译成,  `相邻的字任串或数字会合并成一个字符串`，`布尔，null, undefined会被忽略掉`。
 ```javascript
-React.createElement('div',null,"xxx111yyy")
+React.createElement('div', null, "xxx111yyy")
 ```
 
 在innerHTML里面，我们可以使用数组或数组的map方法生成一个新数组的方法，为当前父元素添加一堆子元素。
@@ -125,7 +125,7 @@ var node = <div style={style}>HelloWorld.</div>;
 如果要不转义，可以使用dangerouslySetInnerHTML属性。dangerouslySetInnerHTML要求对应一个对象，里面有一个叫__html的字符串。React故意搞得这么难写，目的让大家少点用它。
 
 ```jsx
-  <div dangerouslySetInnerHTML={{__html: '<strong>content</strong>'}}></div>
+<div dangerouslySetInnerHTML={{__html: '<strong>content</strong>'}}></div>
 ```
 
 注意：JSX里面br，input, hr等标签必须自闭合，如`<br>`必须写成`<br />`

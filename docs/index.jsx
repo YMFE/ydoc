@@ -20,7 +20,6 @@ footer:
     Git仓库:
       - { name: 'Github', href: 'https://github.com/YMFE/ydoc' }
       - { name: 'Github Issue', href: 'https://github.com/YMFE/ydoc/issues' }
-
 ---
 
 <Homepage banner={banner} features={features} />

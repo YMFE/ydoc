@@ -3,5 +3,8 @@
 
 * [文档](/documents/index.md)
 * [插件](/plugin/index.jsx)
-* [文档规范](style-guide/index.md)
+
+## 规范 
+  * [设计规范](standard/style-guide.md)
+  * [文档规范](standard/index.md)
 

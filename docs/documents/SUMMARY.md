@@ -6,9 +6,10 @@
 
 * [目录结构](structure.md)
 * [导航](nav.md)
-* [页面](pages.md)
-  * [目录](pages.md#目录)
-  * [页面](pages.md#页面)
+* [页面](pages-index.md)
+  * [首页](pages-index.md)
+  * [文档页](pages-book.md)
+  * [自定义页面](pages-custom.md)
 * [配置文件](config.md)
 * [Markdown](markdown.md)
 

@@ -54,4 +54,4 @@ ydoc build
 
 - [目录](structure.md): 了解 YDoc 的目录结构
 - [导航](nav.md): 页面顶部的链接
-- [页面](pages.md): 编写页面目录和内容
+- [页面](pages-index.md): 编写首页、文档页目录和内容
