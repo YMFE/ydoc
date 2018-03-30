@@ -4,7 +4,7 @@ const path = require('path');
 const utils = require('./utils.js');
 const fs = require('fs-extra');
 
-const DEFAULT_PLUGINS = ['execution-time', 'import-asset'];
+const DEFAULT_PLUGINS = ['execution-time', 'import-asset', 'search'];
 
 const hooks = {}
 
