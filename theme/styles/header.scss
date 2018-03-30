@@ -11,7 +11,8 @@
 	background-color: rgba($white, .97);
 	border-bottom: 1px solid $break-line-color;
   backface-visibility: hidden;
-  z-index: 2;
+	z-index: 999999;
+	transform: translateZ(1000px);
 	&-title {
 		// width: 3rem;
 		height: .64rem;
@@ -35,7 +36,7 @@
 			padding: $padding-sm;
 		}
 		.m-header-subtitle {
-			padding: .16rem 1.5em;
+			padding: .08rem 1.5em;
 			.item {
 				width: 100%;
 			}
@@ -53,6 +54,7 @@
 			position: relative;
 			cursor: pointer;
 			transition: all $transition-time-quick;
+			min-height: .32rem;
 			&:last-child {
 				margin-bottom: 0;
 			}
@@ -119,6 +121,7 @@
 				transform: translateX(-50%);
 				width: auto;
 				background-color: #fff;
+				padding: .08rem 1.5em;
 				border-radius: 4px;
 				box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
 				.item {
