@@ -4,7 +4,6 @@
 node_modules
 node_modules/
 .sass-cache/
-/_site
 
 # maven ignore
 target/
@@ -39,7 +38,6 @@ Thumbs.db
 # *.tar
 # *.tar.gz
 
-_site
 demo/
 ./test.js
 
