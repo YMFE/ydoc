@@ -18,10 +18,10 @@
 
 | 文件 | 描述 |
 | -------- | ----------- |
-| `index.jsx` | [网站首页](pages.md) (**必需**) |
-| `NAV.md` | [网站导航](nav.md)) (**必需**) |
-| `book/index.md` | [book 首页](pages.md#页面)] (**必需**) |
-| `book/SUMMARY.md` | [book 目录](pages.md#目录)，SUMMARY.md 引用的所有 markdown 文件将会被转换成 html 文件 (__可选__) |
+| `index.jsx` | [首页](pages-index.md) (**必需**) |
+| `NAV.md` | [导航](nav.md)) (**必需**) |
+| `book/index.md` | [文档页首页](pages-book.md#页面)] (**必需**) |
+| `book/SUMMARY.md` | [文档目录](pages-book.md#目录)，SUMMARY.md 引用的所有 markdown 文件将会被转换成 html 文件 (__可选__) |
 
 > 注：`NAV.md` 和 `SUMMARY.md` 文件名大写
 
