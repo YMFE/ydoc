@@ -38,6 +38,9 @@
   .href:hover {
     color: $primary-color;
   }
+  &-title {
+    color: $deep-caption-text-color;
+  }
 }
 
 // Expand footer on PC
