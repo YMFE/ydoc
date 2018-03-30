@@ -1,4 +1,4 @@
-<html>
+<html lang="zh-CN">
   <Head config={props.config} assets={props.assets} title={props.title} distPath={props.page.distPath} />
   <body>
     <div className="g-doc">

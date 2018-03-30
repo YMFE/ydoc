@@ -74,7 +74,7 @@ $(function(){
   $searchInput.on('blur', function(e) {
     setTimeout(function() {
       $searchResult.hide();
-    }, 100);
+    }, 300);
   });
 
   // ESCAPE key pressed
