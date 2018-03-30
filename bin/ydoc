@@ -1,6 +1,16 @@
 #!/usr/bin/env node
-
-var cli = require('../src/cli'),
-    cmd = process.argv[2];
-
-cmd ? cli.run(cmd) : cli.help();
+const color = require('bash-color');
+const child_process = require('child_process');
+child_process.exec('node -v', function(err, stdout, stderr){
+  if(err) throw err;
+  let version = stdout.match(/v([\.0-9]+)/)[1]
+  let arr = version.split('.')
+  let errmsg = color.red('YDoc requires node v7.6.0 or higher.')
+  if(arr[0] < 7){
+    return process.stdout.write(errmsg)
+    if(arr[1] < 6){
+      return process.stdout.write(errmsg)
+    }
+  }
+  require('../src/index.js');
+})

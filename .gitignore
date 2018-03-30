@@ -38,3 +38,11 @@ Thumbs.db
 # *.zip
 # *.tar
 # *.tar.gz
+
+_site
+demo/
+./test.js
+
+/coverage
+.vscode
+package-lock.json

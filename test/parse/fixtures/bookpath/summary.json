@@ -1,0 +1,99 @@
+[
+  {
+    "title": "",
+    "articles": [
+      {
+        "title": "快速开始",
+        "ref": "index.md",
+        "articles": []
+      }
+    ]
+  },
+  {
+    "title": "教程",
+    "articles": [
+      {
+        "title": "目录结构",
+        "ref": "structure.md",
+        "articles": []
+      },
+      {
+        "title": "页面 和 Summary",
+        "ref": "pages.md",
+        "articles": []
+      },
+      {
+        "title": "配置文件",
+        "ref": "config.md",
+        "articles": []
+      },
+      {
+        "title": "导航",
+        "ref": "nav.md",
+        "articles": []
+      },
+      {
+        "title": "Markdown",
+        "ref": "markdown.md",
+        "articles": []
+      }
+    ]
+  },
+  {
+    "title": "自定义",
+    "articles": [
+      {
+        "title": "组件",
+        "ref": "component.md",
+        "articles": []
+      },
+      {
+        "title": "扩展",
+        "ref": "plugins.md",
+        "articles": [
+          {
+            "title": "创建插件",
+            "ref": "plugins.md",
+            "articles": []
+          },
+          {
+            "title": "Hooks",
+            "ref": "plugins.md",
+            "articles": []
+          },
+          {
+            "title": "Api",
+            "ref": "plugins.md",
+            "articles": []
+          }
+        ]
+      },
+      {
+        "title": "主题",
+        "ref": "theme.md",
+        "articles": [
+          {
+            "title": "安装",
+            "ref": "theme.md",
+            "articles": []
+          },
+          {
+            "title": "开发",
+            "ref": "theme.md",
+            "articles": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "",
+    "articles": [
+      {
+        "title": "版本历史",
+        "ref": "https://github.com/YMFE/ydoc/blob/master/README.md",
+        "articles": []
+      }
+    ]
+  }
+]
