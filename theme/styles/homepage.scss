@@ -38,12 +38,15 @@
       }
     }
     &-banner {
-      width: 7.7rem;
+      width: 100%;
       position: absolute;
       z-index: 0;
       bottom: 0;
       left: 50%;
       transform: translateX(-45%);
+      img {
+        width: 100%;
+      }
     }
     &-box {
       display: flex;
@@ -147,6 +150,9 @@
           font-size: $font-size-h3;
           line-height: 1.6;
         }
+      }
+      &-banner {
+        width: 7.7rem;
       }
       .btn {
         margin-right: .16rem;

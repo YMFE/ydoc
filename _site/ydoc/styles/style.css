@@ -1471,6 +1471,7 @@ body {
 .m-main {
   width: 100%;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .m-main h2:before, .m-main h3:before {
@@ -1761,6 +1762,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column-reverse;
+  z-index: 9999;
 }
 
 .m-summary-switch .top, .m-summary-switch .bottom {
@@ -1786,6 +1788,7 @@ body {
 
 .m-content {
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   background-color: #fff;
   padding-top: .64rem;
   height: 100%;
@@ -1840,6 +1843,7 @@ body {
   .m-content {
     overflow-x: hidden;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -1966,12 +1970,16 @@ body {
 }
 
 .g-home .m-section-banner {
-  width: 7.7rem;
+  width: 100%;
   position: absolute;
   z-index: 0;
   bottom: 0;
   left: 50%;
   transform: translateX(-45%);
+}
+
+.g-home .m-section-banner img {
+  width: 100%;
 }
 
 .g-home .m-section-box {
@@ -2080,6 +2088,9 @@ body {
   .g-home .m-section-title .desc {
     font-size: 20px;
     line-height: 1.6;
+  }
+  .g-home .m-section-banner {
+    width: 7.7rem;
   }
   .g-home .m-section .btn {
     margin-right: .16rem;

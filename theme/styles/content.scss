@@ -1,5 +1,6 @@
 .m-content {
   overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
   background-color: #fff;
   padding-top: .64rem;
   height: 100%;
@@ -45,5 +46,6 @@
   .m-content {
     overflow-x: hidden;
     overflow-y: auto;
+	  -webkit-overflow-scrolling: touch;
   }
 }

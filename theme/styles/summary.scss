@@ -92,6 +92,7 @@
     justify-content: center;
     align-items: center;
 		flex-direction: column-reverse;
+		z-index: 9999;
 		.top, .bottom {
 			transition: all $transition-time-quick ease-in-out;
 		}
