@@ -1706,6 +1706,7 @@ body {
   font-size: 16px;
   line-height: 2.5;
   color: rgba(3, 17, 31, 0.87);
+  padding-left: 0.08rem;
 }
 
 .m-summary-list {
@@ -1771,8 +1772,7 @@ body {
     position: static;
     height: auto;
     width: auto;
-    padding: .4rem;
-    padding-right: .24rem;
+    padding: .4rem .32rem;
     margin-top: .64rem;
     flex: 3rem 0 0;
   }

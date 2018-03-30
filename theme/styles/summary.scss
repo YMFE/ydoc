@@ -44,6 +44,7 @@
 		font-size: $font-size-h4;
 		line-height: 2.5;
 		color: $deep-body-text-color;
+		padding-left: $padding-xs;
 	}
 	&-list {
 		font-size: $font-size-body;
@@ -103,8 +104,7 @@
 		position: static;
 		height: auto;
 		width: auto;
-		padding: .4rem;
-		padding-right: .24rem;
+		padding: .4rem .32rem;
 		margin-top: .64rem;
 		flex: 3rem 0 0;
 		&-switch {
