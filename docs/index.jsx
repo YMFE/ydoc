@@ -26,7 +26,7 @@ footer:
 ---
 
 {
-  banner.caption = '当前版本: v' + props.config.version
+  (banner.caption = '当前版本: v' + props.config.version) && null
 }
 
 <Homepage banner={banner} features={features} />
