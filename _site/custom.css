@@ -32,10 +32,15 @@
 }
 .filebox .item {
   flex: 1 0 100%;
-  border: 1px solid #e6f0f6;
   border-radius: 4px;
   padding: 16px 24px;
   margin-bottom: 32px;
+  cursor: pointer;
+  transition: all .2s;
+  box-shadow: 0 1px 2px 0 rgba(43, 59, 93, 0.29);
+}
+.filebox .item:hover {
+  box-shadow: 0 2px 4px 0 rgba(43, 59, 93, 0.29);
 }
 .filebox .title {
   margin-top: 16px;

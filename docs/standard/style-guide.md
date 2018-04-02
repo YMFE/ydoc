@@ -28,14 +28,14 @@ YDoc 的设计稿经过设计师的几度推敲重做，诞生了现在你看到
 现在将 YDoc 的LOGO、色彩、排版等规范提供给大家，希望能给大家在自定义样式或定制主题的时候提供一些帮助：
 
 <div class="filebox">
-  <div class="item">
-    <img src="" alt="" />
-    <h4 class="title">YDoc LOGO</h4>
-    <p>Logo sketch 文件</p>
-  </div>
-  <div class="item">
+  <div class="item" onclick="window.open('https://github.com/YMFE/ydoc/releases/download/v4.0.0/ydoc-design-sketch.zip')">
     <img src="" alt="" />
     <h4 class="title">YDoc 项目设计规范</h4>
     <p>YDoc 规范 sketch 文件</p>
+  </div>
+  <div class="item" onclick="window.open('https://github.com/YMFE/ydoc/releases/download/v4.0.0/ydoc-logo.zip')">
+    <img src="" alt="" />
+    <h4 class="title">YDoc LOGO</h4>
+    <p>Logo sketch 文件</p>
   </div>
 </div>
