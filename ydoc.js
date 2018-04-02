@@ -11,5 +11,6 @@ module.exports = {
   markdownIt: function(md){
     
   },
-  dist: '_site'
+  dist: '_site',
+  version: require('./package.json').version
 }

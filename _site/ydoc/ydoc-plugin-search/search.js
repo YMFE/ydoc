@@ -115,6 +115,11 @@ $(function(){
     }
   }, 300));
 
+  // 关闭搜索结果
+  // $searchInput.on('blur', function(e) {
+  //   $searchResult.hide();
+  // });
+
   $searchResult.on('click', function(e){
     return false;
   })
