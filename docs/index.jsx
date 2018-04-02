@@ -15,7 +15,7 @@ features:
 footer:
   copyRight:
     name: 'YMFE Team'
-    href: 'https://ymfe.org/'
+    href: 'https://ymfe.org'
   links:
     团队网址:
       - { name: 'YMFE', href: 'https://ymfe.org/' }
