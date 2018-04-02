@@ -25,9 +25,11 @@ footer:
       - { name: 'Github Issue', href: 'https://github.com/YMFE/ydoc/issues' }
 ---
 
-{
-  (banner.caption = '当前版本: v' + props.config.version) && null
-}
 
-<Homepage banner={banner} features={features} />
-<Footer distPath={props.page.distPath} copyRight={props.footer.copyRight} links={props.footer.links} />
+{
+  (function(){
+    banner.caption = '当前版本: v' + props.config.version
+    return <div><Homepage banner={banner} features={features} />
+    <Footer distPath={props.page.distPath} copyRight={props.footer.copyRight} links={props.footer.links} /></div>
+  })()
+}
