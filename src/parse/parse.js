@@ -74,12 +74,18 @@ exports.parseSite = async function(dist){
     await emitHook('init');
     
     defaultIndexPageName = 'index'
-    let indexPath = await getIndexPath(dist);
+    let indexPath = getIndexPath(dist);
     if(!indexPath){
       return utils.log.error(`The root directory of site didn't find index page.`)
     }
     ydocConfig.nav = getNav(dist);
-    let books = []
+    let books = [
+      {
+        bookpath: dist,
+        indexFile: path.basename(indexPath),
+        title: ydocConfig.title
+      }
+    ]
     ydocConfig.nav.menus.forEach(menu=>{
       let menuBooks = getBooks(menu.items, dist);
       books = books.concat(menuBooks)
@@ -88,17 +94,17 @@ exports.parseSite = async function(dist){
       return item.bookpath + item.indexFile
     })
     
-    const generateSitePage = generate(dist);
-    generateSitePage({
-      title: ydocConfig.title,
-      page: {
-        srcPath: indexPath,
-        distPath: './index.html'
-      },
-      config: ydocConfig
-    })
+    // const generateSitePage = generate(dist);
+    // generateSitePage({
+    //   title: ydocConfig.title,
+    //   page: {
+    //     srcPath: indexPath,
+    //     distPath: './index.html'
+    //   },
+    //   config: ydocConfig
+    // })
 
-    await runBatch();
+    // await runBatch();
 
     for(let j=0; j< books.length ; j++){
       await parseBook(books[j]);
@@ -197,7 +203,7 @@ async function parseBook({bookpath, indexFile, title}){
   let extname = path.extname(indexFile);
   let name = path.basename(indexFile, extname);
   defaultIndexPageName = name;
-  let indexPath = await getIndexPath(bookpath);
+  let indexPath = getIndexPath(bookpath);
   if(!indexPath) return ;
 
   let summary = getBookSummary(bookpath);

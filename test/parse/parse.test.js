@@ -55,14 +55,17 @@ describe('parse', function(){
     ]
     let books = getBooks(menus, dist)
     let result = [{
-      bookPath: dist,
-      indexFile: 'markdown.md'
+      bookpath: dist,
+      indexFile: 'markdown.md',
+      title: '文档'
     },{
-      bookPath: path.resolve(dist, 'index-test/html'),
-      indexFile: 'index.html'
+      bookpath: path.resolve(dist, 'index-test/html'),
+      indexFile: 'index.html',
+      title: '文档规范'
     },{
-      bookPath: path.resolve(dist, 'index-test/jsx'),
-      indexFile: 'index.jsx'
+      bookpath: path.resolve(dist, 'index-test/jsx'),
+      indexFile: 'index.jsx',
+      title: '插件'
     }]
     
     assert.deepEqual(books, result)
