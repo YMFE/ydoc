@@ -1,8 +1,7 @@
 
 const logger = require('../logger')
 const utils = require('../utils')
-require('../ydoc')
-const runner = require('../run')
+const runner = require('../index')
 
 module.exports = {
   setOptions: function (yargs) {
@@ -16,9 +15,9 @@ module.exports = {
   },
   run: async function (argv) {
     utils.log = new logger(argv.verbose ? 'debug' : 'info');
-    await runner({
-      mode: argv.mode
-    })
+    if(argv.mode === 'prd') process.env.NODE_ENV = 'production'
+    else process.env.NODE_ENV = 'development'
+    await runner()
   },
   desc: 'Generate the document site'
 }

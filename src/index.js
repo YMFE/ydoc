@@ -1,42 +1,93 @@
-const fs = require('fs-extra');
-const path = require('path');
-const argv= process.argv;
-const commands = [];
-const utils = require('./utils');
-const _ = require('underscore');
+const path = require("path");
+const fs = require("fs-extra");
+const noox = require("noox");
+const parse = require("./parse/parse.js");
+const utils = require("./utils");
 
-const commandsDir = path.resolve(__dirname, 'commands');
-const commandsFile = fs.readdirSync(commandsDir);
+const loadPlugins = require("./plugin.js").loadPlugins;
+const ydoc = require("./ydoc.js");
+const ydocPath = path.resolve(__dirname, "..");
+const loadMarkdownPlugins = require("./parse/markdown").loadMarkdownPlugins;
 
-commandsFile.forEach(function (file) {
-  if (path.extname(file) !== '.js') return null;
-  let commandModule = require(path.resolve(commandsDir, file));
-  if (!commandModule) {
-    throw new Error(`Module isn't exist in the filepath "${commandsDir}/${file}" `);
+function initConfig(config){
+  const projectPath = utils.projectPath;
+  if(!config){    
+    const configFilepath = utils.getConfigPath(projectPath);
+    config = utils.getConfig(configFilepath);
   }
-  let commandName = path.basename(file, '.js');
-  commands.push({
-    name: commandName,
-    module: commandModule
-  });
-})
+  
+  utils.extend(ydoc.config, config);
 
-if(argv.length === 2){
-  argv.push('--help');
-}if(argv[2][0] !== '-' && !_.find(commands, {name: argv[2]})){
-  utils.log.error(`Command "${argv[2]}" doesn't exist.`);
-  argv[2] = '-h';
+  ydoc.config.dist = path.resolve(projectPath, ydoc.config.dist);  
+  ydoc.config.root = path.resolve(projectPath, ydoc.config.root);
 }
 
-const yargs = require('yargs');
+async function run(config) {
+  // init Resources path
+  initConfig(config)
+  const dist = ydoc.config.dist;
+  const root = ydoc.config.root;
+  const themePath = path.resolve(ydocPath, "theme");  
+  const customerComponentsPath = path.resolve(root, "_components");
 
-commands.forEach(command=>{
-  let m = command.module;
-  yargs.command(command.name, m.desc, m.setOptions, m.run);
-})
+  const themeDist = path.resolve(dist, "_theme");
+  const componentsDist = path.resolve(themeDist, "components");
 
-yargs
-.usage('Usage: $0 [command]')
-.help('h')
-.alias('h', 'help')
-.argv;
+  if(process.env.NODE_ENV === 'production'){
+    fs.removeSync(dist);
+  }
+  fs.ensureDirSync(dist);
+  fs.ensureDirSync(themeDist);
+
+  fs.copySync(root, dist);
+  fs.copySync(themePath, themeDist);
+  if (ydoc.config.theme && ydoc.config.theme !== "default") {
+    handleTheme(ydoc.config.theme);
+  }
+
+  fs.copySync(
+    path.resolve(themeDist, "style.css"),
+    path.resolve(dist, "ydoc/styles", "style.css")
+  );
+  fs.copySync(
+    path.resolve(themeDist, "images"),
+    path.resolve(dist, "ydoc/images")
+  );
+  fs.copySync(
+    path.resolve(themeDist, "scripts"),
+    path.resolve(dist, "ydoc/scripts")
+  );
+
+  if(utils.dirExist(customerComponentsPath)){
+    utils.mergeCopyFiles(customerComponentsPath, componentsDist);
+  }
+  
+
+  loadPlugins();
+
+  utils.noox = new noox(componentsDist, {
+    relePath: ydoc.relePath,
+    hook: ydoc.hook
+  });
+
+  loadMarkdownPlugins(ydoc.config.markdownIt);
+
+  await parse.parseSite(dist);
+  fs.removeSync(themeDist);
+
+  function handleTheme(theme) {
+    let modules = path.resolve(process.cwd(), "node_modules");
+    let themeModuleDir = path.resolve(modules, "./ydoc-theme-" + theme);
+    try {
+      utils.mergeCopyFiles(path.resolve(themeModuleDir, "./theme"), themeDist);
+    } catch (err) {
+      err.message =
+        "Load " +
+        path.resolve(modules, "./ydoc-theme-" + theme) +
+        `theme failed, Please run "npm install ydoc-theme-${theme}" install the theme.`;
+      throw err;
+    }
+  }
+}
+
+module.exports = run;

@@ -13,6 +13,7 @@ const ydoc = {
   log: utils.log,  
   config: {
     root: utils.defaultDocsPath,
+    dist: utils.defaultBuildPath,
     title: "ydoc",
     description: "ydoc description",
     author: "ymfe",
@@ -49,13 +50,7 @@ const ydoc = {
   }
 }
 
-const configFilepath = utils.getConfigPath(projectPath);
-const config = utils.getConfig(configFilepath);
-utils.extend(ydoc.config, config);
 
-const defaultBuildPath = ydoc.config.dist || utils.defaultBuildPath;
-ydoc.config.dist = path.resolve(projectPath, defaultBuildPath);  
-ydoc.config.root = path.resolve(projectPath, ydoc.config.root);
 
 module.exports=ydoc;
 

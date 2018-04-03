@@ -12,5 +12,5 @@ child_process.exec('node -v', function(err, stdout, stderr){
       return process.stdout.write(errmsg)
     }
   }
-  require('../src/index.js');
+  require('../src/cli.js');
 })
