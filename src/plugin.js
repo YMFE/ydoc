@@ -20,7 +20,7 @@ function addTplHook(arr){
   })
 }
 
-addHook(["init", "finish", "book:before", "book", "page:before", "page"])
+addHook(["init","nav", "finish", "book:before", "book", "page:before", "page"])
 addTplHook(["header"])
 
 
