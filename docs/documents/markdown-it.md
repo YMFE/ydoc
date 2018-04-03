@@ -7,7 +7,7 @@ YDoc 使用了开源工具 [markdown-it](https://github.com/markdown-it/markdown
 ```js
 {
   markdownIt: function(){
-    md..use(plugin1)
+    md.use(plugin1)
     .use(plugin2, opts, ...)
     .use(plugin3);
   }

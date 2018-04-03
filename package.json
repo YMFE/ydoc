@@ -8,7 +8,15 @@
   },
   "keywords": [
     "doc",
-    "document"
+    "docs",
+    "document",
+    "documents",
+    "documentation",
+    "markdown",
+    "build",
+    "fe",
+    "front-end",
+    "js"
   ],
   "homepage": "https://ydoc.ymfe.org/",
   "main": "src/index.js",

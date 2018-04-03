@@ -343,7 +343,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "YDoc 配置 markdown-it 插件",
           "url": "/documents/markdown-it.html#ydoc-配置-markdown-it-插件",
-          "content": "YDoc 配置 markdown-it 插件在 ydoc.js 配置文件增加 markdownIt 配置项{  markdownIt: function(){\n    md..use(plugin1)\n    .use(plugin2, opts, ...)\n    .use(plugin3);\n  }\n}\n\n"
+          "content": "YDoc 配置 markdown-it 插件在 ydoc.js 配置文件增加 markdownIt 配置项{  markdownIt: function(){\n    md.use(plugin1)\n    .use(plugin2, opts, ...)\n    .use(plugin3);\n  }\n}\n\n"
         }
       ]
     },
