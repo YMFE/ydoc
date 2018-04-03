@@ -9,6 +9,7 @@
 	height: 0;
 	overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
+	transition: all .2s;
 	// display: none;
 	// give up box shadow
 	// border-right: 1px solid $break-line-color;
@@ -104,9 +105,9 @@
 @include media-md() {
 	.m-summary {
 		position: static;
-		height: auto;
-		width: auto;
-		padding: .4rem .32rem;
+		height: 100%;
+		width: 2.4rem;
+		padding: .4rem .32rem .8rem;
 		margin-top: .64rem;
 		flex: 3rem 0 0;
 		&-switch {
@@ -115,5 +116,10 @@
 		&-content {
 			display: block;
 		}
+	}
+}
+@include media-lg() {
+	.m-summary {
+		width: 3rem;
 	}
 }
