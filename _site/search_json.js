@@ -21,6 +21,11 @@ window.ydoc_plugin_search_json = {
           "content": "使用 NPM 安装 YDocnpm install ydoc [-g]"
         },
         {
+          "title": "使用 NPM 安装 rc 版本（发布候选版本）",
+          "url": "/documents/index.html#安装依赖-使用-npm-安装-rc-版本（发布候选版本）",
+          "content": "使用 NPM 安装 rc 版本（发布候选版本）npm install ydoc@rc [-g]"
+        },
+        {
           "title": "创建你的站点",
           "url": "/documents/index.html#创建你的站点",
           "content": "创建你的站点mkdir project && cd projectydoc init\nydoc build\nydoc init 执行初始化操作，这将会在当前目录生成一个 'docs' 目录，用于存放文档(markdown)文件。ydoc build 执行构建操作，这将会使用 'docs' 目录中的文件进行文档站的构建，构建成功后会在当前目录生成一个 '_site' 目录，打开 '_site' 目录中的  index.html 文件即可访问构建的文档站首页 🎉🎉"
@@ -343,7 +348,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "YDoc 配置 markdown-it 插件",
           "url": "/documents/markdown-it.html#ydoc-配置-markdown-it-插件",
-          "content": "YDoc 配置 markdown-it 插件在 ydoc.js 配置文件增加 markdownIt 配置项{  markdownIt: function(){\n    md..use(plugin1)\n    .use(plugin2, opts, ...)\n    .use(plugin3);\n  }\n}\n\n"
+          "content": "YDoc 配置 markdown-it 插件在 ydoc.js 配置文件增加 markdownIt 配置项{  markdownIt: function(){\n    md.use(plugin1)\n    .use(plugin2, opts, ...)\n    .use(plugin3);\n  }\n}\n\n"
         }
       ]
     },
@@ -360,7 +365,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "v4.0.0 (2018.03.29)",
           "url": "/documents/release.html#新-ydoc-v4.0.0-版本发布啦！-🎉🎉🎉-v4.0.0-2018.03.29",
-          "content": "v4.0.0 (2018.03.29)重构: 经过长达数年的文档构建工作，我们积攒了大量构建文档的经验，此刻我们卸下历史包袱、厚积薄发、精雕细琢地打造了拥有卓越的视觉与交互体验的文档构建工具！\n灵活的插件机制: 万物皆插件，YDoc 虽然是一个非常轻量的工具，但插件机制让它灵活地应用于各种复杂场景\n简洁而严谨的 UI 设计\n文档设计规范\n"
+          "content": "v4.0.0 (2018.03.29)重构: 经过长达数年的文档构建工作，我们积攒了大量构建文档的经验，此刻我们卸下历史包袱、厚积薄发、精雕细琢地打造了拥有卓越的视觉与交互体验的文档构建工具！\n灵活的插件机制: 万物皆插件，YDoc 虽然是一个非常轻量的工具，但插件机制让它灵活地应用于各种复杂场景\n响应式设计，支持手持设备访问\n简洁而严谨的 UI 设计\n文档设计规范\n"
         }
       ]
     }

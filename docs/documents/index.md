@@ -34,6 +34,12 @@ nvm install stable
 npm install ydoc [-g]
 ```
 
+### 使用 NPM 安装 rc 版本（发布候选版本）
+
+```
+npm install ydoc@rc [-g]
+```
+
 ## 创建你的站点
 
 ```

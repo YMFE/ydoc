@@ -12,6 +12,7 @@
         <Content distPath={props.page.distPath} content={props.page.content} type={props.page.type} ydoc={props} prev={props.page.prev} next={props.page.next} />
       </div>
     </div>
+    <Hook name="mask" ydoc={props} />
     <Scripts assets={props.assets} page={props.page} />
   </body>
 </html>
