@@ -1,7 +1,8 @@
 const utils = require('../utils.js');
 const fs = require('fs-extra');
 const MarkdownIt = require('markdown-it');
-const hljs = require('highlight.js'); // https://highlightjs.org/
+const hljs = require('highlight.js'); 
+const he = require('he');
 
 utils.md = MarkdownIt({
   html: true,
@@ -56,5 +57,5 @@ utils.md.use(function (md) {
 
 exports.parseMarkdown = function parseMarkdown(filepath) {
   const content = fs.readFileSync(filepath, 'utf8');
-  return utils.md.render(content);
+  return he.decode(utils.md.render(content));
 }

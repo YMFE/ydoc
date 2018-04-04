@@ -74,6 +74,10 @@ async function run(config) {
   await parse.parseSite(dist);
   fs.removeSync(themeDist);
 
+  return {
+    code: 0 //0 代表成功
+  }
+  
   function handleTheme(theme) {
     let modules = path.resolve(process.cwd(), "node_modules");
     let themeModuleDir = path.resolve(modules, "./ydoc-theme-" + theme);
