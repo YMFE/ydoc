@@ -1,5 +1,4 @@
 const ydoc = require('./ydoc.js');
-const ydocConfig = ydoc.config;
 const path = require('path');
 const utils = require('./utils.js');
 const fs = require('fs-extra');
@@ -20,7 +19,7 @@ function addTplHook(arr){
   })
 }
 
-addHook(["init", "finish", "book:before", "book", "page:before", "page"])
+addHook(["init","nav", "finish", "book:before", "book", "page:before", "page"])
 addTplHook(["header"])
 
 
@@ -114,7 +113,19 @@ function handleAssets(config, dir, pluginName){
   }
 }
 
+function bindHooks(pluginModule, options){
+  for (let key in pluginModule) {
+    if (hooks[key]) {
+      bindHook(key, {
+        fn: pluginModule[key],
+        options: options
+      })
+    }
+  }
+}
+
 exports.loadPlugins = function loadPlugins() {
+  const ydocConfig = ydoc.config;
   let modules = path.resolve(process.cwd(), 'node_modules');
   let plugins = [].concat(DEFAULT_PLUGINS);
   if (ydocConfig.plugins && Array.isArray(ydocConfig.plugins)) {
@@ -122,26 +133,27 @@ exports.loadPlugins = function loadPlugins() {
   }
   for (let i = 0, l = plugins.length; i < l; i++) {
     let pluginName = plugins[i];
-    let options = typeof ydocConfig.pluginsConfig === 'object' && ydocConfig.pluginsConfig ? ydocConfig.pluginsConfig[pluginName] : null;
+    
     try {
       let pluginModule, pluginModuleDir;
-      try{
-        pluginModuleDir = path.resolve(modules, './ydoc-plugin-' + pluginName)
-        pluginModule = require(pluginModuleDir);
-      }catch(err){
-        pluginModuleDir = path.resolve(__dirname, '../node_modules', './ydoc-plugin-' + pluginName)
-        pluginModule = require(pluginModuleDir);
-      }
-      
-      utils.log.info(`Load plugin "${pluginName}" success.`)
-      for (let key in pluginModule) {
-        if (hooks[key]) {
-          bindHook(key, {
-            fn: pluginModule[key],
-            options: options
-          })
+      if(pluginName && typeof pluginName === 'object' && pluginName.name && pluginName.module){
+        pluginModule = pluginName.module;
+        pluginName = pluginName.name;
+        pluginModuleDir = process.cwd();        
+      }else{
+        try{
+          pluginModuleDir = path.resolve(modules, './ydoc-plugin-' + pluginName)
+          pluginModule = require(pluginModuleDir);
+        }catch(err){
+          pluginModuleDir = path.resolve(__dirname, '../node_modules', './ydoc-plugin-' + pluginName)
+          pluginModule = require(pluginModuleDir);
         }
+        utils.log.info(`Load plugin "${pluginName}" success.`)
       }
+      console.log(pluginName, ydocConfig.pluginsConfig)
+      let options = typeof ydocConfig.pluginsConfig === 'object' && ydocConfig.pluginsConfig ? ydocConfig.pluginsConfig[pluginName] : null;    
+      
+      bindHooks(pluginModule, options)
       if(pluginModule.assets){
         handleAssets(pluginModule.assets, pluginModuleDir, pluginName)
       }

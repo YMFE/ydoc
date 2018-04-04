@@ -79,6 +79,9 @@ exports.parseSite = async function(dist){
       return utils.log.error(`The root directory of site didn't find index page.`)
     }
     ydocConfig.nav = getNav(dist);
+
+    await emitHook('nav', ydocConfig.nav)
+
     let books = [
       {
         bookpath: dist,
@@ -93,18 +96,6 @@ exports.parseSite = async function(dist){
     books = utils.distinct(books, (item) => {
       return item.bookpath + item.indexFile
     })
-    
-    // const generateSitePage = generate(dist);
-    // generateSitePage({
-    //   title: ydocConfig.title,
-    //   page: {
-    //     srcPath: indexPath,
-    //     distPath: './index.html'
-    //   },
-    //   config: ydocConfig
-    // })
-
-    // await runBatch();
 
     for(let j=0; j< books.length ; j++){
       await parseBook(books[j]);
