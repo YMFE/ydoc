@@ -1887,6 +1887,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: .16rem;
+  justify-content: center;
 }
 
 .m-footer-links .group {
@@ -1935,6 +1936,7 @@ body {
     margin-bottom: .32rem;
   }
   .m-footer-links {
+    justify-content: inherit;
     flex: 2;
   }
 }

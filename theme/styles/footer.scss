@@ -17,6 +17,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: .16rem;
+    justify-content: center;
     .group {
       flex-basis: 30%;
       flex-shrink: 0;
@@ -61,6 +62,7 @@
       margin-bottom: .32rem;
     }
     &-links {
+      justify-content: inherit;
       flex: 2;
     }
   }
