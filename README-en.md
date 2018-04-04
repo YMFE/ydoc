@@ -21,6 +21,11 @@ YDoc has a flexible and powerful plugin/theme mechanism that allows developers t
 npm install -g ydoc
 ```
 
+### install the rc version (Release Candidate)
+```
+npm install ydoc@rc [-g]
+```
+
 #### build
 ```
 ydoc init
