@@ -1501,7 +1501,7 @@ body {
   background-color: rgba(255, 255, 255, 0.97);
   border-bottom: 1px solid #e5f0f6;
   backface-visibility: hidden;
-  z-index: 999999;
+  z-index: 999;
   transform: translateZ(1000px);
 }
 

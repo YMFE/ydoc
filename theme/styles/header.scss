@@ -11,7 +11,7 @@
 	background-color: rgba($white, .97);
 	border-bottom: 1px solid $break-line-color;
   backface-visibility: hidden;
-	z-index: 999999;
+	z-index: 999;
 	transform: translateZ(1000px);
 	&-title {
 		// width: 3rem;
