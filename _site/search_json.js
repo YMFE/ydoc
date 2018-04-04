@@ -118,11 +118,6 @@ window.ydoc_plugin_search_json = {
           "title": "JSX 规则",
           "url": "/documents/pages-custom.html#jsx-规则",
           "content": "JSX 规则JSX 就是 Javascript 和 XML 结合的一种格式。React发明了JSX，利用HTML语法来创建虚拟DOM。Ydoc 使用了开源工具 noox  解析 .jsx 文件，详细使用方法参考 jsx"
-        },
-        {
-          "title": "自定义页面",
-          "url": "/documents/pages-custom.html#自定义页面",
-          "content": "自定义页面"
         }
       ]
     },

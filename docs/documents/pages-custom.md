@@ -24,4 +24,3 @@ JSX 就是 Javascript 和 XML 结合的一种格式。React发明了JSX，利用
 
 Ydoc 使用了开源工具 [noox](https://github.com/suxiaoxin/noox)  解析 .jsx 文件，详细使用方法参考 [jsx](jsx.md)
 
-## 自定义页面
