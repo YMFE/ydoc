@@ -1816,6 +1816,10 @@ body {
   line-height: 1;
 }
 
+.m-content-container.markdown-body {
+  min-height: calc(100% - 2rem);
+}
+
 .m-paging {
   font-size: 16px;
 }
