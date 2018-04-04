@@ -30,7 +30,7 @@
   "engines": {
     "node": ">=7.6.0"
   },
-  "license": "MIT",
+  "license": "Apache2.0",
   "dependencies": {
     "bash-color": "0.0.4",
     "cheerio": "^0.20.0",
