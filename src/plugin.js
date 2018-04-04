@@ -150,7 +150,6 @@ exports.loadPlugins = function loadPlugins() {
         }
         utils.log.info(`Load plugin "${pluginName}" success.`)
       }
-      console.log(pluginName, ydocConfig.pluginsConfig)
       let options = typeof ydocConfig.pluginsConfig === 'object' && ydocConfig.pluginsConfig ? ydocConfig.pluginsConfig[pluginName] : null;    
       
       bindHooks(pluginModule, options)

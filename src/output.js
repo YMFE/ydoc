@@ -6,8 +6,9 @@ const ydoc = require('./ydoc.js');
 module.exports = async function (props) {
   props.assets = ydoc.getAssets();
   let content = utils.noox.render('Layout', props);
+  content = require('he').decode(content);
   props.page.content = content;
-  await emitHook('page', props.page, props);
+  await emitHook('page', props.page, props);  
   fs.writeFileSync(props.page.distPath, content);
   utils.log.debug('Generate file: ' + props.page.distPath)
 }

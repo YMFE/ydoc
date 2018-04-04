@@ -1,54 +1,65 @@
-<html lang="zh-CN"><head><meta charSet="UTF-8"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><link rel="apple-touch-icon" sizes="180x180" href="../ydoc/images/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="../ydoc/images/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="../ydoc/images/favicon-16x16.png"/><link rel="manifest" href="../ydoc/images/manifest.json"/><link rel="mask-icon" href="../ydoc/images/safari-pinned-tab.svg&quot;" color="#5bbad5"/><meta name="theme-color" content="#ffffff"/><meta http-equiv="Cache-Control" content="no-transform"/><meta http-equiv="Cache-Control" content="no-siteapp"/><title>文档体系-文档规范</title><link rel="stylesheet" href="../ydoc/styles/style.css"/><meta name="author" content="ymfe"/><meta name="keywords"/><meta name="description" content="ydoc description demo"/><meta id="releativePath" content=".."/><link rel="stylesheet" href="../ydoc/ydoc-plugin-search/search.css"/><link rel="stylesheet" href="../custom.css"/></head><body><div class="g-doc"><div class="m-main" id="js-panel"><header class="m-header" id="js-header"><div class="m-header-title js-logo"><a href="../index.html" target="_self"><img class="logo" width="36" src="../ydoc/images/dog@1x.png" srcSet="../ydoc/images/dog@2x.png 2x"/><h6 class="name">YDoc</h6></a></div><div><div class="m-search">
-      <div class="icon">&#xf0fd;</div>
+<html lang="zh-CN"><head><meta charSet="UTF-8"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><link rel="apple-touch-icon" sizes="180x180" href="../ydoc/images/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="../ydoc/images/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="../ydoc/images/favicon-16x16.png"/><link rel="manifest" href="../ydoc/images/manifest.json"/><link rel="mask-icon" href="../ydoc/images/safari-pinned-tab.svg"" color="#5bbad5"/><meta name="theme-color" content="#ffffff"/><meta http-equiv="Cache-Control" content="no-transform"/><meta http-equiv="Cache-Control" content="no-siteapp"/><title>文档体系-文档规范</title><link rel="stylesheet" href="../ydoc/styles/style.css"/><meta name="author" content="ymfe"/><meta name="keywords"/><meta name="description" content="ydoc description demo"/><meta id="releativePath" content=".."/><link rel="stylesheet" href="../ydoc/ydoc-plugin-search/search.css"/><link rel="stylesheet" href="../custom.css"/></head><body><div class="g-doc"><div class="m-main" id="js-panel"><header class="m-header" id="js-header"><div class="m-header-title js-logo"><a href="../index.html" target="_self"><img class="logo" width="36" src="../ydoc/images/dog@1x.png" srcSet="../ydoc/images/dog@2x.png 2x"/><h6 class="name">YDoc</h6></a></div><div><div class="m-search">
+      <div class="icon"></div>
       <input type="text" class="input js-input" placeholder="搜索文档内容" />
       <div class="m-search-result js-search-result"></div>
-    </div></div><nav class="m-header-nav js-nav"><ul class="m-header-items"><li class="item "><a class="href" href="../documents/index.html">文档</a></li><li class="item "><a class="href" href="../plugin/index.html">插件</a></li><li class="item "><span class="href">规范</span><ul class="m-header-subtitle"><li class="item"><a href="style-guide.html" class="link">设计规范</a></li><li class="item"><a href="" class="link">文档规范</a></li></ul></li></ul></nav><div id="js-nav-btn" class="m-header-btn ui-font-ydoc"></div></header><div class="m-content" id="js-content"><div id="markdown-body" class="m-content-container markdown-body"><h1>&#x6587;&#x6863;&#x4F53;&#x7CFB;</h1>
-<h2 id="&#x7ED3;&#x6784;">&#x7ED3;&#x6784;</h2>
-<p>&#x8F6F;&#x4EF6;&#x624B;&#x518C;&#x662F;&#x4E00;&#x90E8;&#x5B8C;&#x6574;&#x7684;&#x4E66;&#xFF0C;&#x5EFA;&#x8BAE;&#x91C7;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x7ED3;&#x6784;&#x3002;</p>
+    </div></div><nav class="m-header-nav js-nav"><ul class="m-header-items"><li class="item "><a class="href" href="../documents/index.html">文档</a></li><li class="item "><a class="href" href="../plugin/index.html">插件</a></li><li class="item "><span class="href">规范</span><ul class="m-header-subtitle"><li class="item"><a href="style-guide.html" class="link">设计规范</a></li><li class="item"><a href="" class="link">文档规范</a></li></ul></li></ul></nav><div id="js-nav-btn" class="m-header-btn ui-font-ydoc"></div></header><div class="m-content" id="js-content"><div id="markdown-body" class="m-content-container markdown-body"><h1>文档体系</h1>
+<h2 id="结构">结构</h2>
+<p>软件手册是一部完整的书，建议采用下面的结构。</p>
 <ul>
-<li><strong>&#x7B80;&#x4ECB;</strong>&#xFF08;Introduction&#xFF09;&#xFF1A; [&#x5FC5;&#x5907;] [&#x6587;&#x4EF6;] &#x63D0;&#x4F9B;&#x5BF9;&#x4EA7;&#x54C1;&#x548C;&#x6587;&#x6863;&#x672C;&#x8EAB;&#x7684;&#x603B;&#x4F53;&#x7684;&#x3001;&#x627C;&#x8981;&#x7684;&#x8BF4;&#x660E;</li>
-<li><strong>&#x5FEB;&#x901F;&#x4E0A;&#x624B;</strong>&#xFF08;Getting Started&#xFF09;&#xFF1A;[&#x53EF;&#x9009;] [&#x6587;&#x4EF6;] &#x5982;&#x4F55;&#x6700;&#x5FEB;&#x901F;&#x5730;&#x4F7F;&#x7528;&#x4EA7;&#x54C1;</li>
-<li><strong>&#x5165;&#x95E8;&#x7BC7;</strong>&#xFF08;Basics&#xFF09;&#xFF1A; [&#x5FC5;&#x5907;] [&#x76EE;&#x5F55;] &#x53C8;&#x79F0;&#x201D;&#x4F7F;&#x7528;&#x7BC7;&#x201C;&#xFF0C;&#x63D0;&#x4F9B;&#x521D;&#x7EA7;&#x7684;&#x4F7F;&#x7528;&#x6559;&#x7A0B;
+<li><strong>简介</strong>（Introduction）： [必备] [文件] 提供对产品和文档本身的总体的、扼要的说明</li>
+<li><strong>快速上手</strong>（Getting Started）：[可选] [文件] 如何最快速地使用产品</li>
+<li><strong>入门篇</strong>（Basics）： [必备] [目录] 又称”使用篇“，提供初级的使用教程
 <ul>
-<li><strong>&#x73AF;&#x5883;&#x51C6;&#x5907;</strong>&#xFF08;Prerequisite&#xFF09;&#xFF1A;[&#x5FC5;&#x5907;] [&#x6587;&#x4EF6;] &#x8F6F;&#x4EF6;&#x4F7F;&#x7528;&#x9700;&#x8981;&#x6EE1;&#x8DB3;&#x7684;&#x524D;&#x7F6E;&#x6761;&#x4EF6;</li>
-<li><strong>&#x5B89;&#x88C5;</strong>&#xFF08;Installation&#xFF09;&#xFF1A;[&#x53EF;&#x9009;] [&#x6587;&#x4EF6;] &#x8F6F;&#x4EF6;&#x7684;&#x5B89;&#x88C5;&#x65B9;&#x6CD5;</li>
-<li><strong>&#x8BBE;&#x7F6E;</strong>&#xFF08;Configuration&#xFF09;&#xFF1A;[&#x5FC5;&#x5907;] [&#x6587;&#x4EF6;] &#x8F6F;&#x4EF6;&#x7684;&#x8BBE;&#x7F6E;</li>
+<li><strong>环境准备</strong>（Prerequisite）：[必备] [文件] 软件使用需要满足的前置条件</li>
+<li><strong>安装</strong>（Installation）：[可选] [文件] 软件的安装方法</li>
+<li><strong>设置</strong>（Configuration）：[必备] [文件] 软件的设置</li>
 </ul>
 </li>
-<li><strong>&#x8FDB;&#x9636;&#x7BC7;</strong>&#xFF08;Advanced)&#xFF1A;[&#x53EF;&#x9009;] [&#x76EE;&#x5F55;] &#x53C8;&#x79F0;&#x201D;&#x5F00;&#x53D1;&#x7BC7;&#x201C;&#xFF0C;&#x63D0;&#x4F9B;&#x4E2D;&#x9AD8;&#x7EA7;&#x7684;&#x5F00;&#x53D1;&#x6559;&#x7A0B;</li>
-<li><strong>API</strong>&#xFF08;Reference&#xFF09;&#xFF1A;[&#x53EF;&#x9009;] [&#x76EE;&#x5F55;|&#x6587;&#x4EF6;] &#x8F6F;&#x4EF6; API &#x7684;&#x9010;&#x4E00;&#x4ECB;&#x7ECD;</li>
-<li><strong>FAQ</strong>&#xFF1A;[&#x53EF;&#x9009;] [&#x6587;&#x4EF6;] &#x5E38;&#x89C1;&#x95EE;&#x9898;&#x89E3;&#x7B54;</li>
-<li><strong>&#x9644;&#x5F55;</strong>&#xFF08;Appendix&#xFF09;&#xFF1A;[&#x53EF;&#x9009;] [&#x76EE;&#x5F55;] &#x4E0D;&#x5C5E;&#x4E8E;&#x6559;&#x7A0B;&#x672C;&#x8EAB;&#x3001;&#x4F46;&#x5BF9;&#x9605;&#x8BFB;&#x6559;&#x7A0B;&#x6709;&#x5E2E;&#x52A9;&#x7684;&#x5185;&#x5BB9;
+<li><strong>进阶篇</strong>（Advanced)：[可选] [目录] 又称”开发篇“，提供中高级的开发教程</li>
+<li><strong>API</strong>（Reference）：[可选] [目录|文件] 软件 API 的逐一介绍</li>
+<li><strong>FAQ</strong>：[可选] [文件] 常见问题解答</li>
+<li><strong>附录</strong>（Appendix）：[可选] [目录] 不属于教程本身、但对阅读教程有帮助的内容
 <ul>
-<li><strong>Glossary</strong>&#xFF1A;[&#x53EF;&#x9009;] [&#x6587;&#x4EF6;] &#x540D;&#x8BCD;&#x89E3;&#x91CA;</li>
-<li><strong>Recipes</strong>&#xFF1A;[&#x53EF;&#x9009;] [&#x6587;&#x4EF6;] &#x6700;&#x4F73;&#x5B9E;&#x8DF5;</li>
-<li><strong>Troubleshooting</strong>&#xFF1A;[&#x53EF;&#x9009;] [&#x6587;&#x4EF6;] &#x6545;&#x969C;&#x5904;&#x7406;</li>
-<li><strong>ChangeLog</strong>&#xFF1A;[&#x53EF;&#x9009;] [&#x6587;&#x4EF6;] &#x7248;&#x672C;&#x8BF4;&#x660E;</li>
-<li><strong>Feedback</strong>&#xFF1A;[&#x53EF;&#x9009;] [&#x6587;&#x4EF6;] &#x53CD;&#x9988;&#x65B9;&#x5F0F;</li>
+<li><strong>Glossary</strong>：[可选] [文件] 名词解释</li>
+<li><strong>Recipes</strong>：[可选] [文件] 最佳实践</li>
+<li><strong>Troubleshooting</strong>：[可选] [文件] 故障处理</li>
+<li><strong>ChangeLog</strong>：[可选] [文件] 版本说明</li>
+<li><strong>Feedback</strong>：[可选] [文件] 反馈方式</li>
 </ul>
 </li>
 </ul>
-<p>&#x4E0B;&#x9762;&#x662F;&#x4E24;&#x4E2A;&#x771F;&#x5B9E;&#x8303;&#x4F8B;&#xFF0C;&#x53EF;&#x53C2;&#x8003;&#x3002;</p>
+<p>下面是两个真实范例，可参考。</p>
 <ul>
-<li><a href="http://redux.js.org">Redux &#x624B;&#x518C;</a></li>
-<li><a href="http://flight-manual.atom.io">Atom &#x624B;&#x518C;</a></li>
+<li><a href="http://redux.js.org">Redux 手册</a></li>
+<li><a href="http://flight-manual.atom.io">Atom 手册</a></li>
 </ul>
-<h2 id="&#x6587;&#x4EF6;&#x540D;">&#x6587;&#x4EF6;&#x540D;</h2>
-<p>&#x6587;&#x6863;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x4E0D;&#x5F97;&#x542B;&#x6709;&#x7A7A;&#x683C;&#x3002;</p>
-<p>&#x6587;&#x4EF6;&#x540D;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x534A;&#x89D2;&#x5B57;&#x7B26;&#xFF0C;&#x4E0D;&#x5F97;&#x4F7F;&#x7528;&#x5168;&#x89D2;&#x5B57;&#x7B26;&#x3002;&#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x4E2D;&#x6587;&#x4E0D;&#x80FD;&#x7528;&#x4E8E;&#x6587;&#x4EF6;&#x540D;&#x3002;</p>
-<pre><code>&#x9519;&#x8BEF;&#xFF1A; &#x540D;&#x8BCD;&#x89E3;&#x91CA;.md
+<h2 id="文件名">文件名</h2>
+<p>文档的文件名不得含有空格。</p>
+<p>文件名必须使用半角字符，不得使用全角字符。这也意味着，中文不能用于文件名。</p>
+<pre><code>错误： 名词解释.md
 
-&#x6B63;&#x786E;&#xFF1A; glossary.md
+正确： glossary.md
 </code></pre>
-<p>&#x6587;&#x4EF6;&#x540D;&#x5EFA;&#x8BAE;&#x53EA;&#x4F7F;&#x7528;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528;&#x5927;&#x5199;&#x5B57;&#x6BCD;&#x3002;</p>
-<pre><code>&#x9519;&#x8BEF;&#xFF1A;TroubleShooting.md
+<p>文件名建议只使用小写字母，不使用大写字母。</p>
+<pre><code>错误：TroubleShooting.md
 
-&#x6B63;&#x786E;&#xFF1A;troubleshooting.md 
+正确：troubleshooting.md 
 </code></pre>
-<p>&#x4E3A;&#x4E86;&#x9192;&#x76EE;&#xFF0C;&#x67D0;&#x4E9B;&#x8BF4;&#x660E;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5927;&#x5199;&#x5B57;&#x6BCD;&#xFF0C;&#x6BD4;&#x5982;<code>README</code>&#x3001;<code>LICENSE</code>&#x3002;</p>
-<p>&#x6587;&#x4EF6;&#x540D;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x5355;&#x8BCD;&#x65F6;&#xFF0C;&#x5355;&#x8BCD;&#x4E4B;&#x95F4;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x534A;&#x89D2;&#x7684;&#x8FDE;&#x8BCD;&#x7EBF;&#xFF08;<code>-</code>&#xFF09;&#x5206;&#x9694;&#x3002;</p>
-<pre><code>&#x4E0D;&#x4F73;&#xFF1A;advanced_usage.md
+<p>为了醒目，某些说明文件的文件名，可以使用大写字母，比如<code>README</code>、<code>LICENSE</code>。</p>
+<p>文件名包含多个单词时，单词之间建议使用半角的连词线（<code>-</code>）分隔。</p>
+<pre><code>不佳：advanced_usage.md
 
-&#x6B63;&#x786E;&#xFF1A;advanced-usage.md
+正确：advanced-usage.md
 </code></pre>
-</div></div></div></div><div></div><script src="../ydoc/scripts/plugins/dollar.min.js"></script><script src="../ydoc/scripts/plugins/responsive-nav.min.js"></script><script src="../ydoc/scripts/plugins/slideout.min.js"></script><script src="../ydoc/scripts/app.js"></script><script src="../ydoc/ydoc-plugin-search/core.js"></script><script src="../ydoc/ydoc-plugin-search/search.js"></script><script src="../search_json.js"></script></body></html>
+</div></div></div></div><div></div><script>
+    var $content = document.getElementById('js-content');
+    var $summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href'));
+    var $menu = document.getElementById('js-menu');
+    if ($menu && sessionStorage.menuScrollTop) {
+		$menu.scrollTop = sessionStorage.menuScrollTop;
+    }
+    // 刷新页面但不切换 pathname 的时候，内容区恢复到记忆的高度
+    if ($content && sessionStorage.contentScrollTop && window.location.pathname == sessionStorage.locationPathname) {
+      $content.scrollTop = sessionStorage.contentScrollTop;
+    }
+    sessionStorage.setItem('locationPathname', window.location.pathname);</script><script src="../ydoc/scripts/plugins/dollar.min.js"></script><script src="../ydoc/scripts/plugins/responsive-nav.min.js"></script><script src="../ydoc/scripts/plugins/slideout.min.js"></script><script src="../ydoc/scripts/app.js"></script><script src="../ydoc/ydoc-plugin-search/core.js"></script><script src="../ydoc/ydoc-plugin-search/search.js"></script><script src="../search_json.js"></script></body></html>
