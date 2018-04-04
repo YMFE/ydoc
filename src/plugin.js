@@ -1,5 +1,4 @@
 const ydoc = require('./ydoc.js');
-const ydocConfig = ydoc.config;
 const path = require('path');
 const utils = require('./utils.js');
 const fs = require('fs-extra');
@@ -126,6 +125,7 @@ function bindHooks(pluginModule, options){
 }
 
 exports.loadPlugins = function loadPlugins() {
+  const ydocConfig = ydoc.config;
   let modules = path.resolve(process.cwd(), 'node_modules');
   let plugins = [].concat(DEFAULT_PLUGINS);
   if (ydocConfig.plugins && Array.isArray(ydocConfig.plugins)) {
@@ -133,14 +133,13 @@ exports.loadPlugins = function loadPlugins() {
   }
   for (let i = 0, l = plugins.length; i < l; i++) {
     let pluginName = plugins[i];
-    let options = typeof ydocConfig.pluginsConfig === 'object' && ydocConfig.pluginsConfig ? ydocConfig.pluginsConfig[pluginName] : null;
     
     try {
       let pluginModule, pluginModuleDir;
       if(pluginName && typeof pluginName === 'object' && pluginName.name && pluginName.module){
         pluginModule = pluginName.module;
-        pluginName = pluginModule.name;
-        pluginModuleDir = process.cwd();
+        pluginName = pluginName.name;
+        pluginModuleDir = process.cwd();        
       }else{
         try{
           pluginModuleDir = path.resolve(modules, './ydoc-plugin-' + pluginName)
@@ -150,8 +149,10 @@ exports.loadPlugins = function loadPlugins() {
           pluginModule = require(pluginModuleDir);
         }
         utils.log.info(`Load plugin "${pluginName}" success.`)
-      }    
-    
+      }
+      console.log(pluginName, ydocConfig.pluginsConfig)
+      let options = typeof ydocConfig.pluginsConfig === 'object' && ydocConfig.pluginsConfig ? ydocConfig.pluginsConfig[pluginName] : null;    
+      
       bindHooks(pluginModule, options)
       if(pluginModule.assets){
         handleAssets(pluginModule.assets, pluginModuleDir, pluginName)

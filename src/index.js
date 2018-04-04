@@ -17,7 +17,6 @@ function initConfig(config){
   }
   
   utils.extend(ydoc.config, config);
-
   ydoc.config.dist = path.resolve(projectPath, ydoc.config.dist);  
   ydoc.config.root = path.resolve(projectPath, ydoc.config.root);
 }
