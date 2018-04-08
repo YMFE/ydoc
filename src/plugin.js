@@ -145,7 +145,7 @@ exports.loadPlugins = function loadPlugins() {
           pluginModuleDir = path.resolve(modules, './ydoc-plugin-' + pluginName)
           pluginModule = require(pluginModuleDir);
         }catch(err){
-          pluginModuleDir = path.resolve(__dirname, '../node_modules', './ydoc-plugin-' + pluginName)
+          pluginModuleDir = path.dirname(require.resolve('ydoc-plugin-' + pluginName))
           pluginModule = require(pluginModuleDir);
         }
         utils.log.info(`Load plugin "${pluginName}" success.`)
