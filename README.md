@@ -10,6 +10,8 @@
 
 YDoc 是一个优雅的文档站构建工具，能够基于 markdown 轻松生成完整静态站点，让你专注于文档写作。YDoc 拥有灵活而强大的插件 / 主题机制，开发者可以轻松定制属于自己的文档站点。
 
+我们使用 `🐶` 作为我们的 LOGO，狗狗作为人类的好朋友，有着敏捷、灵动的特点：YDoc 正是这样一个工具 👻
+
 [文档首页](https://ydoc.ymfe.org/) | [README in English](https://github.com/YMFE/ydoc/blob/master/README-en.md)
 
 ## 用法

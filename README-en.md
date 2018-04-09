@@ -12,6 +12,8 @@ YDoc is an elegant document station construction tool that can easily generate c
 
 YDoc has a flexible and powerful plugin/theme mechanism that allows developers to easily customize their own documentation site.
 
+We use `🐶` as our LOGO. Dogs are good friends of human beings, and they are nimble and agile: YDoc is such a tool.
+
 [Homepage](https://ydoc.ymfe.org/) | [中文 README](https://github.com/YMFE/ydoc/blob/master/README.md)
 
 ## Usage
