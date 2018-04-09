@@ -28,6 +28,7 @@ function getIndexPath(filepath){
       return contentFilepath;
     }
   }
+  return null;
 }
 
 function getBookSummary(filepath){
@@ -194,11 +195,14 @@ async function parseBook({bookpath, indexFile, title}){
   let extname = path.extname(indexFile);
   let name = path.basename(indexFile, extname);
   defaultIndexPageName = name;
-  let indexPath = getIndexPath(bookpath);
-  if(!indexPath) return ;
-
-  let summary = getBookSummary(bookpath);
+  
+  let indexPath = path.resolve(bookpath, indexFile);
+  if(!utils.fileExist(indexPath)){
+    return ;
+  }
   let baseInfo = getBookInfo(indexPath);
+  let summary = getBookSummary(bookpath);
+  
   utils.extend(book, baseInfo);
   book.summary = summary;
   book.bookpath = path.resolve(bookpath, name + '.html')
