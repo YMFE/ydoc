@@ -247,11 +247,12 @@ function parseDocuments(bookpath, callback){
         if(urlObj.host) continue;
         let releativePath = urlObj.pathname;
         let absolutePath = path.resolve(bookpath, releativePath);
-        if(utils.fileExist(absolutePath)){
-          let releativeHtmlPath = handleMdPathToHtml(releativePath);
-          urlObj.hash = urlObj.hash ? urlObj.hash.toLowerCase() : '';
-          item.ref = releativeHtmlPath + urlObj.hash;          
-          item.absolutePath = absolutePath;
+        let releativeHtmlPath = handleMdPathToHtml(releativePath);
+        urlObj.hash = urlObj.hash ? urlObj.hash.toLowerCase() : '';
+        item.ref = releativeHtmlPath + urlObj.hash;          
+        item.absolutePath = absolutePath;
+
+        if(utils.fileExist(absolutePath)){          
           callback(absolutePath, releativeHtmlPath, item.title)
         }
       }
