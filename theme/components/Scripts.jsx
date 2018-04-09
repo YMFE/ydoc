@@ -1,5 +1,5 @@
 
-<script>
+
 {
   (()=>{
     var script = `
@@ -14,11 +14,12 @@
       $content.scrollTop = sessionStorage.contentScrollTop;
     }
     sessionStorage.setItem('locationPathname', window.location.pathname);`
-    return script;
+    return <script dangerouslySetInnerHTML={{ __html: script }}>
+
+    </script>
   })()
 }
 
-</script>
 <script src={relePath(props.page.distPath, 'ydoc/scripts/plugins/dollar.min.js')}></script>
 <script src={relePath(props.page.distPath, 'ydoc/scripts/plugins/responsive-nav.min.js')}></script>
 <script src={relePath(props.page.distPath, 'ydoc/scripts/plugins/slideout.min.js')}></script>
