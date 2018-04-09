@@ -5,7 +5,7 @@
   max-width: 10.24rem;
 }
 .m-pluginbox-item {
-  flex-basis: 50%;
+  flex-basis: 100%;
   margin-bottom: 36px;
   padding: 16px;
 }
@@ -17,6 +17,12 @@
   margin-top: 16px;
 }
 
+@media screen and (min-width: 600px) {
+  .m-pluginbox-item {
+    flex-basis: 50%;
+    margin-bottom: 48px;
+  }
+}
 @media screen and (min-width: 960px) {
   .m-pluginbox-item {
     flex-basis: 33.3%;
