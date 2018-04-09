@@ -2,7 +2,9 @@ const cheerio = require('cheerio');
 const _ = require('underscore');
 
 function parse(html) {
-  let $ = cheerio.load(html);
+  let $ = cheerio.load(html, {
+    decodeEntities: false
+  });
   let $el = $('html, body').first();
   return $el.length > 0 ? $el : $;
 }
