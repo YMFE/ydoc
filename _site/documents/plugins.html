@@ -30,14 +30,14 @@
 <h2 id="创建插件">创建插件</h2>
 <p>YDoc 插件是发布到 npm 的 node 包，本篇教程假定你已经拥有了 npm 和 node 相关的经验。</p>
 </div><div class="m-content-container m-paging"><div class="m-paging-prev m-paging-item"><a href="jsx.html" class="href"><span class="ui-font-ydoc"></span>JSX</a></div><div class="m-paging-next m-paging-item"><a href="create.html" class="href">创建插件<span class="ui-font-ydoc"></span></a></div></div></div></div></div><div></div><script>
-    var $content = document.getElementById(&#x27;js-content&#x27;);
-    var $summaryItems = Array.prototype.slice.call(document.querySelectorAll(&#x27;#js-menu .href&#x27;));
-    var $menu = document.getElementById(&#x27;js-menu&#x27;);
-    if ($menu &amp;&amp; sessionStorage.menuScrollTop) {
+    var $content = document.getElementById('js-content');
+    var $summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href'));
+    var $menu = document.getElementById('js-menu');
+    if ($menu && sessionStorage.menuScrollTop) {
 		$menu.scrollTop = sessionStorage.menuScrollTop;
     }
     // 刷新页面但不切换 pathname 的时候，内容区恢复到记忆的高度
-    if ($content &amp;&amp; sessionStorage.contentScrollTop &amp;&amp; window.location.pathname == sessionStorage.locationPathname) {
+    if ($content && sessionStorage.contentScrollTop && window.location.pathname == sessionStorage.locationPathname) {
       $content.scrollTop = sessionStorage.contentScrollTop;
     }
-    sessionStorage.setItem(&#x27;locationPathname&#x27;, window.location.pathname);</script><script src="../ydoc/scripts/plugins/dollar.min.js"></script><script src="../ydoc/scripts/plugins/responsive-nav.min.js"></script><script src="../ydoc/scripts/plugins/slideout.min.js"></script><script src="../ydoc/scripts/app.js"></script><script src="../ydoc/ydoc-plugin-search/core.js"></script><script src="../ydoc/ydoc-plugin-search/search.js"></script><script src="../search_json.js"></script></body></html>
+    sessionStorage.setItem('locationPathname', window.location.pathname);</script><script src="../ydoc/scripts/plugins/dollar.min.js"></script><script src="../ydoc/scripts/plugins/responsive-nav.min.js"></script><script src="../ydoc/scripts/plugins/slideout.min.js"></script><script src="../ydoc/scripts/app.js"></script><script src="../ydoc/ydoc-plugin-search/core.js"></script><script src="../ydoc/ydoc-plugin-search/search.js"></script><script src="../search_json.js"></script></body></html>
