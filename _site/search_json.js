@@ -223,7 +223,7 @@ window.ydoc_plugin_search_json = {
       ]
     },
     {
-      "title": "JSX",
+      "title": "JSX{title}, {slug}",
       "content": "React发明了JSX， 可以简单地理解它是一种在JS中编写与XML类似的语言。通过JSX来声明组件的属性，类型与结果，并且通过｀{}`插值，套嵌JS逻辑与子级的JSX。",
       "url": "/documents/jsx.html",
       "children": [

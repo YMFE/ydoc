@@ -5,7 +5,7 @@ YDoc 插件是发布到 npm 的 node 包，本篇教程假定你已经拥有了 
 
 一个基本的插件有如下的文件结构：
 
-```
+``` 
 ├── ydoc-plugin-demo/
     ├── index.js
     ├── package.json

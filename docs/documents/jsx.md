@@ -55,7 +55,7 @@ var component = <Component {...props} />;
 2.**属性等于号之后的位置**, JSX的属性值必须用引号括起来，当你将引号改成花括号，它里面就可以使用JSX变量了。相当于其他框架的绑定属性或指令。需要说明一下，HTML的固有属性必须使用JS形式，保持驼峰风格，如class要用className代替，for要用htmlFor代替，tabindex要用tabIndex代替，colspan要用colSpan代替。
 
 ```jsx
-<div tabIndex＝{this.props.a} />
+<div tabIndex={this.props.a} />
 ```
 花括号里面可以使用三元表达式
 ```jsx

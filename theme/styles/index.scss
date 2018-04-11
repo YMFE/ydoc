@@ -2,10 +2,10 @@
 @import './common/index';
 
 // plugins
-@import './plugins/highlight';
 @import './plugins/nav';
 @import './plugins/slide';
 @import './plugins/markdown';
+@import './plugins/prism';
 
 // components
 @import './layout';

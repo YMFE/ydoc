@@ -1,15 +1,21 @@
 const utils = require('../utils.js');
 const fs = require('fs-extra');
 const MarkdownIt = require('markdown-it');
-const hljs = require('highlight.js'); 
+const prism = require('prismjs');
+const loadLanguages = require('prismjs/components/index.js');
 
 utils.md = MarkdownIt({
   html: true,
   linkify: false,
   highlight: function (str, lang) {
+    // js => javascript
+    if (lang.toLowerCase() === 'js') {
+      lang = 'javascript';
+    }
     try {
-      if (lang && hljs.getLanguage(lang)) {
-        return hljs.highlight(lang, str).value;
+      if (lang) {
+        loadLanguages([lang]);
+        return Prism.highlight(str, Prism.languages[lang], lang);;
       }
       return str;
     } catch (err) {
