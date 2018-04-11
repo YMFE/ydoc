@@ -3,7 +3,7 @@ const fs = require('fs-extra');
 const MarkdownIt = require('markdown-it');
 const prism = require('prismjs');
 const loadLanguages = require('prismjs/components/index.js');
-
+const he = require('he');
 utils.md = MarkdownIt({
   html: true,
   linkify: false,
@@ -15,11 +15,11 @@ utils.md = MarkdownIt({
     try {
       if (lang) {
         loadLanguages([lang]);
-        return Prism.highlight(str, Prism.languages[lang], lang);;
+        return Prism.highlight(str, Prism.languages[lang], lang);
       }
-      return str;
+      return he.encode(str);
     } catch (err) {
-      return str;
+      return he.encode(str);
     }
   }
 })
