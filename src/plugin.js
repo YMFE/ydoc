@@ -3,7 +3,7 @@ const path = require('path');
 const utils = require('./utils.js');
 const fs = require('fs-extra');
 
-const DEFAULT_PLUGINS = ['execution-time', 'import-asset', 'search'];
+let DEFAULT_PLUGINS = ['execution-time', 'import-asset', 'search'];
 
 const hooks = {}
 
@@ -127,6 +127,18 @@ function bindHooks(pluginModule, options){
 exports.loadPlugins = function loadPlugins() {
   const ydocConfig = ydoc.config;
   let modules = path.resolve(process.cwd(), 'node_modules');
+  if(Array.isArray(ydocConfig.plugins) && ydocConfig.plugins.length > 0 ){
+    ydocConfig.plugins.forEach(item=>{
+      if(item[0] === '-'){
+        let name = item.substr(1)
+        DEFAULT_PLUGINS = DEFAULT_PLUGINS.filter(item=>{
+          return item !== name
+        })        
+      }
+    })
+    ydocConfig.plugins = ydocConfig.plugins.filter(item=> item[0] !== '-')
+  }
+
   let plugins = [].concat(DEFAULT_PLUGINS);
   if (ydocConfig.plugins && Array.isArray(ydocConfig.plugins)) {
     plugins = plugins.concat(ydocConfig.plugins)
