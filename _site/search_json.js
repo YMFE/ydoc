@@ -392,9 +392,7 @@ window.ydoc_plugin_search_json = {
           "content": "项目规范文件现在将 YDoc 的LOGO、色彩、排版等规范提供给大家，希望能给大家在自定义样式或定制主题的时候提供一些帮助：  \n    \n    YDoc 项目设计规范\n    YDoc 规范 sketch 文件\n  \n  \n    \n    YDoc LOGO\n    Logo sketch 文件\n  \n"
         }
       ]
-    }
-  ],
-  "文档规范": [
+    },
     {
       "title": "文档体系",
       "content": "",

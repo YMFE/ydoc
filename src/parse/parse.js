@@ -28,6 +28,7 @@ function getIndexPath(filepath){
       return contentFilepath;
     }
   }
+  return null;
 }
 
 function getBookSummary(filepath){
@@ -194,11 +195,14 @@ async function parseBook({bookpath, indexFile, title}){
   let extname = path.extname(indexFile);
   let name = path.basename(indexFile, extname);
   defaultIndexPageName = name;
-  let indexPath = getIndexPath(bookpath);
-  if(!indexPath) return ;
-
-  let summary = getBookSummary(bookpath);
+  
+  let indexPath = path.resolve(bookpath, indexFile);
+  if(!utils.fileExist(indexPath)){
+    return ;
+  }
   let baseInfo = getBookInfo(indexPath);
+  let summary = getBookSummary(bookpath);
+  
   utils.extend(book, baseInfo);
   book.summary = summary;
   book.bookpath = path.resolve(bookpath, name + '.html')
@@ -247,11 +251,12 @@ function parseDocuments(bookpath, callback){
         if(urlObj.host) continue;
         let releativePath = urlObj.pathname;
         let absolutePath = path.resolve(bookpath, releativePath);
-        if(utils.fileExist(absolutePath)){
-          let releativeHtmlPath = handleMdPathToHtml(releativePath);
-          urlObj.hash = urlObj.hash ? urlObj.hash.toLowerCase() : '';
-          item.ref = releativeHtmlPath + urlObj.hash;          
-          item.absolutePath = absolutePath;
+        let releativeHtmlPath = handleMdPathToHtml(releativePath);
+        urlObj.hash = urlObj.hash ? urlObj.hash.toLowerCase() : '';
+        item.ref = releativeHtmlPath + urlObj.hash;          
+        item.absolutePath = absolutePath;
+
+        if(utils.fileExist(absolutePath)){          
           callback(absolutePath, releativeHtmlPath, item.title)
         }
       }

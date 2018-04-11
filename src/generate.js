@@ -38,6 +38,7 @@ exports.runBatch = async function runBatch(){
     context.name = context.title;
     let page = context.page;
     let _p, parseJsxInst;
+    if(!utils.fileExist(page.srcPath)) continue;
     switch(page.type){
       case 'md'  :         
         _p = parsePage(parseMarkdown(page.srcPath), true);
