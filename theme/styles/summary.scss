@@ -1,6 +1,11 @@
+.m-aside{
+	margin-top: .65rem;
+	height: 100%;
+	height: calc(100% - .65rem);
+}
 .m-summary {
 	padding: .24rem;
-	padding-bottom: 0;
+	padding-top: .24rem + .65rem;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -107,8 +112,7 @@
 		position: static;
 		height: 100%;
 		width: 2.4rem;
-		padding: .4rem .32rem .8rem;
-		margin-top: .64rem;
+		padding: .4rem .32rem;
 		flex: 3rem 0 0;
 		&-switch {
 			display: none;

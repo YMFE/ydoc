@@ -1,4 +1,4 @@
-<div>
+<div className="m-aside">
 	<div className="m-summary" id="js-menu">
 		<div className="m-summary-content" id="js-menu-content">
 			{
