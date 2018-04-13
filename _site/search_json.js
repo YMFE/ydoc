@@ -370,19 +370,24 @@ window.ydoc_plugin_search_json = {
       "url": "/documents/release.html",
       "children": [
         {
-          "title": "新 YDoc v4.0.0 版本发布啦！ 🎉🎉🎉",
-          "url": "/documents/release.html#新-ydoc-v4.0.0-版本发布啦！-🎉🎉🎉",
-          "content": "新 YDoc v4.0.0 版本发布啦！ 🎉🎉🎉"
+          "title": "v4.0.3 (2018.04.13)",
+          "url": "/documents/release.html#v4.0.3-2018.04.13",
+          "content": "v4.0.3 (2018.04.13)移动端布局优化\n新增系统组件 Icon，可自定义网站各种图标\n新增 nav 钩子\n支持使用 nodejs 通过 require('ydoc')(config) 生成文档\n代码高亮支持 jsx 语法\n修复文本编码问题\n"
+        },
+        {
+          "title": "v4.0.2 (2018.04.02)",
+          "url": "/documents/release.html#v4.0.2-2018.04.02",
+          "content": "v4.0.2 (2018.04.02)修复路径错误、滚动定位闪烁、侧栏滚动等bug\n优化文档样式\n完善文档说明\n新增图片浏览插件: img-view\n"
+        },
+        {
+          "title": "v4.0.1 (2018.03.30)",
+          "url": "/documents/release.html#v4.0.1-2018.03.30",
+          "content": "v4.0.1 (2018.03.30)优化文档样式\n记录滚动高度功能优化\n全文搜索插件优化\n增强导航配置健壮性\n"
         },
         {
           "title": "v4.0.0 (2018.03.29)",
-          "url": "/documents/release.html#新-ydoc-v4.0.0-版本发布啦！-🎉🎉🎉-v4.0.0-2018.03.29",
-          "content": "v4.0.0 (2018.03.29)重构: 经过长达数年的文档构建工作，我们积攒了大量构建文档的经验，此刻我们卸下历史包袱、厚积薄发、精雕细琢地打造了拥有卓越的视觉与交互体验的文档构建工具！\n灵活的插件机制: 万物皆插件，YDoc 虽然是一个非常轻量的工具，但插件机制让它灵活地应用于各种复杂场景\n响应式设计，支持手持设备访问\n简洁而严谨的 UI 设计\n文档设计规范\n"
-        },
-        {
-          "title": "v4.0.3",
-          "url": "/documents/release.html#新-ydoc-v4.0.0-版本发布啦！-🎉🎉🎉-v4.0.3",
-          "content": "v4.0.3新增系统组件 Icon，可自定义网站 icon\n新增 nav 钩子\n支持 nodejs 通过 require('ydoc')(config) 生成文档\n修复 jsx 高亮\n修复编码问题\n"
+          "url": "/documents/release.html#v4.0.0-2018.03.29",
+          "content": "v4.0.0 (2018.03.29)新 YDoc v4.0.0 版本发布啦！ 🎉🎉🎉重构: 经过长达数年的文档构建工作，我们积攒了大量构建文档的经验，此刻我们卸下历史包袱、厚积薄发、精雕细琢地打造了拥有卓越的视觉与交互体验的文档构建工具！\n灵活的插件机制: 万物皆插件，YDoc 虽然是一个非常轻量的工具，但插件机制让它灵活地应用于各种复杂场景\n响应式设计，支持手持设备访问\n简洁而严谨的 UI 设计\n文档设计规范\n"
         }
       ]
     }
