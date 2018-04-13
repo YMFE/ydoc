@@ -72,7 +72,11 @@ function addEvents() {
 function initComponents() {
 	// nav
 	navigation = responsiveNav('.js-nav', {
-		customToggle: '#js-nav-btn'
+		customToggle: '#js-nav-btn',
+		open: function() {
+			$menu.classList.remove('active');
+			setTimeout(itemAddActive, 0);
+		}
 	});
 
 	

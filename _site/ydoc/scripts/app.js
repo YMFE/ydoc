@@ -50,11 +50,10 @@ function addEvents() {
 	if ($menuBar) {
 		$menuBar.addEventListener('click', function () {
 			$menu.classList.toggle('active');
+			// 侧栏菜单点击时收起 nav 导航
 			if ($navIcon.classList.value.indexOf('active') !== -1) {
 				navigation.toggle();
 			}
-			// console.log($menu.classList);
-			// console.log($menu.classList.value.indexOf('active'));
 		});
 	}
 	if ($menu) {
@@ -73,7 +72,12 @@ function addEvents() {
 function initComponents() {
 	// nav
 	navigation = responsiveNav('.js-nav', {
-		customToggle: '#js-nav-btn'
+		customToggle: '#js-nav-btn',
+		open: function() {
+			console.log('open');
+			$menu.classList.remove('active');
+			setTimeout(itemAddActive, 0);
+		}
 	});
 
 	
