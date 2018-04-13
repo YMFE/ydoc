@@ -1753,6 +1753,7 @@ pre[class*="language-"] {
   height: 100%;
   background-color: #fff;
   padding: .24rem;
+  padding-bottom: 0.89rem;
   transform: translateY(0.65rem);
 }
 
