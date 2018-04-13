@@ -21,6 +21,9 @@
   * [创建插件](create.md)
   * [Hooks](hooks.md)
   * [markdown扩展](markdown-it.md)
+* [常见问题](qa.md)
+  * [icon](qa.md#icon)
+  * [引入js和css](qa.md#import)
 
 
 --
