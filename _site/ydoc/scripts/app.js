@@ -1,12 +1,12 @@
-var $panel = document.getElementById('js-panel');
-var $header = document.getElementById('js-header');
-var $content = document.getElementById('js-content');
-var $navIcon = document.getElementById('js-nav-btn');
-var $summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href'));
-var $menu = document.getElementById('js-menu');
-var $menuContent = document.getElementById('js-menu-content');
-var $menuBar = document.getElementById('js-summary-switch');
-var navigation;
+var $panel = document.getElementById('js-panel'),
+	$header = document.getElementById('js-header'),
+	$content = document.getElementById('js-content'),
+	$navIcon = document.getElementById('js-nav-btn'),
+	$summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href')),
+	$menu = document.getElementById('js-menu'),
+	$menuContent = document.getElementById('js-menu-content'),
+	$menuBar = document.getElementById('js-summary-switch'),
+	navigation;
 
 var utils = {
 	debounce: function(func, wait) {
@@ -74,13 +74,10 @@ function initComponents() {
 	navigation = responsiveNav('.js-nav', {
 		customToggle: '#js-nav-btn',
 		open: function() {
-			console.log('open');
 			$menu.classList.remove('active');
 			setTimeout(itemAddActive, 0);
 		}
 	});
-
-	
 }
 
 
