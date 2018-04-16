@@ -6,7 +6,10 @@
 
 ## YDoc
 
-[![npm version](https://badge.fury.io/js/ydoc.svg)](https://badge.fury.io/js/ydoc)
+![npm (tag)](https://img.shields.io/npm/v/ydoc.svg)
+![npm (tag)](https://img.shields.io/npm/v/ydoc/rc.svg)
+![npm](https://img.shields.io/npm/dm/localeval.svg)
+![license](https://img.shields.io/github/license/YMFE/ydoc.svg)
 
 YDoc 是一个优雅的文档站构建工具，能够基于 markdown 轻松生成完整静态站点，让你专注于文档写作。YDoc 拥有灵活而强大的插件 / 主题机制，开发者可以轻松定制属于自己的文档站点。
 

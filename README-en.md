@@ -6,7 +6,10 @@
 
 ## YDoc
 
-[![npm version](https://badge.fury.io/js/ydoc.svg)](https://badge.fury.io/js/ydoc)
+![npm (tag)](https://img.shields.io/npm/v/ydoc.svg)
+![npm (tag)](https://img.shields.io/npm/v/ydoc/rc.svg)
+![npm](https://img.shields.io/npm/dm/localeval.svg)
+![license](https://img.shields.io/github/license/YMFE/ydoc.svg)
 
 YDoc is an elegant document station construction tool that can easily generate complete static sites based on markdown, allowing you to focus on document writing.
 
