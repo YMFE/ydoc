@@ -358,9 +358,9 @@ window.ydoc_plugin_search_json = {
           "content": "icon新建 _componets 文件夹，创建 Icon.jsx 文件，复制以下源码，可将系统默认的 icon 替换成根目录的 ydoc.ico"
         },
         {
-          "title": "引入js和css",
-          "url": "/documents/qa.html#引入js和css",
-          "content": "引入js和css配置如下：{  \"pluginsConfig\": {\n    \"import-asset\": {\n      \"css\": [\"custom.css\"],\n      \"js\": [\"custom.js\"]\n    }\n  }\n}\n\n"
+          "title": "引入js 和css",
+          "url": "/documents/qa.html#引入js-和css",
+          "content": "引入js 和css配置如下：{  \"pluginsConfig\": {\n    \"import-asset\": {\n      \"css\": [\"custom.css\"],\n      \"js\": [\"custom.js\"]\n    }\n  }\n}\n\n"
         }
       ]
     },

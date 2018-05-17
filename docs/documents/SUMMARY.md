@@ -23,7 +23,7 @@
   * [markdown扩展](markdown-it.md)
 * [常见问题](qa.md)
   * [icon](qa.md#icon)
-  * [引入js和css](qa.md#import)
+  * [引入js和css](qa.md#引入js和css)
 
 
 --
