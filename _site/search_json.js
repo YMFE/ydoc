@@ -280,9 +280,9 @@ window.ydoc_plugin_search_json = {
       "url": "/documents/plugins.html",
       "children": [
         {
-          "title": "搜索插件",
-          "url": "/documents/plugins.html#搜索插件",
-          "content": "搜索插件请访问 ydoc官方 搜索。"
+          "title": "浏览插件",
+          "url": "/documents/plugins.html#浏览插件",
+          "content": "浏览插件请访问 ydoc 官网 - 插件 浏览插件。"
         },
         {
           "title": "安装插件",
@@ -355,12 +355,12 @@ window.ydoc_plugin_search_json = {
         {
           "title": "icon",
           "url": "/documents/qa.html#icon",
-          "content": "icon新建 _componets 文件夹，创建 Icon.jsx 文件，复制以下源码，可将系统默认的 icon 替换成根目录的 ydoc.ico"
+          "content": "icon在 docs 目录下，新建 _components 文件夹，创建 Icon.jsx 文件，复制以下源码，可将系统默认的 icon 替换成 docs/ydoc.ico"
         },
         {
-          "title": "引入js和css",
-          "url": "/documents/qa.html#引入js和css",
-          "content": "引入js和css配置如下：{  \"pluginsConfig\": {\n    \"import-asset\": {\n      \"css\": [\"custom.css\"],\n      \"js\": [\"custom.js\"]\n    }\n  }\n}\n\n"
+          "title": "引入js 和css",
+          "url": "/documents/qa.html#引入js-和css",
+          "content": "引入js 和css配置如下：{  \"pluginsConfig\": {\n    \"import-asset\": {\n      \"css\": [\"custom.css\"],\n      \"js\": [\"custom.js\"]\n    }\n  }\n}\n\n"
         }
       ]
     },

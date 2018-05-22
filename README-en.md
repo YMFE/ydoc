@@ -49,8 +49,8 @@ Automatically insert space between all Chinese characters and half-size English,
 ## Developers
 
 - [dwb1994](https://github.com/dwb1994) (dev & design)
-- [sean1025](https://github.com/hellosean1025) (dev)
-- [zwjamnsss](https://github.com/amnsss) (dev & dessign)
+- [suxiaoxin](https://github.com/suxiaoxin) (dev)
+- [zwjamnsss](https://github.com/amnsss) (dev & design)
 
 We welcome all of you to participate in our development, you may submit [pull requests](https://github.com/YMFE/ydoc/pulls) to help us improve the program, we alse glad to see you help developing [plugins](https://ydoc.ymfe.org/plugin/index.html).
 
