@@ -280,9 +280,9 @@ window.ydoc_plugin_search_json = {
       "url": "/documents/plugins.html",
       "children": [
         {
-          "title": "搜索插件",
-          "url": "/documents/plugins.html#搜索插件",
-          "content": "搜索插件请访问 ydoc官方 搜索。"
+          "title": "浏览插件",
+          "url": "/documents/plugins.html#浏览插件",
+          "content": "浏览插件请访问 ydoc 官网 - 插件 浏览插件。"
         },
         {
           "title": "安装插件",
