@@ -46,9 +46,10 @@
 	}
 	&-block {
 		margin-bottom: .16rem;
-		.m-summary-block {
-			margin-bottom: 0;
-		}
+	}
+	&-block.active>.href {
+		font-weight: bold;
+		color: $primary-color;
 	}
 	&-title {
 		font-size: $font-size-h4;
