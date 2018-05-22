@@ -7,7 +7,7 @@
 <link rel="shortcut icon" href={relePath(props.distPath, 'ydoc.ico')} />
 ```
 
-### 引入js和css
+### 引入js 和css
 配置如下：
 ```json
 {

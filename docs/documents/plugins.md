@@ -1,8 +1,8 @@
 # 插件
 YDoc 强大的插件功能，满足你个性化的需求。
 
-## 搜索插件
-请访问 [ydoc官方](https://ydoc.ymfe.org) 搜索。
+## 浏览插件
+请访问 [ydoc 官网 - 插件](https://ydoc.ymfe.org/plugin/index.html) 浏览插件。
 
 ## 安装插件
 

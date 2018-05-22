@@ -6,6 +6,7 @@ plugins:
   - { title: 'ydoc-plugin-jsdoc', href: 'https://www.npmjs.com/package/ydoc-plugin-jsdoc', desc: '根据代码注释生成文档，基于 jsdoc' }
   - { title: 'ydoc-plugin-pangu', href: 'https://www.npmjs.com/package/ydoc-plugin-pangu', desc: '自动替你在网页中所有的中文字和半形的英文、数字、符号之间插入空白(盘古之白)' }
   - { title: 'ydoc-plugin-img-view', href: 'https://www.npmjs.com/package/ydoc-plugin-img-view', desc: '点击 markdown 页面中的图片可以浏览原图' }
+  - { title: 'ydoc-plugin-edit-page', href: 'https://www.npmjs.com/package/ydoc-plugin-edit-page', desc: '在页面尾部添加 ‘编辑此页面’ 的链接(链接到 Github/Gitlab 等页面)' }
 ---
 <div className="m-content-container m-pluginbox">
 {
