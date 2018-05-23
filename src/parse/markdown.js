@@ -60,6 +60,31 @@ utils.md.use(function (md) {
   }
 })
 
+/**
+ * 处理外链问题
+ */
+
+utils.md.use(function(md){
+  let defaultRender = md.renderer.rules.link_open || function(tokens, idx, options, env, self) {
+    return self.renderToken(tokens, idx, options);
+  };
+
+  md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+    let targetIndex = tokens[idx].attrIndex('target');    
+    let hrefIndex = tokens[idx].attrIndex('href');  
+    let url = tokens[idx].attrGet('href')  
+    if (url && /^https?:\/\//.test(url)) {
+      if (targetIndex < 0) {
+        tokens[idx].attrPush(['target', '_blank']); // add new attribute
+      } else {
+        tokens[idx].attrs[targetIndex][1] = '_blank';    // replace value of existing attr
+      }          
+    }  
+
+    return defaultRender(tokens, idx, options, env, self);
+  };
+})
+
 exports.parseMarkdown = function parseMarkdown(filepath) {
   const content = fs.readFileSync(filepath, 'utf8');
   return utils.md.render(content);

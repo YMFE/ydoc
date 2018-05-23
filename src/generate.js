@@ -100,11 +100,13 @@ exports.generatePage = function generatePage(bookpath){
     }else{
       page.prev = {
         title: prevPage.title,
-        releativePath: prevPage.releativePath
+        releativePath: prevPage.releativePath,
+        distPath: prevPage.distPath
       };
       prevPage.next = {
         title: page.title,
-        releativePath: page.releativePath
+        releativePath: page.releativePath,
+        distPath: page.distPath
       };
     }
     prevPage = page;
