@@ -46,7 +46,7 @@ ydoc build
 ## 开发者
 
 - [dwb1994](https://github.com/dwb1994) (dev & design)
-- [suxiaoxin](https://github.com/suxiaoxin) (dev)
+- [sean1025](https://github.com/hellosean1025) (dev)
 - [zwjamnsss](https://github.com/amnsss) (dev & design)
 
 我们非常欢迎社区的同学参与开发，欢迎提 [pull requests](https://github.com/YMFE/ydoc/pulls) 来帮助我们完善程序，也欢迎社区的同学为 YDoc 开发[插件](https://ydoc.ymfe.org/plugin/index.html)。
