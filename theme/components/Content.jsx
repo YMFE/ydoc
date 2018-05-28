@@ -9,14 +9,14 @@
           <div className="m-content-container m-paging">
             {props.prev ?
               <div className="m-paging-prev m-paging-item">
-                <a href={props.prev.releativePath} className="href">
+                <a href={relePath(props.distPath, props.prev.distPath)} className="href">
                   <span className="ui-font-ydoc">&#xf07d;</span>
                   {props.prev.title}
                 </a>
               </div> : null}
             {props.next ?
               <div className="m-paging-next m-paging-item">
-                <a href={props.next.releativePath} className="href">
+                <a href={relePath(props.distPath, props.next.distPath)} className="href">
                   {props.next.title}
                   <span className="ui-font-ydoc">&#xf07f;</span>
                 </a>
