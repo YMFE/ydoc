@@ -8,7 +8,7 @@ module.exports = {
       css: 'custom.css'
     },
     "edit-page": {
-      prefix: 'http://gitlab.corp.qunar.com/mfe/ydoc/tree/master/docs'
+      prefix: 'https://github.com/YMFE/ydoc/tree/master/docs'
     }
   },
   markdownIt: function(md){

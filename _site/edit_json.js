@@ -1,6 +1,6 @@
 window.ydoc_plugin_edit_json = {
   "/documents/index.html": "/documents/index.md",
-  "prefix": "http://gitlab.corp.qunar.com/mfe/ydoc/tree/master/docs",
+  "prefix": "https://github.com/YMFE/ydoc/tree/master/docs",
   "/documents/structure.html": "/documents/structure.md",
   "/documents/nav.html": "/documents/nav.md",
   "/documents/pages-index.html": "/documents/pages-index.md",
