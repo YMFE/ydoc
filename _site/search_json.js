@@ -218,7 +218,12 @@ window.ydoc_plugin_search_json = {
         {
           "title": "安装",
           "url": "/documents/theme.html#安装",
-          "content": "安装假设要安装 demo 主题，请执行以下命令：npm install --save-dev ydoc-theme-demo然后在 ydoc.json 配置：\"json\": \"demo\""
+          "content": "安装假设要安装 demo 主题，请执行以下命令：npm install --save-dev ydoc-theme-demo然后在 ydoc.json 配置：\"theme\": \"demo\""
+        },
+        {
+          "title": "开发",
+          "url": "/documents/theme.html#开发",
+          "content": "开发请参考 ydoc-theme-demo或官方内置主题"
         }
       ]
     },
@@ -369,6 +374,11 @@ window.ydoc_plugin_search_json = {
       "content": "",
       "url": "/documents/release.html",
       "children": [
+        {
+          "title": "v4.0.4",
+          "url": "/documents/release.html#v4.0.4",
+          "content": "v4.0.4优化 markdown 外链，现在点击外链将会在新的页面打开\n修复上下页相对路径\n"
+        },
         {
           "title": "v4.0.4 (2018.05.22)",
           "url": "/documents/release.html#v4.0.4-2018.05.22",

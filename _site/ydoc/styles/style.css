@@ -1779,9 +1779,8 @@ pre[class*="language-"] {
   margin-bottom: .16rem;
 }
 
-.m-summary-block.active > .href {
-  font-weight: bold;
-  color: #1890ff;
+.m-summary-block .m-summary-block {
+  margin-bottom: 0;
 }
 
 .m-summary-title {
