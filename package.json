@@ -51,6 +51,7 @@
     "yargs": "^10.0.3",
     "ydoc-plugin-copy": "0.0.1",
     "ydoc-plugin-demo": "^1.0.0",
+    "ydoc-plugin-edit-page": "0.0.2",
     "ydoc-plugin-execution-time": "^1.0.0",
     "ydoc-plugin-import-asset": "^1.0.1",
     "ydoc-plugin-search": "^1.1.1"
