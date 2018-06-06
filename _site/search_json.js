@@ -416,7 +416,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "YDoc 项目设计规范",
           "url": "/standard/style-guide.html#ydoc-项目设计规范",
-          "content": "YDoc 项目设计规范YDoc 的设计稿经过设计师的几度推敲重做，诞生了现在你看到的默认主题 🤓，YDoc 有如下设计理念：💃青春：使用大胆、活泼的配色方案，体现 YMFE 的产品文化\n🤗科学：以科学的态度对待视觉设计、功能设计，让设计有迹可循\n🤔简洁：以 无形 代替 有形，从 UI 到开发体验，不断去除冗余的设计，使用户专注于写作与阅读\n以下是 YDoc 设计过程中总结的一些规则，这些可以帮助你构建优美的文档页面："
+          "content": "YDoc 项目设计规范YDoc 的设计稿经过设计师的几度推敲重做，诞生了现在你看到的默认主题 🤓，YDoc 有如下设计理念：💃 青春：使用大胆、活泼的配色方案，体现 YMFE 团队 的产品文化\n🤗 科学：以科学的态度对待视觉设计、功能设计，让设计有迹可循\n🤔 简洁：以 无形 代替 有形，从 UI 到开发体验，不断去除冗余的设计，使用户专注于写作与阅读\n以下是 YDoc 设计过程中总结的一些规则，这些可以帮助你构建优美的文档页面："
         },
         {
           "title": "图片",
@@ -431,7 +431,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "项目规范文件",
           "url": "/standard/style-guide.html#ydoc-项目设计规范-项目规范文件",
-          "content": "项目规范文件现在将 YDoc 的LOGO、色彩、排版等规范提供给大家，希望能给大家在自定义样式或定制主题的时候提供一些帮助：  \n    \n    YDoc 项目设计规范\n    YDoc 规范 sketch 文件\n  \n  \n    \n    YDoc LOGO\n    Logo sketch 文件\n  \n"
+          "content": "项目规范文件YDoc 继承自 Youth Design。现在将 YDoc 的LOGO、色彩、排版等规范提供给大家，希望能给大家在自定义样式或定制主题的时候提供一些帮助：  \n    \n    YDoc 项目设计规范\n    YDoc 规范 sketch 文件\n  \n  \n    \n    YDoc LOGO\n    Logo sketch 文件\n  \n"
         }
       ]
     },
