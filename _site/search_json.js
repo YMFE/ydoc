@@ -370,6 +370,11 @@ window.ydoc_plugin_search_json = {
       "url": "/documents/release.html",
       "children": [
         {
+          "title": "v4.0.4 (2018.05.22)",
+          "url": "/documents/release.html#v4.0.4-2018.05.22",
+          "content": "v4.0.4 (2018.05.22)修复部分侧栏目录无法高亮的 bug\n新增插件： ydoc-plugin-edit-page 支持在页面尾部添加 ‘编辑此页面’ 的链接\n文档梳理与优化\n"
+        },
+        {
           "title": "v4.0.3 (2018.04.13)",
           "url": "/documents/release.html#v4.0.3-2018.04.13",
           "content": "v4.0.3 (2018.04.13)移动端布局优化\n新增系统组件 Icon，可自定义网站各种图标\n新增 nav 钩子\n支持使用 nodejs 通过 require('ydoc')(config) 生成文档\n代码高亮支持 jsx 语法\n修复文本编码问题\n"
