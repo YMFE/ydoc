@@ -4,7 +4,8 @@ const projectPath = process.cwd();
 const utils = require('../utils');
 const initPath = path.resolve(__dirname, '../init');
 const docsPath = path.resolve(projectPath, 'docs');
-const intConfig = path.resolve(__dirname, '../ydoc.js');
+const initConfig = path.resolve(__dirname, '../ydoc.js');
+const projectConfig = path.resolve(projectPath, 'ydoc.js');
 const initydoc = require('../initydoc');
 
 module.exports = {
@@ -18,7 +19,7 @@ module.exports = {
     }
     fs.ensureDirSync(docsPath);
     fs.copySync(initPath, docsPath);
-    fs.copySync(intConfig, docsPath);
+    fs.copySync(initConfig, projectConfig);
     initydoc();
     utils.log.ok('Initialization successful, please use the following command to generate the documents site.')
     utils.log.info('Execute: "ydoc build"')

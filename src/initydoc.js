@@ -2,7 +2,7 @@ const utils = require("./utils");
 const readline = require('readline-sync');
 const initConfig = ['title', 'description', 'author'];
 
-async function initYdoc() {
+function initYdoc() {
     const projectPath = utils.projectPath;
     const configFilepath = utils.getConfigPath(projectPath);
     let config = utils.getConfig(configFilepath);
