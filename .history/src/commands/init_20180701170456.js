@@ -19,7 +19,7 @@ module.exports = {
     fs.ensureDirSync(docsPath);
     fs.copySync(initPath, docsPath);
     fs.copySync(intConfig, docsPath);
-    initydoc();
+    initydoc
     utils.log.ok('Initialization successful, please use the following command to generate the documents site.')
     utils.log.info('Execute: "ydoc build"')
   },
