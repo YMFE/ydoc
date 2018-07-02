@@ -12,7 +12,7 @@ function initYdoc() {
             config[item] = input;
         } 
     })
-    
+    return config;
 }
 
 module.exports = initYdoc;

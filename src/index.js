@@ -11,19 +11,22 @@ const loadMarkdownPlugins = require("./parse/markdown").loadMarkdownPlugins;
 
 function initConfig(config){
   const projectPath = utils.projectPath;
-  if(!config){    
+  if(!config){ 
     const configFilepath = utils.getConfigPath(projectPath);
-    config = utils.getConfig(configFilepath);
+    fs.readFile(configFilepath,function(err, data){
+        if(!err){
+            config = JSON.parse(data);
+            ydoc.config = utils.extend(ydoc.config, config);
+        }
+    });
   }
-  
-  utils.extend(ydoc.config, config);
   ydoc.config.dist = path.resolve(projectPath, ydoc.config.dist);  
   ydoc.config.root = path.resolve(projectPath, ydoc.config.root);
 }
 
 async function run(config) {
   // init Resources path
-  initConfig(config)
+  await initConfig(config)
   const dist = ydoc.config.dist;
   const root = ydoc.config.root;
   const themePath = path.resolve(ydocPath, "theme");  
