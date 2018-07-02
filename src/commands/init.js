@@ -4,7 +4,7 @@ const projectPath = process.cwd();
 const utils = require('../utils');
 const initPath = path.resolve(__dirname, '../init');
 const docsPath = path.resolve(projectPath, 'docs');
-const initConfig = path.resolve(__dirname, '../ydoc.js');
+const initConfig = path.resolve(__dirname, '../../ydoc.js');
 const projectConfig = path.resolve(projectPath, 'ydoc.js');
 const initydoc = require('../initydoc');
 

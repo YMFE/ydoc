@@ -15,5 +15,5 @@ module.exports = {
     
   },
   dist: '_site',
-  version: require('./package.json').version
+//   version: require('./package.json').version
 }
