@@ -90,8 +90,8 @@ var ul = (
       this.todoList.todos.map(function (todo) {
         return  (
           <li>
-          <input type="checkbox" checked={todo.done}>
-          <span className={'done-' + todo.done}>{todo.text}</span>
+            <input type="checkbox" checked={todo.done}>
+            <span className={'done-' + todo.done}>{todo.text}</span>
           </li>
         );
       })
@@ -104,13 +104,13 @@ var ul = (
 
 在JSX中使用样式和真实的样式也很类似，通过style属性来定义，但和真实DOM不同的是，`属性值不能是字符串而必须为对象｀。
 ```jsx
-<div style={{color: '#ff0000', fontSize: '14px'}}>Hello World.</div>
+<div style={{color: '#f00', fontSize: '14px'}}>Hello World.</div>
 ```
 
 或者
 ```jsx
 var style = {
-  color: '#ff0000',
+  color: '#f00',
   fontSize: '14px'
 };
 

@@ -17,7 +17,6 @@ npm install --save-dev ydoc-plugin-demo
 {
   "plugins": ["demo"]
 }
-
 ```
 
 ## 插件配置
@@ -31,7 +30,6 @@ npm install --save-dev ydoc-plugin-demo
     }
   }
 }
-
 ```
 
 ## 创建插件

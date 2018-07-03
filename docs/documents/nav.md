@@ -15,7 +15,7 @@
 ```
 标题：YDoc
 Logo：ydoc/images/logo.png
-导航： 文档 文档规范 插件
+导航：文档 文档规范 插件
 ```
 
 ## 二级导航

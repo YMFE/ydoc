@@ -40,7 +40,7 @@
   content: '内容',
   prev: '上一页连接',
   next: '下一页链接',
-  releativePath: '相对路径'
+  releativePath: '相对路径',
   srcPath: '源文件路径',
   distPath: '生成文件路径'
 }
@@ -53,10 +53,10 @@
 
 ```js
 {
-    "page:before": function(page) {
-        page.content = page.content + "\n Hello YDoc";
-        return page;
-    }
+	"page:before": function(page) {
+		page.content = page.content + "\n Hello YDoc";
+		return page;
+	}
 }
 ```
 
@@ -66,11 +66,11 @@
 
 ```js
 {
-    "page": function(page) {
-        page.content = page.content.replace("<b>", "<strong>")
-            .replace("</b>", "</strong>");
-        return page;
-    }
+	"page": function(page) {
+		page.content = page.content.replace("<b>", "<strong>")
+			.replace("</b>", "</strong>");
+		return page;
+	}
 }
 ```
 
@@ -80,13 +80,12 @@
 
 ```js
 {
-    assets: {
-        dir: './assets',
-        js: ['app.js'],
-        css: ['app.css']
+	assets: {
+		dir: './assets',
+		js: ['app.js'],
+		css: ['app.css']
   }
 }
-
 ```
 复制当前目录下的 assets 文件夹到文档，并且在每个文件引入 app.js 和 app.css。
 
@@ -101,12 +100,12 @@ Example:
 
 ```js
 {
-    "init": function() {
-        return new Promise((function(resolve){
-          setTimeout(function(){
-            resolve(true)
-          }, 2000)
-        }))
-    }
+	"init": function() {
+		return new Promise((function(resolve) {
+			setTimeout(function() {
+				resolve(true);
+			}, 2000);
+		}))
+	}
 }
 ```

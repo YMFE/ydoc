@@ -36,13 +36,13 @@ npm install ydoc [-g]
 
 ### 使用 NPM 安装 rc 版本（发布候选版本）
 
-```
+``` bash
 npm install ydoc@rc [-g]
 ```
 
 ## 创建你的站点
 
-```
+``` bash
 mkdir project && cd project
 ydoc init
 ydoc build

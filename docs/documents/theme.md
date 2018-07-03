@@ -13,7 +13,9 @@ npm install --save-dev ydoc-theme-demo
 然后在 ydoc.json 配置：
 
 ```json
-"theme": "demo"
+{
+  "theme": "demo"
+}
 ```
 
 ## 开发

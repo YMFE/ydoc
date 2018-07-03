@@ -51,7 +51,7 @@ window.ydoc_plugin_search_json = {
     },
     {
       "title": "导航",
-      "content": "在 NAV.md \b文件可配置网站的导航标题、logo、菜单列表信息，简单示例如下：# YDoc![logo](ydoc/images/logo.png)\n\n* [文档](/documents/index.md)\n* [文档规范](/style-guide/index.md)\n* [插件](/plugins/index.md)\n上面的 markdown 内容可生成如下导航信息：标题：YDocLogo：ydoc/images/logo.png\n导航： 文档 文档规范 插件\n",
+      "content": "在 NAV.md \b文件可配置网站的导航标题、logo、菜单列表信息，简单示例如下：# YDoc![logo](ydoc/images/logo.png)\n\n* [文档](/documents/index.md)\n* [文档规范](/style-guide/index.md)\n* [插件](/plugins/index.md)\n上面的 markdown 内容可生成如下导航信息：标题：YDocLogo：ydoc/images/logo.png\n导航：文档 文档规范 插件\n",
       "url": "/documents/nav.html",
       "children": [
         {
@@ -123,7 +123,7 @@ window.ydoc_plugin_search_json = {
     },
     {
       "title": "配置",
-      "content": "Ydoc 允许你使用灵活的配置来自定义站点，这些配置项被指定到 ydoc.json 或 ydoc.js 文件，目录结构如下：├── ydoc.json├── docs/\n\n在 docs 上级目录创建 ydoc.json，如果没有配置文件，ydoc 将使用默认的配置。",
+      "content": "Ydoc 允许你使用灵活的配置来自定义站点，这些配置项被指定到 ydoc.json 或 ydoc.js 文件，目录结构如下：├── ydoc.json├── docs/\n在 docs 上级目录创建 ydoc.json，如果没有配置文件，ydoc 将使用默认的配置。",
       "url": "/documents/config.html",
       "children": [
         {
@@ -134,7 +134,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "plugins 配置示例",
           "url": "/documents/config.html#配置项-plugins-配置示例",
-          "content": "plugins 配置示例{  \"plugins\": [\"demo\"],\n  \"pluginsConfig\": {\n    \"demo\": {\n      \"title\": \"demo\"\n    }\n  }\n}\n上面的配置含义是加载了插件 demo, 并且给 demo 插件\b设置了配置项:{   \"title\" : \"demo\"\n}\n"
+          "content": "plugins 配置示例{  \"plugins\": [\"demo\"],\n  \"pluginsConfig\": {\n    \"demo\": {\n      \"title\": \"demo\"\n    }\n  }\n}\n上面的配置含义是加载了插件 demo, 并且给 demo 插件\b设置了配置项:{   \"title\": \"demo\"\n}\n"
         }
       ]
     },
@@ -240,12 +240,12 @@ window.ydoc_plugin_search_json = {
         {
           "title": "JSX语法介绍",
           "url": "/documents/jsx.html#jsx语法介绍",
-          "content": "JSX语法介绍｀{}`插值是让JSX区别普通HTML的一个重要特性，只有三个地方可以使用它。可以放属性名的地方，属性等于号之后的位置及innerHTML之间。1.可以放属性名的地方,  这里只能使用JSXSpreadAttribute(延伸属性)， 换言之，括号内必须带三个点号var props = {};props.foo = x;\nprops.bar = y;\nvar component = ;\n2.属性等于号之后的位置, JSX的属性值必须用引号括起来，当你将引号改成花括号，它里面就可以使用JSX变量了。相当于其他框架的绑定属性或指令。需要说明一下，HTML的固有属性必须使用JS形式，保持驼峰风格，如class要用className代替，for要用htmlFor代替，tabindex要用tabIndex代替，colspan要用colSpan代替。花括号里面可以使用三元表达式var person = ;会编译成var person = React.createElement(  Person,\n  {name: window.isLoggedIn ? window.name : ''}\n);\n3.innerHTMLxxx{111}yyy这个会编译成,  相邻的字任串或数字会合并成一个字符串，布尔，null, undefined会被忽略掉。React.createElement('div', null, \"xxx111yyy\")在innerHTML里面，我们可以使用数组或数组的map方法生成一个新数组的方法，为当前父元素添加一堆子元素。var ul = (  \n    {\n      this.todoList.todos.map(function (todo) {\n        return  (\n          \n          \n          {todo.text}\n          \n        );\n      })\n    }\n  \n);\n"
+          "content": "JSX语法介绍｀{}`插值是让JSX区别普通HTML的一个重要特性，只有三个地方可以使用它。可以放属性名的地方，属性等于号之后的位置及innerHTML之间。1.可以放属性名的地方,  这里只能使用JSXSpreadAttribute(延伸属性)， 换言之，括号内必须带三个点号var props = {};props.foo = x;\nprops.bar = y;\nvar component = ;\n2.属性等于号之后的位置, JSX的属性值必须用引号括起来，当你将引号改成花括号，它里面就可以使用JSX变量了。相当于其他框架的绑定属性或指令。需要说明一下，HTML的固有属性必须使用JS形式，保持驼峰风格，如class要用className代替，for要用htmlFor代替，tabindex要用tabIndex代替，colspan要用colSpan代替。花括号里面可以使用三元表达式var person = ;会编译成var person = React.createElement(  Person,\n  {name: window.isLoggedIn ? window.name : ''}\n);\n3.innerHTMLxxx{111}yyy这个会编译成,  相邻的字任串或数字会合并成一个字符串，布尔，null, undefined会被忽略掉。React.createElement('div', null, \"xxx111yyy\")在innerHTML里面，我们可以使用数组或数组的map方法生成一个新数组的方法，为当前父元素添加一堆子元素。var ul = (  \n    {\n      this.todoList.todos.map(function (todo) {\n        return  (\n          \n            \n            {todo.text}\n          \n        );\n      })\n    }\n  \n);\n"
         },
         {
           "title": "JSX中使用样式",
           "url": "/documents/jsx.html#jsx中使用样式",
-          "content": "JSX中使用样式在JSX中使用样式和真实的样式也很类似，通过style属性来定义，但和真实DOM不同的是，`属性值不能是字符串而必须为对象｀。Hello World.或者var style = {  color: '#ff0000',\n  fontSize: '14px'\n};\n\nvar node = HelloWorld.;\n要明确记住,{}里面是JS代码,这里传进去的是标准的JS对象。在JSX中可以使用所有的样式，基本上属性名的转换规范就是将其写成驼峰写法，例如“background-color”变为“backgroundColor”, “font-size”变为“fontSize”，这和标准的JavaScript操作DOM样式的API是一致的。"
+          "content": "JSX中使用样式在JSX中使用样式和真实的样式也很类似，通过style属性来定义，但和真实DOM不同的是，`属性值不能是字符串而必须为对象｀。Hello World.或者var style = {  color: '#f00',\n  fontSize: '14px'\n};\n\nvar node = HelloWorld.;\n要明确记住,{}里面是JS代码,这里传进去的是标准的JS对象。在JSX中可以使用所有的样式，基本上属性名的转换规范就是将其写成驼峰写法，例如“background-color”变为“backgroundColor”, “font-size”变为“fontSize”，这和标准的JavaScript操作DOM样式的API是一致的。"
         },
         {
           "title": "HTML转义",
@@ -319,7 +319,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "index.js",
           "url": "/documents/create.html#index.js",
-          "content": "index.jsindex.js 是插件的入口文件，init、finish、page:before、page 是插件绑定的钩子。每个插件都可以绑定不同的钩子实现各种各样的功能。module.exports ={  init: function(){\n    console.log('init')\n  },\n  finish: function(){    \n    console.log('end...')\n  },\n  'page:before': function(page){\n    console.log('beforePage', page)\n  },\n  page: function(page){\n    console.log('page', page)\n  }\n}\n\n"
+          "content": "index.jsindex.js 是插件的入口文件，init、finish、page:before、page 是插件绑定的钩子。每个插件都可以绑定不同的钩子实现各种各样的功能。module.exports = {  init: function() {\n    console.log('init');\n  },\n  finish: function() {    \n    console.log('end...');\n  },\n  'page:before': function(page) {\n    console.log('beforePage', page);\n  },\n  page: function(page) {\n    console.log('page', page);\n  }\n}\n"
         }
       ]
     },
@@ -331,12 +331,12 @@ window.ydoc_plugin_search_json = {
         {
           "title": "钩子列表",
           "url": "/documents/hooks.html#钩子列表",
-          "content": "钩子列表全局钩子\n\n名称\n描述\n参数\n\n\n\n\ninit\n在生成文档站点前触发.\n无\n\n\nfinish\n在生成文档站点完成后触发.\n无\n\n\nnav\n在解析导航 nav.md 后和解析文档前触发\n无\n\n\nassets\n引用插件静态文件\n无\n\n\n页面钩子\n\n名称\n描述\n参数\n\n\n\n\npage:before\n在创建 html 页面之前调用\nPage Object\n\n\npage\n生成 html 页面后调用\nPage Object\n\n\n模板钩子\n\n名称\n描述\n参数\n\n\n\n\ntpl:header\n在页面导航添加自定义的 html\n无\n\n\nPage Object{  // 页面类型，支持 md jsx html 三种\n  type: 'md',\n  // 页面标题\n  title: 'string',\n  // 页面描述信息\n  description: 'string',\n  // 页面内容\n  content: '内容',\n  prev: '上一页连接',\n  next: '下一页链接',\n  releativePath: '相对路径'\n  srcPath: '源文件路径',\n  distPath: '生成文件路径'\n}\n\n增加页面内容示例使用 page:before 钩子{    \"page:before\": function(page) {\n        page.content = page.content + \"\\n Hello YDoc\";\n        return page;\n    }\n}\n替换 html 示例使用 page 钩子{    \"page\": function(page) {\n        page.content = page.content.replace(\"\", \"\")\n            .replace(\"\", \"\");\n        return page;\n    }\n}\n引用静态文件使用 assets 钩子{    assets: {\n        dir: './assets',\n        js: ['app.js'],\n        css: ['app.css']\n  }\n}\n\n复制当前目录下的 assets 文件夹到文档，并且在每个文件引入 app.js 和 app.css。"
+          "content": "钩子列表全局钩子\n\n名称\n描述\n参数\n\n\n\n\ninit\n在生成文档站点前触发.\n无\n\n\nfinish\n在生成文档站点完成后触发.\n无\n\n\nnav\n在解析导航 nav.md 后和解析文档前触发\n无\n\n\nassets\n引用插件静态文件\n无\n\n\n页面钩子\n\n名称\n描述\n参数\n\n\n\n\npage:before\n在创建 html 页面之前调用\nPage Object\n\n\npage\n生成 html 页面后调用\nPage Object\n\n\n模板钩子\n\n名称\n描述\n参数\n\n\n\n\ntpl:header\n在页面导航添加自定义的 html\n无\n\n\nPage Object{  // 页面类型，支持 md jsx html 三种\n  type: 'md',\n  // 页面标题\n  title: 'string',\n  // 页面描述信息\n  description: 'string',\n  // 页面内容\n  content: '内容',\n  prev: '上一页连接',\n  next: '下一页链接',\n  releativePath: '相对路径',\n  srcPath: '源文件路径',\n  distPath: '生成文件路径'\n}\n\n增加页面内容示例使用 page:before 钩子{\t\"page:before\": function(page) {\n\t\tpage.content = page.content + \"\\n Hello YDoc\";\n\t\treturn page;\n\t}\n}\n替换 html 示例使用 page 钩子{\t\"page\": function(page) {\n\t\tpage.content = page.content.replace(\"\", \"\")\n\t\t\t.replace(\"\", \"\");\n\t\treturn page;\n\t}\n}\n引用静态文件使用 assets 钩子{\tassets: {\n\t\tdir: './assets',\n\t\tjs: ['app.js'],\n\t\tcss: ['app.css']\n  }\n}\n复制当前目录下的 assets 文件夹到文档，并且在每个文件引入 app.js 和 app.css。"
         },
         {
           "title": "异步操作",
           "url": "/documents/hooks.html#钩子列表-异步操作",
-          "content": "异步操作回调参数返回一个 promise,能够支持异步处理。Example:{    \"init\": function() {\n        return new Promise((function(resolve){\n          setTimeout(function(){\n            resolve(true)\n          }, 2000)\n        }))\n    }\n}\n"
+          "content": "异步操作回调参数返回一个 promise,能够支持异步处理。Example:{\t\"init\": function() {\n\t\treturn new Promise((function(resolve) {\n\t\t\tsetTimeout(function() {\n\t\t\t\tresolve(true);\n\t\t\t}, 2000);\n\t\t}))\n\t}\n}\n"
         }
       ]
     },
@@ -348,7 +348,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "YDoc 配置 markdown-it 插件",
           "url": "/documents/markdown-it.html#ydoc-配置-markdown-it-插件",
-          "content": "YDoc 配置 markdown-it 插件在 ydoc.js 配置文件增加 markdownIt 配置项{  markdownIt: function(){\n    md.use(plugin1)\n    .use(plugin2, opts, ...)\n    .use(plugin3);\n  }\n}\n\n"
+          "content": "YDoc 配置 markdown-it 插件在 ydoc.js 配置文件增加 markdownIt 配置项{  markdownIt: function() {\n    md.use(plugin1)\n    .use(plugin2, opts, ...)\n    .use(plugin3);\n  }\n}\n"
         }
       ]
     },
