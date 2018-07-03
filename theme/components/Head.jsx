@@ -6,8 +6,6 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<Icon distPath={props.distPath} />
-	<link rel="manifest" href={relePath(props.distPath, 'ydoc/images/manifest.json')} />
-	<link rel="mask-icon" href={relePath(props.distPath, 'ydoc/images/safari-pinned-tab.svg"')} color="#5bbad5" />
 	<meta name="theme-color" content="#ffffff" />
 	<meta httpEquiv="Cache-Control" content="no-transform" />
 	<meta httpEquiv="Cache-Control" content="no-siteapp" />
