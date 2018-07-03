@@ -16,10 +16,12 @@ module.exports = {
     }else if(utils.dirExist(docsPath)){
       return utils.log.error('The current directory already exists directory "docs".');
     }
+    const configs = initydoc();
+    if(Object.keys(configs).length > 0){
+        fs.writeFileSync(projectConfig, JSON.stringify(configs, {}, 2));
+    }
     fs.ensureDirSync(docsPath);
     fs.copySync(initPath, docsPath);
-    const configs = initydoc();
-    fs.writeFileSync(projectConfig, JSON.stringify(configs, {}, 2));
     utils.log.ok('Initialization successful, please use the following command to generate the documents site.')
     utils.log.info('Execute: "ydoc build"')
   },
