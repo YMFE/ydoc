@@ -5,10 +5,12 @@ const runner = require('../index')
 
 module.exports = {
   setOptions: function (yargs) {
+    // show debug info
     yargs.option('verbose', {
       describe: 'show debug info.',
       default: false
     })
+    // environment setting
     yargs.option('mode', {
       default: 'prd'
     })
