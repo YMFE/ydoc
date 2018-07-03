@@ -26,7 +26,7 @@ async function run(config) {
   initConfig(config)
   const dist = ydoc.config.dist;
   const root = ydoc.config.root;
-  const themePath = path.resolve(ydocPath, "theme");  
+  const themePath = path.resolve(ydocPath, "theme"); 
   const customerComponentsPath = path.resolve(root, "_components");
 
   const themeDist = path.resolve(dist, "_theme");
@@ -35,13 +35,13 @@ async function run(config) {
   if(process.env.NODE_ENV === 'production'){
     fs.removeSync(dist);
   }
-  fs.ensureDirSync(dist);
-  fs.ensureDirSync(themeDist);
+  fs.ensureDirSync(dist); // 新建 my-project/_site 
+  fs.ensureDirSync(themeDist); // 新建 my-project/_site/_theme
 
-  fs.copySync(root, dist);
-  fs.copySync(themePath, themeDist);
+  fs.copySync(root, dist); // docs => _site
+  fs.copySync(themePath, themeDist); // ydoc/theme => my-project/_site/_theme
   if (ydoc.config.theme && ydoc.config.theme !== "default") {
-    handleTheme(ydoc.config.theme);
+    handleTheme(ydoc.config.theme); // load custom theme
   }
 
   fs.copySync(
