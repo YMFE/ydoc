@@ -218,7 +218,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "安装",
           "url": "/documents/theme.html#安装",
-          "content": "安装假设要安装 demo 主题，请执行以下命令：npm install --save-dev ydoc-theme-demo然后在 ydoc.json 配置：\"theme\": \"demo\""
+          "content": "安装假设要安装 demo 主题，请执行以下命令：npm install --save-dev ydoc-theme-demo然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
         },
         {
           "title": "开发",
@@ -292,12 +292,12 @@ window.ydoc_plugin_search_json = {
         {
           "title": "安装插件",
           "url": "/documents/plugins.html#安装插件",
-          "content": "安装插件假设要安装的插件名是 demo，执行如下命令：npm install --save-dev ydoc-plugin-demo安装完成后，请在 ydoc.json 配置项，添加：{  \"plugins\": [\"demo\"]\n}\n\n"
+          "content": "安装插件假设要安装的插件名是 demo，执行如下命令：npm install --save-dev ydoc-plugin-demo安装完成后，请在 ydoc.json 配置项，添加：{  \"plugins\": [\"demo\"]\n}\n"
         },
         {
           "title": "插件配置",
           "url": "/documents/plugins.html#插件配置",
-          "content": "插件配置部分插件需要做自定义配置, 假设 demo 插件需要添加 {id: 1} 的配置，只需要在 ydoc.json ，添加如下配置项：{  \"pluginsConfig\": {\n    \"demo\": {\n      \"id\": 1\n    }\n  }\n}\n\n"
+          "content": "插件配置部分插件需要做自定义配置, 假设 demo 插件需要添加 {id: 1} 的配置，只需要在 ydoc.json ，添加如下配置项：{  \"pluginsConfig\": {\n    \"demo\": {\n      \"id\": 1\n    }\n  }\n}\n"
         },
         {
           "title": "创建插件",
@@ -358,14 +358,14 @@ window.ydoc_plugin_search_json = {
       "url": "/documents/qa.html",
       "children": [
         {
-          "title": "icon",
-          "url": "/documents/qa.html#icon",
-          "content": "icon在 docs 目录下，新建 _components 文件夹，创建 Icon.jsx 文件，复制以下源码，可将系统默认的 icon 替换成 docs/images/xxx\n\n\n\n"
+          "title": "替换 favicon",
+          "url": "/documents/qa.html#替换-favicon",
+          "content": "替换 favicon替换 favicon, 建议使用 Favicon Generator 生成你想要的 favicon在 docs 目录下，新建 _components 文件夹，创建 Icon.jsx 文件，复制以下源码，可将系统默认的 favicon 替换成 docs/images/xxx\n\n\n\n"
         },
         {
-          "title": "引入js 和css",
-          "url": "/documents/qa.html#引入js-和css",
-          "content": "引入js 和css配置如下：{  \"pluginsConfig\": {\n    \"import-asset\": {\n      \"css\": [\"custom.css\"],\n      \"js\": [\"custom.js\"]\n    }\n  }\n}\n\n"
+          "title": "引入 js 和 css",
+          "url": "/documents/qa.html#引入-js-和-css",
+          "content": "引入 js 和 css配置如下：{  \"pluginsConfig\": {\n    \"import-asset\": {\n      \"css\": [\"custom.css\"],\n      \"js\": [\"custom.js\"]\n    }\n  }\n}\n\n"
         }
       ]
     },
