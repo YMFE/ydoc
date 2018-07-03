@@ -142,5 +142,4 @@ function mergeCopyFiles(src, dist){
   })
 }
 
-exports.mergeCopyFiles = mergeCopyFiles
-
+exports.mergeCopyFiles = mergeCopyFiles;

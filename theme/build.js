@@ -12,9 +12,7 @@ const styleOutPath = path.resolve(__dirname, './style.css')
  * node build.js watch # build style.css with watch file changes
  */
 
-
 // 编译 scss 文件至 docs 目录中
-
 function build(){
   sass.render({
     file: styleInPath,
@@ -26,7 +24,7 @@ function build(){
         if (err) {
           throw err;
         }
-        console.log('Generate style.css success.')
+        console.log('Generate style.css success!')
       })
     } else {
       throw err;
@@ -34,11 +32,11 @@ function build(){
   })
 }
 
-build()
+build();
 
-if(process.argv[2] === 'watch'){
+if (process.argv[2] === 'watch') {
   chokidar.watch(styleInDir, {
     ignoreInitial: true
-  }).on('all', build)
+  }).on('all', build);
 }
 

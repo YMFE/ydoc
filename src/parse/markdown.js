@@ -8,18 +8,18 @@ utils.md = MarkdownIt({
   html: true,
   linkify: false,
   highlight: function (str, lang) {
-    // js => javascript
-    if (lang.toLowerCase() === 'js') {
-      lang = 'javascript';
-    }
     try {
       if (lang) {
+        // js => javascript
+        if (lang.toLowerCase() === 'js') {
+          lang = 'javascript';
+        }
         // html 的高亮使用 haml 语法
         if (lang.toLocaleLowerCase() === 'html') {
           lang = 'haml';
         }
         loadLanguages([lang]);
-        return Prism.highlight(str, Prism.languages[lang], lang);
+        return prism.highlight(str, prism.languages[lang], lang);
       }
       return he.encode(str);
     } catch (err) {

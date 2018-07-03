@@ -1,7 +1,7 @@
 const chokidar = require('chokidar');
-const path = require('path')
+const path = require('path');
 const child_process = require('child_process');
-const utils = require('../utils')
+const utils = require('../utils');
 const ora = require('ora');
 let port = 9999;
 

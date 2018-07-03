@@ -360,7 +360,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "icon",
           "url": "/documents/qa.html#icon",
-          "content": "icon在 docs 目录下，新建 _components 文件夹，创建 Icon.jsx 文件，复制以下源码，可将系统默认的 icon 替换成 docs/ydoc.ico"
+          "content": "icon在 docs 目录下，新建 _components 文件夹，创建 Icon.jsx 文件，复制以下源码，可将系统默认的 icon 替换成 docs/images/xxx\n\n\n\n"
         },
         {
           "title": "引入js 和css",

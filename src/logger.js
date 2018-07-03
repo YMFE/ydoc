@@ -1,7 +1,6 @@
 const util = require('util');
 const color = require('bash-color');
 
-
 const LEVELS = {
   DEBUG: 0,
   INFO: 1,

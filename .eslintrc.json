@@ -13,6 +13,5 @@
         "indent": ["off", 2],
         "comma-dangle": ["error", "never"],
         "no-console": ["off"]
-        
     }
 }

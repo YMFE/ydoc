@@ -1,7 +1,6 @@
-
-const logger = require('../logger')
-const utils = require('../utils')
-const runner = require('../index')
+const logger = require('../logger');
+const utils = require('../utils');
+const runner = require('../index');
 
 module.exports = {
   setOptions: function (yargs) {
