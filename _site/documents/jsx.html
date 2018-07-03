@@ -122,11 +122,11 @@ props<span class="token punctuation">.</span>bar <span class="token operator">=<
 </span></code></pre>
 <h3 id="自定义页面变量">自定义页面变量</h3>
 <p>如果使用 js 自定义页面变量，将会非常难用和不优雅，YDoc 参考了开源工具 <a href="https://github.com/jonschlinkert/gray-matter" target="_blank">gray-matter</a> 在页面注入 YAML 方案。</p>
-<pre><code class="language-html">---
+<pre><code class="language-html"><span class="token punctuation">-</span><span class="token code"><span class="token operator">--</span></span>
 title: Hello
 slug: home
----
-&#x3C;h1 &#x3E;{title}, {slug}&#x3C;/h1&#x3E;
+<span class="token punctuation">-</span><span class="token code"><span class="token operator">--</span></span>
+<span class="token markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token punctuation">></span></span>{title}, {slug}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></span>
 </code></pre>
 <h3 id="系统内部组件">系统内部组件</h3>
 <p>系统内置了如下的组件，请尽量避免跟系统组件重名，因为一旦重名，将会覆盖系统的原有组件。</p>

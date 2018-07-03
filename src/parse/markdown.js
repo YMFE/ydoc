@@ -14,6 +14,10 @@ utils.md = MarkdownIt({
     }
     try {
       if (lang) {
+        // html 的高亮使用 haml 语法
+        if (lang.toLocaleLowerCase() === 'html') {
+          lang = 'haml';
+        }
         loadLanguages([lang]);
         return Prism.highlight(str, Prism.languages[lang], lang);
       }
