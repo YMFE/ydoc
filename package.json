@@ -1,6 +1,6 @@
 {
   "name": "ydoc",
-  "version": "4.0.4",
+  "version": "4.0.5",
   "description": "基于 Markdown 的静态站点生成工具",
   "scripts": {
     "test": "mocha --reporter spec --bail --recursive",
