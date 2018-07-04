@@ -4,6 +4,8 @@ const projectPath = process.cwd();
 const utils = require('../utils');
 const initPath = path.resolve(__dirname, '../init');
 const docsPath = path.resolve(projectPath, 'docs');
+const projectConfig = path.resolve(projectPath, 'ydoc.json');
+const initydoc = require('../initydoc');
 
 module.exports = {
   setOptions: function () {},
@@ -13,6 +15,10 @@ module.exports = {
       return utils.log.error('The current directory already exists ydoc config.')
     }else if (utils.dirExist(docsPath)) {
       return utils.log.error('The current directory already exists directory "docs".');
+    }
+    const configs = initydoc();
+    if(Object.keys(configs).length > 0){
+        fs.writeFileSync(projectConfig, JSON.stringify(configs, {}, 2));
     }
     fs.ensureDirSync(docsPath);
     fs.copySync(initPath, docsPath);

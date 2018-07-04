@@ -7,7 +7,6 @@ const assets = {
   css: []
 };
 
-
 const ydoc = {
   version: require('../package.json').version,
   log: utils.log,  
@@ -15,7 +14,7 @@ const ydoc = {
     root: utils.defaultDocsPath,
     dist: utils.defaultBuildPath,
     title: "ydoc",
-    description: "ydoc description",
+    description: "website description",
     author: "ymfe",
     theme: 'default'
   },
