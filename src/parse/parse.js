@@ -55,9 +55,11 @@ function getBookContext(book, page){
 }
 
 function handleMdPathToHtml(filepath){
+  // console.log(filepath);
   let fileObj = path.parse(filepath);
   if(fileObj.ext === '.md' || fileObj.ext === '.jsx'){
     let name = fileObj.name + '.html';
+    // console.log(name);
     return path.format({
       dir: fileObj.dir,
       base: name
@@ -218,6 +220,7 @@ async function parseBook({bookpath, indexFile, title}){
 
   const generatePage = generate(bookpath);
 
+  // 解析具体的 html
   generatePage(getBookContext(book, {
     title: book.title,
     srcPath: indexPath,
@@ -228,7 +231,7 @@ async function parseBook({bookpath, indexFile, title}){
       generatePage(getBookContext(book, {
         title: title,
         srcPath: absolutePath,
-        distPath: releativeHtmlPath
+        distPath: unescape(releativeHtmlPath)
       }));
     })(summary); 
   }
@@ -242,6 +245,7 @@ async function parseBook({bookpath, indexFile, title}){
 
 }
 
+// 解析文档 (.md)
 function parseDocuments(bookpath, callback){
   return function _parseDocuments(summary){
     for(let index = 0; index< summary.length; index++){
@@ -255,9 +259,8 @@ function parseDocuments(bookpath, callback){
         urlObj.hash = urlObj.hash ? urlObj.hash.toLowerCase() : '';
         item.ref = releativeHtmlPath + urlObj.hash;          
         item.absolutePath = absolutePath;
-
-        if(utils.fileExist(absolutePath)){          
-          callback(absolutePath, releativeHtmlPath, item.title)
+        if (utils.fileExist(unescape(absolutePath))){
+          callback(unescape(absolutePath), releativeHtmlPath, item.title)
         }
       }
   
