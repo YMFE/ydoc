@@ -1,7 +1,6 @@
 const utils = require('./utils.js');
 const path = require('path');
 
-const projectPath = utils.projectPath;
 const assets = {
   js: [],
   css: []
@@ -9,7 +8,7 @@ const assets = {
 
 const ydoc = {
   version: require('../package.json').version,
-  log: utils.log,  
+  log: utils.log,
   config: {
     root: utils.defaultDocsPath,
     dist: utils.defaultBuildPath,
@@ -39,7 +38,7 @@ const ydoc = {
       assets.js.push(filepath);
     }else if (type === 'css') {
       assets.css.push(filepath);
-    }    
+    }
   },
   getAssets: function(type) {
     return type ? [].concat(assets[type]) : {

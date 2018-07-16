@@ -55,11 +55,9 @@ function getBookContext(book, page){
 }
 
 function handleMdPathToHtml(filepath){
-  // console.log(filepath);
   let fileObj = path.parse(filepath);
   if(fileObj.ext === '.md' || fileObj.ext === '.jsx'){
     let name = fileObj.name + '.html';
-    // console.log(name);
     return path.format({
       dir: fileObj.dir,
       base: name
@@ -75,7 +73,7 @@ function handleMdPathToHtml(filepath){
 exports.parseSite = async function(dist){
   try{
     await emitHook('init');
-    
+
     defaultIndexPageName = 'index'
     let indexPath = getIndexPath(dist);
     if(!indexPath){
@@ -108,7 +106,7 @@ exports.parseSite = async function(dist){
     utils.log.ok(`Generate Site "${ydocConfig.title}" ${showpath}`);
 
     await emitHook('finish')
-  }catch(err){    
+  } catch(err){
     utils.log.error(err);
   }
 }
@@ -116,17 +114,17 @@ exports.parseSite = async function(dist){
 function getBooks(menus, dist){
   let books = [];
   for(let i=0; i< menus.length; i++){
-    let item = menus[i];    
+    let item = menus[i];
     if( !item.ref || utils.isUrl(item.ref)){
       continue;
     }
 
     if(path.isAbsolute(item.ref)){
-      item.ref = '.' + item.ref;      
+      item.ref = '.' + item.ref;
     }
     let bookHomePath = path.resolve(dist, item.ref);
     if(!utils.fileExist(bookHomePath)) continue;
-    
+
     let indexFile = path.basename(bookHomePath);
     let bookpath = path.dirname(bookHomePath);
     let stats;
@@ -135,7 +133,7 @@ function getBooks(menus, dist){
     }catch(err){
       continue;
     }
-    
+
     if(stats.isDirectory() && item[0] !== '_' && item[0] !== 'style' ){
       item.ref = handleMdPathToHtml(item.ref);
       item.absolutePath = path.resolve(dist,item.ref)
@@ -144,7 +142,7 @@ function getBooks(menus, dist){
         indexFile: indexFile,
         title: item.title
       })
-      
+
     }
   }
   return books;
@@ -154,7 +152,7 @@ function getBookInfo(filepath){
   let page;
   if(path.extname(filepath) === '.md'){
     page = parsePage(parseMarkdown(filepath));
-  }else if(path.extname(filepath) === '.jsx'){    
+  }else if(path.extname(filepath) === '.jsx'){
     page = {
       title: ydocConfig.title
     }
@@ -193,23 +191,23 @@ function getBookInfo(filepath){
 // }
 
 async function parseBook({bookpath, indexFile, title}){
-  const book = {}; //书籍公共变量
+  const book = {}; // 书籍公共变量
   let extname = path.extname(indexFile);
   let name = path.basename(indexFile, extname);
   defaultIndexPageName = name;
-  
+
   let indexPath = path.resolve(bookpath, indexFile);
   if(!utils.fileExist(indexPath)){
     return ;
   }
   let baseInfo = getBookInfo(indexPath);
   let summary = getBookSummary(bookpath);
-  
+
   utils.extend(book, baseInfo);
   book.summary = summary;
   book.bookpath = path.resolve(bookpath, name + '.html')
 
-  //优先使用导航定义的 title
+  // 优先使用导航定义的 title
   book.title = title? title: book.title;
 
   await emitHook('book:before', {
@@ -233,11 +231,11 @@ async function parseBook({bookpath, indexFile, title}){
         srcPath: absolutePath,
         distPath: unescape(releativeHtmlPath)
       }));
-    })(summary); 
+    })(summary);
   }
 
   await runBatch();
-  
+
   let showpath = color.yellow( bookpath + '/' + defaultIndexPageName + '.html');
   utils.log.ok(`Generate book "${book.title}" ${showpath}`);
 
@@ -257,13 +255,13 @@ function parseDocuments(bookpath, callback){
         let absolutePath = path.resolve(bookpath, releativePath);
         let releativeHtmlPath = handleMdPathToHtml(releativePath);
         urlObj.hash = urlObj.hash ? urlObj.hash.toLowerCase() : '';
-        item.ref = releativeHtmlPath + urlObj.hash;          
+        item.ref = releativeHtmlPath + urlObj.hash;
         item.absolutePath = absolutePath;
         if (utils.fileExist(unescape(absolutePath))){
           callback(unescape(absolutePath), releativeHtmlPath, item.title)
         }
       }
-  
+
       if(item.articles && Array.isArray(item.articles) && item.articles.length > 0){
         _parseDocuments(item.articles)
       }
