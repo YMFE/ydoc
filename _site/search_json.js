@@ -375,6 +375,11 @@ window.ydoc_plugin_search_json = {
       "url": "/documents/release.html",
       "children": [
         {
+          "title": "v4.0.6 (2018.08.23)",
+          "url": "/documents/release.html#v4.0.6-2018.08.23",
+          "content": "v4.0.6 (2018.08.23)样式优化，优化 markdown 阅读体验\n修复不支持中文等特殊符号路径的问题\n"
+        },
+        {
           "title": "v4.0.5 (2018.07.04)",
           "url": "/documents/release.html#v4.0.5-2018.07.04",
           "content": "v4.0.5 (2018.07.04)init 命令优化, 支持初始化时配置网站信息\n优化 favicon 的配置\nmarkdown 支持 html 语法 (使用 haml 语法解析)\nUI 优化\n"
