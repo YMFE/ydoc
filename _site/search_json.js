@@ -8,7 +8,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "安装依赖",
           "url": "/documents/index.html#安装依赖",
-          "content": "安装依赖YDoc 依赖 Node.js , 请安装不低于 7.6 版本的 Node.js"
+          "content": "安装依赖"
         },
         {
           "title": "安装 Node.js",
