@@ -1,19 +1,16 @@
 #!/usr/bin/env node
-const compareVersions = require('compare-versions');
-const utils = require('../src/utils');
+const color = require('bash-color');
 const child_process = require('child_process');
-
-child_process.exec('node -v', function (err, stdout, stderr) {
-  if (err) {
-    utils.log.error('Get NodeJS Error:' + stderr);
-  } else {
-    const version = stdout.match(/v([\\.0-9]+)/)[1];
-    const compareMinVersion = compareVersions(version, '7.6.0');
-    // 判断 node 版本是否大于 7.6.0
-    if (compareMinVersion >= 0) {
-      require('../src/cli.js');
-    } else {
-      utils.log.error('YDoc requires node v7.6.0 or higher.');
+child_process.exec('node -v', function(err, stdout, stderr){
+  if(err) throw err;
+  let version = stdout.match(/v([\.0-9]+)/)[1]
+  let arr = version.split('.')
+  let errmsg = color.red('YDoc requires node v7.6.0 or higher.')
+  if(arr[0] < 7){
+    return process.stdout.write(errmsg)
+    if(arr[1] < 6){
+      return process.stdout.write(errmsg)
     }
   }
-});
+  require('../src/cli.js');
+})

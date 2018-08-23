@@ -3,7 +3,7 @@ const fs = require('fs-extra');
 const utils = require('../utils.js');
 const ydoc = require('../ydoc.js');
 const ydocConfig = ydoc.config;
-let   defaultIndexPageName = 'index';
+let defaultIndexPageName = 'index';
 const defaultSummaryPage = 'SUMMARY.md';
 const defaultNavPage = 'NAV.md';
 const generate = require('../generate.js').generatePage;
@@ -18,51 +18,51 @@ const emitHook = require('../plugin.js').emitHook;
 const url = require('url');
 const color = require('bash-color');
 
-function getIndexPath(filepath){
-  let getIndexPathByType = (type)=> path.resolve(filepath, defaultIndexPageName + '.' + type);
+function getIndexPath(filepath) {
+  let getIndexPathByType = (type) => path.resolve(filepath, defaultIndexPageName + '.' + type);
   let types = ['md', 'jsx', 'html'];
   let contentFilepath;
-  for(let index in types){
+  for (let index in types) {
     contentFilepath = getIndexPathByType(types[index]);
-    if(utils.fileExist(contentFilepath)){
+    if (utils.fileExist(contentFilepath)) {
       return contentFilepath;
     }
   }
   return null;
 }
 
-function getBookSummary(filepath){
+function getBookSummary(filepath) {
   let summaryFilepath = path.resolve(filepath, defaultSummaryPage);
-  if(!utils.fileExist(summaryFilepath)) return null;
+  if (!utils.fileExist(summaryFilepath)) return null;
   let summary = parseMarkdown(summaryFilepath);
   fs.unlinkSync(summaryFilepath);
   return parseSummary(summary);
 }
 
-function getNav(filepath){
+function getNav(filepath) {
   let navFilepath = path.resolve(filepath, defaultNavPage);
-  if(!utils.fileExist(navFilepath)) return null;
+  if (!utils.fileExist(navFilepath)) return null;
   let content = parseMarkdown(navFilepath);
   fs.unlinkSync(navFilepath);
   return parseNav(content);
 }
 
-function getBookContext(book, page){
+function getBookContext(book, page) {
   const context = utils.extend({}, book);
   context.page = page;
   context.config = ydocConfig;
   return context;
 }
 
-function handleMdPathToHtml(filepath){
+function handleMdPathToHtml(filepath) {
   let fileObj = path.parse(filepath);
-  if(fileObj.ext === '.md' || fileObj.ext === '.jsx'){
+  if (fileObj.ext === '.md' || fileObj.ext === '.jsx') {
     let name = fileObj.name + '.html';
     return path.format({
       dir: fileObj.dir,
       base: name
     })
-  }else{
+  } else {
     return path.format({
       dir: fileObj.dir,
       base: fileObj.base
@@ -70,13 +70,13 @@ function handleMdPathToHtml(filepath){
   }
 }
 
-exports.parseSite = async function(dist){
-  try{
+exports.parseSite = async function (dist) {
+  try {
     await emitHook('init');
 
     defaultIndexPageName = 'index'
     let indexPath = getIndexPath(dist);
-    if(!indexPath){
+    if (!indexPath) {
       return utils.log.error(`The root directory of site didn't find index page.`)
     }
     ydocConfig.nav = getNav(dist);
@@ -90,7 +90,7 @@ exports.parseSite = async function(dist){
         title: ydocConfig.title
       }
     ]
-    ydocConfig.nav.menus.forEach(menu=>{
+    ydocConfig.nav.menus.forEach(menu => {
       let menuBooks = getBooks(menu.items, dist);
       books = books.concat(menuBooks)
     })
@@ -98,45 +98,45 @@ exports.parseSite = async function(dist){
       return item.bookpath + item.indexFile
     })
 
-    for(let j=0; j< books.length ; j++){
+    for (let j = 0; j < books.length; j++) {
       await parseBook(books[j]);
     }
 
-    let showpath = color.yellow( dist + '/index.html');
+    let showpath = color.yellow(dist + '/index.html');
     utils.log.ok(`Generate Site "${ydocConfig.title}" ${showpath}`);
 
     await emitHook('finish')
-  } catch(err){
+  } catch (err) {
     utils.log.error(err);
   }
 }
 
-function getBooks(menus, dist){
+function getBooks(menus, dist) {
   let books = [];
-  for(let i=0; i< menus.length; i++){
+  for (let i = 0; i < menus.length; i++) {
     let item = menus[i];
-    if( !item.ref || utils.isUrl(item.ref)){
+    if (!item.ref || utils.isUrl(item.ref)) {
       continue;
     }
 
-    if(path.isAbsolute(item.ref)){
+    if (path.isAbsolute(item.ref)) {
       item.ref = '.' + item.ref;
     }
     let bookHomePath = path.resolve(dist, item.ref);
-    if(!utils.fileExist(bookHomePath)) continue;
+    if (!utils.fileExist(bookHomePath)) continue;
 
     let indexFile = path.basename(bookHomePath);
     let bookpath = path.dirname(bookHomePath);
     let stats;
-    try{
+    try {
       stats = fs.statSync(bookpath);
-    }catch(err){
+    } catch (err) {
       continue;
     }
 
-    if(stats.isDirectory() && item[0] !== '_' && item[0] !== 'style' ){
+    if (stats.isDirectory() && item[0] !== '_' && item[0] !== 'style') {
       item.ref = handleMdPathToHtml(item.ref);
-      item.absolutePath = path.resolve(dist,item.ref)
+      item.absolutePath = path.resolve(dist, item.ref)
       books.push({
         bookpath: bookpath,
         indexFile: indexFile,
@@ -148,16 +148,16 @@ function getBooks(menus, dist){
   return books;
 }
 
-function getBookInfo(filepath){
+function getBookInfo(filepath) {
   let page;
-  if(path.extname(filepath) === '.md'){
+  if (path.extname(filepath) === '.md') {
     page = parsePage(parseMarkdown(filepath));
-  }else if(path.extname(filepath) === '.jsx'){
+  } else if (path.extname(filepath) === '.jsx') {
     page = {
       title: ydocConfig.title
     }
-  }else{
-    page = parsePage( parseHtml(filepath));
+  } else {
+    page = parsePage(parseHtml(filepath));
   }
   return {
     title: page.title || ydocConfig.title,
@@ -190,15 +190,15 @@ function getBookInfo(filepath){
 //   config: {} //ydocConfig 配置
 // }
 
-async function parseBook({bookpath, indexFile, title}){
+async function parseBook({ bookpath, indexFile, title }) {
   const book = {}; // 书籍公共变量
   let extname = path.extname(indexFile);
   let name = path.basename(indexFile, extname);
   defaultIndexPageName = name;
 
   let indexPath = path.resolve(bookpath, indexFile);
-  if(!utils.fileExist(indexPath)){
-    return ;
+  if (!utils.fileExist(indexPath)) {
+    return;
   }
   let baseInfo = getBookInfo(indexPath);
   let summary = getBookSummary(bookpath);
@@ -208,7 +208,7 @@ async function parseBook({bookpath, indexFile, title}){
   book.bookpath = path.resolve(bookpath, name + '.html')
 
   // 优先使用导航定义的 title
-  book.title = title? title: book.title;
+  book.title = title ? title : book.title;
 
   await emitHook('book:before', {
     title: book.title,
@@ -224,8 +224,8 @@ async function parseBook({bookpath, indexFile, title}){
     srcPath: indexPath,
     distPath: defaultIndexPageName + '.html'
   }))
-  if(summary && Array.isArray(summary)) {
-    parseDocuments(bookpath, function(absolutePath, releativeHtmlPath, title=''){
+  if (summary && Array.isArray(summary)) {
+    parseDocuments(bookpath, function (absolutePath, releativeHtmlPath, title = '') {
       generatePage(getBookContext(book, {
         title: title,
         srcPath: absolutePath,
@@ -236,7 +236,7 @@ async function parseBook({bookpath, indexFile, title}){
 
   await runBatch();
 
-  let showpath = color.yellow( bookpath + '/' + defaultIndexPageName + '.html');
+  let showpath = color.yellow(bookpath + '/' + defaultIndexPageName + '.html');
   utils.log.ok(`Generate book "${book.title}" ${showpath}`);
 
   await emitHook('book');
@@ -244,25 +244,25 @@ async function parseBook({bookpath, indexFile, title}){
 }
 
 // 解析文档 (.md)
-function parseDocuments(bookpath, callback){
-  return function _parseDocuments(summary){
-    for(let index = 0; index< summary.length; index++){
+function parseDocuments(bookpath, callback) {
+  return function _parseDocuments(summary) {
+    for (let index = 0; index < summary.length; index++) {
       let item = summary[index];
-      if(item.ref){
+      if (item.ref) {
         let urlObj = url.parse(item.ref);
-        if(urlObj.host) continue;
+        if (urlObj.host) continue;
         let releativePath = urlObj.pathname;
         let absolutePath = path.resolve(bookpath, releativePath);
         let releativeHtmlPath = handleMdPathToHtml(releativePath);
         urlObj.hash = urlObj.hash ? urlObj.hash.toLowerCase() : '';
         item.ref = releativeHtmlPath + urlObj.hash;
         item.absolutePath = absolutePath;
-        if (utils.fileExist(unescape(absolutePath))){
+        if (utils.fileExist(unescape(absolutePath))) {
           callback(unescape(absolutePath), releativeHtmlPath, item.title)
         }
       }
 
-      if(item.articles && Array.isArray(item.articles) && item.articles.length > 0){
+      if (item.articles && Array.isArray(item.articles) && item.articles.length > 0) {
         _parseDocuments(item.articles)
       }
     }

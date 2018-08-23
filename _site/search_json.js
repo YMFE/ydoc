@@ -8,7 +8,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "安装依赖",
           "url": "/documents/index.html#安装依赖",
-          "content": "安装依赖YDoc 依赖 Node.js , 请安装不低于 7.6 版本的 Node.js"
+          "content": "安装依赖"
         },
         {
           "title": "安装 Node.js",
@@ -374,6 +374,11 @@ window.ydoc_plugin_search_json = {
       "content": "",
       "url": "/documents/release.html",
       "children": [
+        {
+          "title": "v4.0.6 (2018.08.23)",
+          "url": "/documents/release.html#v4.0.6-2018.08.23",
+          "content": "v4.0.6 (2018.08.23)样式优化，优化 markdown 阅读体验\n修复不支持中文等特殊符号路径的问题\n"
+        },
         {
           "title": "v4.0.5 (2018.07.04)",
           "url": "/documents/release.html#v4.0.5-2018.07.04",
