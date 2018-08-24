@@ -10,8 +10,16 @@
     },
     "extends": ["eslint:recommended"],
     "rules": {
-        "indent": ["off", 2],
+        "indent": ["error", 2],
         "comma-dangle": ["error", "never"],
-        "no-console": ["off"]
+        "no-console": ["off"],
+        "spaced-comment": [2],
+        "no-trailing-spaces": [2],
+        "no-spaced-func": 2,
+        "comma-spacing": 0,
+        "space-before-blocks": [
+            0,
+            "always"
+        ]
     }
 }
