@@ -1372,14 +1372,6 @@ body {
   font-weight: 500;
 }
 
-.markdown-body h2 {
-  margin: .54rem 0 .24rem;
-}
-
-.markdown-body h3 {
-  margin: .32rem 0 .16rem;
-}
-
 .markdown-body a {
   text-decoration: none;
   background-color: rgba(187, 239, 253, 0.3);
