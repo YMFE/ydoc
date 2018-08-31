@@ -55,7 +55,7 @@
     "ydoc-plugin-edit-page": "0.0.2",
     "ydoc-plugin-execution-time": "^1.0.0",
     "ydoc-plugin-import-asset": "^1.0.1",
-    "ydoc-plugin-search": "^1.1.3"
+    "ydoc-plugin-search": "^1.1.5"
   },
   "devDependencies": {
     "ghooks": "^2.0.0",
