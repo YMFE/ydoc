@@ -109,7 +109,8 @@
 				padding: 0;
 				> .item:hover {
 					.m-header-subtitle {
-						display: block;
+						display: flex;
+						flex-wrap: wrap;
 					}
 				}
 			}

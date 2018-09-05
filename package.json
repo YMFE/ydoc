@@ -4,7 +4,8 @@
   "description": "基于 Markdown 的静态站点生成工具",
   "scripts": {
     "test": "mocha --reporter spec --bail --recursive",
-    "commet": "node commetparser/app.js"
+    "commet": "node commetparser/app.js",
+    "buildCss": "node theme/build.js watch"
   },
   "keywords": [
     "doc",
@@ -55,7 +56,7 @@
     "ydoc-plugin-edit-page": "0.0.2",
     "ydoc-plugin-execution-time": "^1.0.0",
     "ydoc-plugin-import-asset": "^1.0.1",
-    "ydoc-plugin-search": "^1.1.5"
+    "ydoc-plugin-search": "^1.1.6"
   },
   "devDependencies": {
     "ghooks": "^2.0.0",

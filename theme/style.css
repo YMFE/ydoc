@@ -607,6 +607,10 @@ a:link, a:visited {
   }
 }
 
+html {
+  height: 100%;
+}
+
 body {
   width: 100%;
   height: 100%;
@@ -1685,7 +1689,8 @@ pre[class*="language-"] {
     padding: 0;
   }
   .m-header-nav .m-header-items > .item:hover .m-header-subtitle {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
   }
   .m-header-nav .m-header-subtitle {
     display: none;
