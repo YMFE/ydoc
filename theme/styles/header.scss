@@ -42,15 +42,24 @@
 			}
 			.link {
 				display: inline-block;
+				padding-left: .5em;
+				padding-right: .5em;
 				width: 100%;
+				background-color: transparent;
+				border-radius: 4px;
+				line-height: .32rem;
+				transition: all $transition-time-quick;
+			}
+			.link:hover {
+				color: $primary-color;
+				background-color: $primary-1;
 			}
 		}
 		.item {
-			margin-bottom: $padding-xs;
 			width: 100%;
 			display: inline-block;
 			line-height: 1.8;
-			margin: 0 $padding-xs;
+			padding: 0 $padding-xs;
 			position: relative;
 			cursor: pointer;
 			transition: all $transition-time-quick;
@@ -61,23 +70,22 @@
 		}
 		.item.active {
 			font-weight: bold;
-			color: $deep-body-text-color;
-			.href {
-				border-bottom: 2px solid $primary-color;
-			}
-			// &:after {
-			// 	content: '';
-			// 	display: block;
-			// 	position: absolute;
-			// 	bottom: 0;
-			// 	left: 0;
-			// 	width: 100%;
-			// 	height: 2px;
-			// 	background-color: $primary-color;
-			// }
+			color: $primary-color;
 		}
 		.href {
-			padding: .5em;
+     	display: inline-block;
+			padding-left: .5em;
+			padding-right: .5em;
+			height: .32rem;
+			line-height: .32rem;
+			width: 100%;
+			background-color: transparent;
+			border-radius: 4px;
+			transition: all $transition-time-quick;
+		}
+		.href:active {
+			color: $primary-color;
+			background-color: $primary-1;
 		}
 	}
 	&-btn {
@@ -145,15 +153,36 @@
 					top: -.16rem;
 					transform: translateX(-50%);
 				}
+				.link {
+					display: inline-block;
+					padding: 0;
+					width: auto;
+				}
+				.link:hover {
+					font-weight: bold;
+					color: $deep-body-text-color;
+					background-color: transparent;
+				}
+			}
+			.href {
+				border-radius: 0;
+			}
+			.href:hover {
+				font-weight: bold;
+				color: $deep-body-text-color;
+				background-color: transparent;
 			}
 			.item {
 				margin: 0 $padding-sm;
 				line-height: .64rem;
 				width: auto;
 				transition: color $transition-time-quick;
-				&:hover {
-					font-weight: bold;
-					color: $deep-body-text-color;
+			}
+			.item.active {
+				font-weight: bold;
+				color: $deep-body-text-color;
+				.href {
+					border-bottom: 2px solid $primary-color;
 				}
 			}
 		}
