@@ -412,6 +412,38 @@ window.ydoc_plugin_search_json = {
       ]
     }
   ],
+  "示例 Demo": [
+    {
+      "title": "Demo 介绍",
+      "content": "我们为大家提供了一系列 Demo 的在线预览，你可以通过这些 Demo 来了解 YDoc 构建文档的能力，在你构建遇到困惑的时候不妨先看下 Demo 中有没有类似的效果，效仿该效果进行配置即可。",
+      "url": "/examples/index.html",
+      "children": [
+        {
+          "title": "本地调试 Demo",
+          "url": "/examples/index.html#本地调试-demo",
+          "content": "本地调试 Demo首先将 YDoc 项目 clone 到本地：git clone git@github.com:YMFE/ydoc.gitcd ydoc/examples\nydoc/examples 目录下有若干 Demo，你可以进入各个 Demo 的目录中执行 YDoc build 来进行本地调试。"
+        }
+      ]
+    },
+    {
+      "title": "初始化",
+      "content": "YDoc 一键生成文档的最简单版本。Demo 在线预览",
+      "url": "/examples/init.html",
+      "children": []
+    },
+    {
+      "title": "首页使用 markdown",
+      "content": "默认主题的首页使用的是 jsx 文件，这个文件可以替换成 markdown/html 文件。Demo 在线预览",
+      "url": "/examples/homepage.html",
+      "children": [
+        {
+          "title": "用法",
+          "url": "/examples/homepage.html#用法",
+          "content": "用法删除 examples/homepage/docs/ 目录下的 index.jsx 文件，然后在这个目录下新建 index.md 文件，随意写一些内容。然后执行：ydoc build即可看到首页已经换成了 markdown 文件中编写的内容啦，html 文件也是同理"
+        }
+      ]
+    }
+  ],
   "设计规范": [
     {
       "title": "设计规范",

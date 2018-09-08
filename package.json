@@ -5,7 +5,8 @@
   "scripts": {
     "test": "mocha --reporter spec --bail --recursive",
     "commet": "node commetparser/app.js",
-    "buildCss": "node theme/build.js watch"
+    "buildCss": "node theme/build.js watch",
+    "build": "ydoc build && sh build.sh"
   },
   "keywords": [
     "doc",
