@@ -1,3 +1,1 @@
-```
-markdown-it-include
-```
+!!!include(./examples/homepage/docs/index.md)!!!
