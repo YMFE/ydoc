@@ -144,6 +144,11 @@ window.ydoc_plugin_search_json = {
       "url": "/documents/markdown.html",
       "children": [
         {
+          "title": "语法规范",
+          "url": "/documents/markdown.html#语法规范",
+          "content": "语法规范YDoc 使用了 CommonMark 语法规范"
+        },
+        {
           "title": "为什么要使用它",
           "url": "/documents/markdown.html#为什么要使用它",
           "content": "为什么要使用它它是易读（看起开舒服）、易写（语法简单）、易更改纯文本。处处体现着极简主义的影子。\n兼容 HTML，可以转换为 HTML 格式发布。\n跨平台使用。\n越来越多的网站支持 Markdown。\n更方便清晰的组织你的电子邮件。（Markdown-here, Airmail）\n摆脱 Word（我不是认真的）。\n如果不算扩展，Markdown 的语法绝对简单到让你爱不释手。Markdown 语法主要分为如下几大部分： 标题，段落，区块引用，代码区块，强调，列表，分割线，链接，图片，反斜杠 \\，符号'`'，表格。"
