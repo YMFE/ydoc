@@ -116,7 +116,6 @@ $(function(){
   }, 300));
 
   $searchResult.on('click', function (e) {
-    $searchResult.hide();
     return false;
   })
 
