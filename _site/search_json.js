@@ -303,11 +303,6 @@ window.ydoc_plugin_search_json = {
           "title": "插件配置",
           "url": "/documents/plugins.html#插件配置",
           "content": "插件配置部分插件需要做自定义配置, 假设 demo 插件需要添加 {id: 1} 的配置，只需要在 ydoc.json ，添加如下配置项：{  \"pluginsConfig\": {\n    \"demo\": {\n      \"id\": 1\n    }\n  }\n}\n"
-        },
-        {
-          "title": "创建插件",
-          "url": "/documents/plugins.html#创建插件",
-          "content": "创建插件YDoc 插件是发布到 npm 的 node 包，本篇教程假定你已经拥有了 npm 和 node 相关的经验。"
         }
       ]
     },
