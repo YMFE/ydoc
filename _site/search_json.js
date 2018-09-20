@@ -144,6 +144,11 @@ window.ydoc_plugin_search_json = {
       "url": "/documents/markdown.html",
       "children": [
         {
+          "title": "语法规范",
+          "url": "/documents/markdown.html#语法规范",
+          "content": "语法规范YDoc 使用了 CommonMark 语法规范"
+        },
+        {
           "title": "为什么要使用它",
           "url": "/documents/markdown.html#为什么要使用它",
           "content": "为什么要使用它它是易读（看起开舒服）、易写（语法简单）、易更改纯文本。处处体现着极简主义的影子。\n兼容 HTML，可以转换为 HTML 格式发布。\n跨平台使用。\n越来越多的网站支持 Markdown。\n更方便清晰的组织你的电子邮件。（Markdown-here, Airmail）\n摆脱 Word（我不是认真的）。\n如果不算扩展，Markdown 的语法绝对简单到让你爱不释手。Markdown 语法主要分为如下几大部分： 标题，段落，区块引用，代码区块，强调，列表，分割线，链接，图片，反斜杠 \\，符号'`'，表格。"
@@ -298,11 +303,6 @@ window.ydoc_plugin_search_json = {
           "title": "插件配置",
           "url": "/documents/plugins.html#插件配置",
           "content": "插件配置部分插件需要做自定义配置, 假设 demo 插件需要添加 {id: 1} 的配置，只需要在 ydoc.json ，添加如下配置项：{  \"pluginsConfig\": {\n    \"demo\": {\n      \"id\": 1\n    }\n  }\n}\n"
-        },
-        {
-          "title": "创建插件",
-          "url": "/documents/plugins.html#创建插件",
-          "content": "创建插件YDoc 插件是发布到 npm 的 node 包，本篇教程假定你已经拥有了 npm 和 node 相关的经验。"
         }
       ]
     },
@@ -408,6 +408,20 @@ window.ydoc_plugin_search_json = {
           "title": "v4.0.0 (2018.03.29)",
           "url": "/documents/release.html#v4.0.0-2018.03.29",
           "content": "v4.0.0 (2018.03.29)新 YDoc v4.0.0 版本发布啦！ 🎉🎉🎉重构: 经过长达数年的文档构建工作，我们积攒了大量构建文档的经验，此刻我们卸下历史包袱、厚积薄发、精雕细琢地打造了拥有卓越的视觉与交互体验的文档构建工具！\n灵活的插件机制: 万物皆插件，YDoc 虽然是一个非常轻量的工具，但插件机制让它灵活地应用于各种复杂场景\n响应式设计，支持手持设备访问\n简洁而严谨的 UI 设计\n文档设计规范\n"
+        }
+      ]
+    }
+  ],
+  "示例 Demo": [
+    {
+      "title": "Demo 介绍",
+      "content": "我们为大家提供了一系列 Demo 的在线预览，你可以通过这些 Demo 来了解 YDoc 构建文档的能力，在你构建遇到困惑的时候不妨先看下 Demo 中有没有类似的效果，效仿该效果进行配置即可。",
+      "url": "/examples/index.html",
+      "children": [
+        {
+          "title": "本地调试 Demo",
+          "url": "/examples/index.html#本地调试-demo",
+          "content": "本地调试 Demo首先将 YDoc 项目 clone 到本地：git clone git@github.com:YMFE/ydoc.gitcd ydoc/examples\nydoc/examples 目录下有若干 Demo，你可以进入各个 Demo 的目录中执行 YDoc build 来进行本地调试。\n\nDemo 名称\n描述\n\n\n\n\n初始化\nYDoc 一键生成文档的最简版本。\n\n\n首页使用 markdown\n默认主题的首页使用 markdown 的方式\n\n\n使用插件\nYDoc 标准插件与 markdown-it 插件的使用\n\n\n"
         }
       ]
     }

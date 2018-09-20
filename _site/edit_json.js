@@ -16,6 +16,7 @@ window.ydoc_plugin_edit_json = {
   "/documents/markdown-it.html": "/documents/markdown-it.md",
   "/documents/qa.html": "/documents/qa.md",
   "/documents/release.html": "/documents/release.md",
+  "/examples/index.html": "/examples/index.md",
   "/standard/style-guide.html": "/standard/style-guide.md",
   "/standard/index.html": "/standard/index.md"
 }

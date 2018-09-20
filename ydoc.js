@@ -12,7 +12,7 @@ module.exports = {
     }
   },
   markdownIt: function(md){
-    
+    md.use(require('markdown-it-include'), __dirname);
   },
   dist: '_site',
 //   version: require('./package.json').version
