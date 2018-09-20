@@ -12,3 +12,9 @@ cd ydoc/examples
 ```
 
 ydoc/examples 目录下有若干 Demo，你可以进入各个 Demo 的目录中执行 ```YDoc build``` 来进行本地调试。
+
+| Demo 名称 | 描述 |
+| ------ | ------ |
+| [初始化](./init/index.html) | YDoc 一键生成文档的最简版本。 |
+| [首页使用 markdown](./homepage/index.html) | 默认主题的首页使用 markdown 的方式 |
+| [使用插件](./plugin/index.html) | YDoc 标准插件与 markdown-it 插件的使用 |

@@ -2,7 +2,7 @@ window.ydoc_plugin_search_json = {
   "ydoc": [
     {
       "title": "首页使用 markdown",
-      "content": "默认主题的首页使用的是 jsx 文件，这个文件可以替换成 markdown/html 文件。Demo 在线预览",
+      "content": "默认主题的首页使用的是 jsx 文件，这个文件可以替换成 markdown/html 文件。",
       "url": "/index.html",
       "children": [
         {

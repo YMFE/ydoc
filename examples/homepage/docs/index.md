@@ -2,8 +2,6 @@
 
 默认主题的首页使用的是 jsx 文件，这个文件可以替换成 markdown/html 文件。
 
-[Demo 在线预览](./homepage/index.html)
-
 ## 用法
 
 删除 ```examples/homepage/docs/``` 目录下的 ```index.jsx``` 文件，然后在这个目录下新建 ```index.md``` 文件，随意写一些内容。
