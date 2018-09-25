@@ -312,14 +312,24 @@ window.ydoc_plugin_search_json = {
       "url": "/documents/create.html",
       "children": [
         {
+          "title": "基本插件",
+          "url": "/documents/create.html#基本插件",
+          "content": "基本插件"
+        },
+        {
           "title": "目录结构",
-          "url": "/documents/create.html#目录结构",
+          "url": "/documents/create.html#基本插件-目录结构",
           "content": "目录结构一个基本的插件有如下的文件结构：├── ydoc-plugin-demo/    ├── index.js\n    ├── package.json\n"
         },
         {
           "title": "index.js",
-          "url": "/documents/create.html#index.js",
+          "url": "/documents/create.html#基本插件-index.js",
           "content": "index.jsindex.js 是插件的入口文件，init、finish、page:before、page 是插件绑定的钩子。每个插件都可以绑定不同的钩子实现各种各样的功能。module.exports = {  init: function() {\n    console.log('init');\n  },\n  finish: function() {    \n    console.log('end...');\n  },\n  'page:before': function(page) {\n    console.log('beforePage', page);\n  },\n  page: function(page) {\n    console.log('page', page);\n  }\n}\n"
+        },
+        {
+          "title": "私有插件",
+          "url": "/documents/create.html#私有插件",
+          "content": "私有插件私有插件的配置直接写在 YDoc 的配置文件中，在 plugin 字段中新增数组项：plugins[n].name 为插件名称，不允许重名\nplugins[n].module 和基本插件中的 index.js 的 module.exports 内容一致\nmodule.exports = {  plugins: [{\n    name: \"privatePlugin\",\n    module: {\n      init: function() {\n        console.log('init privatePlugin successfully!');\n      }\n    }\n  }]\n}\n"
         }
       ]
     },
