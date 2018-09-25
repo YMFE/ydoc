@@ -329,7 +329,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "私有插件",
           "url": "/documents/create.html#私有插件",
-          "content": "私有插件私有插件的配置直接写在 YDoc 的配置文件中，在 plugin 字段中新增数组项：plugins[n].name 为插件名称，不允许重名\nplugins[n].module 和基本插件中的 index.js 的 module.exports 内容一致\nmodule.exports = {  plugins: [{\n    name: \"privatePlugin\",\n    module: {\n      init: function() {\n        console.log('init privatePlugin successfully!');\n      }\n    }\n  }]\n}\n"
+          "content": "私有插件私有插件的配置直接写在 YDoc 的配置文件中，在 plugin 字段中新增数组项：plugins[n].name 为插件名称，不允许重名\nplugins[n].module 和基本插件中的 index.js 的 module.exports 内容一致\nmodule.exports = {  plugins: [{\n    name: \"privatePlugin\",\n    module: {\n      init: function() {\n        console.log('init privatePlugin successfully!');\n      }\n    }\n  }]\n}\n我们鼓励开发者将插件发布到 npm 社区"
         }
       ]
     },
