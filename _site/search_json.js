@@ -445,7 +445,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "排版",
           "url": "/standard/style-guide.html#ydoc-项目设计规范-排版",
-          "content": "排版文档正文使用 16px 字号，但默认字号为 14px，这是为了增强正文部分的阅读体验\n请限制每行文字的宽度(行宽)，以一行 40-60 字为宜：\n\n行宽过短，用户需要频繁移动视线，影响阅读连贯性\n行宽过长，容易视觉疲劳，用户很难专注于一行文本阅读，从大段文字中找到下一行变得更困难\n\n\n行宽的设计参考 Readability: the Optimal Line Length\n"
+          "content": "排版文档正文使用 16px 字号，但默认字号为 14px，这是为了增强正文部分的阅读体验\n请限制每行文字的宽度(行宽)，以一行 40-60 字为宜：\n\n行宽过短，用户需要频繁移动视线，影响阅读连贯性\n行宽过长，容易视觉疲劳，用户很难专注于一行文本阅读，从大段文字中找到下一行变得更困难\n\n\n行宽的设计参考 Readability: the Optimal Line Length\nYDoc 正文排版经历过精心设计，不建议用户修改正文排版"
         },
         {
           "title": "项目规范文件",
@@ -460,14 +460,19 @@ window.ydoc_plugin_search_json = {
       "url": "/standard/index.html",
       "children": [
         {
-          "title": "结构",
-          "url": "/standard/index.html#结构",
-          "content": "结构软件手册是一部完整的书，建议采用下面的结构。简介（Introduction）： [必备] [文件] 提供对产品和文档本身的总体的、扼要的说明\n快速上手（Getting Started）：[可选] [文件] 如何最快速地使用产品\n入门篇（Basics）： [必备] [目录] 又称”使用篇“，提供初级的使用教程\n\n环境准备（Prerequisite）：[必备] [文件] 软件使用需要满足的前置条件\n安装（Installation）：[可选] [文件] 软件的安装方法\n设置（Configuration）：[必备] [文件] 软件的设置\n\n\n进阶篇（Advanced)：[可选] [目录] 又称”开发篇“，提供中高级的开发教程\nAPI（Reference）：[可选] [目录|文件] 软件 API 的逐一介绍\nFAQ：[可选] [文件] 常见问题解答\n附录（Appendix）：[可选] [目录] 不属于教程本身、但对阅读教程有帮助的内容\n\nGlossary：[可选] [文件] 名词解释\nRecipes：[可选] [文件] 最佳实践\nTroubleshooting：[可选] [文件] 故障处理\nChangeLog：[可选] [文件] 版本说明\nFeedback：[可选] [文件] 反馈方式\n\n\n下面是两个真实范例，可参考。Redux 手册\nAtom 手册\n"
+          "title": "目录结构",
+          "url": "/standard/index.html#目录结构",
+          "content": "目录结构软件手册是一部完整的书，建议采用下面的目录结构。简介（Introduction）： [必备] [文件] 提供对产品和文档本身的总体的、扼要的说明\n快速上手（Getting Started）：[可选] [文件] 如何最快速地使用产品\n入门篇（Basics）： [必备] [目录] 又称”使用篇“，提供初级的使用教程\n\n环境准备（Prerequisite）：[必备] [文件] 软件使用需要满足的前置条件\n安装（Installation）：[可选] [文件] 软件的安装方法\n设置（Configuration）：[必备] [文件] 软件的设置\n\n\n进阶篇（Advanced)：[可选] [目录] 又称”开发篇“，提供中高级的开发教程\nAPI（Reference）：[可选] [目录|文件] 软件 API 的逐一介绍\nFAQ：[可选] [文件] 常见问题解答\n附录（Appendix）：[可选] [目录] 不属于教程本身、但对阅读教程有帮助的内容\n\nGlossary：[可选] [文件] 名词解释\nRecipes：[可选] [文件] 最佳实践\nTroubleshooting：[可选] [文件] 故障处理\nChangeLog：[可选] [文件] 版本说明\nFeedback：[可选] [文件] 反馈方式\n\n\n下面是两个真实范例，可参考。Redux 手册\nAtom 手册\n"
         },
         {
           "title": "文件名",
           "url": "/standard/index.html#文件名",
           "content": "文件名文档的文件名不得含有空格。文件名必须使用半角字符，不得使用全角字符。这也意味着，中文不能用于文件名。错误： 名词解释.md\n正确： glossary.md\n文件名建议只使用小写字母，不使用大写字母。错误：TroubleShooting.md\n正确：troubleshooting.md \n为了醒目，某些说明文件的文件名，可以使用大写字母，比如README、LICENSE。文件名包含多个单词时，单词之间建议使用半角的连词线（-）分隔。不佳：advanced_usage.md\n正确：advanced-usage.md\n"
+        },
+        {
+          "title": "排版技巧",
+          "url": "/standard/index.html#排版技巧",
+          "content": "排版技巧空格的使用所有的中文字和半形的英文、数字、符号、链接之间应该插入一段间隙，这是因为挤在一起的中西文混排导致西文难以阅读，最简单的插入间隙的技巧就是使用空格，推荐使用 YDoc 插件 ydoc-plugin-pangu查看下面的示例，会发现加入空格的段落，英文、数字、符号、链接更易读：不加入空格的段落:YDoc是一个文档站构建工具,累计的Star数量已超过200个,官网链接为YDoc官网欢迎大家使用加入空格的段落: YDoc 是一个文档站构建工具, 累计的 Star 数量已超过 200 个,官网链接为 YDoc官网 欢迎大家使用空格的使用所有的中文字和半形的英文、数字、符号之间应该插入空白，这是因为挤在一起的中西文混排导致西文难以阅读推荐使用pangu插件ydoc-plugin-pangu"
         }
       ]
     }
