@@ -1398,6 +1398,25 @@ body {
   border-bottom-color: rgba(3, 17, 31, 0.87);
 }
 
+.markdown-body .type {
+  color: #1890ff;
+  font-size: 16px;
+}
+
+.markdown-body .tag {
+  background: #1890ff;
+  color: white;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 14px;
+}
+
+.markdown-body .desc {
+  font-size: 16px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.65);
+}
+
 /* PrismJS 1.14.0
 http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
 /**
