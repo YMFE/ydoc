@@ -83,14 +83,17 @@ async function run(config) {
     let themePath = path.resolve(process.cwd(), "theme");
     let themeFile = path.resolve(themePath, "./ydoc-theme-" + theme);
     let themeModuleDir;
+    // console.log('-----themeFile',themeFile)
     if(fs.existsSync(themeFile)) {
         themeModuleDir = themeFile;
     } else {
         let modules = path.resolve(process.cwd(), "node_modules");
-        themeModuleDir = path.resolve(modules, "./ydoc-theme-" + theme);
+        let themeFile = path.resolve(modules, "./ydoc-theme-" + theme);
+        themeModuleDir = path.resolve(themeModuleDir, "./theme");
     }
+    // console.log('=======themeModuleDir', themeModuleDir)
     try {
-      utils.mergeCopyFiles(path.resolve(themeModuleDir, "./theme"), themeDist);
+      utils.mergeCopyFiles(themeModuleDir, themeDist);
     } catch (err) {
       err.message =
         "Load " +
