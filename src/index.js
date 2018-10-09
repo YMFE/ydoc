@@ -79,10 +79,21 @@ async function run(config) {
   }
   
   function handleTheme(theme) {
-    let modules = path.resolve(process.cwd(), "node_modules");
-    let themeModuleDir = path.resolve(modules, "./ydoc-theme-" + theme);
+    // 如果theme的文件夹中存在对应的theme，则使用对应的theme,没有的话使用node_modules
+    let themePath = path.resolve(process.cwd(), "theme");
+    let themeFile = path.resolve(themePath, "./ydoc-theme-" + theme);
+    let themeModuleDir;
+    // console.log('-----themeFile',themeFile)
+    if(fs.existsSync(themeFile)) {
+        themeModuleDir = themeFile;
+    } else {
+        let modules = path.resolve(process.cwd(), "node_modules");
+        let themeFile = path.resolve(modules, "./ydoc-theme-" + theme);
+        themeModuleDir = path.resolve(themeModuleDir, "./theme");
+    }
+    // console.log('=======themeModuleDir', themeModuleDir)
     try {
-      utils.mergeCopyFiles(path.resolve(themeModuleDir, "./theme"), themeDist);
+      utils.mergeCopyFiles(themeModuleDir, themeDist);
     } catch (err) {
       err.message =
         "Load " +
