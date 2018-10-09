@@ -233,6 +233,43 @@ window.ydoc_plugin_search_json = {
       ]
     },
     {
+      "title": "模板与变量",
+      "content": "YDoc 主题的模板是若干的 jsx 组件，以下是各模板文件相对应的功能（按首字母排序）：\n\n模板\n功能\n\n\n\n\nContent.jsx\n文档页内容\n\n\nFooter.jsx (用户自定义组件)\nFooter 信息\n\n\nHead.jsx\nhtml 文件中  部分的内容\n\n\nHeader.jsx\n顶部导航\n\n\nHomepage.jsx (用户自定义组件)\n文档站首页\n\n\nHook.jsx\n钩子，用于自定义插件\n\n\nIcon.jsx\nfavicon 图片\n\n\nLayout.jsx\nhtml 文件，其他组件的入口\n\n\nLogo.jsx\n配置网站的 logo\n\n\nScripts.jsx\nscript 脚本\n\n\nSummary.jsx\n侧栏目录\n\n\n有的模板中使用了 YDoc 提供的 变量 ，这些变量可以在当前模板文件中任意位置使用，因此你可以灵活定制自己的主题，变量列表如下：",
+      "url": "/documents/template.html",
+      "children": [
+        {
+          "title": "变量",
+          "url": "/documents/template.html#变量",
+          "content": "变量"
+        },
+        {
+          "title": "Content.jsx（文档页内容）",
+          "url": "/documents/template.html#变量-content.jsx（文档页内容）",
+          "content": "Content.jsx（文档页内容）\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\nprops.type\n内容类型, markdown 页面为 'md'\n\n\nprops.content\n页面内容，一段 html\n\n\nprops.prev\n上一页信息\n\n\nprops.prev.distPath\n上一页的相对路径\n\n\nprops.prev.title\n上一页的页面标题\n\n\nprops.next\n下一页信息\n\n\nprops.next.distPath\n下一页的相对路径\n\n\nprops.next.title\n下一页的页面标题\n\n\n"
+        },
+        {
+          "title": "Head.jsx（html 文件中  部分的内容）",
+          "url": "/documents/template.html#变量-head.jsx（html-文件中-部分的内容）",
+          "content": "Head.jsx（html 文件中  部分的内容）\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\nprops.title\n当前页面标题\n\n\nprops.config.author\n网站作者\n\n\nprops.config.keywords\n网站关键字\n\n\nprops.config.description\n网站描述\n\n\nprops.assets.css\n钩子中的 css 路径\n\n\n"
+        },
+        {
+          "title": "Header.jsx（顶部导航）",
+          "url": "/documents/template.html#变量-header.jsx（顶部导航）",
+          "content": "Header.jsx（顶部导航）\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\nprops.title\n当前页面标题\n\n\nprops.config.author\n网站作者\n\n\nprops.config.keywords\n网站关键字\n\n\nprops.config.description\n网站描述\n\n\nprops.assets.css\n钩子中的 css 路径\n\n\n"
+        },
+        {
+          "title": "Icon.jsx（顶部导航）",
+          "url": "/documents/template.html#变量-icon.jsx（顶部导航）",
+          "content": "Icon.jsx（顶部导航）\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\n"
+        },
+        {
+          "title": "Layout.jsx（顶部导航）",
+          "url": "/documents/template.html#变量-layout.jsx（顶部导航）",
+          "content": "Layout.jsx（顶部导航）\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\n"
+        }
+      ]
+    },
+    {
       "title": "JSX",
       "content": "React发明了JSX， 可以简单地理解它是一种在JS中编写与XML类似的语言。通过JSX来声明组件的属性，类型与结果，并且通过｀{}`插值，套嵌JS逻辑与子级的JSX。",
       "url": "/documents/jsx.html",
