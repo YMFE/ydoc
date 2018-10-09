@@ -175,9 +175,17 @@
 <td>props.assets.css</td>
 <td>钩子中的 css 路径</td>
 </tr>
+<tr>
+<td>props.ydoc</td>
+<td>顶级 props</td>
+</tr>
+<tr>
+<td>props.ydoc.bookpath</td>
+<td>book 路径</td>
+</tr>
 </tbody>
 </table>
-<h3 id="变量-icon.jsx（顶部导航）">Icon.jsx（顶部导航）</h3>
+<h3 id="变量-icon.jsx">Icon.jsx</h3>
 <table>
 <thead>
 <tr>
@@ -192,7 +200,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="变量-layout.jsx（顶部导航）">Layout.jsx（顶部导航）</h3>
+<h3 id="变量-layout.jsx">Layout.jsx</h3>
 <table>
 <thead>
 <tr>
@@ -204,6 +212,87 @@
 <tr>
 <td>props.distPath</td>
 <td>当前页面路径</td>
+</tr>
+<tr>
+<td>props.summary</td>
+<td>侧栏目录配置</td>
+</tr>
+<tr>
+<td>props.config</td>
+<td>配置信息（ydoc 配置）</td>
+</tr>
+<tr>
+<td>props.assets</td>
+<td>钩子中的 assets 配置</td>
+</tr>
+<tr>
+<td>props.title</td>
+<td>当前页面标题</td>
+</tr>
+<tr>
+<td>props.page</td>
+<td>页面信息</td>
+</tr>
+</tbody>
+</table>
+<h3 id="变量-logo.jsx">Logo.jsx</h3>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>props.distPath</td>
+<td>当前页面路径</td>
+</tr>
+<tr>
+<td>props.nav</td>
+<td>顶部导航信息（配置在 NAV.md 中）</td>
+</tr>
+<tr>
+<td>props.nav.logo</td>
+<td>logo</td>
+</tr>
+<tr>
+<td>props.nav.title</td>
+<td>logo 旁的标题</td>
+</tr>
+</tbody>
+</table>
+<h3 id="变量-scripts.jsx">Scripts.jsx</h3>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>props.page.distPath</td>
+<td>当前页面路径</td>
+</tr>
+</tbody>
+</table>
+<h3 id="变量-summary.jsx">Summary.jsx</h3>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>props.summary</td>
+<td>侧栏目录</td>
+</tr>
+<tr>
+<td>props.releativePath</td>
+<td>目录项的相对路径</td>
 </tr>
 </tbody>
 </table>
@@ -218,4 +307,4 @@
     if ($content && sessionStorage.contentScrollTop && window.location.pathname == sessionStorage.locationPathname) {
       $content.scrollTop = sessionStorage.contentScrollTop;
     }
-    sessionStorage.setItem('locationPathname', window.location.pathname);</script><script src="../ydoc/scripts/plugins/dollar.min.js"></script><script src="../ydoc/scripts/plugins/responsive-nav.min.js"></script><script src="../ydoc/scripts/plugins/slideout.min.js"></script><script src="../ydoc/scripts/app.js"></script><script src="../ydoc/ydoc-plugin-search/core.js"></script><script src="../ydoc/ydoc-plugin-search/search.js"></script><script src="../ydoc/ydoc-plugin-edit-page/edit.script.js"></script><script src="../search_json.js"></script><script src="../edit_json.js"></script></body></html>
+    sessionStorage.setItem('locationPathname', window.location.pathname);</script><script src="../ydoc/scripts/plugins/dollar.min.js"></script><script src="../ydoc/scripts/plugins/responsive-nav.min.js"></script><script src="../ydoc/scripts/plugins/slideout.min.js"></script><script src="../ydoc/scripts/app.js"></script><script src="../ydoc/ydoc-plugin-search/core.js"></script><script src="../ydoc/ydoc-plugin-search/search.js"></script><script src="../ydoc/ydoc-plugin-edit-page/edit.script.js"></script><script src="../ydoc/ydoc-plugin-gitalk/gitalk.script.js"></script><script src="../ydoc/ydoc-plugin-gitalk/gitalk.min.js"></script><script src="../search_json.js"></script><script src="../edit_json.js"></script><script src="../gitalk_json.js"></script></body></html>
