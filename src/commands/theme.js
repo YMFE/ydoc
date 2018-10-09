@@ -12,29 +12,31 @@ module.exports = {
   run: function () {
     // 执行npm install testTheme 
     let themeName;
-    if(argv.length >= 3) {
+    // console.log('------argv', argv);
+    if(argv.length >= 4) {
       themeName = argv[3];
-      console.log('======themeName', themeName);
-      child_process.exec(`npm install --save-dev ${themeName}`, function(err){
+    //   console.log('======themeName', themeName);
+      child_process.execSync(`npm install --save-dev ${themeName}`, function(err){
         if(err) throw err;
       });
     } else {
        return utils.log.error('The theme is not exists.')
     }
     // 新建一个theme的文件夹，把nodeModules中的文件复制出来
-    if (argv.length === 4 && (argv[4] === '--copy' || argv[4] === '-c')) {
+    // console.log('+++++123', argv.length, argv[4] === '--copy', argv[4] === '-c')
+    if (argv.length === 5 && (argv[4] === '--copy' || argv[4] === '-c')) {
       if(!fs.existsSync(themePath)) {
         fs.mkdirSync(themePath)
       }
-      let themeFile = path.resolve(projectPath, `${themeName}`);
+      let themeFile = path.resolve(themePath, `${themeName}`);
       if(!fs.existsSync(themeFile)) {
         fs.mkdirSync(themeFile)
       }
       let modules = path.resolve(process.cwd(), 'node_modules');
       let themeModuleDir = path.resolve(modules, `./${themeName}`);
       utils.mergeCopyFiles(path.resolve(themeModuleDir, "./theme"), themeFile);
-      utils.log.ok('Install a theme success')
     }
+    utils.log.ok('Install a theme success')
   },
   desc: 'Install a theme'
 }
