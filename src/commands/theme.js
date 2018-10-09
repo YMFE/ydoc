@@ -14,6 +14,7 @@ module.exports = {
     let themeName;
     if(argv.length >= 3) {
       themeName = argv[3];
+      console.log('======themeName', themeName);
       child_process.exec(`npm install --save-dev ${themeName}`, function(err){
         if(err) throw err;
       });
@@ -23,7 +24,7 @@ module.exports = {
     // 新建一个theme的文件夹，把nodeModules中的文件复制出来
     if (argv.length === 4 && (argv[4] === '--copy' || argv[4] === '-c')) {
       if(!fs.existsSync(themePath)) {
-          fs.mkdirSync(themePath)
+        fs.mkdirSync(themePath)
       }
       let themeFile = path.resolve(projectPath, `${themeName}`);
       if(!fs.existsSync(themeFile)) {
@@ -31,7 +32,7 @@ module.exports = {
       }
       let modules = path.resolve(process.cwd(), 'node_modules');
       let themeModuleDir = path.resolve(modules, `./${themeName}`);
-      util.mergeCopyFiles(path.resolve(themeModuleDir, "./theme"), themeFile);
+      utils.mergeCopyFiles(path.resolve(themeModuleDir, "./theme"), themeFile);
       utils.log.ok('Install a theme success')
     }
   },
