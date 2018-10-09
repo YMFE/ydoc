@@ -9,6 +9,7 @@ plugins:
   - { title: 'pangu', href: 'https://www.npmjs.com/package/ydoc-plugin-pangu', desc: '自动替你在网页中所有的中文字和半形的英文、数字、符号之间插入空白(盘古之白)' }
   - { title: 'img-view', href: 'https://www.npmjs.com/package/ydoc-plugin-img-view', desc: '点击 markdown 页面中的图片可以浏览原图' }
   - { title: 'edit-page', href: 'https://www.npmjs.com/package/ydoc-plugin-edit-page', desc: '在页面尾部添加 ‘编辑此页面’ 的链接(链接到 Github/Gitlab 等页面)' }
+  - { title: 'gitalk', href: 'https://www.npmjs.com/package/ydoc-plugin-gitalk', desc: '评论插件，基于 gitalk' }
 ---
 <div className="m-content-container m-pluginbox">
 {
