@@ -2,7 +2,7 @@ module.exports = {
   title: "ydoc",
   description: "ydoc description demo",
   author: "ymfe",
-  plugins: ["copy", "edit-page"],
+  plugins: ["copy", "edit-page","gitalk"],
   pluginsConfig: {
     'import-asset': {
       css: 'custom.css'
