@@ -255,17 +255,32 @@ window.ydoc_plugin_search_json = {
         {
           "title": "Header.jsx（顶部导航）",
           "url": "/documents/template.html#变量-header.jsx（顶部导航）",
-          "content": "Header.jsx（顶部导航）\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\nprops.title\n当前页面标题\n\n\nprops.config.author\n网站作者\n\n\nprops.config.keywords\n网站关键字\n\n\nprops.config.description\n网站描述\n\n\nprops.assets.css\n钩子中的 css 路径\n\n\n"
+          "content": "Header.jsx（顶部导航）\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\nprops.title\n当前页面标题\n\n\nprops.config.author\n网站作者\n\n\nprops.config.keywords\n网站关键字\n\n\nprops.config.description\n网站描述\n\n\nprops.assets.css\n钩子中的 css 路径\n\n\nprops.ydoc\n顶级 props\n\n\nprops.ydoc.bookpath\nbook 路径\n\n\n"
         },
         {
-          "title": "Icon.jsx（顶部导航）",
-          "url": "/documents/template.html#变量-icon.jsx（顶部导航）",
-          "content": "Icon.jsx（顶部导航）\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\n"
+          "title": "Icon.jsx",
+          "url": "/documents/template.html#变量-icon.jsx",
+          "content": "Icon.jsx\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\n"
         },
         {
-          "title": "Layout.jsx（顶部导航）",
-          "url": "/documents/template.html#变量-layout.jsx（顶部导航）",
-          "content": "Layout.jsx（顶部导航）\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\n"
+          "title": "Layout.jsx",
+          "url": "/documents/template.html#变量-layout.jsx",
+          "content": "Layout.jsx\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\nprops.summary\n侧栏目录配置\n\n\nprops.config\n配置信息（ydoc 配置）\n\n\nprops.assets\n钩子中的 assets 配置\n\n\nprops.title\n当前页面标题\n\n\nprops.page\n页面信息\n\n\n"
+        },
+        {
+          "title": "Logo.jsx",
+          "url": "/documents/template.html#变量-logo.jsx",
+          "content": "Logo.jsx\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\nprops.nav\n顶部导航信息（配置在 NAV.md 中）\n\n\nprops.nav.logo\nlogo\n\n\nprops.nav.title\nlogo 旁的标题\n\n\n"
+        },
+        {
+          "title": "Scripts.jsx",
+          "url": "/documents/template.html#变量-scripts.jsx",
+          "content": "Scripts.jsx\n\n变量\n描述\n\n\n\n\nprops.page.distPath\n当前页面路径\n\n\n"
+        },
+        {
+          "title": "Summary.jsx",
+          "url": "/documents/template.html#变量-summary.jsx",
+          "content": "Summary.jsx\n\n变量\n描述\n\n\n\n\nprops.summary\n侧栏目录\n\n\nprops.releativePath\n目录项的相对路径\n\n\n"
         }
       ]
     },
