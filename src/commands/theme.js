@@ -15,9 +15,14 @@ module.exports = {
     // console.log('------argv', argv);
     if(argv.length >= 4) {
       themeName = argv[3];
-    //   console.log('======themeName', themeName);
+      console.log(`Start install ${themeName}......` );
       child_process.execSync(`npm install --save-dev ${themeName}`, function(err){
-        if(err) throw err;
+        if(err) {
+            throw err;
+        } else {
+            console.log(`Install the theme ${themeName} success` );
+        }
+
       });
     } else {
        return utils.log.error('The theme is not exists.')
