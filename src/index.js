@@ -89,7 +89,7 @@ async function run(config) {
     } else {
         let modules = path.resolve(process.cwd(), "node_modules");
         let themeFile = path.resolve(modules, "./ydoc-theme-" + theme);
-        themeModuleDir = path.resolve(themeModuleDir, "./theme");
+        themeModuleDir = path.resolve(themeFile, "./theme");
     }
     // console.log('=======themeModuleDir', themeModuleDir)
     try {
