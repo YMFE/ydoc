@@ -231,9 +231,9 @@ window.ydoc_plugin_search_json = {
           "content": "自定义主题"
         },
         {
-          "title": "完全自定义主题",
-          "url": "/documents/theme.html#自定义主题-完全自定义主题",
-          "content": "完全自定义主题1.在根目录下创建theme文件夹，然后创建对应的theme文件夹，比如ydoc-theme-demo,在文件夹下写对应的主题2.然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
+          "title": "新建主题",
+          "url": "/documents/theme.html#自定义主题-新建主题",
+          "content": "新建主题1.在根目录下创建 theme 文件夹，然后创建对应的 theme 文件夹，比如 ydoc-theme-demo, 在文件夹下写对应的主题2.然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
         },
         {
           "title": "基于已有主题定制",
@@ -241,9 +241,9 @@ window.ydoc_plugin_search_json = {
           "content": "基于已有主题定制1.在项目根目录下执行以下命令：ydoc theme ydoc-theme-demo -c或者ydoc theme ydoc-theme-demo --copy命令执行完成后，项目根目录下会生成一个theme文件夹，文件夹中有一个ydoc-theme-demo的文件，ydoc-theme-demo文件中是主题的内容，修改该文件即可定制主题2.然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
         },
         {
-          "title": "开发",
-          "url": "/documents/theme.html#开发",
-          "content": "开发请参考 ydoc-theme-demo或官方内置主题"
+          "title": "主题列表",
+          "url": "/documents/theme.html#主题列表",
+          "content": "主题列表ydoc-theme-demo\nydoc-theme-dark\n"
         }
       ]
     },

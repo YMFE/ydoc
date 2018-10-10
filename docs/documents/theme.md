@@ -19,11 +19,12 @@ ydoc theme ydoc-theme-demo
   "theme": "demo"
 }
 ```
+
 ## 自定义主题
 
-### 完全自定义主题
+### 新建主题
 
-1.在根目录下创建theme文件夹，然后创建对应的theme文件夹，比如ydoc-theme-demo,在文件夹下写对应的主题
+1.在根目录下创建 theme 文件夹，然后创建对应的 theme 文件夹，比如 ydoc-theme-demo, 在文件夹下写对应的主题
 
 2.然后在 ydoc.json 配置：
 
@@ -32,6 +33,7 @@ ydoc theme ydoc-theme-demo
   "theme": "demo"
 }
 ```
+
 ### 基于已有主题定制
 
 1.在项目根目录下执行以下命令：
@@ -52,8 +54,7 @@ ydoc theme ydoc-theme-demo --copy
 }
 ```
 
-## 开发
+## 主题列表
 
-请参考 [ydoc-theme-demo](https://github.com/YMFE/ydoc-theme-demo)
-
-或官方[内置主题](https://github.com/YMFE/ydoc/tree/master/theme)
+- [ydoc-theme-demo](https://www.npmjs.com/package/ydoc-theme-demo)
+- [ydoc-theme-dark](https://www.npmjs.com/package/ydoc-theme-dark)
