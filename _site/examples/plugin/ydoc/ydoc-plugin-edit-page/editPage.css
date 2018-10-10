@@ -1,0 +1,11 @@
+.markdown-body .ui-edit {
+  display: inline-block;
+  margin-top: .64rem;
+  background-color: transparent;
+  color: rgba(0, 0, 0, .38);
+  transition: all .2s;
+}
+.markdown-body .ui-edit:hover {
+  background-color: transparent;
+  color: rgba(0, 0, 0, .87);
+}
