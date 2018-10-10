@@ -5,10 +5,34 @@
     </div></div><nav class="m-header-nav js-nav"><ul class="m-header-items"><li class="item active"><a class="href" href="index.html">文档</a></li><li class="item "><a class="href" href="../plugin/index.html">插件</a></li><li class="item "><a class="href" href="../examples/index.html">示例 Demo</a></li><li class="item "><span class="href">规范</span><ul class="m-header-subtitle"><li class="item"><a href="../standard/style-guide.html" class="link">设计规范</a></li><li class="item"><a href="../standard/index.html" class="link">文档规范</a></li></ul></li></ul></nav><div id="js-nav-btn" class="m-header-btn ui-font-ydoc"></div></header><div class="m-content" id="js-content"><div id="markdown-body" class="m-content-container markdown-body"><h1>主题</h1>
 <p>YDoc 提供了简单易用强大的自定义主题功能。</p>
 <h2 id="安装">安装</h2>
-<p>假设要安装 demo 主题，请执行以下命令：</p>
+<p>1.假设要安装 demo 主题，请执行以下命令：</p>
 <pre><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save-dev ydoc-theme-demo
 </code></pre>
-<p>然后在 ydoc.json 配置：</p>
+<p>或者</p>
+<pre><code class="language-bash">ydoc theme ydoc-theme-demo
+</code></pre>
+<p>2.然后在 ydoc.json 配置：</p>
+<pre><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"theme"</span><span class="token operator">:</span> <span class="token string">"demo"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="自定义主题">自定义主题</h2>
+<h3 id="自定义主题-完全自定义主题">完全自定义主题</h3>
+<p>1.在根目录下创建theme文件夹，然后创建对应的theme文件夹，比如ydoc-theme-demo,在文件夹下写对应的主题</p>
+<p>2.然后在 ydoc.json 配置：</p>
+<pre><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"theme"</span><span class="token operator">:</span> <span class="token string">"demo"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="自定义主题-基于已有主题定制">基于已有主题定制</h3>
+<p>1.在项目根目录下执行以下命令：</p>
+<pre><code class="language-bash">ydoc theme ydoc-theme-demo -c
+</code></pre>
+<p>或者</p>
+<pre><code class="language-bash">ydoc theme ydoc-theme-demo --copy
+</code></pre>
+<p>命令执行完成后，项目根目录下会生成一个theme文件夹，文件夹中有一个ydoc-theme-demo的文件，ydoc-theme-demo文件中是主题的内容，修改该文件即可定制主题</p>
+<p>2.然后在 ydoc.json 配置：</p>
 <pre><code class="language-json"><span class="token punctuation">{</span>
   <span class="token property">"theme"</span><span class="token operator">:</span> <span class="token string">"demo"</span>
 <span class="token punctuation">}</span>

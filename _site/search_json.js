@@ -223,7 +223,22 @@ window.ydoc_plugin_search_json = {
         {
           "title": "安装",
           "url": "/documents/theme.html#安装",
-          "content": "安装假设要安装 demo 主题，请执行以下命令：npm install --save-dev ydoc-theme-demo然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
+          "content": "安装1.假设要安装 demo 主题，请执行以下命令：npm install --save-dev ydoc-theme-demo或者ydoc theme ydoc-theme-demo2.然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
+        },
+        {
+          "title": "自定义主题",
+          "url": "/documents/theme.html#自定义主题",
+          "content": "自定义主题"
+        },
+        {
+          "title": "完全自定义主题",
+          "url": "/documents/theme.html#自定义主题-完全自定义主题",
+          "content": "完全自定义主题1.在根目录下创建theme文件夹，然后创建对应的theme文件夹，比如ydoc-theme-demo,在文件夹下写对应的主题2.然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
+        },
+        {
+          "title": "基于已有主题定制",
+          "url": "/documents/theme.html#自定义主题-基于已有主题定制",
+          "content": "基于已有主题定制1.在项目根目录下执行以下命令：ydoc theme ydoc-theme-demo -c或者ydoc theme ydoc-theme-demo --copy命令执行完成后，项目根目录下会生成一个theme文件夹，文件夹中有一个ydoc-theme-demo的文件，ydoc-theme-demo文件中是主题的内容，修改该文件即可定制主题2.然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
         },
         {
           "title": "开发",

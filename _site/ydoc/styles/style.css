@@ -1403,7 +1403,7 @@ body {
   font-size: 16px;
 }
 
-.markdown-body .tag {
+.markdown-body .versionTag {
   background: #1890ff;
   color: white;
   border-radius: 4px;
