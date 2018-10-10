@@ -1,6 +1,6 @@
 {
   "name": "ydoc",
-  "version": "4.0.6",
+  "version": "4.1.0",
   "description": "基于 Markdown 的静态站点生成工具",
   "scripts": {
     "test": "mocha --reporter spec --bail --recursive",
@@ -56,12 +56,14 @@
     "ydoc-plugin-demo": "^1.0.0",
     "ydoc-plugin-edit-page": "0.0.2",
     "ydoc-plugin-execution-time": "^1.0.0",
+    "ydoc-plugin-img-view": "^1.0.1",
     "ydoc-plugin-import-asset": "^1.0.1",
     "ydoc-plugin-search": "^1.1.6"
   },
   "devDependencies": {
     "ghooks": "^2.0.0",
     "markdown-it-include": "^1.0.0",
+    "markdown-it-sub": "^1.0.0",
     "mocha": "^4.1.0",
     "node-sass": "^4.7.2",
     "rewire": "^3.0.2",

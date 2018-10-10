@@ -743,3 +743,22 @@
   background-color: #bbeffd;
   border-bottom-color: $deep-body-text-color;
 }
+
+.markdown-body .type {
+    color: #1890ff;
+    font-size: 16px;
+}
+
+.markdown-body .versionTag {
+    background: #1890ff;
+    color: white;
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size: 14px;
+}
+
+.markdown-body .desc {
+    font-size: 16px;
+    font-weight: normal;
+    color: rgba(0,0,0,.65);
+}

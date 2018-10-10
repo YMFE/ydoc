@@ -223,12 +223,79 @@ window.ydoc_plugin_search_json = {
         {
           "title": "安装",
           "url": "/documents/theme.html#安装",
-          "content": "安装假设要安装 demo 主题，请执行以下命令：npm install --save-dev ydoc-theme-demo然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
+          "content": "安装1.假设要安装 demo 主题，请执行以下命令：npm install --save-dev ydoc-theme-demo或者ydoc theme ydoc-theme-demo2.然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
         },
         {
-          "title": "开发",
-          "url": "/documents/theme.html#开发",
-          "content": "开发请参考 ydoc-theme-demo或官方内置主题"
+          "title": "自定义主题",
+          "url": "/documents/theme.html#自定义主题",
+          "content": "自定义主题"
+        },
+        {
+          "title": "新建主题",
+          "url": "/documents/theme.html#自定义主题-新建主题",
+          "content": "新建主题1.在根目录下创建 theme 文件夹，然后创建对应的 theme 文件夹，比如 ydoc-theme-demo, 在文件夹下写对应的主题2.然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
+        },
+        {
+          "title": "基于已有主题定制",
+          "url": "/documents/theme.html#自定义主题-基于已有主题定制",
+          "content": "基于已有主题定制1.在项目根目录下执行以下命令：ydoc theme ydoc-theme-demo -c或者ydoc theme ydoc-theme-demo --copy命令执行完成后，项目根目录下会生成一个theme文件夹，文件夹中有一个ydoc-theme-demo的文件，ydoc-theme-demo文件中是主题的内容，修改该文件即可定制主题2.然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
+        },
+        {
+          "title": "主题列表",
+          "url": "/documents/theme.html#主题列表",
+          "content": "主题列表ydoc-theme-demo\nydoc-theme-dark\n"
+        }
+      ]
+    },
+    {
+      "title": "模板与变量",
+      "content": "YDoc 主题的模板是若干的 jsx 组件，以下是各模板文件相对应的功能（按首字母排序）：\n\n模板\n功能\n\n\n\n\nContent.jsx\n文档页内容\n\n\nFooter.jsx (用户自定义组件)\nFooter 信息\n\n\nHead.jsx\nhtml 文件中  部分的内容\n\n\nHeader.jsx\n顶部导航\n\n\nHomepage.jsx (用户自定义组件)\n文档站首页\n\n\nHook.jsx\n钩子，用于自定义插件\n\n\nIcon.jsx\nfavicon 图片\n\n\nLayout.jsx\nhtml 文件，其他组件的入口\n\n\nLogo.jsx\n配置网站的 logo\n\n\nScripts.jsx\nscript 脚本\n\n\nSummary.jsx\n侧栏目录\n\n\n有的模板中使用了 YDoc 提供的 变量 ，这些变量可以在当前模板文件中任意位置使用，因此你可以灵活定制自己的主题，变量列表如下：",
+      "url": "/documents/template.html",
+      "children": [
+        {
+          "title": "变量",
+          "url": "/documents/template.html#变量",
+          "content": "变量"
+        },
+        {
+          "title": "Content.jsx（文档页内容）",
+          "url": "/documents/template.html#变量-content.jsx（文档页内容）",
+          "content": "Content.jsx（文档页内容）\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\nprops.type\n内容类型, markdown 页面为 'md'\n\n\nprops.content\n页面内容，一段 html\n\n\nprops.prev\n上一页信息\n\n\nprops.prev.distPath\n上一页的相对路径\n\n\nprops.prev.title\n上一页的页面标题\n\n\nprops.next\n下一页信息\n\n\nprops.next.distPath\n下一页的相对路径\n\n\nprops.next.title\n下一页的页面标题\n\n\n"
+        },
+        {
+          "title": "Head.jsx（html 文件中  部分的内容）",
+          "url": "/documents/template.html#变量-head.jsx（html-文件中-部分的内容）",
+          "content": "Head.jsx（html 文件中  部分的内容）\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\nprops.title\n当前页面标题\n\n\nprops.config.author\n网站作者\n\n\nprops.config.keywords\n网站关键字\n\n\nprops.config.description\n网站描述\n\n\nprops.assets.css\n钩子中的 css 路径\n\n\n"
+        },
+        {
+          "title": "Header.jsx（顶部导航）",
+          "url": "/documents/template.html#变量-header.jsx（顶部导航）",
+          "content": "Header.jsx（顶部导航）\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\nprops.title\n当前页面标题\n\n\nprops.config.author\n网站作者\n\n\nprops.config.keywords\n网站关键字\n\n\nprops.config.description\n网站描述\n\n\nprops.assets.css\n钩子中的 css 路径\n\n\nprops.ydoc\n顶级 props\n\n\nprops.ydoc.bookpath\nbook 路径\n\n\n"
+        },
+        {
+          "title": "Icon.jsx",
+          "url": "/documents/template.html#变量-icon.jsx",
+          "content": "Icon.jsx\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\n"
+        },
+        {
+          "title": "Layout.jsx",
+          "url": "/documents/template.html#变量-layout.jsx",
+          "content": "Layout.jsx\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\nprops.summary\n侧栏目录配置\n\n\nprops.config\n配置信息（ydoc 配置）\n\n\nprops.assets\n钩子中的 assets 配置\n\n\nprops.title\n当前页面标题\n\n\nprops.page\n页面信息\n\n\n"
+        },
+        {
+          "title": "Logo.jsx",
+          "url": "/documents/template.html#变量-logo.jsx",
+          "content": "Logo.jsx\n\n变量\n描述\n\n\n\n\nprops.distPath\n当前页面路径\n\n\nprops.nav\n顶部导航信息（配置在 NAV.md 中）\n\n\nprops.nav.logo\nlogo\n\n\nprops.nav.title\nlogo 旁的标题\n\n\n"
+        },
+        {
+          "title": "Scripts.jsx",
+          "url": "/documents/template.html#变量-scripts.jsx",
+          "content": "Scripts.jsx\n\n变量\n描述\n\n\n\n\nprops.page.distPath\n当前页面路径\n\n\n"
+        },
+        {
+          "title": "Summary.jsx",
+          "url": "/documents/template.html#变量-summary.jsx",
+          "content": "Summary.jsx\n\n变量\n描述\n\n\n\n\nprops.summary\n侧栏目录\n\n\nprops.releativePath\n目录项的相对路径\n\n\n"
         }
       ]
     },
@@ -312,14 +379,24 @@ window.ydoc_plugin_search_json = {
       "url": "/documents/create.html",
       "children": [
         {
+          "title": "基本插件",
+          "url": "/documents/create.html#基本插件",
+          "content": "基本插件"
+        },
+        {
           "title": "目录结构",
-          "url": "/documents/create.html#目录结构",
+          "url": "/documents/create.html#基本插件-目录结构",
           "content": "目录结构一个基本的插件有如下的文件结构：├── ydoc-plugin-demo/    ├── index.js\n    ├── package.json\n"
         },
         {
           "title": "index.js",
-          "url": "/documents/create.html#index.js",
+          "url": "/documents/create.html#基本插件-index.js",
           "content": "index.jsindex.js 是插件的入口文件，init、finish、page:before、page 是插件绑定的钩子。每个插件都可以绑定不同的钩子实现各种各样的功能。module.exports = {  init: function() {\n    console.log('init');\n  },\n  finish: function() {    \n    console.log('end...');\n  },\n  'page:before': function(page) {\n    console.log('beforePage', page);\n  },\n  page: function(page) {\n    console.log('page', page);\n  }\n}\n"
+        },
+        {
+          "title": "私有插件",
+          "url": "/documents/create.html#私有插件",
+          "content": "私有插件私有插件的配置直接写在 YDoc 的配置文件中，在 plugin 字段中新增数组项：plugins[n].name 为插件名称，不允许重名\nplugins[n].module 和基本插件中的 index.js 的 module.exports 内容一致\nmodule.exports = {  plugins: [{\n    name: \"privatePlugin\",\n    module: {\n      init: function() {\n        console.log('init privatePlugin successfully!');\n      }\n    }\n  }]\n}\n我们鼓励开发者将插件发布到 npm 社区"
         }
       ]
     },
@@ -374,6 +451,11 @@ window.ydoc_plugin_search_json = {
       "content": "",
       "url": "/documents/release.html",
       "children": [
+        {
+          "title": "v4.1.0 (2018.10.10)",
+          "url": "/documents/release.html#v4.1.0-2018.10.10",
+          "content": "v4.1.0 (2018.10.10)主题功能优化，定制更方便\n样式优化，优化 markdown 阅读体验\n文档站优化，增强易用性\n文档站提供示例 Demo\n"
+        },
         {
           "title": "v4.0.6 (2018.08.23)",
           "url": "/documents/release.html#v4.0.6-2018.08.23",
@@ -445,7 +527,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "排版",
           "url": "/standard/style-guide.html#ydoc-项目设计规范-排版",
-          "content": "排版文档正文使用 16px 字号，但默认字号为 14px，这是为了增强正文部分的阅读体验\n请限制每行文字的宽度(行宽)，以一行 40-60 字为宜：\n\n行宽过短，用户需要频繁移动视线，影响阅读连贯性\n行宽过长，容易视觉疲劳，用户很难专注于一行文本阅读，从大段文字中找到下一行变得更困难\n\n\n行宽的设计参考 Readability: the Optimal Line Length\n"
+          "content": "排版文档正文使用 16px 字号，但默认字号为 14px，这是为了增强正文部分的阅读体验\n请限制每行文字的宽度(行宽)，以一行 40-60 字为宜：\n\n行宽过短，用户需要频繁移动视线，影响阅读连贯性\n行宽过长，容易视觉疲劳，用户很难专注于一行文本阅读，从大段文字中找到下一行变得更困难\n\n\n行宽的设计参考 Readability: the Optimal Line Length\nYDoc 正文排版经历过精心设计，不建议用户修改正文排版"
         },
         {
           "title": "项目规范文件",
@@ -460,14 +542,19 @@ window.ydoc_plugin_search_json = {
       "url": "/standard/index.html",
       "children": [
         {
-          "title": "结构",
-          "url": "/standard/index.html#结构",
-          "content": "结构软件手册是一部完整的书，建议采用下面的结构。简介（Introduction）： [必备] [文件] 提供对产品和文档本身的总体的、扼要的说明\n快速上手（Getting Started）：[可选] [文件] 如何最快速地使用产品\n入门篇（Basics）： [必备] [目录] 又称”使用篇“，提供初级的使用教程\n\n环境准备（Prerequisite）：[必备] [文件] 软件使用需要满足的前置条件\n安装（Installation）：[可选] [文件] 软件的安装方法\n设置（Configuration）：[必备] [文件] 软件的设置\n\n\n进阶篇（Advanced)：[可选] [目录] 又称”开发篇“，提供中高级的开发教程\nAPI（Reference）：[可选] [目录|文件] 软件 API 的逐一介绍\nFAQ：[可选] [文件] 常见问题解答\n附录（Appendix）：[可选] [目录] 不属于教程本身、但对阅读教程有帮助的内容\n\nGlossary：[可选] [文件] 名词解释\nRecipes：[可选] [文件] 最佳实践\nTroubleshooting：[可选] [文件] 故障处理\nChangeLog：[可选] [文件] 版本说明\nFeedback：[可选] [文件] 反馈方式\n\n\n下面是两个真实范例，可参考。Redux 手册\nAtom 手册\n"
+          "title": "目录结构",
+          "url": "/standard/index.html#目录结构",
+          "content": "目录结构软件手册是一部完整的书，建议采用下面的目录结构。简介（Introduction）： [必备] [文件] 提供对产品和文档本身的总体的、扼要的说明\n快速上手（Getting Started）：[可选] [文件] 如何最快速地使用产品\n入门篇（Basics）： [必备] [目录] 又称”使用篇“，提供初级的使用教程\n\n环境准备（Prerequisite）：[必备] [文件] 软件使用需要满足的前置条件\n安装（Installation）：[可选] [文件] 软件的安装方法\n设置（Configuration）：[必备] [文件] 软件的设置\n\n\n进阶篇（Advanced)：[可选] [目录] 又称”开发篇“，提供中高级的开发教程\nAPI（Reference）：[可选] [目录|文件] 软件 API 的逐一介绍\nFAQ：[可选] [文件] 常见问题解答\n附录（Appendix）：[可选] [目录] 不属于教程本身、但对阅读教程有帮助的内容\n\nGlossary：[可选] [文件] 名词解释\nRecipes：[可选] [文件] 最佳实践\nTroubleshooting：[可选] [文件] 故障处理\nChangeLog：[可选] [文件] 版本说明\nFeedback：[可选] [文件] 反馈方式\n\n\n下面是两个真实范例，可参考。Redux 手册\nAtom 手册\n"
         },
         {
           "title": "文件名",
           "url": "/standard/index.html#文件名",
           "content": "文件名文档的文件名不得含有空格。文件名必须使用半角字符，不得使用全角字符。这也意味着，中文不能用于文件名。错误： 名词解释.md\n正确： glossary.md\n文件名建议只使用小写字母，不使用大写字母。错误：TroubleShooting.md\n正确：troubleshooting.md \n为了醒目，某些说明文件的文件名，可以使用大写字母，比如README、LICENSE。文件名包含多个单词时，单词之间建议使用半角的连词线（-）分隔。不佳：advanced_usage.md\n正确：advanced-usage.md\n"
+        },
+        {
+          "title": "排版技巧",
+          "url": "/standard/index.html#排版技巧",
+          "content": "排版技巧空格的使用所有的中文字和半形的英文、数字、符号、链接之间应该插入一段间隙，这是因为挤在一起的中西文混排导致西文难以阅读，最简单的插入间隙的技巧就是使用空格，推荐使用 YDoc 插件 ydoc-plugin-pangu查看下面的示例，会发现加入空格的段落，英文、数字、符号、链接更易读：不加入空格的段落:YDoc是一个文档站构建工具,累计的Star数量已超过200个,官网链接为YDoc官网欢迎大家使用加入空格的段落: YDoc 是一个文档站构建工具, 累计的 Star 数量已超过 200 个,官网链接为 YDoc官网 欢迎大家使用空格的使用所有的中文字和半形的英文、数字、符号之间应该插入空白，这是因为挤在一起的中西文混排导致西文难以阅读推荐使用pangu插件ydoc-plugin-pangu"
         }
       ]
     }
