@@ -243,7 +243,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "定制主题的技巧",
           "url": "/documents/theme.html#自定义主题-定制主题的技巧",
-          "content": "定制主题的技巧1. 使用 sass 编译主题的 css官方提供的主题使用了 sass 预处理器，在官方主题的根目录下的 build.js2. 快速修改主题色"
+          "content": "定制主题的技巧1. 使用 sass 编译主题的 css官方提供的主题使用了 sass 预处理器，官方主题的根目录下的 build.js 文件用于构建 css，例：ydoc theme ydoc-theme-dark --copynode theme/ydoc-theme-dark/build.js\n即可编译 dark 主题的 css2. 快速修改主题色"
         },
         {
           "title": "主题列表",
@@ -543,7 +543,7 @@ window.ydoc_plugin_search_json = {
     },
     {
       "title": "文档体系",
-      "content": "",
+      "content": "click mecontent\n",
       "url": "/standard/index.html",
       "children": [
         {
@@ -559,7 +559,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "排版技巧",
           "url": "/standard/index.html#排版技巧",
-          "content": "排版技巧空格的使用所有的中文字和半形的英文、数字、符号、链接之间应该插入一段间隙，这是因为挤在一起的中西文混排导致西文难以阅读，最简单的插入间隙的技巧就是使用空格，推荐使用 YDoc 插件 ydoc-plugin-pangu查看下面的示例，会发现加入空格的段落，英文、数字、符号、链接更易读：不加入空格的段落:YDoc是一个文档站构建工具,累计的Star数量已超过200个,官网链接为YDoc官网欢迎大家使用加入空格的段落: YDoc 是一个文档站构建工具, 累计的 Star 数量已超过 200 个,官网链接为 YDoc官网 欢迎大家使用空格的使用所有的中文字和半形的英文、数字、符号之间应该插入空白，这是因为挤在一起的中西文混排导致西文难以阅读推荐使用pangu插件ydoc-plugin-pangu"
+          "content": "排版技巧空格的使用所有的中文字和半形的英文、数字、符号、链接之间应该插入一段间隙，这是因为挤在一起的中西文混排导致西文难以阅读，最简单的插入间隙的技巧就是使用空格，推荐使用 YDoc 插件 ydoc-plugin-pangu查看下面的示例，会发现加入空格的段落，英文、数字、符号、链接更易读：不加入空格的段落:YDoc是一个文档站构建工具,累计的Star数量已超过200个,官网链接为YDoc官网欢迎大家使用加入空格的段落: YDoc 是一个文档站构建工具, 累计的 Star 数量已超过 200 个,官网链接为 YDoc官网 欢迎大家使用"
         }
       ]
     }
