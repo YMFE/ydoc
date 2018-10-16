@@ -1,0 +1,19 @@
+{
+  "name": "test-doc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jsmds": "jsdoc2md --files src/*.js > jsmds/api.md",
+    "esdocs": "./node_modules/.bin/esdoc -c .esdoc.json && node ./parseJsonToMd.js",
+    "jsdocs": "./node_modules/.bin/jsdoc ./src/*.js -d ./jsdocs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
+    "ydoc-theme-dark": "0.0.3"
+  }
+}

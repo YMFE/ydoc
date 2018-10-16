@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="UTF-8"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><link rel="apple-touch-icon" sizes="180x180" href="ydoc/images/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="ydoc/images/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="ydoc/images/favicon-16x16.png"/><link rel="manifest" href="ydoc/images/manifest.json"/><link rel="mask-icon" href="ydoc/images/safari-pinned-tab.svg" color="#5bbad5"/><meta name="theme-color" content="#ffffff"/><meta http-equiv="Cache-Control" content="no-transform"/><meta http-equiv="Cache-Control" content="no-siteapp"/><title>主题-ydoc demo</title><link rel="stylesheet" href="ydoc/styles/style.css"/><meta name="author" content="ymfe"/><meta name="keywords"/><meta name="description" content="website description"/><meta id="releativePath" content=""/><link rel="stylesheet" href="ydoc/ydoc-plugin-search/search.css"/><link rel="stylesheet" href="https://prismjs.com/themes/prism-dark.css"/></head><body><div class="g-doc"><div class="m-main" id="js-panel"><header class="m-header" id="js-header"><div class="m-header-title js-logo"><a href="" target="_self"><img class="logo" width="36" src="ydoc/images/dog@1x.png"/><h6 class="name">YDoc</h6></a></div><div><div class="m-search">
+      <div class="icon">&#xf0fd;</div>
+      <input type="text" class="input js-input" placeholder="搜索" />
+      <div class="m-search-result js-search-result"></div>
+    </div></div><nav class="m-header-nav js-nav"><ul class="m-header-items"><li class="item "><a class="href" href="documents/index.html">documents</a></li><li class="item "><a class="href" href="about/index.html">about</a></li></ul></nav><div id="js-nav-btn" class="m-header-btn ui-font-ydoc"></div></header><div class="m-content" id="js-content"><div class="m-content-container"><div id="markdown-body" class="markdown-body"><h1>主题</h1>
+<p>YDoc 提供了简单易用强大的自定义主题功能。</p>
+<h2 id="安装">安装</h2>
+<p>1.假设要安装 demo 主题，请执行以下命令：</p>
+<pre><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save-dev ydoc-theme-demo
+</code></pre>
+<p>或者</p>
+<pre><code class="language-bash">ydoc theme ydoc-theme-demo
+</code></pre>
+<p>2.然后在 ydoc.json 配置：</p>
+<pre><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"theme"</span><span class="token operator">:</span> <span class="token string">"demo"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="自定义主题">自定义主题</h2>
+<h3 id="自定义主题-新建主题">新建主题</h3>
+<p>1.在根目录下创建 theme 文件夹，然后创建对应的 theme 文件夹，比如 ydoc-theme-demo, 在文件夹下写对应的主题</p>
+<p>2.然后在 ydoc.json 配置：</p>
+<pre><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"theme"</span><span class="token operator">:</span> <span class="token string">"demo"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="自定义主题-基于已有主题定制">基于已有主题定制</h3>
+<p>1.在项目根目录下执行以下命令：</p>
+<pre><code class="language-bash">ydoc theme ydoc-theme-demo -c
+</code></pre>
+<p>或者</p>
+<pre><code class="language-bash">ydoc theme ydoc-theme-demo --copy
+</code></pre>
+<p>命令执行完成后，项目根目录下会生成一个theme文件夹，文件夹中有一个ydoc-theme-demo的文件，ydoc-theme-demo文件中是主题的内容，修改该文件即可定制主题</p>
+<p>2.然后在 ydoc.json 配置：</p>
+<pre><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"theme"</span><span class="token operator">:</span> <span class="token string">"demo"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="主题列表">主题列表</h2>
+<ul>
+<li><a href="https://www.npmjs.com/package/ydoc-theme-demo" target="_blank">ydoc-theme-demo</a></li>
+<li><a href="https://www.npmjs.com/package/ydoc-theme-dark" target="_blank">ydoc-theme-dark</a></li>
+</ul>
+</div></div></div></div></div><div></div><script>
+    var $content = document.getElementById('js-content');
+    var $summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href'));
+    var $menu = document.getElementById('js-menu');
+    if ($menu && sessionStorage.menuScrollTop) {
+		$menu.scrollTop = sessionStorage.menuScrollTop;
+    }
+    // 刷新页面但不切换 pathname 的时候，内容区恢复到记忆的高度
+    if ($content && sessionStorage.contentScrollTop && window.location.pathname == sessionStorage.locationPathname) {
+      $content.scrollTop = sessionStorage.contentScrollTop;
+    }
+    sessionStorage.setItem('locationPathname', window.location.pathname);</script><script src="ydoc/scripts/plugins/dollar.min.js"></script><script src="ydoc/scripts/plugins/responsive-nav.min.js"></script><script src="ydoc/scripts/plugins/slideout.min.js"></script><script src="ydoc/scripts/app.js"></script><script src="ydoc/ydoc-plugin-search/core.js"></script><script src="ydoc/ydoc-plugin-search/search.js"></script><script src="search_json.js"></script></body></html>

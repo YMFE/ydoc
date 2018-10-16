@@ -508,7 +508,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "本地调试 Demo",
           "url": "/examples/index.html#本地调试-demo",
-          "content": "本地调试 Demo首先将 YDoc 项目 clone 到本地：git clone git@github.com:YMFE/ydoc.gitcd ydoc/examples\nydoc/examples 目录下有若干 Demo，你可以进入各个 Demo 的目录中执行 YDoc build 来进行本地调试。\n\nDemo 名称\n描述\n\n\n\n\n初始化\nYDoc 一键生成文档的最简版本。\n\n\n首页使用 markdown\n默认主题的首页使用 markdown 的方式\n\n\n使用插件\nYDoc 标准插件与 markdown-it 插件的使用\n\n\n"
+          "content": "本地调试 Demo首先将 YDoc 项目 clone 到本地：git clone git@github.com:YMFE/ydoc.gitcd ydoc/examples\nydoc/examples 目录下有若干 Demo，你可以进入各个 Demo 的目录中执行 YDoc build 来进行本地调试。\n\nDemo 名称\n描述\n\n\n\n\n初始化\nYDoc 一键生成文档的最简版本。\n\n\n首页使用 markdown\n默认主题的首页使用 markdown 的方式\n\n\n使用插件\nYDoc 标准插件与 markdown-it 插件的使用\n\n\n使用主题\nYDoc 使用编辑主题\n\n\n"
         }
       ]
     }

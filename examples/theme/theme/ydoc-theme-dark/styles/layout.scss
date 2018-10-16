@@ -1,0 +1,33 @@
+.g-doc {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	left: 0;
+	transition: all $transition-time-quick ease-in-out;
+	overflow: hidden;
+	background-size: cover;
+	background-image: url(https://ww1.sinaimg.cn/large/006cGJIjly1fvqq6p5bicj31hc18k1if.jpg);
+	background-position: bottom left;
+	background-attachment: fixed;
+	background-color: #131d26;
+}
+
+.m-main {
+	width: 100%;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	h2:before, h3:before {
+		content: "";
+    display: block;
+    margin-top: -.8rem;
+    height: .8rem;
+    visibility: hidden;
+	}
+}
+
+@include media-md() {
+	.m-main {
+		box-shadow: none;
+	}
+}
