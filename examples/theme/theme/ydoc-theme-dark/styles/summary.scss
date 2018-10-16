@@ -26,7 +26,7 @@
 	}
 	&.active {
 		height: 100%;
-		background-color: #202a37;
+		background-color: #fff;
 		padding: .24rem;
 		padding-bottom: .24rem + .65rem;
 		transform: translateY(.65rem);
@@ -97,7 +97,7 @@
 		height: .6rem;
 		border-radius: 50%;
 		color: $primary-color;
-		box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 		background-color: $light-body-text-color;
 		user-select: none;
 		display: flex;
