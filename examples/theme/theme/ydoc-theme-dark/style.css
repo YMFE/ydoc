@@ -7,7 +7,7 @@
 */
 body {
   font-size: 18px;
-  color: white;
+  color: rgba(3, 17, 31, 0.87);
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
 }
@@ -664,7 +664,7 @@ body {
   box-sizing: border-box;
   min-width: 200px;
   margin: 0 auto;
-  padding: 0 .24rem;
+  padding: 0;
   transition: all 0.2s;
 }
 
@@ -1566,7 +1566,7 @@ pre[class*="language-"] {
   transition: all 0.2s ease-in-out;
   overflow: hidden;
   background-size: cover;
-  background-image: url(http://ww1.sinaimg.cn/large/006cGJIjly1fvqq6p5bicj31hc18k1if.jpg);
+  background-image: url(https://ww1.sinaimg.cn/large/006cGJIjly1fvqq6p5bicj31hc18k1if.jpg);
   background-position: bottom left;
   background-attachment: fixed;
   background-color: #131d26;
@@ -1625,6 +1625,10 @@ pre[class*="language-"] {
   color: #3eb1f3;
   font-size: 24px;
   font-family: 'Arial Rounded MT Bold';
+}
+
+.m-header-nav {
+  border-bottom: 1px solid #e5f0f6;
 }
 
 .m-header-nav .m-header-items {
@@ -1827,7 +1831,7 @@ pre[class*="language-"] {
 
 .m-summary.active {
   height: 100%;
-  background-color: #202a37;
+  background-color: #fff;
   padding: .24rem;
   padding-bottom: 0.89rem;
   transform: translateY(0.65rem);
@@ -1912,7 +1916,7 @@ pre[class*="language-"] {
   height: .6rem;
   border-radius: 50%;
   color: #3eb1f3;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   background-color: white;
   user-select: none;
   display: flex;

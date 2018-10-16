@@ -18,5 +18,5 @@
 	{props.assets.css.map(item=>{
 		return <link key={item} rel="stylesheet" href={relePath(props.distPath, item)} />
 	})}
-	<link rel="stylesheet" href="http://prismjs.com/themes/prism-dark.css" />
+	<link rel="stylesheet" href="https://prismjs.com/themes/prism-dark.css" />
 </head>
