@@ -43,9 +43,15 @@ ydoc build
 - [ydoc-plugin-pangu](https://www.npmjs.com/package/ydoc-plugin-pangu): 自动替你在网页中所有的中文字和半形的英文、数字、符号之间插入空白(盘古之白)
 - [more... ](https://ydoc.ymfe.org/plugin/index.html)
 
+## 主题
+
+- [ydoc-theme-demo](https://www.npmjs.com/package/ydoc-theme-demo)
+- [ydoc-theme-dark](https://www.npmjs.com/package/ydoc-theme-dark)
+
 ## 开发者
 
 - [dwb1994](https://github.com/dwb1994) (dev & design)
+- [lwg529](https://github.com/lwg529) (dev)
 - [sean1025](https://github.com/hellosean1025) (dev)
 - [zwjamnsss](https://github.com/amnsss) (dev & design)
 

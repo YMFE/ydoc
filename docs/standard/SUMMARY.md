@@ -4,5 +4,5 @@
 * [文档规范](index.md)
   * [目录结构](index.md#目录结构)
   * [文件名](index.md#文件名)
-  * [排版](index.md#排版)
+  * [排版技巧](index.md#排版技巧)
 

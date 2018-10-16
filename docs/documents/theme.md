@@ -54,6 +54,21 @@ ydoc theme ydoc-theme-demo --copy
 }
 ```
 
+### 定制主题的技巧
+
+#### 1. 使用 sass 编译主题的 css
+官方提供的主题使用了 sass 预处理器，官方主题的根目录下的 ```build.js``` 文件用于构建 css，例：
+
+```bash
+ydoc theme ydoc-theme-dark --copy
+node theme/ydoc-theme-dark/build.js
+```
+
+即可编译 dark 主题的 css
+
+#### 2. 快速修改主题色
+
+
 ## 主题列表
 
 - [ydoc-theme-demo](https://www.npmjs.com/package/ydoc-theme-demo)

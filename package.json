@@ -58,7 +58,9 @@
     "ydoc-plugin-execution-time": "^1.0.0",
     "ydoc-plugin-img-view": "^1.0.1",
     "ydoc-plugin-import-asset": "^1.0.1",
-    "ydoc-plugin-search": "^1.1.6"
+    "ydoc-plugin-search": "^1.1.6",
+    "ydoc-theme-dark": "0.0.4",
+    "ydoc-theme-demo": "0.0.3"
   },
   "devDependencies": {
     "ghooks": "^2.0.0",

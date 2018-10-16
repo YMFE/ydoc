@@ -241,6 +241,11 @@ window.ydoc_plugin_search_json = {
           "content": "基于已有主题定制1.在项目根目录下执行以下命令：ydoc theme ydoc-theme-demo -c或者ydoc theme ydoc-theme-demo --copy命令执行完成后，项目根目录下会生成一个theme文件夹，文件夹中有一个ydoc-theme-demo的文件，ydoc-theme-demo文件中是主题的内容，修改该文件即可定制主题2.然后在 ydoc.json 配置：{  \"theme\": \"demo\"\n}\n"
         },
         {
+          "title": "定制主题的技巧",
+          "url": "/documents/theme.html#自定义主题-定制主题的技巧",
+          "content": "定制主题的技巧1. 使用 sass 编译主题的 css官方提供的主题使用了 sass 预处理器，在官方主题的根目录下的 build.js2. 快速修改主题色"
+        },
+        {
           "title": "主题列表",
           "url": "/documents/theme.html#主题列表",
           "content": "主题列表ydoc-theme-demo\nydoc-theme-dark\n"

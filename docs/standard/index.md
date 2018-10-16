@@ -66,9 +66,3 @@
 不加入空格的段落:YDoc是一个文档站构建工具,累计的Star数量已超过200个,官网链接为[YDoc官网](https://ydoc.ymfe.org/)欢迎大家使用
 
 加入空格的段落: YDoc 是一个文档站构建工具, 累计的 Star 数量已超过 200 个,官网链接为 [YDoc官网](https://ydoc.ymfe.org/) 欢迎大家使用
-
-#### 空格的使用
-
-所有的中文字和半形的英文、数字、符号之间应该插入空白，这是因为挤在一起的中西文混排导致西文难以阅读
-
-推荐使用pangu插件[ydoc-plugin-pangu](https://www.npmjs.com/package/ydoc-plugin-pangu)

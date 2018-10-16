@@ -46,9 +46,15 @@ ydoc build
 Automatically insert space between all Chinese characters and half-size English, numbers, and symbols in your page.
 - [more... ](https://ydoc.ymfe.org/plugin/index.html)
 
+## Themes
+
+- [ydoc-theme-demo](https://www.npmjs.com/package/ydoc-theme-demo)
+- [ydoc-theme-dark](https://www.npmjs.com/package/ydoc-theme-dark)
+
 ## Developers
 
 - [dwb1994](https://github.com/dwb1994) (dev & design)
+- [lwg529](https://github.com/lwg529) (dev)
 - [sean1025](https://github.com/hellosean1025) (dev)
 - [zwjamnsss](https://github.com/amnsss) (dev & design)
 
