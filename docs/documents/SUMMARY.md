@@ -16,7 +16,6 @@
 ### 自定义
 
 * [主题](theme.md)
-  * [模板与变量](template.md)
 * [JSX](jsx.md)
 * [扩展](plugins.md)
   * [创建插件](create.md)

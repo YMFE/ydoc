@@ -1,1 +1,0 @@
-!!!include(./examples/theme/docs/index.md)!!!

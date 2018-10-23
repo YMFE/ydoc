@@ -1,1 +1,0 @@
-!!!include(./examples/homepage/docs/index.md)!!!
