@@ -3,6 +3,7 @@
 
 * [文档](/documents/index.md)
 * [插件](/plugin/index.jsx)
+* [示例 Demo](/examples/index.md)
 
 ## 规范 
   * [设计规范](standard/style-guide.md)

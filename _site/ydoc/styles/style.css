@@ -607,6 +607,10 @@ a:link, a:visited {
   }
 }
 
+html {
+  height: 100%;
+}
+
 body {
   width: 100%;
   height: 100%;
@@ -1394,6 +1398,25 @@ body {
   border-bottom-color: rgba(3, 17, 31, 0.87);
 }
 
+.markdown-body .type {
+  color: #1890ff;
+  font-size: 16px;
+}
+
+.markdown-body .versionTag {
+  background: #1890ff;
+  color: white;
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 14px;
+}
+
+.markdown-body .desc {
+  font-size: 16px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.65);
+}
+
 /* PrismJS 1.14.0
 http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
 /**
@@ -1617,15 +1640,25 @@ pre[class*="language-"] {
 
 .m-header-nav .m-header-subtitle .link {
   display: inline-block;
+  padding-left: .5em;
+  padding-right: .5em;
   width: 100%;
+  background-color: transparent;
+  border-radius: 4px;
+  line-height: .32rem;
+  transition: all 0.2s;
+}
+
+.m-header-nav .m-header-subtitle .link:hover {
+  color: #1890ff;
+  background-color: #d9edff;
 }
 
 .m-header-nav .item {
-  margin-bottom: 0.08rem;
   width: 100%;
   display: inline-block;
   line-height: 1.8;
-  margin: 0 0.08rem;
+  padding: 0 0.08rem;
   position: relative;
   cursor: pointer;
   transition: all 0.2s;
@@ -1638,15 +1671,24 @@ pre[class*="language-"] {
 
 .m-header-nav .item.active {
   font-weight: bold;
-  color: rgba(3, 17, 31, 0.87);
-}
-
-.m-header-nav .item.active .href {
-  border-bottom: 2px solid #1890ff;
+  color: #1890ff;
 }
 
 .m-header-nav .href {
-  padding: .5em;
+  display: inline-block;
+  padding-left: .5em;
+  padding-right: .5em;
+  height: .32rem;
+  line-height: .32rem;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.m-header-nav .href:active {
+  color: #1890ff;
+  background-color: #d9edff;
 }
 
 .m-header-btn {
@@ -1685,7 +1727,8 @@ pre[class*="language-"] {
     padding: 0;
   }
   .m-header-nav .m-header-items > .item:hover .m-header-subtitle {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
   }
   .m-header-nav .m-header-subtitle {
     display: none;
@@ -1719,15 +1762,36 @@ pre[class*="language-"] {
     top: -.16rem;
     transform: translateX(-50%);
   }
+  .m-header-nav .m-header-subtitle .link {
+    display: inline-block;
+    padding: 0;
+    width: auto;
+  }
+  .m-header-nav .m-header-subtitle .link:hover {
+    font-weight: bold;
+    color: rgba(3, 17, 31, 0.87);
+    background-color: transparent;
+  }
+  .m-header-nav .href {
+    border-radius: 0;
+  }
+  .m-header-nav .href:hover {
+    font-weight: bold;
+    color: rgba(3, 17, 31, 0.87);
+    background-color: transparent;
+  }
   .m-header-nav .item {
     margin: 0 0.16rem;
     line-height: .64rem;
     width: auto;
     transition: color 0.2s;
   }
-  .m-header-nav .item:hover {
+  .m-header-nav .item.active {
     font-weight: bold;
     color: rgba(3, 17, 31, 0.87);
+  }
+  .m-header-nav .item.active .href {
+    border-bottom: 2px solid #1890ff;
   }
   .m-header .m-header-nav {
     overflow: inherit;

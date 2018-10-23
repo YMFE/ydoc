@@ -1,6 +1,10 @@
 # Markdown
 
-Markdown 是一种轻量级标记语言，它以纯文本形式(*易读、易写、易更改*)编写文档，并最终以 HTML 格式发布。Markdown也可以理解为将以 MARKDOWN 语法编写的语言转换成 HTML 内容的工具。    
+Markdown 是一种轻量级标记语言，它以纯文本形式(*易读、易写、易更改*)编写文档，并最终以 HTML 格式发布。Markdown也可以理解为将以 MARKDOWN 语法编写的语言转换成 HTML 内容的工具。 
+
+## 语法规范
+
+YDoc 使用了 [CommonMark 语法规范](https://spec.commonmark.org/)
 
 ## 为什么要使用它
 * 它是易读（看起开舒服）、易写（语法简单）、易更改**纯文本**。处处体现着**极简主义**的影子。

@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="UTF-8"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><link rel="apple-touch-icon" sizes="180x180" href="../ydoc/images/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="../ydoc/images/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="../ydoc/images/favicon-16x16.png"/><link rel="manifest" href="../ydoc/images/manifest.json"/><link rel="mask-icon" href="../ydoc/images/safari-pinned-tab.svg" color="#5bbad5"/><meta name="theme-color" content="#ffffff"/><meta http-equiv="Cache-Control" content="no-transform"/><meta http-equiv="Cache-Control" content="no-siteapp"/><title>Demo 介绍-示例 Demo</title><link rel="stylesheet" href="../ydoc/styles/style.css"/><meta name="author" content="ymfe"/><meta name="keywords"/><meta name="description" content="ydoc description demo"/><meta id="releativePath" content=".."/><link rel="stylesheet" href="../ydoc/ydoc-plugin-search/search.css"/><link rel="stylesheet" href="../ydoc/ydoc-plugin-edit-page/editPage.css"/><link rel="stylesheet" href="../custom.css"/></head><body><div class="g-doc"><div class="m-main" id="js-panel"><header class="m-header" id="js-header"><div class="m-header-title js-logo"><a href="../index.html" target="_self"><img class="logo" width="36" src="../ydoc/images/dog@1x.png" srcSet="../ydoc/images/dog@2x.png 2x"/><h6 class="name">YDoc</h6></a></div><div><div class="m-search">
+      <div class="icon">&#xf0fd;</div>
+      <input type="text" class="input js-input" placeholder="搜索" />
+      <div class="m-search-result js-search-result"></div>
+    </div></div><nav class="m-header-nav js-nav"><ul class="m-header-items"><li class="item "><a class="href" href="../documents/index.html">文档</a></li><li class="item "><a class="href" href="../plugin/index.html">插件</a></li><li class="item active"><a class="href" href="">示例 Demo</a></li><li class="item "><span class="href">规范</span><ul class="m-header-subtitle"><li class="item"><a href="../standard/style-guide.html" class="link">设计规范</a></li><li class="item"><a href="../standard/index.html" class="link">文档规范</a></li></ul></li></ul></nav><div id="js-nav-btn" class="m-header-btn ui-font-ydoc"></div></header><div class="m-content" id="js-content"><div id="markdown-body" class="m-content-container markdown-body"><h1>Demo 介绍</h1>
+<p>我们为大家提供了一系列 Demo 的在线预览，你可以通过这些 Demo 来了解 YDoc 构建文档的能力，在你构建遇到困惑的时候不妨先看下 Demo 中有没有类似的效果，效仿该效果进行配置即可。</p>
+<h2 id="本地调试-demo">本地调试 Demo</h2>
+<p>首先将 YDoc 项目 clone 到本地：</p>
+<pre><code class="language-bash"><span class="token function">git</span> clone git@github.com:YMFE/ydoc.git
+<span class="token function">cd</span> ydoc/examples
+</code></pre>
+<p>ydoc/examples 目录下有若干 Demo，你可以进入各个 Demo 的目录中执行 <code>YDoc build</code> 来进行本地调试。</p>
+<table>
+<thead>
+<tr>
+<th>Demo 名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="./init/index.html">初始化</a></td>
+<td>YDoc 一键生成文档的最简版本。</td>
+</tr>
+<tr>
+<td><a href="./homepage/index.html">首页使用 markdown</a></td>
+<td>默认主题的首页使用 markdown 的方式</td>
+</tr>
+<tr>
+<td><a href="./plugin/index.html">使用插件</a></td>
+<td>YDoc 标准插件与 markdown-it 插件的使用</td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div><div></div><script>
+    var $content = document.getElementById('js-content');
+    var $summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href'));
+    var $menu = document.getElementById('js-menu');
+    if ($menu && sessionStorage.menuScrollTop) {
+		$menu.scrollTop = sessionStorage.menuScrollTop;
+    }
+    // 刷新页面但不切换 pathname 的时候，内容区恢复到记忆的高度
+    if ($content && sessionStorage.contentScrollTop && window.location.pathname == sessionStorage.locationPathname) {
+      $content.scrollTop = sessionStorage.contentScrollTop;
+    }
+    sessionStorage.setItem('locationPathname', window.location.pathname);</script><script src="../ydoc/scripts/plugins/dollar.min.js"></script><script src="../ydoc/scripts/plugins/responsive-nav.min.js"></script><script src="../ydoc/scripts/plugins/slideout.min.js"></script><script src="../ydoc/scripts/app.js"></script><script src="../ydoc/ydoc-plugin-search/core.js"></script><script src="../ydoc/ydoc-plugin-search/search.js"></script><script src="../ydoc/ydoc-plugin-edit-page/edit.script.js"></script><script src="../search_json.js"></script><script src="../edit_json.js"></script></body></html>

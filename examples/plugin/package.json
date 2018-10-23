@@ -1,0 +1,24 @@
+{
+  "name": "plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ydoc.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "markdown-it-include": "^1.0.0",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0"
+  },
+  "devDependencies": {
+    "ydoc-plugin-demo": "^1.0.0",
+    "ydoc-plugin-edit-page": "0.0.2"
+  }
+}
