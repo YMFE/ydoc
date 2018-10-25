@@ -543,7 +543,7 @@ window.ydoc_plugin_search_json = {
     },
     {
       "title": "文档体系",
-      "content": "click mecontent\n",
+      "content": "",
       "url": "/standard/index.html",
       "children": [
         {

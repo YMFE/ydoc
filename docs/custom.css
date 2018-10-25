@@ -16,6 +16,28 @@
 .m-pluginbox-item .desc {
   margin-top: 16px;
 }
+.m-pluginbox-item .img {
+  margin-bottom: 8px;
+  filter: transparent;
+  transition: filter .2s;
+}
+.m-pluginbox-item .href {
+  color: #1890ff;
+  transition: color .2s;
+}
+.m-pluginbox-item .href:hover {
+  color: #004b90;
+}
+.m-pluginbox-item .href:hover .img {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  
+  filter: grayscale(100%);
+
+  filter: gray;
+}
 
 @media screen and (min-width: 600px) {
   .m-pluginbox-item {
