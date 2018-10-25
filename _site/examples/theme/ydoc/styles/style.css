@@ -7,7 +7,11 @@
 */
 body {
   font-size: 18px;
+<<<<<<< HEAD
   color: #fff;
+=======
+  color: rgba(3, 17, 31, 0.87);
+>>>>>>> release
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
 }

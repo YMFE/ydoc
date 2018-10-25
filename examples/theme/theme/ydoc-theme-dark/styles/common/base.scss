@@ -1,6 +1,10 @@
 body {
   font-size: $font-size;
+<<<<<<< HEAD
   color: #fff;
+=======
+  color: $deep-body-text-color;
+>>>>>>> release
   -webkit-font-smoothing: antialiased;
   line-height: $line-height;
 }
