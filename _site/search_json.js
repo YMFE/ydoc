@@ -216,6 +216,33 @@ window.ydoc_plugin_search_json = {
       ]
     },
     {
+      "title": "命令",
+      "content": "通过 ydoc --help 命令查看全部命令    Usage: ydoc [command]\n    命令：\n    ydoc build  Generate the document site\n    ydoc init   Initialize a document site\n    ydoc serve  Starts a local server. By default, this is at\n                http://127.0.0.1:9999\n    ydoc theme  Install a theme\n\n    选项：\n    --version   显示版本号                             [布尔]\n    -h, --help  显示帮助信息                           [布尔]\n",
+      "url": "/documents/command-index.html",
+      "children": [
+        {
+          "title": "init 初始化",
+          "url": "/documents/command-index.html#init-初始化",
+          "content": "init 初始化ydoc init 执行初始化操作，这将会在当前目录生成一个 'docs' 目录，用于存放文档(markdown)文件。"
+        },
+        {
+          "title": "build 构建",
+          "url": "/documents/command-index.html#build-构建",
+          "content": "build 构建ydoc build 执行构建操作，这将会使用 'docs' 目录中的文件进行文档站的构建，构建成功后会在当前目录生成一个 '_site' 目录，打开 '_site' 目录中的 index.html 文件即可访问构建的文档站首页 🎉🎉"
+        },
+        {
+          "title": "serve 服务",
+          "url": "/documents/command-index.html#serve-服务",
+          "content": "serve 服务ydoc serve 可以启动一个服务，默认是http://127.0.0.1:9999。修改docs目录下的文档，可以实时在http://127.0.0.1:9999看到变化。"
+        },
+        {
+          "title": "theme 主题",
+          "url": "/documents/command-index.html#theme-主题",
+          "content": "theme 主题ydoc theme可以安装theme主题，例如 ydoc theme ydoc-theme-demo可以安装demo theme主题ydoc theme ydoc-theme-demo -c或者 ydoc theme ydoc-theme-demo --copy会默认安装一个主题，并且在项目根目录下会生成一个theme文件夹，文件夹中有一个ydoc-theme-demo的文件，ydoc-theme-demo文件中是主题的内容，修改该文件即可定制主题"
+        }
+      ]
+    },
+    {
       "title": "主题",
       "content": "YDoc 提供了简单易用强大的自定义主题功能。",
       "url": "/documents/theme.html",

@@ -8,6 +8,7 @@ window.ydoc_plugin_edit_json = {
   "/documents/pages-custom.html": "/documents/pages-custom.md",
   "/documents/config.html": "/documents/config.md",
   "/documents/markdown.html": "/documents/markdown.md",
+  "/documents/command-index.html": "/documents/command-index.md",
   "/documents/theme.html": "/documents/theme.md",
   "/documents/template.html": "/documents/template.md",
   "/documents/jsx.html": "/documents/jsx.md",
