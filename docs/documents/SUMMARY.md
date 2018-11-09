@@ -13,6 +13,14 @@
 * [配置文件](config.md)
 * [Markdown](markdown.md)
 
+### 命令
+
+* [页面](command-index.md)
+  * [init 初始化](command-index.md#init 初始化)
+  * [build 构建](command-index.md#build 构建)
+  * [serve 服务](command-index.md#serve 服务)
+  * [theme 主题](command-index.md#theme 主题)
+
 ### 自定义
 
 * [主题](theme.md)

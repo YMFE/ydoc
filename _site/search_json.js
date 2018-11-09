@@ -216,6 +216,33 @@ window.ydoc_plugin_search_json = {
       ]
     },
     {
+      "title": "命令",
+      "content": "通过 ydoc --help 命令查看全部命令    Usage: ydoc [command]\n    命令：\n    ydoc build  Generate the document site\n    ydoc init   Initialize a document site\n    ydoc serve  Starts a local server. By default, this is at\n                http://127.0.0.1:9999\n    ydoc theme  Install a theme\n\n    选项：\n    --version   显示版本号                             [布尔]\n    -h, --help  显示帮助信息                           [布尔]\n",
+      "url": "/documents/command-index.html",
+      "children": [
+        {
+          "title": "init 初始化",
+          "url": "/documents/command-index.html#init-初始化",
+          "content": "init 初始化ydoc init 执行初始化操作，这将会在当前目录生成一个 'docs' 目录，用于存放文档(markdown)文件。"
+        },
+        {
+          "title": "build 构建",
+          "url": "/documents/command-index.html#build-构建",
+          "content": "build 构建ydoc build 执行构建操作，这将会使用 'docs' 目录中的文件进行文档站的构建，构建成功后会在当前目录生成一个 '_site' 目录，打开 '_site' 目录中的 index.html 文件即可访问构建的文档站首页 🎉🎉"
+        },
+        {
+          "title": "serve 服务",
+          "url": "/documents/command-index.html#serve-服务",
+          "content": "serve 服务ydoc serve 可以启动一个服务，默认是http://127.0.0.1:9999。修改docs目录下的文档，可以实时在http://127.0.0.1:9999看到变化。"
+        },
+        {
+          "title": "theme 主题",
+          "url": "/documents/command-index.html#theme-主题",
+          "content": "theme 主题ydoc theme可以安装theme主题，例如 ydoc theme ydoc-theme-demo可以安装demo theme主题ydoc theme ydoc-theme-demo -c或者 ydoc theme ydoc-theme-demo --copy会默认安装一个主题，并且在项目根目录下会生成一个theme文件夹，文件夹中有一个ydoc-theme-demo的文件，ydoc-theme-demo文件中是主题的内容，修改该文件即可定制主题"
+        }
+      ]
+    },
+    {
       "title": "主题",
       "content": "YDoc 提供了简单易用强大的自定义主题功能。",
       "url": "/documents/theme.html",
@@ -413,7 +440,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "钩子列表",
           "url": "/documents/hooks.html#钩子列表",
-          "content": "钩子列表全局钩子\n\n名称\n描述\n参数\n\n\n\n\ninit\n在生成文档站点前触发.\n无\n\n\nfinish\n在生成文档站点完成后触发.\n无\n\n\nnav\n在解析导航 nav.md 后和解析文档前触发\n无\n\n\nassets\n引用插件静态文件\n无\n\n\n页面钩子\n\n名称\n描述\n参数\n\n\n\n\npage:before\n在创建 html 页面之前调用\nPage Object\n\n\npage\n生成 html 页面后调用\nPage Object\n\n\n模板钩子\n\n名称\n描述\n参数\n\n\n\n\ntpl:header\n在页面导航添加自定义的 html\n无\n\n\nPage Object{  // 页面类型，支持 md jsx html 三种\n  type: 'md',\n  // 页面标题\n  title: 'string',\n  // 页面描述信息\n  description: 'string',\n  // 页面内容\n  content: '内容',\n  prev: '上一页连接',\n  next: '下一页链接',\n  releativePath: '相对路径',\n  srcPath: '源文件路径',\n  distPath: '生成文件路径'\n}\n\n增加页面内容示例使用 page:before 钩子{\t\"page:before\": function(page) {\n\t\tpage.content = page.content + \"\\n Hello YDoc\";\n\t\treturn page;\n\t}\n}\n替换 html 示例使用 page 钩子{\t\"page\": function(page) {\n\t\tpage.content = page.content.replace(\"\", \"\")\n\t\t\t.replace(\"\", \"\");\n\t\treturn page;\n\t}\n}\n引用静态文件使用 assets 钩子{\tassets: {\n\t\tdir: './assets',\n\t\tjs: ['app.js'],\n\t\tcss: ['app.css']\n  }\n}\n复制当前目录下的 assets 文件夹到文档，并且在每个文件引入 app.js 和 app.css。"
+          "content": "钩子列表全局钩子\n\n名称\n描述\n\n\n\n\ninit\n在生成文档站点前触发.\n\n\nnav\n在解析导航 nav.md 后和解析文档前触发\n\n\nbook:before\n加载 book 页面之前调用\n\n\npage:before\n加载 page 文件之前调用\n\n\npage\n加载 page 文件之后调用\n\n\nbook\n加载 book 页面之后调用\n\n\nfinish\n在生成文档站点完成后触发.\n\n\n模板钩子\n\n名称\n描述\n参数\n\n\n\n\ntpl:header\n在页面 header 中添加自定义的 html\n无\n\n\ntpl:mask\n用于添加遮罩层\n无\n\n\nPage Object{  // 页面类型，支持 md jsx html 三种\n  type: 'md',\n  // 页面标题\n  title: 'string',\n  // 页面描述信息\n  description: 'string',\n  // 页面内容\n  content: '内容',\n  prev: '上一页连接',\n  next: '下一页链接',\n  releativePath: '相对路径',\n  srcPath: '源文件路径',\n  distPath: '生成文件路径'\n}\n\n增加页面内容示例使用 page:before 钩子{\t\"page:before\": function(page) {\n\t\tpage.content = page.content + \"\\n Hello YDoc\";\n\t\treturn page;\n\t}\n}\n替换 html 示例使用 page 钩子{\t\"page\": function(page) {\n\t\tpage.content = page.content.replace(\"\", \"\")\n\t\t\t.replace(\"\", \"\");\n\t\treturn page;\n\t}\n}\n引用静态文件使用 assets 钩子{\tassets: {\n\t\tdir: './assets',\n\t\tjs: ['app.js'],\n\t\tcss: ['app.css']\n  }\n}\n复制当前目录下的 assets 文件夹到文档，并且在每个文件引入 app.js 和 app.css。"
         },
         {
           "title": "异步操作",
