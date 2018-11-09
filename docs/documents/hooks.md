@@ -4,27 +4,22 @@
 
 #### 全局钩子
 
-| 名称 | 描述 | 参数 |
-| ---- | ----------- | --------- |
+| 名称 | 描述 |
+| ---- | ----------- |
 | `init` | 在生成文档站点前触发. | 无 |
-| `finish` | 在生成文档站点完成后触发. | 无 |
 | `nav`    | 在解析导航 nav.md 后和解析文档前触发 | 无 |
-| `assets` | 引用插件静态文件| 无 |
-
-#### 页面钩子
-
-| 名称 | 描述 | 参数 |
-| ---- | ----------- | --------- |
-| `page:before` | 在创建 html 页面之前调用 | Page Object |
-| `page` | 生成 html 页面后调用 | Page Object |
+| `book:before` | 加载 book 页面之前调用 |
+| `page:before` | 加载 page 文件之前调用 | Page Object |
+| `page` | 加载 page 文件之后调用 | Page Object |
+| `book` | 加载 book 页面之后调用 | Book Object |
+| `finish` | 在生成文档站点完成后触发. | 无 |
 
 #### 模板钩子
 
 | 名称 | 描述 | 参数 |
 | ---- | ----------- | --------- |
-| `tpl:header` | 在页面导航添加自定义的 html | 无 |
-
-
+| `tpl:header` | 在页面 header 中添加自定义的 html | 无 |
+| `tpl:mask` | 用于添加遮罩层 | 无 |
 
 #### Page Object
 
