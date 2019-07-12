@@ -15,7 +15,7 @@ YDoc 是一个优雅的文档站构建工具，能够基于 markdown 轻松生�
 
 我们使用 `🐶` 作为我们的 LOGO，狗狗作为人类的好朋友，有着敏捷、灵动的特点：YDoc 正是这样一个工具 👻
 
-[文档首页](https://ydoc.ymfe.org/) | [README in English](https://github.com/YMFE/ydoc/blob/master/README-en.md)
+[文档首页](https://hellosean1025.github.io/ydoc/) | [README in English](https://github.com/YMFE/ydoc/blob/master/README-en.md)
 
 ## 用法
 
@@ -41,7 +41,7 @@ ydoc build
 - [ydoc-plugin-import-asset](https://www.npmjs.com/package/ydoc-plugin-import-asset): 在页面中引入 js 与 css 文件
 - [ydoc-plugin-jsdoc](https://www.npmjs.com/package/ydoc-plugin-jsdoc): 根据代码注释生成文档，基于 jsdoc
 - [ydoc-plugin-pangu](https://www.npmjs.com/package/ydoc-plugin-pangu): 自动替你在网页中所有的中文字和半形的英文、数字、符号之间插入空白(盘古之白)
-- [more... ](https://ydoc.ymfe.org/plugin/index.html)
+- [more... ](https://hellosean1025.github.io/ydoc/plugin/index.html)
 
 ## 主题
 
@@ -55,6 +55,6 @@ ydoc build
 - [sean1025](https://github.com/hellosean1025) (dev)
 - [zwjamnsss](https://github.com/amnsss) (dev & design)
 
-我们非常欢迎社区的同学参与开发，欢迎提 [pull requests](https://github.com/YMFE/ydoc/pulls) 来帮助我们完善程序，也欢迎社区的同学为 YDoc 开发[插件](https://ydoc.ymfe.org/plugin/index.html)。
+我们非常欢迎社区的同学参与开发，欢迎提 [pull requests](https://github.com/YMFE/ydoc/pulls) 来帮助我们完善程序，也欢迎社区的同学为 YDoc 开发[插件](https://hellosean1025.github.io/ydoc/plugin/index.html)。
 
 同时也欢迎大家对 YDoc 提出宝贵的意见或建议：[github issues](https://github.com/YMFE/ydoc/issues)
