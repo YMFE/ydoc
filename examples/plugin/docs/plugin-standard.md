@@ -1,6 +1,6 @@
 # 标准插件
 
-请访问 [ydoc 官网 - 插件](https://ydoc.ymfe.org/plugin/index.html) 浏览插件。
+请访问 [ydoc 官网 - 插件](https://hellosean1025.github.io/ydoc/plugin/index.html) 浏览插件。
 
 ## 试一试
 

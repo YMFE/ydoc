@@ -402,6 +402,11 @@ window.ydoc_plugin_search_json = {
           "title": "插件配置",
           "url": "/documents/plugins.html#插件配置",
           "content": "插件配置部分插件需要做自定义配置, 假设 demo 插件需要添加 {id: 1} 的配置，只需要在 ydoc.json ，添加如下配置项：{  \"pluginsConfig\": {\n    \"demo\": {\n      \"id\": 1\n    }\n  }\n}\n"
+        },
+        {
+          "title": "插件使用技巧",
+          "url": "/documents/plugins.html#插件使用技巧",
+          "content": "插件使用技巧"
         }
       ]
     },
@@ -483,6 +488,11 @@ window.ydoc_plugin_search_json = {
       "content": "",
       "url": "/documents/release.html",
       "children": [
+        {
+          "title": "v4.1.1 (2019.09.19)",
+          "url": "/documents/release.html#v4.1.1-2019.09.19",
+          "content": "v4.1.1 (2019.09.19)增加后退定位到记忆位置功能\n文档站优化，增强易用性\n"
+        },
         {
           "title": "v4.1.0 (2018.10.10)",
           "url": "/documents/release.html#v4.1.0-2018.10.10",

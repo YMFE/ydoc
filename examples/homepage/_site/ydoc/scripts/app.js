@@ -66,6 +66,13 @@ function addEvents() {
 			sessionStorage.setItem('contentScrollTop', e.target.scrollTop);
 		});
 	}
+
+	// 刚进入页面时重置侧导及主内容区的 scrollTop 值
+	if (sessionStorage.prevPrevPathname !== window.location.pathname && sessionStorage.prevPathname !== window.location.pathname) {
+		sessionStorage.setItem('contentScrollTop', '0');
+	} else if (sessionStorage.prevPrevPathname === window.location.pathname) {
+		sessionStorage.setItem('contentScrollTop', sessionStorage.prevPrevContentScrollTop);
+	}
 }
 
 // initial components

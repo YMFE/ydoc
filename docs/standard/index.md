@@ -63,6 +63,6 @@
 
 查看下面的示例，会发现加入空格的段落，英文、数字、符号、链接更易读：
 
-不加入空格的段落:YDoc是一个文档站构建工具,累计的Star数量已超过200个,官网链接为[YDoc官网](https://ydoc.ymfe.org/)欢迎大家使用
+不加入空格的段落:YDoc是一个文档站构建工具,累计的Star数量已超过200个,官网链接为[YDoc官网](https://hellosean1025.github.io/ydoc/)欢迎大家使用
 
-加入空格的段落: YDoc 是一个文档站构建工具, 累计的 Star 数量已超过 200 个,官网链接为 [YDoc官网](https://ydoc.ymfe.org/) 欢迎大家使用
+加入空格的段落: YDoc 是一个文档站构建工具, 累计的 Star 数量已超过 200 个,官网链接为 [YDoc官网](https://hellosean1025.github.io/ydoc/) 欢迎大家使用

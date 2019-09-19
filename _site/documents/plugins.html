@@ -5,7 +5,7 @@
     </div></div><nav class="m-header-nav js-nav"><ul class="m-header-items"><li class="item active"><a class="href" href="index.html">文档</a></li><li class="item "><a class="href" href="../plugin/index.html">插件</a></li><li class="item "><a class="href" href="../theme/index.html">主题</a></li><li class="item "><a class="href" href="../examples/index.html">示例 Demo</a></li><li class="item "><span class="href">规范</span><ul class="m-header-subtitle"><li class="item"><a href="../standard/style-guide.html" class="link">设计规范</a></li><li class="item"><a href="../standard/index.html" class="link">文档规范</a></li></ul></li></ul></nav><div id="js-nav-btn" class="m-header-btn ui-font-ydoc"></div></header><div class="m-content" id="js-content"><div id="markdown-body" class="m-content-container markdown-body"><h1>插件</h1>
 <p>YDoc 强大的插件功能，满足你个性化的需求。</p>
 <h2 id="浏览插件">浏览插件</h2>
-<p>请访问 <a href="https://ydoc.ymfe.org/plugin/index.html" target="_blank">ydoc 官网 - 插件</a> 浏览插件。</p>
+<p>请访问 <a href="https://hellosean1025.github.io/ydoc/plugin/index.html" target="_blank">ydoc 官网 - 插件</a> 浏览插件。</p>
 <h2 id="安装插件">安装插件</h2>
 <p>假设要安装的插件名是 demo，执行如下命令：</p>
 <pre><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save-dev ydoc-plugin-demo
@@ -25,15 +25,34 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
+<h2 id="插件使用技巧"><a href="https://hellosean1025.github.io/ydoc/examples/plugin/index.html" target="_blank">插件使用技巧</a></h2>
 </div><div class="m-content-container m-paging"><div class="m-paging-prev m-paging-item"><a href="jsx.html" class="href"><span class="ui-font-ydoc"></span>JSX</a></div><div class="m-paging-next m-paging-item"><a href="create.html" class="href">创建插件<span class="ui-font-ydoc"></span></a></div></div></div></div></div><div></div><script>
     var $content = document.getElementById('js-content');
     var $summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href'));
     var $menu = document.getElementById('js-menu');
+    if (sessionStorage.prevPathname) {
+      sessionStorage.setItem('prevPrevPathname', sessionStorage.prevPathname);
+      sessionStorage.setItem('prevPrevMenuScrollTop', sessionStorage.prevMenuScrollTop);
+      sessionStorage.setItem('prevPrevContentScrollTop', sessionStorage.prevContentScrollTop);
+    }
+    if (sessionStorage.locationPathname) {
+      sessionStorage.setItem('prevPathname', sessionStorage.locationPathname);
+      sessionStorage.setItem('prevMenuScrollTop', sessionStorage.menuScrollTop);
+      sessionStorage.setItem('prevContentScrollTop', sessionStorage.contentScrollTop);
+    }
     if ($menu && sessionStorage.menuScrollTop) {
-		$menu.scrollTop = sessionStorage.menuScrollTop;
+		  $menu.scrollTop = sessionStorage.menuScrollTop;
     }
     // 刷新页面但不切换 pathname 的时候，内容区恢复到记忆的高度
     if ($content && sessionStorage.contentScrollTop && window.location.pathname == sessionStorage.locationPathname) {
       $content.scrollTop = sessionStorage.contentScrollTop;
+    } else if (sessionStorage.prevPrevPathname && sessionStorage.prevPrevPathname === window.location.pathname) {
+      if ($menu && sessionStorage.prevPrevMenuScrollTop) {
+        $menu.scrollTop = sessionStorage.prevPrevMenuScrollTop;
+      }
+      if ($content && sessionStorage.prevPrevContentScrollTop) {
+        $content.scrollTop = sessionStorage.prevPrevContentScrollTop;
+      }
     }
-    sessionStorage.setItem('locationPathname', window.location.pathname);</script><script src="../ydoc/scripts/plugins/dollar.min.js"></script><script src="../ydoc/scripts/plugins/responsive-nav.min.js"></script><script src="../ydoc/scripts/plugins/slideout.min.js"></script><script src="../ydoc/scripts/app.js"></script><script src="../ydoc/ydoc-plugin-search/core.js"></script><script src="../ydoc/ydoc-plugin-search/search.js"></script><script src="../ydoc/ydoc-plugin-edit-page/edit.script.js"></script><script src="../search_json.js"></script><script src="../edit_json.js"></script></body></html>
+    sessionStorage.setItem('locationPathname', window.location.pathname);
+    </script><script src="../ydoc/scripts/plugins/dollar.min.js"></script><script src="../ydoc/scripts/plugins/responsive-nav.min.js"></script><script src="../ydoc/scripts/plugins/slideout.min.js"></script><script src="../ydoc/scripts/app.js"></script><script src="../ydoc/ydoc-plugin-search/core.js"></script><script src="../ydoc/ydoc-plugin-search/search.js"></script><script src="../ydoc/ydoc-plugin-edit-page/edit.script.js"></script><script src="../search_json.js"></script><script src="../edit_json.js"></script></body></html>

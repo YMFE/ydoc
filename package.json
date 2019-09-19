@@ -1,6 +1,6 @@
 {
   "name": "ydoc",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "基于 Markdown 的静态站点生成工具",
   "scripts": {
     "test": "mocha --reporter spec --bail --recursive",
@@ -20,7 +20,7 @@
     "front-end",
     "js"
   ],
-  "homepage": "https://ydoc.ymfe.org/",
+  "homepage": "https://hellosean1025.github.io/ydoc/",
   "main": "src/index.js",
   "bin": {
     "ydoc": "bin/ydoc"

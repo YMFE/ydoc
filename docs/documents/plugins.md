@@ -2,7 +2,7 @@
 YDoc 强大的插件功能，满足你个性化的需求。
 
 ## 浏览插件
-请访问 [ydoc 官网 - 插件](https://ydoc.ymfe.org/plugin/index.html) 浏览插件。
+请访问 [ydoc 官网 - 插件](https://hellosean1025.github.io/ydoc/plugin/index.html) 浏览插件。
 
 ## 安装插件
 
@@ -31,3 +31,5 @@ npm install --save-dev ydoc-plugin-demo
   }
 }
 ```
+
+## [插件使用技巧](https://hellosean1025.github.io/ydoc/examples/plugin/index.html)

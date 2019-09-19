@@ -25,7 +25,7 @@
 			</div>
 			<div className="m-footer-title">
 				<p className="copyright">© {(new Date()).getFullYear()} <a className="href" href={props.copyRight.href}>{props.copyRight.name}</a></p>
-				<p>Build by <a className="href" href="https://ydoc.ymfe.org/">ydoc</a></p>
+				<p>Build by <a className="href" href="https://hellosean1025.github.io/ydoc/">ydoc</a></p>
 			</div>
 	</div>
 </footer>
