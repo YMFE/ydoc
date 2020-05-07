@@ -489,6 +489,11 @@ window.ydoc_plugin_search_json = {
       "url": "/documents/release.html",
       "children": [
         {
+          "title": "v4.1.2 (2020.05.07)",
+          "url": "/documents/release.html#v4.1.2-2020.05.07",
+          "content": "v4.1.2 (2020.05.07)修复 page 钩子调用失败的 bug\n"
+        },
+        {
           "title": "v4.1.1 (2019.09.19)",
           "url": "/documents/release.html#v4.1.1-2019.09.19",
           "content": "v4.1.1 (2019.09.19)增加后退定位到记忆位置功能\n文档站优化，增强易用性\n"
