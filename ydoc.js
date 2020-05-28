@@ -1,8 +1,26 @@
+const { exec } = require('child_process');
+const path = require('path')
+const root = __dirname;
+
 module.exports = {
   title: "ydoc",
   description: "ydoc description demo",
   author: "ymfe",
-  plugins: ["copy", "edit-page"],
+  plugins: ["copy", "edit-page", {
+    name: 'privateCreateDemo',
+    module: {
+      finish: function(){
+        exec(`cd ${root}; sh bin/build-demo-page.sh`, (err, stdout, stderr) =>{
+          if(err){
+            console.error(err);
+            return;
+          }
+          if(stdout)console.log(`stdout: ${stdout}`);
+          if(stderr)console.log(`stderr: ${stderr}`);
+        })
+      }
+    }
+  }],
   pluginsConfig: {
     'import-asset': {
       css: 'custom.css'
