@@ -30,9 +30,9 @@ const ydoc = {
     if (utils.isUrl(importFilepath)) {
       return importFilepath;
     }
-    console.log(publicPath + srcFilepath)
-    if(publicPath)return publicPath + srcFilepath;
+    
     importFilepath = path.isAbsolute(importFilepath)? importFilepath : path.resolve(ydoc.config.dist, importFilepath);
+    if(publicPath)return publicPath + importFilepath.substr(ydoc.config.dist.length);
     srcFilepath = path.isAbsolute(srcFilepath) ? srcFilepath : path.resolve(ydoc.config.dist, srcFilepath);
     let rele =  path.relative(srcFilepath, importFilepath);
     return rele.substr(3);
