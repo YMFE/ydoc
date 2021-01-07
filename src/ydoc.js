@@ -26,9 +26,12 @@ const ydoc = {
     return tpls.join("\n")
   },
   relePath: function(srcFilepath, importFilepath) {
+    const publicPath = ydoc.config.publicPath;
     if (utils.isUrl(importFilepath)) {
       return importFilepath;
     }
+    console.log(publicPath + srcFilepath)
+    if(publicPath)return publicPath + srcFilepath;
     importFilepath = path.isAbsolute(importFilepath)? importFilepath : path.resolve(ydoc.config.dist, importFilepath);
     srcFilepath = path.isAbsolute(srcFilepath) ? srcFilepath : path.resolve(ydoc.config.dist, srcFilepath);
     let rele =  path.relative(srcFilepath, importFilepath);
