@@ -1,5 +1,6 @@
 const utils = require('./utils.js');
 const path = require('path');
+const url = require('url');
 
 const projectPath = utils.projectPath;
 const assets = {
@@ -33,7 +34,7 @@ const ydoc = {
     
     importFilepath = path.isAbsolute(importFilepath)? importFilepath : path.resolve(ydoc.config.dist, importFilepath);
     if(publicPath){
-      if(path.extname(importFilepath) !== '.html'){
+      if(path.extname(url.parse(importFilepath).pathname) !== '.html'){
         return publicPath + importFilepath.substr(ydoc.config.dist.length);
       }
     }
