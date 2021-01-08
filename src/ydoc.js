@@ -34,7 +34,8 @@ const ydoc = {
     
     importFilepath = path.isAbsolute(importFilepath)? importFilepath : path.resolve(ydoc.config.dist, importFilepath);
     if(publicPath){
-      if(path.extname(url.parse(importFilepath).pathname) !== '.html'){
+      const pageExts = ['.html', '.md', '.jsx'];
+      if(!pageExts.includes(path.extname(url.parse(importFilepath).pathname))){
         return publicPath + importFilepath.substr(ydoc.config.dist.length);
       }
     }
