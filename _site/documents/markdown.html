@@ -133,11 +133,11 @@ printf(&quot;Hello, Markdown.&quot;);<br>
 </blockquote>
 <h3 id="二级标题-表格">表格</h3>
 <p>用<code>|</code>表示表格纵向边界，表头和表内容用<code>-</code>隔开，并可用<code>:</code>进行对齐设置，两边都有<code>:</code>则表示居中，若不加<code>:</code>则默认左对齐。</p>
-<pre><code class="language-markdown">|key          | value |
-|:-----------:|------ |
-|title        | ydoc  |
-|content      | ydoc  |
-
+<pre><code class="language-markdown"><span class="token table"><span class="token table-header-row"><span class="token punctuation">|</span><span class="token table-header important">key          </span><span class="token punctuation">|</span><span class="token table-header important"> value </span><span class="token punctuation">|</span>
+</span><span class="token table-line"><span class="token punctuation">|</span><span class="token punctuation">:-----------:</span><span class="token punctuation">|</span><span class="token punctuation">------</span> <span class="token punctuation">|</span>
+</span><span class="token table-data-rows"><span class="token punctuation">|</span><span class="token table-data">title        </span><span class="token punctuation">|</span><span class="token table-data"> ydoc  </span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token table-data">content      </span><span class="token punctuation">|</span><span class="token table-data"> ydoc  </span><span class="token punctuation">|</span>
+</span></span>
 </code></pre>
 <p>效果：</p>
 <table>

@@ -21,6 +21,7 @@ Ydoc 允许你使用灵活的配置来自定义站点，这些配置项被指定
 | `dist` | String| _site | 网站生成路径 |
 | `plugins` | Array | [] | 插件列表
 | `pluginsConfig` | Object | null | 插件配置
+| `publicPath` | String | undefined | 类似于 webpack 的 output.publicPath
 
 
 ### plugins 配置示例

@@ -68,25 +68,25 @@
 <h4>Page Object</h4>
 <pre><code class="language-js"><span class="token punctuation">{</span>
   <span class="token comment">// 页面类型，支持 md jsx html 三种</span>
-  type<span class="token punctuation">:</span> <span class="token string">'md'</span><span class="token punctuation">,</span>
+  type<span class="token operator">:</span> <span class="token string">'md'</span><span class="token punctuation">,</span>
   <span class="token comment">// 页面标题</span>
-  title<span class="token punctuation">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span>
+  title<span class="token operator">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span>
   <span class="token comment">// 页面描述信息</span>
-  description<span class="token punctuation">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span>
+  description<span class="token operator">:</span> <span class="token string">'string'</span><span class="token punctuation">,</span>
   <span class="token comment">// 页面内容</span>
-  content<span class="token punctuation">:</span> <span class="token string">'内容'</span><span class="token punctuation">,</span>
-  prev<span class="token punctuation">:</span> <span class="token string">'上一页连接'</span><span class="token punctuation">,</span>
-  next<span class="token punctuation">:</span> <span class="token string">'下一页链接'</span><span class="token punctuation">,</span>
-  releativePath<span class="token punctuation">:</span> <span class="token string">'相对路径'</span><span class="token punctuation">,</span>
-  srcPath<span class="token punctuation">:</span> <span class="token string">'源文件路径'</span><span class="token punctuation">,</span>
-  distPath<span class="token punctuation">:</span> <span class="token string">'生成文件路径'</span>
+  content<span class="token operator">:</span> <span class="token string">'内容'</span><span class="token punctuation">,</span>
+  prev<span class="token operator">:</span> <span class="token string">'上一页连接'</span><span class="token punctuation">,</span>
+  next<span class="token operator">:</span> <span class="token string">'下一页链接'</span><span class="token punctuation">,</span>
+  releativePath<span class="token operator">:</span> <span class="token string">'相对路径'</span><span class="token punctuation">,</span>
+  srcPath<span class="token operator">:</span> <span class="token string">'源文件路径'</span><span class="token punctuation">,</span>
+  distPath<span class="token operator">:</span> <span class="token string">'生成文件路径'</span>
 <span class="token punctuation">}</span>
 
 </code></pre>
 <h5>增加页面内容示例</h5>
 <p>使用 <code>page:before</code> 钩子</p>
 <pre><code class="language-js"><span class="token punctuation">{</span>
-	<span class="token string">"page:before"</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token string">"page:before"</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">page</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 		page<span class="token punctuation">.</span>content <span class="token operator">=</span> page<span class="token punctuation">.</span>content <span class="token operator">+</span> <span class="token string">"\n Hello YDoc"</span><span class="token punctuation">;</span>
 		<span class="token keyword">return</span> page<span class="token punctuation">;</span>
 	<span class="token punctuation">}</span>
@@ -95,7 +95,7 @@
 <h5>替换 html 示例</h5>
 <p>使用 <code>page</code> 钩子</p>
 <pre><code class="language-js"><span class="token punctuation">{</span>
-	<span class="token string">"page"</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>page<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token string">"page"</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">page</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 		page<span class="token punctuation">.</span>content <span class="token operator">=</span> page<span class="token punctuation">.</span>content<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"&lt;b>"</span><span class="token punctuation">,</span> <span class="token string">"&lt;strong>"</span><span class="token punctuation">)</span>
 			<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">"&lt;/b>"</span><span class="token punctuation">,</span> <span class="token string">"&lt;/strong>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 		<span class="token keyword">return</span> page<span class="token punctuation">;</span>
@@ -105,10 +105,10 @@
 <h4>引用静态文件</h4>
 <p>使用 <code>assets</code> 钩子</p>
 <pre><code class="language-js"><span class="token punctuation">{</span>
-	assets<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-		dir<span class="token punctuation">:</span> <span class="token string">'./assets'</span><span class="token punctuation">,</span>
-		js<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'app.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-		css<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'app.css'</span><span class="token punctuation">]</span>
+	assets<span class="token operator">:</span> <span class="token punctuation">{</span>
+		dir<span class="token operator">:</span> <span class="token string">'./assets'</span><span class="token punctuation">,</span>
+		js<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'app.js'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+		css<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'app.css'</span><span class="token punctuation">]</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
@@ -117,8 +117,8 @@
 <p>回调参数返回一个 promise,能够支持异步处理。</p>
 <p>Example:</p>
 <pre><code class="language-js"><span class="token punctuation">{</span>
-	<span class="token string">"init"</span><span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>resolve<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token string">"init"</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">resolve</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 			<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 				<span class="token function">resolve</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 			<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

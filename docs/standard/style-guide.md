@@ -34,12 +34,12 @@ YDoc 继承自 [Youth Design](https://ued.qunar.com/youth-design/)。
 
 <div class="filebox">
   <div class="item" onclick="window.open('https://github.com/YMFE/ydoc/releases/download/v4.0.0/ydoc-design-sketch.zip')">
-    <img src="" alt="" />
+    <!-- <img src="" alt="" /> -->
     <h4 class="title">YDoc 项目设计规范</h4>
     <p>YDoc 规范 sketch 文件</p>
   </div>
   <div class="item" onclick="window.open('https://github.com/YMFE/ydoc/releases/download/v4.0.0/ydoc-logo.zip')">
-    <img src="" alt="" />
+    <!-- <img src="" alt="" /> -->
     <h4 class="title">YDoc LOGO</h4>
     <p>Logo sketch 文件</p>
   </div>

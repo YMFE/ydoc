@@ -1,3 +1,6 @@
+### v4.1.3 (2021.01.08)
+- feat: 支持 publicPath 配置, 类似于 webpack 的 output.publicPath
+
 ### v4.1.2 (2020.05.07)
 - 修复 page 钩子调用失败的 bug
 

@@ -129,7 +129,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "配置项",
           "url": "/documents/config.html#配置项",
-          "content": "配置项\n\n变量\n类型\n默认值\n描述\n\n\n\n\nroot\nString\ndocs\n文档目录\n\n\ntitle\nString\nydoc\n网站标题\n\n\nkeywords\nString\nydoc\n网站关键字\n\n\nauthor\nString\nymfe\n网站作者\n\n\ndescription\nString\nydoc\n网站描述\n\n\ndist\nString\n_site\n网站生成路径\n\n\nplugins\nArray\n[]\n插件列表\n\n\npluginsConfig\nObject\nnull\n插件配置\n\n\n"
+          "content": "配置项\n\n变量\n类型\n默认值\n描述\n\n\n\n\nroot\nString\ndocs\n文档目录\n\n\ntitle\nString\nydoc\n网站标题\n\n\nkeywords\nString\nydoc\n网站关键字\n\n\nauthor\nString\nymfe\n网站作者\n\n\ndescription\nString\nydoc\n网站描述\n\n\ndist\nString\n_site\n网站生成路径\n\n\nplugins\nArray\n[]\n插件列表\n\n\npluginsConfig\nObject\nnull\n插件配置\n\n\npublicPath\nString\nundefined\n类似于 webpack 的 output.publicPath\n\n\n"
         },
         {
           "title": "plugins 配置示例",
@@ -488,6 +488,11 @@ window.ydoc_plugin_search_json = {
       "content": "",
       "url": "/documents/release.html",
       "children": [
+        {
+          "title": "v4.1.3 (2021.01.08)",
+          "url": "/documents/release.html#v4.1.3-2021.01.08",
+          "content": "v4.1.3 (2021.01.08)feat: 支持 publicPath 配置, 类似于 webpack 的 output.publicPath\n"
+        },
         {
           "title": "v4.1.2 (2020.05.07)",
           "url": "/documents/release.html#v4.1.2-2020.05.07",
