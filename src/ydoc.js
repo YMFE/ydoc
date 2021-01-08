@@ -1,5 +1,6 @@
 const utils = require('./utils.js');
 const path = require('path');
+const url = require('url');
 
 const projectPath = utils.projectPath;
 const assets = {
@@ -26,10 +27,18 @@ const ydoc = {
     return tpls.join("\n")
   },
   relePath: function(srcFilepath, importFilepath) {
+    const publicPath = ydoc.config.publicPath;
     if (utils.isUrl(importFilepath)) {
       return importFilepath;
     }
+    
     importFilepath = path.isAbsolute(importFilepath)? importFilepath : path.resolve(ydoc.config.dist, importFilepath);
+    if(publicPath){
+      const pageExts = ['.html', '.md', '.jsx'];
+      if(!pageExts.includes(path.extname(url.parse(importFilepath).pathname))){
+        return publicPath + importFilepath.substr(ydoc.config.dist.length);
+      }
+    }
     srcFilepath = path.isAbsolute(srcFilepath) ? srcFilepath : path.resolve(ydoc.config.dist, srcFilepath);
     let rele =  path.relative(srcFilepath, importFilepath);
     return rele.substr(3);
